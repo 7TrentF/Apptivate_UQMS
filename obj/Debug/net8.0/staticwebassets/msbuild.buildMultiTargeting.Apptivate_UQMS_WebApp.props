@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Apptivate_UQMS_WebApp.props" />
+</Project>
