@@ -25,12 +25,40 @@
       "PackagePath": "staticwebassets\\Images\\admin.png"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\android-chrome-192x192.png",
+      "PackagePath": "staticwebassets\\Images\\android-chrome-192x192.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\android-chrome-512x512.png",
+      "PackagePath": "staticwebassets\\Images\\android-chrome-512x512.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\apple-touch-icon.png",
+      "PackagePath": "staticwebassets\\Images\\apple-touch-icon.png"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\badge.png",
       "PackagePath": "staticwebassets\\Images\\badge.png"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\favicon-16x16.png",
+      "PackagePath": "staticwebassets\\Images\\favicon-16x16.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\favicon-32x32.png",
+      "PackagePath": "staticwebassets\\Images\\favicon-32x32.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\favicon.ico",
+      "PackagePath": "staticwebassets\\Images\\favicon.ico"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\notice.png",
       "PackagePath": "staticwebassets\\Images\\notice.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\site.webmanifest",
+      "PackagePath": "staticwebassets\\Images\\site.webmanifest"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\student_hat.png",
@@ -121,12 +149,20 @@
       "PackagePath": "staticwebassets\\Svgs\\envelope-check-svgrepo-com.svg"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\four-squares-button-of-view-options.svg",
+      "PackagePath": "staticwebassets\\Svgs\\four-squares-button-of-view-options.svg"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\history-2-svgrepo-com (1).svg",
       "PackagePath": "staticwebassets\\Svgs\\history-2-svgrepo-com (1).svg"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\history-2-svgrepo-com.svg",
       "PackagePath": "staticwebassets\\Svgs\\history-2-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\home-1.svg",
+      "PackagePath": "staticwebassets\\Svgs\\home-1.svg"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\home-2-svgrepo-com (1).svg",
@@ -139,6 +175,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\id-card-identity-name-identification-information-office-svgrepo-com.svg",
       "PackagePath": "staticwebassets\\Svgs\\id-card-identity-name-identification-information-office-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\logout.svg",
+      "PackagePath": "staticwebassets\\Svgs\\logout.svg"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\open-envelope-svgrepo-com.svg",
@@ -185,12 +225,8 @@
       "PackagePath": "staticwebassets\\Svgs\\queue-fill-svgrepo-com.svg"
     },
     {
-      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\squares-four-bold-svgrepo-com (1).svg",
-      "PackagePath": "staticwebassets\\Svgs\\squares-four-bold-svgrepo-com (1).svg"
-    },
-    {
-      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\squares-four-bold-svgrepo-com.svg",
-      "PackagePath": "staticwebassets\\Svgs\\squares-four-bold-svgrepo-com.svg"
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\table-alt.svg",
+      "PackagePath": "staticwebassets\\Svgs\\table-alt.svg"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\team-svgrepo-com (1).svg",
@@ -229,12 +265,28 @@
       "PackagePath": "staticwebassets\\css\\Register.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\css\\UserRoles.css",
+      "PackagePath": "staticwebassets\\css\\UserRoles.css"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\css\\dashboard.css",
+      "PackagePath": "staticwebassets\\css\\dashboard.css"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\js\\conditionalDisplay.js",
+      "PackagePath": "staticwebassets\\js\\conditionalDisplay.js"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\js\\password-toggle.js",
+      "PackagePath": "staticwebassets\\js\\password-toggle.js"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\wwwroot\\js\\site.js",

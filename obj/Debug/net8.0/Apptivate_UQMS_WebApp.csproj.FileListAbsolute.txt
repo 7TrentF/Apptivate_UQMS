@@ -264,3 +264,12 @@ C:\Users\trent\source\repos\Apptivate_UQMS_WebApp\bin\Debug\net8.0\runtimes\win\
 C:\Users\trent\source\repos\Apptivate_UQMS_WebApp\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\trent\source\repos\Apptivate_UQMS_WebApp\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\trent\source\repos\Apptivate_UQMS_WebApp\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\trent\source\repos\Apptivate_UQMS_WebApp\obj\Debug\net8.0\Apptivate_UQMS_WebApp.sourcelink.json
+C:\Users\trent\source\repos\Apptivate_UQMS_WebApp\bin\Debug\net8.0\FirebaseAdmin.dll
+C:\Users\trent\source\repos\Apptivate_UQMS_WebApp\bin\Debug\net8.0\Google.Api.Gax.dll
+C:\Users\trent\source\repos\Apptivate_UQMS_WebApp\bin\Debug\net8.0\Google.Api.Gax.Rest.dll
+C:\Users\trent\source\repos\Apptivate_UQMS_WebApp\bin\Debug\net8.0\Google.Apis.dll
+C:\Users\trent\source\repos\Apptivate_UQMS_WebApp\bin\Debug\net8.0\Google.Apis.Auth.dll
+C:\Users\trent\source\repos\Apptivate_UQMS_WebApp\bin\Debug\net8.0\Google.Apis.Core.dll
+C:\Users\trent\source\repos\Apptivate_UQMS_WebApp\bin\Debug\net8.0\System.Management.dll
+C:\Users\trent\source\repos\Apptivate_UQMS_WebApp\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Management.dll
