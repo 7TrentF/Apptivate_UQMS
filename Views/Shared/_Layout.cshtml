@@ -3,47 +3,81 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Apptivate_UQMS_WebApp</title>
+    <title>@ViewData["Title"] - Apptivate Query System</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Apptivate_UQMS_WebApp.styles.css" asp-append-version="true" />
+    <link href="~/css/Sidebar.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="~/Images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="~/Images/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="~/Images/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="~/Images/apple-touch-icon.png" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Apptivate_UQMS_WebApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="DummyTables" asp-action="Index">Dummy Table</a>
-                        </li>
-                    </ul>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMpCJO5h8Zk60pH04z5PsBtc6Y1pFl9JgpU6fAv" crossorigin="anonymous">
+    </header>
+
+    <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+        <button id="sidebarToggle">
+            <img src="~/images/menu-icon.png" alt="Toggle Sidebar" class="icon" />
+        </button>
+        <div class="sidebar-sticky">
+            <div class="logo text-center my-4">
+                <img src="~/images/favicon-32x32.png" alt="Apptivate Logo" class="img-fluid" />
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/svgs/home-1.svg" alt="Dashboard Icon" class="icon" /><span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <img src="~/svgs/four-squares-button-of-view-options.svg" alt="Dashboard Icon" class="icon" /><span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <img src="~/svgs/ticket.svg" alt="Queries Icon" class="icon" /><span>Queries</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <img src="~/svgs/chat-round-svgrepo-com (1).svg" alt="Queries Icon" class="icon" /><span>Chats</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="DummyTables" asp-action="Index">
+                        <img src="~/svgs/table-alt.svg" alt="Queries Icon" class="icon" /><span>Dummy Table</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- User Profile -->
+            <div class="user-profile mt-auto">
+                <div class="d-flex align-items-center">
+                    <img src="~/Svgs/user-id-portrait-svgrepo-com (1).svg" class="rounded-circle" alt="User Image" width="40" height="40" />
+                    <div class="ms-2">
+                        <span>Shakshi Patel</span>
+                        <small>shakshi123</small>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+        <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">
+            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                <img src="~/Svgs/logout.svg" alt="Logout Icon" class="icon" /><span>Logout</span>
+            </button>
+        </form>
+    </nav>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Apptivate_UQMS_WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

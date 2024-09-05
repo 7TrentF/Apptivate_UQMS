@@ -76,3 +76,12 @@
         text-align: center;
         margin-top: 1rem;
     }
+
+.toggle-password {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+

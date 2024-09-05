@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\Apptivate_UQMS_WebApp.csproj": {}
+    "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\Apptivate_UQMS_WebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\Apptivate_UQMS_WebApp.csproj": {
+    "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\Apptivate_UQMS_WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\Apptivate_UQMS_WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\Apptivate_UQMS_WebApp.csproj",
         "projectName": "Apptivate_UQMS_WebApp",
-        "projectPath": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\Apptivate_UQMS_WebApp.csproj",
-        "packagesPath": "C:\\Users\\trent\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS_WebApp\\obj\\",
+        "projectPath": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\Apptivate_UQMS_WebApp.csproj",
+        "packagesPath": "C:\\Users\\mcebo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\trent\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mcebo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,12 +35,25 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "FirebaseAdmin": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Google.Apis.Auth": {
+              "target": "Package",
+              "version": "[1.68.0, )"
+            },
             "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
               "target": "Package",
               "version": "[8.0.8, )"
@@ -92,7 +106,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Apptivate_UQMS_WebApp.Data;
 using Apptivate_UQMS_WebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
+    [Authorize(Roles = "Student")]
     public class DummyTablesController : Controller
     {
         private readonly ApplicationDbContext _context;

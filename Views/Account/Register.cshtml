@@ -1,0 +1,73 @@
+﻿@model Apptivate_UQMS_WebApp.Models.Account.RegisterStudentViewModel
+
+@{
+    Layout = "~/Views/Shared/MinimalLayout.cshtml";
+}
+
+<link href="~/css/Register.css" rel="stylesheet" type="text/css" />
+
+<body class="background">
+    <div class="register-container">
+        <h1>@Model.Role</h1>
+        <h3>Welcome to Apptivate</h3>
+
+        <form asp-action="Register" method="post">
+            <input type="hidden" asp-for="Role" />
+
+
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="Name" placeholder="Enter Your Name" value="@Model.Name" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="surname">Surname</label>
+                <input type="text" class="form-control" id="surname" name="Surname" placeholder="Enter Your Surname" value="@Model.Surname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="Email" placeholder="Enter Email Address" value="@Model.Email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" value="@Model.Password" required>
+                <span class="toggle-password">👁️</span>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" value="@Model.ConfirmPassword" required>
+                <span class="toggle-password">👁️</span>
+            </div>
+
+            <div class="form-group">
+                <label for="department">Department</label>
+                <input type="text" class="form-control" id="department" name="Department" placeholder="Enter Department" value="@Model.Department" required>
+            </div>
+
+            <div id="courseField" class="form-group">
+                <label for="course">Course</label>
+                <input type="text" class="form-control" id="course" name="Course" placeholder="Enter Course" value="@Model.Course">
+            </div>
+
+            <div id="positionField" class="form-group">
+                <label for="position">Position</label>
+                <input type="text" class="form-control" id="position" name="Position" placeholder="Enter Position" value="@Model.Position">
+            </div>
+
+
+            <button type="submit" class="btn">REGISTER</button>
+            <div class="form-footer">
+                <span>Already have an account? <a href="/Account/Login">Login</a></span>
+            </div>
+        </form>
+    </div>
+
+    <!-- Include your JavaScript files here -->
+    <script src="~/js/password-toggle.js"></script>
+    <script src="~/js/conditionalDisplay.js"></script>
+</body>

@@ -1,0 +1,72 @@
+﻿body {
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 250px; /* Adjust as needed */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0; /* Height of navbar */
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content */
+}
+
+.container {
+    margin-left: 250px; /* Adjust to match the width of your sidebar */
+    padding: 20px; /* Adjust padding as needed */
+}
+
+#sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+    flex: 1;
+    padding: 10px; /* Add padding around each link */
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-bottom: 5px; /* Add space between list items */
+}
+
+        #sidebar .nav-link.active {
+            color: #007bff;
+        }
+
+    #sidebar .nav-link:hover {
+        transform: translateY(-5px); /* Optional: moves the link up slightly on hover */
+        color: #52AFB6; /* Change text color on hover */
+        text-decoration: none; /* Ensures no underline on hover */
+    }
+
+
+.icon {
+    width: 24px; /* Adjust width as needed */
+    height: 24px; /* Adjust height as needed */
+    margin-right: 10px; /* Space between icon and text */
+    vertical-align: middle; /* Align icon with text */
+}
+
+
+.logo {
+    padding: 20px;
+}
+
+.user-profile {
+    margin-top: auto;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+}
+
+    .user-profile img {
+        margin-right: 10px;
+    }
