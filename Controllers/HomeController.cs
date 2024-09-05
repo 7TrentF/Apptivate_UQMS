@@ -25,6 +25,27 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return View();
         }
 
+        public ActionResult AllTickets()
+        {
+            return PartialView();
+        }
+
+        public ActionResult NewTickets()
+        {
+            return PartialView();
+        }
+
+        public ActionResult OnGoingTickets()
+        {
+            return PartialView();
+        }
+
+        public ActionResult ResolvedTickets()
+        {
+            return PartialView();
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
