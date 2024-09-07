@@ -41,7 +41,7 @@ builder.Logging.AddConsole(); // Add console logging
 builder.Logging.AddDebug(); // Add debug logging (visible in Debug output window)
 
 //builder.Services.AddScoped<UserService>();
-
+builder.Services.AddScoped<IUserRegistrationService, UserRegistrationService>();
 
 
 

@@ -4,6 +4,8 @@
     using System.Net.Http;
     using System.Net.Http.Json;
     using System.Text.Json;
+    using System.Security.Cryptography;
+    using System.Text;
 
     public class FirebaseAuthService
     {
@@ -15,6 +17,54 @@
             _logger = logger;
             _httpClient = httpClient;
         }
+
+        // Method to generate a hashed password using PBKDF2
+        public string GeneratePasswordHash(string password)
+        {
+            // Generate a random salt
+            using var rng = new RNGCryptoServiceProvider();
+            byte[] salt = new byte[16];
+            rng.GetBytes(salt);
+
+            // Hash the password with the salt using PBKDF2
+            using var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000);
+            byte[] hash = pbkdf2.GetBytes(20);
+
+            // Combine salt and hash into one array for storage
+            byte[] hashBytes = new byte[36];
+            Array.Copy(salt, 0, hashBytes, 0, 16);
+            Array.Copy(hash, 0, hashBytes, 16, 20);
+
+            // Convert the combined salt+hash to a base64 string for storage
+            return Convert.ToBase64String(hashBytes);
+        }
+
+        // Method to verify if a given password matches the stored hash
+        public bool VerifyPasswordHash(string storedPasswordHash, string enteredPassword)
+        {
+            // Extract the bytes from the stored hash
+            byte[] hashBytes = Convert.FromBase64String(storedPasswordHash);
+
+            // Extract the salt from the stored hash
+            byte[] salt = new byte[16];
+            Array.Copy(hashBytes, 0, salt, 0, 16);
+
+            // Hash the entered password with the extracted salt
+            using var pbkdf2 = new Rfc2898DeriveBytes(enteredPassword, salt, 100000);
+            byte[] enteredHash = pbkdf2.GetBytes(20);
+
+            // Compare the entered hash with the stored hash
+            for (int i = 0; i < 20; i++)
+            {
+                if (hashBytes[i + 16] != enteredHash[i])
+                {
+                    return false; // Password does not match
+                }
+            }
+
+            return true; // Password matches
+        }
+
 
         public async Task AssignUserRole(string userId, string role)
         {
@@ -42,6 +92,26 @@
         {
             _logger.LogInformation($"Attempting to register user with email: {email}");
 
+            try
+            {
+                // Check if a user with the email already exists
+                var existingUser = await FirebaseAuth.DefaultInstance.GetUserByEmailAsync(email);
+                if (existingUser != null)
+                {
+                    _logger.LogError($"A user with the email {email} already exists.");
+                    throw new Exception("A user with this email already exists.");
+                }
+            }
+            catch (FirebaseAuthException ex)
+            {
+                // Firebase throws a "User not found" exception when the email doesn't exist, which we can ignore.
+                if (ex.AuthErrorCode != AuthErrorCode.UserNotFound)
+                {
+                    _logger.LogError(ex, "Error while checking if the user already exists.");
+                    throw new Exception("Error while checking user existence.");
+                }
+            }
+
             var userRecordArgs = new UserRecordArgs
             {
                 Email = email,
@@ -61,12 +131,37 @@
                 _logger.LogInformation($"User registered successfully with UID: {userRecord.Uid}");
                 return userRecord.Uid;
             }
-            catch (Exception ex)
+            catch (FirebaseAuthException ex)
             {
-                _logger.LogError(ex, $"Failed to register user with email: {email}");
-                throw;
+                // Handle different types of FirebaseAuthException
+                var errorMessage = ex.Message.ToLower();
+
+                if (errorMessage.Contains("email") && errorMessage.Contains("invalid"))
+                {
+                    _logger.LogError($"Invalid email format: {email}");
+                    throw new Exception("Invalid email format.");
+                }
+                else if (errorMessage.Contains("password") && errorMessage.Contains("weak"))
+                {
+                    _logger.LogError("Password is too weak.");
+                    throw new Exception("Password must be at least 6 characters long.");
+                }
+
+                else if (errorMessage.Contains("email") && errorMessage.Contains("already exists"))
+                {
+                    _logger.LogError($"Email address is already taken: {email}");
+                    throw new Exception("Email address is already taken.");
+                }
+
+                else 
+                {
+                    _logger.LogError(ex, $"Failed to register user with email: {email}");
+                    throw new Exception("Registration failed. Please try again..");
+                }
             }
         }
+
+
 
         public async Task<string> LoginUser(string email, string password)
         {

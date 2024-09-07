@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Apptivate_UQMS_WebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240831120336_DummyTable")]
-    partial class DummyTable
+    [Migration("20240905153830_UserAndRoleSpecificTables")]
+    partial class UserAndRoleSpecificTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
