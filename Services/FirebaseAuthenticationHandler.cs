@@ -1,6 +1,7 @@
 ﻿using Apptivate_UQMS_WebApp.Services;
 using FirebaseAdmin.Auth;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Security.Claims;
@@ -21,10 +22,13 @@ public class FirebaseAuthenticationHandler : AuthenticationHandler<Authenticatio
         _firebaseAuthService = firebaseAuthService;
     }
 
+
+    [Authorize]
     protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
     {
         if (!Request.Cookies.TryGetValue("FirebaseToken", out var token))
         {
+            // If no token is provided, return authentication failure
             return AuthenticateResult.Fail("No token provided.");
         }
 
@@ -49,5 +53,6 @@ public class FirebaseAuthenticationHandler : AuthenticationHandler<Authenticatio
             return AuthenticateResult.Fail($"Firebase token validation failed: {ex.Message}");
         }
     }
+
 
 }

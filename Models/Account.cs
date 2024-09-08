@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 using static Apptivate_UQMS_WebApp.Controllers.AccountController;
+using static Apptivate_UQMS_WebApp.Models.QueryModel;
 
 namespace Apptivate_UQMS_WebApp.Models
 {
@@ -73,12 +74,21 @@ namespace Apptivate_UQMS_WebApp.Models
             public string Role { get; set; }
             public DateTime RegistrationDate { get; set; } = DateTime.Now;
 
+            public string? FirebaseUID { get; set; } // Add this field
 
             // Navigation properties
             public ICollection<StudentDetail> StudentDetails { get; set; }
             public ICollection<StaffDetail> StaffDetails { get; set; }  
             public ICollection<AdminDetail> AdminDetails { get; set; } 
         }
+
+        public class UserProfileViewModel
+        {
+            public Account.User User { get; set; }
+            public Account.StudentDetail StudentDetail { get; set; }
+            public Account.StaffDetail StaffDetail { get; set; }
+        }
+
 
         public class StudentDetail
         {
@@ -89,9 +99,13 @@ namespace Apptivate_UQMS_WebApp.Models
             public string Course { get; set; }
             public int? Year { get; set; }
 
-            // Navigation property
-            public User User { get; set; } 
+            // Navigation property for User
+            public User User { get; set; }
+
+            // Navigation property for related queries
+            public ICollection<Query> Queries { get; set; }
         }
+
 
         public class StaffDetail
         {
@@ -99,13 +113,16 @@ namespace Apptivate_UQMS_WebApp.Models
             public int StaffID { get; set; }
             public int UserID { get; set; }
             public string Department { get; set; }
-
             public string? Position { get; set; }
             public int? YearGroupTeaching { get; set; }
 
-            // Navigation property
+            // Navigation property for User
             public User User { get; set; }
+
+            // Navigation property for query assignments
+            public ICollection<QueryAssignment> QueryAssignments { get; set; }
         }
+
 
         public class AdminDetail
         {
@@ -126,6 +143,9 @@ namespace Apptivate_UQMS_WebApp.Models
             public string? DepartmentName { get; set; }
 
             public ICollection<DepartmentCourse> DepartmentCourses { get; set; } = new HashSet<DepartmentCourse>();
+
+            // Navigation property for queries
+            public ICollection<Query> Queries { get; set; }
         }
 
         public class Course
@@ -133,10 +153,13 @@ namespace Apptivate_UQMS_WebApp.Models
             [Key]
             public int CourseID { get; set; }
             public string? CourseCode { get; set; }
-            public string?  CourseName { get; set; }
+            public string? CourseName { get; set; }
 
             public ICollection<DepartmentCourse> DepartmentCourses { get; set; } = new HashSet<DepartmentCourse>();
             public ICollection<CourseModule> CourseModules { get; set; } = new HashSet<CourseModule>();
+
+            // Navigation property for queries
+            public ICollection<Query> Queries { get; set; }
         }
 
         public class Module
@@ -146,7 +169,11 @@ namespace Apptivate_UQMS_WebApp.Models
             public string ModuleName { get; set; }
 
             public ICollection<CourseModule> CourseModules { get; set; }
+
+            // Navigation property for queries
+            public ICollection<Query> Queries { get; set; }
         }
+
 
         public class DepartmentCourse
         {

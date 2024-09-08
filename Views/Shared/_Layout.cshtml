@@ -1,9 +1,21 @@
-﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Apptivate Query System</title>
+
+    <!-- Pre-load JavaScript to set sidebar state before the page is fully rendered -->
+    <script>
+        // Check the localStorage for sidebar state and apply it early
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("sidebarState") === "collapsed") {
+                document.documentElement.classList.add("sidebar-collapsed-initial");
+            }
+        });
+    </script>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Apptivate_UQMS_WebApp.styles.css" asp-append-version="true" />
@@ -28,23 +40,25 @@
             </div>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                    <a class="nav-link" href="#">
                         <img src="~/svgs/home-1.svg" alt="Dashboard Icon" class="icon" /><span>Home</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                   
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
                         <img src="~/svgs/four-squares-button-of-view-options.svg" alt="Dashboard Icon" class="icon" /><span>Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Queries">
+
                         <img src="~/svgs/ticket.svg" alt="Queries Icon" class="icon" /><span>Queries</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <img src="~/svgs/chat-round-svgrepo-com (1).svg" alt="Queries Icon" class="icon" /><span>Chats</span>
+                        <img src="~/svgs/chat-round-svgrepo-com (1).svg" alt="Chat Icon" class="icon" /><span>Chats</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -54,22 +68,27 @@
                 </li>
             </ul>
 
-            <!-- User Profile -->
-            <div class="user-profile mt-auto">
-                <div class="d-flex align-items-center">
-                    <img src="~/Svgs/user-id-portrait-svgrepo-com (1).svg" class="rounded-circle" alt="User Image" width="40" height="40" />
+            <!-- User Profile and Logout Container -->
+            <div class="user-logout-container">
+                <!-- User Profile -->
+                <div class="user-profile">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="UserProfile">
+                        <img src="~/Svgs/user-id-portrait-svgrepo-com (1).svg" class="rounded-circle" alt="User Image" width="40" height="40" /><span>Profile</span>
+                    </a>
                     <div class="ms-2">
-                        <span>Shakshi Patel</span>
-                        <small>shakshi123</small>
+                        <span></span>
+                        <small></small>
                     </div>
                 </div>
+
+                <!-- Logout Button -->
+                <form asp-controller="Account" asp-action="Logout" method="post">
+                    <button type="submit">
+                        <img src="~/Svgs/logout.svg" alt="Logout Icon" class="icon" /><span>Logout</span>
+                    </button>
+                </form>
             </div>
-        </div>
-        <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">
-            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
-                <img src="~/Svgs/logout.svg" alt="Logout Icon" class="icon" /><span>Logout</span>
-            </button>
-        </form>
+
     </nav>
 
     <div class="container">
@@ -81,6 +100,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/SidebarToggle.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

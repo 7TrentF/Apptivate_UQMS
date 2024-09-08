@@ -28,7 +28,9 @@ namespace Apptivate_UQMS_WebApp.Services
                 _logger.LogInformation($"Attempting to register user with email: {model.Email}");
 
                 // Register the user in Firebase and retrieve the userId
-                var firebaseUserId = await _firebaseAuthService.RegisterUser(model.Email, model.Password, model.Role);
+               // var firebaseUserId = await _firebaseAuthService.RegisterUser(model.Email, model.Password, model.Role);
+                // Call Firebase to create the user and get Firebase UID
+                string firebaseUID = await _firebaseAuthService.RegisterUser(model.Email, model.Password, model.Role);
 
                 // Save user data to the Users table
                 var user = new User
@@ -38,7 +40,9 @@ namespace Apptivate_UQMS_WebApp.Services
                     Email = model.Email,
                     PasswordHash = _firebaseAuthService.GeneratePasswordHash(model.Password),
                     Role = model.Role,
-                    RegistrationDate = DateTime.Now
+                    RegistrationDate = DateTime.Now,
+
+                    FirebaseUID = firebaseUID // Store Firebase UID
                 };
 
                 // Add the user to the database

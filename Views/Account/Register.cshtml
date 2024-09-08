@@ -43,23 +43,25 @@
                 <label for="confirmPassword">Confirm Password</label>
                 <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" value="@Model.ConfirmPassword" required>
                 <span class="toggle-password">👁️</span>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
 
             <div>
-                <select id="department" asp-for="SelectedDepartmentID" asp-items="Model.Departments">
+                <select id="department" asp-for="SelectedDepartmentID" asp-items="Model.Departments" required>
                     <option value="">Select Department</option>
                 </select>
+                <span asp-validation-for="Departments" class="text-danger"></span>
             </div>
 
             <div>
-                <select id="course" asp-for="SelectedCourseID" asp-items="Model.Courses">
+                <select id="course" asp-for="SelectedCourseID" asp-items="Model.Courses" required>
                     <option value="">Select Course</option>
                 </select>
             </div>
 
                   <div id="yearField" class="form-group">
                 <label for="year">Year</label>
-                <input type="number" class="form-control" id="year" name="year" placeholder="1st, 2nd or 3rd year" value="@Model.Year">
+                <input type="number" class="form-control" id="year" name="year" placeholder="1st, 2nd or 3rd year" value="@Model.Year" required>
             </div>
 
             <div id="positionField" class="form-group">
@@ -72,7 +74,7 @@
                 <span>Already have an account? <a href="/Account/Login">Login</a></span>
             </div>
 
-            <!-- Display error messages -->
+            <!-- Display error messages 
             <div class="text-danger">
                 @if (ViewData.ModelState.ErrorCount > 0)
                 {
@@ -82,6 +84,7 @@
                     }
                 }
             </div>
+            -->
         </form>
     </div>
 

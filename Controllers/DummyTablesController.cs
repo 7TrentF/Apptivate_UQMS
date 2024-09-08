@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
-    [Authorize(Roles = "Student")]
+   
     public class DummyTablesController : Controller
     {
         private readonly ApplicationDbContext _context;

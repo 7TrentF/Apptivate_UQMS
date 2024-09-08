@@ -1,0 +1,23 @@
+﻿@model Apptivate_UQMS_WebApp.Models.Account.UserProfileViewModel
+
+<h2>User Profile</h2>
+
+<p><strong>Name:</strong> @Model.User.Name</p>
+<p><strong>Surname:</strong> @Model.User.Surname</p>
+<p><strong>Email:</strong> @Model.User.Email</p>
+<p><strong>Role:</strong> @Model.User.Role</p>
+
+@if (Model.StudentDetail != null)
+{
+    <h3>Student Details</h3>
+    <p><strong>Department:</strong> @Model.StudentDetail.Department</p>
+    <p><strong>Course:</strong> @Model.StudentDetail.Course</p>
+    <p><strong>Year:</strong> @Model.StudentDetail.Year</p>
+}
+
+@if (Model.StaffDetail != null)
+{
+    <h3>Staff Details</h3>
+    <p><strong>Department:</strong> @Model.StaffDetail.Department</p>
+    <p><strong>Position:</strong> @Model.StaffDetail.Position</p>
+} 

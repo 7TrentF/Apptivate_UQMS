@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
-   
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -44,6 +44,12 @@ namespace Apptivate_UQMS_WebApp.Controllers
         {
             return PartialView();
         }
+
+        public IActionResult Queries()
+        {
+            return View();
+        }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -6,11 +6,13 @@ using Apptivate_UQMS_WebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using FirebaseAdmin.Auth;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
-
+    [AllowAnonymous]
     public class AccountController : Controller
     {
         private readonly FirebaseAuthService _firebaseAuthService;
@@ -57,7 +59,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
             _logger.LogInformation("Register page loaded.");
 
             // Fetch departments from the database
-            var departments = _context.Departments.Select(d => new SelectListItem
+             var departments = _context.Departments.Select(d => new SelectListItem
             {
                 Value = d.DepartmentID.ToString(),
                 Text = d.DepartmentName
@@ -144,16 +146,37 @@ namespace Apptivate_UQMS_WebApp.Controllers
             {
                 try
                 {
+                    // Firebase login
                     var token = await _firebaseAuthService.LoginUser(model.Email, model.Password);
-                    _logger.LogInformation($"User logged in successfully with token: {token}");
 
+                    // Fetch Firebase user info
+                    var firebaseUser = await FirebaseAuth.DefaultInstance.GetUserByEmailAsync(model.Email);
+
+                    // Find the user in the database by Firebase UID
+                    var user = await _context.Users.SingleOrDefaultAsync(u => u.FirebaseUID == firebaseUser.Uid);
+
+                    if (user == null)
+                    {
+                        _logger.LogError("User not found in the database.");
+                        ModelState.AddModelError(string.Empty, "User not found.");
+                        return View(model);
+                    }
+
+                    // Store user-specific data (e.g., token) and set cookies
                     Response.Cookies.Append("FirebaseToken", token, new CookieOptions
                     {
                         HttpOnly = true,
                         Secure = true,
-                        Expires = DateTimeOffset.UtcNow.AddDays(7)
+                        Expires = DateTimeOffset.UtcNow.AddDays(7),
+
+                          SameSite = SameSiteMode.Strict
                     });
 
+                    // Store FirebaseUID in session
+                    HttpContext.Session.SetString("FirebaseUID", user.FirebaseUID);
+
+
+                    _logger.LogInformation($"User {user.Email} logged in successfully.");
                     return RedirectToAction("Index", "Home");
                 }
                 catch (Exception ex)
@@ -162,9 +185,47 @@ namespace Apptivate_UQMS_WebApp.Controllers
                     ModelState.AddModelError(string.Empty, ex.Message);
                 }
             }
-            _logger.LogWarning("Invalid model state during login.");
+
             return View(model);
         }
+
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> UserProfile()
+        {
+            // Retrieve the Firebase UID from session
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+            if (firebaseUid == null)
+            {
+                _logger.LogError("User not logged in.");
+                return RedirectToAction("Login");
+            }
+
+            // Fetch the user data from the database using FirebaseUID
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+
+            if (user == null)
+            {
+                _logger.LogError("User not found.");
+                return NotFound();
+            }
+
+            // Fetch student or staff details based on the user's role
+            var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+            var staffDetail = await _context.StaffDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+
+            var model = new UserProfileViewModel
+            {
+                User = user,
+                StudentDetail = studentDetail,
+                StaffDetail = staffDetail
+            };
+
+            return View(model);
+        }
+
 
 
         [HttpPost]
@@ -175,6 +236,10 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             // Delete the FirebaseToken cookie
             Response.Cookies.Delete("FirebaseToken");
+
+            // Clear session
+             HttpContext.Session.Clear();
+
 
             // Redirect to the login page or another public page
             return RedirectToAction("Login", "Account");

@@ -4,6 +4,7 @@ using Apptivate_UQMS_WebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Apptivate_UQMS_WebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240907133858_AddFirebaseUIDColumnToUsers")]
+    partial class AddFirebaseUIDColumnToUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -249,148 +252,6 @@ namespace Apptivate_UQMS_WebApp.Migrations
                     b.ToTable("DummyTables");
                 });
 
-            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.QueryModel+Feedback", b =>
-                {
-                    b.Property<int>("FeedbackID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedbackID"));
-
-                    b.Property<string>("Comments")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("QueryID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StudentID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("SubmissionDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("FeedbackID");
-
-                    b.HasIndex("QueryID")
-                        .IsUnique();
-
-                    b.HasIndex("StudentID");
-
-                    b.ToTable("Feedbacks");
-                });
-
-            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.QueryModel+Query", b =>
-                {
-                    b.Property<int>("QueryID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QueryID"));
-
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CourseID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DepartmentID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ModuleID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ResolvedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("StudentID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("SubmissionDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
-
-                    b.HasKey("QueryID");
-
-                    b.HasIndex("CourseID");
-
-                    b.HasIndex("DepartmentID");
-
-                    b.HasIndex("ModuleID");
-
-                    b.HasIndex("StudentID");
-
-                    b.ToTable("Queries");
-                });
-
-            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.QueryModel+QueryAssignment", b =>
-                {
-                    b.Property<int>("AssignmentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AssignmentID"));
-
-                    b.Property<DateTime>("AssignedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("QueryID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ResolutionDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("StaffID")
-                        .HasColumnType("int");
-
-                    b.HasKey("AssignmentID");
-
-                    b.HasIndex("QueryID");
-
-                    b.HasIndex("StaffID");
-
-                    b.ToTable("QueryAssignments");
-                });
-
-            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.QueryModel+QueryDocument", b =>
-                {
-                    b.Property<int>("DocumentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DocumentID"));
-
-                    b.Property<string>("DocumentName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DocumentPath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("QueryID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UploadDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("DocumentID");
-
-                    b.HasIndex("QueryID");
-
-                    b.ToTable("QueryDocuments");
-                });
-
             modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.Account+AdminDetail", b =>
                 {
                     b.HasOne("Apptivate_UQMS_WebApp.Models.Account+User", "User")
@@ -462,121 +323,21 @@ namespace Apptivate_UQMS_WebApp.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.QueryModel+Feedback", b =>
-                {
-                    b.HasOne("Apptivate_UQMS_WebApp.Models.QueryModel+Query", "Query")
-                        .WithOne("Feedback")
-                        .HasForeignKey("Apptivate_UQMS_WebApp.Models.QueryModel+Feedback", "QueryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Apptivate_UQMS_WebApp.Models.Account+StudentDetail", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Query");
-
-                    b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.QueryModel+Query", b =>
-                {
-                    b.HasOne("Apptivate_UQMS_WebApp.Models.Account+Course", "Course")
-                        .WithMany("Queries")
-                        .HasForeignKey("CourseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Apptivate_UQMS_WebApp.Models.Account+Department", "Department")
-                        .WithMany("Queries")
-                        .HasForeignKey("DepartmentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Apptivate_UQMS_WebApp.Models.Account+Module", "Module")
-                        .WithMany("Queries")
-                        .HasForeignKey("ModuleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Apptivate_UQMS_WebApp.Models.Account+StudentDetail", "Student")
-                        .WithMany("Queries")
-                        .HasForeignKey("StudentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Course");
-
-                    b.Navigation("Department");
-
-                    b.Navigation("Module");
-
-                    b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.QueryModel+QueryAssignment", b =>
-                {
-                    b.HasOne("Apptivate_UQMS_WebApp.Models.QueryModel+Query", "Query")
-                        .WithMany("QueryAssignments")
-                        .HasForeignKey("QueryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Apptivate_UQMS_WebApp.Models.Account+StaffDetail", "Staff")
-                        .WithMany("QueryAssignments")
-                        .HasForeignKey("StaffID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Query");
-
-                    b.Navigation("Staff");
-                });
-
-            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.QueryModel+QueryDocument", b =>
-                {
-                    b.HasOne("Apptivate_UQMS_WebApp.Models.QueryModel+Query", "Query")
-                        .WithMany("QueryDocuments")
-                        .HasForeignKey("QueryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Query");
-                });
-
             modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.Account+Course", b =>
                 {
                     b.Navigation("CourseModules");
 
                     b.Navigation("DepartmentCourses");
-
-                    b.Navigation("Queries");
                 });
 
             modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.Account+Department", b =>
                 {
                     b.Navigation("DepartmentCourses");
-
-                    b.Navigation("Queries");
                 });
 
             modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.Account+Module", b =>
                 {
                     b.Navigation("CourseModules");
-
-                    b.Navigation("Queries");
-                });
-
-            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.Account+StaffDetail", b =>
-                {
-                    b.Navigation("QueryAssignments");
-                });
-
-            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.Account+StudentDetail", b =>
-                {
-                    b.Navigation("Queries");
                 });
 
             modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.Account+User", b =>
@@ -586,16 +347,6 @@ namespace Apptivate_UQMS_WebApp.Migrations
                     b.Navigation("StaffDetails");
 
                     b.Navigation("StudentDetails");
-                });
-
-            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.QueryModel+Query", b =>
-                {
-                    b.Navigation("Feedback")
-                        .IsRequired();
-
-                    b.Navigation("QueryAssignments");
-
-                    b.Navigation("QueryDocuments");
                 });
 #pragma warning restore 612, 618
         }

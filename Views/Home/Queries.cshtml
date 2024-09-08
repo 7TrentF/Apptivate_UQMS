@@ -1,5 +1,113 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Queries";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+@*     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> *@
+    <title>Queries</title>
+    <link rel="stylesheet" href="~/css/Qt.css">
+</head>
+
+<body>
+    <div class="queries-page">
+        <h1>Queries</h1>
+
+           <div class="dashboard-container">
+            <div class="dashboard-header">
+            
+                <div class="filter-container">
+                    <select>
+                        <option>This Week</option>
+                        <option>Last Week</option>
+                    </select>
+                    <input type="text" placeholder="Search for ticket" />
+                    <i class="search-icon">🔍</i>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="ticket-section">
+                    <div class="tabs">
+                        <button class="tab active" data-target="AllTickets">
+                            <img src="~/images/all-tickets.png" alt="All Tickets Icon" />
+                            All Tickets
+                        </button>
+                        <button class="tab" data-target="NewTickets">
+                            <img src="~/images/new.png" alt="New Icon" />
+                            New
+                        </button>
+                        <button class="tab" data-target="OnGoingTickets">
+                            <img src="~/images/on-going.png" alt="On-going Icon" />
+                            On-going
+                        </button>
+                        <button class="tab" data-target="ResolvedTickets">
+                            <img src="~/images/resolved.png" alt="Resolved Icon" />
+                            Resolved
+                        </button>
+                    </div>
+
+                    <div id="ticketContent">
+                        @Html.Partial("AllTickets")
+                       
+                    </div>
+                </div>
+
+  
+    
+        <div class="query-form-section">
+            <h2>Create a Query</h2>
+            <p>Write and address new queries and issues</p>
+            <form class="query-form">
+                <label for="query-subject">Query Subject</label>
+                <input type="text" id="query-subject" placeholder="Type subject">
+
+                <label for="query-type">Request Ticket Type</label>
+                <select id="query-type">
+                    <option>Query</option>
+                    <option>Issue</option>
+                </select>
+
+                <label for="priority-status">Priority Status</label>
+                <select id="priority-status">
+                    <option>Normal</option>
+                    <option>High Priority</option>
+                </select>
+
+                <label for="ticket-body">Ticket Body</label>
+                <textarea id="ticket-body" rows="4" placeholder="Type query here..."></textarea>
+
+                <div class="media-upload">
+                    <p>Drag your file(s) to start uploading</p>
+                    <span>OR</span>
+                    <label for="media-upload" class="upload-btn">Browse files</label>
+                    <input type="file" id="media-upload" style="display: none;">
+                    <p class="file-types">Only support .jpg, .png, .svg, and .zip files</p>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div> 
+
+        </div>
+
+</body>
+</html>
+
+@section Scripts {
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.tab').on('click', function () {
+                var target = $(this).data('target');
+
+                $('.tab').removeClass('active');
+                $(this).addClass('active');
+
+                // Load the partial view based on the target
+                $('#ticketContent').load('/Home/' + target);
+            });
+        });
+    </script>
 }
