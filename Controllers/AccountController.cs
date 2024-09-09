@@ -126,16 +126,50 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult Login()
+
+
+        // Method to automatically log in the user if a valid Firebase token exists
+        private async Task<bool> TryAutoLoginAsync()
         {
-            if (User.Identity.IsAuthenticated)
+            // Check if the Firebase token is stored in cookies
+            if (Request.Cookies.TryGetValue("FirebaseToken", out var token))
             {
-                _logger.LogInformation("User already authenticated, redirecting to home.");
+                try
+                {
+                    // Validate the Firebase token
+                    var decodedToken = await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(token);
+                    var firebaseUser = await FirebaseAuth.DefaultInstance.GetUserAsync(decodedToken.Uid);
+
+                    // Find the user in your SQL database by Firebase UID
+                    var user = await _context.Users.SingleOrDefaultAsync(u => u.FirebaseUID == firebaseUser.Uid);
+
+                    if (user != null)
+                    {
+                        // Sign the user in by setting the session
+                        HttpContext.Session.SetString("FirebaseUID", user.FirebaseUID);
+                        _logger.LogInformation($"Auto-login successful for user {user.Email}.");
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Error during auto-login: {ex.Message}");
+                }
+            }
+
+            return false;
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Login()
+        {
+            if (await TryAutoLoginAsync())
+            {
+                // If auto-login is successful, redirect to home
                 return RedirectToAction("Index", "Home");
             }
 
-            _logger.LogInformation("Login page loaded.");
             return View();
         }
 
@@ -162,19 +196,17 @@ namespace Apptivate_UQMS_WebApp.Controllers
                         return View(model);
                     }
 
-                    // Store user-specific data (e.g., token) and set cookies
+                    // Store the Firebase token in a cookie (for persistent login)
                     Response.Cookies.Append("FirebaseToken", token, new CookieOptions
                     {
                         HttpOnly = true,
                         Secure = true,
-                        Expires = DateTimeOffset.UtcNow.AddDays(7),
-
-                          SameSite = SameSiteMode.Strict
+                        Expires = DateTimeOffset.UtcNow.AddDays(7), // Persistent for 7 days
+                        SameSite = SameSiteMode.Strict
                     });
 
                     // Store FirebaseUID in session
                     HttpContext.Session.SetString("FirebaseUID", user.FirebaseUID);
-
 
                     _logger.LogInformation($"User {user.Email} logged in successfully.");
                     return RedirectToAction("Index", "Home");
@@ -189,6 +221,53 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return View(model);
         }
 
+        /*
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            // Retrieve the FirebaseUID or user email for logging purposes
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+            if (firebaseUid != null)
+            {
+                _logger.LogInformation($"User with FirebaseUID: {firebaseUid} is logging out.");
+            }
+            else
+            {
+                _logger.LogWarning("Unknown user is attempting to log out.");
+            }
+
+            // Clear the session and remove the FirebaseToken cookie
+            HttpContext.Session.Clear();
+            Response.Cookies.Delete("FirebaseToken");
+
+            _logger.LogInformation("Session cleared and FirebaseToken cookie deleted.");
+            _logger.LogInformation("User logged out successfully.");
+
+            // Redirect to the login page
+            return RedirectToAction("Login");
+        }
+
+        */
+
+
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            // Log information about logout
+            _logger.LogInformation("User logged out.");
+
+            // Delete the FirebaseToken cookie
+            Response.Cookies.Delete("FirebaseToken");
+
+            // Clear session
+            HttpContext.Session.Clear();
+
+
+            // Redirect to the login page or another public page
+            return RedirectToAction("Login", "Account");
+        }
 
         [Authorize]
         [HttpGet]
@@ -227,23 +306,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
 
-
-        [HttpPost]
-        public IActionResult Logout()
-        {
-            // Log information about logout
-            _logger.LogInformation("User logged out.");
-
-            // Delete the FirebaseToken cookie
-            Response.Cookies.Delete("FirebaseToken");
-
-            // Clear session
-             HttpContext.Session.Clear();
-
-
-            // Redirect to the login page or another public page
-            return RedirectToAction("Login", "Account");
-        }
 
     }
 }

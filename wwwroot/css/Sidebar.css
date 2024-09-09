@@ -6,12 +6,13 @@
 
 #sidebar {
     display: flex;
-    flex-direction: column;
-    width: 250px;
+    flex-direction: column; /* Ensure the sidebar content flows vertically */
+    width: 12vw;
+    height: 100vh; /* Full height of the viewport */
     position: fixed;
     top: 0;
-    bottom: 0;
     left: 0;
+    margin-right: 2vw;
     z-index: 100;
     padding: 18px 0 0;
     overflow-x: hidden;
@@ -20,19 +21,8 @@
     background-color: white; /* Background color */
 }
 
-.user-logout-container {
-    padding: 10px;
-    border-top: 1px solid #ccc;
-    margin-top: 400px; /* Push this to the bottom */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center profile and logout button */
-}
-
 .sidebar-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    flex-grow: 1; /* Let this section take up remaining space */
     padding: 0 15px;
     padding-bottom: 20px; /* Padding at the bottom */
     overflow: hidden;
@@ -40,6 +30,7 @@
 
 #sidebar.sidebar-collapsed {
     width: 60px; /* Adjust to the width when collapsed */
+    margin-left: 10px;
 }
 
 .container {
@@ -86,7 +77,6 @@
     padding: 0px;
     text-align: center;
     transition: all 0.3s ease;
-    
 }
 
 #sidebar.sidebar-collapsed .logo {
@@ -110,14 +100,12 @@
         display: none;
     }
 
-/* Ensure all icons are the same size */
 .icon {
     width: 24px;
     height: 24px;
     vertical-align: middle;
 }
 
-/* Adjust padding and alignment for the menu button */
 #sidebarToggle {
     background: none;
     border: none;
@@ -132,7 +120,6 @@
     right: 15px; /* Align it to the right inside the sidebar */
 }
 
-
 #sidebar.sidebar-collapsed #sidebarToggle {
     right: 5px; /* Adjust position when the sidebar is collapsed */
 }
@@ -142,7 +129,6 @@
     height: 24px;
 }
 
-/* Adjust padding and alignment for the logout button */
 form button {
     background: none;
     border: none;
@@ -163,22 +149,12 @@ form button {
     display: none;
 }
 
-/* Initial sidebar state based on pre-load check */
-.sidebar-collapsed-initial #sidebar {
-    width: 60px;
-}
-
-.sidebar-collapsed-initial .container {
-    margin-left: 60px;
-}
-
-/* Disable transition on initial state change to avoid flickering */
-.sidebar-collapsed-initial #sidebar,
-.sidebar-collapsed-initial .container {
-    transition: none; /* No transition on initial load */
-}
-
-/* Re-enable transition after the page has loaded */
-#sidebar, .container {
-    transition: width 0.3s ease, margin-left 0.3s ease;
+/* User Profile and Logout container positioning */
+.user-logout-container {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    margin-top: auto; /* Pushes the container to the bottom of the sidebar */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center profile and logout button */
 }

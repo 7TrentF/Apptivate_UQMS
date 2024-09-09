@@ -12,13 +12,13 @@ namespace Apptivate_UQMS_WebApp.Models
             [Key]
             public int QueryID { get; set; }
             public int StudentID { get; set; } // Foreign Key
-            public string Category { get; set; }
-            public int DepartmentID { get; set; } // Foreign Key
-            public int CourseID { get; set; } // Foreign Key
-            public int ModuleID { get; set; } // Foreign Key
-            public int Year { get; set; }
-            public string Status { get; set; }
-            public DateTime SubmissionDate { get; set; }
+            public string? Category { get; set; }
+            public int? DepartmentID { get; set; } // Foreign Key
+            public int? CourseID { get; set; } // Foreign Key
+            public int? ModuleID { get; set; } // Foreign Key
+            public int? Year { get; set; }
+            public string? Status { get; set; }
+            public DateTime? SubmissionDate { get; set; }
             public DateTime? ResolvedDate { get; set; }
 
             // Navigation properties
@@ -28,7 +28,7 @@ namespace Apptivate_UQMS_WebApp.Models
             public Module Module { get; set; }
             public ICollection<QueryDocument> QueryDocuments { get; set; }
             public ICollection<QueryAssignment> QueryAssignments { get; set; }
-            public Feedback Feedback { get; set; }
+            public Feedback? Feedback { get; set; }
         }
 
         public class QueryDocument
@@ -72,6 +72,21 @@ namespace Apptivate_UQMS_WebApp.Models
             // Navigation properties
             public Query Query { get; set; }
             public StudentDetail Student { get; set; }
+        }
+
+        public class SubmitQueryViewModel
+        {
+            public int StudentID { get; set; }
+            public string Category { get; set; }
+            public int DepartmentID { get; set; }
+            public int CourseID { get; set; }
+            public int ModuleID { get; set; }
+            public int Year { get; set; }
+            public string QueryDetails { get; set; }
+
+            public List<Department> Departments { get; set; }
+            public List<Course> Courses { get; set; }
+            public List<Module> Modules { get; set; }
         }
 
 

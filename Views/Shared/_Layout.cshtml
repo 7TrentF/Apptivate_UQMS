@@ -67,30 +67,27 @@
                     </a>
                 </li>
             </ul>
-
-            <!-- User Profile and Logout Container -->
-            <div class="user-logout-container">
-                <!-- User Profile -->
-                <div class="user-profile">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="UserProfile">
-                        <img src="~/Svgs/user-id-portrait-svgrepo-com (1).svg" class="rounded-circle" alt="User Image" width="40" height="40" /><span>Profile</span>
-                    </a>
-                    <div class="ms-2">
-                        <span></span>
-                        <small></small>
-                    </div>
-                </div>
-
-                <!-- Logout Button -->
-                <form asp-controller="Account" asp-action="Logout" method="post">
-                    <button type="submit">
-                        <img src="~/Svgs/logout.svg" alt="Logout Icon" class="icon" /><span>Logout</span>
-                    </button>
-                </form>
+ <!-- User Profile and Logout Container -->
+    <div class="user-logout-container">
+        <!-- User Profile -->
+        <div class="user-profile">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="UserProfile">
+                <img src="~/Svgs/user-id-portrait-svgrepo-com (1).svg" class="rounded-circle" alt="User Image" width="40" height="40" /><span>Profile</span>
+            </a>
+            <div class="ms-2">
+                <span></span>
+                <small></small>
             </div>
+        </div>
 
-    </nav>
-
+        <!-- Logout Button -->
+        <form asp-controller="Account" asp-action="Logout" method="post">
+            <button type="submit">
+                <img src="~/Svgs/logout.svg" alt="Logout Icon" class="icon" /><span>Logout</span>
+            </button>
+        </form>
+    </div> 
+</nav>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

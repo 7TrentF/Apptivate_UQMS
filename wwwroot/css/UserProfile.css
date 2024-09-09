@@ -1,0 +1,167 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background {
+    background-image: url('/Images/User_roles_background.png'); /* Replace with your actual image path */
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.user-profile-container {
+    display: flex;
+    justify-content: center;
+    width: 80vw; /* Use viewport width for responsiveness */
+    align-items: center;
+    height: 0vh;
+    background-color: white;
+    margin-left: 10vh;
+}
+
+.profile-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 80vw; /* Use viewport width for responsiveness */
+    height: 35vw;
+    padding: 40px;
+    margin-top: 5vw;
+    margin-left: 2vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.apptivate-title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px; /* Adds some spacing between the text and profile image */
+}
+
+    .apptivate-title h1 {
+        font-size: 2.5rem; /* Increased for better visibility on larger screens */
+        color: #333;
+        font-weight: bold;
+        margin: 0;
+    }
+
+.profile-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+}
+
+.profile-details {
+    flex: 2;
+}
+
+    .profile-details h2 {
+        font-size: 2.5rem; /* Use rem units for scalable fonts */
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+.role {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.profile-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+    .profile-info p {
+        margin: 10px 0;
+    }
+
+.profile-sections {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-gap: 20px;
+    width: 100%;
+}
+
+.profile-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transition for hover effects */
+}
+
+    .profile-section:hover {
+        transform: scale(1.05); /* Slightly increases size on hover */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deepens the shadow on hover */
+        border-color: #56dfea; /* Change border color to #56dfea on hover */
+    }
+
+    .profile-section h3 {
+        font-size: 1.8rem; /* Scalable font size */
+        margin-bottom: 10px;
+    }
+
+    .profile-section p {
+        font-size: 1.3rem; /* Scalable font size */
+        color: #777;
+    }
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .profile-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-sections {
+        grid-template-columns: 1fr; /* Stacks the sections on smaller screens */
+    }
+
+    .profile-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Larger screens adjustments (like projector displays) */
+@media (min-width: 1280px) {
+    .apptivate-title h1 {
+        font-size: 3rem; /* Bigger font size for projector displays */
+    }
+
+    .profile-details h2 {
+        font-size: 3rem;
+    }
+
+    .profile-info {
+        font-size: 1.5rem; /* Increase font size for better visibility */
+    }
+
+    .profile-section h3 {
+        font-size: 2rem;
+    }
+
+    .profile-section p {
+        font-size: 1.4rem;
+    }
+}

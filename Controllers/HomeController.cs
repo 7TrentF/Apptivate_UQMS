@@ -5,6 +5,7 @@ using System.Diagnostics;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
+
     [Authorize]
     public class HomeController : Controller
     {
