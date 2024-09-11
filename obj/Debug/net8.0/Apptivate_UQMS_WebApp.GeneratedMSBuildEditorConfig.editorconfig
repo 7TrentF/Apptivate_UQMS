@@ -102,24 +102,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVx0ZXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/AllTickets.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcQWxsVGlja2V0cy5jc2h0bWw=
+[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/NewQuery/AcademicQuery.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcTmV3UXVlcnlcQWNhZGVtaWNRdWVyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/NewTickets.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcTmV3VGlja2V0cy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/OnGoingTickets.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcT25Hb2luZ1RpY2tldHMuY3NodG1s
+[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/NewQuery/AdministrativeQuery.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcTmV3UXVlcnlcQWRtaW5pc3RyYXRpdmVRdWVyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/Queries.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcmllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/ResolvedTickets.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUmVzb2x2ZWRUaWNrZXRzLmNzaHRtbA==
+[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/QueryOverview/AllTickets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcnlPdmVydmlld1xBbGxUaWNrZXRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/QueryOverview/NewTickets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcnlPdmVydmlld1xOZXdUaWNrZXRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/QueryOverview/OnGoingTickets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcnlPdmVydmlld1xPbkdvaW5nVGlja2V0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/QueryOverview/ResolvedTickets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcnlPdmVydmlld1xSZXNvbHZlZFRpY2tldHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/SubmitQuery.cshtml]
@@ -145,6 +153,10 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/trent/source/repos/Apptivate_UQMS/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/NewQuery/CreateQuery.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcTmV3UXVlcnlcQ3JlYXRlUXVlcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-bsyhkuypwj
 
 [C:/Users/trent/source/repos/Apptivate_UQMS/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s

@@ -822,3 +822,4 @@ C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\refint\Apptivate_UQM
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.pdb
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.genruntimeconfig.cache
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\ref\Apptivate_UQMS_WebApp.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\NewQuery\CreateQuery.cshtml.rz.scp.css

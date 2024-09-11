@@ -79,8 +79,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 Text = p.PositionName
             }).ToList();
 
-
-
             // Pass the selected role to the view
             var selectedRole = TempData["SelectedRole"]?.ToString();
             var model = new RegisterViewModel
@@ -90,7 +88,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 Courses = courses,
                 Positions = positions
             };
-
 
 
             return View(model);

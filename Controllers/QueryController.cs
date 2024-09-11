@@ -1,4 +1,5 @@
 ﻿using Apptivate_UQMS_WebApp.Data;
+using Apptivate_UQMS_WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using static Apptivate_UQMS_WebApp.Models.QueryModel;
 namespace Apptivate_UQMS_WebApp.Controllers
@@ -11,6 +12,57 @@ namespace Apptivate_UQMS_WebApp.Controllers
         {
             _context = context;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> CreateQuery()
+        {
+            return View("NewQuery/CreateQuery");
+        }
+
+      
+        // Action for Academic issues
+        [HttpGet]
+        public IActionResult AcademicQuery()
+        {
+            return View("NewQuery/AcademicQuery");
+        }
+
+        // Action for Administrative issues
+        [HttpGet]
+        public IActionResult AdministrativeQuery()
+        {
+
+            return View("NewQuery/AdministrativeQuery");
+        }
+
+        [HttpPost]
+        public IActionResult SubmitAcademicQuery(QueryModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Process the academic query here (e.g., save to database)
+                return RedirectToAction("Confirmation");
+            }
+            return View("Academic");
+        }
+
+        [HttpPost]
+        public IActionResult SubmitAdministrativeQuery(QueryModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Process the administrative query here (e.g., save to database)
+                return RedirectToAction("Confirmation");
+            }
+            return View("Administrative");
+        }
+
+        public IActionResult Confirmation()
+        {
+            return View();
+        }
+
+
 
         [HttpGet]
         public IActionResult SubmitQuery()
@@ -55,30 +107,33 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
 
+        // Action for displaying all tickets
         public ActionResult AllTickets()
         {
-           // var allTickets = _ticketService.GetAllTickets(); // Assuming you have a service to fetch all tickets
-            return PartialView();
+            // var allTickets = _ticketService.GetAllTickets(); // Uncomment and use your service to fetch tickets
+            return PartialView("Query/QueryOverview/AllTickets.cshtml");
         }
 
+        // Action for displaying new tickets
         public ActionResult NewTickets()
         {
-           // var newTickets = _ticketService.GetTicketsByStatus("New");
-            return PartialView();
+            // var newTickets = _ticketService.GetTicketsByStatus("New");
+            return PartialView("Views/Queries/QueryOverview/NewTickets.cshtml");
         }
 
+        // Action for displaying ongoing tickets
         public ActionResult OnGoingTickets()
         {
-           // var onGoingTickets = _ticketService.GetTicketsByStatus("On-Going");
-            return PartialView();
+            // var onGoingTickets = _ticketService.GetTicketsByStatus("On-Going");
+            return PartialView("QueryOverview/OnGoingTickets");
         }
 
+        // Action for displaying resolved tickets
         public ActionResult ResolvedTickets()
         {
-          //  var resolvedTickets = _ticketService.GetTicketsByStatus("Resolved");
-            return PartialView();
+            // var resolvedTickets = _ticketService.GetTicketsByStatus("Resolved");
+            return PartialView("QueryOverview/ResolvedTickets");
         }
-
 
         public IActionResult Queries()
         {

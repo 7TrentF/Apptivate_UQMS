@@ -41,47 +41,21 @@
             </div>
 
             <div id="ticketContent">
-                @Html.Partial("AllTickets")
+                @Html.Partial("QueryOverview/AllTickets")
             </div>
         </div>
 
-    <!-- Query Form Wrapper -->
-    <div class="query-form-wrapper">
-        <div class="query-header" id="expand-query-form">
-            <h2>Create a Query</h2>
-        </div>
-        <div class="query-form-section collapsed">
-            <form class="query-form">
-                <label for="query-subject">Query Subject</label>
-                <input type="text" id="query-subject" placeholder="Type subject" />
+    <div class="query-box">
+    <h3>New query</h3>
+    <p>Ask a question or request help from our experts</p>
+     <a class="nav-link text-dark" asp-area="" asp-controller="Query" asp-action="CreateQuery">
+    <button class="new-query-btn">
+        <span>+ New query</span>
+    </button>
+            </a>
+</div>
 
-                <label for="query-type">Request Ticket Type</label>
-                <select id="query-type">
-                    <option>Query</option>
-                    <option>Issue</option>
-                </select>
 
-                <label for="priority-status">Priority Status</label>
-                <select id="priority-status">
-                    <option>Normal</option>
-                    <option>High Priority</option>
-                </select>
-
-                <label for="ticket-body">Ticket Body</label>
-                <textarea id="ticket-body" rows="4" placeholder="Type query here..."></textarea>
-
-                <div class="media-upload">
-                    <p>Drag your file(s) to start uploading</p>
-                    <span>OR</span>
-                    <label for="media-upload" class="upload-btn">Browse files</label>
-                    <input type="file" id="media-upload" style="display: none;" />
-                    <p class="file-types">Only support .jpg, .png, .svg, and .zip files</p>
-                </div>
-
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
 </div>
 
 @section Scripts {
