@@ -1,5 +1,6 @@
 ﻿using Apptivate_UQMS_WebApp.Data;
 using Apptivate_UQMS_WebApp.Models;
+using Microsoft.CodeAnalysis.Elfie.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -67,7 +68,7 @@ namespace Apptivate_UQMS_WebApp.Services
                     {
                         UserID = user.UserID,
                         Department = _context.Departments.FirstOrDefault(d => d.DepartmentID == model.SelectedDepartmentID)?.DepartmentName,
-                        Position = model.Position,
+                        PositionID = model.SelectedPositionID.Value,
                         YearGroupTeaching = model.Year,
                     };
                     _context.StaffDetails.Add(staffDetail);

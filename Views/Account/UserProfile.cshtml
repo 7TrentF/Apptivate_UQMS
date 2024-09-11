@@ -41,24 +41,23 @@
                     </div>
                 </div>
             }
-
-            <!-- Staff Details Section -->
-            @if (Model.StaffDetail != null)
-            {
-                <h3>Staff Details</h3>
-                <div class="profile-sections">
-                    <div class="profile-section">
-                        <h3>Department</h3>
-                        <p>@Model.StaffDetail.Department</p>
-                    </div>
-                    <div class="profile-section">
-                        <h3>Position</h3>
-                        <p>@Model.StaffDetail.Position</p>
-                    </div>
+        <!-- Staff Details Section -->
+        @if (Model.StaffDetail != null)
+        {
+            <h3>Staff Details</h3>
+            <div class="profile-sections">
+                <div class="profile-section">
+                    <h3>Department</h3>
+                    <p>@Model.StaffDetail.Department</p>
                 </div>
-            }
-        </div> <!-- End of Profile Details -->
-    </div> <!-- End of Profile Card -->
+                <div class="profile-section">
+                    <h3>Position</h3>
+                    <!-- Display the PositionName or the name field from the Position entity -->
+                    <p>@Model.StaffDetail.Position?.PositionName</p> <!-- Safely check if Position is null -->
+                </div>
+            </div>
+        }
+
 
 
 

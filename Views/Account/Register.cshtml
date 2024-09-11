@@ -64,10 +64,13 @@
                 <input type="number" class="form-control" id="year" name="year" placeholder="1st, 2nd or 3rd year" value="@Model.Year" required>
             </div>
 
-            <div id="positionField" class="form-group">
-                <label for="position">Position</label>
-                <input type="text" class="form-control" id="position" name="Position" placeholder="Enter Position" value="@Model.Position">
+            <div>
+                <select id="position" asp-for="SelectedPositionID" asp-items="Model.Positions" required>
+                    <option value="">Select Position</option>
+                </select>
+                <span asp-validation-for="Positions" class="text-danger"></span>
             </div>
+
 
             <button type="submit" class="btn">REGISTER</button>
             <div class="form-footer">

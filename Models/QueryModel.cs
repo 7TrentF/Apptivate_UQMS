@@ -12,11 +12,16 @@ namespace Apptivate_UQMS_WebApp.Models
             [Key]
             public int QueryID { get; set; }
             public int StudentID { get; set; } // Foreign Key
-            public string? Category { get; set; }
+           
             public int? DepartmentID { get; set; } // Foreign Key
             public int? CourseID { get; set; } // Foreign Key
             public int? ModuleID { get; set; } // Foreign Key
             public int? Year { get; set; }
+
+
+
+
+            public string? Category { get; set; }
             public string? Status { get; set; }
             public DateTime? SubmissionDate { get; set; }
             public DateTime? ResolvedDate { get; set; }
@@ -30,6 +35,25 @@ namespace Apptivate_UQMS_WebApp.Models
             public ICollection<QueryAssignment> QueryAssignments { get; set; }
             public Feedback? Feedback { get; set; }
         }
+
+
+        public class SubmitQueryViewModel
+        {
+            public int StudentID { get; set; }
+            public string Category { get; set; }  // Academic or Administrative
+            public string Subject { get; set; }  // Specific subject (e.g., "Grade remarks")
+            public int DepartmentID { get; set; }
+            public int CourseID { get; set; }
+            public int ModuleID { get; set; }
+            public int Year { get; set; }
+            public string QueryDetails { get; set; }
+
+            public List<Department> Departments { get; set; }
+            public List<Course> Courses { get; set; }
+            public List<Module> Modules { get; set; }
+            public List<string> QuerySubjects { get; set; }  // Predefined query subjects
+        }
+
 
         public class QueryDocument
         {
@@ -74,20 +98,7 @@ namespace Apptivate_UQMS_WebApp.Models
             public StudentDetail Student { get; set; }
         }
 
-        public class SubmitQueryViewModel
-        {
-            public int StudentID { get; set; }
-            public string Category { get; set; }
-            public int DepartmentID { get; set; }
-            public int CourseID { get; set; }
-            public int ModuleID { get; set; }
-            public int Year { get; set; }
-            public string QueryDetails { get; set; }
-
-            public List<Department> Departments { get; set; }
-            public List<Course> Courses { get; set; }
-            public List<Module> Modules { get; set; }
-        }
+        
 
 
 

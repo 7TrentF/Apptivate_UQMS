@@ -15,6 +15,7 @@ namespace Apptivate_UQMS_WebApp.Data
         public DbSet<User> Users { get; set; }
         public DbSet<StudentDetail> StudentDetails { get; set; }
         public DbSet<StaffDetail> StaffDetails { get; set; }
+        public DbSet<Position> Positions { get; set; }
         public DbSet<AdminDetail> AdminDetails { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Course> Courses { get; set; }

@@ -42,7 +42,10 @@ namespace Apptivate_UQMS_WebApp.Models
             [Required]
             public int? Year { get; set; }
 
-            public string? Position { get; set; }
+            [Required]
+            public int? SelectedPositionID { get; set; }
+
+            public IEnumerable<SelectListItem> Positions { get; set; } = new HashSet<SelectListItem>();
 
 
             // List of departments for dropdown
@@ -113,14 +116,28 @@ namespace Apptivate_UQMS_WebApp.Models
             public int StaffID { get; set; }
             public int UserID { get; set; }
             public string Department { get; set; }
-            public string? Position { get; set; }
+          
             public int? YearGroupTeaching { get; set; }
+
+            // Foreign Key for Position
+            public int? PositionID { get; set; }
+            public Position Position { get; set; }
 
             // Navigation property for User
             public User User { get; set; }
 
             // Navigation property for query assignments
             public ICollection<QueryAssignment> QueryAssignments { get; set; }
+        }
+
+        public class Position
+        {
+            [Key]
+            public int PositionID { get; set; }  // Primary Key
+            public string PositionName { get; set; }  // Name of the Position
+
+            // Navigation property to link staff details to positions
+            public ICollection<StaffDetail> StaffDetails { get; set; }
         }
 
 

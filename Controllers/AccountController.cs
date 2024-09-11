@@ -58,6 +58,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             _logger.LogInformation("Register page loaded.");
 
+
+
             // Fetch departments from the database
              var departments = _context.Departments.Select(d => new SelectListItem
             {
@@ -71,6 +73,13 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 Text = d.CourseName
             }).ToList();
 
+            var positions = _context.Positions.Select(p => new SelectListItem
+            {
+                Value = p.PositionID.ToString(),
+                Text = p.PositionName
+            }).ToList();
+
+
 
             // Pass the selected role to the view
             var selectedRole = TempData["SelectedRole"]?.ToString();
@@ -78,7 +87,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
             {
                 Role = selectedRole,
                 Departments = departments, // Populate departments in the ViewModel
-                Courses = courses
+                Courses = courses,
+                Positions = positions
             };
 
 
@@ -293,7 +303,9 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             // Fetch student or staff details based on the user's role
             var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
-            var staffDetail = await _context.StaffDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+            var staffDetail = await _context.StaffDetails
+         .Include(s => s.Position) // Ensure Position is included
+         .FirstOrDefaultAsync(s => s.UserID == user.UserID);
 
             var model = new UserProfileViewModel
             {
