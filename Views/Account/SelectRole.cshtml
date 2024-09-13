@@ -1,0 +1,35 @@
+﻿@model Apptivate_UQMS_WebApp.Models.RoleSelectionViewModel
+
+@{
+    Layout = "~/Views/Shared/MinimalLayout.cshtml";
+}
+<link href="~/css/UserRoles.css" rel="stylesheet" type="text/css" />
+
+<body class="background">
+    
+
+    <div class="user-roles-container">
+        <form asp-action="SelectRole" method="post">
+            <div class="user-role-card" onclick="selectRole('Student')">
+                <img src="~/Svgs/brain-svgrepo-com (1).png" alt="Student Icon" class="icon" />
+                <div class="role-title">Student</div>
+            </div>
+            <div class="user-role-card" onclick="selectRole('Staff')">
+                <img src="~/Svgs/id-card-identity-name-identification-information-office-svgrepo-com.svg" alt="Staff Icon" class="icon" />
+                <div class="role-title">Staff</div>
+            </div>
+            <div class="user-role-card" onclick="selectRole('Admin')">
+                <img src="~/Svgs/cogwheels-setup-svgrepo-com.svg" alt="Admin Icon" class="icon" />
+                <div class="role-title">Admin</div>
+            </div>
+            <input type="hidden" name="role" id="selectedRole" />
+        </form>
+    </div>
+
+    <script>
+        function selectRole(role) {
+            document.getElementById('selectedRole').value = role;
+            document.querySelector('form').submit();
+        }
+    </script>
+</body>

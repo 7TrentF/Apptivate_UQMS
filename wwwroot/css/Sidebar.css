@@ -1,0 +1,160 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column; /* Ensure the sidebar content flows vertically */
+    width: 12vw;
+    height: 100vh; /* Full height of the viewport */
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-right: 2vw;
+    z-index: 100;
+    padding: 18px 0 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+    background-color: white; /* Background color */
+}
+
+.sidebar-content {
+    flex-grow: 1; /* Let this section take up remaining space */
+    padding: 0 15px;
+    padding-bottom: 20px; /* Padding at the bottom */
+    overflow: hidden;
+}
+
+#sidebar.sidebar-collapsed {
+    width: 60px; /* Adjust to the width when collapsed */
+    margin-left: 10px;
+}
+
+.container {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+#sidebar.sidebar-collapsed + .container {
+    margin-left: 60px; /* Match the collapsed width */
+}
+
+#sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
+
+    #sidebar .nav-link .icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+        transition: margin-right 0.3s ease;
+    }
+
+#sidebar.sidebar-collapsed .nav-link .icon {
+    margin-right: 0;
+}
+
+#sidebar.sidebar-collapsed .nav-link {
+    justify-content: center;
+    text-align: center;
+}
+
+    #sidebar.sidebar-collapsed .nav-link span {
+        display: none;
+    }
+
+.logo {
+    padding: 0px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+#sidebar.sidebar-collapsed .logo {
+    padding: 10px;
+    text-align: center;
+}
+
+.user-profile {
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sidebar.sidebar-collapsed .user-profile {
+    padding: 0;
+}
+
+    #sidebar.sidebar-collapsed .user-profile div.ms-2 {
+        display: none;
+    }
+
+.icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+#sidebarToggle {
+    background: none;
+    border: none;
+    padding: 10px; /* Adjust padding as necessary */
+    margin-left: 15px; /* Adjust margin to align the button */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the button horizontally */
+    position: absolute; /* Place it wherever you want in the sidebar */
+    top: 15px; /* Adjust top spacing */
+    right: 15px; /* Align it to the right inside the sidebar */
+}
+
+#sidebar.sidebar-collapsed #sidebarToggle {
+    right: 5px; /* Adjust position when the sidebar is collapsed */
+}
+
+#sidebarToggle img.icon {
+    width: 24px;
+    height: 24px;
+}
+
+form button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px; /* Ensure spacing between button and bottom */
+}
+
+    form button img.icon {
+        width: 24px;
+        height: 24px;
+    }
+
+#sidebar.sidebar-collapsed form button span {
+    display: none;
+}
+
+/* User Profile and Logout container positioning */
+.user-logout-container {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    margin-top: auto; /* Pushes the container to the bottom of the sidebar */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center profile and logout button */
+}
