@@ -45,7 +45,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
         {
             return PartialView();
         }
-
+        //testing
         public IActionResult Queries()
         {
             return View();
