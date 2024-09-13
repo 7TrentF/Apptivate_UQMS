@@ -14,6 +14,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
         [HttpGet]
+
+        //Changes to Github
         public async Task<IActionResult> CreateQuery()
         {
             return View("NewQuery/CreateQuery");
