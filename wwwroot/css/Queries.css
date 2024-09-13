@@ -412,7 +412,7 @@ h1 {
 
 
     .query-box {
-        width: 200px;
+        width: 320px;
         height: 200px;
         background-color: #f5f7fa; /* Light gray background */
         border-radius: 15px; /* Rounded corners */
@@ -438,7 +438,7 @@ h1 {
         }
 
     .new-query-btn {
-        background-color: #e9ecef; /* Light button background */
+        background-color:aqua; /* Light button background */
         border: none;
         border-radius: 8px;
         padding: 10px 20px;

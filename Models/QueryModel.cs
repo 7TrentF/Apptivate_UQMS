@@ -12,16 +12,14 @@ namespace Apptivate_UQMS_WebApp.Models
             [Key]
             public int QueryID { get; set; }
             public int StudentID { get; set; } // Foreign Key
-           
             public int? DepartmentID { get; set; } // Foreign Key
             public int? CourseID { get; set; } // Foreign Key
             public int? ModuleID { get; set; } // Foreign Key
             public int? Year { get; set; }
 
+            public int? CategoryID { get; set; } // Foreign Key to QueryCategory
+            public QueryCategory Category { get; set; }
 
-
-
-            public string? Category { get; set; }
             public string? Status { get; set; }
             public DateTime? SubmissionDate { get; set; }
             public DateTime? ResolvedDate { get; set; }
@@ -35,6 +33,31 @@ namespace Apptivate_UQMS_WebApp.Models
             public ICollection<QueryAssignment> QueryAssignments { get; set; }
             public Feedback? Feedback { get; set; }
         }
+
+
+
+
+        public class QueryCategory
+        {
+            [Key]
+            public int CategoryID { get; set; }
+            public string CategoryName { get; set; }
+
+            public int QueryTypeID { get; set; } // Foreign Key
+            public QueryType QueryType { get; set; }
+
+            public ICollection<Query> Queries { get; set; }
+        }
+
+        public class QueryType
+        {
+            [Key]
+            public int QueryTypeID { get; set; }
+            public string TypeName { get; set; }
+
+            public ICollection<QueryCategory> QueryCategories { get; set; }
+        }
+
 
 
         public class SubmitQueryViewModel
@@ -98,9 +121,7 @@ namespace Apptivate_UQMS_WebApp.Models
             public StudentDetail Student { get; set; }
         }
 
-        
-
-
+      
 
     }
 }

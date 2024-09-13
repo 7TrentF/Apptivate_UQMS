@@ -62,8 +62,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return View();
         }
 
-
-
         [HttpGet]
         public IActionResult SubmitQuery()
         {
@@ -84,7 +82,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 var query = new Query
                 {
                     StudentID = model.StudentID,  // Ideally, you would get this from the logged-in user
-                    Category = model.Category,
+                   // Category = model.Category,
                     DepartmentID = model.DepartmentID,
                     CourseID = model.CourseID,
                     ModuleID = model.ModuleID,
@@ -107,6 +105,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
 
+        
         // Action for displaying all tickets
         public ActionResult AllTickets()
         {
