@@ -57,10 +57,12 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return View("Administrative");
         }
 
+        /*
         public IActionResult Confirmation()
         {
             return View();
         }
+        */
 
 
 
