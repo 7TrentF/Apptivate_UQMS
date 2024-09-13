@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tbJoHV/9EX2t107yzr/uXrTiEVdxGauDYLC3ZztHsJI=",
+  "Hash": "Ak8gdfvTo6B6agoDBGkdWXIg0ZFuljOzJqQ+eqzWCg4=",
   "Source": "Apptivate_UQMS_WebApp",
   "BasePath": "_content/Apptivate_UQMS_WebApp",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Apptivate_UQMS_WebApp\\wwwroot",
       "Source": "Apptivate_UQMS_WebApp",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\mcebo\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "Identity": "C:\\Users\\trent\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\mcebo\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\trent\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\mcebo\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\trent\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\QuickGrid.razor.js",
+      "Identity": "C:\\Users\\trent\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\QuickGrid.razor.js",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\mcebo\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\trent\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "QuickGrid.razor.js",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\mcebo\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\QuickGrid.razor.js"
+      "OriginalItemSpec": "C:\\Users\\trent\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\QuickGrid.razor.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Apptivate_UQMS_WebApp.styles.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Apptivate_UQMS_WebApp.styles.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Apptivate_UQMS_WebApp.styles.css",
       "AssetKind": "All",
@@ -71,13 +71,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Apptivate_UQMS_WebApp.styles.css"
+      "OriginalItemSpec": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Apptivate_UQMS_WebApp.styles.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Apptivate_UQMS_WebApp.bundle.scp.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Apptivate_UQMS_WebApp.bundle.scp.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Apptivate_UQMS_WebApp.bundle.scp.css",
       "AssetKind": "All",
@@ -90,13 +90,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Apptivate_UQMS_WebApp.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Apptivate_UQMS_WebApp.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\css\\dashboard.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\dashboard.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "css/dashboard.css",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\css\\dashboard.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\css\\DashboardPage.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\DashboardPage.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "css/DashboardPage.css",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\css\\DashboardPage.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\css\\Login.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Login.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "css/Login.css",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Login.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\css\\Register.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Register.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "css/Register.css",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Register.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\css\\Sidebar.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Sidebar.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "css/Sidebar.css",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Sidebar.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\site.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\css\\UserRoles.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserRoles.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "css/UserRoles.css",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\css\\UserRoles.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\favicon.ico",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\admin.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\admin.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/admin.png",
       "AssetKind": "All",
@@ -264,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\admin.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\all-tickets.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\all-tickets.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/all-tickets.png",
       "AssetKind": "All",
@@ -283,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\all-tickets.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\android-chrome-192x192.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\android-chrome-192x192.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/android-chrome-192x192.png",
       "AssetKind": "All",
@@ -302,10 +302,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\android-chrome-192x192.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\android-chrome-512x512.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\android-chrome-512x512.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/android-chrome-512x512.png",
       "AssetKind": "All",
@@ -321,10 +321,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\android-chrome-512x512.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\apple-touch-icon.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\apple-touch-icon.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/apple-touch-icon.png",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\apple-touch-icon.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\Apptivate_logo.jpg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\Apptivate_logo.jpg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/Apptivate_logo.jpg",
       "AssetKind": "All",
@@ -359,10 +359,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\Apptivate_logo.jpg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\Aptivate_background.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\Aptivate_background.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/Aptivate_background.png",
       "AssetKind": "All",
@@ -378,10 +378,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\Aptivate_background.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\badge.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\badge.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/badge.png",
       "AssetKind": "All",
@@ -397,10 +397,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\badge.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\favicon.ico",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\favicon.ico",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/favicon.ico",
       "AssetKind": "All",
@@ -416,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\favicon-16x16.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\favicon-16x16.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/favicon-16x16.png",
       "AssetKind": "All",
@@ -435,10 +435,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\favicon-16x16.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\favicon-32x32.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\favicon-32x32.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/favicon-32x32.png",
       "AssetKind": "All",
@@ -454,10 +454,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\favicon-32x32.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\menu-icon.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\menu-icon.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/menu-icon.png",
       "AssetKind": "All",
@@ -473,10 +473,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\menu-icon.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\new.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\new.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/new.png",
       "AssetKind": "All",
@@ -492,10 +492,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\new.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\notice.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\notice.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/notice.png",
       "AssetKind": "All",
@@ -511,10 +511,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\notice.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\on-going.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\on-going.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/on-going.png",
       "AssetKind": "All",
@@ -530,10 +530,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\on-going.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\PHOTO-2024-08-15-10-44-07.jpg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\PHOTO-2024-08-15-10-44-07.jpg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/PHOTO-2024-08-15-10-44-07.jpg",
       "AssetKind": "All",
@@ -549,10 +549,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\PHOTO-2024-08-15-10-44-07.jpg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\resolved.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\resolved.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/resolved.png",
       "AssetKind": "All",
@@ -568,10 +568,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\resolved.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\Sidebar css.txt",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\Sidebar css.txt",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/Sidebar css.txt",
       "AssetKind": "All",
@@ -587,10 +587,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\Sidebar css.txt"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\site.webmanifest",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\site.webmanifest",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/site.webmanifest",
       "AssetKind": "All",
@@ -606,10 +606,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\site.webmanifest"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\student_hat.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\student_hat.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/student_hat.png",
       "AssetKind": "All",
@@ -625,10 +625,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\student_hat.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Images\\User_roles_background.png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\User_roles_background.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Images/User_roles_background.png",
       "AssetKind": "All",
@@ -644,10 +644,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\User_roles_background.png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\js\\conditionalDisplay.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\conditionalDisplay.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "js/conditionalDisplay.js",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\js\\conditionalDisplay.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\js\\password-toggle.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\password-toggle.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "js/password-toggle.js",
       "AssetKind": "All",
@@ -682,10 +682,10 @@
       "OriginalItemSpec": "wwwroot\\js\\password-toggle.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\site.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -701,10 +701,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -720,10 +720,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -739,10 +739,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -758,10 +758,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -777,10 +777,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -796,10 +796,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -815,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -834,10 +834,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -853,10 +853,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -872,10 +872,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -891,10 +891,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -910,10 +910,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -929,10 +929,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -948,10 +948,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -967,10 +967,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -986,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -1005,10 +1005,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -1024,10 +1024,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -1043,10 +1043,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -1062,10 +1062,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -1081,10 +1081,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -1100,10 +1100,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -1119,10 +1119,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -1138,10 +1138,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -1157,10 +1157,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -1176,10 +1176,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -1195,10 +1195,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -1214,10 +1214,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -1233,10 +1233,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -1252,10 +1252,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -1271,10 +1271,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -1290,10 +1290,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -1309,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -1328,10 +1328,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -1347,10 +1347,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -1366,10 +1366,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -1385,10 +1385,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -1404,10 +1404,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -1423,10 +1423,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -1442,10 +1442,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -1461,10 +1461,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -1480,10 +1480,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -1499,10 +1499,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -1518,10 +1518,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -1537,10 +1537,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -1556,10 +1556,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -1575,10 +1575,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -1594,10 +1594,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -1613,10 +1613,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -1632,10 +1632,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -1651,10 +1651,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -1670,10 +1670,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -1689,10 +1689,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -1708,10 +1708,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -1727,10 +1727,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1746,10 +1746,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1765,10 +1765,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -1784,10 +1784,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\add-circle-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\add-circle-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/add-circle-svgrepo-com.svg",
       "AssetKind": "All",
@@ -1803,10 +1803,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\add-circle-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\add-square-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\add-square-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/add-square-svgrepo-com.svg",
       "AssetKind": "All",
@@ -1822,10 +1822,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\add-square-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\attach-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\attach-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/attach-svgrepo-com.svg",
       "AssetKind": "All",
@@ -1841,10 +1841,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\attach-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\brain-svgrepo-com (1).png",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\brain-svgrepo-com (1).png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/brain-svgrepo-com (1).png",
       "AssetKind": "All",
@@ -1860,10 +1860,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\brain-svgrepo-com (1).png"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\cancel-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\cancel-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/cancel-svgrepo-com.svg",
       "AssetKind": "All",
@@ -1879,10 +1879,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\cancel-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\chat-round-line-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\chat-round-line-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/chat-round-line-svgrepo-com.svg",
       "AssetKind": "All",
@@ -1898,10 +1898,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\chat-round-line-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\chat-round-svgrepo-com (1).svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\chat-round-svgrepo-com (1).svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/chat-round-svgrepo-com (1).svg",
       "AssetKind": "All",
@@ -1917,10 +1917,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\chat-round-svgrepo-com (1).svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\chat-round-svgrepo-com copy.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\chat-round-svgrepo-com copy.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/chat-round-svgrepo-com copy.svg",
       "AssetKind": "All",
@@ -1936,10 +1936,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\chat-round-svgrepo-com copy.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\chat-round-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\chat-round-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/chat-round-svgrepo-com.svg",
       "AssetKind": "All",
@@ -1955,10 +1955,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\chat-round-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\chat-round-unread-svgrepo-com (1).svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\chat-round-unread-svgrepo-com (1).svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/chat-round-unread-svgrepo-com (1).svg",
       "AssetKind": "All",
@@ -1974,10 +1974,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\chat-round-unread-svgrepo-com (1).svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\chat-round-unread-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\chat-round-unread-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/chat-round-unread-svgrepo-com.svg",
       "AssetKind": "All",
@@ -1993,10 +1993,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\chat-round-unread-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\cogwheels-setup-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\cogwheels-setup-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/cogwheels-setup-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2012,10 +2012,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\cogwheels-setup-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\confetti-minimalistic-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\confetti-minimalistic-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/confetti-minimalistic-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2031,10 +2031,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\confetti-minimalistic-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\delete-2-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\delete-2-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/delete-2-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2050,10 +2050,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\delete-2-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\document-1-svgrepo-com (1).svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\document-1-svgrepo-com (1).svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/document-1-svgrepo-com (1).svg",
       "AssetKind": "All",
@@ -2069,10 +2069,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\document-1-svgrepo-com (1).svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\document-1-svgrepo-com copy.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\document-1-svgrepo-com copy.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/document-1-svgrepo-com copy.svg",
       "AssetKind": "All",
@@ -2088,10 +2088,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\document-1-svgrepo-com copy.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\document-1-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\document-1-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/document-1-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2107,10 +2107,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\document-1-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\edit-2-svgrepo-com copy.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\edit-2-svgrepo-com copy.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/edit-2-svgrepo-com copy.svg",
       "AssetKind": "All",
@@ -2126,10 +2126,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\edit-2-svgrepo-com copy.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\edit-2-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\edit-2-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/edit-2-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2145,10 +2145,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\edit-2-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\envelope-badge-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\envelope-badge-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/envelope-badge-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2164,10 +2164,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\envelope-badge-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\envelope-check-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\envelope-check-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/envelope-check-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2183,10 +2183,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\envelope-check-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\four-squares-button-of-view-options.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\four-squares-button-of-view-options.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/four-squares-button-of-view-options.svg",
       "AssetKind": "All",
@@ -2202,10 +2202,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\four-squares-button-of-view-options.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\history-2-svgrepo-com (1).svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\history-2-svgrepo-com (1).svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/history-2-svgrepo-com (1).svg",
       "AssetKind": "All",
@@ -2221,10 +2221,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\history-2-svgrepo-com (1).svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\history-2-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\history-2-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/history-2-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2240,10 +2240,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\history-2-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\home-1.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\home-1.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/home-1.svg",
       "AssetKind": "All",
@@ -2259,10 +2259,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\home-1.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\home-2-svgrepo-com (1).svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\home-2-svgrepo-com (1).svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/home-2-svgrepo-com (1).svg",
       "AssetKind": "All",
@@ -2278,10 +2278,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\home-2-svgrepo-com (1).svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\home-2-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\home-2-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/home-2-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2297,10 +2297,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\home-2-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\id-card-identity-name-identification-information-office-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\id-card-identity-name-identification-information-office-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/id-card-identity-name-identification-information-office-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2316,10 +2316,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\id-card-identity-name-identification-information-office-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\logout.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\logout.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/logout.svg",
       "AssetKind": "All",
@@ -2335,10 +2335,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\logout.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\menu-icon.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\menu-icon.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/menu-icon.svg",
       "AssetKind": "All",
@@ -2354,10 +2354,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\menu-icon.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\open-envelope-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\open-envelope-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/open-envelope-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2373,10 +2373,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\open-envelope-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\pie-chart-3-svgrepo-com (1).svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\pie-chart-3-svgrepo-com (1).svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/pie-chart-3-svgrepo-com (1).svg",
       "AssetKind": "All",
@@ -2392,10 +2392,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\pie-chart-3-svgrepo-com (1).svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\pie-chart-3-svgrepo-com copy.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\pie-chart-3-svgrepo-com copy.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/pie-chart-3-svgrepo-com copy.svg",
       "AssetKind": "All",
@@ -2411,10 +2411,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\pie-chart-3-svgrepo-com copy.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\pie-chart-3-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\pie-chart-3-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/pie-chart-3-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2430,10 +2430,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\pie-chart-3-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\profile-1341-svgrepo-com (1).svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\profile-1341-svgrepo-com (1).svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/profile-1341-svgrepo-com (1).svg",
       "AssetKind": "All",
@@ -2449,10 +2449,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\profile-1341-svgrepo-com (1).svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\profile-1341-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\profile-1341-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/profile-1341-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2468,10 +2468,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\profile-1341-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\profile-circle-svgrepo-com (1).svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\profile-circle-svgrepo-com (1).svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/profile-circle-svgrepo-com (1).svg",
       "AssetKind": "All",
@@ -2487,10 +2487,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\profile-circle-svgrepo-com (1).svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\profile-circle-svgrepo-com copy.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\profile-circle-svgrepo-com copy.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/profile-circle-svgrepo-com copy.svg",
       "AssetKind": "All",
@@ -2506,10 +2506,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\profile-circle-svgrepo-com copy.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\profile-circle-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\profile-circle-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/profile-circle-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2525,10 +2525,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\profile-circle-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\queue-fill-svgrepo-com (1).svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\queue-fill-svgrepo-com (1).svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/queue-fill-svgrepo-com (1).svg",
       "AssetKind": "All",
@@ -2544,10 +2544,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\queue-fill-svgrepo-com (1).svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\queue-fill-svgrepo-com.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\queue-fill-svgrepo-com.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/queue-fill-svgrepo-com.svg",
       "AssetKind": "All",
@@ -2563,10 +2563,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\queue-fill-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\table-alt.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\table-alt.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/table-alt.svg",
       "AssetKind": "All",
@@ -2582,10 +2582,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\table-alt.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\team.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\team.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/team.svg",
       "AssetKind": "All",
@@ -2601,10 +2601,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\team.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\team-svgrepo-com (1).svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\team-svgrepo-com (1).svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/team-svgrepo-com (1).svg",
       "AssetKind": "All",
@@ -2620,10 +2620,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\team-svgrepo-com (1).svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\ticket.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\ticket.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/ticket.svg",
       "AssetKind": "All",
@@ -2639,10 +2639,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\ticket.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\ticket-7-svgrepo-com (1).svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\ticket-7-svgrepo-com (1).svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/ticket-7-svgrepo-com (1).svg",
       "AssetKind": "All",
@@ -2658,10 +2658,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\ticket-7-svgrepo-com (1).svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\user_check_alt.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\user_check_alt.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/user_check_alt.svg",
       "AssetKind": "All",
@@ -2677,10 +2677,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\user_check_alt.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\user_id_portrait.svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\user_id_portrait.svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/user_id_portrait.svg",
       "AssetKind": "All",
@@ -2696,10 +2696,10 @@
       "OriginalItemSpec": "wwwroot\\Svgs\\user_id_portrait.svg"
     },
     {
-      "Identity": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\Svgs\\user-id-portrait-svgrepo-com (1).svg",
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\user-id-portrait-svgrepo-com (1).svg",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
       "BasePath": "_content/Apptivate_UQMS_WebApp",
       "RelativePath": "Svgs/user-id-portrait-svgrepo-com (1).svg",
       "AssetKind": "All",

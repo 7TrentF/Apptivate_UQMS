@@ -1,0 +1,19 @@
+# Ignore Visual Studio temporary files, build results, and
+# common settings files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.VC.db
+
+# Ignore build output directories
+bin/
+obj/
+
+# Ignore packages directory
+packages/
+
+# Ignore Rider and other IDE files
+.idea/
+*.iml
