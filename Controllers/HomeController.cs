@@ -15,7 +15,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
         {
             _logger = logger;
         }
-
+        //index action
         public IActionResult Index()
         {
             return View();
