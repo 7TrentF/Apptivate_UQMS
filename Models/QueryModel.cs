@@ -16,7 +16,7 @@ namespace Apptivate_UQMS_WebApp.Models
             public int? CourseID { get; set; } // Foreign Key
             public int? ModuleID { get; set; } // Foreign Key
             public int? Year { get; set; }
-
+            public int QueryTypeID { get; set; }
             public int? CategoryID { get; set; } // Foreign Key to QueryCategory
             public QueryCategory Category { get; set; }
 
@@ -62,9 +62,9 @@ namespace Apptivate_UQMS_WebApp.Models
 
         public class SubmitQueryViewModel
         {
-            public int StudentID { get; set; }
-            public string Category { get; set; }  // Academic or Administrative
-            public string Subject { get; set; }  // Specific subject (e.g., "Grade remarks")
+            public int QueryTypeID { get; set; }  // Add this property to pass the QueryTypeID
+            public string Category { get; set; }
+            public string Subject { get; set; }
             public int DepartmentID { get; set; }
             public int CourseID { get; set; }
             public int ModuleID { get; set; }
@@ -74,8 +74,9 @@ namespace Apptivate_UQMS_WebApp.Models
             public List<Department> Departments { get; set; }
             public List<Course> Courses { get; set; }
             public List<Module> Modules { get; set; }
-            public List<string> QuerySubjects { get; set; }  // Predefined query subjects
+            public List<string> QuerySubjects { get; set; }
         }
+
 
 
         public class QueryDocument

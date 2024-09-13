@@ -1,38 +1,57 @@
 ﻿@{
     ViewData["Title"] = "Submit Academic Query";
     int queryTypeId = ViewBag.QueryTypeID;
+    var categories = ViewBag.QueryCategories as ICollection<Apptivate_UQMS_WebApp.Models.QueryModel.QueryCategory>;
+    var studentDetail = ViewBag.StudentDetail as Apptivate_UQMS_WebApp.Models.Account.StudentDetail;
 }
+
+<link rel="stylesheet" type="text/css" href="~/css/Queries.css" />
 
 <h1>Submit an Academic Query</h1>
 
-<form asp-action="SubmitAcademicQuery" method="post">
-    <input type="hidden" name="QueryTypeID" value="@queryTypeId" />
+<div class="student-details-card">
+    <h2>Student Details</h2>
+    <p><strong>ID:</strong> @studentDetail.StudentID</p>
+    <p><strong>Department:</strong> @studentDetail.Department</p>
+    <p><strong>Course:</strong> @studentDetail.Course</p>
+    <p><strong>Year:</strong> @studentDetail.Year</p>
+</div>
 
-    <label for="query-subject">Query Subject</label>
-    <input type="text" id="query-subject" name="Subject" placeholder="Type subject">
+<div class="query-form-section">
+    <h2>Create a Query</h2>
+    <p>Write and address new queries and issues</p>
+    <form class="query-form" asp-action="SubmitAcademicQuery" method="post">
 
-    <label for="query-type">Request Ticket Type</label>
-    <select id="query-type" name="QueryType">
-        <option value="Query">Query</option>
-        <option value="Issue">Issue</option>
-    </select>
+        <input type="hidden" name="QueryTypeID" value="@queryTypeId" />
 
-    <label for="priority-status">Priority Status</label>
-    <select id="priority-status" name="PriorityStatus">
-        <option value="Normal">Normal</option>
-        <option value="HighPriority">High Priority</option>
-    </select>
+        <label for="query-category">Query Category</label>
+        <select id="query-category" name="CategoryID">
+            @foreach (var category in categories)
+            {
+                <option value="@category.CategoryID">@category.CategoryName</option>
+            }
+        </select>
 
-    <label for="ticket-body">Ticket Body</label>
-    <textarea id="ticket-body" name="QueryDetails" rows="4" placeholder="Type query here..."></textarea>
+        <label for="query-subject">Query Subject</label>
+        <input type="text" id="query-subject" name="QuerySubject" placeholder="Type subject">
 
-    <div class="media-upload">
-        <p>Drag your file(s) to start uploading</p>
-        <span>OR</span>
-        <label for="media-upload" class="upload-btn">Browse files</label>
-        <input type="file" id="media-upload" name="FileUpload" style="display: none;">
-        <p class="file-types">Only support .jpg, .png, .svg, and .zip files</p>
-    </div>
+        <label for="query-type">Request Ticket Type</label>
+        <select id="query-type" name="QueryType">
+            <option>Query</option>
+            <option>Issue</option>
+        </select>
 
-    <button type="submit">Submit</button>
-</form>
+        <label for="ticket-body">Ticket Body</label>
+        <textarea id="ticket-body" name="TicketBody" rows="4" placeholder="Type query here..."></textarea>
+
+        <div class="media-upload">
+            <p>Drag your file(s) to start uploading</p>
+            <span>OR</span>
+            <label for="media-upload" class="upload-btn">Browse files</label>
+            <input type="file" id="media-upload" name="MediaUpload" style="display: none;">
+            <p class="file-types">Only support .jpg, .png, .svg, and .zip files</p>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
