@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\Images\\User_roles_background.png"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\add-plus-square.svg",
+      "PackagePath": "staticwebassets\\Images\\add-plus-square.svg"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\admin.png",
       "PackagePath": "staticwebassets\\Images\\admin.png"
     },
@@ -91,6 +95,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\add-circle-svgrepo-com.svg",
       "PackagePath": "staticwebassets\\Svgs\\add-circle-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\add-plus-square.svg",
+      "PackagePath": "staticwebassets\\Svgs\\add-plus-square.svg"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\add-square-svgrepo-com.svg",
@@ -233,6 +241,10 @@
       "PackagePath": "staticwebassets\\Svgs\\profile-1341-svgrepo-com.svg"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\profile-1341.svg",
+      "PackagePath": "staticwebassets\\Svgs\\profile-1341.svg"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\profile-circle-svgrepo-com (1).svg",
       "PackagePath": "staticwebassets\\Svgs\\profile-circle-svgrepo-com (1).svg"
     },
@@ -293,12 +305,24 @@
       "PackagePath": "staticwebassets\\css\\Login.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Qt.css",
+      "PackagePath": "staticwebassets\\css\\Qt.css"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Queries.css",
+      "PackagePath": "staticwebassets\\css\\Queries.css"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Register.css",
       "PackagePath": "staticwebassets\\css\\Register.css"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Sidebar.css",
       "PackagePath": "staticwebassets\\css\\Sidebar.css"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserProfile.css",
+      "PackagePath": "staticwebassets\\css\\UserProfile.css"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserRoles.css",
@@ -317,6 +341,22 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\DropDownList.js",
+      "PackagePath": "staticwebassets\\js\\DropDownList.js"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\QueryfileUpload.js",
+      "PackagePath": "staticwebassets\\js\\QueryfileUpload.js"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\SidebarToggle.js",
+      "PackagePath": "staticwebassets\\js\\SidebarToggle.js"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\UserProfile.js",
+      "PackagePath": "staticwebassets\\js\\UserProfile.js"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\conditionalDisplay.js",
       "PackagePath": "staticwebassets\\js\\conditionalDisplay.js"
     },
@@ -327,6 +367,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\validateRegistrationForm.js",
+      "PackagePath": "staticwebassets\\js\\validateRegistrationForm.js"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\lib\\bootstrap\\LICENSE",

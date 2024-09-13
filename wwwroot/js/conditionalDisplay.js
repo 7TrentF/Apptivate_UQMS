@@ -1,26 +1,19 @@
 ﻿class ConditionalDisplay {
     constructor() {
-        this.role = document.querySelector("input[name='Role']").value;
-        this.courseField = document.getElementById("courseField");
+        // Get the role and the position field DOM elements
+        this.role = document.getElementById("role").value;
         this.positionField = document.getElementById("positionField");
 
         this.init();
     }
 
     init() {
-        // Always show the Course field
-        this.showCourseField();
-
         // Show or hide the Position field based on the role
         if (this.role === "Student") {
             this.hidePositionField();
-        } else if (this.role === "Staff") {
+        } else {
             this.showPositionField();
         }
-    }
-
-    showCourseField() {
-        this.courseField.style.display = "block";
     }
 
     showPositionField() {

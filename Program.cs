@@ -3,6 +3,8 @@ using Apptivate_UQMS_WebApp.Services;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,16 +43,41 @@ builder.Logging.AddConsole(); // Add console logging
 builder.Logging.AddDebug(); // Add debug logging (visible in Debug output window)
 
 //builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<IUserRegistrationService, UserRegistrationService>();
+
+builder.Services.AddControllersWithViews(options =>
+{
+    var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+    options.Filters.Add(new AuthorizeFilter(policy));
+});
 
 
 
 
 
-
-
+// Add session services
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 // Build the app
 var app = builder.Build();
+
+// Enable session middleware
+app.UseSession();
+
+// Other middleware (e.g., authentication, routing)
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllers(); // Ensure controllers are mapped
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -59,6 +86,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+//app.UseMiddleware<SessionMiddleware>();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

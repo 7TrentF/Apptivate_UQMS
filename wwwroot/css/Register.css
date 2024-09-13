@@ -66,3 +66,33 @@
         text-align: center;
         margin-top: 1rem;
     }
+
+
+/* General styling for the form-group divs */
+.form-group {
+    margin-bottom: 20px; /* Adds space between dropdowns */
+}
+
+/* Ensure both select elements are of equal width */
+select#department, select#course {
+    width: 100%; /* Ensures both dropdowns take full width of container */
+    padding: 8px; /* Add some padding inside the dropdowns for better UX */
+    box-sizing: border-box; /* Ensures padding is included in width calculation */
+}
+
+
+#department {
+    margin-bottom: 15px; /* Adds space below the department dropdown */
+}
+
+#course {
+    margin-top: 15px; /* Adds space above the course dropdown */
+    margin-bottom: 10px;
+}
+
+/* Apply uniform width to all form controls */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}

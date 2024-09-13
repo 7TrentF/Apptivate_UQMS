@@ -8478,11 +8478,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\Apptivate_UQMS_WebApp.csproj",
+      "projectUniqueName": "C:\\Users\\trent\\Source\\Repos\\Apptivate_UQMS\\Apptivate_UQMS_WebApp.csproj",
       "projectName": "Apptivate_UQMS_WebApp",
-      "projectPath": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\Apptivate_UQMS_WebApp.csproj",
+      "projectPath": "C:\\Users\\trent\\Source\\Repos\\Apptivate_UQMS\\Apptivate_UQMS_WebApp.csproj",
       "packagesPath": "C:\\Users\\trent\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\obj\\",
+      "outputPath": "C:\\Users\\trent\\Source\\Repos\\Apptivate_UQMS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\trent\\AppData\\Roaming\\NuGet\\NuGet.Config",
