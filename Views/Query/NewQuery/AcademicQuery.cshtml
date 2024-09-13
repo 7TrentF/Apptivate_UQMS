@@ -1,19 +1,38 @@
 ﻿@{
-    ViewData["Title"] = "Academic Query";
+    ViewData["Title"] = "Submit Academic Query";
+    int queryTypeId = ViewBag.QueryTypeID;
 }
-<link rel="stylesheet" type="text/css" href="~/css/Queries.css" />
-
 
 <h1>Submit an Academic Query</h1>
 
 <form asp-action="SubmitAcademicQuery" method="post">
-    <div class="form-group">
-        <label for="Title">Query Title</label>
-        <input type="text" class="form-control" id="Title" name="Title" required />
+    <input type="hidden" name="QueryTypeID" value="@queryTypeId" />
+
+    <label for="query-subject">Query Subject</label>
+    <input type="text" id="query-subject" name="Subject" placeholder="Type subject">
+
+    <label for="query-type">Request Ticket Type</label>
+    <select id="query-type" name="QueryType">
+        <option value="Query">Query</option>
+        <option value="Issue">Issue</option>
+    </select>
+
+    <label for="priority-status">Priority Status</label>
+    <select id="priority-status" name="PriorityStatus">
+        <option value="Normal">Normal</option>
+        <option value="HighPriority">High Priority</option>
+    </select>
+
+    <label for="ticket-body">Ticket Body</label>
+    <textarea id="ticket-body" name="QueryDetails" rows="4" placeholder="Type query here..."></textarea>
+
+    <div class="media-upload">
+        <p>Drag your file(s) to start uploading</p>
+        <span>OR</span>
+        <label for="media-upload" class="upload-btn">Browse files</label>
+        <input type="file" id="media-upload" name="FileUpload" style="display: none;">
+        <p class="file-types">Only support .jpg, .png, .svg, and .zip files</p>
     </div>
-    <div class="form-group">
-        <label for="Description">Description</label>
-        <textarea class="form-control" id="Description" name="Description" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit Query</button>
+
+    <button type="submit">Submit</button>
 </form>

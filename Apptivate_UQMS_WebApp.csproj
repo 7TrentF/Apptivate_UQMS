@@ -31,6 +31,7 @@
 
   <ItemGroup>
     <Folder Include="Middleware\" />
+    <Folder Include="Views\StaffView\" />
   </ItemGroup>
 
 </Project>

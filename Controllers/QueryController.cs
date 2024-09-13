@@ -19,19 +19,39 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return View("NewQuery/CreateQuery");
         }
 
-      
         // Action for Academic issues
         [HttpGet]
-        public IActionResult AcademicQuery()
+        public IActionResult AcademicQuery(int queryTypeId)
         {
+            // Fetch the query type based on QueryTypeID
+            var queryType = _context.QueryTypes
+                                     .FirstOrDefault(qt => qt.QueryTypeID == queryTypeId);
+
+            if (queryType == null)
+            {
+                return NotFound();
+            }
+
+            // Pass the QueryTypeID to the view
+            ViewBag.QueryTypeID = queryTypeId;
             return View("NewQuery/AcademicQuery");
         }
 
         // Action for Administrative issues
         [HttpGet]
-        public IActionResult AdministrativeQuery()
+        public IActionResult AdministrativeQuery(int queryTypeId)
         {
+            // Fetch the query type based on QueryTypeID
+            var queryType = _context.QueryTypes
+                                     .FirstOrDefault(qt => qt.QueryTypeID == queryTypeId);
 
+            if (queryType == null)
+            {
+                return NotFound();
+            }
+
+            // Pass the QueryTypeID to the view
+            ViewBag.QueryTypeID = queryTypeId;
             return View("NewQuery/AdministrativeQuery");
         }
 
