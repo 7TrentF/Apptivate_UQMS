@@ -1,0 +1,148 @@
+﻿/* Query Form */
+.query-form {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two columns: 1 for labels, 1 for inputs */
+    gap: 16px;
+    margin-top: 10px;
+}
+
+    .query-form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .query-form input[type="text"],
+    .query-form select,
+    .query-form textarea,
+    .query-form input[type="file"] {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    .query-form textarea {
+        resize: vertical;
+    }
+
+    .query-form button {
+        padding: 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+        .query-form button:hover {
+            background-color: #0056b3;
+        }
+
+/* Media Upload */
+.media-upload {
+    position: relative;
+    padding: 20px;
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .media-upload p,
+    .media-upload span {
+        margin: 10px 0;
+    }
+
+    .media-upload p {
+        color: #333;
+        font-size: 16px;
+    }
+
+    .media-upload span {
+        color: #999;
+        font-size: 14px;
+    }
+
+.upload-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.file-types {
+    margin-top: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Student Details Card */
+.student-details-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    height: auto;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .student-details-card h2 {
+        margin-top: 0;
+        font-size: 1.6rem;
+        color: #333;
+    }
+
+    .student-details-card p {
+        margin: 10px 0;
+        font-size: 16px;
+        color: #666;
+    }
+
+    .student-details-card strong {
+        color: #333;
+    }
+
+/* Query Form Section */
+.query-form-section {
+    position: relative;
+    flex: 1;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .query-form {
+        grid-template-columns: 1fr; /* Stack form fields vertically on small screens */
+    }
+
+    .student-details-card,
+    .media-upload {
+        width: 100%;
+    }
+}

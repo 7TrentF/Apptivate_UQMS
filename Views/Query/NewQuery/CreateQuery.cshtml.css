@@ -46,3 +46,72 @@
     .new-query-btn span {
         display: inline-block;
     }
+
+/* CreateQuery.cshtml.css */
+
+/* General card styles */
+.card {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 250px;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+        /* Change the button style when the card is hovered */
+        .card:hover .btn-primary {
+            background-color: white; /* Button background turns white */
+            color: #007bff; /* Button text turns blue */
+            border: 1px solid #007bff; /* Add a blue border to the button */
+        }
+
+/* Default button style */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+    /* Normal button hover */
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 767px) {
+    .card {
+        min-height: 200px;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .card {
+        min-height: 220px;
+    }
+}
+
+@media (min-width: 992px) {
+    .card {
+        min-height: 250px;
+    }
+}
