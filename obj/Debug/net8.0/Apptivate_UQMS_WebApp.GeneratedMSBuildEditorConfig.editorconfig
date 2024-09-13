@@ -17,147 +17,147 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Apptivate_UQMS_WebApp
 build_property.RootNamespace = Apptivate_UQMS_WebApp
-build_property.ProjectDir = C:\Users\trent\source\repos\Apptivate_UQMS\
+build_property.ProjectDir = C:\Users\adamw\OneDrive - ADvTECH Ltd\3rd year\2nd Semster\XBCAD7319\Apptivate_UQMS-main\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\trent\source\repos\Apptivate_UQMS
+build_property.MSBuildProjectDirectory = C:\Users\adamw\OneDrive - ADvTECH Ltd\3rd year\2nd Semster\XBCAD7319\Apptivate_UQMS-main
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Account/Login.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Account/Register.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Account/SelectRole.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Account/SelectRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTZWxlY3RSb2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Account/UserProfile.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Account/UserProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxVc2VyUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/DummyTables/Create.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/DummyTables/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHVtbXlUYWJsZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/DummyTables/Delete.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/DummyTables/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHVtbXlUYWJsZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/DummyTables/Details.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/DummyTables/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHVtbXlUYWJsZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/DummyTables/Edit.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/DummyTables/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHVtbXlUYWJsZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/DummyTables/Index.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/DummyTables/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHVtbXlUYWJsZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Home/AllTickets.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Home/AllTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbGxUaWNrZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Home/Dashboard.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Home/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Home/Index.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Home/NewTickets.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Home/NewTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOZXdUaWNrZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Home/OnGoingTickets.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Home/OnGoingTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxPbkdvaW5nVGlja2V0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Home/Privacy.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Home/Queries.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Home/Queries.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxRdWVyaWVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Home/ResolvedTickets.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Home/ResolvedTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXNvbHZlZFRpY2tldHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Home/SubmitQuery.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Home/SubmitQuery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdWJtaXRRdWVyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Home/test.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Home/test.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVx0ZXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/NewQuery/AcademicQuery.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Query/NewQuery/AcademicQuery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcTmV3UXVlcnlcQWNhZGVtaWNRdWVyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/NewQuery/AdministrativeQuery.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Query/NewQuery/AdministrativeQuery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcTmV3UXVlcnlcQWRtaW5pc3RyYXRpdmVRdWVyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/Queries.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Query/Queries.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcmllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/QueryOverview/AllTickets.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Query/QueryOverview/AllTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcnlPdmVydmlld1xBbGxUaWNrZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/QueryOverview/NewTickets.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Query/QueryOverview/NewTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcnlPdmVydmlld1xOZXdUaWNrZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/QueryOverview/OnGoingTickets.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Query/QueryOverview/OnGoingTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcnlPdmVydmlld1xPbkdvaW5nVGlja2V0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/QueryOverview/ResolvedTickets.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Query/QueryOverview/ResolvedTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcnlPdmVydmlld1xSZXNvbHZlZFRpY2tldHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/SubmitQuery.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Query/SubmitQuery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcU3VibWl0UXVlcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Shared/Error.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Shared/MinimalLayout.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Shared/MinimalLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1pbmltYWxMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/_ViewImports.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/_ViewStart.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/NewQuery/CreateQuery.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Query/NewQuery/CreateQuery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcTmV3UXVlcnlcQ3JlYXRlUXVlcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bsyhkuypwj
 
-[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Shared/_Layout.cshtml]
+[C:/Users/adamw/OneDrive - ADvTECH Ltd/3rd year/2nd Semster/XBCAD7319/Apptivate_UQMS-main/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-nyjeid8vsc
