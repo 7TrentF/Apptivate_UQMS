@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 using static Apptivate_UQMS_WebApp.Models.Account;
+using static Apptivate_UQMS_WebApp.Models.QueryModel;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Apptivate_UQMS_WebApp.Models
@@ -12,25 +13,26 @@ namespace Apptivate_UQMS_WebApp.Models
             [Key]
             public int QueryID { get; set; }
             public int StudentID { get; set; } // Foreign Key
-            public int? DepartmentID { get; set; } // Foreign Key
+           public int? DepartmentID { get; set; } // Foreign Key
             public int? CourseID { get; set; } // Foreign Key
             public int? ModuleID { get; set; } // Foreign Key
             public int? Year { get; set; }
-            public int QueryTypeID { get; set; }
+            public int? QueryTypeID { get; set; }
             public int? CategoryID { get; set; } // Foreign Key to QueryCategory
-            public QueryCategory Category { get; set; }
+            public QueryCategory? Category { get; set; }
 
             public string? Status { get; set; }
             public DateTime? SubmissionDate { get; set; }
             public DateTime? ResolvedDate { get; set; }
 
             // Navigation properties
-            public StudentDetail Student { get; set; }
-            public Department Department { get; set; }
-            public Course Course { get; set; }
-            public Module Module { get; set; }
-            public ICollection<QueryDocument> QueryDocuments { get; set; }
-            public ICollection<QueryAssignment> QueryAssignments { get; set; }
+            public StudentDetail? Student { get; set; }
+            public Department? Department { get; set; }
+            public Course? Course { get; set; }
+            public Module? Module { get; set; }
+
+            public ICollection<QueryDocument> QueryDocuments { get; set; } = new HashSet<QueryDocument>();
+            public ICollection<QueryAssignment> QueryAssignments { get; set; } = new HashSet<QueryAssignment>();
             public Feedback? Feedback { get; set; }
         }
 
@@ -63,7 +65,7 @@ namespace Apptivate_UQMS_WebApp.Models
         public class SubmitQueryViewModel
         {
             public int QueryTypeID { get; set; }  // Add this property to pass the QueryTypeID
-            public string Category { get; set; }
+            public int? CategoryID { get; set; }
             public string Subject { get; set; }
             public int DepartmentID { get; set; }
             public int CourseID { get; set; }

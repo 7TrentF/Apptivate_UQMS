@@ -22,6 +22,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
         {
             return View("NewQuery/CreateQuery");
         }
+
         [HttpGet]
         public async Task<IActionResult> AcademicQuery(int queryTypeId)
         {
@@ -66,6 +67,12 @@ namespace Apptivate_UQMS_WebApp.Controllers
             ViewBag.QueryTypeID = queryTypeId;
             ViewBag.QueryCategories = queryType.QueryCategories;
             ViewBag.StudentDetail = studentDetail;  // Pass the student details to the view
+            ViewBag.StudentID = studentDetail.StudentID;
+            ViewBag.Department = studentDetail.Department;
+            ViewBag.Course = studentDetail.Course;
+            ViewBag.Year = studentDetail.Year;
+           
+
 
             return View("NewQuery/AcademicQuery");
         }
@@ -117,13 +124,11 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             return View("NewQuery/AdministrativeQuery");
         }
-
         [HttpPost]
-        public async Task<IActionResult> SubmitQuery(SubmitQueryViewModel model)
+        public async Task<IActionResult> SubmitAcademicQuery(Query model)
         {
             if (ModelState.IsValid)
             {
-                // Retrieve the Firebase UID from session
                 var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
 
                 if (firebaseUid == null)
@@ -132,54 +137,95 @@ namespace Apptivate_UQMS_WebApp.Controllers
                     return RedirectToAction("Login", "Account");
                 }
 
-                // Fetch the student details from the database
-                var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+                var user = await _context.Users
+                    .FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
 
                 if (user == null)
                 {
-                    _logger.LogError("User not found.");
+                    _logger.LogError("User with FirebaseUID {FirebaseUID} not found.", firebaseUid);
                     return NotFound();
                 }
 
-                var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+                // Fetch StudentID, DepartmentID, and CourseID by joining tables
+                var studentDetailQuery = await (
+         from student in _context.StudentDetails
+         join department in _context.Departments
+         on student.Department equals department.DepartmentName into deptGroup
+         from department in deptGroup.DefaultIfEmpty() // Ensure to handle cases where no department matches
+         join course in _context.Courses
+         on student.Course equals course.CourseCode into courseGroup // Use CourseCode for matching
+         from course in courseGroup.DefaultIfEmpty() // Ensure to handle cases where no course matches
+         where student.UserID == user.UserID
+         select new
+         {
+             student.StudentID,
+             DepartmentID = department != null ? department.DepartmentID : (int?)null,
+             CourseID = course != null ? course.CourseID : (int?)null,
+             student.Year
+         }).FirstOrDefaultAsync();
 
-                if (studentDetail == null)
+
+                if (studentDetailQuery == null)
                 {
-                    _logger.LogError("Student details not found.");
+                    _logger.LogError("Student details not found for UserID {UserID}. Check if UserID matches existing records and ensure Department and Course names are correct.", user.UserID);
                     return NotFound();
                 }
 
-                // Fetch DepartmentID based on the department name
-                var department = await _context.Departments
-                    .FirstOrDefaultAsync(d => d.DepartmentName == studentDetail.Department);
+                // Log the values for debugging
+                _logger.LogInformation("Query submission details:");
+                _logger.LogInformation("StudentID: {StudentID}, DepartmentID: {DepartmentID}, CourseID: {CourseID}",
+                    studentDetailQuery.StudentID, studentDetailQuery.DepartmentID, studentDetailQuery.CourseID);
+                _logger.LogInformation("QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}, Year: {Year}",
+                    model.QueryTypeID, model.CategoryID, studentDetailQuery.Year);
 
-                // Fetch CourseID based on the course name
-                var course = await _context.Courses
-                    .FirstOrDefaultAsync(c => c.CourseName == studentDetail.Course);
-
-                var query = new Query
+                try
                 {
-                    QueryTypeID = model.QueryTypeID,
-                    DepartmentID = department?.DepartmentID, // Use null conditional operator to handle cases where department might be null
-                    CourseID = course?.CourseID, // Use null conditional operator to handle cases where course might be null
-                    ModuleID = model.ModuleID,
-                    Year = studentDetail.Year,
-                    Status = "Pending",
-                    SubmissionDate = DateTime.Now
-                };
+                    var query = new Query
+                    {
+                        StudentID = studentDetailQuery.StudentID,
+                        QueryTypeID = model.QueryTypeID,
+                        CategoryID = model.CategoryID,
+                        DepartmentID = studentDetailQuery.DepartmentID ?? 0, // Handle null properly
+                        CourseID = studentDetailQuery.CourseID ?? 0, // Handle null properly
+                        //ModuleID = model.ModuleID ?? 0,
+                        Year = studentDetailQuery.Year,
+                        Status = "Pending",
+                        SubmissionDate = DateTime.Now
+                    };
 
-                _context.Queries.Add(query);
-                await _context.SaveChangesAsync();
+                    _context.Queries.Add(query);
+                    await _context.SaveChangesAsync();
 
-                return RedirectToAction("QuerySubmitted");
+                    _logger.LogInformation("Query with ID {QueryID} successfully submitted.", query.QueryID);
+
+                    return RedirectToAction("CreateQuery"); // Redirect to CreateQuery view after submission
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "An error occurred while submitting the query.");
+                    return View("Error"); // Redirect to an error view or page
+                }
             }
 
-            // Re-populate dropdowns if model is invalid
-            model.Departments = _context.Departments.ToList();
-            model.Courses = _context.Courses.ToList();
-            model.Modules = _context.Modules.ToList();
-            return View(model);
+            // Log detailed ModelState errors
+            foreach (var state in ModelState)
+            {
+                if (state.Value.Errors.Count > 0)
+                {
+                    foreach (var error in state.Value.Errors)
+                    {
+                        _logger.LogWarning("ModelState error for key {Key}: {ErrorMessage}", state.Key, error.ErrorMessage);
+                    }
+                }
+            }
+
+            _logger.LogWarning("Model state is invalid for the query submission.");
+            return View("NewQuery/CreateQuery");
         }
+
+
+
+
 
 
 
@@ -194,58 +240,60 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return View("Administrative");
         }
 
-        /*
+        
         public IActionResult Confirmation()
         {
             return View();
         }
-        */
-
-        [HttpGet]
-        public IActionResult SubmitQuery()
-        {
-            var model = new SubmitQueryViewModel
-            {
-                Departments = _context.Departments.ToList(),
-                Courses = _context.Courses.ToList(),
-                Modules = _context.Modules.ToList()
-            };
-            return View(model);
-        }
+        
 
         /*
-        [HttpPost]
-        public async Task<IActionResult> SubmitQuery(SubmitQueryViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var query = new Query
-                {
-                    QueryTypeID = model.QueryTypeID,  // Ideally, you would get this from the logged-in user
-                   // Category = model.Category,
-                    DepartmentID = model.DepartmentID,
-                    CourseID = model.CourseID,
-                    ModuleID = model.ModuleID,
-                    Year = model.Year,
-                    Status = "Pending",
-                    SubmissionDate = DateTime.Now
-                };
 
-                _context.Queries.Add(query);
-                await _context.SaveChangesAsync();
+       [HttpGet]
+       public IActionResult SubmitQuery()
+       {
+           var model = new SubmitQueryViewModel
+           {
+               Departments = _context.Departments.ToList(),
+               Courses = _context.Courses.ToList(),
+               Modules = _context.Modules.ToList()
+           };
+           return View(model);
+       }
 
-                return RedirectToAction("QuerySubmitted");
-            }
 
-            // Re-populate dropdowns if model is invalid
-            model.Departments = _context.Departments.ToList();
-            model.Courses = _context.Courses.ToList();
-            model.Modules = _context.Modules.ToList();
-            return View(model);
-        }
+       [HttpPost]
+       public async Task<IActionResult> SubmitQuery(SubmitQueryViewModel model)
+       {
+           if (ModelState.IsValid)
+           {
+               var query = new Query
+               {
+                   QueryTypeID = model.QueryTypeID,  // Ideally, you would get this from the logged-in user
+                  // Category = model.Category,
+                   DepartmentID = model.DepartmentID,
+                   CourseID = model.CourseID,
+                   ModuleID = model.ModuleID,
+                   Year = model.Year,
+                   Status = "Pending",
+                   SubmissionDate = DateTime.Now
+               };
 
-        */
-        
+               _context.Queries.Add(query);
+               await _context.SaveChangesAsync();
+
+               return RedirectToAction("QuerySubmitted");
+           }
+
+           // Re-populate dropdowns if model is invalid
+           model.Departments = _context.Departments.ToList();
+           model.Courses = _context.Courses.ToList();
+           model.Modules = _context.Modules.ToList();
+           return View(model);
+       }
+
+       */
+
         // Action for displaying all tickets
         public ActionResult AllTickets()
         {
@@ -282,7 +330,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
         public IActionResult QuerySubmitted()
         {
-            return View();
+            return View("NewQuery/QuerySubmitted");
         }
     }
 

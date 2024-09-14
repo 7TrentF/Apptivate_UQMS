@@ -1,11 +1,22 @@
 /* _content/Apptivate_UQMS_WebApp/Views/Query/NewQuery/AcademicQuery.cshtml.rz.scp.css */
-/* Query Form */
+/* Container for Form and Student Details Card */
+.form-and-details-container[b-il5muuguha] {
+    display: flex;
+    gap: 20px; /* Space between the two elements */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    justify-content: center; /* Center items horizontally */
+    align-items: flex-start; /* Align items at the start */
+    margin: 20px auto;
+    max-width: 1200px; /* Adjust based on your layout needs */
+}
+/* Ensure Query Form fits within .query-form-section */
 .query-form[b-il5muuguha] {
     display: grid;
     grid-template-columns: 1fr 2fr; /* Two columns: 1 for labels, 1 for inputs */
     gap: 16px;
-    margin-top: 10px;
+    margin: 0; /* Reset margin */
 }
+
 
     .query-form label[b-il5muuguha] {
         display: block;
@@ -125,25 +136,191 @@
 
 /* Query Form Section */
 .query-form-section[b-il5muuguha] {
-    position: relative;
     flex: 1;
     border: 5px solid rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 400px;
+    margin: 20px 0; /* Margin on top and bottom */
+    max-width: 100%; /* Full width of its container */
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .query-form[b-il5muuguha] {
-        grid-template-columns: 1fr; /* Stack form fields vertically on small screens */
+    .form-and-details-container[b-il5muuguha] {
+        flex-direction: column; /* Stack items vertically on small screens */
     }
 
-    .student-details-card[b-il5muuguha],
+    .query-form-section[b-il5muuguha],
+    .student-details-card[b-il5muuguha] {
+        width: 100%;
+    }
+
     .media-upload[b-il5muuguha] {
+        width: 100%;
+    }
+}
+/* _content/Apptivate_UQMS_WebApp/Views/Query/NewQuery/AdministrativeQuery.cshtml.rz.scp.css */
+/* Container for Form and Student Details Card */
+.form-and-details-container[b-jc3am0el92] {
+    display: flex;
+    gap: 20px; /* Space between the two elements */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    justify-content: center; /* Center items horizontally */
+    align-items: flex-start; /* Align items at the start */
+    margin: 20px auto;
+    max-width: 1200px; /* Adjust based on your layout needs */
+}
+/* Ensure Query Form fits within .query-form-section */
+.query-form[b-jc3am0el92] {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two columns: 1 for labels, 1 for inputs */
+    gap: 16px;
+    margin: 0; /* Reset margin */
+}
+
+
+    .query-form label[b-jc3am0el92] {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .query-form input[type="text"][b-jc3am0el92],
+    .query-form select[b-jc3am0el92],
+    .query-form textarea[b-jc3am0el92],
+    .query-form input[type="file"][b-jc3am0el92] {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    .query-form textarea[b-jc3am0el92] {
+        resize: vertical;
+    }
+
+    .query-form button[b-jc3am0el92] {
+        padding: 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+        .query-form button:hover[b-jc3am0el92] {
+            background-color: #0056b3;
+        }
+
+/* Media Upload */
+.media-upload[b-jc3am0el92] {
+    position: relative;
+    padding: 20px;
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .media-upload p[b-jc3am0el92],
+    .media-upload span[b-jc3am0el92] {
+        margin: 10px 0;
+    }
+
+    .media-upload p[b-jc3am0el92] {
+        color: #333;
+        font-size: 16px;
+    }
+
+    .media-upload span[b-jc3am0el92] {
+        color: #999;
+        font-size: 14px;
+    }
+
+.upload-btn[b-jc3am0el92] {
+    display: inline-block;
+    padding: 12px 20px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.file-types[b-jc3am0el92] {
+    margin-top: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Student Details Card */
+.student-details-card[b-jc3am0el92] {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    height: auto;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .student-details-card h2[b-jc3am0el92] {
+        margin-top: 0;
+        font-size: 1.6rem;
+        color: #333;
+    }
+
+    .student-details-card p[b-jc3am0el92] {
+        margin: 10px 0;
+        font-size: 16px;
+        color: #666;
+    }
+
+    .student-details-card strong[b-jc3am0el92] {
+        color: #333;
+    }
+
+/* Query Form Section */
+.query-form-section[b-jc3am0el92] {
+    flex: 1;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0; /* Margin on top and bottom */
+    max-width: 100%; /* Full width of its container */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .form-and-details-container[b-jc3am0el92] {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+
+    .query-form-section[b-jc3am0el92],
+    .student-details-card[b-jc3am0el92] {
+        width: 100%;
+    }
+
+    .media-upload[b-jc3am0el92] {
         width: 100%;
     }
 }

@@ -1,0 +1,9 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Query Submitted";
+}
+
+<h1>Your query has been submitted successfully!</h1>
+<p>Thank you for submitting your query. We will review it and get back to you shortly.</p>
+<a href="@Url.Action("CreateQuery", "Query")">Back to Query Form</a>
