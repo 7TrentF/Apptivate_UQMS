@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Apptivate_UQMS_WebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bbd6634ca0c091c670179313fcdf98aab7553b08")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ac78b114d3df87f2faabf34c63058ce739727ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("Apptivate_UQMS_WebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Apptivate_UQMS_WebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

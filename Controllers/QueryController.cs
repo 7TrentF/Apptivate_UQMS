@@ -3,24 +3,31 @@ using Apptivate_UQMS_WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using static Apptivate_UQMS_WebApp.Models.QueryModel;
+using FirebaseAdmin;
+using Google.Cloud.Storage.V1;
+using Google.Apis.Storage.v1.Data;
+using Google.Apis.Auth.OAuth2;
+using Apptivate_UQMS_WebApp.Services;
 namespace Apptivate_UQMS_WebApp.Controllers
 {
     public class QueryController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context; // Inject _context
         private readonly ILogger<QueryController> _logger;  // Inject ILogger
+        private readonly FileUploadService _fileUploadService;  // Inject fileUploadService
 
-        public QueryController(ApplicationDbContext context, ILogger<QueryController> logger)
+        public QueryController(FileUploadService fileUploadService, ApplicationDbContext context, ILogger<QueryController> logger)
         {
+            _fileUploadService = fileUploadService;
             _context = context;
             _logger = logger;
         }
 
         // Action to render the CreateQuery page
         [HttpGet]
-        public async Task<IActionResult> CreateQuery()
+        public Task<IActionResult> CreateQuery()
         {
-            return View("NewQuery/CreateQuery");
+            return Task.FromResult<IActionResult>(View("NewQuery/CreateQuery"));
         }
 
         [HttpGet]
@@ -124,8 +131,9 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             return View("NewQuery/AdministrativeQuery");
         }
+
         [HttpPost]
-        public async Task<IActionResult> SubmitAcademicQuery(Query model)
+        public async Task<IActionResult> SubmitAcademicQuery(Query model, IFormFile uploadedFile)
         {
             if (ModelState.IsValid)
             {
@@ -137,8 +145,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
                     return RedirectToAction("Login", "Account");
                 }
 
-                var user = await _context.Users
-                    .FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
 
                 if (user == null)
                 {
@@ -146,86 +153,90 @@ namespace Apptivate_UQMS_WebApp.Controllers
                     return NotFound();
                 }
 
-                // Fetch StudentID, DepartmentID, and CourseID by joining tables
                 var studentDetailQuery = await (
-         from student in _context.StudentDetails
-         join department in _context.Departments
-         on student.Department equals department.DepartmentName into deptGroup
-         from department in deptGroup.DefaultIfEmpty() // Ensure to handle cases where no department matches
-         join course in _context.Courses
-         on student.Course equals course.CourseCode into courseGroup // Use CourseCode for matching
-         from course in courseGroup.DefaultIfEmpty() // Ensure to handle cases where no course matches
-         where student.UserID == user.UserID
-         select new
-         {
-             student.StudentID,
-             DepartmentID = department != null ? department.DepartmentID : (int?)null,
-             CourseID = course != null ? course.CourseID : (int?)null,
-             student.Year
-         }).FirstOrDefaultAsync();
-
+                    from student in _context.StudentDetails
+                    join department in _context.Departments
+                    on student.Department equals department.DepartmentName into deptGroup
+                    from department in deptGroup.DefaultIfEmpty()
+                    join course in _context.Courses
+                    on student.Course equals course.CourseCode into courseGroup
+                    from course in courseGroup.DefaultIfEmpty()
+                    where student.UserID == user.UserID
+                    select new
+                    {
+                        student.StudentID,
+                        DepartmentID = department != null ? department.DepartmentID : (int?)null,
+                        CourseID = course != null ? course.CourseID : (int?)null,
+                        student.Year
+                    }).FirstOrDefaultAsync();
 
                 if (studentDetailQuery == null)
                 {
-                    _logger.LogError("Student details not found for UserID {UserID}. Check if UserID matches existing records and ensure Department and Course names are correct.", user.UserID);
+                    _logger.LogError("Student details not found for UserID {UserID}.", user.UserID);
                     return NotFound();
                 }
 
-                // Log the values for debugging
-                _logger.LogInformation("Query submission details:");
-                _logger.LogInformation("StudentID: {StudentID}, DepartmentID: {DepartmentID}, CourseID: {CourseID}",
-                    studentDetailQuery.StudentID, studentDetailQuery.DepartmentID, studentDetailQuery.CourseID);
-                _logger.LogInformation("QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}, Year: {Year}",
-                    model.QueryTypeID, model.CategoryID, studentDetailQuery.Year);
-
-                try
+                var query = new Query
                 {
-                    var query = new Query
+                    StudentID = studentDetailQuery.StudentID,
+                    QueryTypeID = model.QueryTypeID,
+                    CategoryID = model.CategoryID,
+                    DepartmentID = studentDetailQuery.DepartmentID ?? 0,
+                    CourseID = studentDetailQuery.CourseID ?? 0,
+                    Year = studentDetailQuery.Year,
+                    Status = "Pending",
+                    SubmissionDate = DateTime.Now
+                };
+
+                _context.Queries.Add(query);
+                await _context.SaveChangesAsync();
+
+                // Handle file upload
+                if (uploadedFile != null && uploadedFile.Length > 0)
+                {
+                    // Check file type
+                    var allowedExtensions = new[] { ".jpg", ".png", ".pdf", ".zip" };
+                    var fileExtension = Path.GetExtension(uploadedFile.FileName).ToLower();
+
+                    if (!allowedExtensions.Contains(fileExtension))
                     {
-                        StudentID = studentDetailQuery.StudentID,
-                        QueryTypeID = model.QueryTypeID,
-                        CategoryID = model.CategoryID,
-                        DepartmentID = studentDetailQuery.DepartmentID ?? 0, // Handle null properly
-                        CourseID = studentDetailQuery.CourseID ?? 0, // Handle null properly
-                        //ModuleID = model.ModuleID ?? 0,
-                        Year = studentDetailQuery.Year,
-                        Status = "Pending",
-                        SubmissionDate = DateTime.Now
-                    };
+                        _logger.LogWarning("Unsupported file type: {FileExtension}", fileExtension);
+                        ModelState.AddModelError("", "Unsupported file type. Please upload a .jpg, .png, .pdf, or .zip file.");
+                        return View("NewQuery/CreateQuery");
+                    }
 
-                    _context.Queries.Add(query);
-                    await _context.SaveChangesAsync();
-
-                    _logger.LogInformation("Query with ID {QueryID} successfully submitted.", query.QueryID);
-
-                    return RedirectToAction("CreateQuery"); // Redirect to CreateQuery view after submission
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex, "An error occurred while submitting the query.");
-                    return View("Error"); // Redirect to an error view or page
-                }
-            }
-
-            // Log detailed ModelState errors
-            foreach (var state in ModelState)
-            {
-                if (state.Value.Errors.Count > 0)
-                {
-                    foreach (var error in state.Value.Errors)
+                    try
                     {
-                        _logger.LogWarning("ModelState error for key {Key}: {ErrorMessage}", state.Key, error.ErrorMessage);
+                        var documentUrl = await _fileUploadService.UploadFileAsync(uploadedFile);
+
+                        // Save document details to the database
+                        var queryDocument = new QueryDocument
+                        {
+                            QueryID = query.QueryID,
+                            DocumentName = uploadedFile.FileName,
+                            DocumentPath = documentUrl,
+                            UploadDate = DateTime.Now
+                        };
+
+                        _context.QueryDocuments.Add(queryDocument);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError("File upload failed: {Message}", ex.Message);
+                        ModelState.AddModelError("", "File upload failed. Please try again.");
+                        return View("NewQuery/CreateQuery");
                     }
                 }
+
+                _logger.LogInformation("Query with ID {QueryID} successfully submitted.", query.QueryID);
+
+                return RedirectToAction("CreateQuery");
             }
 
             _logger.LogWarning("Model state is invalid for the query submission.");
             return View("NewQuery/CreateQuery");
         }
-
-
-
-
 
 
 

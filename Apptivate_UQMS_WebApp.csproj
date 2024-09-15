@@ -12,8 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FirebaseAdmin" Version="3.0.0" />
+    <PackageReference Include="DAQDataUploadThing" Version="2.0.0" />
+    <PackageReference Include="FirebaseAdmin" Version="2.2.0" />
     <PackageReference Include="Google.Apis.Auth" Version="1.68.0" />
+    <PackageReference Include="Google.Cloud.Storage.V1" Version="4.10.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
@@ -27,6 +29,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
+    <PackageReference Include="UploadThing.Core" Version="0.1.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -20,8 +20,7 @@
 <div class="query-form-section">
     <h2>Create a Query</h2>
     <p>Write and address new queries and issues</p>
-    <form class="query-form" asp-action="SubmitAcademicQuery" method="post">
-
+    <form class="query-form" asp-action="SubmitAcademicQuery" method="post" enctype="multipart/form-data">
         <input type="hidden" name="QueryTypeID" value="@queryTypeId" />
 
         <label for="query-category">Query Category</label>
@@ -32,20 +31,16 @@
             }
         </select>
 
-
-
         <label for="ticket-body">Ticket Body</label>
         <textarea id="ticket-body" name="TicketBody" rows="4" placeholder="Type query here..."></textarea>
 
-        <!-- 
         <div class="media-upload">
-            <p>Drag your file(s) to start uploading</p>
-            <span>OR</span>
             <label for="media-upload" class="upload-btn">Browse files</label>
-            <input type="file" id="media-upload" name="MediaUpload" style="display: none;">
-            <p class="file-types">Only support .jpg, .png, .svg, and .zip files</p>
+            <input type="file" id="media-upload" name="UploadedFile" style="display: block;" />
+            <p class="file-types">Only support .jpg, .png, .pdf, and .zip files</p>
         </div>
-        -->
+
         <button type="submit">Submit</button>
     </form>
+
 </div>

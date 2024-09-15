@@ -1,17 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "I8xcPHAbOJ0ksLdQLXUdO5Q4EOhPfRcPaUC1xIxU5/G4epmDGgSBLZxkuPX8mCc7s18kgv/ZRjuKu9IXimfERQ==",
+  "dgSpecHash": "b5Nf92PeSja0jrXeDcq3FxE8ndV3Hi7IZ6PWLjBISn5eOTbz3F/+KlWLyjApHVIf62CRUjGS4865VtRGlUTWAQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\Apptivate_UQMS_WebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\trent\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
-    "C:\\Users\\trent\\.nuget\\packages\\firebaseadmin\\3.0.0\\firebaseadmin.3.0.0.nupkg.sha512",
+    "C:\\Users\\trent\\.nuget\\packages\\daqdatauploadthing\\2.0.0\\daqdatauploadthing.2.0.0.nupkg.sha512",
+    "C:\\Users\\trent\\.nuget\\packages\\firebaseadmin\\2.2.0\\firebaseadmin.2.2.0.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\google.api.gax\\4.8.0\\google.api.gax.4.8.0.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\google.api.gax.rest\\4.8.0\\google.api.gax.rest.4.8.0.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\google.apis\\1.68.0\\google.apis.1.68.0.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\google.apis.auth\\1.68.0\\google.apis.auth.1.68.0.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\google.apis.core\\1.68.0\\google.apis.core.1.68.0.nupkg.sha512",
+    "C:\\Users\\trent\\.nuget\\packages\\google.apis.storage.v1\\1.67.0.3365\\google.apis.storage.v1.1.67.0.3365.nupkg.sha512",
+    "C:\\Users\\trent\\.nuget\\packages\\google.cloud.storage.v1\\4.10.0\\google.cloud.storage.v1.4.10.0.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -141,7 +144,7 @@
     "C:\\Users\\trent\\.nuget\\packages\\nuget.protocol\\6.9.1\\nuget.protocol.6.9.1.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\nuget.versioning\\6.9.1\\nuget.versioning.6.9.1.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
-    "C:\\Users\\trent\\.nuget\\packages\\system.collections.immutable\\8.0.0\\system.collections.immutable.8.0.0.nupkg.sha512",
+    "C:\\Users\\trent\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\system.composition\\7.0.0\\system.composition.7.0.0.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\system.composition.attributedmodel\\7.0.0\\system.composition.attributedmodel.7.0.0.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\system.composition.convention\\7.0.0\\system.composition.convention.7.0.0.nupkg.sha512",
@@ -179,7 +182,19 @@
     "C:\\Users\\trent\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\system.threading.tasks.dataflow\\7.0.0\\system.threading.tasks.dataflow.7.0.0.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\trent\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
+    "C:\\Users\\trent\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512",
+    "C:\\Users\\trent\\.nuget\\packages\\uploadthing.core\\0.1.0\\uploadthing.core.0.1.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'DAQDataUploadThing 2.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "DAQDataUploadThing",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

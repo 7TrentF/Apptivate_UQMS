@@ -18,10 +18,19 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Firebase initialization
 var firebaseConfigPath = Path.Combine(Directory.GetCurrentDirectory(), "Properties", "uqms-firebase-adminsdk.json");
+
 FirebaseApp.Create(new AppOptions()
 {
     Credential = GoogleCredential.FromFile(firebaseConfigPath),
 });
+
+if (!File.Exists(firebaseConfigPath))
+{
+    throw new FileNotFoundException("Firebase configuration file not found.", firebaseConfigPath);
+}
+
+builder.Services.AddTransient<FileUploadService>();
+
 
 // Register FirebaseAuthService 
 builder.Services.AddScoped<FirebaseAuthService>();
@@ -52,6 +61,8 @@ builder.Services.AddControllersWithViews(options =>
                     .Build();
     options.Filters.Add(new AuthorizeFilter(policy));
 });
+
+builder.Services.AddTransient<FileUploadService>();
 
 
 
