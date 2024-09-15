@@ -5,8 +5,6 @@
     var studentDetail = ViewBag.StudentDetail as Apptivate_UQMS_WebApp.Models.Account.StudentDetail;
 }
 
-
-
 <h1>Submit an Academic Query</h1>
 
 <div class="student-details-card">
@@ -32,7 +30,16 @@
         </select>
 
         <label for="ticket-body">Ticket Body</label>
-        <textarea id="ticket-body" name="TicketBody" rows="4" placeholder="Type query here..."></textarea>
+        <textarea id="ticket-body" name="Description" rows="4" maxlength="150" placeholder="Type query here..." required></textarea>
+        <p id="charCount" class="character-limit">Maximum 150 characters</p>
+
+        @if (ViewData.ModelState["Description"]?.Errors.Count > 0)
+        {
+            <div class="error-message">
+                @ViewData.ModelState["Description"]?.Errors[0].ErrorMessage
+            </div>
+        }
+
 
         <div class="media-upload">
             <label for="media-upload" class="upload-btn">Browse files</label>
@@ -42,5 +49,17 @@
 
         <button type="submit">Submit</button>
     </form>
-
 </div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ticketBody = document.getElementById('ticket-body');
+        var charCount = document.getElementById('charCount');
+
+        ticketBody.addEventListener('input', function () {
+            var remaining = 150 - ticketBody.value.length;
+            charCount.innerHTML = `Maximum 150 characters.<br>Remaining: ${remaining} characters`;  // Use innerHTML instead of textContent to render HTML
+        });
+    });
+</script>

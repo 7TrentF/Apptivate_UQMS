@@ -13,12 +13,12 @@ namespace Apptivate_UQMS_WebApp.Controllers
     public class QueryController : Controller
     {
         private readonly ApplicationDbContext _context; // Inject _context
-        private readonly ILogger<QueryController> _logger;  // Inject ILogger
-        private readonly FileUploadService _fileUploadService;  // Inject fileUploadService
+        private readonly ILogger<QueryController> _logger;  // Inject ILogger 
+        private readonly IQueryService _queryService;  // Inject IQueryService
 
-        public QueryController(FileUploadService fileUploadService, ApplicationDbContext context, ILogger<QueryController> logger)
+        public QueryController(IQueryService queryService, ApplicationDbContext context, ILogger<QueryController> logger)
         {
-            _fileUploadService = fileUploadService;
+            _queryService = queryService;
             _context = context;
             _logger = logger;
         }
@@ -144,100 +144,28 @@ namespace Apptivate_UQMS_WebApp.Controllers
                     _logger.LogError("User not logged in.");
                     return RedirectToAction("Login", "Account");
                 }
-
-                var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
-
-                if (user == null)
+                // Check length of the Description field
+                if (model.Description.Length > 150)
                 {
-                    _logger.LogError("User with FirebaseUID {FirebaseUID} not found.", firebaseUid);
-                    return NotFound();
+                    ModelState.AddModelError("Description", "Description cannot be longer than 150 characters.");
+                    return View("NewQuery/AcademicQuery"); // Return the form if validation fails
                 }
 
-                var studentDetailQuery = await (
-                    from student in _context.StudentDetails
-                    join department in _context.Departments
-                    on student.Department equals department.DepartmentName into deptGroup
-                    from department in deptGroup.DefaultIfEmpty()
-                    join course in _context.Courses
-                    on student.Course equals course.CourseCode into courseGroup
-                    from course in courseGroup.DefaultIfEmpty()
-                    where student.UserID == user.UserID
-                    select new
-                    {
-                        student.StudentID,
-                        DepartmentID = department != null ? department.DepartmentID : (int?)null,
-                        CourseID = course != null ? course.CourseID : (int?)null,
-                        student.Year
-                    }).FirstOrDefaultAsync();
-
-                if (studentDetailQuery == null)
+                try
                 {
-                    _logger.LogError("Student details not found for UserID {UserID}.", user.UserID);
-                    return NotFound();
+                    await _queryService.SubmitAcademicQueryAsync(model, uploadedFile, firebaseUid);
+                    return RedirectToAction("CreateQuery");
                 }
-
-                var query = new Query
+                catch (Exception ex)
                 {
-                    StudentID = studentDetailQuery.StudentID,
-                    QueryTypeID = model.QueryTypeID,
-                    CategoryID = model.CategoryID,
-                    DepartmentID = studentDetailQuery.DepartmentID ?? 0,
-                    CourseID = studentDetailQuery.CourseID ?? 0,
-                    Year = studentDetailQuery.Year,
-                    Status = "Pending",
-                    SubmissionDate = DateTime.Now
-                };
-
-                _context.Queries.Add(query);
-                await _context.SaveChangesAsync();
-
-                // Handle file upload
-                if (uploadedFile != null && uploadedFile.Length > 0)
-                {
-                    // Check file type
-                    var allowedExtensions = new[] { ".jpg", ".png", ".pdf", ".zip" };
-                    var fileExtension = Path.GetExtension(uploadedFile.FileName).ToLower();
-
-                    if (!allowedExtensions.Contains(fileExtension))
-                    {
-                        _logger.LogWarning("Unsupported file type: {FileExtension}", fileExtension);
-                        ModelState.AddModelError("", "Unsupported file type. Please upload a .jpg, .png, .pdf, or .zip file.");
-                        return View("NewQuery/CreateQuery");
-                    }
-
-                    try
-                    {
-                        var documentUrl = await _fileUploadService.UploadFileAsync(uploadedFile);
-
-                        // Save document details to the database
-                        var queryDocument = new QueryDocument
-                        {
-                            QueryID = query.QueryID,
-                            DocumentName = uploadedFile.FileName,
-                            DocumentPath = documentUrl,
-                            UploadDate = DateTime.Now
-                        };
-
-                        _context.QueryDocuments.Add(queryDocument);
-                        await _context.SaveChangesAsync();
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.LogError("File upload failed: {Message}", ex.Message);
-                        ModelState.AddModelError("", "File upload failed. Please try again.");
-                        return View("NewQuery/CreateQuery");
-                    }
+                    _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
+                    ModelState.AddModelError("", ex.Message);
                 }
-
-                _logger.LogInformation("Query with ID {QueryID} successfully submitted.", query.QueryID);
-
-                return RedirectToAction("CreateQuery");
             }
 
             _logger.LogWarning("Model state is invalid for the query submission.");
             return View("NewQuery/CreateQuery");
         }
-
 
 
         [HttpPost]

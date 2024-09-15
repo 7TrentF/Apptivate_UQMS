@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container
 builder.Services.AddControllersWithViews();
 
 // Configure Entity Framework Core
@@ -19,23 +19,22 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Firebase initialization
 var firebaseConfigPath = Path.Combine(Directory.GetCurrentDirectory(), "Properties", "uqms-firebase-adminsdk.json");
 
-FirebaseApp.Create(new AppOptions()
-{
-    Credential = GoogleCredential.FromFile(firebaseConfigPath),
-});
-
 if (!File.Exists(firebaseConfigPath))
 {
     throw new FileNotFoundException("Firebase configuration file not found.", firebaseConfigPath);
 }
 
+FirebaseApp.Create(new AppOptions()
+{
+    Credential = GoogleCredential.FromFile(firebaseConfigPath),
+});
+
+// Register services
 builder.Services.AddTransient<FileUploadService>();
-
-
-// Register FirebaseAuthService 
 builder.Services.AddScoped<FirebaseAuthService>();
-
 builder.Services.AddHttpClient<FirebaseAuthService>();
+builder.Services.AddScoped<IUserRegistrationService, UserRegistrationService>();
+builder.Services.AddScoped<IQueryService, QuerySubmissionService>(); // Add this line
 
 // Add authentication
 builder.Services.AddAuthentication(options =>
@@ -45,28 +44,10 @@ builder.Services.AddAuthentication(options =>
 })
 .AddScheme<AuthenticationSchemeOptions, FirebaseAuthenticationHandler>("Firebase", null);
 
-
 // Configure logging
 builder.Logging.ClearProviders(); // Optional: Clears default providers
 builder.Logging.AddConsole(); // Add console logging
 builder.Logging.AddDebug(); // Add debug logging (visible in Debug output window)
-
-//builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<IUserRegistrationService, UserRegistrationService>();
-
-builder.Services.AddControllersWithViews(options =>
-{
-    var policy = new AuthorizationPolicyBuilder()
-                    .RequireAuthenticatedUser()
-                    .Build();
-    options.Filters.Add(new AuthorizeFilter(policy));
-});
-
-builder.Services.AddTransient<FileUploadService>();
-
-
-
-
 
 // Add session services
 builder.Services.AddDistributedMemoryCache();
@@ -97,8 +78,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-//app.UseMiddleware<SessionMiddleware>();
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -113,4 +92,3 @@ app.MapControllerRoute(
     pattern: "{controller=Account}/{action=Login}/{id?}");
 
 app.Run();
-

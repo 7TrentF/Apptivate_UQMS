@@ -21,6 +21,9 @@ namespace Apptivate_UQMS_WebApp.Models
             public int? CategoryID { get; set; } // Foreign Key to QueryCategory
             public QueryCategory? Category { get; set; }
 
+            [StringLength(150, ErrorMessage = "Description cannot be longer than 150 characters.")]
+            public string? Description { get; set; }
+
             public string? Status { get; set; }
             public DateTime? SubmissionDate { get; set; }
             public DateTime? ResolvedDate { get; set; }
