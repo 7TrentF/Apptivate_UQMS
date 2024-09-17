@@ -8,6 +8,7 @@ using Google.Cloud.Storage.V1;
 using Google.Apis.Storage.v1.Data;
 using Google.Apis.Auth.OAuth2;
 using Apptivate_UQMS_WebApp.Services;
+using static Apptivate_UQMS_WebApp.Models.Account;
 namespace Apptivate_UQMS_WebApp.Controllers
 {
     public class QueryController : Controller
@@ -164,87 +165,108 @@ namespace Apptivate_UQMS_WebApp.Controllers
             }
 
             _logger.LogWarning("Model state is invalid for the query submission.");
-            return View("NewQuery/CreateQuery");
+            return View("NewQuery/QuerySubmitted");
         }
 
 
         [HttpPost]
-        public IActionResult SubmitAdministrativeQuery(QueryModel model)
+        public async Task<IActionResult> SubmitAdministrativeQuery(Query model, IFormFile uploadedFile)
         {
             if (ModelState.IsValid)
             {
-                // Process the administrative query here (e.g., save to database)
-                return RedirectToAction("Confirmation");
+                var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+                if (firebaseUid == null)
+                {
+                    _logger.LogError("User not logged in.");
+                    return RedirectToAction("Login", "Account");
+                }
+                // Check length of the Description field
+                if (model.Description.Length > 150)
+                {
+                    ModelState.AddModelError("Description", "Description cannot be longer than 150 characters.");
+                    return View("NewQuery/AcademicQuery"); // Return the form if validation fails
+                }
+
+                try
+                {
+                    await _queryService.SubmitAcademicQueryAsync(model, uploadedFile, firebaseUid);
+                    return RedirectToAction("QuerySubmitted");
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
+                    ModelState.AddModelError("", ex.Message);
+                }
             }
-            return View("Administrative");
+
+            _logger.LogWarning("Model state is invalid for the query submission.");
+            return View("NewQuery/QuerySubmitted");
         }
 
-        
+
+
         public IActionResult Confirmation()
         {
             return View();
         }
-        
-
-        /*
-
-       [HttpGet]
-       public IActionResult SubmitQuery()
-       {
-           var model = new SubmitQueryViewModel
-           {
-               Departments = _context.Departments.ToList(),
-               Courses = _context.Courses.ToList(),
-               Modules = _context.Modules.ToList()
-           };
-           return View(model);
-       }
 
 
-       [HttpPost]
-       public async Task<IActionResult> SubmitQuery(SubmitQueryViewModel model)
-       {
-           if (ModelState.IsValid)
-           {
-               var query = new Query
-               {
-                   QueryTypeID = model.QueryTypeID,  // Ideally, you would get this from the logged-in user
-                  // Category = model.Category,
-                   DepartmentID = model.DepartmentID,
-                   CourseID = model.CourseID,
-                   ModuleID = model.ModuleID,
-                   Year = model.Year,
-                   Status = "Pending",
-                   SubmissionDate = DateTime.Now
-               };
 
-               _context.Queries.Add(query);
-               await _context.SaveChangesAsync();
-
-               return RedirectToAction("QuerySubmitted");
-           }
-
-           // Re-populate dropdowns if model is invalid
-           model.Departments = _context.Departments.ToList();
-           model.Courses = _context.Courses.ToList();
-           model.Modules = _context.Modules.ToList();
-           return View(model);
-       }
-
-       */
-
-        // Action for displaying all tickets
-        public ActionResult AllTickets()
+        [HttpGet]
+        public async Task<IActionResult> AllTickets()
         {
-            // var allTickets = _ticketService.GetAllTickets(); // Uncomment and use your service to fetch tickets
-            return PartialView("Query/QueryOverview/AllTickets.cshtml");
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+            _logger.LogInformation("FirebaseUID: {0}", firebaseUid ?? "null");
+
+            if (firebaseUid == null)
+            {
+                _logger.LogError("User not logged in.");
+                return RedirectToAction("Login", "Account");
+            }
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+            _logger.LogInformation("User found: {0}", user?.UserID.ToString() ?? "null");
+
+            if (user == null)
+            {
+                _logger.LogError("User not found.");
+                return RedirectToAction("Error", "Home");
+            }
+
+            var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+            _logger.LogInformation("Student details found: {0}", studentDetail?.StudentID.ToString() ?? "null");
+
+            if (studentDetail == null)
+            {
+                _logger.LogError("Student details not found.");
+                return RedirectToAction("Error", "Home");
+            }
+
+            _logger.LogInformation("StudentID: {0}", studentDetail.StudentID);
+
+            // Fetch user queries based on the student's ID
+            var userQueries = await _context.Queries
+                .Where(q => q.StudentID == studentDetail.StudentID)
+                .ToListAsync(); // Assuming QueryModel
+
+            _logger.LogInformation("Number of queries found: {0}", userQueries.Count);
+
+            if (userQueries.Count == 0)
+            {
+                _logger.LogWarning("No queries found for StudentID: {0}", studentDetail.StudentID);
+            }
+
+            return PartialView("QueryOverview/AllTickets", userQueries);
         }
+
+
 
         // Action for displaying new tickets
         public ActionResult NewTickets()
         {
             // var newTickets = _ticketService.GetTicketsByStatus("New");
-            return PartialView("Views/Queries/QueryOverview/NewTickets.cshtml");
+            return PartialView("QueryOverview/NewTickets");
         }
 
         // Action for displaying ongoing tickets

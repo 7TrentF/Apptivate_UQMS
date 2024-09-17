@@ -14,43 +14,49 @@
     <p><strong>Course:</strong> @studentDetail.Course</p>
     <p><strong>Year:</strong> @studentDetail.Year</p>
 </div>
-
 <div class="query-form-section">
     <h2>Create a Query</h2>
-    <p>Write and address new queries and issues</p>
+    <p class="form-description">Submit your queries or issues, and we will address them promptly.</p>
+
     <form class="query-form" asp-action="SubmitAcademicQuery" method="post" enctype="multipart/form-data">
         <input type="hidden" name="QueryTypeID" value="@queryTypeId" />
 
-        <label for="query-category">Query Category</label>
-        <select id="query-category" name="CategoryID">
-            @foreach (var category in categories)
-            {
-                <option value="@category.CategoryID">@category.CategoryName</option>
-            }
-        </select>
-
-        <label for="ticket-body">Ticket Body</label>
-        <textarea id="ticket-body" name="Description" rows="4" maxlength="150" placeholder="Type query here..." required></textarea>
-        <p id="charCount" class="character-limit">Maximum 150 characters</p>
-
-        @if (ViewData.ModelState["Description"]?.Errors.Count > 0)
-        {
-            <div class="error-message">
-                @ViewData.ModelState["Description"]?.Errors[0].ErrorMessage
-            </div>
-        }
-
-
-        <div class="media-upload">
-            <label for="media-upload" class="upload-btn">Browse files</label>
-            <input type="file" id="media-upload" name="UploadedFile" style="display: block;" />
-            <p class="file-types">Only support .jpg, .png, .pdf, and .zip files</p>
+        <!-- Query Category Selection -->
+        <div class="form-group">
+            <label for="query-category">Query Category</label>
+            <select id="query-category" name="CategoryID" class="custom-select">
+                @foreach (var category in categories)
+                {
+                    <option value="@category.CategoryID">@category.CategoryName</option>
+                }
+            </select>
         </div>
 
-        <button type="submit">Submit</button>
+        <!-- Ticket Body -->
+        <div class="form-group">
+            <label for="ticket-body">Ticket Body</label>
+            <textarea id="ticket-body" name="Description" rows="4" maxlength="150" placeholder="Type your query here..." required class="form-control"></textarea>
+            <p id="charCount" class="character-limit">Maximum 150 characters</p>
+
+            @if (ViewData.ModelState["Description"]?.Errors.Count > 0)
+            {
+                <div class="error-message">
+                    @ViewData.ModelState["Description"]?.Errors[0].ErrorMessage
+                </div>
+            }
+        </div>
+
+        <!-- File Upload Section -->
+        <div class="media-upload">
+            <label for="media-upload" class="upload-btn">Browse files</label>
+            <input type="file" id="media-upload" name="UploadedFile" style="display: none;" />
+            <p class="file-types">Supported formats: .jpg, .png, .pdf, .zip</p>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-submit">Submit Query</button>
     </form>
 </div>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -59,7 +65,7 @@
 
         ticketBody.addEventListener('input', function () {
             var remaining = 150 - ticketBody.value.length;
-            charCount.innerHTML = `Maximum 150 characters.<br>Remaining: ${remaining} characters`;  
+            charCount.innerHTML = `Maximum 150 characters.<br>Remaining: ${remaining} characters`;
         });
     });
 </script>

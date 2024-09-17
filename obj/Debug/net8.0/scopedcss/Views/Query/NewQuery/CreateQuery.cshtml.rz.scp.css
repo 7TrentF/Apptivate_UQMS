@@ -1,98 +1,61 @@
-.query-box[b-bsyhkuypwj] {
-    width: 200px;
-    height: 200px;
-    background-color: #f5f7fa; /* Light gray background */
-    border-radius: 15px; /* Rounded corners */
-    padding: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for modern look */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Container styling */
+.create-query-container[b-bsyhkuypwj] {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
-
-    .query-box h3[b-bsyhkuypwj] {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .query-box p[b-bsyhkuypwj] {
-        font-size: 14px;
-        color: #6c757d;
-        margin-bottom: 15px;
-    }
-
-.new-query-btn[b-bsyhkuypwj] {
-    background-color: #e9ecef; /* Light button background */
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    color: #343a40;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-    .new-query-btn:hover[b-bsyhkuypwj] {
-        background-color: #ced4da; /* Darker background on hover */
-    }
-
-    .new-query-btn span[b-bsyhkuypwj] {
-        display: inline-block;
-    }
-
-/* CreateQuery.cshtml.css */
 
 /* General card styles */
 .card[b-bsyhkuypwj] {
-    border-radius: 10px;
+    border-radius: 12px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    min-height: 250px;
+    min-height: 300px;
 }
 
     .card:hover[b-bsyhkuypwj] {
-        transform: scale(1.05);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
-
-        /* Change the button style when the card is hovered */
-        .card:hover .btn-primary[b-bsyhkuypwj] {
-            background-color: white; /* Button background turns white */
-            color: #007bff; /* Button text turns blue */
-            border: 1px solid #007bff; /* Add a blue border to the button */
-        }
-
-/* Default button style */
-.btn-primary[b-bsyhkuypwj] {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-    /* Normal button hover */
-    .btn-primary:hover[b-bsyhkuypwj] {
-        background-color: #0056b3;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
 .card-body[b-bsyhkuypwj] {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-/* Media queries for responsive design */
+/* Card title and text */
+.card-title[b-bsyhkuypwj] {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.card-text[b-bsyhkuypwj] {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+/* Button styles */
+.btn-primary[b-bsyhkuypwj] {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s;
+}
+
+    .btn-primary:hover[b-bsyhkuypwj] {
+        background-color: #0056b3;
+        color: white;
+        transform: scale(1.05);
+    }
+
+/* Responsive design */
 @media (max-width: 767px) {
     .card[b-bsyhkuypwj] {
-        min-height: 200px;
+        min-height: 250px;
     }
 
     .card-title[b-bsyhkuypwj] {
@@ -106,12 +69,12 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
     .card[b-bsyhkuypwj] {
-        min-height: 220px;
+        min-height: 280px;
     }
 }
 
 @media (min-width: 992px) {
     .card[b-bsyhkuypwj] {
-        min-height: 250px;
+        min-height: 300px;
     }
 }
