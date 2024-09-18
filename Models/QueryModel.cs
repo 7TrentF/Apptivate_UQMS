@@ -39,6 +39,16 @@ namespace Apptivate_UQMS_WebApp.Models
             public Feedback? Feedback { get; set; }
         }
 
+        public enum QueryStatus
+        {
+            Pending,
+            UnderReview,
+            InProgress,
+            OnHold,
+            Resolved,
+            Closed,
+            Cancelled
+        }
 
 
 

@@ -12,6 +12,7 @@ using static Apptivate_UQMS_WebApp.Models.Account;
 using Microsoft.AspNetCore.Authorization;
 namespace Apptivate_UQMS_WebApp.Controllers
 {
+
     [Authorize(Roles = "Student")]
     public class QueryController : Controller
     {
