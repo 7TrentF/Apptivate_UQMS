@@ -313,6 +313,10 @@
       "PackagePath": "staticwebassets\\css\\Queries.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\QueryTabs.css",
+      "PackagePath": "staticwebassets\\css\\QueryTabs.css"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Register.css",
       "PackagePath": "staticwebassets\\css\\Register.css"
     },

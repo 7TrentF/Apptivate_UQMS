@@ -1,12 +1,16 @@
 ﻿@model Apptivate_UQMS_WebApp.Models.Account.UserProfileViewModel
 
 <link rel="stylesheet" type="text/css" href="~/css/UserProfile.css" />
-  
-            <h1>Apptivate User Profile</h1>
-      
 
-     
-    <div class="profile-card">
+<div class="background">
+<div class="header">
+            <h1>Apptivate User Profile</h1>
+</div>
+
+
+
+
+<div class="profile-card">
         <!-- Profile Image Section -->
         <div class="profile-image">
             <img src="~/Svgs/profile-1341" class="profile-pic">
@@ -25,7 +29,7 @@
             <!-- Student Details Section -->
             @if (Model.StudentDetail != null)
             {
-                <h3>Student Details</h3>
+                <h2>Student Details:</h2>
                 <div class="profile-sections">
                     <div class="profile-section">
                         <h3>Department</h3>
@@ -37,14 +41,14 @@
                     </div>
                     <div class="profile-section">
                         <h3>Year</h3>
-                        <p>@Model.StudentDetail.Year</p>
+                        <p>@Model.StudentDetail.Year st Year Student</p>
                     </div>
                 </div>
             }
         <!-- Staff Details Section -->
         @if (Model.StaffDetail != null)
         {
-            <h3>Staff Details</h3>
+            <h2>Staff Details</h2>
             <div class="profile-sections">
                 <div class="profile-section">
                     <h3>Department</h3>
@@ -58,7 +62,9 @@
             </div>
         }
 
-
+    </div>
+</div>
+</div>
 
 
 @section Scripts {

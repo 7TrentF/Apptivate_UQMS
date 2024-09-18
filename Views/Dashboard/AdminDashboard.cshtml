@@ -2,12 +2,14 @@
     ViewData["Title"] = "Dashboard";
 }
 
+
+
 <div class="dashboard-container">
     <!-- Header -->
     <header class="dashboard-header">
         <img src="~/Images/university_logo.png" alt="University Logo" class="logo">
         <div class="user-info">
-            <span>@User.Identity.Name</span>
+
             <span class="user-role">Role: @ViewBag.UserRole</span>
         </div>
         <a href="/Account/Logout" class="logout-btn">Logout</a>
@@ -38,6 +40,10 @@
                 <p>12</p>
             </div>
         </div>
+
+
+
+
 
         <!-- Recent Queries Table -->
         <h2>Recent Queries</h2>

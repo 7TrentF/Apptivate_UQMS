@@ -1,18 +1,37 @@
-﻿@* NewTickets.cshtml *@
+﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>
+
 <div class="tickets">
-    <div class="ticket">
-        <div class="ticket-header">
-            <span class="ticket-id">Ticket# 2023-CS124</span>
-            <span class="ticket-priority">Normal Priority</span>
-        </div>
-        <div class="ticket-body">
-            <p>How to change my account settings?</p>
-            <span class="ticket-time">Posted at 1:00 PM</span>
-        </div>
-        <div class="ticket-footer">
-            <span class="ticket-author">Shakashi Patel</span>
-            <a href="#">Open Ticket</a>
-        </div>
-    </div>
-    <!-- Repeat ticket structure as needed -->
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var query in Model)
+        {
+            <div class="ticket">
+                <div class="ticket-header">
+                    <span class="ticket-id">Ticket# @query.QueryID</span>
+                    <span class="ticket-priority">@query.Status</span>
+                </div>
+                <div class="ticket-body">
+                    <span class="ticket-Description">@query.Description</span>
+                </div>
+                <div class="ticket-footer">
+                    <span class="ticket-time">Submitted on: @query.SubmissionDate?.ToString("f")</span>
+                    <a href="#">Open Ticket</a>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No tickets found.</p>
+    }
+</div>
+
+<div class="pagination">
+    @if (ViewBag.TotalPages > 1)
+    {
+        for (int i = 1; i <= ViewBag.TotalPages; i++)
+        {
+            <a href="@Url.Action("Queries", new { page = i })" class="page-number @(i == ViewBag.CurrentPage ? "active" : "")">@i</a>
+        }
+    }
 </div>

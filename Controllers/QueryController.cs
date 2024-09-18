@@ -9,8 +9,10 @@ using Google.Apis.Storage.v1.Data;
 using Google.Apis.Auth.OAuth2;
 using Apptivate_UQMS_WebApp.Services;
 using static Apptivate_UQMS_WebApp.Models.Account;
+using Microsoft.AspNetCore.Authorization;
 namespace Apptivate_UQMS_WebApp.Controllers
 {
+    [Authorize(Roles = "Student")]
     public class QueryController : Controller
     {
         private readonly ApplicationDbContext _context; // Inject _context
@@ -212,76 +214,86 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
 
-
-        [HttpGet]
         public async Task<IActionResult> AllTickets()
         {
+            // Get Firebase UID from session
             var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
-            _logger.LogInformation("FirebaseUID: {0}", firebaseUid ?? "null");
 
             if (firebaseUid == null)
             {
-                _logger.LogError("User not logged in.");
                 return RedirectToAction("Login", "Account");
             }
 
+            // Get the user from the database based on Firebase UID
             var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
-            _logger.LogInformation("User found: {0}", user?.UserID.ToString() ?? "null");
 
             if (user == null)
             {
-                _logger.LogError("User not found.");
                 return RedirectToAction("Error", "Home");
             }
 
+            // Get student details from the database based on user ID
             var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
-            _logger.LogInformation("Student details found: {0}", studentDetail?.StudentID.ToString() ?? "null");
 
             if (studentDetail == null)
             {
-                _logger.LogError("Student details not found.");
                 return RedirectToAction("Error", "Home");
             }
 
-            _logger.LogInformation("StudentID: {0}", studentDetail.StudentID);
-
-            // Fetch user queries based on the student's ID
+            // Fetch all queries for the student
             var userQueries = await _context.Queries
                 .Where(q => q.StudentID == studentDetail.StudentID)
-                .ToListAsync(); // Assuming QueryModel
-
-            _logger.LogInformation("Number of queries found: {0}", userQueries.Count);
-
-            if (userQueries.Count == 0)
-            {
-                _logger.LogWarning("No queries found for StudentID: {0}", studentDetail.StudentID);
-            }
+                .ToListAsync();
 
             return PartialView("QueryOverview/AllTickets", userQueries);
         }
 
 
-
         // Action for displaying new tickets
-        public ActionResult NewTickets()
+        public async Task<IActionResult> NewTickets()
         {
-            // var newTickets = _ticketService.GetTicketsByStatus("New");
-            return PartialView("QueryOverview/NewTickets");
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+            var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+
+            // Fetch new tickets for the student
+            var newTickets = await _context.Queries
+                .Where(q => q.StudentID == studentDetail.StudentID && q.Status == "New")
+                .ToListAsync();
+
+            return PartialView("QueryOverview/NewTickets", newTickets);
         }
 
         // Action for displaying ongoing tickets
-        public ActionResult OnGoingTickets()
+        public async Task<IActionResult> OnGoingTickets()
         {
-            // var onGoingTickets = _ticketService.GetTicketsByStatus("On-Going");
-            return PartialView("QueryOverview/OnGoingTickets");
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+            var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+
+            // Fetch ongoing tickets for the student
+            var ongoingTickets = await _context.Queries
+                .Where(q => q.StudentID == studentDetail.StudentID && q.Status == "On-going")
+                .ToListAsync();
+
+            return PartialView("QueryOverview/OnGoingTickets", ongoingTickets);
         }
 
         // Action for displaying resolved tickets
-        public ActionResult ResolvedTickets()
+        public async Task<IActionResult> ResolvedTickets()
         {
-            // var resolvedTickets = _ticketService.GetTicketsByStatus("Resolved");
-            return PartialView("QueryOverview/ResolvedTickets");
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+            var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+
+            // Fetch resolved tickets for the student
+            var resolvedTickets = await _context.Queries
+                .Where(q => q.StudentID == studentDetail.StudentID && q.Status == "Resolved")
+                .ToListAsync();
+
+            return PartialView("QueryOverview/ResolvedTickets", resolvedTickets);
         }
+
 
         public IActionResult Queries()
         {

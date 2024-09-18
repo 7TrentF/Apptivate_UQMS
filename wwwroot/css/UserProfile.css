@@ -14,12 +14,26 @@
 body, html {
     height: 100%;
     font-family: Arial, sans-serif;
+}r
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
+
+    .header h1 {
+        font-size: 2.5rem; /* Increased for better visibility */
+        margin-left: 8rem; /* Add margin to prevent overlap */
+    }
+
 
 .user-profile-container {
     display: flex;
     justify-content: center;
-    width: 80vw; /* Use viewport width for responsiveness */
+    width: 40vw; /* Use viewport width for responsiveness */
     align-items: center;
     height: 0vh;
     background-color: white;
@@ -32,9 +46,9 @@ body, html {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     width: 80vw; /* Use viewport width for responsiveness */
     height: 35vw;
-    padding: 40px;
+    padding: 50px;
     margin-top: 5vw;
-    margin-left: 2vw;
+    margin-left: 5vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -104,7 +118,8 @@ body, html {
 
 .profile-section {
     background-color: #f9f9f9;
-    padding: 20px;
+    padding: 30px;
+    margin: 1rem;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transition for hover effects */
@@ -112,8 +127,8 @@ body, html {
 
     .profile-section:hover {
         transform: scale(1.05); /* Slightly increases size on hover */
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deepens the shadow on hover */
-        border-color: #56dfea; /* Change border color to #56dfea on hover */
+        box-shadow: 0 8px 80px rgba(0, 0, 0, 0.2); /* Deepens the shadow on hover */
+        background-color: aqua; /* Change border color to #56dfea on hover */
     }
 
     .profile-section h3 {

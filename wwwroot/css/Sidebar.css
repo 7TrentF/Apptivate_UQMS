@@ -2,23 +2,25 @@
     font-family: Arial, sans-serif;
     display: flex;
     min-height: 100vh;
+    margin: 0; /* Ensure no unwanted body margins */
 }
 
 #sidebar {
+    /*   
     display: flex;
-    flex-direction: column; /* Ensure the sidebar content flows vertically */
-    width: 12vw;
-    height: 100vh; /* Full height of the viewport */
+    flex-direction: column;
+        */
+    width: 12vw; /* Sidebar takes up 12% of the screen width */
+    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    margin-right: 2vw;
     z-index: 100;
     padding: 18px 0 0;
     overflow-x: hidden;
     overflow-y: auto;
     transition: width 0.3s ease;
-    background-color: white; /* Background color */
+    background-color: white;
 }
 
 .sidebar-content {
@@ -30,17 +32,20 @@
 
 #sidebar.sidebar-collapsed {
     width: 60px; /* Adjust to the width when collapsed */
-    margin-left: 10px;
+    /*    margin-left: 10px;*/
 }
 
 .container {
-    margin-left: 250px;
+    margin-left: calc(12vw + 20px); /* Adjust margin-left to match sidebar width */
     padding: 20px;
     transition: margin-left 0.3s ease;
+    width: calc(100% - 12vw); /* Ensure the container takes up remaining space */
+    box-sizing: border-box;
 }
 
 #sidebar.sidebar-collapsed + .container {
-    margin-left: 60px; /* Match the collapsed width */
+    margin-left: 80px; /* Adjust based on collapsed sidebar */
+    width: calc(100% - 80px);
 }
 
 #sidebar .nav-link {
@@ -157,4 +162,27 @@ form button {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center profile and logout button */
+}
+
+/* Adjust spacing for smaller screens */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 50px;
+    }
+
+    .container {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+    }
+}
+
+/* Adjust spacing for very small screens */
+@media (max-width: 480px) {
+    #sidebar {
+        width: 40px;
+    }
+
+    .container {
+        margin-left: 50px;
+    }
 }

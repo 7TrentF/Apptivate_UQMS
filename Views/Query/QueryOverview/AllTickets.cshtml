@@ -1,28 +1,27 @@
 ﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>
-@if (Model != null && Model.Any())
-{
-    <div class="tickets">
+
+<div class="tickets">
+    @if (Model != null && Model.Any())
+    {
         @foreach (var query in Model)
         {
             <div class="ticket">
                 <div class="ticket-header">
-                    <span class="ticket-status">Status: @query.Status</span>
+                    <span class="ticket-id">Ticket# @query.QueryID</span>
+                    <span class="ticket-priority">@query.Status</span>
                 </div>
                 <div class="ticket-body">
+                    <span class=".ticket-Description">@query.Description</span>
+                </div>
+                <div class="ticket-footer">
                     <span class="ticket-time">Submitted on: @query.SubmissionDate?.ToString("f")</span>
+                    <a href="#">Open Ticket</a>
                 </div>
             </div>
         }
-    </div>
-    <div class="pagination">
-        <span>Previous</span>
-        <span class="page-number">1</span>
-        <span class="page-number">2</span>
-        <span>Next</span>
-    </div>
-}
-else
-{
-    <p>No tickets found.</p>
-}
- 
+    }
+    else
+    {
+        <p>No tickets found.</p>
+    }
+</div>

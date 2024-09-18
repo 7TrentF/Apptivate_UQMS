@@ -22,13 +22,11 @@ public class FirebaseAuthenticationHandler : AuthenticationHandler<Authenticatio
         _firebaseAuthService = firebaseAuthService;
     }
 
-
     [Authorize]
     protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
     {
         if (!Request.Cookies.TryGetValue("FirebaseToken", out var token))
         {
-            // If no token is provided, return authentication failure
             return AuthenticateResult.Fail("No token provided.");
         }
 
@@ -36,11 +34,19 @@ public class FirebaseAuthenticationHandler : AuthenticationHandler<Authenticatio
         {
             // Validate the ID token
             var decodedToken = await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(token);
+
+            // Extract custom claims, including the role
             var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.NameIdentifier, decodedToken.Uid),
-            new Claim(ClaimTypes.Name, decodedToken.Uid)
-        };
+            {
+                new Claim(ClaimTypes.NameIdentifier, decodedToken.Uid),
+                new Claim(ClaimTypes.Name, decodedToken.Uid)
+            };
+
+            if (decodedToken.Claims.ContainsKey("role"))
+            {
+                var role = decodedToken.Claims["role"].ToString();
+                claims.Add(new Claim(ClaimTypes.Role, role));  // Add the role claim
+            }
 
             var identity = new ClaimsIdentity(claims, Scheme.Name);
             var principal = new ClaimsPrincipal(identity);
@@ -52,7 +58,8 @@ public class FirebaseAuthenticationHandler : AuthenticationHandler<Authenticatio
         {
             return AuthenticateResult.Fail($"Firebase token validation failed: {ex.Message}");
         }
-    }
+    
+}
 
 
 }

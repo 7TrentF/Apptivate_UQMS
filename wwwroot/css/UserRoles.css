@@ -1,7 +1,7 @@
 ﻿.background {
     background-image: url('/Images/User_roles_background.png'); /* Replace with your actual image path */
-    background-size:contain;
-    background-position: center;
+    background-size:cover;
+
     background-repeat: repeat;
 }
 

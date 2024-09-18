@@ -179,7 +179,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
@@ -216,7 +215,21 @@ namespace Apptivate_UQMS_WebApp.Controllers
                     HttpContext.Session.SetString("FirebaseUID", user.FirebaseUID);
 
                     _logger.LogInformation($"User {user.Email} logged in successfully.");
-                    return RedirectToAction("Index", "Home");
+
+                    // Role-based redirection
+                    switch (user.Role)
+                    {
+                        case "Student":
+                            return RedirectToAction("StudentDashboard", "Dashboard");
+                        case "Staff":
+                            return RedirectToAction("StaffDashboard", "Dashboard");
+                        case "Admin":
+                            return RedirectToAction("AdminDashboard", "Dashboard");
+                        default:
+                            _logger.LogError($"Unknown role: {user.Role}");
+                            ModelState.AddModelError(string.Empty, "Unknown role.");
+                            return View(model);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -228,35 +241,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return View(model);
         }
 
-        /*
-        [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> Logout()
-        {
-            // Retrieve the FirebaseUID or user email for logging purposes
-            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
 
-            if (firebaseUid != null)
-            {
-                _logger.LogInformation($"User with FirebaseUID: {firebaseUid} is logging out.");
-            }
-            else
-            {
-                _logger.LogWarning("Unknown user is attempting to log out.");
-            }
-
-            // Clear the session and remove the FirebaseToken cookie
-            HttpContext.Session.Clear();
-            Response.Cookies.Delete("FirebaseToken");
-
-            _logger.LogInformation("Session cleared and FirebaseToken cookie deleted.");
-            _logger.LogInformation("User logged out successfully.");
-
-            // Redirect to the login page
-            return RedirectToAction("Login");
-        }
-
-        */
 
 
         [HttpPost]
@@ -315,6 +300,35 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
 
+        /*
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            // Retrieve the FirebaseUID or user email for logging purposes
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+            if (firebaseUid != null)
+            {
+                _logger.LogInformation($"User with FirebaseUID: {firebaseUid} is logging out.");
+            }
+            else
+            {
+                _logger.LogWarning("Unknown user is attempting to log out.");
+            }
+
+            // Clear the session and remove the FirebaseToken cookie
+            HttpContext.Session.Clear();
+            Response.Cookies.Delete("FirebaseToken");
+
+            _logger.LogInformation("Session cleared and FirebaseToken cookie deleted.");
+            _logger.LogInformation("User logged out successfully.");
+
+            // Redirect to the login page
+            return RedirectToAction("Login");
+        }
+
+        */
 
     }
 }
