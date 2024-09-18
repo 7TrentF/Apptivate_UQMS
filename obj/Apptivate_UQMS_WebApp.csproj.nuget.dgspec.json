@@ -11,7 +11,7 @@
         "projectName": "Apptivate_UQMS_WebApp",
         "projectPath": "C:\\Users\\lab_services_student\\Source\\Repos\\Apptivate_UQMS\\Apptivate_UQMS_WebApp.csproj",
         "packagesPath": "C:\\Users\\lab_services_student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lab_services_student\\Source\\Repos\\Apptivate_UQMS\\obj\\",
+        "outputPath": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -88,7 +88,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[8.0.5, )"
             }
           },
           "imports": [
