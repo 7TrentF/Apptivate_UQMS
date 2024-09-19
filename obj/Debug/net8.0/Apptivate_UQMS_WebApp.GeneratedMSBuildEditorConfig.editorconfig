@@ -17,147 +17,151 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Apptivate_UQMS_WebApp
 build_property.RootNamespace = Apptivate_UQMS_WebApp
-build_property.ProjectDir = C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\New folder\
+build_property.ProjectDir = C:\Users\mcebo\Desktop\3DMGAME\Apptivate_UQMS - Copy\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\New folder
+build_property.MSBuildProjectDirectory = C:\Users\mcebo\Desktop\3DMGAME\Apptivate_UQMS - Copy
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Account/Login.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Account/Register.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Account/SelectRole.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Account/SelectRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTZWxlY3RSb2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Account/UserProfile.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Account/UserProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxVc2VyUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/DummyTables/Create.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Dashboard/StudentDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFN0dWRlbnREYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/DummyTables/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHVtbXlUYWJsZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/DummyTables/Delete.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/DummyTables/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHVtbXlUYWJsZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/DummyTables/Details.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/DummyTables/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHVtbXlUYWJsZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/DummyTables/Edit.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/DummyTables/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHVtbXlUYWJsZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/DummyTables/Index.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/DummyTables/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHVtbXlUYWJsZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Home/AllTickets.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Home/AllTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbGxUaWNrZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Home/Dashboard.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Home/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Home/Index.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Home/NewTickets.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Home/NewTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOZXdUaWNrZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Home/OnGoingTickets.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Home/OnGoingTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxPbkdvaW5nVGlja2V0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Home/Privacy.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Home/Queries.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Home/Queries.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxRdWVyaWVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Home/ResolvedTickets.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Home/ResolvedTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXNvbHZlZFRpY2tldHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Home/SubmitQuery.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Home/SubmitQuery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdWJtaXRRdWVyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Home/test.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Home/test.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVx0ZXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Query/NewQuery/AcademicQuery.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Query/NewQuery/AcademicQuery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcTmV3UXVlcnlcQWNhZGVtaWNRdWVyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Query/NewQuery/AdministrativeQuery.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Query/NewQuery/AdministrativeQuery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcTmV3UXVlcnlcQWRtaW5pc3RyYXRpdmVRdWVyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Query/Queries.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Query/Queries.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcmllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Query/QueryOverview/AllTickets.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Query/QueryOverview/AllTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcnlPdmVydmlld1xBbGxUaWNrZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Query/QueryOverview/NewTickets.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Query/QueryOverview/NewTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcnlPdmVydmlld1xOZXdUaWNrZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Query/QueryOverview/OnGoingTickets.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Query/QueryOverview/OnGoingTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcnlPdmVydmlld1xPbkdvaW5nVGlja2V0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Query/QueryOverview/ResolvedTickets.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Query/QueryOverview/ResolvedTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUXVlcnlPdmVydmlld1xSZXNvbHZlZFRpY2tldHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Query/SubmitQuery.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Query/SubmitQuery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcU3VibWl0UXVlcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Shared/Error.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Shared/MinimalLayout.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Shared/MinimalLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1pbmltYWxMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/_ViewImports.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/_ViewStart.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Query/NewQuery/CreateQuery.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Query/NewQuery/CreateQuery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcTmV3UXVlcnlcQ3JlYXRlUXVlcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bsyhkuypwj
 
-[C:/Users/mcebo/Documents/School Stuff/SEM5/Semester 6/XBCAD7319/New folder/Views/Shared/_Layout.cshtml]
+[C:/Users/mcebo/Desktop/3DMGAME/Apptivate_UQMS - Copy/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-nyjeid8vsc

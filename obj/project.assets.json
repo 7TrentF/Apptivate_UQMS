@@ -8478,11 +8478,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\New folder\\Apptivate_UQMS_WebApp.csproj",
+      "projectUniqueName": "C:\\Users\\mcebo\\Desktop\\3DMGAME\\Apptivate_UQMS - Copy\\Apptivate_UQMS_WebApp.csproj",
       "projectName": "Apptivate_UQMS_WebApp",
-      "projectPath": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\New folder\\Apptivate_UQMS_WebApp.csproj",
+      "projectPath": "C:\\Users\\mcebo\\Desktop\\3DMGAME\\Apptivate_UQMS - Copy\\Apptivate_UQMS_WebApp.csproj",
       "packagesPath": "C:\\Users\\mcebo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\New folder\\obj\\",
+      "outputPath": "C:\\Users\\mcebo\\Desktop\\3DMGAME\\Apptivate_UQMS - Copy\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mcebo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8580,5 +8580,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\mcebo\\Desktop\\3DMGAME\\Apptivate_UQMS - Copy\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

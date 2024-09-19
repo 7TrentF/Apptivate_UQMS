@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "skP+/0QHFT0=",
+  "dgSpecHash": "PdobWbWvMss=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\New folder\\Apptivate_UQMS_WebApp.csproj",
+  "projectFilePath": "C:\\Users\\mcebo\\Desktop\\3DMGAME\\Apptivate_UQMS - Copy\\Apptivate_UQMS_WebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mcebo\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\mcebo\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
@@ -181,5 +181,12 @@
     "C:\\Users\\mcebo\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\mcebo\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\mcebo\\Desktop\\3DMGAME\\Apptivate_UQMS - Copy\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
