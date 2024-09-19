@@ -1,0 +1,102 @@
+﻿@model Apptivate_UQMS_WebApp.Models.QueryModel.Query
+
+<div class="ticket-detail">
+    <div class="ticket-header">
+        <h2>Ticket Details</h2>
+        <div class="ticket-id">
+            <strong>Ticket# @Model.QueryID</strong>
+        </div>
+        <div class="ticket-status">
+            <span class="status-badge @Model.Status.ToLower()">@Model.Status</span>
+        </div>
+    </div>
+    <div class="ticket-body">
+        <p><strong>Description:</strong> @Model.Description</p>
+        <p><strong>Submission Date:</strong> @Model.SubmissionDate?.ToString("f")</p>
+        <p><strong>Resolved Date:</strong> @Model.ResolvedDate?.ToString("f")</p>
+        <p><strong>Student ID:</strong> @Model.StudentID</p>
+       
+        <p><strong>Year:</strong> @Model.Year</p>
+       
+    </div>
+    <div class="ticket-footer">
+        <a href="@Url.Action("Index", "Query")" class="back-btn">Back to Tickets</a>
+    </div>
+</div>
+
+<style>
+    .ticket-detail {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: 20px auto;
+    }
+
+    .ticket-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .ticket-id {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .ticket-status {
+        font-size: 16px;
+    }
+
+    .status-badge {
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: white;
+        text-transform: capitalize;
+    }
+
+        .status-badge.pending {
+            background-color: orange;
+        }
+
+        .status-badge.completed {
+            background-color: green;
+        }
+
+        .status-badge.in-progress {
+            background-color: blue;
+        }
+
+    .ticket-body {
+        margin-bottom: 20px;
+    }
+
+        .ticket-body p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+    .ticket-footer {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+
+    .back-btn {
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.2s;
+    }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+</style>

@@ -299,22 +299,42 @@ namespace Apptivate_UQMS_WebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> ViewTicket(int queryId)
         {
+            // Get Firebase UID from session
             var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
             if (firebaseUid == null)
             {
                 return RedirectToAction("Login", "Account");
             }
 
-            var query = await _context.Queries
-                                      .FirstOrDefaultAsync(q => q.QueryID == queryId);
-            if (query == null)
+            // Get the user from the database based on Firebase UID
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+
+            if (user == null)
             {
-                return NotFound();
+                return RedirectToAction("Error", "Home");
             }
 
-            return View(query); // Return a detailed view of the query
-        }
+            // Get student details from the database based on user ID
+            var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
 
+            if (studentDetail == null)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            // Fetch all queries for the student
+            var userQueries = await _context.Queries
+                .Where(q => q.StudentID == studentDetail.StudentID)
+                .ToListAsync();
+
+            var query = await _context.Queries
+                             .FirstOrDefaultAsync(q => q.QueryID == queryId);
+
+
+
+            return View("StudentQuery/QueryOverview/ViewTicket", query);
+        }
 
 
         public IActionResult Queries()

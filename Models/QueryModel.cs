@@ -50,6 +50,8 @@ namespace Apptivate_UQMS_WebApp.Models
             Cancelled
         }
 
+      
+
 
 
         public class QueryCategory
