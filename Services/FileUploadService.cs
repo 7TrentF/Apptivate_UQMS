@@ -38,6 +38,8 @@
                 var uniqueFileName = $"{Guid.NewGuid()}_{file.FileName}";
                 _logger.LogInformation("Uploading file: {FileName} as {UniqueFileName}", file.FileName, uniqueFileName);
 
+
+
                 using (var stream = file.OpenReadStream())
                 {
                     await _storageClient.UploadObjectAsync(
@@ -59,22 +61,24 @@
             }
         }
 
-
         public string GenerateSignedUrl(string objectName)
         {
             try
             {
                 _logger.LogInformation("Attempting to generate signed URL for object: {ObjectName}", objectName);
 
+                // No encoding here, use the raw object name with spaces as it is in Firebase
                 var urlSigner = UrlSigner.FromServiceAccountPath("Properties/uqms-firebase-adminsdk.json");
+
+                // Sign the URL using the object name directly (with spaces)
                 string signedUrl = urlSigner.Sign(
                     _bucketName,
-                    objectName,
+                    objectName,  // Do not encode, pass the exact name stored in Firebase
                     TimeSpan.FromMinutes(15)
                 );
 
                 _logger.LogInformation("Successfully generated signed URL for object: {ObjectName}", objectName);
-                return signedUrl;
+                return signedUrl;  // This will be a properly encoded URL
             }
             catch (GoogleApiException ex) when (ex.Error.Code == 404)
             {
@@ -87,6 +91,11 @@
                 throw;
             }
         }
+
+
+
+
+
 
     }
 }

@@ -1,6 +1,13 @@
 ﻿@model Apptivate_UQMS_WebApp.Models.QueryModel.Query
 @inject Apptivate_UQMS_WebApp.Services.FileUploadService FileUploadService
 
+
+@{
+    var testSignedUrl = FileUploadService.GenerateSignedUrl("a91bc68c-c0ce-4d76-ad9c-1a5d9295c81d_Onboarding%20reps%20onto%20repo%20register%20flow%20chart.pdf"); // URL encoded path
+}
+<p><a href="@testSignedUrl" target="_blank">Test File</a></p>
+
+
 <h2>Query Details</h2>
 
 <p><strong>Query ID:</strong> @Model.QueryID</p>
@@ -11,11 +18,13 @@
 <ul class="document-list">
     @foreach (var doc in Model.QueryDocuments)
     {
-        var signedUrl = FileUploadService.GenerateSignedUrl(doc.DocumentName);
+        // Pass the raw document path (with spaces) to the service
+        var signedUrl = FileUploadService.GenerateSignedUrl(doc.DocumentPath);
         if (signedUrl != null)
         {
             <li>
-                <a href="@signedUrl" target="_blank">@doc.DocumentName</a>
+                <a href="@signedUrl" target="_blank" download="false">@doc.DocumentName</a>
+
             </li>
         }
         else
