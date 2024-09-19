@@ -337,10 +337,84 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
 
-        public IActionResult Queries()
+        public async Task<IActionResult> Search(string searchQuery, string statusFilter)
         {
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+            if (firebaseUid == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+
+            if (user == null)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+
+            if (studentDetail == null)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            // Build query based on search criteria
+            var queryResults = _context.Queries.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                queryResults = queryResults.Where(q => q.Description.Contains(searchQuery));
+            }
+
+            if (!string.IsNullOrEmpty(statusFilter))
+            {
+                queryResults = queryResults.Where(q => q.Status == statusFilter);
+            }
+
+            queryResults = queryResults.Where(q => q.StudentID == studentDetail.StudentID);
+
+            var queries = await queryResults.ToListAsync();
+
+            return PartialView("StudentQuery/QueryOverview/AllTickets", queries);
+        }
+
+
+
+
+
+        public async Task<IActionResult> Queries()
+        {
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+            if (firebaseUid == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+
+            if (user == null)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+
+            if (studentDetail == null)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            var userQueries = await _context.Queries
+                .Where(q => q.StudentID == studentDetail.StudentID)
+                .ToListAsync();
+
+            ViewData["InitialTickets"] = userQueries; // Store the initial queries for rendering
             return View("StudentQuery/Queries");
         }
+
 
 
         public IActionResult QuerySubmitted()
