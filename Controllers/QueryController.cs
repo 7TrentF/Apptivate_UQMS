@@ -31,7 +31,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
         [HttpGet]
         public Task<IActionResult> CreateQuery()
         {
-            return Task.FromResult<IActionResult>(View("NewQuery/CreateQuery"));
+            return Task.FromResult<IActionResult>(View("StudentQuery/NewQuery/CreateQuery"));
         }
 
         [HttpGet]
@@ -85,7 +85,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
            
 
 
-            return View("NewQuery/AcademicQuery");
+            return View("StudentQuery/NewQuery/AcademicQuery");
         }
 
         [HttpGet]
@@ -133,7 +133,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
             ViewBag.QueryCategories = queryType.QueryCategories;
             ViewBag.StudentDetail = studentDetail;  // Pass the student details to the view
 
-            return View("NewQuery/AdministrativeQuery");
+            return View("StudentQuery/NewQuery/AdministrativeQuery");
         }
 
         [HttpPost]
@@ -152,7 +152,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 if (model.Description.Length > 150)
                 {
                     ModelState.AddModelError("Description", "Description cannot be longer than 150 characters.");
-                    return View("NewQuery/AcademicQuery"); // Return the form if validation fails
+                    return View("StudentQuery/NewQuery/AcademicQuery"); // Return the form if validation fails
                 }
 
                 try
@@ -168,7 +168,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
             }
 
             _logger.LogWarning("Model state is invalid for the query submission.");
-            return View("NewQuery/QuerySubmitted");
+            return View("StudentQuery/NewQuery/QuerySubmitted");
         }
 
 
@@ -188,7 +188,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 if (model.Description.Length > 150)
                 {
                     ModelState.AddModelError("Description", "Description cannot be longer than 150 characters.");
-                    return View("NewQuery/AcademicQuery"); // Return the form if validation fails
+                    return View("StudentQuery/NewQuery/AcademicQuery"); // Return the form if validation fails
                 }
 
                 try
@@ -204,7 +204,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
             }
 
             _logger.LogWarning("Model state is invalid for the query submission.");
-            return View("NewQuery/QuerySubmitted");
+            return View("StudentQuery/NewQuery/QuerySubmitted");
         }
 
 
@@ -246,7 +246,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 .Where(q => q.StudentID == studentDetail.StudentID)
                 .ToListAsync();
 
-            return PartialView("QueryOverview/AllTickets", userQueries);
+            return PartialView("StudentQuery/QueryOverview/AllTickets", userQueries);
         }
 
 
@@ -262,7 +262,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 .Where(q => q.StudentID == studentDetail.StudentID && q.Status == "New")
                 .ToListAsync();
 
-            return PartialView("QueryOverview/NewTickets", newTickets);
+            return PartialView("StudentQuery/QueryOverview/NewTickets", newTickets);
         }
 
         // Action for displaying ongoing tickets
@@ -277,7 +277,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 .Where(q => q.StudentID == studentDetail.StudentID && q.Status == "On-going")
                 .ToListAsync();
 
-            return PartialView("QueryOverview/OnGoingTickets", ongoingTickets);
+            return PartialView("StudentQuery/QueryOverview/OnGoingTickets", ongoingTickets);
         }
 
         // Action for displaying resolved tickets
@@ -292,19 +292,19 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 .Where(q => q.StudentID == studentDetail.StudentID && q.Status == "Resolved")
                 .ToListAsync();
 
-            return PartialView("QueryOverview/ResolvedTickets", resolvedTickets);
+            return PartialView("StudentQuery/QueryOverview/ResolvedTickets", resolvedTickets);
         }
 
 
         public IActionResult Queries()
         {
-            return View();
+            return View("StudentQuery/Queries");
         }
 
 
         public IActionResult QuerySubmitted()
         {
-            return View("NewQuery/QuerySubmitted");
+            return View("StudentQuery/NewQuery/QuerySubmitted");
         }
     }
 

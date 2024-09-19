@@ -22,9 +22,10 @@ namespace Apptivate_UQMS_WebApp.Services
             _fileUploadService = fileUploadService;
             _logger = logger;
         }
-
         public async Task SubmitAcademicQueryAsync(Query model, IFormFile uploadedFile, string firebaseUid)
         {
+            _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
+
             var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
 
             if (user == null)
@@ -33,6 +34,7 @@ namespace Apptivate_UQMS_WebApp.Services
                 throw new Exception("User not found.");
             }
 
+            _logger.LogInformation("User with FirebaseUID {FirebaseUID} found. UserID: {UserID}", firebaseUid, user.UserID);
 
             var studentDetailQuery = await (
                 from student in _context.StudentDetails
@@ -57,6 +59,9 @@ namespace Apptivate_UQMS_WebApp.Services
                 throw new Exception("Student details not found.");
             }
 
+            _logger.LogInformation("Student details found. StudentID: {StudentID}, DepartmentID: {DepartmentID}, CourseID: {CourseID}, Year: {Year}",
+                studentDetailQuery.StudentID, studentDetailQuery.DepartmentID, studentDetailQuery.CourseID, studentDetailQuery.Year);
+
             var query = new Query
             {
                 StudentID = studentDetailQuery.StudentID,
@@ -65,29 +70,32 @@ namespace Apptivate_UQMS_WebApp.Services
                 DepartmentID = studentDetailQuery.DepartmentID ?? 0,
                 CourseID = studentDetailQuery.CourseID ?? 0,
                 Year = studentDetailQuery.Year,
-                Description = model.Description, 
-                Status = "Pending",
+                Description = model.Description,
+                Status = "Pending", // Set status to pending
                 SubmissionDate = DateTime.Now
             };
 
+            _logger.LogInformation("Creating new query with pending status for StudentID {StudentID}.", studentDetailQuery.StudentID);
+
             _context.Queries.Add(query);
             await _context.SaveChangesAsync();
+            _logger.LogInformation("Query with ID {QueryID} successfully created.", query.QueryID);
 
             if (uploadedFile != null && uploadedFile.Length > 0)
             {
-                // Check file type
                 var allowedExtensions = new[] { ".jpg", ".png", ".pdf", ".zip" };
                 var fileExtension = Path.GetExtension(uploadedFile.FileName).ToLower();
 
                 if (!allowedExtensions.Contains(fileExtension))
                 {
-                    _logger.LogWarning("Unsupported file type: {FileExtension}", fileExtension);
+                    _logger.LogWarning("Unsupported file type: {FileExtension}.", fileExtension);
                     throw new Exception("Unsupported file type. Please upload a .jpg, .png, .pdf, or .zip file.");
                 }
 
                 try
                 {
                     var documentUrl = await _fileUploadService.UploadFileAsync(uploadedFile);
+                    _logger.LogInformation("File {FileName} uploaded successfully.", uploadedFile.FileName);
 
                     var queryDocument = new QueryDocument
                     {
@@ -99,6 +107,7 @@ namespace Apptivate_UQMS_WebApp.Services
 
                     _context.QueryDocuments.Add(queryDocument);
                     await _context.SaveChangesAsync();
+                    _logger.LogInformation("Document associated with QueryID {QueryID}.", query.QueryID);
                 }
                 catch (Exception ex)
                 {
@@ -107,8 +116,38 @@ namespace Apptivate_UQMS_WebApp.Services
                 }
             }
 
-            _logger.LogInformation("Query with ID {QueryID} successfully submitted.", query.QueryID);
-        }
-    }
+            // Find staff members who are in the same department as the student (by comparing department name)
+            var departmentName = await _context.Departments
+                .Where(d => d.DepartmentID == query.DepartmentID)
+                .Select(d => d.DepartmentName)
+                .FirstOrDefaultAsync();
 
+            var staffMembers = await _context.StaffDetails
+                .Where(s => s.Department == departmentName && s.Position.PositionName == "Lecturer") // Match by department name and position
+                .ToListAsync();
+
+            if (staffMembers.Any())
+            {
+                var staffMember = staffMembers.First(); // You can improve this by adding load balancing logic if needed
+                var queryAssignment = new QueryAssignment
+                {
+                    QueryID = query.QueryID,
+                    StaffID = staffMember.StaffID,
+                    AssignedDate = DateTime.Now
+                };
+
+                _context.QueryAssignments.Add(queryAssignment);
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Query assigned to StaffID {StaffID}.", staffMember.StaffID);
+            }
+            else
+            {
+                _logger.LogWarning("No 'Lecturer' staff found in the department for QueryID {QueryID}.", query.QueryID);
+            }
+
+            _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
+        }
+
+
+    }
 }

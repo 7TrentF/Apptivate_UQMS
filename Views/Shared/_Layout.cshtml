@@ -53,7 +53,7 @@
                 </li>
 
                 <!-- Queries visible to Students and Staff -->
-                @if (User.IsInRole("Student") || User.IsInRole("Staff"))
+                @if (User.IsInRole("Student"))
                 {
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Query" asp-action="Queries">
@@ -62,8 +62,14 @@
                     </li>
                 }
 
-
-
+                @if (User.IsInRole("Staff"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="StaffQuery" asp-action="StaffQueries">
+                            <img src="~/svgs/ticket.svg" alt="Queries Icon" class="icon" /><span>Staff Queries</span>
+                        </a>
+                    </li>
+                }
 
                 <!-- Chat visible to all roles -->
                 <li class="nav-item">

@@ -812,9 +812,6 @@ C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\staticwebassets\msbu
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Apptivate_UQMS_WebApp.props
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Apptivate_UQMS_WebApp.props
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\NewQuery\AcademicQuery.cshtml.rz.scp.css
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\NewQuery\AdministrativeQuery.cshtml.rz.scp.css
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\NewQuery\CreateQuery.cshtml.rz.scp.css
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\bundle\Apptivate_UQMS_WebApp.styles.css
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\projectbundle\Apptivate_UQMS_WebApp.bundle.scp.css
@@ -829,3 +826,6 @@ C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\UploadThing.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Properties\uqms-a3d87-firebase-adminsdk-666ea-91788e11ff.json
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Google.Apis.Storage.v1.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Google.Cloud.Storage.V1.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\StudentQuery\NewQuery\AcademicQuery.cshtml.rz.scp.css
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\StudentQuery\NewQuery\AdministrativeQuery.cshtml.rz.scp.css
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\StudentQuery\NewQuery\CreateQuery.cshtml.rz.scp.css

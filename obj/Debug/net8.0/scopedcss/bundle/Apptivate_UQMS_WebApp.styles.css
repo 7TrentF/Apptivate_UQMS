@@ -1,8 +1,8 @@
 @import '_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css';
 
-/* _content/Apptivate_UQMS_WebApp/Views/Query/NewQuery/AcademicQuery.cshtml.rz.scp.css */
+/* _content/Apptivate_UQMS_WebApp/Views/Query/StudentQuery/NewQuery/AcademicQuery.cshtml.rz.scp.css */
 /* General Form Section Styling */
-.query-form-section[b-il5muuguha] {
+.query-form-section[b-hf3gq0v4dn] {
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
@@ -12,39 +12,39 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-    .query-form-section h2[b-il5muuguha] {
+    .query-form-section h2[b-hf3gq0v4dn] {
         font-size: 24px;
         color: #333;
         margin-bottom: 20px;
     }
 
-    .query-form-section .form-description[b-il5muuguha] {
+    .query-form-section .form-description[b-hf3gq0v4dn] {
         font-size: 16px;
         color: #666;
         margin-bottom: 30px;
     }
 
 /* Form Element Styles */
-.query-form[b-il5muuguha] {
+.query-form[b-hf3gq0v4dn] {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-    .query-form .form-group[b-il5muuguha] {
+    .query-form .form-group[b-hf3gq0v4dn] {
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
 
-    .query-form label[b-il5muuguha] {
+    .query-form label[b-hf3gq0v4dn] {
         font-size: 14px;
         font-weight: bold;
         color: #333;
     }
 
-    .query-form select[b-il5muuguha],
-    .query-form textarea[b-il5muuguha] {
+    .query-form select[b-hf3gq0v4dn],
+    .query-form textarea[b-hf3gq0v4dn] {
         padding: 12px;
         border: 1px solid #ddd;
         border-radius: 8px;
@@ -52,29 +52,29 @@
         box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    .query-form textarea[b-il5muuguha] {
+    .query-form textarea[b-hf3gq0v4dn] {
         resize: vertical;
     }
 
-    .query-form .form-control:focus[b-il5muuguha],
-    .query-form .custom-select:focus[b-il5muuguha] {
+    .query-form .form-control:focus[b-hf3gq0v4dn],
+    .query-form .custom-select:focus[b-hf3gq0v4dn] {
         border-color: #007bff;
         box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
     }
 
-.error-message[b-il5muuguha] {
+.error-message[b-hf3gq0v4dn] {
     color: #d9534f;
     font-size: 14px;
     margin-top: -10px;
 }
 
-.character-limit[b-il5muuguha] {
+.character-limit[b-hf3gq0v4dn] {
     font-size: 12px;
     color: #888;
 }
 
 /* Media Upload Styling */
-.media-upload[b-il5muuguha] {
+.media-upload[b-hf3gq0v4dn] {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,7 +85,7 @@
     background-color: #f9f9f9;
 }
 
-    .media-upload label[b-il5muuguha] {
+    .media-upload label[b-hf3gq0v4dn] {
         cursor: pointer;
         font-size: 16px;
         font-weight: bold;
@@ -96,18 +96,18 @@
         transition: background-color 0.3s ease;
     }
 
-        .media-upload label:hover[b-il5muuguha] {
+        .media-upload label:hover[b-hf3gq0v4dn] {
             background-color: #0056b3;
         }
 
-    .media-upload .file-types[b-il5muuguha] {
+    .media-upload .file-types[b-hf3gq0v4dn] {
         font-size: 12px;
         color: #666;
         margin-top: 10px;
     }
 
 /* Submit Button Styling */
-.btn-submit[b-il5muuguha] {
+.btn-submit[b-hf3gq0v4dn] {
     padding: 12px;
     font-size: 18px;
     background-color: #007bff;
@@ -118,12 +118,12 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-    .btn-submit:hover[b-il5muuguha] {
+    .btn-submit:hover[b-hf3gq0v4dn] {
         background-color: #0056b3;
     }
-/* _content/Apptivate_UQMS_WebApp/Views/Query/NewQuery/AdministrativeQuery.cshtml.rz.scp.css */
+/* _content/Apptivate_UQMS_WebApp/Views/Query/StudentQuery/NewQuery/AdministrativeQuery.cshtml.rz.scp.css */
 /* Container for Form and Student Details Card */
-.form-and-details-container[b-jc3am0el92] {
+.form-and-details-container[b-i03la2vjbt] {
     display: flex;
     gap: 20px; /* Space between the two elements */
     flex-wrap: wrap; /* Allows items to wrap on smaller screens */
@@ -133,7 +133,7 @@
     max-width: 1200px; /* Adjust based on your layout needs */
 }
 /* Ensure Query Form fits within .query-form-section */
-.query-form[b-jc3am0el92] {
+.query-form[b-i03la2vjbt] {
     display: grid;
     grid-template-columns: 1fr 2fr; /* Two columns: 1 for labels, 1 for inputs */
     gap: 16px;
@@ -141,17 +141,17 @@
 }
 
 
-    .query-form label[b-jc3am0el92] {
+    .query-form label[b-i03la2vjbt] {
         display: block;
         margin-bottom: 8px;
         font-weight: bold;
         color: #333;
     }
 
-    .query-form input[type="text"][b-jc3am0el92],
-    .query-form select[b-jc3am0el92],
-    .query-form textarea[b-jc3am0el92],
-    .query-form input[type="file"][b-jc3am0el92] {
+    .query-form input[type="text"][b-i03la2vjbt],
+    .query-form select[b-i03la2vjbt],
+    .query-form textarea[b-i03la2vjbt],
+    .query-form input[type="file"][b-i03la2vjbt] {
         display: block;
         width: 100%;
         padding: 12px;
@@ -161,11 +161,11 @@
         font-size: 16px;
     }
 
-    .query-form textarea[b-jc3am0el92] {
+    .query-form textarea[b-i03la2vjbt] {
         resize: vertical;
     }
 
-    .query-form button[b-jc3am0el92] {
+    .query-form button[b-i03la2vjbt] {
         padding: 12px;
         background-color: #007bff;
         color: white;
@@ -178,12 +178,12 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
-        .query-form button:hover[b-jc3am0el92] {
+        .query-form button:hover[b-i03la2vjbt] {
             background-color: #0056b3;
         }
 
 /* Media Upload */
-.media-upload[b-jc3am0el92] {
+.media-upload[b-i03la2vjbt] {
     position: relative;
     padding: 20px;
     border: 2px dashed #007bff;
@@ -196,22 +196,22 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-    .media-upload p[b-jc3am0el92],
-    .media-upload span[b-jc3am0el92] {
+    .media-upload p[b-i03la2vjbt],
+    .media-upload span[b-i03la2vjbt] {
         margin: 10px 0;
     }
 
-    .media-upload p[b-jc3am0el92] {
+    .media-upload p[b-i03la2vjbt] {
         color: #333;
         font-size: 16px;
     }
 
-    .media-upload span[b-jc3am0el92] {
+    .media-upload span[b-i03la2vjbt] {
         color: #999;
         font-size: 14px;
     }
 
-.upload-btn[b-jc3am0el92] {
+.upload-btn[b-i03la2vjbt] {
     display: inline-block;
     padding: 12px 20px;
     border: 2px solid #007bff;
@@ -223,14 +223,14 @@
     font-size: 16px;
 }
 
-.file-types[b-jc3am0el92] {
+.file-types[b-i03la2vjbt] {
     margin-top: 10px;
     color: #666;
     font-size: 14px;
 }
 
 /* Student Details Card */
-.student-details-card[b-jc3am0el92] {
+.student-details-card[b-i03la2vjbt] {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
@@ -241,24 +241,24 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-    .student-details-card h2[b-jc3am0el92] {
+    .student-details-card h2[b-i03la2vjbt] {
         margin-top: 0;
         font-size: 1.6rem;
         color: #333;
     }
 
-    .student-details-card p[b-jc3am0el92] {
+    .student-details-card p[b-i03la2vjbt] {
         margin: 10px 0;
         font-size: 16px;
         color: #666;
     }
 
-    .student-details-card strong[b-jc3am0el92] {
+    .student-details-card strong[b-i03la2vjbt] {
         color: #333;
     }
 
 /* Query Form Section */
-.query-form-section[b-jc3am0el92] {
+.query-form-section[b-i03la2vjbt] {
     flex: 1;
     border: 5px solid rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -271,28 +271,28 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .form-and-details-container[b-jc3am0el92] {
+    .form-and-details-container[b-i03la2vjbt] {
         flex-direction: column; /* Stack items vertically on small screens */
     }
 
-    .query-form-section[b-jc3am0el92],
-    .student-details-card[b-jc3am0el92] {
+    .query-form-section[b-i03la2vjbt],
+    .student-details-card[b-i03la2vjbt] {
         width: 100%;
     }
 
-    .media-upload[b-jc3am0el92] {
+    .media-upload[b-i03la2vjbt] {
         width: 100%;
     }
 }
-/* _content/Apptivate_UQMS_WebApp/Views/Query/NewQuery/CreateQuery.cshtml.rz.scp.css */
+/* _content/Apptivate_UQMS_WebApp/Views/Query/StudentQuery/NewQuery/CreateQuery.cshtml.rz.scp.css */
 /* Container styling */
-.create-query-container[b-bsyhkuypwj] {
+.create-query-container[b-pg7omlst7m] {
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
 /* General card styles */
-.card[b-bsyhkuypwj] {
+.card[b-pg7omlst7m] {
     border-radius: 12px;
     margin-bottom: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -300,12 +300,12 @@
     min-height: 300px;
 }
 
-    .card:hover[b-bsyhkuypwj] {
+    .card:hover[b-pg7omlst7m] {
         transform: translateY(-5px);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
-.card-body[b-bsyhkuypwj] {
+.card-body[b-pg7omlst7m] {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -313,19 +313,19 @@
 }
 
 /* Card title and text */
-.card-title[b-bsyhkuypwj] {
+.card-title[b-pg7omlst7m] {
     font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
-.card-text[b-bsyhkuypwj] {
+.card-text[b-pg7omlst7m] {
     font-size: 1rem;
     color: #6c757d;
     margin-bottom: 20px;
 }
 
 /* Button styles */
-.btn-primary[b-bsyhkuypwj] {
+.btn-primary[b-pg7omlst7m] {
     background-color: #007bff;
     border: none;
     padding: 10px 20px;
@@ -333,7 +333,7 @@
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s;
 }
 
-    .btn-primary:hover[b-bsyhkuypwj] {
+    .btn-primary:hover[b-pg7omlst7m] {
         background-color: #0056b3;
         color: white;
         transform: scale(1.05);
@@ -341,27 +341,27 @@
 
 /* Responsive design */
 @media (max-width: 767px) {
-    .card[b-bsyhkuypwj] {
+    .card[b-pg7omlst7m] {
         min-height: 250px;
     }
 
-    .card-title[b-bsyhkuypwj] {
+    .card-title[b-pg7omlst7m] {
         font-size: 1.25rem;
     }
 
-    .card-text[b-bsyhkuypwj] {
+    .card-text[b-pg7omlst7m] {
         font-size: 0.9rem;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .card[b-bsyhkuypwj] {
+    .card[b-pg7omlst7m] {
         min-height: 280px;
     }
 }
 
 @media (min-width: 992px) {
-    .card[b-bsyhkuypwj] {
+    .card[b-pg7omlst7m] {
         min-height: 300px;
     }
 }

@@ -1,0 +1,51 @@
+﻿@model Apptivate_UQMS_WebApp.Models.QueryModel.Query
+@inject Apptivate_UQMS_WebApp.Services.FileUploadService FileUploadService
+
+<h2>Query Details</h2>
+
+<p><strong>Query ID:</strong> @Model.QueryID</p>
+<p><strong>Description:</strong> @Model.Description</p>
+<p><strong>Submission Date:</strong> @Model.SubmissionDate?.ToString("dd MMM yyyy")</p>
+
+<h3>Documents</h3>
+<ul class="document-list">
+    @foreach (var doc in Model.QueryDocuments)
+    {
+        var signedUrl = FileUploadService.GenerateSignedUrl(doc.DocumentName);
+        if (signedUrl != null)
+        {
+            <li>
+                <a href="@signedUrl" target="_blank">@doc.DocumentName</a>
+            </li>
+        }
+        else
+        {
+            <li><strong>@doc.DocumentName</strong> - File not found</li>
+        }
+    }
+</ul>
+
+
+<style>
+    .document-list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+        .document-list li {
+            margin-bottom: 10px;
+        }
+
+        .document-list a {
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+            .document-list a:hover {
+                background-color: #0056b3;
+            }
+</style>

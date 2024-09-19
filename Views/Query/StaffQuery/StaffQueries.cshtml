@@ -1,0 +1,153 @@
+﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.QueryAssignment>
+
+<h2>My Queries</h2>
+
+<div class="table-responsive">
+    <table class="query-table">
+        <thead>
+            <tr>
+                <th>Query ID</th>
+                <th>Description</th>
+                <th>Submission Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var queryAssignment in Model)
+            {
+                <tr class="query-row" onclick="window.location.href='@Url.Action("QueryDetails", "StaffQuery", new { queryId = queryAssignment.QueryID })'">
+                    <td>@queryAssignment.Query.QueryID</td>
+                    <td>@queryAssignment.Query.Description</td>
+                    <td>@queryAssignment.Query.SubmissionDate?.ToString("dd MMM yyyy")</td>
+                    <td>
+                        <span class="status-badge @(queryAssignment.Query.Status == "Pending" ? "status-pending" : "status-resolved")">
+                            @queryAssignment.Query.Status
+                        </span>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("QueryDetails", "StaffQuery", new { queryId = queryAssignment.QueryID })" class="btn-view">View</a>
+                        @if (queryAssignment.ResolutionDate == null)
+                        {
+                            <form asp-action="MarkAsResolved" method="post" class="resolve-form">
+                                <input type="hidden" name="queryId" value="@queryAssignment.QueryID" />
+                                <button type="submit" class="btn-resolve">Mark as Resolved</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Include jQuery if not already included in your layout -->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.query-row').hover(
+            function() {
+                $(this).addClass('hover');
+            },
+            function() {
+                $(this).removeClass('hover');
+            }
+        );
+    });
+</script>
+
+<style>
+    /* Basic Styles */
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .table-responsive {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .query-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+    }
+
+    .query-table th, .query-table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .query-table th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    /* Row Hover */
+    .query-row:hover {
+        background-color: #f9f9f9;
+        cursor: pointer;
+    }
+
+    /* Status Badges */
+    .status-badge {
+        padding: 5px 10px;
+        border-radius: 12px;
+        font-size: 0.85em;
+        font-weight: bold;
+    }
+
+    .status-pending {
+        background-color: #ffc107;
+        color: #fff;
+    }
+
+    .status-resolved {
+        background-color: #28a745;
+        color: #fff;
+    }
+
+    /* Action Buttons */
+    .btn-view, .btn-resolve {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 0.9em;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-view {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-view:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-resolve {
+        background-color: #28a745;
+        color: white;
+        margin-left: 10px;
+    }
+
+    .btn-resolve:hover {
+        background-color: #218838;
+    }
+
+
+    /* Form Styles */
+    .resolve-form {
+        display: inline-block;
+        margin: 0;
+    }
+</style>

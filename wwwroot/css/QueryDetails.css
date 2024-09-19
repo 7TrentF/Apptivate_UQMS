@@ -1,0 +1,31 @@
+﻿.document-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+    .document-list li {
+        margin-bottom: 10px;
+    }
+
+    .document-list a {
+        text-decoration: none;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+        .document-list a:hover {
+            background-color: #0056b3;
+        }
+
+@media screen and (max-width: 768px) {
+    .query-table th, .query-table td {
+        font-size: 0.9em;
+    }
+
+    .btn-view, .btn-resolve {
+        font-size: 0.8em;
+    }
+}
