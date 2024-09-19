@@ -296,6 +296,27 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<IActionResult> ViewTicket(int queryId)
+        {
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+            if (firebaseUid == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var query = await _context.Queries
+                                      .FirstOrDefaultAsync(q => q.QueryID == queryId);
+            if (query == null)
+            {
+                return NotFound();
+            }
+
+            return View(query); // Return a detailed view of the query
+        }
+
+
+
         public IActionResult Queries()
         {
             return View("StudentQuery/Queries");
