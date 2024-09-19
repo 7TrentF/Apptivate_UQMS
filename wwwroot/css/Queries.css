@@ -4,6 +4,7 @@
     font-family: Arial, sans-serif;
     display: flex; /* Use flex to align child elements horizontally */
     gap: 20px; /* Space between child elements */
+    
 }
 
 .dashboard-content {
@@ -444,7 +445,7 @@ h1 {
     .query-box {
         flex: 1; /* Takes up less space compared to the dashboard-content */
         width: 320px;
-        height: 200px;
+        height: 220px;
         background-color: #f5f7fa; /* Light gray background */
         border-radius: 15px; /* Rounded corners */
         padding: 20px;
@@ -452,13 +453,13 @@ h1 {
         text-align: center;
         display: flex;
         flex-direction: column;
-        margin-top: 5vw;
+        margin-top: 8vw;
         justify-content: center;
         align-items: center;
     }
 
         .query-box h3 {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             margin-bottom: 10px;
         }
@@ -470,9 +471,10 @@ h1 {
         }
 
     .new-query-btn {
-        background-color: aqua; /* Light button background */
-        border: none;
-        border-radius: 8px;
+        background-color: white; /* Light button background */
+        border: dashed;
+        border-width: medium;
+        border-radius: 50px;
         padding: 10px 20px;
         color: #343a40;
         font-size: 14px;
@@ -485,7 +487,7 @@ h1 {
     }
 
         .new-query-btn:hover {
-            background-color: #ced4da; /* Darker background on hover */
+            background-color: aqua; /* Darker background on hover */
         }
 
         .new-query-btn span {

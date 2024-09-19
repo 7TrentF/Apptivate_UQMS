@@ -17,8 +17,8 @@
                     <option>Last Week</option>
                 </select>
                 <form id="searchForm" method="get" action="@Url.Action("Search", "Query")">
-                    <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for query" />
-                    <button type="submit">🔍</button>
+                    <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for query" /> <button type="submit">🔍</button>
+                    
                     <button type="button" id="clearSearch">Clear Search</button>
                 </form>
             </div>
@@ -52,7 +52,7 @@
 
     <div class="query-box">
         <h3>New query</h3>
-        <p>Ask a question or request help from our experts</p>
+        <p>Write and address new queries and issues</p>
         <a class="nav-link text-dark" asp-area="" asp-controller="Query" asp-action="CreateQuery">
             <button class="new-query-btn">
                 <span>+ New query</span>

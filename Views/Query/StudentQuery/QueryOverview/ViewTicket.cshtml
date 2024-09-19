@@ -1,5 +1,11 @@
 ﻿@model Apptivate_UQMS_WebApp.Models.QueryModel.Query
 
+
+@{
+    ViewData["Title"] = "View Ticket";
+    var initialTickets = ViewData["InitialTickets"] as IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>;
+}
+
 <div class="ticket-detail">
     <div class="ticket-header">
         <h2>Ticket Details</h2>
@@ -21,6 +27,7 @@
     </div>
     <div class="ticket-footer">
         <a href="@Url.Action("Index", "Query")" class="back-btn">Back to Tickets</a>
+      
     </div>
 </div>
 

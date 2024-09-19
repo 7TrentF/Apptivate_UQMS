@@ -62,6 +62,20 @@ namespace Apptivate_UQMS_WebApp.Services
             _logger.LogInformation("Student details found. StudentID: {StudentID}, DepartmentID: {DepartmentID}, CourseID: {CourseID}, Year: {Year}",
                 studentDetailQuery.StudentID, studentDetailQuery.DepartmentID, studentDetailQuery.CourseID, studentDetailQuery.Year);
 
+            // Fetch the IDs dynamically from the database
+            var academicQueryType = await _context.QueryTypes.FirstOrDefaultAsync(qt => qt.TypeName == "Academic");
+            var gradeRemarksCategory = await _context.QueryCategories.FirstOrDefaultAsync(qc => qc.CategoryName == "Grade Remarks" && qc.QueryTypeID == academicQueryType.QueryTypeID);
+            var courseRegistrationCategory = await _context.QueryCategories.FirstOrDefaultAsync(qc => qc.CategoryName == "Course Registration" && qc.QueryTypeID == academicQueryType.QueryTypeID);
+
+            // Ensure query is categorized as Academic > Grade Remarks or Course Registration
+            if (model.QueryTypeID != academicQueryType.QueryTypeID || (model.CategoryID != gradeRemarksCategory.CategoryID && model.CategoryID != courseRegistrationCategory.CategoryID))
+            {
+                _logger.LogError("Invalid query type or category.");
+                throw new Exception("Invalid query type or category.");
+            }
+
+
+            // Create the query record
             var query = new Query
             {
                 StudentID = studentDetailQuery.StudentID,
@@ -75,12 +89,11 @@ namespace Apptivate_UQMS_WebApp.Services
                 SubmissionDate = DateTime.Now
             };
 
-            _logger.LogInformation("Creating new query with pending status for StudentID {StudentID}.", studentDetailQuery.StudentID);
-
             _context.Queries.Add(query);
             await _context.SaveChangesAsync();
             _logger.LogInformation("Query with ID {QueryID} successfully created.", query.QueryID);
 
+            // Handle file upload if exists
             if (uploadedFile != null && uploadedFile.Length > 0)
             {
                 var allowedExtensions = new[] { ".jpg", ".png", ".pdf", ".zip" };
@@ -95,8 +108,6 @@ namespace Apptivate_UQMS_WebApp.Services
                 try
                 {
                     var documentUrl = await _fileUploadService.UploadFileAsync(uploadedFile);
-                    _logger.LogInformation("File {FileName} uploaded successfully.", uploadedFile.FileName);
-
                     var queryDocument = new QueryDocument
                     {
                         QueryID = query.QueryID,
@@ -116,38 +127,65 @@ namespace Apptivate_UQMS_WebApp.Services
                 }
             }
 
-            // Find staff members who are in the same department as the student (by comparing department name)
+            // Find lecturers in the same department and perform load balancing
             var departmentName = await _context.Departments
                 .Where(d => d.DepartmentID == query.DepartmentID)
                 .Select(d => d.DepartmentName)
                 .FirstOrDefaultAsync();
 
-            var staffMembers = await _context.StaffDetails
-                .Where(s => s.Department == departmentName && s.Position.PositionName == "Lecturer") // Match by department name and position
+            var lecturers = await _context.StaffDetails
+                .Where(s => s.Department == departmentName && s.Position.PositionName == "Lecturer")
                 .ToListAsync();
 
-            if (staffMembers.Any())
+            if (lecturers.Any())
             {
-                var staffMember = staffMembers.First(); // You can improve this by adding load balancing logic if needed
-                var queryAssignment = new QueryAssignment
-                {
-                    QueryID = query.QueryID,
-                    StaffID = staffMember.StaffID,
-                    AssignedDate = DateTime.Now
-                };
+                var leastBusyLecturer = lecturers
+                    .OrderBy(s => _context.QueryAssignments.Count(qa => qa.StaffID == s.StaffID && qa.ResolutionDate == null))
+                    .FirstOrDefault();
 
-                _context.QueryAssignments.Add(queryAssignment);
-                await _context.SaveChangesAsync();
-                _logger.LogInformation("Query assigned to StaffID {StaffID}.", staffMember.StaffID);
+                if (leastBusyLecturer != null)
+                {
+                    var queryAssignment = new QueryAssignment
+                    {
+                        QueryID = query.QueryID,
+                        StaffID = leastBusyLecturer.StaffID,
+                        AssignedDate = DateTime.Now
+                    };
+
+                    _context.QueryAssignments.Add(queryAssignment);
+                    await _context.SaveChangesAsync();
+                    _logger.LogInformation("Query assigned to Lecturer with StaffID {StaffID}.", leastBusyLecturer.StaffID);
+                }
             }
             else
             {
-                _logger.LogWarning("No 'Lecturer' staff found in the department for QueryID {QueryID}.", query.QueryID);
+                // Escalate to department head if no lecturer found
+                var departmentHead = await _context.StaffDetails
+                    .FirstOrDefaultAsync(s => s.Department == departmentName && s.Position.PositionName == "Department Head");
+
+                if (departmentHead != null)
+                {
+                    var queryAssignment = new QueryAssignment
+                    {
+                        QueryID = query.QueryID,
+                        StaffID = departmentHead.StaffID,
+                        AssignedDate = DateTime.Now
+                    };
+
+                    _context.QueryAssignments.Add(queryAssignment);
+                    await _context.SaveChangesAsync();
+                    _logger.LogInformation("Query escalated to Department Head with StaffID {StaffID}.", departmentHead.StaffID);
+                }
+                else
+                {
+                    _logger.LogWarning("No department head found for QueryID {QueryID}.", query.QueryID);
+                }
             }
 
             _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
         }
-
-
     }
+
+
 }
+

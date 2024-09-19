@@ -10,6 +10,8 @@ using Google.Apis.Auth.OAuth2;
 using Apptivate_UQMS_WebApp.Services;
 using static Apptivate_UQMS_WebApp.Models.Account;
 using Microsoft.AspNetCore.Authorization;
+using Apptivate_UQMS_WebApp.Extentions; // Add this using directive
+
 namespace Apptivate_UQMS_WebApp.Controllers
 {
 
@@ -33,6 +35,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
         {
             return Task.FromResult<IActionResult>(View("StudentQuery/NewQuery/CreateQuery"));
         }
+
 
         [HttpGet]
         public async Task<IActionResult> AcademicQuery(int queryTypeId)
@@ -380,6 +383,60 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return PartialView("StudentQuery/QueryOverview/AllTickets", queries);
         }
 
+
+        public async Task<IActionResult> FilteredTickets(string dateFilter)
+        {
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+            if (firebaseUid == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+
+            if (user == null)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+
+            if (studentDetail == null)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            // Determine the date range based on the filter
+            DateTime startDate, endDate;
+            switch (dateFilter)
+            {
+                case "This Week":
+                    startDate = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
+                    endDate = DateTime.Now.EndOfWeek(DayOfWeek.Sunday);
+                    break;
+                case "Last Week":
+                    var lastWeek = DateTime.Now.AddDays(-7);
+                    startDate = lastWeek.StartOfWeek(DayOfWeek.Monday);
+                    endDate = lastWeek.EndOfWeek(DayOfWeek.Sunday);
+                    break;
+                default:
+                    startDate = DateTime.MinValue;
+                    endDate = DateTime.MaxValue;
+                    break;
+            }
+
+            // Fetch queries within the specified date range
+            var userQueries = await _context.Queries
+                .Where(q => q.StudentID == studentDetail.StudentID && q.SubmissionDate >= startDate && q.SubmissionDate <= endDate)
+                .ToListAsync();
+
+            return PartialView("StudentQuery/QueryOverview/AllTickets", userQueries);
+        }
+
+
+
+       
 
 
 

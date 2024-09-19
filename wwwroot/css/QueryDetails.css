@@ -1,31 +1,93 @@
-﻿.document-list {
-    list-style: none;
-    padding-left: 0;
+﻿.tickets {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-    .document-list li {
-        margin-bottom: 10px;
-    }
-
-    .document-list a {
-        text-decoration: none;
-        background-color: #007bff;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-
-        .document-list a:hover {
-            background-color: #0056b3;
-        }
-
-@media screen and (max-width: 768px) {
-    .query-table th, .query-table td {
-        font-size: 0.9em;
-    }
-
-    .btn-view, .btn-resolve {
-        font-size: 0.8em;
-    }
+.ticket-card {
+    position: relative; /* Make the card a positioning context for the button */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: transform 0.2s;
+    margin-bottom: 8px;
 }
+
+    .ticket-card:hover {
+        transform: translateY(-5px);
+    }
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.ticket-id {
+    font-size: 25px;
+    font-weight:normal ;
+    color: #333;
+}
+
+.ticket-status {
+    font-size: 14px;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    text-transform: capitalize;
+}
+
+    .status-badge.pending {
+        background-color: orange;
+    }
+
+    .status-badge.completed {
+        background-color: green;
+    }
+
+    .status-badge.in-progress {
+        background-color: blue;
+    }
+
+.ticket-body {
+    margin-bottom: 15px;
+}
+
+.ticket-description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 16px;
+}
+
+.ticket-details {
+    font-size: 15px;
+    color: #888;
+}
+
+.ticket-footer {
+    position: absolute;
+    bottom: 18px; /* Adjust spacing from the bottom */
+    right: 15px; /* Adjust spacing from the right */
+}
+
+.open-ticket-btn {
+    padding: 10px 15px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.2s;
+}
+
+    .open-ticket-btn:hover {
+        background-color: white;
+    }

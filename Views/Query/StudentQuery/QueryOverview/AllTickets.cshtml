@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>
 
+<link rel="stylesheet" type="text/css" href="~/css/QueryDetails.css" />
+
 <div class="tickets">
     @if (Model != null && Model.Any())
     {
@@ -31,97 +33,3 @@
         <p>No tickets found.</p>
     }
 </div>
-
-<style>
-    .tickets {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        padding: 15px;
-        border-radius: 8px;
-        margin-bottom: 15px;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .ticket-card {
-        position: relative; /* Make the card a positioning context for the button */
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        transition: transform 0.2s;
-    }
-
-        .ticket-card:hover {
-            transform: translateY(-5px);
-        }
-
-    .ticket-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-
-    .ticket-id {
-        font-size: 16px;
-        font-weight: bold;
-        color: #333;
-    }
-
-    .ticket-status {
-        font-size: 14px;
-    }
-
-    .status-badge {
-        padding: 5px 10px;
-        border-radius: 5px;
-        color: white;
-        text-transform: capitalize;
-    }
-
-        .status-badge.pending {
-            background-color: orange;
-        }
-
-        .status-badge.completed {
-            background-color: green;
-        }
-
-        .status-badge.in-progress {
-            background-color: blue;
-        }
-
-    .ticket-body {
-        margin-bottom: 15px;
-    }
-
-    .ticket-description {
-        font-size: 14px;
-        color: #555;
-        margin-bottom: 10px;
-    }
-
-    .ticket-details {
-        font-size: 12px;
-        color: #888;
-    }
-
-    .ticket-footer {
-        position: absolute;
-        bottom: 15px; /* Adjust spacing from the bottom */
-        right: 15px; /* Adjust spacing from the right */
-    }
-
-    .open-ticket-btn {
-        padding: 10px 15px;
-        background-color: #007bff;
-        color: white;
-        border-radius: 5px;
-        text-decoration: none;
-        transition: background-color 0.2s;
-    }
-
-        .open-ticket-btn:hover {
-            background-color: #0056b3;
-        }
-</style>

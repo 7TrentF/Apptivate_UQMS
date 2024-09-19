@@ -801,7 +801,6 @@ C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebAp
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.AssemblyInfoInputs.cache
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.AssemblyInfo.cs
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.csproj.CoreCompileInputs.cache
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.RazorAssemblyInfo.cache
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.RazorAssemblyInfo.cs
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.sourcelink.json
@@ -829,3 +828,4 @@ C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Google.Cloud.Storage
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\StudentQuery\NewQuery\AcademicQuery.cshtml.rz.scp.css
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\StudentQuery\NewQuery\AdministrativeQuery.cshtml.rz.scp.css
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\StudentQuery\NewQuery\CreateQuery.cshtml.rz.scp.css
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.MvcApplicationPartsAssemblyInfo.cache
