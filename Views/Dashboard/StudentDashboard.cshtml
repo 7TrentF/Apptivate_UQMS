@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>
+﻿@model Apptivate_UQMS_WebApp.Models.StudentDashboardViewModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +34,7 @@
                     </div>
                     <div class="stat-info">
                         <p>Pending Queries</p>
-                        <h3>5,423</h3>
+                        <h3>@Model.DashboardStats.PendingCount</h3>
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@
                     </div>
                     <div class="stat-info">
                         <p>Resolved Queries</p>
-                        <h3>1,893</h3>
+                        <h3>@Model.DashboardStats.ResolvedCount</h3>
                     </div>
                 </div>
 
@@ -54,10 +54,11 @@
                     </div>
                     <div class="stat-info">
                         <p>In Progress Queries</p>
-                        <h3>189</h3>
+                        <h3>@Model.DashboardStats.InProgressCount</h3>
                     </div>
                 </div>
             </div>
+
 
             <!-- Recent Queries Section -->
             <div class="dashboard-section recent-queries">
@@ -74,7 +75,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var query in Model)
+                            @foreach (var query in Model.RecentQueries)
                             {
                                 <tr class="query-row">
                                     <td>@query.QueryID</td>
@@ -118,7 +119,6 @@
             <button class="show-more-btn">Show More</button>
         </div>
     </div>
-
 
 
 

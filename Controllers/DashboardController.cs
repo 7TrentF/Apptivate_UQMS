@@ -1,7 +1,9 @@
 ﻿using Apptivate_UQMS_WebApp.Data;
+using Apptivate_UQMS_WebApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using static Apptivate_UQMS_WebApp.Models.StudentDashboardViewModel;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
@@ -65,30 +67,48 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             if (student == null)
             {
-                _logger.LogError("Staff not found for FirebaseUID {FirebaseUID}.", firebaseUid);
+                _logger.LogError("Student not found for FirebaseUID {FirebaseUID}.", firebaseUid);
                 return NotFound("Student not found.");
             }
 
-            // Check if the student object is properly populated
-            if (student.User == null)
+            // Efficiently fetch counts for each status
+            var queryStatusCounts = await _context.Queries
+                .Where(q => q.StudentID == student.StudentID)
+                .GroupBy(q => q.Status)
+                .Select(g => new
+                {
+                    Status = g.Key,
+                    Count = g.Count()
+                })
+                .ToListAsync();
+
+            // Extract counts from the query result
+            var pendingCount = queryStatusCounts.FirstOrDefault(q => q.Status == "Pending")?.Count ?? 0;
+            var resolvedCount = queryStatusCounts.FirstOrDefault(q => q.Status == "Resolved")?.Count ?? 0;
+            var inProgressCount = queryStatusCounts.FirstOrDefault(q => q.Status == "In Progress")?.Count ?? 0;
+
+            // Fetch the recent queries for the student
+            var recentQueries = await _context.Queries
+                .Where(q => q.StudentID == student.StudentID)
+                .Include(q => q.QueryDocuments)
+                .ToListAsync();
+
+            // Create the combined view model
+            var viewModel = new StudentDashboardViewModel
             {
-                return NotFound("User associated with the student not found.");
-            }
+                RecentQueries = recentQueries,
+                DashboardStats = new DashboardStatsViewModel
+                {
+                    PendingCount = pendingCount,
+                    ResolvedCount = resolvedCount,
+                    InProgressCount = inProgressCount
+                }
+            };
 
-            // Fetch the queries for the student
-            var queries = await _context.Queries
-                                        .Where(q => q.StudentID == student.StudentID)
-                                        .Include(q => q.QueryDocuments) // Include related documents
-                                        .Include(q => q.Category)       // Include Category if needed
-                                        .Include(q => q.Department)     // Include Department if needed
-                                        .Include(q => q.Course)         // Include Course if needed
-                                        .Include(q => q.Module)         // Include Module if needed
-                                        .ToListAsync();
-
-           
-
-            return View(queries);
+            return View(viewModel);
         }
+
+
 
 
 
