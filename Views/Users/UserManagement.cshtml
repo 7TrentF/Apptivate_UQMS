@@ -1,0 +1,87 @@
+﻿<link rel="stylesheet" href="~/css/UserManagement.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<h1>Users</h1>
+<div class="user-container">
+    <div class="user-content">
+        <div class="user-header">
+            <i class="search-icon">🔍
+                <input type="text" placeholder="Search"/>
+            </i>
+            <div class="dashboard-actions">
+                <button class="add-user-btn">Add User</button>
+            </div>
+            <div class="sort-container">
+                <select>
+                    <option selected disabled>Sort by</option>
+                    <option>Ascending</option>
+                    <option>Descending</option>
+                </select>
+                <img src="~/images/adjust.png" alt="adjust" class="img-fluid" />
+            </div>
+        </div>
+    </div>
+
+    <div class="User-stats">
+        <div class="stat-card" id="total-users">
+            <h3>Total Users</h3>
+            <p>5</p>
+        </div>
+        <div class="stat-card" id="student-users">
+            <h3>Student Users</h3>
+            <p>2</p>
+        </div>
+        <div class="stat-card" id="staff-user">
+            <h3>Staff Users</h3>
+            <p>2</p>
+        </div>
+        <div class="stat-card" id="admin-users">
+            <h3>Admin Users</h3>
+            <p>1</p>
+        </div>
+    </div>
+
+    <table class="custom-table">
+        <thead>
+            <tr class="header-row">
+                <th>Name</th>
+                <th>Email Address</th>
+                <th>Last Seen</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Thebe Khabo</td>
+                <td>thebe@gmail.com</td>
+                <td>2024-09-18</td>
+                <td>Admin</td>
+                <td>
+                <a href="#" title="Edit"><i class="fas fa-edit"></i></a>
+                <a href="#" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+            <!-- Additional rows can be added here -->
+        </tbody>
+    </table>
+
+</div>
+@* <div class="user-container">
+    <div class="user-content">
+        <div class="user-header">
+            <h1>Users</h1>
+            <input type="text" placeholder="Add User" />
+            <i class="search-icon">🔍</i>
+            <div class="dashboard-actions">
+                <button class="add-user-btn">Add User</button>
+            </div>
+            <div class="sort-container">
+                <select>
+                    <option>Ascending</option>
+                    <option>Descending</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div> *@

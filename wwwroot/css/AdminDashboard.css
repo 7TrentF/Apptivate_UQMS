@@ -1,0 +1,200 @@
+﻿.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .user-profile img.user-profile-picture {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin-right: 15px;
+    }
+
+    .user-profile h2 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+.notification-bell {
+    margin-left: 10px;
+    font-size: 24px;
+    color: #aaa;
+}
+
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 800px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+    .stat-item .stat-icon {
+        font-size: 36px;
+        color: #00c4cc;
+    }
+
+    .stat-item h3 {
+        margin: 10px 0;
+    }
+
+    .stat-item p {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+.progress-container {
+    width: 100%;
+    max-width: 1200px; /* Adjust the max-width as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding around the content */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for visual effect */
+    background-color: #f9f9f9; /* Optional: background color for the container */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+
+.user-management-overview {
+    margin-bottom: 40px;
+}
+
+.progress-section {
+    margin-top: 20px;
+}
+
+.progress-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    position: relative; /* Position the progress bar container relative to its normal position */
+    height: 20px; /* Adjust height as needed */
+    background-color: #e0e0e0; /* Background color of the progress bar */
+    border-radius: 4px; /* Optional: rounded corners */
+}
+
+.progress {
+    height: 100%;
+    border-radius: 4px; /* Optional: rounded corners */
+}
+
+.percentage {
+    position: absolute; /* Position percentage text absolutely */
+    right: 0; /* Align to the right edge */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+    padding-right: 5px; /* Optional: space from the right edge */
+    font-size: 14px; /* Adjust font size as needed */
+}
+
+/*.percentage{
+    align-items:end;
+}
+
+.progress-bar {
+    flex: 1;
+    margin: 0 10px;
+    background-color: #00c4cc;
+    height: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 5px;}*/
+
+.query-heatmap {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 40px;
+    padding: 20px;  
+    border-radius: 15px;  
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: #fff; 
+}
+
+.heatmap-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.heatmap-item {
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+
+.low-load {
+    background-color: #00c4cc;
+}
+
+.medium-load {
+    background-color: #ffb74d;
+}
+
+.high-load {
+    background-color: #e57373;
+}
+
+.system-activity {
+    margin-top: 40px;
+}
+
+.activity-list {
+    list-style: none;
+    padding: 0;
+}
+
+    .activity-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+        .activity-list li img.avatar {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+    .activity-list p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .activity-list span {
+        font-size: 12px;
+        color: #aaa;
+    }
+
+.btn-light {
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
