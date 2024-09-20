@@ -40,13 +40,21 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "DAQDataUploadThing": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "FirebaseAdmin": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.0, )"
             },
             "Google.Apis.Auth": {
               "target": "Package",
               "version": "[1.68.0, )"
+            },
+            "Google.Cloud.Storage.V1": {
+              "target": "Package",
+              "version": "[4.10.0, )"
             },
             "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
               "target": "Package",
@@ -79,6 +87,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.5, )"
+            },
+            "UploadThing.Core": {
+              "target": "Package",
+              "version": "[0.1.0, )"
             }
           },
           "imports": [
