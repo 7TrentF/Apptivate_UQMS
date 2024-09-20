@@ -1,6 +1,125 @@
 ﻿@{
-    ViewData["Title"] = "Staff Dashboard";
+    ViewData["Title"] = "staff Dashboard";
 }
 
-<h2>Welcome to the Staff Dashboard</h2>
-<p>This is your dashboard where you can manage student queries, assignments, and more.</p>
+<div class="container mt-5">
+    <!-- User Profile -->
+    <div class="row align-items-center mb-4">
+        <div class="col-2">
+            <img src="~/Images/AI_profile.jpg" class="rounded-circle" alt="Profile" width="80" height="80" />
+        </div>
+        <div class="col-10">
+            <h4>Shakshi Patel</h4>
+            <span class="text-muted">Lecturer</span>
+        </div>
+    </div>
+
+    <!-- Query Stats -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card p-4 text-center shadow-sm text-white" style="background-color: #00b8a9;">
+                <h5>New Queries</h5>
+                <h2>5,423</h2>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card p-4 text-center shadow-sm text-white" style="background-color: #00b8a9;">
+                <h5>Queries in Progress</h5>
+                <h2>189</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Query List -->
+    <div class="card p-4 mb-4 shadow-sm text-white" style="background-color: #00b8a9;">
+        <h5 class="mb-3">Query List</h5>
+        <table class="table table-hover table-borderless text-white">
+            <thead>
+                <tr>
+                    <th>Student Number</th>
+                    <th>Query Type</th>
+                    <th>Department</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ST101</td>
+                    <td>Add and Drop Modules</td>
+                    <td>Academic</td>
+                    <td><span class="badge bg-success">Resolved</span></td>
+                </tr>
+                <tr>
+                    <td>ST102</td>
+                    <td>Finance Query</td>
+                    <td>Financial</td>
+                    <td><span class="badge bg-warning">In-progress</span></td>
+                </tr>
+                <tr>
+                    <td>ST103</td>
+                    <td>Policy Query</td>
+                    <td>Academic</td>
+                    <td><span class="badge bg-success">Resolved</span></td>
+                </tr>
+                <tr>
+                    <td>ST104</td>
+                    <td>Lecturer Query</td>
+                    <td>Lecturer</td>
+                    <td><span class="badge bg-warning">In-progress</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Performance and Team Overview -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm">
+                <h5>Performance</h5>
+                <div>
+                    <!-- Placeholder for chart -->
+                    <img src="~/images/perfomance.png" alt="Performance Chart" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm">
+                <h5>Team Overview</h5>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Stephanie Williams (Academic)
+                        <span class="badge bg-primary rounded-pill">100/200</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Tom Cruise (Financial)
+                        <span class="badge bg-info rounded-pill">20/200</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Vincent Knight (Academic)
+                        <span class="badge bg-secondary rounded-pill">70/200</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add custom styles here -->
+<style>
+    .card {
+        border-radius: 10px;
+    }
+
+    .badge {
+        font-size: 14px;
+    }
+
+    .rounded-circle {
+        border: 2px solid #fff;
+    }
+
+    .table-borderless td, .table-borderless th {
+        border: none;
+    }
+</style>
