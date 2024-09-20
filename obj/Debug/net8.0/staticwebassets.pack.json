@@ -29,8 +29,16 @@
       "PackagePath": "staticwebassets\\Images\\User_roles_background.png"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\Users.png",
+      "PackagePath": "staticwebassets\\Images\\Users.png"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\add-plus-square.svg",
       "PackagePath": "staticwebassets\\Images\\add-plus-square.svg"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\adjust.png",
+      "PackagePath": "staticwebassets\\Images\\adjust.png"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\admin.png",
@@ -55,6 +63,14 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\badge.png",
       "PackagePath": "staticwebassets\\Images\\badge.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\checked-user-50.png",
+      "PackagePath": "staticwebassets\\Images\\checked-user-50.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\computer-50.png",
+      "PackagePath": "staticwebassets\\Images\\computer-50.png"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\favicon-16x16.png",
@@ -99,6 +115,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\perfomance.png",
       "PackagePath": "staticwebassets\\Images\\perfomance.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\pie-chart.png",
+      "PackagePath": "staticwebassets\\Images\\pie-chart.png"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\profile-pic.png",
@@ -181,6 +201,10 @@
       "PackagePath": "staticwebassets\\Svgs\\delete-2-svgrepo-com.svg"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\delete.svg",
+      "PackagePath": "staticwebassets\\Svgs\\delete.svg"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\document-1-svgrepo-com (1).svg",
       "PackagePath": "staticwebassets\\Svgs\\document-1-svgrepo-com (1).svg"
     },
@@ -199,6 +223,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\edit-2-svgrepo-com.svg",
       "PackagePath": "staticwebassets\\Svgs\\edit-2-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\edit.svg",
+      "PackagePath": "staticwebassets\\Svgs\\edit.svg"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\envelope-badge-svgrepo-com.svg",
@@ -313,6 +341,10 @@
       "PackagePath": "staticwebassets\\Svgs\\ticket.svg"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\trash.svg",
+      "PackagePath": "staticwebassets\\Svgs\\trash.svg"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\user-id-portrait-svgrepo-com (1).svg",
       "PackagePath": "staticwebassets\\Svgs\\user-id-portrait-svgrepo-com (1).svg"
     },
@@ -323,6 +355,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\user_id_portrait.svg",
       "PackagePath": "staticwebassets\\Svgs\\user_id_portrait.svg"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\AdminDashboard.css",
+      "PackagePath": "staticwebassets\\css\\AdminDashboard.css"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\DashboardPage.css",
@@ -363,6 +399,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserDashboard.css",
       "PackagePath": "staticwebassets\\css\\UserDashboard.css"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserManagement.css",
+      "PackagePath": "staticwebassets\\css\\UserManagement.css"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserProfile.css",

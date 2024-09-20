@@ -547,10 +547,8 @@ C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\Apptivate_UQMS_W
 C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\Apptivate_UQMS_WebApp\obj\Debug\net8.0\Apptivate_UQMS_WebApp.pdb
 C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\Apptivate_UQMS_WebApp\obj\Debug\net8.0\Apptivate_UQMS_WebApp.genruntimeconfig.cache
 C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\Apptivate_UQMS_WebApp\obj\Debug\net8.0\ref\Apptivate_UQMS_WebApp.dll
-C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\appsettings.json
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Properties\uqms-a3d87-firebase-adminsdk-666ea-91788e11ff.json
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Properties\uqms-firebase-adminsdk.json
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.staticwebassets.runtime.json
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.exe
@@ -560,12 +558,15 @@ C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebAp
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.pdb
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\DAQDataUploadThing.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\FirebaseAdmin.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Google.Api.Gax.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Google.Api.Gax.Rest.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Google.Apis.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Google.Apis.Auth.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Google.Apis.Core.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Google.Apis.Storage.v1.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Google.Cloud.Storage.V1.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Humanizer.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
@@ -595,6 +596,7 @@ C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Microsoft.DotNet.Sca
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
@@ -647,6 +649,7 @@ C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\System.Security.Cryp
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\System.Security.Permissions.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\System.Text.Json.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\UploadThing.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\af\Humanizer.resources.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\ar\Humanizer.resources.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\az\Humanizer.resources.dll
@@ -710,6 +713,7 @@ C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\zh-Hans\Microsoft.Co
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
@@ -785,6 +789,7 @@ C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\ru\Microsoft.CodeAna
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
@@ -801,6 +806,7 @@ C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebAp
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.AssemblyInfoInputs.cache
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.AssemblyInfo.cs
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.csproj.CoreCompileInputs.cache
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.RazorAssemblyInfo.cache
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.RazorAssemblyInfo.cs
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.sourcelink.json
@@ -811,6 +817,9 @@ C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\staticwebassets\msbu
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Apptivate_UQMS_WebApp.props
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Apptivate_UQMS_WebApp.props
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\StudentQuery\NewQuery\AcademicQuery.cshtml.rz.scp.css
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\StudentQuery\NewQuery\AdministrativeQuery.cshtml.rz.scp.css
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\StudentQuery\NewQuery\CreateQuery.cshtml.rz.scp.css
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\bundle\Apptivate_UQMS_WebApp.styles.css
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\projectbundle\Apptivate_UQMS_WebApp.bundle.scp.css
@@ -820,12 +829,3 @@ C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\refint\Apptivate_UQM
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.pdb
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.genruntimeconfig.cache
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\ref\Apptivate_UQMS_WebApp.dll
-C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\DAQDataUploadThing.dll
-C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\UploadThing.dll
-C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Properties\uqms-a3d87-firebase-adminsdk-666ea-91788e11ff.json
-C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Google.Apis.Storage.v1.dll
-C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Google.Cloud.Storage.V1.dll
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\StudentQuery\NewQuery\AcademicQuery.cshtml.rz.scp.css
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\StudentQuery\NewQuery\AdministrativeQuery.cshtml.rz.scp.css
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\Views\Query\StudentQuery\NewQuery\CreateQuery.cshtml.rz.scp.css
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.MvcApplicationPartsAssemblyInfo.cache

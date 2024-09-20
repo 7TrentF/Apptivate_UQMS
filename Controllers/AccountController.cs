@@ -55,7 +55,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 _logger.LogInformation("User already authenticated, redirecting to home.");
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
 
             _logger.LogInformation("Register page loaded.");
@@ -176,7 +176,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
             if (await TryAutoLoginAsync())
             {
                 // If auto-login is successful, redirect to home
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
 
             return View();

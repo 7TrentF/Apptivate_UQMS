@@ -1,92 +1,117 @@
-﻿@{
-    ViewData["Title"] = "Dashboard";
+﻿@model Apptivate_UQMS_WebApp.Models.AdminDashboardViewModel
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
 }
 
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/AdminDashboard.css" asp-append-version="true">
+</head>
 
-<div class="dashboard-container">
-    <!-- Header -->
-    <header class="dashboard-header">
-        <img src="~/Images/university_logo.png" alt="University Logo" class="logo">
-        <div class="user-info">
+<body>
 
-            <span class="user-role">Role: @ViewBag.UserRole</span>
-        </div>
-        <a href="/Account/Logout" class="logout-btn">Logout</a>
-    </header>
-
-    <link href="~/css/dashboard.css" rel="stylesheet" type="text/css" />
-
-    <!-- Main Content -->
-    <main class="dashboard-content">
-        <h1>Welcome to UQMS Dashboard</h1>
-
-        <!-- Query Statistics -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h2>Total Queries Submitted</h2>
-                <p>24</p>
-            </div>
-            <div class="stat-card">
-                <h2>Resolved Queries</h2>
-                <p>18</p>
-            </div>
-            <div class="stat-card">
-                <h2>Pending Queries</h2>
-                <p>6</p>
-            </div>
-            <div class="stat-card">
-                <h2>Assigned Queries</h2>
-                <p>12</p>
-            </div>
+    <div class="container">
+        <!-- User Profile Section -->
+        <div class="user-profile">
+            <img src="~/Images/user_id_portrait.svg" alt="User Profile" class="user-profile-picture" />
+            <h2>@Model.Users.Name @Model.Users.Surname</h2>
         </div>
 
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-item">
+                <img src="~/images/Users.png" alt="Users Icon" class="icon" />
+                <h3>Total Users</h3>
+                <p>@Model.TotalUsers</p>
+            </div>
 
-        <!-- Recent Queries Table -->
-        <h2>Recent Queries</h2>
-        <table class="recent-queries-table">
-            <thead>
-                <tr>
-                    <th>Query ID</th>
-                    <th>Category</th>
-                    <th>Status</th>
-                    <th>Submission Date</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Registration Issue</td>
-                    <td>Resolved</td>
-                    <td>2024-08-01</td>
-                    <td><a href="#">View Details</a></td>
-                </tr>
-                <!-- More rows here -->
-            </tbody>
-        </table>
+            <div class="stat-item">
+                <img src="~/images/active-users.png" alt="Active Users Icon" class="icon" />
+                <h3>Active Users</h3>
+                <p>@Model.ActiveUsers</p>
+            </div>
 
-        <!-- Chart -->
-        <div class="chart-container">
-            <canvas id="queryStatusChart"></canvas>
+            <div class="stat-item">
+                <img src="~/images/queries.png" alt="Queries Icon" class="icon" />
+                <h3>Total Queries</h3>
+                <p>@Model.TotalQueries</p>
+            </div>
+
+            <div class="stat-item">
+                <img src="~/images/resolved-queries.png" alt="Resolved Queries Icon" class="icon" />
+                <h3>Resolved Queries</h3>
+                <p>@Model.ResolvedQueries</p>
+            </div>
+
+            <div class="stat-item">
+                <img src="~/images/pending-queries.png" alt="Pending Queries Icon" class="icon" />
+                <h3>Pending Queries</h3>
+                <p>@Model.PendingQueries</p>
+            </div>
         </div>
-    </main>
-</div>
 
-@section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        var ctx = document.getElementById('queryStatusChart').getContext('2d');
-        var chart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Resolved', 'Pending', 'In Progress'],
-                datasets: [{
-                    label: 'Query Statuses',
-                    data: [18, 6, 4],
-                    backgroundColor: ['#4CAF50', '#FF9800', '#2196F3']
-                }]
-            }
-        });
-    </script>
-}
+        <div class="content-wrapper">
+            <!-- Main Content Section -->
+            <div class="main-content">
+                <!-- User Management Overview Section -->
+                <div class="progress-container">
+                    <h3>User Management Overview</h3>
+                    <div class="progress-section">
+                        @foreach (var overview in Model.UserManagementOverview)
+                        {
+                            <div class="progress-item">
+                                <span>@overview.Role</span>
+                                <div class="progress">
+                                    <span>@overview.Percentage%</span>
+                                    <div class="progress-bar" style="width:@overview.Percentage%;"></div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+
+
+                <!-- Query Heatmap Section -->
+                <div class="query-heatmap">
+                    <h4>Query Heatmap</h4>
+                    <div class="heatmap-grid">
+                        <!-- Example Heatmap Items -->
+                        <div class="heatmap-item low-load">CS Department <br> 5 queries</div>
+                        <div class="heatmap-item medium-load">Physics Department <br> 18 queries</div>
+                        <div class="heatmap-item high-load">Chemistry Department <br> 25 queries</div>
+                        <!-- Add more departments as needed -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Activity Section -->
+            <div class="system-activity">
+                <h4>System Activity</h4>
+                <ul class="activity-list">
+                    @foreach (var activity in Model.SystemActivities)
+                    {
+                        <li>
+                            <img src="~/Images/user-avatar.jpg" alt="User Avatar" class="avatar" />
+                            <div class="activity-details">
+                                <p>@activity.UserName @activity.Action</p>
+                                <span>@activity.Timestamp</span>
+                            </div>
+                        </li>
+                    }
+                </ul>
+                <button class="btn show-more-btn">Show More</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

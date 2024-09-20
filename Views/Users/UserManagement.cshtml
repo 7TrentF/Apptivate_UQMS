@@ -1,0 +1,144 @@
+﻿@model Apptivate_UQMS_WebApp.Models.AdminDashboardViewModel
+
+@{
+    ViewData["Title"] = "User Management";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="~/css/UserManagement.css" asp-append-version="true">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/kTc6bE06Yuec5XDV6sLXy5q9k3L7U4VqRslzVh30+yoVvOBJDxy/bP9pU6d3uN5Gm1ozWV9rM72iw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- User Header Section -->
+        <header class="user-header">
+            <h1>Users</h1>
+            <div class="search-add-sort">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search users..." aria-label="Search Users">
+                    <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                </div>
+                <div class="dashboard-actions">
+                    <button class="add-user-btn"><i class="fas fa-user-plus"></i> Add User</button>
+                </div>
+                <div class="sort-container">
+                    <select aria-label="Sort Users">
+                        <option selected disabled>Sort by</option>
+                        <option>Ascending</option>
+                        <option>Descending</option>
+                    </select>
+                    <i class="fas fa-sort sort-icon" aria-hidden="true"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Statistics Section -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3>Total Users</h3>
+                <p>@Model.TotalUsers</p>
+            </div>
+            <div class="stat-card">
+                <h3>Student Users</h3>
+                <p>@Model.Users.StudentDetails</p>
+            </div>
+            <div class="stat-card">
+                <h3>Staff Users</h3>
+                <p>@Model.Users.StaffDetails</p>
+            </div>
+            <div class="stat-card">
+                <h3>Admin Users</h3>
+                <p>@Model.Users.AdminDetails</p>
+            </div>
+        </section>
+
+        <!-- Main Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- User Management Overview Section -->
+            <section class="user-management-overview">
+                <h2>User Management Overview</h2>
+                <div class="overview-cards">
+                    @foreach (var overview in Model.UserManagementOverview)
+                    {
+                        <div class="overview-card">
+                            <span class="role">@overview.Role</span>
+                            <div class="progress-container">
+                                <span class="percentage">@overview.Percentage%</span>
+                                <div class="progress-bar" style="width:@overview.Percentage%;"></div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+
+            <!-- Query Heatmap Section -->
+            <section class="query-heatmap">
+                <h2>Query Heatmap</h2>
+                <div class="heatmap-grid">
+                    <!-- Example Heatmap Items -->
+                    <div class="heatmap-item low-load">CS Department <br> 5 queries</div>
+                    <div class="heatmap-item medium-load">Physics Department <br> 18 queries</div>
+                    <div class="heatmap-item high-load">Chemistry Department <br> 25 queries</div>
+                    <!-- Add more departments as needed -->
+                </div>
+            </section>
+
+            <!-- System Activity Section -->
+            <aside class="system-activity">
+                <h2>System Activity</h2>
+                <ul class="activity-list">
+                    @foreach (var activity in Model.SystemActivities)
+                    {
+                        <li>
+                            <img src="~/Images/user-avatar.jpg" alt="User Avatar" class="avatar" />
+                            <div class="activity-details">
+                                <p>@activity.UserName @activity.Action</p>
+                                <span>@activity.Timestamp</span>
+                            </div>
+                        </li>
+                    }
+                </ul>
+                <button class="btn show-more-btn">Show More</button>
+            </aside>
+        </div>
+
+        <!-- User Table Section -->
+        <section class="user-table-section">
+            <table class="custom-table">
+                <thead>
+                    <tr class="header-row">
+                        <th>Name</th>
+                        <th>Email Address</th>
+                        <th>Last Seen</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Thebe Khabo</td>
+                        <td>thebe@gmail.com</td>
+                        <td>2024-09-18</td>
+                        <td>Admin</td>
+                        <td>
+                            <a href="#" title="Edit"><i class="fas fa-edit"></i></a>
+                            <a href="#" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                    <!-- Additional rows can be added here -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+
+</html>

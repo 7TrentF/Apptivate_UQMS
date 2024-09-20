@@ -1,0 +1,28 @@
+﻿﻿    <!-- AAAND here we go -->
+@model IEnumerable<Apptivate_UQMS_WebApp.Models.Users>
+
+<input type="text" placeholder="Search User" />
+<a href="@Url.Action("Add")" class="btn btn-primary">Add User</a>
+<h2>User Management</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Last Seen</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td><span class="badge badge-primary">@user.Role</span></td>
+                <td>@user.LastSeen.ToString("dd MMM yyyy, hh:mm tt")</td>
+            </tr>
+        }
+    </tbody>
+</table>

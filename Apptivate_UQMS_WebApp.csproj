@@ -40,8 +40,4 @@
     <PackageReference Include="UploadThing.Core" Version="0.1.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\StaffView\" />
-  </ItemGroup>
-
 </Project>

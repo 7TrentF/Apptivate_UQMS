@@ -233,11 +233,129 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
 
 
+        [HttpGet]
         [Authorize(Roles = "Admin")]
-        public IActionResult AdminDashboard()
+        public async Task<IActionResult> AdminDashboard()
         {
-            // Return the admin dashboard view
-            return View();
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+            if (string.IsNullOrEmpty(firebaseUid))
+            {
+                _logger.LogError("User not logged in.");
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Find the staff member based on the logged-in Firebase UID
+            var admin = await _context.AdminDetails
+                                      .Include(s => s.User)
+                                      .FirstOrDefaultAsync(s => s.User.FirebaseUID == firebaseUid);
+
+            if (admin == null)
+            {
+                _logger.LogError("Staff not found for FirebaseUID {FirebaseUID}.", firebaseUid);
+                return NotFound("Staff not found.");
+            }
+
+            // Fetch the Details for the staff
+            var userProfile = await _userProfileService.GetUserProfileAsync(firebaseUid);
+            if (userProfile == null)
+            {
+                return NotFound("User not found.");
+            }
+
+
+            // Fetch total users
+            var totalUsers = await _context.Users.CountAsync();
+
+            /*
+            // Fetch active users (assuming 'Active' status is determined by some property, e.g., last login date)
+            var activeUsers = await _context.Users
+                .Where(u => u.LastLoginDate >= DateTime.UtcNow.AddMonths(-1)) // Example condition
+                .CountAsync(); */
+
+            // Fetch total queries
+            var totalQueries = await _context.Queries.CountAsync();
+
+            // Fetch resolved queries
+            var resolvedQueries = await _context.Queries
+                .Where(q => q.Status == "Resolved")
+                .CountAsync();
+
+            // Fetch pending queries
+            var pendingQueries = await _context.Queries
+                .Where(q => q.Status == "Pending")
+                .CountAsync();
+
+            // User Management Overview
+            var userManagementOverview = await _context.Users
+                .GroupBy(u => u.Role)
+                .Select(g => new UserManagementViewModel
+                {
+                    Role = g.Key,
+                    Count = g.Count(),
+                    Percentage = (int)(g.Count() * 100.0 / totalUsers)
+                })
+                .ToListAsync();
+
+            // Weekly Activity Data
+            var openQueries = await _context.Queries
+                .Where(q => q.Status == "Open")
+                .GroupBy(q => q.SubmissionDate.Value.Date)
+                .OrderBy(g => g.Key)
+                .Select(g => g.Count())
+                .ToListAsync();
+
+            var reQueries = await _context.Queries
+                .Where(q => q.Status == "Reopened")
+                .GroupBy(q => q.SubmissionDate.Value.Date)
+                .OrderBy(g => g.Key)
+                .Select(g => g.Count())
+                .ToListAsync();
+
+            // Card Expense Statistics Data
+            // Assuming you have a way to fetch this data; placeholder example
+            var cardExpenseData = new List<int> { 300, 200, 150, 100 };
+
+            // Queries Received Data
+            var queriesReceivedData = await _context.Queries
+                .GroupBy(q => q.SubmissionDate.Value.Month)
+                .OrderBy(g => g.Key)
+                .Select(g => g.Count())
+                .ToListAsync();
+
+            // System Activity - Fetch recent activities
+            var systemActivities = await _context.Queries
+                .Include(q => q.Student)
+                .ThenInclude(s => s.User)
+                .OrderByDescending(q => q.SubmissionDate)
+                .Take(5)
+                .Select(q => new SystemActivityViewModel
+                {
+                    UserName = q.Student != null ? $"{q.Student.User.Name} {q.Student.User.Surname}" : "Unknown",
+                    Action = $"Submitted a query: {q.Description}",
+                    Timestamp = q.SubmissionDate.HasValue ? q.SubmissionDate.Value.ToString("dd MMM yyyy, h:mm tt") : "N/A"
+                })
+                .ToListAsync();
+
+            // Populate ViewModel
+            var viewModel = new AdminDashboardViewModel
+            {
+                TotalUsers = totalUsers,
+                //ActiveUsers = activeUsers,
+                Users = userProfile.User,
+                TotalQueries = totalQueries,
+                ResolvedQueries = resolvedQueries,
+                PendingQueries = pendingQueries,
+                UserManagementOverview = userManagementOverview,
+                OpenQueries = openQueries,
+                ReQueries = reQueries,
+                CardExpenseData = cardExpenseData,
+                QueriesReceivedData = queriesReceivedData,
+                SystemActivities = systemActivities
+            };
+
+            return View(viewModel);
         }
     }
+    
 }
