@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Apptivate_UQMS_WebApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\AI_profile.jpg",
+      "PackagePath": "staticwebassets\\Images\\AI_profile.jpg"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\Apptivate_logo.jpg",
       "PackagePath": "staticwebassets\\Images\\Apptivate_logo.jpg"
     },
@@ -91,6 +95,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\pending-icon.png",
       "PackagePath": "staticwebassets\\Images\\pending-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\perfomance.png",
+      "PackagePath": "staticwebassets\\Images\\perfomance.png"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\profile-pic.png",
@@ -347,6 +355,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Sidebar.css",
       "PackagePath": "staticwebassets\\css\\Sidebar.css"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\StaffDashboard.css",
+      "PackagePath": "staticwebassets\\css\\StaffDashboard.css"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserDashboard.css",

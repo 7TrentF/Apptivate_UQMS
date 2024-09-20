@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ic1CISlQ9M8zxlQCYccFj+oh5gdwu+yDEddredmDoxk=",
+  "Hash": "Yk+lHRkJeuenUVRIfv16Vv9IVE8LxjscBedo/9baDIk=",
   "Source": "Apptivate_UQMS_WebApp",
   "BasePath": "_content/Apptivate_UQMS_WebApp",
   "Mode": "Default",
@@ -283,6 +283,25 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\StaffDashboard.css",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "css/StaffDashboard.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\StaffDashboard.css"
+    },
+    {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserDashboard.css",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
@@ -395,6 +414,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\admin.png"
+    },
+    {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\AI_profile.jpg",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "Images/AI_profile.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\AI_profile.jpg"
     },
     {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\all-tickets.png",
@@ -718,6 +756,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\pending-icon.png"
+    },
+    {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\perfomance.png",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "Images/perfomance.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\perfomance.png"
     },
     {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\PHOTO-2024-08-15-10-44-07.jpg",

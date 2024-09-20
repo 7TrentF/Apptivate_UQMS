@@ -19,13 +19,15 @@ namespace Apptivate_UQMS_WebApp.Controllers
         private readonly ILogger<AccountController> _logger;
         private readonly ApplicationDbContext _context;
         private readonly IUserRegistrationService _userRegistrationService;
+        private readonly IUserProfileService _userProfileService;
 
-        public AccountController(FirebaseAuthService firebaseAuthService, ILogger<AccountController> logger, ApplicationDbContext context,IUserRegistrationService userRegistrationService)
+        public AccountController(FirebaseAuthService firebaseAuthService, ILogger<AccountController> logger, ApplicationDbContext context,IUserRegistrationService userRegistrationService, IUserProfileService userProfileService)
         {
             _firebaseAuthService = firebaseAuthService;
             _logger = logger;
             _context = context; // Assign the injected context
             _userRegistrationService = userRegistrationService;
+            _userProfileService = userProfileService;
         }
 
         [HttpGet]
@@ -266,38 +268,19 @@ namespace Apptivate_UQMS_WebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> UserProfile()
         {
-            // Retrieve the Firebase UID from session
             var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
-
-            if (firebaseUid == null)
+            if (string.IsNullOrEmpty(firebaseUid))
             {
-                _logger.LogError("User not logged in.");
                 return RedirectToAction("Login");
             }
 
-            // Fetch the user data from the database using FirebaseUID
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
-
-            if (user == null)
+            var userProfile = await _userProfileService.GetUserProfileAsync(firebaseUid);
+            if (userProfile == null)
             {
-                _logger.LogError("User not found.");
-                return NotFound();
+                return NotFound("User not found.");
             }
 
-            // Fetch student or staff details based on the user's role
-            var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
-            var staffDetail = await _context.StaffDetails
-         .Include(s => s.Position) // Ensure Position is included
-         .FirstOrDefaultAsync(s => s.UserID == user.UserID);
-
-            var model = new UserProfileViewModel
-            {
-                User = user,
-                StudentDetail = studentDetail,
-                StaffDetail = staffDetail
-            };
-
-            return View(model);
+            return View(userProfile);
         }
 
 

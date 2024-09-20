@@ -93,6 +93,8 @@ namespace Apptivate_UQMS_WebApp.Models
         }
 
 
+
+
         public class StudentDetail
         {
             [Key]

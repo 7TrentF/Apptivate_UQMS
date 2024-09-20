@@ -39,7 +39,7 @@ builder.Services.AddScoped<FirebaseAuthService>();
 builder.Services.AddHttpClient<FirebaseAuthService>();
 builder.Services.AddScoped<IUserRegistrationService, UserRegistrationService>();
 builder.Services.AddScoped<IQueryService, QuerySubmissionService>(); // Add this line
-
+builder.Services.AddScoped<IUserProfileService, UserProfileService>();
 // Add authentication
 builder.Services.AddAuthentication(options =>
 {
