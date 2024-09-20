@@ -1,89 +1,399 @@
-﻿@{
+﻿@* <link rel="stylesheet" href="~/css/AdminDashboard.css"> *@
+@{
     ViewData["Title"] = "Dashboard";
 }
+@{
+    // Hardcoded data
+    string userName = "Thebe Khabo";
+    string userImage = "wwwroot/Svgs/user_id_portrait.svg";  // Replace with your image path
+    int totalActiveUsers = 5423;
+    int totalQueries = 1893;
+    int resolvedQueries = 189;
+    int pendingQueries = 189;
 
-<div class="dashboard-container">
-    <!-- Header -->
-    <header class="dashboard-header">
-        <img src="~/Images/university_logo.png" alt="University Logo" class="logo">
-        <div class="user-info">
-            <span>@User.Identity.Name</span>
-            <span class="user-role">Role: @ViewBag.UserRole</span>
+    int totalUsers = 872400;
+    int studentsPercentage = 60;
+    int staffPercentage = 30;
+    int adminPercentage = 20;
+
+    // Hardcoded data for Weekly Activity
+    var openQueries = new int[] { 400, 300, 350, 100, 400, 350, 450 };
+    var reQueries = new int[] { 200, 250, 300, 150, 350, 250, 300 };
+
+    // Hardcoded data for Card Expense Statistics
+    var cardExpenseData = new int[] { 300, 200, 150, 100 };
+
+    // Hardcoded data for Queries Received
+    var queriesReceivedData = new int[] { 5000, 8000, 6000, 12500, 10000 };
+}
+
+<div class="dashboard">
+    <!-- User Profile -->
+    <div class="user-profile">
+        <img src="@userImage" alt="@userName" class="user-profile-picture" />
+        <h2>@userName</h2>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="stat-item">
+            <img src="~/images/Users.png" alt="users" class="icon" />
+            <h3>Total Active Users</h3>
+            <p>@totalActiveUsers</p>
         </div>
-        <a href="/Account/Logout" class="logout-btn">Logout</a>
-    </header>
 
-    <link href="~/css/dashboard.css" rel="stylesheet" type="text/css" />
-
-    <!-- Main Content -->
-    <main class="dashboard-content">
-        <h1>Welcome to UQMS Dashboard</h1>
-
-        <!-- Query Statistics -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h2>Total Queries Submitted</h2>
-                <p>24</p>
-            </div>
-            <div class="stat-card">
-                <h2>Resolved Queries</h2>
-                <p>18</p>
-            </div>
-            <div class="stat-card">
-                <h2>Pending Queries</h2>
-                <p>6</p>
-            </div>
-            <div class="stat-card">
-                <h2>Assigned Queries</h2>
-                <p>12</p>
-            </div>
+        <div class="stat-item">
+            <img src="~/images/checked-user-50.png" alt="users" class="icon" />
+            <h3>Total Queries</h3>
+            <p>@totalQueries</p>
         </div>
 
-        <!-- Recent Queries Table -->
-        <h2>Recent Queries</h2>
-        <table class="recent-queries-table">
-            <thead>
-                <tr>
-                    <th>Query ID</th>
-                    <th>Category</th>
-                    <th>Status</th>
-                    <th>Submission Date</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Registration Issue</td>
-                    <td>Resolved</td>
-                    <td>2024-08-01</td>
-                    <td><a href="#">View Details</a></td>
-                </tr>
-                <!-- More rows here -->
-            </tbody>
-        </table>
-
-        <!-- Chart -->
-        <div class="chart-container">
-            <canvas id="queryStatusChart"></canvas>
+        <div class="stat-item">
+            <img src="~/images/computer-50.png" alt="computer" class="icon" />
+            <h3>Resolved Queries</h3>
+            <p>@resolvedQueries</p>
         </div>
-    </main>
+
+        <div class="stat-item">
+            <img src="~/images/computer-50.png" alt="computer" class="icon" />
+            <h3>Pending Queries</h3>
+            <p>@pendingQueries</p>
+        </div>
+    </div>
+
+    <!-- User Management Overview Section -->
+    <div class="progress-container">
+    <div class="user-management-overview">
+        <h3>User Management Overview</h3>
+
+        <div class="progress-section">
+            <div class="progress-item">
+                <span>Students</span>
+                    <div class="percentage">
+                        <span>@studentsPercentage%</span> 
+                    </div>
+            </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width:@studentsPercentage%; background-color: #517f82;"></div>
+                </div>
+
+            <div class="progress-item">
+                <span>Staff</span>
+                    <div class="percentage">
+                        <span>@staffPercentage%</span>
+                    </div>
+            </div>
+                <div class="progress-bar2">
+                    <div class="progress" style="width:@staffPercentage%; background-color:#56dfea;"></div>
+                </div>
+         
+
+            <div class="progress-item">
+                <span>Admin</span>
+                    <div class="percentage">
+                        <span>@adminPercentage%</span>
+                    </div>
+            </div>  
+                <div class="progress-bar3">
+                    <div class="progress" style="width:@adminPercentage%; background-color:#333333;"></div>
+                </div>
+
+
+            <div class="progress-item">
+                <span>Total Users</span>
+                <span>@totalUsers</span>
+            </div>
+                <div class="progress-bar4">
+                    <div class="progress" style="width: 100%; background-color: #0000FF;"></div>
+                </div>
+        </div>
+</div>
+    </div>
+    <!-- Query Heatmap Section -->
+    <div class="query-heatmap">
+        <h4>Query Heatmap</h4>
+        <p>Visual representation of query load by department/staff</p>
+
+        <div class="heatmap-grid">
+            <div class="heatmap-item low-load">CS Department <br> 5 queries</div>
+            <div class="heatmap-item medium-load">Physics Department <br> 18 queries</div>
+            <div class="heatmap-item medium-load">Math Department <br> 12 queries</div>
+            <div class="heatmap-item high-load">Chemistry Department <br> 25 queries</div>
+            <div class="heatmap-item low-load">Biology Department <br> 8 queries</div>
+            <div class="heatmap-item high-load">Admin Team A <br> 30 queries</div>
+            <div class="heatmap-item medium-load">Admin Team B <br> 15 queries</div>
+            <div class="heatmap-item medium-load">Finance Office <br> 21 queries</div>
+            <div class="heatmap-item low-load">IT Support <br> 3 queries</div>
+            <div class="heatmap-item low-load">Library Staff <br> 10 queries</div>
+        </div>
+    </div>
+
+    <div class="system-activity">
+        <h4>System Activity</h4>
+        <ul class="activity-list">
+            <li>
+                <img src="/images/user-avatar.jpg" alt="User Avatar" class="avatar" />
+                <div>
+                    <p>Sonal closed "How to do my password?"</p>
+                    <span>14 Nov 2022, 5:26 PM</span>
+                </div>
+            </li>
+            <li>
+                <img src="/images/user-avatar.jpg" alt="User Avatar" class="avatar" />
+                <div>
+                    <p>John updated "Profile information."</p>
+                    <span>14 Nov 2022, 3:15 PM</span>
+                </div>
+            </li>
+            <li>
+                <img src="/images/user-avatar.jpg" alt="User Avatar" class="avatar" />
+                <div>
+                    <p>Mary commented on "Project X status."</p>
+                    <span>14 Nov 2022, 1:05 PM</span>
+                </div>
+            </li>
+            <li>
+                <img src="/images/user-avatar.jpg" alt="User Avatar" class="avatar" />
+                <div>
+                    <p>Tom assigned "Task 123" to Jane.</p>
+                    <span>14 Nov 2022, 11:30 AM</span>
+                </div>
+            </li>
+            <li>
+                <img src="/images/user-avatar.jpg" alt="User Avatar" class="avatar" />
+                <div>
+                    <p>Jane completed "Task 123."</p>
+                    <span>14 Nov 2022, 10:00 AM</span>
+                </div>
+            </li>
+        </ul>
+        <button class="btn btn-light">Show more</button>
+    </div>
+
 </div>
 
-@section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        var ctx = document.getElementById('queryStatusChart').getContext('2d');
-        var chart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Resolved', 'Pending', 'In Progress'],
-                datasets: [{
-                    label: 'Query Statuses',
-                    data: [18, 6, 4],
-                    backgroundColor: ['#4CAF50', '#FF9800', '#2196F3']
-                }]
-            }
-        });
-    </script>
+<style>
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
 }
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .user-profile img.user-profile-picture {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin-right: 15px;
+    }
+
+    .user-profile h2 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+.notification-bell {
+    margin-left: 10px;
+    font-size: 24px;
+    color: #aaa;
+}
+
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 800px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+    .stat-item .stat-icon {
+        font-size: 36px;
+        color: #00c4cc;
+    }
+
+    .stat-item h3 {
+        margin: 10px 0;
+    }
+
+    .stat-item p {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+.progress-container {
+    width: 100%;
+    max-width: 750px; /* Adjust the max-width as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding around the content */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for visual effect */
+    background-color: #f9f9f9; /* Optional: background color for the container */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+
+.user-management-overview {
+    margin-bottom: 40px;
+}
+
+.progress-section {
+    margin-top: 20px;
+}
+
+.progress-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.percentage{
+    align-items:end;
+}
+
+.progress-bar {
+    flex: 1;
+    margin: 0 10px;
+    background-color: #D8BFD8;
+    height: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.progress-bar2 {
+flex: 1;
+margin: 0 10px;
+        background-color: #89eaf4;
+height: 10px;
+border-radius: 5px;
+position: relative;
+}
+
+    .progress-bar3 {
+        flex: 1;
+        margin: 0 10px;
+        background-color: #777777;
+        height: 10px;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .progress-bar4 {
+        flex: 1;
+        margin: 0 10px;
+        background-color: #ADD8E6;
+        height: 10px;
+        border-radius: 5px;
+        position: relative;
+    }
+
+.progress {
+    height: 100%;
+    border-radius: 5px;}
+
+.query-heatmap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.heatmap-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.heatmap-item {
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color:white;
+
+}
+
+.low-load {
+    background-color: #00c4cc;
+}
+
+.medium-load {
+    background-color: #ffb74d;
+}
+
+.high-load {
+    background-color: #e57373;
+}
+
+    .system-activity {
+        margin-top: 40px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+        .system-activity h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center; /* Centering the heading */
+        }
+
+    .activity-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .activity-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+            .activity-list li img.avatar {
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                margin-right: 15px;
+            }
+
+    .activity-details p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .activity-details span {
+        font-size: 12px;
+        color: #aaa;
+    }
+
+    .btn-light {
+        display: block;
+        margin: 20px auto 0; /* Centering the button */
+        background-color: #f0f0f0;
+        padding: 10px 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+</style>
+
+

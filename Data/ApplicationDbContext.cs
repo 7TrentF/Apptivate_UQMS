@@ -27,6 +27,9 @@ namespace Apptivate_UQMS_WebApp.Data
         public DbSet<QueryDocument> QueryDocuments { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
 
+        public DbSet<QueryCategory> QueryCategories { get; set; }
+        public DbSet<QueryType> QueryTypes { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -59,56 +62,63 @@ namespace Apptivate_UQMS_WebApp.Data
                 .WithMany(m => m.CourseModules)
                 .HasForeignKey(cm => cm.ModuleID);
 
-              // Query and StudentDetail relationship
-        modelBuilder.Entity<Query>()
-            .HasOne(q => q.Student)
-            .WithMany(s => s.Queries)
-            .HasForeignKey(q => q.StudentID);
+            // Query and StudentDetail relationship
+            modelBuilder.Entity<Query>()
+                .HasOne(q => q.Student)
+                .WithMany(s => s.Queries)
+                .HasForeignKey(q => q.StudentID);
 
-        // Query and Department relationship
-        modelBuilder.Entity<Query>()
-            .HasOne(q => q.Department)
-            .WithMany(d => d.Queries)
-            .HasForeignKey(q => q.DepartmentID);
+            // Query and Department relationship
+            modelBuilder.Entity<Query>()
+                .HasOne(q => q.Department)
+                .WithMany(d => d.Queries)
+                .HasForeignKey(q => q.DepartmentID);
 
-        // Query and Course relationship
-        modelBuilder.Entity<Query>()
-            .HasOne(q => q.Course)
-            .WithMany(c => c.Queries)
-            .HasForeignKey(q => q.CourseID);
+            // Query and Course relationship
+            modelBuilder.Entity<Query>()
+                .HasOne(q => q.Course)
+                .WithMany(c => c.Queries)
+                .HasForeignKey(q => q.CourseID);
 
-        // Query and Module relationship
-        modelBuilder.Entity<Query>()
-            .HasOne(q => q.Module)
-            .WithMany(m => m.Queries)
-            .HasForeignKey(q => q.ModuleID);
+            // Query and Module relationship
+            modelBuilder.Entity<Query>()
+                .HasOne(q => q.Module)
+                .WithMany(m => m.Queries)
+                .HasForeignKey(q => q.ModuleID);
 
-        // QueryDocuments relationship
-        modelBuilder.Entity<QueryDocument>()
-            .HasOne(qd => qd.Query)
-            .WithMany(q => q.QueryDocuments)
-            .HasForeignKey(qd => qd.QueryID);
+            // QueryDocuments relationship
+            modelBuilder.Entity<QueryDocument>()
+                .HasOne(qd => qd.Query)
+                .WithMany(q => q.QueryDocuments)
+                .HasForeignKey(qd => qd.QueryID);
 
-        // Feedback relationship
-        modelBuilder.Entity<Feedback>()
-            .HasOne(f => f.Query)
-            .WithOne(q => q.Feedback)
-            .HasForeignKey<Feedback>(f => f.QueryID);
+            // Feedback relationship
+            modelBuilder.Entity<Feedback>()
+                .HasOne(f => f.Query)
+                .WithOne(q => q.Feedback)
+                .HasForeignKey<Feedback>(f => f.QueryID);
 
-        // QueryAssignments relationship
-        modelBuilder.Entity<QueryAssignment>()
-            .HasOne(qa => qa.Query)
-            .WithMany(q => q.QueryAssignments)
-            .HasForeignKey(qa => qa.QueryID);
+            // QueryAssignments relationship
+            modelBuilder.Entity<QueryAssignment>()
+                .HasOne(qa => qa.Query)
+                .WithMany(q => q.QueryAssignments)
+                .HasForeignKey(qa => qa.QueryID);
 
-        modelBuilder.Entity<QueryAssignment>()
-            .HasOne(qa => qa.Staff)
-            .WithMany(s => s.QueryAssignments)
-            .HasForeignKey(qa => qa.StaffID);
+            modelBuilder.Entity<QueryAssignment>()
+                .HasOne(qa => qa.Staff)
+                .WithMany(s => s.QueryAssignments)
+                .HasForeignKey(qa => qa.StaffID);
+
+            // Query and QueryCategory relationship
+            modelBuilder.Entity<Query>()
+                .HasOne(q => q.Category)
+                .WithMany(c => c.Queries)
+                .HasForeignKey(q => q.CategoryID);
 
 
         }
         public DbSet<Apptivate_UQMS_WebApp.Models.Users> Users_1 { get; set; } = default!;
+
     }
 }
 
