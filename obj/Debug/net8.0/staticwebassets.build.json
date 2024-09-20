@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Hu2oktP0iVcj/dBwZe3eHqfqhXOOr9nOzkWWyUwML+U=",
+  "Hash": "ic1CISlQ9M8zxlQCYccFj+oh5gdwu+yDEddredmDoxk=",
   "Source": "Apptivate_UQMS_WebApp",
   "BasePath": "_content/Apptivate_UQMS_WebApp",
   "Mode": "Default",
@@ -281,6 +281,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserDashboard.css",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "css/UserDashboard.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\UserDashboard.css"
     },
     {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserProfile.css",
@@ -568,6 +587,25 @@
       "OriginalItemSpec": "wwwroot\\Images\\favicon-32x32.png"
     },
     {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\in-progress-icon.png",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "Images/in-progress-icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\in-progress-icon.png"
+    },
+    {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\menu-icon.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
@@ -625,6 +663,25 @@
       "OriginalItemSpec": "wwwroot\\Images\\notice.png"
     },
     {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\notification-icon.jpg",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "Images/notification-icon.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\notification-icon.jpg"
+    },
+    {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\on-going.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
@@ -642,6 +699,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\on-going.png"
+    },
+    {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\pending-icon.png",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "Images/pending-icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\pending-icon.png"
     },
     {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\PHOTO-2024-08-15-10-44-07.jpg",
@@ -663,6 +739,25 @@
       "OriginalItemSpec": "wwwroot\\Images\\PHOTO-2024-08-15-10-44-07.jpg"
     },
     {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\profile-pic.png",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "Images/profile-pic.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\profile-pic.png"
+    },
+    {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\resolved.png",
       "SourceId": "Apptivate_UQMS_WebApp",
       "SourceType": "Discovered",
@@ -680,6 +775,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\resolved.png"
+    },
+    {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\resolved-icon.png",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "Images/resolved-icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\resolved-icon.png"
     },
     {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\Sidebar css.txt",

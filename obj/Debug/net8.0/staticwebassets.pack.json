@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\Images\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\in-progress-icon.png",
+      "PackagePath": "staticwebassets\\Images\\in-progress-icon.png"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\menu-icon.png",
       "PackagePath": "staticwebassets\\Images\\menu-icon.png"
     },
@@ -77,8 +81,24 @@
       "PackagePath": "staticwebassets\\Images\\notice.png"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\notification-icon.jpg",
+      "PackagePath": "staticwebassets\\Images\\notification-icon.jpg"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\on-going.png",
       "PackagePath": "staticwebassets\\Images\\on-going.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\pending-icon.png",
+      "PackagePath": "staticwebassets\\Images\\pending-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\profile-pic.png",
+      "PackagePath": "staticwebassets\\Images\\profile-pic.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\resolved-icon.png",
+      "PackagePath": "staticwebassets\\Images\\resolved-icon.png"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\resolved.png",
@@ -327,6 +347,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Sidebar.css",
       "PackagePath": "staticwebassets\\css\\Sidebar.css"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserDashboard.css",
+      "PackagePath": "staticwebassets\\css\\UserDashboard.css"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserProfile.css",

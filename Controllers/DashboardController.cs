@@ -1,11 +1,25 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Apptivate_UQMS_WebApp.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
     [Authorize]  // All users must be authorized to access the dashboard
     public class DashboardController : Controller
     {
+
+        private readonly ILogger<StaffQueryController> _logger;
+        private readonly ApplicationDbContext _context; // Inject _context
+
+
+        public DashboardController(ApplicationDbContext context, ILogger<StaffQueryController> logger)
+        {
+            _context = context;
+            _logger = logger;
+        }
+
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -31,12 +45,53 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+
         [Authorize(Roles = "Student")]
-        public IActionResult StudentDashboard()
+        [HttpGet]
+        public async Task<IActionResult> StudentDashboard()
         {
-            // Return the student dashboard view
-            return View();
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+            if (firebaseUid == null)
+            {
+                _logger.LogError("User not logged in.");
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Find the student based on the logged-in Firebase UID
+            var student = await _context.StudentDetails
+                                        .Include(s => s.User)
+                                        .FirstOrDefaultAsync(s => s.User.FirebaseUID == firebaseUid);
+
+            if (student == null)
+            {
+                _logger.LogError("Staff not found for FirebaseUID {FirebaseUID}.", firebaseUid);
+                return NotFound("Student not found.");
+            }
+
+            // Check if the student object is properly populated
+            if (student.User == null)
+            {
+                return NotFound("User associated with the student not found.");
+            }
+
+            // Fetch the queries for the student
+            var queries = await _context.Queries
+                                        .Where(q => q.StudentID == student.StudentID)
+                                        .Include(q => q.QueryDocuments) // Include related documents
+                                        .Include(q => q.Category)       // Include Category if needed
+                                        .Include(q => q.Department)     // Include Department if needed
+                                        .Include(q => q.Course)         // Include Course if needed
+                                        .Include(q => q.Module)         // Include Module if needed
+                                        .ToListAsync();
+
+           
+
+            return View(queries);
         }
+
+
+
 
         [Authorize(Roles = "Staff")]
         public IActionResult StaffDashboard()

@@ -1,0 +1,334 @@
+﻿/* Reset some basic styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+/* Parent Wrapper Container */
+.wrapper-container {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    background-color: #f7f7f7; /* Match body background */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    padding: 20px; /* Optional padding around the dashboard */
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    width: 80vw; /* Controls the width of the dashboard-container */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 20px;
+}
+
+/* Recent Activity Section */
+.recent-activity-section {
+    width: 20vw; /* Controls the width of the recent-activity-section */
+    background-color: white;
+    padding: 20px;
+    margin-left: 20px; /* Space between dashboard and recent activity */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.notification-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Dashboard Stats */
+.dashboard-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.stat-card {
+    background-color: #e6f7ff;
+    color: #007bff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 32%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+.stat-info {
+    text-align: right;
+}
+
+/* Recent Queries Section */
+.dashboard-section.recent-queries {
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    .dashboard-section.recent-queries h2 {
+        margin-top: 0;
+    }
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.query-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+    .query-table th, .query-table td {
+        padding: 15px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .query-table th {
+        background-color: #f2f2f2;
+    }
+
+.query-row {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+    .query-row:hover {
+        background-color: #f9f9f9;
+    }
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    text-transform: capitalize;
+}
+
+.status-pending {
+    background-color: orange;
+}
+
+.status-resolved {
+    background-color: green;
+}
+
+.btn-view, .btn-resolve {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+    .btn-view:hover, .btn-resolve:hover {
+        background-color: #0056b3;
+    }
+
+.btn-resolve {
+    background-color: #28a745;
+}
+
+    .btn-resolve:hover {
+        background-color: #1e7e34;
+    }
+
+.resolve-form {
+    display: inline;
+}
+
+.submit-query-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+    .submit-query-btn:hover {
+        background-color: #0056b3;
+    }
+
+/* Recent Activity Section Content */
+.recent-activity-section h2 {
+    margin-top: 0;
+}
+
+.activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .activity-list li {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start horizontally */
+        padding: 10px 0;
+        border-bottom: 1px solid #f2f2f2;
+    }
+
+        .activity-list li:last-child {
+            border-bottom: none;
+        }
+
+        .activity-list li img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-bottom: 10px; /* Space below the image */
+        }
+
+        .activity-list li p {
+            margin: 0; /* Removes default margins */
+            font-size: 1em;
+        }
+
+        .activity-list li span {
+            font-size: 0.9em;
+            color: gray;
+        }
+
+.show-more-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+    .show-more-btn:hover {
+        background-color: #0056b3;
+    }
+
+/* Academic Information Section */
+.academic-info {
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    .academic-info h3 {
+        margin-top: 0;
+    }
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    width: 50%;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-btn {
+    color: red;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+    .submit-btn:hover {
+        background-color: #218838;
+    }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .dashboard-container {
+        width: 95vw;
+    }
+
+    .dashboard-stats {
+        flex-direction: column;
+    }
+
+    .stat-card {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .recent-activity-section {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+}
