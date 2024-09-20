@@ -108,6 +108,7 @@ namespace Apptivate_UQMS_WebApp.Data
 
 
         }
+        public DbSet<Apptivate_UQMS_WebApp.Models.Users> Users_1 { get; set; } = default!;
     }
 }
 
