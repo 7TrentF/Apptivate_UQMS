@@ -3,36 +3,60 @@
   "WorkspaceRootPath": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\models\\roleselectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:models\\roleselectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\css\\userroles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:wwwroot\\css\\userroles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\admin\\usermanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\admin\\usermanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\query\\newquery\\academicquery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\query\\newquery\\academicquery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\query\\newquery\\createquery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\query\\newquery\\createquery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\query\\newquery\\administrativequery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\query\\newquery\\administrativequery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\css\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:wwwroot\\css\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\css\\sidebar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:wwwroot\\css\\sidebar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\css\\dashboardpage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:wwwroot\\css\\dashboardpage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\css\\qt.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:wwwroot\\css\\qt.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\controllers\\dummytablescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:controllers\\dummytablescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\query\\queries.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\query\\queries.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\home\\test.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\home\\test.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\models\\querymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,68 +67,36 @@
       "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:models\\dummytable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\shared\\minimallayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\shared\\minimallayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\query\\queries.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\query\\queries.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\css\\queries.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:wwwroot\\css\\queries.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\services\\userregistrationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:services\\userregistrationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\css\\dashboardpage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:wwwroot\\css\\dashboardpage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\home\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\home\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\controllers\\querycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:controllers\\querycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\css\\sidebar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:wwwroot\\css\\sidebar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\home\\ongoingtickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\home\\ongoingtickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\query\\submitquery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\query\\submitquery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\services\\iuserregistrationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:services\\iuserregistrationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\controllers\\dummytablescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:controllers\\dummytablescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\models\\roleselectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:models\\roleselectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\home\\alltickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\home\\alltickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\css\\userroles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:wwwroot\\css\\userroles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\js\\password-toggle.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -117,26 +109,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\css\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:wwwroot\\css\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\shared\\minimallayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\shared\\minimallayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\home\\resolvedtickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\home\\resolvedtickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\views\\home\\newtickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|solutionrelative:views\\home\\newtickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{708E1030-051C-4DA2-B2CC-AE701D61AB43}|Apptivate_UQMS_WebApp.csproj|c:\\users\\lab_services_student\\source\\repos\\apptivate_uqms\\wwwroot\\svgs\\pie-chart-3-svgrepo-com (1).svg||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -169,7 +141,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 20,
+          "SelectedChildIndex": 18,
           "Children": [
             {
               "$type": "Bookmark",
@@ -240,317 +212,109 @@
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AdministrativeQuery.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Query\\NewQuery\\AdministrativeQuery.cshtml",
-              "RelativeDocumentMoniker": "Views\\Query\\NewQuery\\AdministrativeQuery.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Query\\NewQuery\\AdministrativeQuery.cshtml",
-              "RelativeToolTip": "Views\\Query\\NewQuery\\AdministrativeQuery.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-18T07:53:50.157Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AcademicQuery.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Query\\NewQuery\\AcademicQuery.cshtml",
-              "RelativeDocumentMoniker": "Views\\Query\\NewQuery\\AcademicQuery.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Query\\NewQuery\\AcademicQuery.cshtml",
-              "RelativeToolTip": "Views\\Query\\NewQuery\\AcademicQuery.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-18T07:53:43.266Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "Controllers\\UsersController.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T07:52:08.716Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Users.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\Users.cs",
-              "RelativeDocumentMoniker": "Models\\Users.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\Users.cs",
-              "RelativeToolTip": "Models\\Users.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T07:46:44.683Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserManagement.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Admin\\UserManagement.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\UserManagement.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Admin\\UserManagement.cshtml",
-              "RelativeToolTip": "Views\\Admin\\UserManagement.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-16T18:25:39.521Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RoleSelectionViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\RoleSelectionViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\RoleSelectionViewModel.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\RoleSelectionViewModel.cs",
-              "RelativeToolTip": "Models\\RoleSelectionViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T07:46:14.356Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Account.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\Account.cs",
-              "RelativeDocumentMoniker": "Models\\Account.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\Account.cs",
-              "RelativeToolTip": "Models\\Account.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T07:46:07.111Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "DummyTable.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\DummyTable.cs",
-              "RelativeDocumentMoniker": "Models\\DummyTable.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\DummyTable.cs",
-              "RelativeToolTip": "Models\\DummyTable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T07:46:03.233Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "QueryModel.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\QueryModel.cs",
-              "RelativeDocumentMoniker": "Models\\QueryModel.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\QueryModel.cs",
-              "RelativeToolTip": "Models\\QueryModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T07:45:55.182Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserRoles.css",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserRoles.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\UserRoles.css",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserRoles.css",
-              "RelativeToolTip": "wwwroot\\css\\UserRoles.css",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-09-04T15:50:40.748Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CreateQuery.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Query\\NewQuery\\CreateQuery.cshtml",
-              "RelativeDocumentMoniker": "Views\\Query\\NewQuery\\CreateQuery.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Query\\NewQuery\\CreateQuery.cshtml",
-              "RelativeToolTip": "Views\\Query\\NewQuery\\CreateQuery.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-18T07:41:00.772Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Queries.css",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Queries.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\Queries.css",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Queries.css",
-              "RelativeToolTip": "wwwroot\\css\\Queries.css",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAFUAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-09-18T07:37:37.382Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Dashboard.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\Dashboard.cshtml",
-              "RelativeToolTip": "Views\\Home\\Dashboard.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-18T06:50:45.974Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-09-16T18:45:10.784Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "SubmitQuery.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Query\\SubmitQuery.cshtml",
-              "RelativeDocumentMoniker": "Views\\Query\\SubmitQuery.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Query\\SubmitQuery.cshtml",
-              "RelativeToolTip": "Views\\Query\\SubmitQuery.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-16T18:26:02.745Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "DummyTablesController.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Controllers\\DummyTablesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DummyTablesController.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Controllers\\DummyTablesController.cs",
-              "RelativeToolTip": "Controllers\\DummyTablesController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T06:50:23.661Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Queries.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Query\\Queries.cshtml",
-              "RelativeDocumentMoniker": "Views\\Query\\Queries.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Query\\Queries.cshtml",
-              "RelativeToolTip": "Views\\Query\\Queries.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-16T18:25:58.604Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "QueryController.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Controllers\\QueryController.cs",
-              "RelativeDocumentMoniker": "Controllers\\QueryController.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Controllers\\QueryController.cs",
-              "RelativeToolTip": "Controllers\\QueryController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T12:44:00.689Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Sidebar.css",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Sidebar.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\Sidebar.css",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Sidebar.css",
-              "RelativeToolTip": "wwwroot\\css\\Sidebar.css",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAmwH8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-09-05T08:07:15.08Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-04T15:05:47.237Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "DashboardPage.css",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\DashboardPage.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\DashboardPage.css",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\DashboardPage.css",
-              "RelativeToolTip": "wwwroot\\css\\DashboardPage.css",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAcwLAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-09-04T16:15:29.848Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAMAAAAAGF3Aic8JwCQAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T06:51:54.705Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAABUAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAACIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-04T16:04:36.747Z"
+              "WhenOpened": "2024-09-04T16:04:36.747Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "OnGoingTickets.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\OnGoingTickets.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\OnGoingTickets.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\OnGoingTickets.cshtml",
-              "RelativeToolTip": "Views\\Home\\OnGoingTickets.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-04T17:13:21.641Z"
+              "DocumentIndex": 1,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Controllers\\UsersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T16:16:06.717Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "AllTickets.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\AllTickets.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\AllTickets.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\AllTickets.cshtml",
-              "RelativeToolTip": "Views\\Home\\AllTickets.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-04T17:12:32.134Z"
+              "DocumentIndex": 3,
+              "Title": "Sidebar.css",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Sidebar.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\Sidebar.css",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Sidebar.css",
+              "RelativeToolTip": "wwwroot\\css\\Sidebar.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAH8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-09-05T08:07:15.08Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 2,
+              "Title": "dashboard.css",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\dashboard.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\dashboard.css",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\dashboard.css",
+              "RelativeToolTip": "wwwroot\\css\\dashboard.css",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-09-04T11:09:45.197Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DashboardPage.css",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\DashboardPage.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\DashboardPage.css",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\DashboardPage.css",
+              "RelativeToolTip": "wwwroot\\css\\DashboardPage.css",
+              "ViewState": "AgIAALQAAAAAAAAAAAAAAM0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-09-19T16:55:47.757Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.css",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Login.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\Login.css",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Login.css",
+              "RelativeToolTip": "wwwroot\\css\\Login.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-09-19T16:52:44.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Qt.css",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Qt.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\Qt.css",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Qt.css",
+              "RelativeToolTip": "wwwroot\\css\\Qt.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-09-19T16:52:41.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DummyTablesController.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Controllers\\DummyTablesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DummyTablesController.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Controllers\\DummyTablesController.cs",
+              "RelativeToolTip": "Controllers\\DummyTablesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T06:50:23.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
@@ -562,91 +326,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "password-toggle.js",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\password-toggle.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\password-toggle.js",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\password-toggle.js",
-              "RelativeToolTip": "wwwroot\\js\\password-toggle.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-09-05T09:26:09.56Z"
+              "DocumentIndex": 9,
+              "Title": "Users.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\Users.cs",
+              "RelativeDocumentMoniker": "Models\\Users.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\Users.cs",
+              "RelativeToolTip": "Models\\Users.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T16:14:07.399Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "conditionalDisplay.js",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\conditionalDisplay.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\conditionalDisplay.js",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\conditionalDisplay.js",
-              "RelativeToolTip": "wwwroot\\js\\conditionalDisplay.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-09-05T09:26:13.685Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "NewTickets.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\NewTickets.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\NewTickets.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\NewTickets.cshtml",
-              "RelativeToolTip": "Views\\Home\\NewTickets.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA2AAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "Queries.cshtml",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Query\\Queries.cshtml",
+              "RelativeDocumentMoniker": "Views\\Query\\Queries.cshtml",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Query\\Queries.cshtml",
+              "RelativeToolTip": "Views\\Query\\Queries.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-04T17:12:57.825Z"
+              "WhenOpened": "2024-09-16T18:25:58.604Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "ResolvedTickets.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\ResolvedTickets.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\ResolvedTickets.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\ResolvedTickets.cshtml",
-              "RelativeToolTip": "Views\\Home\\ResolvedTickets.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-04T17:13:32.873Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "dashboard.css",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\dashboard.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\dashboard.css",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\dashboard.css",
-              "RelativeToolTip": "wwwroot\\css\\dashboard.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-09-04T11:09:45.197Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "wwwroot\\css\\site.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-09-04T15:50:29.742Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "MinimalLayout.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Shared\\MinimalLayout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\MinimalLayout.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Shared\\MinimalLayout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\MinimalLayout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-05T08:09:07.155Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 11,
               "Title": "Privacy.cshtml",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\Privacy.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Privacy.cshtml",
@@ -658,19 +362,199 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-04T15:05:47.237Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "test.cshtml",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\test.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\test.cshtml",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Home\\test.cshtml",
+              "RelativeToolTip": "Views\\Home\\test.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-18T11:17:41.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "QueryModel.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\QueryModel.cs",
+              "RelativeDocumentMoniker": "Models\\QueryModel.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\QueryModel.cs",
+              "RelativeToolTip": "Models\\QueryModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T07:45:55.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DummyTable.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\DummyTable.cs",
+              "RelativeDocumentMoniker": "Models\\DummyTable.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\DummyTable.cs",
+              "RelativeToolTip": "Models\\DummyTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T07:46:03.233Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MinimalLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Shared\\MinimalLayout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\MinimalLayout.cshtml",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Shared\\MinimalLayout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\MinimalLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-05T08:09:07.155Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-18T17:23:29.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "UserRegistrationService.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Services\\UserRegistrationService.cs",
+              "RelativeDocumentMoniker": "Services\\UserRegistrationService.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Services\\UserRegistrationService.cs",
+              "RelativeToolTip": "Services\\UserRegistrationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T11:20:55.64Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IUserRegistrationService.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Services\\IUserRegistrationService.cs",
+              "RelativeDocumentMoniker": "Services\\IUserRegistrationService.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Services\\IUserRegistrationService.cs",
+              "RelativeToolTip": "Services\\IUserRegistrationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T11:20:49.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "RoleSelectionViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\RoleSelectionViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\RoleSelectionViewModel.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\RoleSelectionViewModel.cs",
+              "RelativeToolTip": "Models\\RoleSelectionViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T07:46:14.356Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-16T18:45:10.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Account.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "Models\\Account.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Models\\Account.cs",
+              "RelativeToolTip": "Models\\Account.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T07:46:07.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UserRoles.css",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserRoles.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\UserRoles.css",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserRoles.css",
+              "RelativeToolTip": "wwwroot\\css\\UserRoles.css",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-09-04T15:50:40.748Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "password-toggle.js",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\password-toggle.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\password-toggle.js",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\password-toggle.js",
+              "RelativeToolTip": "wwwroot\\js\\password-toggle.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-09-05T09:26:09.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "conditionalDisplay.js",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\conditionalDisplay.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\conditionalDisplay.js",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\conditionalDisplay.js",
+              "RelativeToolTip": "wwwroot\\js\\conditionalDisplay.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-09-05T09:26:13.685Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-09-04T15:50:29.742Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "pie-chart-3-svgrepo-com (1).svg",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\pie-chart-3-svgrepo-com (1).svg",
               "RelativeDocumentMoniker": "wwwroot\\Svgs\\pie-chart-3-svgrepo-com (1).svg",
               "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\pie-chart-3-svgrepo-com (1).svg",
               "RelativeToolTip": "wwwroot\\Svgs\\pie-chart-3-svgrepo-com (1).svg",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKTSURBVDhPjVNLSFRRGP7unTsz9w75uOaMZlMNpo1aFFJRodRGN7UwatMiKgga3JgVRBSNSA8RooUFLRycCCpc9ITIFi0EW\u002BhCW/gONYUcxplsQL13nKv3dM6ZGV\u002BE9N37c\u002B455/\u002B\u002B/7s/5whYA7/fP5L63BSCIDxvbGxsAiEktZQEE6Brm6K1tXWS5TU0NNQyjsiZKQgCBgBChQ2Q\u002BfswpytgDLmg9zihD9XBNJfhcrlstPoeqlVPRS6uCBDy1broLnN29PkxPeaFFmpC79gOdEu9sB8KQRt\u002Bz/NUVbUGAoGpJIfc5j2gZIuv3fam/sCNGrdjGLGwE23hR\u002BiMeBCKAbXlOTgfr0VW9QfqD4iEZ5BIJNAWDI5yB75X0tXqwrc1JZk90MKVUEq/4UplFc4W5UKwiHjaO4tx90NWiYfT5cQuj4dRITLrZfn9104XtOD3\u002BE4z7/BrqIoKZ4YM37E8XNifA4vdiuCIApPzWY9Wmy9h6UfOpd13t89FstEceyF2PJlAfNHkm6y6xSbxcTASpyuMyFT4NoeI6PV6mzEvvIy0oO\u002BXPVGULaMs186jVLVil0zzF\u002BI4ki\u002BnqjP\u002BGgemrp0Z\u002BHn8T0d0nyrOTky\u002B8x0tNoxE0iZrcSqXz5lAcroCcXkeBcGpyzcnowRTDk9xoDuEmbkE5vRlfB6cRcWzIXibv\u002BNTf5ST0y7SEBa6MGIaOFje2VUnZSgPTFECMZM9YCeLde6cdwvuVLlXrVMFWXGAHqRRaUlDezyEic6tlbFBbW/oS8nHbf0RDZIooDDLipPeTJwozIJJH4EIoG/y1/6Fe/5bj6lFousa0WjoWjoWiLYhGNidWHcXDNhOsVGWFSg0ZCUdDigbIo11Zv73Oq8C\u002BAsr5V2IWWNA0gAAAABJRU5ErkJggg==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAT2SURBVEhLtVZ9bBNlHH7uev24dutGyzpG91XZQAaywRwoyARBhUQJ4HAhQ000DKf/yLboP4Z/xJgQJwgBImwJ6uYfzKmIkmim4EwkRFjHhhsCA7fC2LotW7f1u3fn\u002B769knaDhJj4pM/93rv7vc/zfl/xv0JRFE4tJqClpeUICVW0THJoYHF6OY5HKyoq3mIvHwbEgNR5ODidTqW5uVlpamqijZoBXo33BanPKFPKpCzLpExIoyxBkiTcvHkTZWVl9FlVfX39DJP7GlBRFgl9ISLkcSI8eBzS7UIE2mdj6lcRvj8KoAT67uWWl5dTw6qDBw8mmMyYA/Our4SaEmM4MmcBIPVjfdZJFCRdhjh4A3IoAo3tdcj8YvCaAIJ/H0Jr6ENs27YN4XAYwWAQDQ0NMJlMR3fu3MnmJMFgTvW3jjRLSn2RY/Yzzy1Lx2rLPswNN2D8dw3OK1vRjbUwZ5TgjVW5EHgOw5\u002Bno8fRDJfLxcRDoRByc3MxMDCAyspKpi0wZYI51d/l2FKTTj9bujh/Q54HK/QVSBpvRd\u002BFNehctAddwuO4MTSFW3/dxt2xKex5cRF0WRtQXLyMifoDfogGEenp6WhsbFRV1Tmgw2JNTT6xvvSx\u002BeWPunSl\u002Bq1IutaKC6dLsVf6GE0XU\u002BF2jSPbZsbCJQ50eHh88H03tPmvQjQakZmZifx5\u002BbDb7TCS\u002B9i8UDADqzXlhYU5tryNeW6hiN8BbWcXLndshG37D/hsexHqNuejMEnCUHc/zDot0uxpcLr96OWX0RVBFMgK42QqxTDDINkobN5SLFieFCs5obcHl50rUfTmGeRYjSwpw2zAaysyMTY\u002BiRReC17QQDAZ8XX7AHvPQPesKkyXcQxsDrJn6UtWW/eLxonz6Ol7BfusuzF2\u002BALCZJ3T1kQpk\u002BEwIaABRK0GilaLK3dGmCjrA7nEVkx8D5jBrhUXszPlLzlX61KcW/kRlhhs0Ur0JbmwsmokBcm\u002B8AJh0kopIoG2lSMJHMli\u002BQQJBoq3YLV37JDoOatXTq06zY1pZiu/nbnEyZEwzaQ/VpVVIqTdp/dU8AmHhYmzE43lRZFo4BvapLk7qjkl7Q65pVRdKCRNCiGv\u002BafqdQgTEybAUqMtjN5Tw\u002BiQsKfqM04dpHgDXpkYfcpzVT/xs1Q2fL1/lB48JlvOXNR\u002B003G2IMIOYO8ZAd3353AOyc7sfZAG9Z80oZ1n7ah2XmHiVBBKh4TTuiBz8UV6FLkRmeHZ7FuFLOSjQajPS8bwYkp7D3bh\u002BFhD0SdBmZzEhwL8lEyn4d7ZAKTvb3YUpjBWs9mgIjGZBMM5AAky6bw29k1UzZ9IPLLlQ7ZYZ\u002BXY0pPS4ajaCEeUVdfiEyoa8QDz9AoImOj2P9SITTkuLin\u002BgDwHI8f3V/gvf66l91Z6HyeG7/aPtjVgZ72q/iz/Roudf2DK5030Nt1HZ5b/ZgV9uJweRHybCZmHG236hILcT3gOUF5l9Niw\u002B0DUE6kvt/WaKw8s1wcOrfKboLFPwntyCCylACWWwXUPJ2D\u002Bh1LkW2JHgfRKVXBRKPC8Qb3BflwXCRJSjAYUAKUAUq/EvBT\u002Blj0k\u002Bj3Efq9ii8uUtTV1d1zeNAHp5hGnU4PPaWe0gC9gVJk0UCiQSQ0GCHGRbU\u002BixQJvYzh2LFjR0hSFU2kZJtLLU8nxfQywdHa2tqH/xPw3wH8C2\u002BS5E7KNyxKAAAAAElFTkSuQmCC",
               "WhenOpened": "2024-09-04T16:04:11.835Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 28,
               "Title": "Register.css",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Register.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\Register.css",
@@ -682,7 +566,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 29,
               "Title": "SelectRole.cshtml",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Account\\SelectRole.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\SelectRole.cshtml",
@@ -694,7 +578,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 32,
               "Title": "RegisterStaff.cshtml",
               "DocumentMoniker": "C:\\Users\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\Views\\Account\\RegisterStaff.cshtml",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\mcebo\\Documents\\School Stuff\\SEM5\\Semester 6\\XBCAD7319\\Apptivate_UQMS_WebApp\\Views\\Account\\RegisterStaff.cshtml",
@@ -706,7 +590,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 30,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
@@ -718,7 +602,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 31,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\Apptivate_UQMS\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
