@@ -12,50 +12,49 @@
 
 <body>
 
-    <!-- Parent Wrapper Container -->
     <div class="wrapper-container">
-        <!-- Dashboard Container -->
+        <!-- Main Dashboard Content -->
         <div class="dashboard-container">
             <!-- Profile Section -->
             <div class="profile-section">
                 <div class="profile-info">
                     <img src="~/Images/profile-pic.png" alt="Profile Picture" class="profile-pic">
                     <h2>Shakshi Patel</h2>
-                    <div class="notification-icon">
-                        <img src="~/Images/notification-icon.jpg" alt="Notifications">
+                </div>
+                <div class="notification-icon">
+                    <img src="~/Images/notification-icon.jpg" alt="Notifications">
+                </div>
+            </div>
+
+            <!-- Quick Stats Section -->
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <img src="~/Images/pending-icon.png" alt="Pending Queries">
+                    </div>
+                    <div class="stat-info">
+                        <p>Pending Queries</p>
+                        <h3>5,423</h3>
                     </div>
                 </div>
 
-                <!-- Quick Stats Section -->
-                <div class="dashboard-stats">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <img src="~/Images/pending-icon.png" alt="Pending Queries">
-                        </div>
-                        <div class="stat-info">
-                            <p>Pending Queries</p>
-                            <h3>5,423</h3>
-                        </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <img src="~/Images/resolved.png" alt="Resolved Queries">
                     </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <img src="~/Images/resolved.png" alt="Resolved Queries">
-                        </div>
-                        <div class="stat-info">
-                            <p>Resolved Queries</p>
-                            <h3>1,893</h3>
-                        </div>
+                    <div class="stat-info">
+                        <p>Resolved Queries</p>
+                        <h3>1,893</h3>
                     </div>
+                </div>
 
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <img src="~/Images/in-progress-icon.png" alt="In Progress Queries">
-                        </div>
-                        <div class="stat-info">
-                            <p>In Progress Queries</p>
-                            <h3>189</h3>
-                        </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <img src="~/Images/in-progress-icon.png" alt="In Progress Queries">
+                    </div>
+                    <div class="stat-info">
+                        <p>In Progress Queries</p>
+                        <h3>189</h3>
                     </div>
                 </div>
             </div>
@@ -63,7 +62,6 @@
             <!-- Recent Queries Section -->
             <div class="dashboard-section recent-queries">
                 <h2>Recent Queries</h2>
-
                 <div class="table-responsive">
                     <table class="query-table">
                         <thead>
@@ -78,7 +76,7 @@
                         <tbody>
                             @foreach (var query in Model)
                             {
-                                <tr class="query-row" onclick="window.location.href='@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })'">
+                                <tr class="query-row">
                                     <td>@query.QueryID</td>
                                     <td>@query.Description</td>
                                     <td>@query.SubmissionDate?.ToString("dd MMM yyyy")</td>
@@ -89,21 +87,20 @@
                                     </td>
                                     <td>
                                         <a href="@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })" class="btn-view">View</a>
-                                        @if (query.ResolvedDate == null)
-                                        {
-                                            <form asp-action="MarkAsResolved" method="post" class="resolve-form">
-                                                <input type="hidden" name="queryId" value="@query.QueryID" />
-                                                <button type="submit" class="btn-resolve">Resolve</button>
-                                            </form>
-                                        }
                                     </td>
                                 </tr>
                             }
                         </tbody>
                     </table>
                 </div>
+            </div>
 
-                <button class="submit-query-btn" onclick="window.location.href='@Url.Action("CreateQuery", "Query")'">Submit New Query</button>
+            <!-- Academic Information Section -->
+            <div class="academic-info">
+                <h3>Academic Information</h3>
+                <p><strong>Year:</strong> 2024</p>
+                <p><strong>Department:</strong> Information and Technology</p>
+                <p><strong>Course:</strong> Computer Science in Application and Development</p>
             </div>
         </div>
 
@@ -116,19 +113,14 @@
                     <p>Sonal closed "How do I reset my password?"</p>
                     <span>14 Nov 2022, 5:26 PM</span>
                 </li>
-                <!-- More activity items here -->
+                <!-- Add more recent activity items here -->
             </ul>
             <button class="show-more-btn">Show More</button>
         </div>
     </div>
 
-    <!-- Academic Information Section -->
-    <div class="academic-info">
-        <h3>Academic Information</h3>
-        <p><strong>Year:</strong> 2024</p>
-        <p><strong>Department:</strong> Information and Technology</p>
-        <p><strong>Course:</strong> Computer Science in Application and Development</p>
-    </div>
+
+
 
     <!-- New Query Form Modal -->
     <div id="query-modal" class="modal">

@@ -13,26 +13,27 @@ body {
 
 /* Parent Wrapper Container */
 .wrapper-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-gap: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
     width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align items to the top */
-    background-color: #f7f7f7; /* Match body background */
-    overflow-y: auto; /* Enable scrolling if content overflows */
-    padding: 20px; /* Optional padding around the dashboard */
+    height: 100vh;
 }
 
 /* Dashboard Container */
 .dashboard-container {
-    width: 80vw; /* Controls the width of the dashboard-container */
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 20px;
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
-    gap: 20px;
 }
 
 /* Recent Activity Section */
@@ -47,9 +48,9 @@ body {
 
 /* Profile Section */
 .profile-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
 }
 
 .profile-info {
@@ -99,7 +100,7 @@ body {
 
 /* Recent Queries Section */
 .dashboard-section.recent-queries {
-    width: 100%;
+  
     background-color: white;
     padding: 20px;
     border-radius: 8px;
@@ -196,6 +197,16 @@ body {
     }
 
 /* Recent Activity Section Content */
+
+/* Recent Activity Section */
+.recent-activity-section {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 .recent-activity-section h2 {
     margin-top: 0;
 }
@@ -203,16 +214,15 @@ body {
 .activity-list {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
     .activity-list li {
         display: flex;
-        flex-direction: column; /* Stack items vertically */
-        align-items: flex-start; /* Align items to the start horizontally */
+        flex-direction: column;
         padding: 10px 0;
         border-bottom: 1px solid #f2f2f2;
     }
+
 
         .activity-list li:last-child {
             border-bottom: none;
@@ -222,7 +232,7 @@ body {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            margin-bottom: 10px; /* Space below the image */
+            margin-bottom: 10px;
         }
 
         .activity-list li p {
@@ -239,10 +249,8 @@ body {
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
     .show-more-btn:hover {
@@ -251,7 +259,6 @@ body {
 
 /* Academic Information Section */
 .academic-info {
-    width: 100%;
     background-color: white;
     padding: 20px;
     border-radius: 8px;
