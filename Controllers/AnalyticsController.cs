@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
+
+    //   AAAND here we go 
     public class AnalyticsController : Controller
     {
         // GET: Analytics

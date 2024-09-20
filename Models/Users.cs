@@ -1,4 +1,5 @@
-﻿namespace Apptivate_UQMS_WebApp.Models
+﻿//   AAAND here we go 
+namespace Apptivate_UQMS_WebApp.Models
 {
     public class Users
     {
