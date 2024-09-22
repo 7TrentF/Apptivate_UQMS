@@ -14,3 +14,4 @@ obj/
 # Ignore Rider and other IDE files
 .idea/
 *.iml
+/.vs/Apptivate_UQMS_WebApp/v17/.suo
