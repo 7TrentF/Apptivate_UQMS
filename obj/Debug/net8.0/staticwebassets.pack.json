@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\Images\\AI_profile.jpg"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\Apptivate_circle _logo.png",
+      "PackagePath": "staticwebassets\\Images\\Apptivate_circle _logo.png"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\Apptivate_logo.jpg",
       "PackagePath": "staticwebassets\\Images\\Apptivate_logo.jpg"
     },
@@ -59,6 +63,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\apple-touch-icon.png",
       "PackagePath": "staticwebassets\\Images\\apple-touch-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\apptivate_ic.png",
+      "PackagePath": "staticwebassets\\Images\\apptivate_ic.png"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\badge.png",
@@ -139,6 +147,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Images\\student_hat.png",
       "PackagePath": "staticwebassets\\Images\\student_hat.png"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\active.svg",
+      "PackagePath": "staticwebassets\\Svgs\\active.svg"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\add-circle-svgrepo-com.svg",
@@ -273,6 +285,10 @@
       "PackagePath": "staticwebassets\\Svgs\\menu-icon.svg"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\notification.svg",
+      "PackagePath": "staticwebassets\\Svgs\\notification.svg"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\open-envelope-svgrepo-com.svg",
       "PackagePath": "staticwebassets\\Svgs\\open-envelope-svgrepo-com.svg"
     },
@@ -321,6 +337,18 @@
       "PackagePath": "staticwebassets\\Svgs\\queue-fill-svgrepo-com.svg"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\resolved.svg",
+      "PackagePath": "staticwebassets\\Svgs\\resolved.svg"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\system-pending-line-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\Svgs\\system-pending-line-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\system-pending-line.svg",
+      "PackagePath": "staticwebassets\\Svgs\\system-pending-line.svg"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\table-alt.svg",
       "PackagePath": "staticwebassets\\Svgs\\table-alt.svg"
     },
@@ -339,6 +367,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\ticket.svg",
       "PackagePath": "staticwebassets\\Svgs\\ticket.svg"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\total.svg",
+      "PackagePath": "staticwebassets\\Svgs\\total.svg"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\Svgs\\trash.svg",
@@ -397,8 +429,8 @@
       "PackagePath": "staticwebassets\\css\\StaffDashboard.css"
     },
     {
-      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserDashboard.css",
-      "PackagePath": "staticwebassets\\css\\UserDashboard.css"
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\StudentDashboard.css",
+      "PackagePath": "staticwebassets\\css\\StudentDashboard.css"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\UserManagement.css",

@@ -7,11 +7,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard</title>
-    <link rel="stylesheet" href="~/css/UserDashboard.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/StudentDashboard.css" asp-append-version="true">
+
+    <div class="background">
 </head>
 
 <body>
 
+    <div class="background">
     <div class="wrapper-container">
         <!-- Main Dashboard Content -->
         <div class="dashboard-container">
@@ -128,45 +131,10 @@
 
 
 
-    <!-- New Query Form Modal -->
-    <div id="query-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeQueryForm()">&times;</span>
-            <h2>Create a New Query</h2>
-            <label for="query-subject">Subject</label>
-            <input type="text" id="query-subject" placeholder="Enter your query subject">
-
-            <label for="query-details">Details</label>
-            <textarea id="query-details" rows="4" placeholder="Enter query details"></textarea>
-
-            <button class="submit-btn" onclick="submitQuery()">Submit</button>
-        </div>
-    </div>
+   
 
     <script>
-        // Modal for new query submission
-        const modal = document.getElementById('query-modal');
-
-        function openQueryForm() {
-            modal.style.display = 'block';
-        }
-
-        function closeQueryForm() {
-            modal.style.display = 'none';
-        }
-
-        // Submit query function (placeholder)
-        function submitQuery() {
-            alert('Query Submitted');
-            closeQueryForm();
-        }
-
-        // Close modal when clicking outside of it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
+      
     </script>
 
 </body>

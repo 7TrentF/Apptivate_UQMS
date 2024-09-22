@@ -1,6 +1,8 @@
 ﻿using Apptivate_UQMS_WebApp.Data;
+using Apptivate_UQMS_WebApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -13,11 +15,13 @@ namespace Apptivate_UQMS_WebApp.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly ILogger<StaffQueryController> _logger;
+        private readonly IHubContext<NotificationHub> _hubContext;  // Inject SignalR Hub Context
 
-        public StaffQueryController(ApplicationDbContext context, ILogger<StaffQueryController> logger)
+        public StaffQueryController(ApplicationDbContext context, ILogger<StaffQueryController> logger, IHubContext<NotificationHub> hubContext)
         {
             _context = context;
             _logger = logger;
+            _hubContext = hubContext;
         }
 
         // Action to list all queries assigned to the logged-in staff
@@ -111,25 +115,28 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             if (firebaseUid == null)
             {
-                _logger.LogError("User not logged in.");
                 return RedirectToAction("Login", "Account");
             }
 
-            // Find the staff member based on the logged-in Firebase UID
             var staff = await _context.StaffDetails
                                       .Include(s => s.User)
                                       .FirstOrDefaultAsync(s => s.User.FirebaseUID == firebaseUid);
 
             if (staff == null)
             {
-                _logger.LogError("Staff not found for FirebaseUID {FirebaseUID}.", firebaseUid);
-                return NotFound();
+                return NotFound("Staff not found.");
             }
 
-            // Count new (unresolved) queries
+            // Check for unresolved queries
             var newQueryCount = await _context.QueryAssignments
                                               .Where(qa => qa.StaffID == staff.StaffID && qa.ResolutionDate == null)
                                               .CountAsync();
+
+            if (newQueryCount > 0)
+            {
+                // Send a notification to the staff member using SignalR
+                await _hubContext.Clients.Group(staff.StaffID.ToString()).SendAsync("ReceiveNotification", $"You have {newQueryCount} new queries.");
+            }
 
             return Json(new { NewQueries = newQueryCount });
         }

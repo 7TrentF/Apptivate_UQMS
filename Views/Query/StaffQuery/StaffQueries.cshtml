@@ -1,141 +1,154 @@
-﻿﻿@{
-    ViewData["Title"] = "Queries";
-}
+﻿ @model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.QueryAssignment>
 
-<div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar is automatically rendered from the _Layout.cshtml -->
 
-        <div class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <div class="content-header">
-                <h1>Queries</h1>
-                <div class="filters d-flex justify-content-between mb-4">
-                    <select class="form-select">
-                        <option>This Week</option>
-                        <option>Last Week</option>
-                        <option>Last Month</option>
-                    </select>
-                    <input type="text" class="form-control" placeholder="Search for ticket" />
-                </div>
-            </div>
+<h2>My Queries</h2>
 
-            <!-- Tabs Section -->
-            <div class="tabs">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">All Tickets</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Queries/New">New</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Queries/OnGoing">On-Going</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Queries/Resolved">Resolved</a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Tickets List Section -->
-            <div class="ticket-list mt-4">
-                <div class="ticket-item border p-3 mb-3 d-flex justify-content-between align-items-center">
-                    <div class="ticket-details">
-                        <span class="status-dot yellow"></span>
-                        <h5 class="mb-1">Ticket# 2023-CS123</h5>
-                        <p class="mb-0">How to deposit money to my portal?</p>
-                        <small class="text-muted">Posted at 12:45 AM</small>
-                    </div>
-                    <div class="ticket-meta text-right">
-                        <p class="mb-1">John Snow</p>
-                        <a href="#" class="btn btn-link">Open Ticket</a>
-                    </div>
-                </div>
-
-                <div class="ticket-item border p-3 mb-3 d-flex justify-content-between align-items-center">
-                    <div class="ticket-details">
-                        <span class="status-dot red"></span>
-                        <h5 class="mb-1">Ticket# 2023-CS123 <span class="text-danger">High Priority</span></h5>
-                        <p class="mb-0">How to deposit money to my portal?</p>
-                        <small class="text-muted">Posted at 12:45 AM</small>
-                    </div>
-                    <div class="ticket-meta text-right">
-                        <p class="mb-1">John Snow</p>
-                        <a href="#" class="btn btn-link">Open Ticket</a>
-                    </div>
-                </div>
-
-                <div class="ticket-item border p-3 mb-3 d-flex justify-content-between align-items-center">
-                    <div class="ticket-details">
-                        <span class="status-dot green"></span>
-                        <h5 class="mb-1">Ticket# 2023-CS123</h5>
-                        <p class="mb-0">How to deposit money to my portal?</p>
-                        <small class="text-muted">Posted at 12:45 AM</small>
-                    </div>
-                    <div class="ticket-meta text-right">
-                        <p class="mb-1">John Snow</p>
-                        <a href="#" class="btn btn-link">Open Ticket</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pagination Section -->
-            <nav aria-label="Ticket pagination">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+<div class="table-responsive">
+    <table class="query-table">
+        <thead>
+            <tr>
+                <th>Query ID</th>
+                <th>Description</th>
+                <th>Submission Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var queryAssignment in Model)
+            {
+                <tr class="query-row" onclick="window.location.href='@Url.Action("QueryDetails", "StaffQuery", new { queryId = queryAssignment.QueryID })'">
+                    <td>@queryAssignment.Query.QueryID</td>
+                    <td>@queryAssignment.Query.Description</td>
+                    <td>@queryAssignment.Query.SubmissionDate?.ToString("dd MMM yyyy")</td>
+                    <td>
+                        <span class="status-badge @(queryAssignment.Query.Status == "Pending" ? "status-pending" : "status-resolved")">
+                            @queryAssignment.Query.Status
+                        </span>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("QueryDetails", "StaffQuery", new { queryId = queryAssignment.QueryID })" class="btn-view">View</a>
+                        @if (queryAssignment.ResolutionDate == null)
+                        {
+                            <form asp-action="MarkAsResolved" method="post" class="resolve-form">
+                                <input type="hidden" name="queryId" value="@queryAssignment.QueryID" />
+                                <button type="submit" class="btn-resolve">Mark as Resolved</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 
-<!-- Add your styles inline or in a separate CSS file -->
+<!-- Include jQuery if not already included in your layout -->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.query-row').hover(
+            function() {
+                $(this).addClass('hover');
+            },
+            function() {
+                $(this).removeClass('hover');
+            }
+        );
+    });
+</script>
+
 <style>
-    .status-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        display: inline-block;
-        margin-right: 10px;
+    /* Basic Styles */
+    body {
+        font-family: Arial, sans-serif;
     }
 
-        .status-dot.yellow {
-            background-color: #fbc02d;
-        }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-        .status-dot.red {
-            background-color: #d32f2f;
-        }
+    .table-responsive {
+        max-width: 100%;
+        overflow-x: auto;
+    }
 
-        .status-dot.green {
-            background-color: #388e3c;
-        }
+    .query-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+    }
 
-    .ticket-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .query-table th, .query-table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .query-table th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    /* Row Hover */
+    .query-row:hover {
+        background-color: #f9f9f9;
+        cursor: pointer;
+    }
+
+    /* Status Badges */
+    .status-badge {
+        padding: 5px 10px;
+        border-radius: 12px;
+        font-size: 0.85em;
+        font-weight: bold;
+    }
+
+    .status-pending {
+        background-color: #ffc107;
+        color: #fff;
+    }
+
+    .status-resolved {
+        background-color: #28a745;
+        color: #fff;
+    }
+
+    /* Action Buttons */
+    .btn-view, .btn-resolve {
+        padding: 8px 12px;
+        border: none;
         border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 0.9em;
+        transition: background-color 0.3s ease;
     }
 
-    .ticket-details h5 {
-        margin-bottom: 0;
-        font-size: 16px;
+    .btn-view {
+        background-color: #007bff;
+        color: white;
     }
 
-    .pagination .page-link {
-        color: #00b8a9;
+    .btn-view:hover {
+        background-color: #0056b3;
     }
 
-    .pagination .page-item.active .page-link {
-        background-color: #00b8a9;
-        border-color: #00b8a9;
+    .btn-resolve {
+        background-color: #28a745;
+        color: white;
+        margin-left: 10px;
     }
 
-    .content-header h1 {
-        color: #00b8a9;
+    .btn-resolve:hover {
+        background-color: #218838;
+    }
+
+
+    /* Form Styles */
+    .resolve-form {
+        display: inline-block;
+        margin: 0;
     }
 </style>

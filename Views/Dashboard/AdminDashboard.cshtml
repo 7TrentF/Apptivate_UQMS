@@ -19,7 +19,7 @@
     <div class="container">
         <!-- User Profile Section -->
         <div class="user-profile">
-            <img src="~/Images/user_id_portrait.svg" alt="User Profile" class="user-profile-picture" />
+            <img src="~/Svgs/user-id-portrait-svgrepo-com (1).svg" alt="User Profile" class="user-profile-picture" />
             <h2>@Model.Users.Name @Model.Users.Surname</h2>
         </div>
 
@@ -32,25 +32,25 @@
             </div>
 
             <div class="stat-item">
-                <img src="~/images/active-users.png" alt="Active Users Icon" class="icon" />
+                <img src="~/Svgs/active.svg" alt="Active Users Icon" class="icon" />
                 <h3>Active Users</h3>
                 <p>@Model.ActiveUsers</p>
             </div>
 
             <div class="stat-item">
-                <img src="~/images/queries.png" alt="Queries Icon" class="icon" />
+                <img src="~/Svgs/total.svg" alt="Queries Icon" class="icon" />
                 <h3>Total Queries</h3>
                 <p>@Model.TotalQueries</p>
             </div>
 
             <div class="stat-item">
-                <img src="~/images/resolved-queries.png" alt="Resolved Queries Icon" class="icon" />
+                <img src="~/Svgs/resolved.svg" alt="Resolved Queries Icon" class="icon" />
                 <h3>Resolved Queries</h3>
                 <p>@Model.ResolvedQueries</p>
             </div>
 
             <div class="stat-item">
-                <img src="~/images/pending-queries.png" alt="Pending Queries Icon" class="icon" />
+                <img src="~/Svgs/system-pending-line.svg" alt="Pending Queries Icon" class="icon" />
                 <h3>Pending Queries</h3>
                 <p>@Model.PendingQueries</p>
             </div>
@@ -99,7 +99,7 @@
                     @foreach (var activity in Model.SystemActivities)
                     {
                         <li>
-                            <img src="~/Images/user-avatar.jpg" alt="User Avatar" class="avatar" />
+                            <img src="~/Svgs/user_id_portrait.svg" alt="User Avatar" class="avatar" />
                             <div class="activity-details">
                                 <p>@activity.UserName @activity.Action</p>
                                 <span>@activity.Timestamp</span>

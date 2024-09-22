@@ -1,4 +1,5 @@
-﻿@model Apptivate_UQMS_WebApp.Models.StaffDashboardViewModel
+﻿@using System.Collections
+@model Apptivate_UQMS_WebApp.Models.StaffDashboardViewModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,24 +8,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff Dashboard</title>
-    <link rel="stylesheet" href="~/css/UserDashboard.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/StaffDashboard.css" asp-append-version="true">
 </head>
 
 <body>
 
     <div class="wrapper-container">
+
         <!-- Profile Section -->
         <div class="profile-section">
             <div class="profile-info">
                 <img src="~/Images/profile-pic.png" alt="Profile Picture" class="profile-pic">
                 <div>
-                    <h2>@Model.Users.Name @Model.Users.Surname</h2>
-                    <p>@Model.StaffDetails.Position"</p>
+                  
+                    <p>@Model.Users.Name @Model.Users.Surname</p>
+                    <h5>@Model.StaffDetails.Position.PositionName</h5>
+                  
                 </div>
+
+                <div class="notification-icon">
+                    <img src="~/Svgs/notification.svg" alt="Notifications">
+                    <span id="notification-badge" class="notification-badge"></span>
+                </div>
+\
+
             </div>
-            <div class="notification-icon">
-                <img src="~/Images/notification-icon.jpg" alt="Notifications">
-            </div>
+           
         </div>
 
         <!-- Quick Stats Section -->
@@ -62,7 +71,7 @@
 
         <!-- Recent Queries Section -->
         <div class="recent-queries">
-            <h2>Recent Queries</h2>
+            <h2>Incoming Student Queries</h2>
             <div class="table-responsive">
                 <table class="query-table">
                     <thead>
@@ -109,48 +118,50 @@
 
         <!-- Recent Activity Section -->
         <div class="recent-activity-section">
-            <!-- Team Overview Section -->
-            <div class="team-overview">
-                <h2>Team Overview</h2>
-                <div class="table-responsive">
-                    <table class="team-table">
-                        <thead>
-                            <tr>
-                                <th>Staff Name</th>
-                                <th>Position</th>
-                                <th>Department</th>
-                                <th>Query Types Handled</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var teamMember in Model.TeamOverview)
-                            {
-                                <tr class="team-row">
-                                    <td>@teamMember.StaffName</td>
-                                    <td>@teamMember.Position</td>
-                                    <td>@teamMember.Department</td>
-                                    <td>
-                                        @if (teamMember.QueryTypes.Any())
-                                        {
-                                            <ul>
-                                                @foreach (var qt in teamMember.QueryTypes)
-                                                {
-                                                    <li>@qt</li>
-                                                }
-                                            </ul>
-                                        }
-                                        else
-                                        {
-                                            <span>N/A</span>
-                                        }
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            
+       <!-- Team Overview Section -->
+<div class="team-overview">
+    <h2>Team Overview</h2>
+    <div class="table-responsive">
+        <table class="team-table">
+            <thead>
+                <!-- No headers needed here since everything will be in one column -->
+            </thead>
+            <tbody>
+                @foreach (var teamMember in Model.TeamOverview)
+                {
+                    <tr class="team-row">
+                        <td>
+                            <div class="staff-info-card">
+                                <div class="staff-name">
+                                    <strong>@teamMember.StaffName</strong>
+                                </div>
+                                <div class="query-types">
+                                    @if (teamMember.QueryTypes.Any())
+                                    {
+                                        <ul>
+                                            @foreach (var qt in teamMember.QueryTypes)
+                                            {
+                                                <li>@qt</li>
+                                            }
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <span>N/A</span>
+                                    }
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                
+            </tbody>
+        </table>
+    </div>
+</div>
         </div>
+
         </div>
 
       
@@ -173,25 +184,30 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.18/signalr.min.js"></script>
     <script>
-        // Modal for new query submission
-        const modal = document.getElementById('query-modal');
+        const connection = new signalR.HubConnectionBuilder().withUrl("/notificationHub").build();
 
-        function openQueryForm() {
-            modal.style.display = 'flex';
-        }
+        connection.on("ReceiveNotification", function (message) {
+            alert(message); // Display the notification
+        });
 
-        function closeQueryForm() {
-            modal.style.display = 'none';
-        }
+        connection.start().catch(function (err) {
+            return console.error(err.toString());
+        });
 
-        // Close modal when clicking outside of it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
+        connection.on("ReceiveNotification", function (message) {
+            var audio = new Audio('/path-to-notification-sound.mp3');
+            audio.play();
+            alert(message);
+        });
+
+
+        // Subscribe the staff member to their notification group using StaffID from the Model
+        connection.invoke("SendNotification", "@Model.StaffDetails.StaffID");
     </script>
+
+
 
 </body>
 

@@ -13,8 +13,9 @@ body {
 
 /* Parent Wrapper Container */
 .wrapper-container {
-    width: 100%;
+    width: 90vw;
     min-height: 90vh;
+    margin-left:2vw;
     display: grid;
     grid-template-areas:
         "profile stats"
@@ -27,24 +28,72 @@ body {
     background-color: white; /* Match body background */
 }
 
+
 /* Profile Section */
 .profile-section {
     grid-area: profile;
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for card effect */
 }
+
+.profile-info {
+    display: flex; /* Flexbox layout to align image and text horizontally */
+    align-items: center; /* Vertically aligns content in the middle */
+    padding-right: 10px;
+    text-align: left;
+    font-size: 50px;
+    font-weight: 400;
+    color: black; /* Example: Blue color */
+}
+
+.profile-pic {
+    width: 80px; /* Size of the profile picture */
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.profile-details {
+    display: flex;
+    align-items: center; /* Align name and notification icon in the same line */
+}
+
+    .profile-details p {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0;
+        color: #333;
+    }
+
+    .profile-details h5 {
+        font-size: 1rem;
+        font-weight: 400;
+        color: #666;
+        margin-top: 5px;
+    }
+
+/* Notification Icon */
+.notification-icon img {
+    width: 24px; /* Adjust size of notification icon */
+    height: 24px;
+    margin-left: 10px; /* Add space between name and notification icon */
+    cursor: pointer;
+}
+
 
 /* Quick Stats Section */
 .dashboard-stats {
     grid-area: stats;
     display: flex;
-    justify-content: space-between;
     background-color: white;
-    padding: 20px;
+    padding: 40px 1px 1px 5px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50vw;
+    height: 20vh;
 }
 
 /* Recent Queries Section */
@@ -68,6 +117,7 @@ body {
     width: 100%;
     border-collapse: collapse;
     background-color: white;
+
 }
 
     .query-table th, .query-table td {
@@ -77,7 +127,8 @@ body {
     }
 
     .query-table th {
-        background-color: #f2f2f2;
+      background-color: #52AFB6;
+;
     }
 
 .query-row {
@@ -103,6 +154,39 @@ body {
 .status-resolved {
     background-color: green;
 }
+
+
+.stat-card {
+    background-color: white;
+    color: #007bff;
+    padding: 20px;
+  
+    border-radius: 1px;
+    width: 50%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+    
+    border-right: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.stat-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+.stat-info {
+    padding-right: 10px;
+    text-align: right;
+    font-size: 1.2rem;
+    color: black; /* Example: Blue color */
+    margin-bottom: 0px;
+}
+
+
 
 .btn-view, .btn-resolve {
     padding: 5px 10px;
@@ -205,43 +289,76 @@ body {
     .show-more-btn:hover {
         background-color: #0056b3;
     }
-
 /* Team Overview Section */
 .team-overview {
     grid-area: team-overview;
     background-color: white;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-    .team-overview h2 {
-        margin-top: 0;
-    }
+.team-overview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.2);
+}
+
+.team-overview h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
 
 .team-table {
     width: 100%;
     border-collapse: collapse;
-    background-color: white;
+    font-size: 1rem;
+    color: #555;
 }
 
-    .team-table th, .team-table td {
-        padding: 15px;
-        border: 1px solid #ddd;
-        text-align: left;
-    }
-
-    .team-table th {
-        background-color: #f2f2f2;
-    }
+.team-table th, .team-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: none;
+}
 
 .team-row {
-    transition: background-color 0.2s;
+    transition: background-color 0.3s ease;
 }
 
-    .team-row:hover {
-        background-color: #f9f9f9;
-    }
+.staff-info-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.staff-info-card:hover {
+    background-color: #f9f9f9;
+}
+
+.staff-name {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.query-types ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    color: #555;
+}
+
+.query-types li {
+    margin-bottom: 5px;
+}
 
 /* Academic Information Section (Removed) */
 /* Remove or comment out academic-info styles if not needed anymore */

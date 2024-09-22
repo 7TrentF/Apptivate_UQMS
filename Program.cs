@@ -48,6 +48,9 @@ builder.Services.AddAuthentication(options =>
 })
 .AddScheme<AuthenticationSchemeOptions, FirebaseAuthenticationHandler>("Firebase", null);
 
+builder.Services.AddSignalR();
+
+
 // Configure logging
 builder.Logging.ClearProviders(); // Optional: Clears default providers
 builder.Logging.AddConsole(); // Add console logging
@@ -78,6 +81,9 @@ app.UseSession();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
+// Map the SignalR Hub
+app.MapHub<NotificationHub>("/notificationHub");
 
 app.MapControllers(); // Ensure controllers are mapped
 
