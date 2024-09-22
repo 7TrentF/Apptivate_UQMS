@@ -1,75 +1,139 @@
-﻿body {
-    line-height: 1.6; /* Adjust the line height as needed */
-    font-family: Arial, sans-serif; /* Optional: Set a default font family */
-    font-size: 16px; /* Optional: Set a default font size */
-    color: #333; /* Optional: Set a default text color */
-    margin: 0; /* Optional: Remove default margins */
-    padding: 0; /* Optional: Remove default padding */
+﻿/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #f7f7f7;
 }
 
-h1 {
-    margin-right: auto; /* Pushes the heading to the left */
-    color: #56dfea;
+/* Container */
+.container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
+/* Header Styles */
 .user-header {
     display: flex;
-    align-items: center; /* Align items vertically centered */
-    gap: 10px; /* Optional: Adds space between items */
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-    .user-header input {
-        flex: 1; /* This allows the input to grow and fill available space */
-        max-width: 200px; /* Optional: Limit the width of the input */
+    .user-header h1 {
+        color: #56dfea;
+        margin-bottom: 15px;
+    }
+
+.search-add-sort {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.search-bar {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+}
+
+    .search-bar input {
+        width: 100%;
+        padding: 10px 40px 10px 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
     }
 
 .search-icon {
-    font-size: 18px; /* Adjust icon size */
-    margin-left: 5px; /* Space between input and icon */
-    cursor: pointer; /* Makes the icon clickable if needed */
-}
-
-.add-user-btn {
-    background-color: #56dfea; /* Button background color */
-    color: white; /* Button text color */
-    padding: 10px 20px; /* Padding inside the button */
-    border: none; /* Removes the default border */
-    border-radius: 5px; /* Rounds the button's corners */
-    font-size: 16px; /* Font size for the button text */
-    cursor: pointer; /* Changes cursor to pointer on hover */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    cursor: pointer;
 }
 
 .dashboard-actions {
-    margin-left: auto; /* Pushes the add user button to the right */
+    flex: 0 0 auto;
 }
+
+.add-user-btn {
+    background-color: #56dfea;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    .add-user-btn:hover {
+        background-color: #34b0c7;
+    }
 
 .sort-container {
-    margin-left: 10px; /* Space between button and sort dropdown */
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.User-stats {
-    display: flex;
-    justify-content: space-between; /* Distributes space between the items */
-    gap: 20px; /* Optional: Adds space between the stat cards */
-    padding: 10px; /* Optional: Adds padding around the container */
+    .sort-container select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+.sort-icon {
+    font-size: 18px;
+    color: #56dfea;
 }
 
-.User-stats {
+/* Statistics Section */
+.stats-section {
     display: flex;
-    justify-content: space-between; /* Distributes space between the items */
-    gap: 20px; /* Optional: Adds space between the stat cards */
-    padding: 10px; /* Optional: Adds padding around the container */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .stat-card {
-    background-color: #f1f1f1; /* Optional: Background color for each card */
-    padding: 10px; /* Adds padding inside each stat card */
-    border-radius: 8px; /* Optional: Rounds the corners of the stat cards */
-    flex: 1; /* Allows each stat card to grow equally */
-    text-align: center; /* Centers the text inside each stat card */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for a card effect */
+    flex: 1;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    }
 
     .stat-card h3 {
         margin-bottom: 10px;
@@ -82,35 +146,199 @@ h1 {
         font-weight: bold;
     }
 
-.custom-table {
-    width: 100%; /* Makes the table take the full width of the container */
-    border-collapse: collapse; /* Ensures no space between table cells */
-    margin: 20px 0; /* Optional: Adds margin around the table */
+/* User Management Overview */
+.user-management-overview {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-    .custom-table th, .custom-table td {
-        padding: 12px 15px; /* Adds padding to table cells */
-        text-align: left; /* Aligns text to the left */
-        border: none; /* Removes border lines */
+    .user-management-overview h2 {
+        color: #56dfea;
+        margin-bottom: 15px;
+    }
+
+.overview-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.overview-card {
+    flex: 1;
+    min-width: 200px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+    .overview-card .role {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 16px;
+        color: #555;
+    }
+
+.progress-container {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #56dfea;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.percentage {
+    position: absolute;
+    left: 50%;
+    top: -25px;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #555;
+}
+
+/* User Table Section */
+.user-table-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    min-width: 600px;
+}
+
+    .custom-table th,
+    .custom-table td {
+        padding: 12px 15px;
+        text-align: left;
     }
 
 .header-row {
-    background-color: #56dfea; /* Light mint color for the header row */
-    font-weight: bold; /* Makes header text bold */
+    background-color: #56dfea;
+    color: white;
+    font-weight: bold;
 }
 
 .custom-table tbody tr {
-    border-bottom: 1px solid #ddd; /* Adds a light line between rows */
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.2s ease;
 }
 
-    .custom-table tbody tr:last-child {
-        border-bottom: none; /* Removes the border from the last row */
+    .custom-table tbody tr:hover {
+        background-color: #f0f0f0;
     }
 
 .custom-table tbody td {
-    background-color: #fff; /* Sets a white background for the body rows */
+    color: #555;
 }
 
-.custom-table tbody tr:hover {
-    background-color: #56dfea; /* Optional: Adds a hover effect for rows */
+.custom-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.action-icon {
+    color: #56dfea;
+    margin-right: 10px;
+    font-size: 18px;
+    transition: color 0.2s ease;
+}
+
+    .action-icon:hover {
+        color: #34b0c7;
+    }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .user-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stats-section {
+        flex-direction: column;
+    }
+
+    .stat-card {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .overview-cards {
+        flex-direction: column;
+    }
+
+    .user-management-overview {
+        padding: 15px;
+    }
+
+    .user-table-section {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-header h1 {
+        font-size: 24px;
+    }
+
+    .add-user-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .sort-container select {
+        width: 100%;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+        .stat-card h3 {
+            font-size: 16px;
+        }
+
+        .stat-card p {
+            font-size: 20px;
+        }
+
+    .overview-card .role {
+        font-size: 14px;
+    }
+
+    .overview-card .percentage {
+        font-size: 12px;
+    }
+
+    .custom-table th,
+    .custom-table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .action-icon {
+        font-size: 16px;
+    }
 }

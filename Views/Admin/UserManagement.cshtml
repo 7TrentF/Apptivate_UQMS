@@ -1,5 +1,5 @@
 ﻿﻿    <!-- AAAND here we go -->
-@model IEnumerable<Apptivate_UQMS_WebApp.Models.Users>
+@model IEnumerable<Apptivate_UQMS_WebApp.Models.AppUsers>
 
 <input type="text" placeholder="Search User" />
 <a href="@Url.Action("Add")" class="btn btn-primary">Add User</a>
@@ -21,7 +21,7 @@
                 <td>@user.Name</td>
                 <td>@user.Email</td>
                 <td><span class="badge badge-primary">@user.Role</span></td>
-                <td>@user.LastSeen.ToString("dd MMM yyyy, hh:mm tt")</td>
+            
             </tr>
         }
     </tbody>

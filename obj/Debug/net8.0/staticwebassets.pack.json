@@ -469,6 +469,10 @@
       "PackagePath": "staticwebassets\\js\\SidebarToggle.js"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\UserManagement.js",
+      "PackagePath": "staticwebassets\\js\\UserManagement.js"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\UserProfile.js",
       "PackagePath": "staticwebassets\\js\\UserProfile.js"
     },

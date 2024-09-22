@@ -30,7 +30,7 @@ namespace Apptivate_UQMS_WebApp.Data
         public DbSet<QueryCategory> QueryCategories { get; set; }
         public DbSet<QueryType> QueryTypes { get; set; }
 
-        public DbSet<Users> Users_1 { get; set; } = default!;
+        public DbSet<AppUsers> appUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,182 +1,468 @@
-﻿* {
+﻿/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-.background {
-    background-image: url('/Images/User_roles_background.png'); /* Replace with your actual image path */
-    background-size: contain;
-    background-position: center;
-    background-repeat: repeat;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    min-height: 100vh;
 }
 
-body, html {
-    height: 100%;
-    font-family: Arial, sans-serif;
-}r
-
-.header {
+/* Container */
+.container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* User Header */
+.user-header {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+}
+
+    .user-header h1 {
+        color: #56dfea;
+        margin-bottom: 15px;
+    }
+
+.search-add-sort {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.search-bar {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+}
+
+    .search-bar input {
+        width: 100%;
+        padding: 10px 40px 10px 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    cursor: pointer;
+}
+
+.dashboard-actions {
+    flex: 0 0 auto;
+}
+
+.add-user-btn {
+    background-color: #56dfea;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+    .add-user-btn:hover {
+        background-color: #3bb4c9;
+    }
+
+.sort-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .sort-container select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+.sort-icon {
+    color: #56dfea;
+}
+
+/* Statistics Section */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .stat-card h3 {
+        margin-bottom: 10px;
+        color: #56dfea;
+        font-size: 18px;
+    }
+
+    .stat-card p {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+
+/* Content Wrapper */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* User Management Overview */
+.user-management-overview {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .user-management-overview h2 {
+        margin-bottom: 15px;
+        color: #56dfea;
+    }
+
+.overview-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.overview-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+    .overview-card .role {
+        flex: 0 0 150px;
+        font-weight: bold;
+        color: #555;
+    }
+
+.progress-container {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #56dfea;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.percentage {
+    position: absolute;
+    right: 10px;
+    top: -25px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Query Heatmap */
+.query-heatmap {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .query-heatmap h2 {
+        margin-bottom: 15px;
+        color: #56dfea;
+        text-align: center;
+    }
+
+.heatmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.heatmap-item {
+    padding: 15px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.low-load {
+    background-color: #00c4cc;
+}
+
+.medium-load {
+    background-color: #ffb74d;
+}
+
+.high-load {
+    background-color: #e57373;
+}
+
+/* System Activity Section */
+.system-activity {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+    .system-activity h2 {
+        margin-bottom: 15px;
+        color: #56dfea;
+        text-align: center;
+    }
+
+.activity-list {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+    .activity-list li {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+        border-bottom: 1px solid #f0f0f0;
+        transition: background-color 0.2s ease;
+    }
+
+        .activity-list li:hover {
+            background-color: #f9f9f9;
+        }
+
+        .activity-list li img.avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+.activity-details p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.activity-details span {
+    font-size: 12px;
+    color: gray;
+}
+
+/* Show More Button */
+.show-more-btn {
+    padding: 10px 20px;
+    background-color: #56dfea;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+    .show-more-btn:hover {
+        background-color: #3bb4c9;
+    }
+
+/* User Table Section */
+.user-table-section {
+    margin-top: 20px;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .custom-table th,
+    .custom-table td {
+        padding: 15px;
+        text-align: left;
+    }
+
+.header-row {
+    background-color: #56dfea;
+    color: #fff;
     font-weight: bold;
 }
 
-    .header h1 {
-        font-size: 2.5rem; /* Increased for better visibility */
-        margin-left: 8rem; /* Add margin to prevent overlap */
+.custom-table tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+}
+
+    .custom-table tbody tr:hover {
+        background-color: #f9f9f9;
     }
 
-
-.user-profile-container {
-    display: flex;
-    justify-content: center;
-    width: 40vw; /* Use viewport width for responsiveness */
-    align-items: center;
-    height: 0vh;
-    background-color: white;
-    margin-left: 10vh;
+.custom-table tbody td {
+    color: #555;
 }
 
-.profile-card {
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    width: 80vw; /* Use viewport width for responsiveness */
-    height: 35vw;
-    padding: 50px;
-    margin-top: 5vw;
-    margin-left: 5vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.custom-table tbody tr:last-child {
+    border-bottom: none;
 }
 
-.apptivate-title {
-    text-align: center;
-    width: 100%;
-    margin-bottom: 20px; /* Adds some spacing between the text and profile image */
-}
-
-    .apptivate-title h1 {
-        font-size: 2.5rem; /* Increased for better visibility on larger screens */
-        color: #333;
-        font-weight: bold;
-        margin: 0;
+/* Responsive Design */
+@media (min-width: 768px) {
+    .content-wrapper {
+        flex-direction: row;
+        gap: 20px;
     }
 
-.profile-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 40px;
-}
-
-.profile-pic {
-    border-radius: 50%;
-    width: 180px;
-    height: 180px;
-}
-
-.profile-details {
-    flex: 2;
-}
-
-    .profile-details h2 {
-        font-size: 2.5rem; /* Use rem units for scalable fonts */
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: #333;
+    .user-management-overview,
+    .query-heatmap,
+    .system-activity {
+        flex: 1;
     }
-
-.role {
-    font-size: 1.5rem;
-    color: #666;
-    margin-bottom: 30px;
 }
 
-.profile-info {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-    .profile-info p {
-        margin: 10px 0;
-    }
-
-.profile-sections {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    grid-gap: 20px;
-    width: 100%;
-}
-
-.profile-section {
-    background-color: #f9f9f9;
-    padding: 30px;
-    margin: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transition for hover effects */
-}
-
-    .profile-section:hover {
-        transform: scale(1.05); /* Slightly increases size on hover */
-        box-shadow: 0 8px 80px rgba(0, 0, 0, 0.2); /* Deepens the shadow on hover */
-        background-color: aqua; /* Change border color to #56dfea on hover */
-    }
-
-    .profile-section h3 {
-        font-size: 1.8rem; /* Scalable font size */
-        margin-bottom: 10px;
-    }
-
-    .profile-section p {
-        font-size: 1.3rem; /* Scalable font size */
-        color: #777;
-    }
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .profile-card {
+@media (max-width: 767px) {
+    .search-add-sort {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        gap: 10px;
     }
 
-    .profile-sections {
-        grid-template-columns: 1fr; /* Stacks the sections on smaller screens */
+    .stats-section {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 
-    .profile-info {
+    .overview-cards {
+        flex-direction: column;
+    }
+
+    .overview-card {
         flex-direction: column;
         align-items: flex-start;
     }
+
+    .progress-container {
+        width: 100%;
+    }
+
+    .system-activity {
+        height: auto;
+    }
 }
 
-/* Larger screens adjustments (like projector displays) */
-@media (min-width: 1280px) {
-    .apptivate-title h1 {
-        font-size: 3rem; /* Bigger font size for projector displays */
+@media (max-width: 480px) {
+    .user-header h1 {
+        font-size: 24px;
     }
 
-    .profile-details h2 {
-        font-size: 3rem;
+    .add-user-btn {
+        width: 100%;
+        justify-content: center;
     }
 
-    .profile-info {
-        font-size: 1.5rem; /* Increase font size for better visibility */
+    .sort-container select {
+        width: 100%;
     }
 
-    .profile-section h3 {
-        font-size: 2rem;
+    .stat-card {
+        padding: 15px;
     }
 
-    .profile-section p {
-        font-size: 1.4rem;
+        .stat-card h3 {
+            font-size: 16px;
+        }
+
+        .stat-card p {
+            font-size: 20px;
+        }
+
+    .overview-card .role {
+        font-size: 14px;
+    }
+
+    .overview-card .percentage {
+        font-size: 12px;
+    }
+
+    .activity-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+        .activity-list li img.avatar {
+            margin-bottom: 10px;
+        }
+
+    .custom-table th,
+    .custom-table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .heatmap-item {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .query-heatmap h2,
+    .user-management-overview h2,
+    .system-activity h2,
+    .user-header h1 {
+        font-size: 20px;
     }
 }

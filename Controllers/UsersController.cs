@@ -1,24 +1,141 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Apptivate_UQMS_WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using System;
+using Apptivate_UQMS_WebApp.Data;
+using FirebaseAdmin.Auth.Hash;
+using static Apptivate_UQMS_WebApp.Models.Account;
+using static Apptivate_UQMS_WebApp.Models.AppUsers;
+using static Apptivate_UQMS_WebApp.Models.AdminDashboardViewModel;
+using Apptivate_UQMS_WebApp.Services;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
+    [Authorize(Roles = "Admin")] // Ensure only Admins can access these actions
     public class UsersController : Controller
     {
-        // GET: Users
-        public ActionResult UserManagement()
+        private readonly ApplicationDbContext _context;
+        private readonly FirebaseAuthService _firebaseAuthService;
+
+        // Constructor injecting the database context
+        public UsersController(FirebaseAuthService firebaseAuthService, ApplicationDbContext context)
         {
-            return View();
+            _firebaseAuthService = firebaseAuthService;
+           _context = context;
+        }
+
+        // GET: Users/UserManagement
+        public async Task<IActionResult> UserManagement(string searchString, string sortOrder)
+        {
+            // Pass current sort state to the view
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["EmailSortParm"] = sortOrder == "Email" ? "email_desc" : "Email";
+            ViewData["RoleSortParm"] = sortOrder == "Role" ? "role_desc" : "Role";
+
+            // Fetch users from the database
+            var users = from u in _context.Users
+                        select u;
+
+            // Searching
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(u => u.Name.Contains(searchString)
+                                       || u.Surname.Contains(searchString)
+                                       || u.Email.Contains(searchString));
+            }
+
+            // Sorting
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    users = users.OrderByDescending(u => u.Name);
+                    break;
+                case "Email":
+                    users = users.OrderBy(u => u.Email);
+                    break;
+                case "email_desc":
+                    users = users.OrderByDescending(u => u.Email);
+                    break;
+                case "Role":
+                    users = users.OrderBy(u => u.Role);
+                    break;
+                case "role_desc":
+                    users = users.OrderByDescending(u => u.Role);
+                    break;
+                default:
+                    users = users.OrderBy(u => u.Name);
+                    break;
+            }
+
+            var userList = await users.ToListAsync();
+
+
+            // Get counts for each role
+            int staffCount = userList.Count(u => u.Role == "Staff");
+            int studentCount = userList.Count(u => u.Role == "Student");
+            int adminCount = userList.Count(u => u.Role == "Admin");
+
+            // Populate the ViewModel
+            var viewModel = new AdminDashboardViewModel
+            {
+                // Stats
+                TotalUsers = userList.Count,
+                ActiveUsers = userList.Count(u => u.LastSeen > DateTime.Now.AddDays(-30)), // Example criteria
+                TotalQueries = _context.Queries.Count(),
+                ResolvedQueries = _context.Queries.Count(q => q.Status == "Resolved"),
+                PendingQueries = _context.Queries.Count(q => q.Status == "Pending"),
+
+
+                StaffCount = staffCount,
+                StudentCount = studentCount,
+                AdminCount = adminCount,
+
+                Users = userList.FirstOrDefault(), // Assuming single admin user viewing
+
+                // User Management Overview
+                UserManagementOverview = _context.Users
+                    .GroupBy(u => u.Role)
+                    .Select(g => new UserManagementViewModel
+                    {
+                        Role = g.Key,
+                        Count = g.Count(),
+                        Percentage = (int)((g.Count() * 100.0) / userList.Count)
+                    }).ToList(),
+
+              
+            };
+
+            // Users List for the table
+            viewModel.UsersList = userList;
+
+            return View(viewModel);
         }
 
         // GET: Users/Details/5
-        public ActionResult Details(int id)
+        public async Task<IActionResult> Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _context.Users
+                .FirstOrDefaultAsync(m => m.UserID == id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
         }
 
         // GET: Users/Create
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }
@@ -26,66 +143,133 @@ namespace Apptivate_UQMS_WebApp.Controllers
         // POST: Users/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create([Bind("Name,Surname,Email,Password,Role")] ApplicationUsers user)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                // Hash the password before saving (using BCrypt)
+                var hashedPassword = _firebaseAuthService.GeneratePasswordHash(user.Password);
+
+                var newUser = new User
+                {
+                    Name = user.Name,
+                    Surname = user.Surname,
+                    Email = user.Email,
+                    PasswordHash = hashedPassword,
+                    Role = user.Role,
+                    RegistrationDate = DateTime.Now
+                };
+
+                _context.Add(newUser);
+                await _context.SaveChangesAsync();
+
+                // Optionally, log the activity
+                // _context.SystemActivities.Add(new SystemActivity { UserName = User.Identity.Name, Action = $"Created user {newUser.Name} {newUser.Surname}", Timestamp = DateTime.Now });
+                // await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(UserManagement));
             }
-            catch
-            {
-                return View();
-            }
+            return View(user);
         }
 
         // GET: Users/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _context.Users.FindAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
         }
 
         // POST: Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, [Bind("UserID,Name,Surname,Email,Role")] User user)
         {
-            try
+            if (id != user.UserID)
             {
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            catch
+
+            if (ModelState.IsValid)
             {
-                return View();
+                try
+                {
+                    _context.Update(user);
+                    await _context.SaveChangesAsync();
+
+                    // Optionally, log the activity
+                    // _context.SystemActivities.Add(new SystemActivity { UserName = User.Identity.Name, Action = $"Edited user {user.Name} {user.Surname}", Timestamp = DateTime.Now });
+                    // await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!UserExists(user.UserID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(UserManagement));
             }
+            return View(user);
         }
 
         // GET: Users/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _context.Users
+                .FirstOrDefaultAsync(m => m.UserID == id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
         }
 
         // POST: Users/Delete/5
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            catch
-            {
-                return View();
-            }
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+
+            // Optionally, log the activity
+            // _context.SystemActivities.Add(new SystemActivity { UserName = User.Identity.Name, Action = $"Deleted user {user.Name} {user.Surname}", Timestamp = DateTime.Now });
+            // await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(UserManagement));
         }
 
-
-
-
-
-
-
-
+        private bool UserExists(int id)
+        {
+            return _context.Users.Any(e => e.UserID == id);
+        }
     }
 }

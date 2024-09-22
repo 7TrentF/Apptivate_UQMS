@@ -78,6 +78,9 @@ namespace Apptivate_UQMS_WebApp.Models
             public DateTime RegistrationDate { get; set; } = DateTime.Now;
 
             public string? FirebaseUID { get; set; } // Add this field
+                                                     // New LastSeen property
+            public DateTime? LastSeen { get; set; } // Nullable to allow for uninitialized values
+
 
             // Navigation properties
             public ICollection<StudentDetail> StudentDetails { get; set; }

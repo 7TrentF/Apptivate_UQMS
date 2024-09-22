@@ -182,6 +182,19 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return View();
         }
 
+
+        public async Task UpdateLastSeen(string firebaseUid)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+            if (user != null)
+            {
+                user.LastSeen = DateTime.UtcNow;
+                await _context.SaveChangesAsync();
+            }
+        }
+
+
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
@@ -204,6 +217,11 @@ namespace Apptivate_UQMS_WebApp.Controllers
                         ModelState.AddModelError(string.Empty, "User not found.");
                         return View(model);
                     }
+
+                    // Update the LastSeen property
+                    user.LastSeen = DateTime.UtcNow;
+                    await _context.SaveChangesAsync(); // Ensure that changes are saved to the database
+
 
                     // Store the Firebase token in a cookie (for persistent login)
                     Response.Cookies.Append("FirebaseToken", token, new CookieOptions

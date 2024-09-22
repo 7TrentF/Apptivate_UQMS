@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 using static Apptivate_UQMS_WebApp.Models.Account;
+using static Apptivate_UQMS_WebApp.Models.AppUsers;
 
 namespace Apptivate_UQMS_WebApp.Services
 {
