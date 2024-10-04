@@ -5,7 +5,8 @@
     padding: 0;
 }
 
-body {
+html, body {
+    height: 100%;
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
     min-height: 100vh;
@@ -13,14 +14,18 @@ body {
 
 /* Container for the Admin Dashboard */
 .container {
-    display: grid;
-    grid-template-rows: auto auto 1fr;
-    grid-template-columns: 1fr;
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures container is at least the height of the viewport */
     padding: 20px;
     width: 100%;
-    height: 100vh;
+    box-sizing: border-box; /* Ensures padding is included in the height calculation */
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
 }
+
+
+
 
 /* User Profile Section - spans full width */
 .user-profile {
@@ -85,21 +90,23 @@ body {
     }
 
 /* Content Wrapper - holds main content and system activity */
+/* Modify the .content-wrapper styles */
 .content-wrapper {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+    display: flex;
+    flex: 1; /* Allows content-wrapper to grow and fill available space */
     gap: 20px;
-    height: calc(100vh - 160px); /* Adjust based on padding and gaps */
+    width: 100%;
 }
+
 
 /* Main Content Section */
 .main-content {
-    display: grid;
-    grid-template-rows: auto auto;
+    flex: 3; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     overflow-y: auto;
 }
-
 /* Progress Container */
 .progress-container {
     background-color: #fff;
@@ -184,13 +191,13 @@ body {
 
 /* System Activity Section */
 .system-activity {
+    flex: 1; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
     overflow-y: auto;
 }
 
@@ -250,15 +257,11 @@ body {
 /* Responsive Design */
 @media (max-width: 1024px) {
     .content-wrapper {
-        grid-template-columns: 2fr 1fr;
+        flex-direction: column;
     }
 }
 
 @media (max-width: 768px) {
-    .container {
-        grid-template-rows: auto auto 1fr;
-    }
-
     .stats-section {
         flex-direction: column;
     }
@@ -269,7 +272,7 @@ body {
     }
 
     .content-wrapper {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
     .system-activity {
@@ -281,8 +284,8 @@ body {
         align-items: flex-start;
     }
 
-        .progress span {
-            position: static;
-            margin-bottom: 5px;
-        }
+    .progress span {
+        position: static;
+        margin-bottom: 5px;
+    }
 }

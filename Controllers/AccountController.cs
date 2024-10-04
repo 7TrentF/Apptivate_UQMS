@@ -32,7 +32,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
         [HttpGet]
         public IActionResult SelectRole()
-        {
+        { 
             return View();
         }
 

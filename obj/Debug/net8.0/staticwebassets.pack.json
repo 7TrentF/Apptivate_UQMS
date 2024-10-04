@@ -425,6 +425,10 @@
       "PackagePath": "staticwebassets\\css\\Sidebar.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\StaffChats.css",
+      "PackagePath": "staticwebassets\\css\\StaffChats.css"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\StaffDashboard.css",
       "PackagePath": "staticwebassets\\css\\StaffDashboard.css"
     },

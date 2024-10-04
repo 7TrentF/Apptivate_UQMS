@@ -11,10 +11,11 @@ using static Apptivate_UQMS_WebApp.Models.Account;
 using static Apptivate_UQMS_WebApp.Models.AppUsers;
 using static Apptivate_UQMS_WebApp.Models.AdminDashboardViewModel;
 using Apptivate_UQMS_WebApp.Services;
+using Microsoft.CodeAnalysis.Scripting;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
-    [Authorize(Roles = "Admin")] // Ensure only Admins can access these actions
+    [Authorize(Roles = "Admin")] //only Admins can access these actions
     public class UsersController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -106,32 +107,13 @@ namespace Apptivate_UQMS_WebApp.Controllers
                         Percentage = (int)((g.Count() * 100.0) / userList.Count)
                     }).ToList(),
 
-              
+
             };
 
             // Users List for the table
             viewModel.UsersList = userList;
 
             return View(viewModel);
-        }
-
-        // GET: Users/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.UserID == id);
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
         }
 
         // GET: Users/Create
@@ -145,11 +127,10 @@ namespace Apptivate_UQMS_WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Name,Surname,Email,Password,Role")] ApplicationUsers user)
         {
+            // Hash the password before saving (using BCrypt)
+            var hashedPassword = _firebaseAuthService.GeneratePasswordHash(user.Password);
             if (ModelState.IsValid)
             {
-                // Hash the password before saving (using BCrypt)
-                var hashedPassword = _firebaseAuthService.GeneratePasswordHash(user.Password);
-
                 var newUser = new User
                 {
                     Name = user.Name,
@@ -159,14 +140,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
                     Role = user.Role,
                     RegistrationDate = DateTime.Now
                 };
-
                 _context.Add(newUser);
                 await _context.SaveChangesAsync();
-
-                // Optionally, log the activity
-                // _context.SystemActivities.Add(new SystemActivity { UserName = User.Identity.Name, Action = $"Created user {newUser.Name} {newUser.Surname}", Timestamp = DateTime.Now });
-                // await _context.SaveChangesAsync();
-
                 return RedirectToAction(nameof(UserManagement));
             }
             return View(user);
@@ -206,10 +181,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 {
                     _context.Update(user);
                     await _context.SaveChangesAsync();
-
-                    // Optionally, log the activity
-                    // _context.SystemActivities.Add(new SystemActivity { UserName = User.Identity.Name, Action = $"Edited user {user.Name} {user.Surname}", Timestamp = DateTime.Now });
-                    // await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -252,18 +223,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var user = await _context.Users.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
-
-            // Optionally, log the activity
-            // _context.SystemActivities.Add(new SystemActivity { UserName = User.Identity.Name, Action = $"Deleted user {user.Name} {user.Surname}", Timestamp = DateTime.Now });
-            // await _context.SaveChangesAsync();
-
             return RedirectToAction(nameof(UserManagement));
         }
 

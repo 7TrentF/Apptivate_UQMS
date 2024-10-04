@@ -547,15 +547,11 @@ C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\Apptivate_UQMS_W
 C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\Apptivate_UQMS_WebApp\obj\Debug\net8.0\Apptivate_UQMS_WebApp.pdb
 C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\Apptivate_UQMS_WebApp\obj\Debug\net8.0\Apptivate_UQMS_WebApp.genruntimeconfig.cache
 C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\Apptivate_UQMS_WebApp\obj\Debug\net8.0\ref\Apptivate_UQMS_WebApp.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.exe
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\appsettings.json
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Properties\uqms-a3d87-firebase-adminsdk-666ea-91788e11ff.json
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Properties\uqms-firebase-adminsdk.json
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.staticwebassets.runtime.json
-C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.exe
-C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.deps.json
-C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.runtimeconfig.json
-C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.dll
-C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.pdb
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Castle.Core.dll
@@ -831,5 +827,14 @@ C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebAp
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\refint\Apptivate_UQMS_WebApp.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.pdb
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.deps.json
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.runtimeconfig.json
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Apptivate_UQMS_WebApp.pdb
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.genruntimeconfig.cache
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\ref\Apptivate_UQMS_WebApp.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.MvcApplicationPartsAssemblyInfo.cs
