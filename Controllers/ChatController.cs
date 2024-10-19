@@ -57,6 +57,15 @@ public class ChatController : Controller
         return Json(messages);
     }
 
+    [HttpGet("api/users/statuses")]
+    public async Task<IActionResult> GetUserStatuses()
+    {
+        var statuses = await _context.Users
+            .Select(u => new { userId = u.UserID, isOnline = u.IsOnline })
+            .ToListAsync();
+        return Ok(statuses);
+    }
+
     private int GetCurrentUserId()
     {
         var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

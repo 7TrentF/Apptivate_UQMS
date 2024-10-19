@@ -3,39 +3,31 @@
     .build();
 
 let currentReceiverId = null;
-let lastMessageTimestamp = null; // Variable to store the last message timestamp
+let lastMessageTimestamp = null;
 
 connection.start().then(function () {
     console.log("SignalR Connected");
+    loadInitialUserStatuses(); // Load initial user statuses after connection is established
 }).catch(function (err) {
     return console.error(err.toString());
 });
 
-// Poll messages every 3 seconds
-setInterval(pollMessages, 3000);  // 3000 milliseconds = 3 seconds
+// Remove the pollUserStatus interval as we'll now use real-time updates
+// setInterval(pollUserStatus, 5000);
 
-// Poll user status every 5 seconds
-setInterval(pollUserStatus, 5000); // 5000 milliseconds = 5 seconds
-// Refresh the message thread every 10 seconds (or your desired interval)
-
-setInterval(refreshMessageThread, 1500); // 10000 milliseconds = 10 seconds
+setInterval(pollMessages, 3000);
+setInterval(refreshMessageThread, 1500);
 
 function pollMessages() {
     if (currentReceiverId) {
         $.get(`/Chat/GetMessages?userId=${currentReceiverId}`, function (data) {
-            // Track whether new messages are appended
             let newMessages = [];
-
-            // Append only new messages
             data.forEach(function (message) {
-                // Check if the message is new based on its timestamp
                 if (!lastMessageTimestamp || new Date(message.timestamp) > new Date(lastMessageTimestamp)) {
                     newMessages.push(message);
-                    lastMessageTimestamp = message.timestamp; // Update the last message timestamp
+                    lastMessageTimestamp = message.timestamp;
                 }
             });
-
-            // Append new messages to the message thread if there are any
             if (newMessages.length > 0) {
                 newMessages.forEach(function (message) {
                     appendMessage(message.content, message.isFromCurrentUser, message.timestamp);
@@ -47,45 +39,56 @@ function pollMessages() {
 
 function refreshMessageThread() {
     if (currentReceiverId) {
-        // Fetch messages from the server
         $.get(`/Chat/GetMessages?userId=${currentReceiverId}`, function (data) {
-            $("#messageThread").empty();  // Clear the message thread before fetching new messages
-            lastMessageTimestamp = null;  // Reset to fetch all messages
-
+            $("#messageThread").empty();
+            lastMessageTimestamp = null;
             data.forEach(function (message) {
                 appendMessage(message.content, message.isFromCurrentUser, message.timestamp);
-                lastMessageTimestamp = message.timestamp; // Update last message timestamp
+                lastMessageTimestamp = message.timestamp;
             });
         });
     }
 }
 
-function pollUserStatus() {
-    $.get('/Chat/GetUsersStatus', function (usersStatus) {
-        usersStatus.forEach(function (user) {
-            const userItem = $(`.user-item[data-user-id="${user.id}"]`);
-            if (userItem.length) {
-                // Update the status
-                userItem.find('.status-indicator').removeClass('online offline')
-                    .addClass(user.isOnline ? 'online' : 'offline');
-            }
+// Add this new function to handle real-time user status updates
+connection.on("UserStatusChanged", function (userId, isOnline) {
+    updateUserStatus(userId, isOnline);
+});
+
+function updateUserStatus(userId, isOnline) {
+    const userItem = $(`.user-item[data-user-id="${userId}"]`);
+    if (userItem.length) {
+        userItem.find('.user-status').removeClass('online offline')
+            .addClass(isOnline ? 'online' : 'offline');
+    }
+}
+
+// Add this function to load initial user statuses
+function loadInitialUserStatuses() {
+    $.get('/api/users/statuses', function (statuses) {
+        statuses.forEach(function (status) {
+            updateUserStatus(status.userId, status.isOnline);
         });
     });
 }
 
 connection.on("ReceiveMessage", function (senderId, message) {
     if (senderId === currentReceiverId) {
-        // Add the new message directly to the chat without reloading all messages
-        appendMessage(message.content, false, message.timestamp); // 'false' since it's from the other user
+        appendMessage(message.content, false, message.timestamp);
     } else {
-        updateUnreadCount(senderId);
+        updateUnreadCount(senderId, message.unreadCount);
     }
+});
+
+connection.on("UnreadCountUpdated", function (senderId, unreadCount) {
+    updateUnreadCount(senderId, unreadCount);
 });
 
 $("#userList").on("click", ".user-item", function () {
     const userId = $(this).data("user-id");
     console.log(`Clicked user with ID: ${userId}`);
-    loadChat(userId);  // Load chat for the selected user
+    loadChat(userId);
+    updateUnreadCount(userId, 0); // Reset unread count when opening chat
 });
 
 $("#sendButton").click(function () {
@@ -94,27 +97,25 @@ $("#sendButton").click(function () {
         connection.invoke("SendMessage", currentReceiverId, message).catch(function (err) {
             return console.error(err.toString());
         });
-        appendMessage(message, true, new Date());  // Add the message to the thread
-        $("#messageInput").val(''); // Clear input field
-        lastMessageTimestamp = new Date(); // Update the last message timestamp to prevent duplication
+        appendMessage(message, true, new Date());
+        $("#messageInput").val('');
+        lastMessageTimestamp = new Date();
     }
 });
 
 function loadChat(userId) {
     currentReceiverId = userId;
-    $("#messageThread").empty();  // Clear message thread before fetching new messages
+    $("#messageThread").empty();
     $(".chat-area").show();
-    lastMessageTimestamp = null; // Reset to fetch all messages
+    lastMessageTimestamp = null;
 
-    // Fetch messages from the server
     $.get(`/Chat/GetMessages?userId=${userId}`, function (data) {
         data.forEach(function (message) {
             appendMessage(message.content, message.isFromCurrentUser, message.timestamp);
-            lastMessageTimestamp = message.timestamp; // Set the last message timestamp
+            lastMessageTimestamp = message.timestamp;
         });
     });
 
-    // Mark messages as read in the conversation
     connection.invoke("MarkAsRead", userId);
 }
 
@@ -130,12 +131,16 @@ function appendMessage(content, isFromCurrentUser, timestamp = new Date()) {
 
     messageElement.append(timeElement);
     $("#messageThread").append(messageElement);
-    $("#messageThread").scrollTop($("#messageThread")[0].scrollHeight);  // Scroll to the bottom
+    $("#messageThread").scrollTop($("#messageThread")[0].scrollHeight);
 }
 
-function updateUnreadCount(senderId) {
+function updateUnreadCount(senderId, count) {
     const userItem = $(`.user-item[data-user-id="${senderId}"]`);
     const unreadCountElement = userItem.find(".unread-count");
-    let count = parseInt(unreadCountElement.text()) || 0;
-    unreadCountElement.text(++count).show();
+
+    if (count > 0) {
+        unreadCountElement.text(count).removeClass('d-none').addClass('d-inline-block');
+    } else {
+        unreadCountElement.removeClass('d-inline-block').addClass('d-none');
+    }
 }

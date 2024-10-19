@@ -17,8 +17,6 @@ namespace Apptivate_UQMS_WebApp.Hubs
         public async Task SendMessage(int receiverId, string message)
         {
             var senderId = GetCurrentUserId();
-
-            // Create the new message object
             var newMessage = new Message
             {
                 SenderId = senderId,
@@ -27,22 +25,12 @@ namespace Apptivate_UQMS_WebApp.Hubs
                 Timestamp = DateTime.UtcNow,
                 IsRead = false
             };
-
-            // Save the message to the database
             _context.Messages.Add(newMessage);
             await _context.SaveChangesAsync();
 
-            // Convert IDs to string as SignalR uses string identifiers
-            var receiverIdString = receiverId.ToString();
-            var senderIdString = senderId.ToString();
-
-            // Send the message to the receiver if connected
-            await Clients.User(receiverIdString).SendAsync("ReceiveMessage", senderId, message);
-
-            // Also send the message to the sender for confirmation (to ensure real-time visibility)
-            await Clients.User(senderIdString).SendAsync("ReceiveMessage", senderId, message);
+            await Clients.User(receiverId.ToString()).SendAsync("ReceiveMessage", senderId, new { content = message, timestamp = newMessage.Timestamp });
+            await Clients.Caller.SendAsync("ReceiveMessage", senderId, new { content = message, timestamp = newMessage.Timestamp });
         }
-
 
         public async Task MarkAsRead(int senderId)
         {
@@ -56,6 +44,7 @@ namespace Apptivate_UQMS_WebApp.Hubs
             }
             await _context.SaveChangesAsync();
             await Clients.User(senderId.ToString()).SendAsync("MessagesRead", currentUserId);
+            await Clients.Caller.SendAsync("UnreadCountUpdated", senderId, 0);
         }
 
         public override async Task OnConnectedAsync()
@@ -78,12 +67,12 @@ namespace Apptivate_UQMS_WebApp.Hubs
             {
                 user.IsOnline = isOnline;
                 user.LastSeen = DateTime.UtcNow;
-                user.ConnectionId = isOnline ? Context.ConnectionId : null; // Save the connection ID
                 await _context.SaveChangesAsync();
+
+                // Broadcast the status change to all connected clients
                 await Clients.All.SendAsync("UserStatusChanged", userId, isOnline);
             }
         }
-
 
         private int GetCurrentUserId()
         {
