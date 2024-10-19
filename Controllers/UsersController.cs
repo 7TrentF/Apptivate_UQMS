@@ -12,6 +12,7 @@ using static Apptivate_UQMS_WebApp.Models.AppUsers;
 using static Apptivate_UQMS_WebApp.Models.AdminDashboardViewModel;
 using Apptivate_UQMS_WebApp.Services;
 using Microsoft.CodeAnalysis.Scripting;
+using System.Security.Claims;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
@@ -232,5 +233,14 @@ namespace Apptivate_UQMS_WebApp.Controllers
         {
             return _context.Users.Any(e => e.UserID == id);
         }
+
+        [HttpGet("GetOnlineStatuses")]
+        public IActionResult GetOnlineStatuses()
+        {
+            var statuses = _context.Users.Select(u => new { id = u.UserID, isOnline = u.IsOnline }).ToList();
+            return Json(statuses);
+        }
+
+
     }
 }

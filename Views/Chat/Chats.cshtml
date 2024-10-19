@@ -1,0 +1,111 @@
+﻿@model List<ChatUserViewModel>
+
+<style>
+    .user-item {
+        cursor: pointer;
+        padding: 10px; /* Add padding for better click area */
+        transition: background-color 0.3s; /* Smooth transition on hover */
+    }
+
+        .user-item.active {
+            background-color: #e9ecef;
+            color: #000; /* Change text color when active for contrast */
+        }
+
+    .message-thread {
+        height: 400px;
+        overflow-y: auto;
+        border: 1px solid #ccc; /* Add a border for better definition */
+        padding: 10px; /* Add some padding */
+        border-radius: 5px; /* Slightly round corners */
+        background-color: #fff; /* Background color for the message area */
+    }
+
+    .message {
+        margin-bottom: 10px;
+        padding: 10px 15px; /* Increased padding for messages */
+        border-radius: 10px;
+        word-wrap: break-word; /* Ensure long messages wrap properly */
+    }
+
+        .message.sent {
+            background-color: #dcf8c6;
+            text-align: right;
+            color: #000; /* Ensure text is readable */
+        }
+
+        .message.received {
+            background-color: #f1f0f0;
+            color: #000; /* Ensure text is readable */
+        }
+
+    .timestamp {
+        font-size: 0.8em;
+        color: #888;
+        margin-left: 5px;
+    }
+
+    .user-status {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-left: 5px;
+    }
+
+        .user-status.online {
+            background-color: #28a745; /* Green for online */
+        }
+
+        .user-status.offline {
+            background-color: #dc3545; /* Red for offline */
+        }
+
+    /* Optional: Style for when user hovers over a message */
+    .message:hover {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    }
+
+   
+
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 sidebar">
+            <h3>Users</h3>
+
+            <ul id="userList" class="list-group">
+                @foreach (var user in Model)
+                {
+                    <li class="list-group-item user-item" data-user-id="@user.UserID">
+                        <span class="user-name">@user.Name @user.Surname</span>
+                        <span class="user-status @(user.IsOnline ? "online" : "offline")"></span>
+                        <span class="unread-count badge badge-primary" style="@(user.UnreadCount > 0 ? "" : "display: none;")">
+                            @(user.UnreadCount > 0 ? user.UnreadCount.ToString() : "")
+                        </span>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="col-md-9 chat-area" style="display: none;">
+            <div id="messageThread" class="message-thread">
+                <!-- Messages will be displayed here -->
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" id="messageInput" class="form-control" placeholder="Type a message...">
+                <!----<emoji-picker></emoji-picker> -->
+                <div class="input-group-append">
+                    <button id="sendButton" class="btn btn-primary" type="button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="/js/chat.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element/index.js"></script>
+
+}

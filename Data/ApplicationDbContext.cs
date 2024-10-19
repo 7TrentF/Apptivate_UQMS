@@ -28,8 +28,10 @@ namespace Apptivate_UQMS_WebApp.Data
         public DbSet<Feedback> Feedbacks { get; set; }
          public DbSet<QueryCategory> QueryCategories { get; set; }
         public DbSet<QueryType> QueryTypes { get; set; }
-
+        public DbSet<Message> Messages { get; set; }
         public DbSet<AppUsers> appUsers { get; set; }
+        public DbSet<Conversation> Conversations { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

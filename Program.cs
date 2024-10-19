@@ -1,4 +1,5 @@
 using Apptivate_UQMS_WebApp.Data;
+using Apptivate_UQMS_WebApp.Hubs;
 using Apptivate_UQMS_WebApp.Services;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
@@ -82,8 +83,9 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+
 // Map the SignalR Hub
-app.MapHub<NotificationHub>("/notificationHub");
+app.MapHub<ChatHub>("/chatHub");
 
 app.MapControllers(); // Ensure controllers are mapped
 
@@ -97,7 +99,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseRouting();
+//app.UseRouting();
 
 // Enable authentication and authorization
 app.UseAuthentication();

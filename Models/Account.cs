@@ -80,6 +80,8 @@ namespace Apptivate_UQMS_WebApp.Models
             public string? FirebaseUID { get; set; } // Add this field
                                                      // New LastSeen property
             public DateTime? LastSeen { get; set; } // Nullable to allow for uninitialized values
+            public string? ConnectionId { get; set; }
+            public bool IsOnline { get; set; }
 
 
             // Navigation properties

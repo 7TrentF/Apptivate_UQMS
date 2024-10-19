@@ -24,6 +24,8 @@
     <link rel="icon" href="~/Images/favicon-32x32.png" sizes="32x32" type="image/png" />
     <link rel="icon" href="~/Images/favicon-16x16.png" sizes="16x16" type="image/png" />
     <link rel="apple-touch-icon" href="~/Images/apple-touch-icon.png" />
+    @RenderSection("Styles", required: false)  // Add this line to render the Styles section
+
 </head>
 <body>
     <header>
@@ -71,12 +73,12 @@
                     </li>
                 }
 
-                <!-- Chat visible to all roles -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" asp-controller="Chat" asp-action="Chats">
                         <img src="~/svgs/chat-round-svgrepo-com (1).svg" alt="Chat Icon" class="icon" /><span>Chats</span>
                     </a>
                 </li>
+
 
 
                 @if (User.IsInRole("Admin"))

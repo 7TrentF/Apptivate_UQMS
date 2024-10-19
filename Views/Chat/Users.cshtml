@@ -1,0 +1,11 @@
+﻿@model Apptivate_UQMS_WebApp.Models.UserSelectionViewModel
+
+<h2>Select a User to Chat</h2>
+<ul>
+    @foreach (var user in Model.Users)
+    {
+        <li>
+            <a href="@Url.Action("Index", "Chat", new { recipientEmail = user.Email })">@user.Name</a>
+        </li>
+    }
+</ul>
