@@ -144,6 +144,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 try
                 {
                     await _queryService.SubmitAcademicQueryAsync(model, uploadedFile, firebaseUid);
+
                     return RedirectToAction("CreateQuery");
                 }
                 catch (Exception ex)
@@ -428,11 +429,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
 
 
-       
-
-
-
-
         public async Task<IActionResult> Queries()
         {
             var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
@@ -463,8 +459,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
             ViewData["InitialTickets"] = userQueries; // Store the initial queries for rendering
             return View("StudentQuery/Queries");
         }
-
-
 
         public IActionResult QuerySubmitted()
         {

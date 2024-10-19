@@ -335,6 +335,56 @@ h1 {
 	padding: 1rem 0;
 }
 
+/* Modal Background */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1000; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+/* Modal Content Box */
+.modal-content {
+	background-color: white;
+	padding: 20px;
+	border-radius: 8px;
+	max-width: 500px;
+	text-align: center;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Close Button */
+.close-btn {
+	font-size: 24px;
+	font-weight: bold;
+	color: #333;
+	float: right;
+	cursor: pointer;
+}
+
+/* Modal Action Button */
+.modal-action-btn {
+	background-color: #28a745;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+	.modal-action-btn:hover {
+		background-color: #218838;
+	}
+
+
+
 
 /* Enhanced Submit Button */
 .btn-submit {

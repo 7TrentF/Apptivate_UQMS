@@ -1,0 +1,212 @@
+﻿/* Main layout wrapper - Add this div in your _Layout.cshtml */
+.layout-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Sidebar base styles */
+#sidebar {
+    min-height: 100vh;
+    width: 260px;
+    flex-shrink: 0;
+    background: #ffffff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+
+    /* Collapsed state */
+    #sidebar.collapsed {
+        width: 70px;
+    }
+
+/* Sidebar content container */
+.sidebar-sticky {
+    height: 100vh;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Logo styles */
+.logo {
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+#sidebar.collapsed .logo img {
+    width: 40px;
+}
+
+/* Navigation items */
+.nav-item {
+    margin: 0.5rem 0;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: #1a1a1a;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+    .nav-link:hover {
+        background: #f8f9fa;
+        color: #0056b3;
+        transform: translateX(5px);
+    }
+
+/* Icon styles */
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    transition: margin 0.3s ease;
+}
+
+#sidebar.collapsed .icon {
+    margin-right: 0;
+}
+
+/* Text span styles */
+.nav-link span {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+#sidebar.collapsed .nav-link span {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* Toggle button styles */
+#sidebarToggle {
+    position: absolute;
+    right: -12px;
+    top: 20px;
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    z-index: 1001;
+}
+
+    #sidebarToggle:hover {
+        transform: scale(1.1);
+    }
+
+#sidebar.collapsed #sidebarToggle {
+    transform: rotate(180deg);
+}
+
+/* User profile section */
+.user-logout-container {
+    margin-top: auto;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Logout button styles */
+.user-logout-container form button {
+    width: 100%;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #dc3545;
+    transition: all 0.2s ease;
+}
+
+    .user-logout-container form button:hover {
+        background: #fff1f1;
+    }
+
+/* Main content container */
+.content-wrapper {
+    flex: 1;
+    min-width: 0;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Mobile menu button - only visible on mobile */
+.mobile-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+    background: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .layout-wrapper {
+        position: relative;
+    }
+
+    #sidebar {
+        position: fixed;
+        left: -260px;
+        z-index: 1000;
+    }
+
+        #sidebar.show {
+            left: 0;
+        }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .content-wrapper {
+        margin-left: 0 !important;
+    }
+}
+
+/* Scrollbar styling */
+.sidebar-sticky::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-sticky::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.sidebar-sticky::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+    .sidebar-sticky::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }

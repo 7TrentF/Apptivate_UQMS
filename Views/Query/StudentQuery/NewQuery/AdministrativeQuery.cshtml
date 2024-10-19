@@ -1,7 +1,7 @@
 ﻿<link rel="stylesheet" href="~/css/AcademicQuery.css" asp-append-version="true">
 
 @{
-    ViewData["Title"] = "Submit Academic Query";
+    ViewData["Title"] = "Submit Administrative Query";
     int queryTypeId = ViewBag.QueryTypeID;
     var categories = ViewBag.QueryCategories as ICollection<Apptivate_UQMS_WebApp.DTOs.QueryModelDto.QueryCategoryDto>;
     var studentDetail = ViewBag.StudentDetail;
@@ -252,6 +252,44 @@
             form.insertBefore(errorDiv, form.firstChild);
             setTimeout(() => errorDiv.remove(), 3000);
         }
+
+
+        const modal = document.getElementById('successModal');
+        const closeModalBtn = document.getElementsByClassName('close-btn')[0];
+        const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+        // Open the modal after the form is submitted successfully
+        function openModal() {
+            modal.style.display = 'flex';
+        }
+
+        // Close the modal when clicking the close button or the modal action button
+        closeModalBtn.onclick = closeModal;
+        modalCloseBtn.onclick = closeModal;
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Close modal if clicking outside of it
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Trigger the modal after a query submission
+        // Replace the setTimeout with the actual form submission success handler
+        document.querySelector('.query-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Simulate form submission
+            setTimeout(() => {
+                openModal();
+            }, 5000); // Assuming form submission success after 1 second
+        });
+
+
     });
 
     // Global function for removing file

@@ -1,16 +1,18 @@
 ﻿<link rel="stylesheet" href="~/css/AcademicQuery.css" asp-append-version="true">
 
+
 @{
     ViewData["Title"] = "Submit Academic Query";
     int queryTypeId = ViewBag.QueryTypeID;
     var categories = ViewBag.QueryCategories as ICollection<Apptivate_UQMS_WebApp.DTOs.QueryModelDto.QueryCategoryDto>;
     var studentDetail = ViewBag.StudentDetail;
 }
-
+<!-- Form -->
 <div class="main-container">
     <div class="content-wrapper">
         <h1>Submit an Academic Query</h1>
 
+        <!-- Student Details Card -->
         <div class="student-details-card">
             <div class="student-detail-item">
                 <div class="detail-label">Student ID</div>
@@ -30,6 +32,7 @@
             </div>
         </div>
 
+        <!-- Query Form Section -->
         <div class="query-form-section">
             <h2>Create a Query</h2>
             <p class="form-description">Submit your queries or issues, and we will address them promptly.</p>
