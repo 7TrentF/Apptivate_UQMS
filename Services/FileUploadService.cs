@@ -31,6 +31,42 @@
             }
         }
 
+
+        public string GenerateSignedUrl(string objectName)
+        {
+            try
+            {
+                _logger.LogInformation("Attempting to generate signed URL for object: {ObjectName}", objectName);
+
+                // No encoding here, use the raw object name with spaces as it is in Firebase
+                var urlSigner = UrlSigner.FromServiceAccountPath("Properties/uqms-firebase-adminsdk.json");
+
+                // Sign the URL using the object name directly (with spaces)
+                string signedUrl = urlSigner.Sign(
+                    _bucketName,
+                    objectName,  // Do not encode, pass the exact name stored in Firebase
+                    TimeSpan.FromMinutes(15)
+                );
+
+                _logger.LogInformation("Successfully generated signed URL for object: {ObjectName}", objectName);
+                _logger.LogInformation("SIGNED URL WEB " + signedUrl);
+
+
+                return signedUrl;  // This will be a properly encoded URL
+            }
+            catch (GoogleApiException ex) when (ex.Error.Code == 404)
+            {
+                _logger.LogError("File not found: {ObjectName}. Ensure the file exists in the bucket.", objectName);
+                return null;  // Return null if the file does not exist
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while generating a signed URL for object: {ObjectName}", objectName);
+                throw;
+            }
+        }
+
+
         public async Task<string> UploadFileAsync(IFormFile file)
         {
             try
@@ -61,36 +97,6 @@
             }
         }
 
-        public string GenerateSignedUrl(string objectName)
-        {
-            try
-            {
-                _logger.LogInformation("Attempting to generate signed URL for object: {ObjectName}", objectName);
-
-                // No encoding here, use the raw object name with spaces as it is in Firebase
-                var urlSigner = UrlSigner.FromServiceAccountPath("Properties/uqms-firebase-adminsdk.json");
-
-                // Sign the URL using the object name directly (with spaces)
-                string signedUrl = urlSigner.Sign(
-                    _bucketName,
-                    objectName,  // Do not encode, pass the exact name stored in Firebase
-                    TimeSpan.FromMinutes(15)
-                );
-
-                _logger.LogInformation("Successfully generated signed URL for object: {ObjectName}", objectName);
-                return signedUrl;  // This will be a properly encoded URL
-            }
-            catch (GoogleApiException ex) when (ex.Error.Code == 404)
-            {
-                _logger.LogError("File not found: {ObjectName}. Ensure the file exists in the bucket.", objectName);
-                return null;  // Return null if the file does not exist
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "An error occurred while generating a signed URL for object: {ObjectName}", objectName);
-                throw;
-            }
-        }
 
 
 

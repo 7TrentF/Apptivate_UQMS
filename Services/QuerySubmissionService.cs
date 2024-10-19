@@ -1,14 +1,12 @@
 ﻿using Apptivate_UQMS_WebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using static Apptivate_UQMS_WebApp.Models.QueryModel;
+using static Apptivate_UQMS_WebApp.DTOs.QueryModelDto;
 
 
 namespace Apptivate_UQMS_WebApp.Services
 {
-    public interface IQueryService
-    {
-        Task SubmitAcademicQueryAsync(Query model, IFormFile uploadedFile, string firebaseUid);
-    }
+    
 
     public class QuerySubmissionService : IQueryService
     {
@@ -22,20 +20,20 @@ namespace Apptivate_UQMS_WebApp.Services
             _fileUploadService = fileUploadService;
             _logger = logger;
         }
-        public async Task SubmitAcademicQueryAsync(Query model, IFormFile uploadedFile, string firebaseUid)
+
+
+        public async Task<object> GetAcademicQueryAsync(int queryTypeId, string firebaseUid)
         {
-            _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
+            _logger.LogInformation($"GetAcademicQuery called with queryTypeId: {queryTypeId}");
 
             var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
-
             if (user == null)
             {
-                _logger.LogError("User with FirebaseUID {FirebaseUID} not found.", firebaseUid);
+                _logger.LogError("User not found.");
                 throw new Exception("User not found.");
             }
 
-            _logger.LogInformation("User with FirebaseUID {FirebaseUID} found. UserID: {UserID}", firebaseUid, user.UserID);
-
+            // Updated query to retrieve CourseID and DepartmentID
             var studentDetailQuery = await (
                 from student in _context.StudentDetails
                 join department in _context.Departments
@@ -48,6 +46,8 @@ namespace Apptivate_UQMS_WebApp.Services
                 select new
                 {
                     student.StudentID,
+                    CourseCode = course.CourseCode,
+                    Department = department.DepartmentName,
                     DepartmentID = department != null ? department.DepartmentID : (int?)null,
                     CourseID = course != null ? course.CourseID : (int?)null,
                     student.Year
@@ -55,96 +55,160 @@ namespace Apptivate_UQMS_WebApp.Services
 
             if (studentDetailQuery == null)
             {
-                _logger.LogError("Student details not found for UserID {UserID}.", user.UserID);
+                _logger.LogError("Student details not found.");
                 throw new Exception("Student details not found.");
             }
 
-            _logger.LogInformation("Student details found. StudentID: {StudentID}, DepartmentID: {DepartmentID}, CourseID: {CourseID}, Year: {Year}",
-                studentDetailQuery.StudentID, studentDetailQuery.DepartmentID, studentDetailQuery.CourseID, studentDetailQuery.Year);
-
-            // Fetch the IDs dynamically from the database
-            var academicQueryType = await _context.QueryTypes.FirstOrDefaultAsync(qt => qt.TypeName == "Academic");
-            var gradeRemarksCategory = await _context.QueryCategories.FirstOrDefaultAsync(qc => qc.CategoryName == "Grade Remarks" && qc.QueryTypeID == academicQueryType.QueryTypeID);
-            var courseRegistrationCategory = await _context.QueryCategories.FirstOrDefaultAsync(qc => qc.CategoryName == "Course Registration" && qc.QueryTypeID == academicQueryType.QueryTypeID);
-
-            // Ensure query is categorized as Academic > Grade Remarks or Course Registration
-            if (model.QueryTypeID != academicQueryType.QueryTypeID || (model.CategoryID != gradeRemarksCategory.CategoryID && model.CategoryID != courseRegistrationCategory.CategoryID))
+            var queryType = await _context.QueryTypes
+                                          .Include(qt => qt.QueryCategories)
+                                          .FirstOrDefaultAsync(qt => qt.QueryTypeID == queryTypeId);
+            if (queryType == null)
             {
-                _logger.LogError("Invalid query type or category.");
-                throw new Exception("Invalid query type or category.");
+                _logger.LogError("Query type not found.");
+                throw new Exception("Query type not found.");
             }
 
-
-            // Create the query record
-            var query = new Query
+            // Map QueryType to DTO
+            var queryTypeDto = new QueryTypeDto
             {
-                StudentID = studentDetailQuery.StudentID,
-                QueryTypeID = model.QueryTypeID,
-                CategoryID = model.CategoryID,
-                DepartmentID = studentDetailQuery.DepartmentID ?? 0,
-                CourseID = studentDetailQuery.CourseID ?? 0,
-                Year = studentDetailQuery.Year,
-                Description = model.Description,
-                Status = "Pending", // Set status to pending
-                SubmissionDate = DateTime.Now
+                QueryTypeID = queryType.QueryTypeID,
+                QueryCategories = queryType.QueryCategories.Select(qc => new QueryCategoryDto
+                {
+                    CategoryID = qc.CategoryID,
+                    CategoryName = qc.CategoryName
+                }).ToList()
             };
 
-            _context.Queries.Add(query);
-            await _context.SaveChangesAsync();
-            _logger.LogInformation("Query with ID {QueryID} successfully created.", query.QueryID);
-
-            // Handle file upload if exists
-            if (uploadedFile != null && uploadedFile.Length > 0)
+            // Return CourseID and DepartmentID along with other details
+            return new
             {
-                var allowedExtensions = new[] { ".jpg", ".png", ".pdf", ".zip" };
-                var fileExtension = Path.GetExtension(uploadedFile.FileName).ToLower();
-
-                if (!allowedExtensions.Contains(fileExtension))
+                QueryTypeID = queryTypeId,
+                QueryCategories = queryTypeDto.QueryCategories,
+                StudentDetail = new
                 {
-                    _logger.LogWarning("Unsupported file type: {FileExtension}.", fileExtension);
-                    throw new Exception("Unsupported file type. Please upload a .jpg, .png, .pdf, or .zip file.");
+                    studentDetailQuery.CourseCode,
+
+                    studentDetailQuery.Department,
+                    studentDetailQuery.StudentID,
+                    studentDetailQuery.DepartmentID,  // Return DepartmentID
+                    studentDetailQuery.CourseID,      // Return CourseID
+                    studentDetailQuery.Year
+                }
+            };
+        }
+
+        public async Task SubmitAcademicQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
+        {
+            _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
+
+            var queryTypeID = model.QueryTypeID;
+
+            try
+            {
+                // Use the existing method to fetch the student details and query type
+                var academicQueryDetails = await GetAcademicQueryAsync(queryTypeID, firebaseUid);
+
+                // Extract the necessary details
+                dynamic queryData = academicQueryDetails;
+                var studentDetail = queryData.StudentDetail;
+                var queryCategories = queryData.QueryCategories;
+
+
+                _logger.LogWarning("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
+                _logger.LogWarning("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
+
+
+                // Validate the query type and category
+                if (model.QueryTypeID != queryData.QueryTypeID)
+                {
+                    _logger.LogError("Invalid query type or category.");
+                    throw new Exception("Invalid query type or category.");
                 }
 
-                try
+                // Create the query record
+                var query = new Query
                 {
-                    var documentUrl = await _fileUploadService.UploadFileAsync(uploadedFile);
-                    var queryDocument = new QueryDocument
-                    {
-                        QueryID = query.QueryID,
-                        DocumentName = uploadedFile.FileName,
-                        DocumentPath = documentUrl,
-                        UploadDate = DateTime.Now
-                    };
+                    StudentID = studentDetail.StudentID,
+                    QueryTypeID = model.QueryTypeID,
+                    CategoryID = model.CategoryID,
+                    DepartmentID = studentDetail.DepartmentID ?? 0,
+                    CourseID = studentDetail.CourseID ?? 0,
+                    Year = studentDetail.Year,
+                    Description = model.Description,
+                    Status = "Pending", // Set status to pending
+                    SubmissionDate = DateTime.Now
+                };
 
-                    _context.QueryDocuments.Add(queryDocument);
-                    await _context.SaveChangesAsync();
-                    _logger.LogInformation("Document associated with QueryID {QueryID}.", query.QueryID);
-                }
-                catch (Exception ex)
+                _context.Queries.Add(query);
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Query with ID {QueryID} successfully created.", query.QueryID);
+
+                // Handle file upload if exists
+                if (uploadedFile != null && uploadedFile.Length > 0)
                 {
-                    _logger.LogError("File upload failed: {Message}", ex.Message);
-                    throw new Exception("File upload failed. Please try again.");
+                    await HandleFileUpload(uploadedFile, query.QueryID);
                 }
+
+                // Assign query to the least busy lecturer or escalate
+                await AssignQueryToStaffAsync(query);
+
+                _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
+                throw new Exception("Query submission failed.");
+            }
+        }
+
+        private async Task HandleFileUpload(IFormFile uploadedFile, int queryId)
+        {
+            var allowedExtensions = new[] { ".jpg", ".png", ".pdf", ".zip" };
+            var fileExtension = Path.GetExtension(uploadedFile.FileName).ToLower();
+
+            if (!allowedExtensions.Contains(fileExtension))
+            {
+                _logger.LogWarning("Unsupported file type: {FileExtension}.", fileExtension);
+                throw new Exception("Unsupported file type. Please upload a .jpg, .png, .pdf, or .zip file.");
             }
 
-            // Find lecturers in the same department and perform load balancing
+            var documentUrl = await _fileUploadService.UploadFileAsync(uploadedFile);
+            var queryDocument = new QueryDocument
+            {
+                QueryID = queryId,
+                DocumentName = uploadedFile.FileName,
+                DocumentPath = documentUrl,
+                UploadDate = DateTime.Now
+            };
+
+            _context.QueryDocuments.Add(queryDocument);
+            await _context.SaveChangesAsync();
+            _logger.LogInformation("Document associated with QueryID {QueryID}.", queryId);
+        }
+
+        private async Task AssignQueryToStaffAsync(Query query)
+        {
+            // Find the department name
             var departmentName = await _context.Departments
                 .Where(d => d.DepartmentID == query.DepartmentID)
                 .Select(d => d.DepartmentName)
                 .FirstOrDefaultAsync();
 
+            // Find lecturers in the same department
             var lecturers = await _context.StaffDetails
                 .Where(s => s.Department == departmentName && s.Position.PositionName == "Lecturer")
                 .ToListAsync();
 
             if (lecturers.Any())
             {
+                // Find the least busy lecturer (based on unresolved queries)
                 var leastBusyLecturer = lecturers
                     .OrderBy(s => _context.QueryAssignments.Count(qa => qa.StaffID == s.StaffID && qa.ResolutionDate == null))
                     .FirstOrDefault();
 
                 if (leastBusyLecturer != null)
                 {
+                    // Assign the query to the least busy lecturer
                     var queryAssignment = new QueryAssignment
                     {
                         QueryID = query.QueryID,
@@ -159,7 +223,7 @@ namespace Apptivate_UQMS_WebApp.Services
             }
             else
             {
-                // Escalate to department head if no lecturer found
+                // Escalate to department head if no lecturer is found
                 var departmentHead = await _context.StaffDetails
                     .FirstOrDefaultAsync(s => s.Department == departmentName && s.Position.PositionName == "Department Head");
 
@@ -181,10 +245,81 @@ namespace Apptivate_UQMS_WebApp.Services
                     _logger.LogWarning("No department head found for QueryID {QueryID}.", query.QueryID);
                 }
             }
-
-            _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
         }
+
+        public async Task SubmitAdministrativeQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
+        {
+            _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
+
+            var queryTypeID = model.QueryTypeID;
+
+            try
+            {
+                // Use the existing method to fetch the student details and query type
+                var academicQueryDetails = await GetAcademicQueryAsync(queryTypeID, firebaseUid);
+
+                // Extract the necessary details
+                dynamic queryData = academicQueryDetails;
+                var studentDetail = queryData.StudentDetail;
+                var queryCategories = queryData.QueryCategories;
+
+
+                _logger.LogWarning("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
+                _logger.LogWarning("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
+
+
+                // Validate the query type and category
+                if (model.QueryTypeID != queryData.QueryTypeID)
+                {
+                    _logger.LogError("Invalid query type or category.");
+                    throw new Exception("Invalid query type or category.");
+                }
+
+                // Create the query record
+                var query = new Query
+                {
+                    StudentID = studentDetail.StudentID,
+                    QueryTypeID = model.QueryTypeID,
+                    CategoryID = model.CategoryID,
+                    DepartmentID = studentDetail.DepartmentID ?? 0,
+                    CourseID = studentDetail.CourseID ?? 0,
+                    Year = studentDetail.Year,
+                    Description = model.Description,
+                    Status = "Pending", // Set status to pending
+                    SubmissionDate = DateTime.Now
+                };
+
+                _context.Queries.Add(query);
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Query with ID {QueryID} successfully created.", query.QueryID);
+
+                // Handle file upload if exists
+                if (uploadedFile != null && uploadedFile.Length > 0)
+                {
+                    await HandleFileUpload(uploadedFile, query.QueryID);
+                }
+
+                // Assign query to the least busy lecturer or escalate
+                await AssignQueryToStaffAsync(query);
+
+                _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
+                throw new Exception("Query submission failed.");
+            }
+        }
+
+
+
+
+
+
+
+
     }
+
 
 
 }

@@ -11,6 +11,7 @@ using Apptivate_UQMS_WebApp.Services;
 using static Apptivate_UQMS_WebApp.Models.Account;
 using Microsoft.AspNetCore.Authorization;
 using Apptivate_UQMS_WebApp.Extentions; // Add this using directive
+using static Apptivate_UQMS_WebApp.DTOs.QueryModelDto;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
@@ -36,7 +37,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return Task.FromResult<IActionResult>(View("StudentQuery/NewQuery/CreateQuery"));
         }
 
-
         [HttpGet]
         public async Task<IActionResult> AcademicQuery(int queryTypeId)
         {
@@ -51,45 +51,34 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-            // Fetch the user and student details
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
-
-            if (user == null)
+            try
             {
-                _logger.LogError("User not found.");
-                return NotFound();
+                // Use the service to fetch the academic query details
+                var academicQueryDetails = await _queryService.GetAcademicQueryAsync(queryTypeId, firebaseUid);
+
+                // Unpack the data from the service response (since it returns an anonymous object)
+                dynamic queryData = academicQueryDetails;
+
+                ViewBag.QueryTypeID = queryData.QueryTypeID;
+                ViewBag.QueryCategories = queryData.QueryCategories;
+                ViewBag.StudentDetail = queryData.StudentDetail;
+                ViewBag.StudentID = queryData.StudentDetail.StudentID;
+                ViewBag.Department = queryData.StudentDetail.Department;
+                ViewBag.DepartmentID = queryData.StudentDetail.DepartmentID; // Using DepartmentID instead of Department name
+                ViewBag.CourseCode = queryData.StudentDetail.CourseCode;         // Using CourseID instead of Course name
+
+                ViewBag.CourseID = queryData.StudentDetail.CourseID;         // Using CourseID instead of Course name
+                ViewBag.Year = queryData.StudentDetail.Year;
+
+                return View("StudentQuery/NewQuery/AcademicQuery");
             }
-
-            var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
-
-            if (studentDetail == null)
+            catch (Exception ex)
             {
-                _logger.LogError("Student details not found.");
-                return NotFound();
+                _logger.LogError(ex, "An error occurred while fetching the academic query.");
+                return BadRequest("An error occurred while fetching the academic query.");
             }
-
-            // Fetch the query type and categories
-            var queryType = await _context.QueryTypes
-                                          .Include(qt => qt.QueryCategories)
-                                          .FirstOrDefaultAsync(qt => qt.QueryTypeID == queryTypeId);
-
-            if (queryType == null)
-            {
-                return NotFound();
-            }
-
-            ViewBag.QueryTypeID = queryTypeId;
-            ViewBag.QueryCategories = queryType.QueryCategories;
-            ViewBag.StudentDetail = studentDetail;  // Pass the student details to the view
-            ViewBag.StudentID = studentDetail.StudentID;
-            ViewBag.Department = studentDetail.Department;
-            ViewBag.Course = studentDetail.Course;
-            ViewBag.Year = studentDetail.Year;
-           
-
-
-            return View("StudentQuery/NewQuery/AcademicQuery");
         }
+
 
         [HttpGet]
         public async Task<IActionResult> AdministrativeQuery(int queryTypeId)
@@ -105,42 +94,36 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-            // Fetch the user and student details
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
-
-            if (user == null)
+            try
             {
-                _logger.LogError("User not found.");
-                return NotFound();
+                // Use the service to fetch the academic query details
+                var academicQueryDetails = await _queryService.GetAcademicQueryAsync(queryTypeId, firebaseUid);
+
+                // Unpack the data from the service response (since it returns an anonymous object)
+                dynamic queryData = academicQueryDetails;
+
+                ViewBag.QueryTypeID = queryData.QueryTypeID;
+                ViewBag.QueryCategories = queryData.QueryCategories;
+                ViewBag.StudentDetail = queryData.StudentDetail;
+                ViewBag.StudentID = queryData.StudentDetail.StudentID;
+                ViewBag.Department = queryData.StudentDetail.Department;
+                ViewBag.DepartmentID = queryData.StudentDetail.DepartmentID; // Using DepartmentID instead of Department name
+                ViewBag.CourseCode = queryData.StudentDetail.CourseCode;         // Using CourseID instead of Course name
+
+                ViewBag.CourseID = queryData.StudentDetail.CourseID;         // Using CourseID instead of Course name
+                ViewBag.Year = queryData.StudentDetail.Year;
+
+                return View("StudentQuery/NewQuery/AdministrativeQuery");
             }
-
-            var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
-
-            if (studentDetail == null)
+            catch (Exception ex)
             {
-                _logger.LogError("Student details not found.");
-                return NotFound();
+                _logger.LogError(ex, "An error occurred while fetching the academic query.");
+                return BadRequest("An error occurred while fetching the academic query.");
             }
-
-            // Fetch the query type and categories
-            var queryType = await _context.QueryTypes
-                                          .Include(qt => qt.QueryCategories)
-                                          .FirstOrDefaultAsync(qt => qt.QueryTypeID == queryTypeId);
-
-            if (queryType == null)
-            {
-                return NotFound();
-            }
-
-            ViewBag.QueryTypeID = queryTypeId;
-            ViewBag.QueryCategories = queryType.QueryCategories;
-            ViewBag.StudentDetail = studentDetail;  // Pass the student details to the view
-
-            return View("StudentQuery/NewQuery/AdministrativeQuery");
         }
 
         [HttpPost]
-        public async Task<IActionResult> SubmitAcademicQuery(Query model, IFormFile uploadedFile)
+        public async Task<IActionResult> SubmitAcademicQuery(QueryDto model, IFormFile uploadedFile)
         {
             if (ModelState.IsValid)
             {
@@ -176,7 +159,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> SubmitAdministrativeQuery(Query model, IFormFile uploadedFile)
+        public async Task<IActionResult> SubmitAdministrativeQuery(QueryDto model, IFormFile uploadedFile)
         {
             if (ModelState.IsValid)
             {
@@ -196,7 +179,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
                 try
                 {
-                    await _queryService.SubmitAcademicQueryAsync(model, uploadedFile, firebaseUid);
+                    await _queryService.SubmitAdministrativeQueryAsync(model, uploadedFile, firebaseUid);
                     return RedirectToAction("QuerySubmitted");
                 }
                 catch (Exception ex)
@@ -298,7 +281,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return PartialView("StudentQuery/QueryOverview/ResolvedTickets", resolvedTickets);
         }
 
-
         [HttpGet]
         public async Task<IActionResult> ViewTicket(int queryId)
         {
@@ -334,11 +316,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
             var query = await _context.Queries
                              .FirstOrDefaultAsync(q => q.QueryID == queryId);
 
-
-
             return View("StudentQuery/QueryOverview/ViewTicket", query);
         }
-
 
         public async Task<IActionResult> Search(string searchQuery, string statusFilter)
         {
@@ -363,26 +342,39 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 return RedirectToAction("Error", "Home");
             }
 
+
+
             // Build query based on search criteria
             var queryResults = _context.Queries.AsQueryable();
+
 
             if (!string.IsNullOrEmpty(searchQuery))
             {
                 queryResults = queryResults.Where(q => q.Description.Contains(searchQuery));
             }
 
+            _logger.LogWarning("searchQuery  " + searchQuery);
+
+
             if (!string.IsNullOrEmpty(statusFilter))
             {
                 queryResults = queryResults.Where(q => q.Status == statusFilter);
             }
 
+            _logger.LogWarning("statusFilter  " + statusFilter);
+
+
+
             queryResults = queryResults.Where(q => q.StudentID == studentDetail.StudentID);
 
             var queries = await queryResults.ToListAsync();
 
+
+            _logger.LogWarning(" queries  " + queries);
+
+
             return PartialView("StudentQuery/QueryOverview/AllTickets", queries);
         }
-
 
         public async Task<IActionResult> FilteredTickets(string dateFilter)
         {

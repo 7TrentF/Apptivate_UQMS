@@ -5,9 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
-
-
-
 namespace Apptivate_UQMS_WebApp.Controllers
 {
     [Authorize(Roles = "Staff")]
@@ -22,6 +19,35 @@ namespace Apptivate_UQMS_WebApp.Controllers
             _context = context;
             _logger = logger;
             _hubContext = hubContext;
+        }
+
+      
+        [HttpGet]
+        public async Task<IActionResult> QueryDetails(int queryId)
+        {
+            // Verify that the user is authenticated via session
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+            if (string.IsNullOrEmpty(firebaseUid))
+            {
+                _logger.LogError("Unauthenticated user attempted to access query details.");
+                return Unauthorized();
+            }
+
+            var query = await _context.Queries
+                                      .Include(q => q.QueryDocuments) // Include documents
+                                      .Include(q => q.Student) // Include student details
+                                      .Include(q => q.Department) // Include department
+                                      .Include(q => q.Course) // Include course
+                                      .FirstOrDefaultAsync(q => q.QueryID == queryId);
+
+            if (query == null)
+            {
+                _logger.LogError("Query not found with ID {QueryID}.", queryId);
+                return NotFound();
+            }
+
+            return View("~/Views/Query/StaffQuery/QueryDetails.cshtml", query); // Load the view
         }
 
         // Action to list all queries assigned to the logged-in staff
@@ -57,35 +83,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return View("~/Views/Query/StaffQuery/StaffQueries.cshtml", queries);
 
         }
-
-        [HttpGet]
-        public async Task<IActionResult> QueryDetails(int queryId)
-        {
-            // Verify that the user is authenticated via session
-            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
-
-            if (string.IsNullOrEmpty(firebaseUid))
-            {
-                _logger.LogError("Unauthenticated user attempted to access query details.");
-                return Unauthorized();
-            }
-
-            var query = await _context.Queries
-                                      .Include(q => q.QueryDocuments) // Include documents
-                                      .Include(q => q.Student) // Include student details
-                                      .Include(q => q.Department) // Include department
-                                      .Include(q => q.Course) // Include course
-                                      .FirstOrDefaultAsync(q => q.QueryID == queryId);
-
-            if (query == null)
-            {
-                _logger.LogError("Query not found with ID {QueryID}.", queryId);
-                return NotFound();
-            }
-
-            return View("~/Views/Query/StaffQuery/QueryDetails.cshtml", query); // Load the view
-        }
-
 
 
         // Action to mark a query as resolved

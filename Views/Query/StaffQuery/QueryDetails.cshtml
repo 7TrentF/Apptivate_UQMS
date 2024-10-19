@@ -20,6 +20,12 @@
     {
         // Pass the raw document path (with spaces) to the service
         var signedUrl = FileUploadService.GenerateSignedUrl(doc.DocumentPath);
+
+        // Log the document path and signed URL
+        Console.WriteLine($"Document Path: {doc.DocumentPath}"); // Log document path
+        Console.WriteLine($"Signed URL: {signedUrl}"); // Log signed URL
+
+
         if (signedUrl != null)
         {
             <li>
@@ -33,7 +39,6 @@
         }
     }
 </ul>
-
 
 <style>
     .document-list {
