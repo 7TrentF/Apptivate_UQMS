@@ -20,8 +20,8 @@ namespace Apptivate_UQMS_WebApp.Services
         Task<object> GetAcademicQueryAsync(int queryTypeId, string firebaseUid);
         Task SubmitAdministrativeQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid);
         Task SubmitAcademicQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid);
-        
-       
+
+        Task<object> GetStudentQueryAsync(int queryId, string firebaseUid);
     }
 }
 

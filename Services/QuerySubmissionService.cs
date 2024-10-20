@@ -314,6 +314,40 @@ namespace Apptivate_UQMS_WebApp.Services
 
 
 
+        public async Task<object> GetStudentQueryAsync(int queryId, string firebaseUid)
+        {
+            _logger.LogInformation($"GetAcademicQuery called with queryTypeId: {queryId}");
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+            if (user == null)
+            {
+                _logger.LogError("User not found.");
+                throw new Exception("User not found.");
+            }
+
+            // Fetch query, student, and user details
+            var StudentQueryDetails = await _context.Queries
+                .Include(q => q.QueryDocuments) // Include documents
+                .Include(q => q.Student)        // Include student details
+                .ThenInclude(s => s.User)   // Include associated user details for the student
+                .Include(q => q.Department)     // Include department
+                .Include(q => q.Course)         // Include course
+                .FirstOrDefaultAsync(q => q.QueryID == queryId);
+
+            if (StudentQueryDetails == null)
+            {
+                _logger.LogError("Student Query details not found.");
+                throw new Exception("Student Query details not found.");
+            }
+
+            return StudentQueryDetails;
+
+
+
+        }
+
+
+
 
 
 

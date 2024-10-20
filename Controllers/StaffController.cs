@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using static Apptivate_UQMS_WebApp.Models.QueryModel;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
@@ -13,9 +15,12 @@ namespace Apptivate_UQMS_WebApp.Controllers
         private readonly ApplicationDbContext _context;
         private readonly ILogger<StaffQueryController> _logger;
         private readonly IHubContext<NotificationHub> _hubContext;  // Inject SignalR Hub Context
+        private readonly IQueryService _queryService;  // Inject IQueryService
 
-        public StaffQueryController(ApplicationDbContext context, ILogger<StaffQueryController> logger, IHubContext<NotificationHub> hubContext)
+        public StaffQueryController(IQueryService queryService, ApplicationDbContext context, ILogger<StaffQueryController> logger, IHubContext<NotificationHub> hubContext)
         {
+            _queryService = queryService;
+
             _context = context;
             _logger = logger;
             _hubContext = hubContext;
@@ -30,27 +35,29 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             if (string.IsNullOrEmpty(firebaseUid))
             {
-                _logger.LogError("Unauthenticated user attempted to access query details.");
+                _logger.LogError("Unauthenticated user attempted to access student query details.");
                 return Unauthorized();
             }
 
-            // Fetch query, student, and user details
-            var query = await _context.Queries
-                .Include(q => q.QueryDocuments) // Include documents
-                .Include(q => q.Student)        // Include student details
-                    .ThenInclude(s => s.User)   // Include associated user details for the student
-                .Include(q => q.Department)     // Include department
-                .Include(q => q.Course)         // Include course
-                .FirstOrDefaultAsync(q => q.QueryID == queryId);
 
-
-            if (query == null)
+            try
             {
-                _logger.LogError("Query not found with ID {QueryID}.", queryId);
-                return NotFound();
+                // Use the service to fetch the academic query details
+                var studentQueryDetails = await _queryService.GetStudentQueryAsync(queryId, firebaseUid);
+
+            
+                return View("~/Views/Query/StaffQuery/QueryDetails.cshtml", studentQueryDetails); // Load the view
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while fetching the academic query.");
+                return BadRequest("An error occurred while fetching the academic query.");
             }
 
-            return View("~/Views/Query/StaffQuery/QueryDetails.cshtml", query); // Load the view
+
+
+
+
         }
 
         // Action to list all queries assigned to the logged-in staff

@@ -464,6 +464,27 @@ namespace Apptivate_UQMS_WebApp.Controllers
         {
             return View("StudentQuery/NewQuery/QuerySubmitted");
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 }
