@@ -6,7 +6,7 @@ using static Apptivate_UQMS_WebApp.DTOs.QueryModelDto;
 
 namespace Apptivate_UQMS_WebApp.Services
 {
-    
+
 
     public class QuerySubmissionService : IQueryService
     {
@@ -20,6 +20,8 @@ namespace Apptivate_UQMS_WebApp.Services
             _fileUploadService = fileUploadService;
             _logger = logger;
         }
+
+
 
 
         public async Task<object> GetAcademicQueryAsync(int queryTypeId, string firebaseUid)
@@ -314,6 +316,65 @@ namespace Apptivate_UQMS_WebApp.Services
 
 
 
+
+
+
+        public async Task<object> GetStaffAssignmentQueryDetails(int queryId, string firebaseUid)
+        {
+
+            _logger.LogInformation($"GetStaffAssignmentQueryDetails called with queryTypeId: {queryId}");
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+            if (user == null)
+            {
+                _logger.LogError("User not found.");
+                throw new Exception("User not found.");
+            }
+
+
+
+            // Find the staff member based on the logged-in Firebase UID
+            var staff = await _context.StaffDetails
+                                      .Include(s => s.User)
+                                      .FirstOrDefaultAsync(s => s.User.FirebaseUID == firebaseUid);
+
+            if (staff == null)
+            {
+                _logger.LogError("Staff not found for FirebaseUID {FirebaseUID}.", firebaseUid);
+                throw new Exception("Staff details not found.");
+            }
+
+            // Assume the specific QueryID is provided
+
+            // Fetch the QueryAssignment for this staff member and QueryID
+            var queryAssignment = await _context.QueryAssignments
+                                      .Where(qa => qa.StaffID == staff.StaffID && qa.QueryID == queryId)
+                                      .Select(qa => qa.AssignmentID)  // Select the AssignmentID
+                                      .FirstOrDefaultAsync();
+
+            if (queryAssignment == null)
+            {
+                _logger.LogError("No assignment found for StaffID {StaffID} and QueryID {QueryID}.", staff.StaffID, queryId);
+                throw new Exception("Assignment not found.");
+            }
+
+
+            _logger.LogWarning("AssignmentID: " + queryAssignment);
+            _logger.LogWarning("QueryID: " + queryId);
+
+
+            // Return the AssignmentID for the specific QueryID
+            return new
+            {
+                AssignmentID = queryAssignment,
+                QueryID = queryId,
+
+            };
+
+
+
+        }
+
         public async Task<object> GetStudentQueryAsync(int queryId, string firebaseUid)
         {
             _logger.LogInformation($"GetAcademicQuery called with queryTypeId: {queryId}");
@@ -347,14 +408,73 @@ namespace Apptivate_UQMS_WebApp.Services
         }
 
 
+        /*
+
+        public async Task SubmitSolutionToQueryAsync(QueryResolutions model, IFormFile uploadedFile, string firebaseUid)
+        {
+            _logger.LogInformation("Query resolution process started for FirebaseUID: {FirebaseUID}", firebaseUid);
+
+            var queryID = model.QueryID;
+
+            try
+            {
+                // Use the existing method to fetch the student details and query type
+                var StudentQueryDetails = await GetStudentQueryAsync(queryID, firebaseUid);
+
+                // Extract the necessary details
+                dynamic queryData = StudentQueryDetails;
+                var studentDetail = queryData.StudentDetail;
+                var queryCategories = queryData.QueryCategories;
 
 
+                _logger.LogWarning("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
+                _logger.LogWarning("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
+
+
+                // Create the query record
+                var query = new QueryResolutions
+                {
+                    StudentID = academicQueryDetails.,
+                    QueryID = model.QueryID,
+                    CategoryID = model.CategoryID,
+                    DepartmentID = studentDetail.DepartmentID ?? 0,
+                    CourseID = studentDetail.CourseID ?? 0,
+                    Year = studentDetail.Year,
+                    Description = model.Description,
+                    Status = "Pending", // Set status to pending
+                    SubmissionDate = DateTime.Now
+                };
+
+                _context.Queries.Add(query);
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Query with ID {QueryID} successfully created.", query.QueryID);
+
+                // Handle file upload if exists
+                if (uploadedFile != null && uploadedFile.Length > 0)
+                {
+                    await HandleFileUpload(uploadedFile, query.QueryID);
+                }
+
+                // Assign query to the least busy lecturer or escalate
+                await AssignQueryToStaffAsync(query);
+
+                _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
+                throw new Exception("Query submission failed.");
+            }
+        }
+        */
 
 
 
     }
 
 
+} 
 
-}
+    
+
 

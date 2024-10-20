@@ -66,7 +66,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 ViewBag.Department = queryData.StudentDetail.Department;
                 ViewBag.DepartmentID = queryData.StudentDetail.DepartmentID; // Using DepartmentID instead of Department name
                 ViewBag.CourseCode = queryData.StudentDetail.CourseCode;         // Using CourseID instead of Course name
-
                 ViewBag.CourseID = queryData.StudentDetail.CourseID;         // Using CourseID instead of Course name
                 ViewBag.Year = queryData.StudentDetail.Year;
 
@@ -464,12 +463,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
         {
             return View("StudentQuery/NewQuery/QuerySubmitted");
         }
-
-
-
-
-
-
 
 
 

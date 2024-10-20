@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using static Apptivate_UQMS_WebApp.DTOs.QueryModelDto;
 using static Apptivate_UQMS_WebApp.Models.QueryModel;
+using static Apptivate_UQMS_WebApp.Models.QueryModel.QueryResolutions;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Apptivate_UQMS_WebApp.Controllers
@@ -26,7 +28,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
             _hubContext = hubContext;
         }
 
-      
         [HttpGet]
         public async Task<IActionResult> QueryDetails(int queryId)
         {
@@ -44,8 +45,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
             {
                 // Use the service to fetch the academic query details
                 var studentQueryDetails = await _queryService.GetStudentQueryAsync(queryId, firebaseUid);
+                var staffQueryAssignment = await _queryService.GetStaffAssignmentQueryDetails(queryId, firebaseUid);
 
-            
                 return View("~/Views/Query/StaffQuery/QueryDetails.cshtml", studentQueryDetails); // Load the view
             }
             catch (Exception ex)
@@ -53,15 +54,10 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 _logger.LogError(ex, "An error occurred while fetching the academic query.");
                 return BadRequest("An error occurred while fetching the academic query.");
             }
-
-
-
-
-
         }
 
-        // Action to list all queries assigned to the logged-in staff
-        [HttpGet]
+            // Action to list all queries assigned to the logged-in staff
+            [HttpGet]
         public async Task<IActionResult> StaffQueries()
         {
             var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
@@ -93,7 +89,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return View("~/Views/Query/StaffQuery/StaffQueries.cshtml", queries);
 
         }
-
 
         // Action to mark a query as resolved
         [HttpPost]
@@ -147,6 +142,129 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             return Json(new { NewQueries = newQueryCount });
         }
+
+
+
+        /*
+        [HttpPost]
+        public async Task<IActionResult> SubmitSolutionToQueryAsync(QueryResolutions model, IFormFile uploadedFile)
+        {
+            if (ModelState.IsValid)
+            {
+                var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+                if (firebaseUid == null)
+                {
+                    _logger.LogError("User not logged in.");
+                    return RedirectToAction("Login", "Account");
+                }
+                // Check length of the Description field
+                if (model.Solution.Length > 150)
+                {
+                    ModelState.AddModelError("Solution", "Solution cannot be longer than 150 characters.");
+                    return View("~/Views/Query/StaffQuery/QueryDetails.cshtml"); // Load the view
+                }
+
+                try
+                {
+                    await _queryService.SubmitSolutionToQueryAsync(model, uploadedFile, firebaseUid);
+
+                    return RedirectToAction("CreateQuery");
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+
+            _logger.LogWarning("Model state is invalid for the query submission.");
+            return View("StudentQuery/NewQuery/QuerySubmitted");
+
+        }
+        //Create solution to query 
+        */
+
+
+        public async Task<object> GetAcademicQueryAsync(int queryTypeId, string firebaseUid)
+        {
+            _logger.LogInformation($"GetAcademicQuery called with queryTypeId: {queryTypeId}");
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+            if (user == null)
+            {
+                _logger.LogError("User not found.");
+                throw new Exception("User not found.");
+            }
+
+            // Updated query to retrieve CourseID and DepartmentID
+            var studentDetailQuery = await (
+                from student in _context.StudentDetails
+                join department in _context.Departments
+                on student.Department equals department.DepartmentName into deptGroup
+                from department in deptGroup.DefaultIfEmpty()
+                join course in _context.Courses
+                on student.Course equals course.CourseCode into courseGroup
+                from course in courseGroup.DefaultIfEmpty()
+                where student.UserID == user.UserID
+                select new
+                {
+                    student.StudentID,
+                    CourseCode = course.CourseCode,
+                    Department = department.DepartmentName,
+                    DepartmentID = department != null ? department.DepartmentID : (int?)null,
+                    CourseID = course != null ? course.CourseID : (int?)null,
+                    student.Year
+                }).FirstOrDefaultAsync();
+
+            if (studentDetailQuery == null)
+            {
+                _logger.LogError("Student details not found.");
+                throw new Exception("Student details not found.");
+            }
+
+            var queryType = await _context.QueryTypes
+                                          .Include(qt => qt.QueryCategories)
+                                          .FirstOrDefaultAsync(qt => qt.QueryTypeID == queryTypeId);
+            if (queryType == null)
+            {
+                _logger.LogError("Query type not found.");
+                throw new Exception("Query type not found.");
+            }
+
+            // Map QueryType to DTO
+            var queryTypeDto = new QueryTypeDto
+            {
+                QueryTypeID = queryType.QueryTypeID,
+                QueryCategories = queryType.QueryCategories.Select(qc => new QueryCategoryDto
+                {
+                    CategoryID = qc.CategoryID,
+                    CategoryName = qc.CategoryName
+                }).ToList()
+            };
+
+            // Return CourseID and DepartmentID along with other details
+            return new
+            {
+                QueryTypeID = queryTypeId,
+                QueryCategories = queryTypeDto.QueryCategories,
+                StudentDetail = new
+                {
+                    studentDetailQuery.CourseCode,
+
+                    studentDetailQuery.Department,
+                    studentDetailQuery.StudentID,
+                    studentDetailQuery.DepartmentID,  // Return DepartmentID
+                    studentDetailQuery.CourseID,      // Return CourseID
+                    studentDetailQuery.Year
+                }
+            };
+        }
+
+
+
+
+
     }
 
 }
