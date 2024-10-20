@@ -547,16 +547,6 @@ C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\Apptivate_UQMS_W
 C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\Apptivate_UQMS_WebApp\obj\Debug\net8.0\Apptivate_UQMS_WebApp.pdb
 C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\Apptivate_UQMS_WebApp\obj\Debug\net8.0\Apptivate_UQMS_WebApp.genruntimeconfig.cache
 C:\Users\mcebo\Documents\School Stuff\SEM5\Semester 6\XBCAD7319\Apptivate_UQMS_WebApp\obj\Debug\net8.0\ref\Apptivate_UQMS_WebApp.dll
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.csproj.AssemblyReference.cache
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.AssemblyInfoInputs.cache
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.AssemblyInfo.cs
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.csproj.CoreCompileInputs.cache
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.RazorAssemblyInfo.cache
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.RazorAssemblyInfo.cs
-C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.sourcelink.json
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\appsettings.json
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Properties\uqms-a3d87-firebase-adminsdk-666ea-91788e11ff.json
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Properties\uqms-firebase-adminsdk.json
@@ -819,6 +809,16 @@ C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\runtimes\win\lib\net
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.csproj.AssemblyReference.cache
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.AssemblyInfoInputs.cache
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.AssemblyInfo.cs
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.csproj.CoreCompileInputs.cache
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.RazorAssemblyInfo.cache
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.RazorAssemblyInfo.cs
+C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\Apptivate_UQMS_WebApp.sourcelink.json
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\staticwebassets\msbuild.Apptivate_UQMS_WebApp.Microsoft.AspNetCore.StaticWebAssets.props

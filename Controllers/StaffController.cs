@@ -148,56 +148,70 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return Json(new { NewQueries = newQueryCount });
         }
 
-
-        /*
-        
         [HttpPost]
-        public async Task<IActionResult> SubmitSolutionToQueryAsync(QueryResolutions model, IFormFile uploadedFile)
+        public async Task<IActionResult> SubmitSolutionToQuery(QueryResolutions model, IFormFile uploadedFile)
         {
-            if (ModelState.IsValid)
+            _logger.LogWarning("SubmitSolutionToQuery hit");
+
+            // Log the incoming model state before validation
+            _logger.LogInformation("Incoming Model Data: AssignmentID = {AssignmentID}, QueryID = {QueryID}, Solution = {Solution}, AdditionalNotes = {AdditionalNotes}",
+                                   model.AssignmentID, model.QueryID, model.Solution, model.AdditionalNotes);
+
+            // If ModelState is invalid, log the validation errors in detail
+            if (!ModelState.IsValid)
             {
-                var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+                _logger.LogWarning("ModelState is invalid. Logging errors:");
 
-                if (firebaseUid == null)
+                foreach (var state in ModelState)
                 {
-                    _logger.LogError("User not logged in.");
-                    return RedirectToAction("Login", "Account");
-                }
-                // Check length of the Description field
-                if (model.Solution.Length > 150)
-                {
-                    ModelState.AddModelError("Solution", "Solution cannot be longer than 150 characters.");
-                    return View("~/Views/Query/StaffQuery/QueryDetails.cshtml"); // Load the view
+                    var key = state.Key;
+                    var errors = state.Value.Errors;
+
+                    foreach (var error in errors)
+                    {
+                        _logger.LogWarning("ModelState Error - Key: {Key}, Error: {ErrorMessage}, Exception: {Exception}",
+                                           key, error.ErrorMessage, error.Exception?.Message);
+                    }
                 }
 
-                try
-                {
-                    await _queryService.SubmitSolutionToQueryAsync(model, uploadedFile, firebaseUid);
-
-                    return RedirectToAction("CreateQuery");
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
-                    ModelState.AddModelError("", ex.Message);
-                }
+                return View("~/Views/Query/StaffQuery/StaffQueries.cshtml");
             }
 
-            _logger.LogWarning("Model state is invalid for the query submission.");
-            return View("StudentQuery/NewQuery/QuerySubmitted");
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
 
+            if (firebaseUid == null)
+            {
+                _logger.LogError("User not logged in.");
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Solution length validation
+            if (model.Solution.Length < 10)
+            {
+                ModelState.AddModelError("Solution", "Solution cannot be less than 10 characters.");
+                _logger.LogWarning("Solution validation failed: Less than 10 characters.");
+                return View("~/Views/Query/StaffQuery/QueryDetails.cshtml");
+            }
+
+            try
+            {
+                _logger.LogWarning("Attempting SubmitSolutionToQueryAsync method");
+
+                await _queryService.SubmitSolutionToQueryAsync(model, uploadedFile, firebaseUid);
+
+                _logger.LogWarning("SubmitSolutionToQueryAsync method executed successfully.");
+
+                return RedirectToAction("StaffQueries");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
+                ModelState.AddModelError("", ex.Message);
+                return View("~/Views/Query/StaffQuery/StaffQueries.cshtml");
+            }
         }
+
         //Create solution to query 
-        
-        */
-
-
-
-     
-
-
-
-
 
     }
 

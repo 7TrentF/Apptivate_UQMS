@@ -130,5 +130,29 @@ namespace Apptivate_UQMS_WebApp.DTOs
             public StudentDetailDto Student { get; set; }
         }
 
+
+        public class QueryResolutionsDto
+        {
+            [Key]
+            public int ResolutionID { get; set; }  // Primary Key
+
+            public int AssignmentID { get; set; }  // Foreign Key to QueryAssignments
+            public int QueryID { get; set; }       // Foreign Key to Queries
+
+            [Required]
+            public string Solution { get; set; }   // The solution provided by staff
+
+
+            public string? ApprovalStatus { get; set; }   // The solution provided by staff
+
+            public string? AdditionalNotes { get; set; } // Nullable additional notes
+
+            // Navigation properties
+          //  public QueryAssignment Assignment { get; set; }  // Link to QueryAssignment
+          //  public Query Query { get; set; }  // Link to Query
+
+            public ICollection<ResolutionDocuments> ResolutionDocuments { get; set; } = new HashSet<ResolutionDocuments>();
+        }
+
     }
 }

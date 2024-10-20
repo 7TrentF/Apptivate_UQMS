@@ -160,8 +160,8 @@ namespace Apptivate_UQMS_WebApp.Models
             public string? AdditionalNotes { get; set; } // Nullable additional notes
 
             // Navigation properties
-            public QueryAssignment Assignment { get; set; }  // Link to QueryAssignment
-            public Query Query { get; set; }  // Link to Query
+            public QueryAssignment? Assignment { get; set; }  // Link to QueryAssignment
+            public Query? Query { get; set; }  // Link to Query
 
             public ICollection<ResolutionDocuments> ResolutionDocuments { get; set; } = new HashSet<ResolutionDocuments>();
         }
@@ -175,9 +175,6 @@ namespace Apptivate_UQMS_WebApp.Models
             public QueryResolutions QueryResolution { get; set; }
             public QueryDocument QueryDocument { get; set; }
         }
-
-
-
 
 
 

@@ -6,7 +6,9 @@
 @{
     ViewData["Title"] = "Submit Academic Query";
     int queryId = ViewBag.QueryID;
-    var assignmentID = ViewBag.AssignmentID;
+    var  assignmentID = ViewBag.AssignmentID;
+
+    //int assignmentID = ViewBag.AssignmentID;
 }
 
 
@@ -40,6 +42,20 @@
                     <label>Submission Date</label>
                     <span>@Model.SubmissionDate?.ToString("dd MMM yyyy")</span>
                 </div>
+
+
+                
+                  <div class="info-item">
+                    <label>Query ID  </label>
+                    <span>@queryId</span>
+                </div>
+
+
+                <div class="info-item">
+                    <label>assignment ID  </label>
+                    <span>@assignmentID</span>
+                </div>
+
             </div>
         </div>
 
@@ -139,12 +155,18 @@
         <i class="fas fa-comment-dots"></i>
         <h2>Solution & Feedback</h2>
     </div>
+
     <div class="card-content">
-        <form id="solutionFeedbackForm" class="feedback-form">
+        <form class="feedback-form" asp-action="SubmitSolutionToQuery" method="post" enctype="multipart/form-data">
+
+            <input type="hidden" name="QueryID" value="@queryId" />
+            <input type="hidden" name="AssignmentID" value="@assignmentID" />
+
+
             <div class="form-group">
                 <label for="solution">Solution</label>
                 <textarea id="solution"
-                          name="solution"
+                          name="Solution"
                           rows="4"
                           placeholder="Provide your solution here..."
                           class="feedback-input"></textarea>
@@ -153,7 +175,7 @@
             <div class="form-group">
                 <label for="additionalNotes">Additional Notes</label>
                 <textarea id="additionalNotes"
-                          name="additionalNotes"
+                          name="AdditionalNotes"
                           rows="2"
                           placeholder="Any additional notes or comments..."
                           class="feedback-input"></textarea>
@@ -168,6 +190,7 @@
                            id="fileAttachment"
                            multiple
                            class="file-input"
+                           name="UploadedFile"
                            accept=".pdf,.doc,.docx,.txt,.jpg,.png">
                     <label for="fileAttachment" class="file-upload-button">
                         <i class="fas fa-cloud-upload-alt"></i> Choose Files
@@ -205,7 +228,6 @@
         // Add card animations
         initCardAnimations();
 
-
         // Initialize file upload functionality
         initFileUpload();
 
@@ -215,6 +237,35 @@
         // Initialize auto-save draft
         initAutosave();
     });
+
+    function initFormSubmission() {
+        const form = document.getElementById('solutionFeedbackForm');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Show loading state
+            const submitButton = form.querySelector('.submit-button');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitButton.disabled = true;
+
+            // Simulate form submission (replace with actual API call)
+            setTimeout(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+
+                // Show success message
+                showToast('Response submitted successfully!');
+
+                // Clear form
+                form.reset();
+                document.getElementById('fileList').innerHTML = '';
+            }, 1500);
+        });
+    }
+
+
 
 
     function initFileUpload() {
@@ -259,32 +310,7 @@
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     }
 
-    function initFormSubmission() {
-        const form = document.getElementById('solutionFeedbackForm');
-
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Show loading state
-            const submitButton = form.querySelector('.submit-button');
-            const originalText = submitButton.innerHTML;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-            submitButton.disabled = true;
-
-            // Simulate form submission (replace with actual API call)
-            setTimeout(() => {
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
-
-                // Show success message
-                showToast('Response submitted successfully!');
-
-                // Clear form
-                form.reset();
-                document.getElementById('fileList').innerHTML = '';
-            }, 1500);
-        });
-    }
+   
 
     function initAutosave() {
         const form = document.getElementById('solutionFeedbackForm');

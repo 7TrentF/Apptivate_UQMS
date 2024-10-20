@@ -6,8 +6,6 @@ using static Apptivate_UQMS_WebApp.DTOs.QueryModelDto;
 
 namespace Apptivate_UQMS_WebApp.Services
 {
-
-
     public class QuerySubmissionService : IQueryService
     {
         private readonly ApplicationDbContext _context;
@@ -20,9 +18,6 @@ namespace Apptivate_UQMS_WebApp.Services
             _fileUploadService = fileUploadService;
             _logger = logger;
         }
-
-
-
 
         public async Task<object> GetAcademicQueryAsync(int queryTypeId, string firebaseUid)
         {
@@ -182,6 +177,9 @@ namespace Apptivate_UQMS_WebApp.Services
                 DocumentPath = documentUrl,
                 UploadDate = DateTime.Now
             };
+
+
+
 
             _context.QueryDocuments.Add(queryDocument);
             await _context.SaveChangesAsync();
@@ -356,6 +354,7 @@ namespace Apptivate_UQMS_WebApp.Services
             _logger.LogWarning("AssignmentID: " + queryAssignment);
             _logger.LogWarning("QueryID: " + queryId);
 
+            _logger.LogInformation("Success !!!");
 
             // Return the AssignmentID for the specific QueryID
             return new
@@ -402,70 +401,102 @@ namespace Apptivate_UQMS_WebApp.Services
         }
 
 
-       /*
+
+        private async Task HandleFileUploadForResolution(IFormFile uploadedFile, int resolutionId, int queryId)
+        {
+            var allowedExtensions = new[] { ".jpg", ".png", ".pdf", ".zip" };
+            var fileExtension = Path.GetExtension(uploadedFile.FileName).ToLower();
+
+            if (!allowedExtensions.Contains(fileExtension))
+            {
+                _logger.LogWarning("Unsupported file type: {FileExtension}.", fileExtension);
+                throw new Exception("Unsupported file type. Please upload a .jpg, .png, .pdf, or .zip file.");
+            }
+
+            // Upload file to Firebase Storage and get the URL
+            var documentUrl = await _fileUploadService.UploadFileAsync(uploadedFile);
+
+            // Insert the document metadata into QueryDocuments
+            var queryDocument = new QueryDocument
+            {
+                QueryID = queryId,
+                DocumentName = uploadedFile.FileName,
+                DocumentPath = documentUrl,
+                UploadDate = DateTime.Now
+            };
+
+            _context.QueryDocuments.Add(queryDocument);
+            await _context.SaveChangesAsync();  // Save QueryDocuments to generate the DocumentID
+
+            _logger.LogInformation("Document associated with QueryID {QueryID}.", queryId);
+
+            // Insert into ResolutionDocuments to link the document to the resolution
+            var resolutionDocument = new ResolutionDocuments
+            {
+                ResolutionID = resolutionId,
+                DocumentID = queryDocument.DocumentID
+            };
+
+            _context.ResolutionDocuments.Add(resolutionDocument);
+            await _context.SaveChangesAsync(); // Save ResolutionDocuments
+
+            _logger.LogInformation("Document associated with ResolutionID {ResolutionID} and DocumentID {DocumentID}.", resolutionId, queryDocument.DocumentID);
+        }
+
 
         public async Task SubmitSolutionToQueryAsync(QueryResolutions model, IFormFile uploadedFile, string firebaseUid)
-        {
-            _logger.LogInformation("Query resolution process started for FirebaseUID: {FirebaseUID}", firebaseUid);
+         {
+             _logger.LogInformation("Query resolution process started for FirebaseUID: {FirebaseUID}", firebaseUid);
 
             var queryID = model.QueryID;
 
+
             try
             {
-                // Use the existing method to fetch the student details and query type
-                var StaffQueryAssignment = await GetStaffAssignmentQueryDetails(queryID, firebaseUid);
+                 // Use the existing method to fetch the staff details
+                 var StaffQueryAssignment = await GetStaffAssignmentQueryDetails(queryID, firebaseUid);
 
-                // Extract the necessary details
-                dynamic queryData = StudentQueryDetails;
-                var studentDetail = queryData.StudentDetail;
-                var queryCategories = queryData.QueryCategories;
+                 // Extract the necessary details
+                 dynamic queryData = StaffQueryAssignment;
+//   
 
-
-                _logger.LogWarning("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
-                _logger.LogWarning("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
+                 _logger.LogWarning("Received QueryID: {QueryID}, AssignmentID: {AssignmentID}", model.QueryID, model.AssignmentID);
 
 
-                // Create the query record
-                var query = new QueryResolutions
-                {
-                    StudentID = academicQueryDetails.,
-                    QueryID = model.QueryID,
-                    CategoryID = model.CategoryID,
-                    DepartmentID = studentDetail.DepartmentID ?? 0,
-                    CourseID = studentDetail.CourseID ?? 0,
-                    Year = studentDetail.Year,
-                    Description = model.Description,
-                    Status = "Pending", // Set status to pending
-                    SubmissionDate = DateTime.Now
-                };
+                 // Create the query record
+                 var queryResolution = new QueryResolutions
+                 {
+                     AssignmentID = model.AssignmentID,
+                     QueryID = model.QueryID,
+                     Solution  = model.Solution,
+                     ApprovalStatus = model.ApprovalStatus,
+                     AdditionalNotes = model.AdditionalNotes,
+                    // ResolutionDate = DateTime.Now
+                 };
 
-                _context.Queries.Add(query);
-                await _context.SaveChangesAsync();
-                _logger.LogInformation("Query with ID {QueryID} successfully created.", query.QueryID);
+                _context.QueryResolutions.Add(queryResolution);
+                await _context.SaveChangesAsync(); // Save QueryResolutions to generate the ResolutionID
+                _logger.LogInformation("Query with ResolutionID {ResolutionID} successfully created.", queryResolution.ResolutionID);
 
-                // Handle file upload if exists
+                // Handle file upload if a file exists
                 if (uploadedFile != null && uploadedFile.Length > 0)
                 {
-                    await HandleFileUpload(uploadedFile, query.QueryID);
+                    await HandleFileUploadForResolution(uploadedFile, queryResolution.ResolutionID, queryResolution.QueryID);
                 }
 
-                // Assign query to the least busy lecturer or escalate
-                await AssignQueryToStaffAsync(query);
+                _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", queryResolution.QueryID);
 
-                _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
-                throw new Exception("Query submission failed.");
-            }
-        }
-        
-        */
+                //await ApprovalStatusAsync(queryResolution);
 
+             }
+             catch (Exception ex)
+             {
+                 _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
+                 throw new Exception("Query submission failed.");
+             }
+         }
 
     }
-
 
 } 
 

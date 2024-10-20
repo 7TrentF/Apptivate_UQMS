@@ -25,7 +25,7 @@ namespace Apptivate_UQMS_WebApp.Services
 
         Task<object> GetStaffAssignmentQueryDetails(int queryId, string firebaseUid);
 
-       // Task SubmitSolutionToQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid);
+        Task SubmitSolutionToQueryAsync(QueryResolutions model, IFormFile uploadedFile, string firebaseUid);
     }
 }
 
