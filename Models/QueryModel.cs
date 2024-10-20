@@ -50,10 +50,6 @@ namespace Apptivate_UQMS_WebApp.Models
             Cancelled
         }
 
-
-
-
-
         public class QueryCategory
         {
             [Key]
@@ -139,7 +135,45 @@ namespace Apptivate_UQMS_WebApp.Models
             public StudentDetail Student { get; set; }
         }
 
-      
+
+        public class QueryResolution
+        {
+            [Key]
+            public int ResolutionID { get; set; }  // Primary Key
+
+            public int AssignmentID { get; set; }  // Foreign Key to QueryAssignments
+            public int QueryID { get; set; }       // Foreign Key to Queries
+
+            [Required]
+            public string Solution { get; set; }   // The solution provided by staff
+
+
+            public string? ApprovalStatus { get; set; }   // The solution provided by staff
+
+            public string? AdditionalNotes { get; set; } // Nullable additional notes
+
+            // Navigation properties
+            public QueryAssignment Assignment { get; set; }  // Link to QueryAssignment
+            public Query Query { get; set; }  // Link to Query
+
+            public ICollection<ResolutionDocument> ResolutionDocuments { get; set; } = new HashSet<ResolutionDocument>();
+        }
+
+        public class ResolutionDocument
+        {
+            public int ResolutionID { get; set; }  // Foreign Key to QueryResolution
+            public int DocumentID { get; set; }    // Foreign Key to QueryDocuments
+
+            // Navigation properties
+            public QueryResolution QueryResolution { get; set; }
+            public QueryDocument QueryDocument { get; set; }
+        }
+
+
+
+
+
+
 
     }
 }
