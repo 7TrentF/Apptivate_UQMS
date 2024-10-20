@@ -75,8 +75,8 @@
                 @foreach (var queryAssignment in Model)
                 {
                     <tr class="query-row" data-query-id="@queryAssignment.QueryID">
-                        <td>@queryAssignment.Query.QueryID</td>
                         <td>@queryAssignment.Query.Description</td>
+                        <td>@queryAssignment.Query.StudentID</td>
                         <td>@queryAssignment.Query.SubmissionDate?.ToString("dd MMM yyyy")</td>
                         <td>
                             <span class="status-badge @(queryAssignment.Query.Status == "Pending" ? "status-pending" : "status-resolved")">
@@ -124,23 +124,27 @@
                 }
             </tbody>
         </table>
-    </div>
 
 
-    <div class="task-menu-content">
-        <div class="priority-submenu">
-            <div class="submenu-title">Set Priority</div>
-            <a href="#" class="task-menu-item set-priority" data-priority="High">
-                <i class="fas fa-circle text-danger"></i> High Priority
-            </a>
-            <a href="#" class="task-menu-item set-priority" data-priority="Medium">
-                <i class="fas fa-circle text-warning"></i> Medium Priority
-            </a>
-            <a href="#" class="task-menu-item set-priority" data-priority="Low">
-                <i class="fas fa-circle text-success"></i> Low Priority
-            </a>
+        <div class="task-menu-content">
+            <div class="priority-submenu">
+                <div class="submenu-title">Set Priority</div>
+                <a href="#" class="task-menu-item set-priority" data-priority="High">
+                    <i class="fas fa-circle text-danger"></i> High Priority
+                </a>
+                <a href="#" class="task-menu-item set-priority" data-priority="Medium">
+                    <i class="fas fa-circle text-warning"></i> Medium Priority
+                </a>
+                <a href="#" class="task-menu-item set-priority" data-priority="Low">
+                    <i class="fas fa-circle text-success"></i> Low Priority
+                </a>
+            </div>
         </div>
+
     </div>
+
+
+
 
 
 

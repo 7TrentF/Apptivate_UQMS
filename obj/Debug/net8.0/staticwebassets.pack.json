@@ -397,6 +397,10 @@
       "PackagePath": "staticwebassets\\css\\AdminDashboard.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\AssignedQueryDetails.css",
+      "PackagePath": "staticwebassets\\css\\AssignedQueryDetails.css"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\DashboardPage.css",
       "PackagePath": "staticwebassets\\css\\DashboardPage.css"
     },
@@ -515,6 +519,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\password-toggle.js",
       "PackagePath": "staticwebassets\\js\\password-toggle.js"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\queryDetails.js",
+      "PackagePath": "staticwebassets\\js\\queryDetails.js"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\site.js",

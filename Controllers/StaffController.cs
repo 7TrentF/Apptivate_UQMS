@@ -34,12 +34,15 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 return Unauthorized();
             }
 
+            // Fetch query, student, and user details
             var query = await _context.Queries
-                                      .Include(q => q.QueryDocuments) // Include documents
-                                      .Include(q => q.Student) // Include student details
-                                      .Include(q => q.Department) // Include department
-                                      .Include(q => q.Course) // Include course
-                                      .FirstOrDefaultAsync(q => q.QueryID == queryId);
+                .Include(q => q.QueryDocuments) // Include documents
+                .Include(q => q.Student)        // Include student details
+                    .ThenInclude(s => s.User)   // Include associated user details for the student
+                .Include(q => q.Department)     // Include department
+                .Include(q => q.Course)         // Include course
+                .FirstOrDefaultAsync(q => q.QueryID == queryId);
+
 
             if (query == null)
             {

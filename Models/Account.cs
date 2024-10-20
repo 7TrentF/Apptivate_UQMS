@@ -66,6 +66,14 @@ namespace Apptivate_UQMS_WebApp.Models
             public string Password { get; set; }
         }
 
+
+        public class UserProfileViewModel
+        {
+            public Account.User User { get; set; }
+            public Account.StudentDetail StudentDetail { get; set; }
+            public Account.StaffDetail StaffDetail { get; set; }
+        }
+
         public class User
         {
             [Key]
@@ -88,12 +96,7 @@ namespace Apptivate_UQMS_WebApp.Models
             public ICollection<AdminDetail> AdminDetails { get; set; } 
         }
 
-        public class UserProfileViewModel
-        {
-            public Account.User User { get; set; }
-            public Account.StudentDetail StudentDetail { get; set; }
-            public Account.StaffDetail StaffDetail { get; set; }
-        }
+
 
 
 
