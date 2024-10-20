@@ -40,12 +40,17 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 return Unauthorized();
             }
 
-
             try
             {
                 // Use the service to fetch the academic query details
                 var studentQueryDetails = await _queryService.GetStudentQueryAsync(queryId, firebaseUid);
                 var staffQueryAssignment = await _queryService.GetStaffAssignmentQueryDetails(queryId, firebaseUid);
+
+                dynamic StaffQueryAssignmentData = staffQueryAssignment;
+
+                ViewBag.QueryID = StaffQueryAssignmentData.QueryID;
+                ViewBag.AssignmentID = StaffQueryAssignmentData.AssignmentID;
+
 
                 return View("~/Views/Query/StaffQuery/QueryDetails.cshtml", studentQueryDetails); // Load the view
             }
@@ -57,7 +62,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
             // Action to list all queries assigned to the logged-in staff
-            [HttpGet]
+        [HttpGet]
         public async Task<IActionResult> StaffQueries()
         {
             var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
@@ -144,8 +149,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
 
-
         /*
+        
         [HttpPost]
         public async Task<IActionResult> SubmitSolutionToQueryAsync(QueryResolutions model, IFormFile uploadedFile)
         {
@@ -183,83 +188,12 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
         }
         //Create solution to query 
+        
         */
 
 
-        public async Task<object> GetAcademicQueryAsync(int queryTypeId, string firebaseUid)
-        {
-            _logger.LogInformation($"GetAcademicQuery called with queryTypeId: {queryTypeId}");
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
-            if (user == null)
-            {
-                _logger.LogError("User not found.");
-                throw new Exception("User not found.");
-            }
-
-            // Updated query to retrieve CourseID and DepartmentID
-            var studentDetailQuery = await (
-                from student in _context.StudentDetails
-                join department in _context.Departments
-                on student.Department equals department.DepartmentName into deptGroup
-                from department in deptGroup.DefaultIfEmpty()
-                join course in _context.Courses
-                on student.Course equals course.CourseCode into courseGroup
-                from course in courseGroup.DefaultIfEmpty()
-                where student.UserID == user.UserID
-                select new
-                {
-                    student.StudentID,
-                    CourseCode = course.CourseCode,
-                    Department = department.DepartmentName,
-                    DepartmentID = department != null ? department.DepartmentID : (int?)null,
-                    CourseID = course != null ? course.CourseID : (int?)null,
-                    student.Year
-                }).FirstOrDefaultAsync();
-
-            if (studentDetailQuery == null)
-            {
-                _logger.LogError("Student details not found.");
-                throw new Exception("Student details not found.");
-            }
-
-            var queryType = await _context.QueryTypes
-                                          .Include(qt => qt.QueryCategories)
-                                          .FirstOrDefaultAsync(qt => qt.QueryTypeID == queryTypeId);
-            if (queryType == null)
-            {
-                _logger.LogError("Query type not found.");
-                throw new Exception("Query type not found.");
-            }
-
-            // Map QueryType to DTO
-            var queryTypeDto = new QueryTypeDto
-            {
-                QueryTypeID = queryType.QueryTypeID,
-                QueryCategories = queryType.QueryCategories.Select(qc => new QueryCategoryDto
-                {
-                    CategoryID = qc.CategoryID,
-                    CategoryName = qc.CategoryName
-                }).ToList()
-            };
-
-            // Return CourseID and DepartmentID along with other details
-            return new
-            {
-                QueryTypeID = queryTypeId,
-                QueryCategories = queryTypeDto.QueryCategories,
-                StudentDetail = new
-                {
-                    studentDetailQuery.CourseCode,
-
-                    studentDetailQuery.Department,
-                    studentDetailQuery.StudentID,
-                    studentDetailQuery.DepartmentID,  // Return DepartmentID
-                    studentDetailQuery.CourseID,      // Return CourseID
-                    studentDetailQuery.Year
-                }
-            };
-        }
+     
 
 
 

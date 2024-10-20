@@ -313,12 +313,6 @@ namespace Apptivate_UQMS_WebApp.Services
             }
         }
 
-
-
-
-
-
-
         public async Task<object> GetStaffAssignmentQueryDetails(int queryId, string firebaseUid)
         {
 
@@ -408,7 +402,7 @@ namespace Apptivate_UQMS_WebApp.Services
         }
 
 
-        /*
+       /*
 
         public async Task SubmitSolutionToQueryAsync(QueryResolutions model, IFormFile uploadedFile, string firebaseUid)
         {
@@ -419,7 +413,7 @@ namespace Apptivate_UQMS_WebApp.Services
             try
             {
                 // Use the existing method to fetch the student details and query type
-                var StudentQueryDetails = await GetStudentQueryAsync(queryID, firebaseUid);
+                var StaffQueryAssignment = await GetStaffAssignmentQueryDetails(queryID, firebaseUid);
 
                 // Extract the necessary details
                 dynamic queryData = StudentQueryDetails;
@@ -466,8 +460,8 @@ namespace Apptivate_UQMS_WebApp.Services
                 throw new Exception("Query submission failed.");
             }
         }
+        
         */
-
 
 
     }
