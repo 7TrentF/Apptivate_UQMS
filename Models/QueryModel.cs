@@ -36,6 +36,8 @@ namespace Apptivate_UQMS_WebApp.Models
 
             public ICollection<QueryDocument> QueryDocuments { get; set; } = new HashSet<QueryDocument>();
             public ICollection<QueryAssignment> QueryAssignments { get; set; } = new HashSet<QueryAssignment>();
+            public ICollection<QueryResolutions> QueryResolutions { get; set; } = new HashSet<QueryResolutions>();
+
             public Feedback? Feedback { get; set; }
         }
 
@@ -103,6 +105,8 @@ namespace Apptivate_UQMS_WebApp.Models
 
             // Navigation property
             public Query Query { get; set; }
+            public ICollection<ResolutionDocuments> ResolutionDocuments { get; set; } = new HashSet<ResolutionDocuments>();
+
         }
 
 
@@ -118,6 +122,9 @@ namespace Apptivate_UQMS_WebApp.Models
             // Navigation properties
             public Query? Query { get; set; }
             public StaffDetail? Staff { get; set; }
+
+            public ICollection<QueryResolutions> QueryResolutions { get; set; } = new HashSet<QueryResolutions>();
+
         }
 
         public class Feedback
@@ -136,7 +143,7 @@ namespace Apptivate_UQMS_WebApp.Models
         }
 
 
-        public class QueryResolution
+        public class QueryResolutions
         {
             [Key]
             public int ResolutionID { get; set; }  // Primary Key
@@ -156,16 +163,16 @@ namespace Apptivate_UQMS_WebApp.Models
             public QueryAssignment Assignment { get; set; }  // Link to QueryAssignment
             public Query Query { get; set; }  // Link to Query
 
-            public ICollection<ResolutionDocument> ResolutionDocuments { get; set; } = new HashSet<ResolutionDocument>();
+            public ICollection<ResolutionDocuments> ResolutionDocuments { get; set; } = new HashSet<ResolutionDocuments>();
         }
 
-        public class ResolutionDocument
+        public class ResolutionDocuments
         {
             public int ResolutionID { get; set; }  // Foreign Key to QueryResolution
             public int DocumentID { get; set; }    // Foreign Key to QueryDocuments
 
             // Navigation properties
-            public QueryResolution QueryResolution { get; set; }
+            public QueryResolutions QueryResolution { get; set; }
             public QueryDocument QueryDocument { get; set; }
         }
 

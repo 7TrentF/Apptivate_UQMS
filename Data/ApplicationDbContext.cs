@@ -31,6 +31,13 @@ namespace Apptivate_UQMS_WebApp.Data
 
         public DbSet<AppUsers> appUsers { get; set; }
 
+
+        public DbSet<QueryResolutions> QueryResolutions { get; set; }
+        public DbSet<ResolutionDocuments> ResolutionDocuments { get; set; }
+
+
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -115,6 +122,31 @@ namespace Apptivate_UQMS_WebApp.Data
                 .WithMany(c => c.Queries)
                 .HasForeignKey(q => q.CategoryID);
 
+
+            // QueryResolutions relationships
+            modelBuilder.Entity<QueryResolutions>()
+                .HasOne(qr => qr.Assignment)
+                .WithMany(qa => qa.QueryResolutions)
+                .HasForeignKey(qr => qr.AssignmentID);
+
+            modelBuilder.Entity<QueryResolutions>()
+                .HasOne(qr => qr.Query)
+                .WithMany(q => q.QueryResolutions)
+                .HasForeignKey(qr => qr.QueryID);
+
+            // ResolutionDocuments relationships
+            modelBuilder.Entity<ResolutionDocuments>()
+                .HasKey(rd => new { rd.ResolutionID, rd.DocumentID });
+
+            modelBuilder.Entity<ResolutionDocuments>()
+                .HasOne(rd => rd.QueryResolution)
+                .WithMany(qr => qr.ResolutionDocuments)
+                .HasForeignKey(rd => rd.ResolutionID);
+
+            modelBuilder.Entity<ResolutionDocuments>()
+                .HasOne(rd => rd.QueryDocument)
+                .WithMany(qd => qd.ResolutionDocuments)
+                .HasForeignKey(rd => rd.DocumentID);
 
         }
 
