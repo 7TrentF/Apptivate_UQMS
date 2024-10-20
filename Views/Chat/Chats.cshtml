@@ -152,6 +152,21 @@
         border: 1px solid var(--border-color);
     }
 
+    #emojiButton {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0 10px;
+    }
+
+    #emojiPicker {
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        z-index: 1000;
+    }
+
     #sendButton {
         border-radius: 20px;
         padding: 10px 20px;
@@ -197,6 +212,8 @@
             <div class="input-group">
                 <input type="text" id="messageInput" class="form-control" placeholder="Type a message...">
                 <div class="input-group-append">
+                    <button id="emojiButton" type="button">😊</button>
+                    <emoji-picker id="emojiPicker" style="display: none;"></emoji-picker>
                     <button id="sendButton" class="btn btn-primary" type="button">Send</button>
                 </div>
             </div>
@@ -206,5 +223,6 @@
 
 @section Scripts {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emoji-picker-element@1/index.js" type="module"></script>
     <script src="/js/chat.js"></script>
 }

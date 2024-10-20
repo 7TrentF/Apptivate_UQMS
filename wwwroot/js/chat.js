@@ -91,6 +91,31 @@ $("#userList").on("click", ".user-item", function () {
     updateUnreadCount(userId, 0); // Reset unread count when opening chat
 });
 
+const emojiPicker = document.querySelector('emoji-picker');
+const emojiButton = document.getElementById('emojiButton');
+const messageInput = document.getElementById('messageInput');
+
+emojiButton.addEventListener('click', () => {
+    if (emojiPicker.style.display === 'none' || emojiPicker.style.display === '') {
+        emojiPicker.style.display = 'block';
+    } else {
+        emojiPicker.style.display = 'none';
+    }
+});
+
+emojiPicker.addEventListener('emoji-click', event => {
+    const emoji = event.detail.unicode;
+    messageInput.value += emoji;
+});
+
+// Close emoji picker when clicking outside
+document.addEventListener('click', (event) => {
+    if (!emojiButton.contains(event.target) && !emojiPicker.contains(event.target)) {
+        emojiPicker.style.display = 'none';
+    }
+});
+
+// Send button functionality (unchanged)
 $("#sendButton").click(function () {
     const message = $("#messageInput").val();
     if (currentReceiverId && message) {
