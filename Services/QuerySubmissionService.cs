@@ -407,6 +407,11 @@ namespace Apptivate_UQMS_WebApp.Services
         }
 
 
+
+
+
+
+
         private async Task HandleFileUploadForResolution(IFormFile uploadedFile, int resolutionId, int queryId)
         {
             var allowedExtensions = new[] { ".jpg", ".png", ".pdf", ".zip" };
@@ -455,7 +460,6 @@ namespace Apptivate_UQMS_WebApp.Services
 
             var queryID = model.QueryID;
 
-
             try
             {
                 // Use the existing method to fetch the staff details
@@ -476,7 +480,7 @@ namespace Apptivate_UQMS_WebApp.Services
                     Solution = model.Solution,
                     ApprovalStatus = model.ApprovalStatus,
                     AdditionalNotes = model.AdditionalNotes,
-                    // ResolutionDate = DateTime.Now
+                    ResolutionDate = DateTime.Now
                 };
                 _context.QueryResolutions.Add(queryResolution);
 
@@ -485,6 +489,7 @@ namespace Apptivate_UQMS_WebApp.Services
                 if (query != null)
                 {
                     query.Status = QueryStatus.Resolved; // Update status to Resolved
+                    query.ResolvedDate = DateTime.Now;
                 }
                
                 else
@@ -492,8 +497,6 @@ namespace Apptivate_UQMS_WebApp.Services
                     _logger.LogError("Query with ID {QueryID} not found.", model.QueryID);
                     throw new Exception($"Query with ID {model.QueryID} not found.");
                 }
-
-
 
 
                 query.Status = QueryStatus.Resolved; // Update status to Resolved
@@ -552,6 +555,8 @@ namespace Apptivate_UQMS_WebApp.Services
                     Solution = q.QueryResolutions.FirstOrDefault().Solution,
                     ApprovalStatus = q.QueryResolutions.FirstOrDefault().ApprovalStatus,
                     AdditionalNotes = q.QueryResolutions.FirstOrDefault().AdditionalNotes,
+                    ResolutionDate= q.QueryResolutions.FirstOrDefault().ResolutionDate,
+
 
                     // Resolution Documents (Lazy-loaded)
                     Documents = q.QueryResolutions.FirstOrDefault().ResolutionDocuments

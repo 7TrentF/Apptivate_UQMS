@@ -152,10 +152,12 @@ namespace Apptivate_UQMS_WebApp.Models
             [Required]
             public string Solution { get; set; }   // The solution provided by staff
 
-
             public string? ApprovalStatus { get; set; }   // The solution provided by staff
 
             public string? AdditionalNotes { get; set; } // Nullable additional notes
+
+            public DateTime?  ResolutionDate { get; set; }
+
 
             // Navigation properties
             public QueryAssignment? Assignment { get; set; }  // Link to QueryAssignment
@@ -211,6 +213,8 @@ namespace Apptivate_UQMS_WebApp.Models
             public string Solution { get; set; }
             public string ApprovalStatus { get; set; }
             public string AdditionalNotes { get; set; }
+
+            public DateTime?  ResolutionDate { get; set; }
             public List<DocumentViewModel> Documents { get; set; }
         }
 
