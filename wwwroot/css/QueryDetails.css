@@ -37,7 +37,6 @@
 .ticket-status {
     font-size: 14px;
 }
-
 .status-badge {
     padding: 5px 10px;
     border-radius: 5px;
@@ -49,13 +48,18 @@
         background-color: orange;
     }
 
-    .status-badge.completed {
-        background-color: green;
+    .status-badge.resolved {
+        background-color: green; /* Change from 'completed' to 'resolved' */
     }
 
-    .status-badge.in-progress {
+    .status-badge.ongoing {
         background-color: blue;
     }
+
+    .status-badge.closed {
+        background-color: gray; /* You might want to add a color for 'Closed' */
+    }
+
 
 .ticket-body {
     margin-bottom: 15px;

@@ -2,6 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using static Apptivate_UQMS_WebApp.Models.QueryModel;
 using static Apptivate_UQMS_WebApp.DTOs.QueryModelDto;
+using QueryStatus = Apptivate_UQMS_WebApp.Models.QueryModel.QueryStatus;
+using Query = Apptivate_UQMS_WebApp.Models.QueryModel.Query;
+using Apptivate_UQMS_WebApp.ViewModels;
+using static Apptivate_UQMS_WebApp.ViewModels.QueryViewModel;
 
 
 namespace Apptivate_UQMS_WebApp.Services
@@ -132,7 +136,7 @@ namespace Apptivate_UQMS_WebApp.Services
                     CourseID = studentDetail.CourseID ?? 0,
                     Year = studentDetail.Year,
                     Description = model.Description,
-                    Status = "Pending", // Set status to pending
+                    Status = QueryStatus.Pending, // Update status to Ongoing
                     SubmissionDate = DateTime.Now
                 };
 
@@ -217,6 +221,8 @@ namespace Apptivate_UQMS_WebApp.Services
                     };
 
                     _context.QueryAssignments.Add(queryAssignment);
+                    query.Status = QueryStatus.Ongoing; // Update status to Ongoing
+
                     await _context.SaveChangesAsync();
                     _logger.LogInformation("Query assigned to Lecturer with StaffID {StaffID}.", leastBusyLecturer.StaffID);
                 }
@@ -285,7 +291,7 @@ namespace Apptivate_UQMS_WebApp.Services
                     CourseID = studentDetail.CourseID ?? 0,
                     Year = studentDetail.Year,
                     Description = model.Description,
-                    Status = "Pending", // Set status to pending
+                    Status = QueryStatus.Pending, // Update status to Ongoing
                     SubmissionDate = DateTime.Now
                 };
 
@@ -401,7 +407,6 @@ namespace Apptivate_UQMS_WebApp.Services
         }
 
 
-
         private async Task HandleFileUploadForResolution(IFormFile uploadedFile, int resolutionId, int queryId)
         {
             var allowedExtensions = new[] { ".jpg", ".png", ".pdf", ".zip" };
@@ -445,36 +450,54 @@ namespace Apptivate_UQMS_WebApp.Services
 
 
         public async Task SubmitSolutionToQueryAsync(QueryResolutions model, IFormFile uploadedFile, string firebaseUid)
-         {
-             _logger.LogInformation("Query resolution process started for FirebaseUID: {FirebaseUID}", firebaseUid);
+        {
+            _logger.LogInformation("Query resolution process started for FirebaseUID: {FirebaseUID}", firebaseUid);
 
             var queryID = model.QueryID;
 
 
             try
             {
-                 // Use the existing method to fetch the staff details
-                 var StaffQueryAssignment = await GetStaffAssignmentQueryDetails(queryID, firebaseUid);
+                // Use the existing method to fetch the staff details
+                var StaffQueryAssignment = await GetStaffAssignmentQueryDetails(queryID, firebaseUid);
 
-                 // Extract the necessary details
-                 dynamic queryData = StaffQueryAssignment;
-//   
+                // Extract the necessary details
+                dynamic queryData = StaffQueryAssignment;
+                //   
 
-                 _logger.LogWarning("Received QueryID: {QueryID}, AssignmentID: {AssignmentID}", model.QueryID, model.AssignmentID);
+                _logger.LogWarning("Received QueryID: {QueryID}, AssignmentID: {AssignmentID}", model.QueryID, model.AssignmentID);
 
 
-                 // Create the query record
-                 var queryResolution = new QueryResolutions
-                 {
-                     AssignmentID = model.AssignmentID,
-                     QueryID = model.QueryID,
-                     Solution  = model.Solution,
-                     ApprovalStatus = model.ApprovalStatus,
-                     AdditionalNotes = model.AdditionalNotes,
+                // Create the query record
+                var queryResolution = new QueryResolutions
+                {
+                    AssignmentID = model.AssignmentID,
+                    QueryID = model.QueryID,
+                    Solution = model.Solution,
+                    ApprovalStatus = model.ApprovalStatus,
+                    AdditionalNotes = model.AdditionalNotes,
                     // ResolutionDate = DateTime.Now
-                 };
-
+                };
                 _context.QueryResolutions.Add(queryResolution);
+
+                var query = await _context.Queries.FirstOrDefaultAsync(q => q.QueryID == model.QueryID);
+
+                if (query != null)
+                {
+                    query.Status = QueryStatus.Resolved; // Update status to Resolved
+                }
+               
+                else
+                {
+                    _logger.LogError("Query with ID {QueryID} not found.", model.QueryID);
+                    throw new Exception($"Query with ID {model.QueryID} not found.");
+                }
+
+
+
+
+                query.Status = QueryStatus.Resolved; // Update status to Resolved
+
                 await _context.SaveChangesAsync(); // Save QueryResolutions to generate the ResolutionID
                 _logger.LogInformation("Query with ResolutionID {ResolutionID} successfully created.", queryResolution.ResolutionID);
 
@@ -488,13 +511,70 @@ namespace Apptivate_UQMS_WebApp.Services
 
                 //await ApprovalStatusAsync(queryResolution);
 
-             }
-             catch (Exception ex)
-             {
-                 _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
-                 throw new Exception("Query submission failed.");
-             }
-         }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
+                throw new Exception("Query submission failed.");
+            }
+        }
+
+        public async Task<ResolvedTicketAndQueryViewModel> GetResolvedTicketDetails(int queryId, string firebaseUid)
+        {
+            _logger.LogInformation($"Fetching resolved ticket details for QueryID: {queryId}");
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+            if (user == null)
+            {
+                _logger.LogError("User not found.");
+                throw new Exception("User not found.");
+            }
+
+            // Fetch the query and resolution details
+            var queryData = await _context.Queries
+                .Where(q => q.QueryID == queryId)
+                .Select(q => new ResolvedTicketAndQueryViewModel
+                {
+                    // Query Details
+                    QueryID = q.QueryID,
+                    Description = q.Description,
+                    SubmissionDate = q.SubmissionDate,
+                    Status = q.Status,
+
+                    // Student Details
+                    StudentName = q.Student.User.Name + " " + q.Student.User.Surname,
+                    StudentEmail = q.Student.User.Email,
+                    DepartmentName = q.Department.DepartmentName,
+                    CourseName = q.Course.CourseName,
+                    Year = q.Student.Year,
+
+                    // Resolved Ticket Details - Getting the first `QueryResolution` object related to the query
+                    Solution = q.QueryResolutions.FirstOrDefault().Solution,
+                    ApprovalStatus = q.QueryResolutions.FirstOrDefault().ApprovalStatus,
+                    AdditionalNotes = q.QueryResolutions.FirstOrDefault().AdditionalNotes,
+
+                    // Resolution Documents (Lazy-loaded)
+                    Documents = q.QueryResolutions.FirstOrDefault().ResolutionDocuments
+                        .Select(rd => new DocumentViewModel
+                        {
+                            DocumentPath = rd.QueryDocument.DocumentPath,
+                            DocumentName = rd.QueryDocument.DocumentName,
+                            UploadDate = rd.QueryDocument.UploadDate
+                        }).ToList()
+                })
+                .FirstOrDefaultAsync();
+
+            if (queryData == null)
+            {
+                _logger.LogWarning("No query or resolution found for QueryID: {QueryID}", queryId);
+                return null;
+            }
+
+            _logger.LogInformation("Successfully retrieved query and resolution details for QueryID: {QueryID}", queryId);
+
+            return queryData;
+        }
+
 
     }
 

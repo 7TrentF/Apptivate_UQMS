@@ -211,7 +211,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
             }
         }
 
-        //Create solution to query 
+    
 
     }
 

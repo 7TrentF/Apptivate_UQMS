@@ -87,7 +87,7 @@
                                     <td>@query.Description</td>
                                     <td>@query.SubmissionDate?.ToString("dd MMM yyyy")</td>
                                     <td>
-                                        <span class="status-badge @(query.Status == "Pending" ? "status-pending" : "status-resolved")">
+                                        <span class="status-badge @(query.Status == QueryModel.QueryStatus.Pending)">
                                             @query.Status
                                         </span>
                                     </td>

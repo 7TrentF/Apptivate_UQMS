@@ -9,6 +9,7 @@ using static Apptivate_UQMS_WebApp.Models.QueryModel;
 using static Apptivate_UQMS_WebApp.Models.Account;
 using static Apptivate_UQMS_WebApp.DTOs.QueryModelDto;
 using Microsoft.EntityFrameworkCore;
+using static Apptivate_UQMS_WebApp.ViewModels.QueryViewModel;
 
 
 namespace Apptivate_UQMS_WebApp.Services
@@ -26,6 +27,10 @@ namespace Apptivate_UQMS_WebApp.Services
         Task<object> GetStaffAssignmentQueryDetails(int queryId, string firebaseUid);
 
         Task SubmitSolutionToQueryAsync(QueryResolutions model, IFormFile uploadedFile, string firebaseUid);
+
+        //Task<object> GetResolvedTicketDetails(int queryId, string firebaseUid);
+        Task<ResolvedTicketAndQueryViewModel> GetResolvedTicketDetails(int queryId, string firebaseUid);
+
     }
 }
 

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 using static Apptivate_UQMS_WebApp.Models.Account;
+using static Apptivate_UQMS_WebApp.Models.QueryModel;
 using static Apptivate_UQMS_WebApp.Models.StudentDashboardViewModel;
 
 namespace Apptivate_UQMS_WebApp.Controllers
@@ -86,10 +87,11 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 })
                 .ToListAsync();
 
-            // Extract counts from the query result
-            var pendingCount = queryStatusCounts.FirstOrDefault(q => q.Status == "Pending")?.Count ?? 0;
-            var resolvedCount = queryStatusCounts.FirstOrDefault(q => q.Status == "Resolved")?.Count ?? 0;
-            var inProgressCount = queryStatusCounts.FirstOrDefault(q => q.Status == "In Progress")?.Count ?? 0;
+            // Assuming QueryStatus is the enum type you're using
+            var pendingCount = queryStatusCounts.FirstOrDefault(q => q.Status == QueryStatus.Pending)?.Count ?? 0;
+            var resolvedCount = queryStatusCounts.FirstOrDefault(q => q.Status == QueryStatus.Resolved)?.Count ?? 0;
+            var inProgressCount = queryStatusCounts.FirstOrDefault(q => q.Status == QueryStatus.Ongoing)?.Count ?? 0;
+
 
             // Fetch the recent queries for the student
             var recentQueries = await _context.Queries
@@ -164,9 +166,12 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 })
                 .ToListAsync();
 
-            var pendingCount = queryStatusCounts.FirstOrDefault(q => q.Status == "Pending")?.Count ?? 0;
-            var resolvedCount = queryStatusCounts.FirstOrDefault(q => q.Status == "Resolved")?.Count ?? 0;
-            var inProgressCount = queryStatusCounts.FirstOrDefault(q => q.Status == "In Progress")?.Count ?? 0;
+
+            // Assuming QueryStatus is the enum type you're using
+            var pendingCount = queryStatusCounts.FirstOrDefault(q => q.Status == QueryStatus.Pending)?.Count ?? 0;
+            var resolvedCount = queryStatusCounts.FirstOrDefault(q => q.Status == QueryStatus.Resolved)?.Count ?? 0;
+            var inProgressCount = queryStatusCounts.FirstOrDefault(q => q.Status == QueryStatus.Ongoing)?.Count ?? 0;
+
 
             // Fetch the queries assigned to this staff member with related data
             var queryAssignments = await _context.QueryAssignments
@@ -207,6 +212,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             // Fetch the Details for the staff
             var userProfile = await _userProfileService.GetUserProfileAsync(firebaseUid);
+
+
             if (userProfile == null)
             {
                 return NotFound("User not found.");
@@ -271,19 +278,20 @@ namespace Apptivate_UQMS_WebApp.Controllers
             // Fetch active users (assuming 'Active' status is determined by some property, e.g., last login date)
             var activeUsers = await _context.Users
                 .Where(u => u.LastLoginDate >= DateTime.UtcNow.AddMonths(-1)) // Example condition
-                .CountAsync(); */
+                .CountAsync(); 
+            */
 
             // Fetch total queries
             var totalQueries = await _context.Queries.CountAsync();
 
             // Fetch resolved queries
             var resolvedQueries = await _context.Queries
-                .Where(q => q.Status == "Resolved")
+                .Where(q => q.Status == QueryStatus.Resolved)
                 .CountAsync();
 
             // Fetch pending queries
             var pendingQueries = await _context.Queries
-                .Where(q => q.Status == "Pending")
+                .Where(q => q.Status == QueryStatus.Pending)
                 .CountAsync();
 
             // User Management Overview
@@ -299,14 +307,14 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             // Weekly Activity Data
             var openQueries = await _context.Queries
-                .Where(q => q.Status == "Open")
+                .Where(q => q.Status == QueryStatus.Ongoing)
                 .GroupBy(q => q.SubmissionDate.Value.Date)
                 .OrderBy(g => g.Key)
                 .Select(g => g.Count())
                 .ToListAsync();
 
             var reQueries = await _context.Queries
-                .Where(q => q.Status == "Reopened")
+                .Where(q => q.Status == QueryStatus.Ongoing)
                 .GroupBy(q => q.SubmissionDate.Value.Date)
                 .OrderBy(g => g.Key)
                 .Select(g => g.Count())

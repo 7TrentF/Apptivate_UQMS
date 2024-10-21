@@ -1,5 +1,4 @@
-﻿
-
+﻿ @model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.QueryAssignment>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +6,7 @@
 
 </head>
 <body>
-    @model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.QueryAssignment>
+   
 
    
 
@@ -77,18 +76,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var queryAssignment in Model)
-                {
-                    <tr class="query-row" data-query-id="@queryAssignment.QueryID">
-                        <td>@queryAssignment.Query.Description</td>
-                        <td>@queryAssignment.Query.StudentID</td>
-                        <td>@queryAssignment.Query.SubmissionDate?.ToString("dd MMM yyyy")</td>
-                        <td>
-                            <span class="status-badge @(queryAssignment.Query.Status == "Pending" ? "status-pending" : "status-resolved")">
-                                <i class="fas @(queryAssignment.Query.Status == "Pending" ? "fa-clock" : "fa-check-circle")"></i>
-                                @queryAssignment.Query.Status
-                            </span>
-                        </td>
+            @foreach (var queryAssignment in Model)
+{
+    <tr class="query-row" data-query-id="@queryAssignment.QueryID">
+        <td>@queryAssignment.Query.Description</td>
+        <td>@queryAssignment.Query.StudentID</td>
+        <td>@queryAssignment.Query.SubmissionDate?.ToString("dd MMM yyyy")</td>
+        <td>
+            <span class="status-badge @queryAssignment.Query.Status.ToString().ToLower()">
+                <i class="fas @(queryAssignment.Query.Status == QueryModel.QueryStatus.Pending  ? "fa-clock" : "fa-check-circle")"></i>
+               
+                @queryAssignment.Query.Status.ToString().ToLower()
+            </span>
+        </td>
                         <td>
                             <div class="action-buttons">
                                 <a href="@Url.Action("QueryDetails", "StaffQuery", new { queryId = queryAssignment.QueryID })"

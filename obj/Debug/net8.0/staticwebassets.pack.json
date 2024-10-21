@@ -417,6 +417,10 @@
       "PackagePath": "staticwebassets\\css\\Queries.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\QueryDashboard.css",
+      "PackagePath": "staticwebassets\\css\\QueryDashboard.css"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\QueryDetails.css",
       "PackagePath": "staticwebassets\\css\\QueryDetails.css"
     },

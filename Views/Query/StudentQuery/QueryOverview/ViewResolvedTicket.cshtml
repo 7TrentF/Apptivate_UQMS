@@ -1,0 +1,72 @@
+﻿@model Apptivate_UQMS_WebApp.Models.QueryModel.ResolvedTicketAndQueryViewModel
+
+<h2>Query and Resolved Ticket Details</h2>
+
+<!-- Query Details -->
+<div>
+    <h3>Query Information</h3>
+    <p><strong>Query ID:</strong> @Model.QueryID</p>
+    <p><strong>Description:</strong> @Model.Description</p>
+    <p><strong>Submission Date:</strong> @Model.SubmissionDate?.ToString("dd MMM yyyy")</p>
+    <p><strong>Status:</strong> @Model.Status</p>
+</div>
+
+<!-- Student Details -->
+<div>
+    <h3>Student Information</h3>
+    <p><strong>Student Name:</strong> @Model.StudentName</p>
+    <p><strong>Email:</strong> @Model.StudentEmail</p>
+    <p><strong>Department:</strong> @Model.DepartmentName</p>
+    <p><strong>Course:</strong> @Model.CourseName</p>
+    <p><strong>Year:</strong> @Model.Year</p>
+</div>
+
+<!-- Resolved Query Details -->
+<div>
+    <h3>Resolved Query</h3>
+    <p><strong>Solution:</strong> @Model.Solution</p>
+    <p><strong>Approval Status:</strong> @Model.ApprovalStatus</p>
+    <p><strong>Additional Notes:</strong> @Model.AdditionalNotes</p>
+</div>
+
+<!-- Documents -->
+<h3>Related Documents</h3>
+@if (Model.Documents != null && Model.Documents.Any())
+{
+    <ul>
+        @foreach (var document in Model.Documents)
+        {
+            <li>
+                <strong>@document.DocumentName</strong> (Uploaded on @document.UploadDate.ToString("MM/dd/yyyy"))<br />
+                <a href="@document.DocumentPath" target="_blank">View Document</a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No documents available.</p>
+}
+
+<h3>Submit Your Feedback</h3>
+<form asp-action="SubmitFeedback" method="post">
+    <input type="hidden" asp-for="QueryID" value="@Model.QueryID" />
+
+    <div class="form-group">
+        <label for="Rating">Rating:</label>
+        <select name="Rating" class="form-control">
+            <option value="1">1 - Poor</option>
+            <option value="2">2 - Fair</option>
+            <option value="3">3 - Good</option>
+            <option value="4">4 - Very Good</option>
+            <option value="5">5 - Excellent</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Comments">Comments:</label>
+        <textarea name="Comments" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+</form>

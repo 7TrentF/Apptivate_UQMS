@@ -58,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxTdGFmZkNoYXRzXHN0YWZmQ2hhdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Dashboard/AdminDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEFkbWluRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/trent/source/repos/Apptivate_UQMS/Views/Dashboard/StaffDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFN0YWZmRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -130,8 +134,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcU3R1ZGVudFF1ZXJ5XFF1ZXJ5T3ZlcnZpZXdcUmVzb2x2ZWRUaWNrZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/StudentQuery/QueryOverview/ViewResolvedQueries.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcU3R1ZGVudFF1ZXJ5XFF1ZXJ5T3ZlcnZpZXdcVmlld1Jlc29sdmVkUXVlcmllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/StudentQuery/QueryOverview/ViewResolvedTicket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcU3R1ZGVudFF1ZXJ5XFF1ZXJ5T3ZlcnZpZXdcVmlld1Jlc29sdmVkVGlja2V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/StudentQuery/QueryOverview/ViewTicket.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcU3R1ZGVudFF1ZXJ5XFF1ZXJ5T3ZlcnZpZXdcVmlld1RpY2tldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trent/source/repos/Apptivate_UQMS/Views/Query/StudentQuery/TicketDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcU3R1ZGVudFF1ZXJ5XFRpY2tldERhc2hib2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/trent/source/repos/Apptivate_UQMS/Views/Shared/Error.cshtml]

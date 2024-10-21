@@ -1,21 +1,30 @@
 ﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>
 
+<link rel="stylesheet" type="text/css" href="~/css/QueryDetails.css" />
+
 <div class="tickets">
     @if (Model != null && Model.Any())
     {
         @foreach (var query in Model)
         {
-            <div class="ticket">
+            <div class="ticket-card">
                 <div class="ticket-header">
-                    <span class="ticket-id">Ticket# @query.QueryID</span>
-                    <span class="ticket-priority">@query.Status</span>
+                    <div class="ticket-id">
+                        <strong>Ticket# @query.QueryID</strong>
+                    </div>
+                    <div class="ticket-status">
+                        <span class="status-badge @query.Status.ToString().ToLower()">@query.Status</span>
+
+                    </div>
                 </div>
                 <div class="ticket-body">
-                    <span class="ticket-Description">@query.Description</span>
+                    <p class="ticket-description">@query.Description</p>
+                    <p class="ticket-details">
+                        Submission Date: @query.SubmissionDate?.ToString("f")
+                    </p>
                 </div>
                 <div class="ticket-footer">
-                    <span class="ticket-time">Submitted on: @query.SubmissionDate?.ToString("f")</span>
-                    <a href="#">Open Ticket</a>
+                    <a href="@Url.Action("ViewTicket", new { queryId = query.QueryID })" class="open-ticket-btn">Open Ticket</a>
                 </div>
             </div>
         }
@@ -23,15 +32,5 @@
     else
     {
         <p>No tickets found.</p>
-    }
-</div>
-
-<div class="pagination">
-    @if (ViewBag.TotalPages > 1)
-    {
-        for (int i = 1; i <= ViewBag.TotalPages; i++)
-        {
-            <a href="@Url.Action("Queries", new { page = i })" class="page-number @(i == ViewBag.CurrentPage ? "active" : "")">@i</a>
-        }
     }
 </div>

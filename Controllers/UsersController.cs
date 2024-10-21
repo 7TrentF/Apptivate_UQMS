@@ -87,9 +87,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 TotalUsers = userList.Count,
                 ActiveUsers = userList.Count(u => u.LastSeen > DateTime.Now.AddDays(-30)), // Example criteria
                 TotalQueries = _context.Queries.Count(),
-                ResolvedQueries = _context.Queries.Count(q => q.Status == "Resolved"),
-                PendingQueries = _context.Queries.Count(q => q.Status == "Pending"),
-
+                ResolvedQueries = _context.Queries.Count(q => q.Status == QueryModel.QueryStatus.Resolved),
+                PendingQueries = _context.Queries.Count(q => q.Status == QueryModel.QueryStatus.Pending),
 
                 StaffCount = staffCount,
                 StudentCount = studentCount,

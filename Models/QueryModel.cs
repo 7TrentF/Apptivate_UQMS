@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
 using static Apptivate_UQMS_WebApp.Models.Account;
 using static Apptivate_UQMS_WebApp.Models.QueryModel;
@@ -13,7 +14,7 @@ namespace Apptivate_UQMS_WebApp.Models
             [Key]
             public int QueryID { get; set; }
             public int StudentID { get; set; } // Foreign Key
-           public int? DepartmentID { get; set; } // Foreign Key
+            public int? DepartmentID { get; set; } // Foreign Key
             public int? CourseID { get; set; } // Foreign Key
             public int? ModuleID { get; set; } // Foreign Key
             public int? Year { get; set; }
@@ -23,8 +24,8 @@ namespace Apptivate_UQMS_WebApp.Models
 
             [StringLength(150, ErrorMessage = "Description cannot be longer than 150 characters.")]
             public string? Description { get; set; }
+            public QueryStatus Status { get; set; } // Default to Pending on creation
 
-            public string? Status { get; set; }
             public DateTime? SubmissionDate { get; set; }
             public DateTime? ResolvedDate { get; set; }
 
@@ -33,7 +34,6 @@ namespace Apptivate_UQMS_WebApp.Models
             public Department? Department { get; set; }
             public Course? Course { get; set; }
             public Module? Module { get; set; }
-
             public ICollection<QueryDocument> QueryDocuments { get; set; } = new HashSet<QueryDocument>();
             public ICollection<QueryAssignment> QueryAssignments { get; set; } = new HashSet<QueryAssignment>();
             public ICollection<QueryResolutions> QueryResolutions { get; set; } = new HashSet<QueryResolutions>();
@@ -43,14 +43,12 @@ namespace Apptivate_UQMS_WebApp.Models
 
         public enum QueryStatus
         {
-            Pending,
-            UnderReview,
-            InProgress,
-            OnHold,
-            Resolved,
-            Closed,
-            Cancelled
+            Pending,     // Query submitted but not yet assigned
+            Ongoing,     // Query assigned to staff and in progress
+            Resolved,    // Query has been resolved
+            Closed       // Query is closed and requires no further action
         }
+
 
         public class QueryCategory
         {
@@ -176,7 +174,47 @@ namespace Apptivate_UQMS_WebApp.Models
             public QueryDocument QueryDocument { get; set; }
         }
 
+        public class ResolvedTicketViewModel
+        {
+            public int ResolutionID { get; set; }
+            public int AssignmentID { get; set; }
+            public int QueryID { get; set; }
+            public string Solution { get; set; }
+            public string ApprovalStatus { get; set; }
+            public string AdditionalNotes { get; set; }
+            public List<DocumentViewModel> Documents { get; set; }
+        }
 
+        public class DocumentViewModel
+        {
+            public string DocumentPath { get; set; }
+            public string DocumentName { get; set; }
+            public DateTime UploadDate { get; set; }
+        }
+
+
+        public class ResolvedTicketAndQueryViewModel
+        {
+            // Query Details
+            public int QueryID { get; set; }
+            public string? Description { get; set; }
+            public DateTime? SubmissionDate { get; set; }
+            public QueryStatus Status { get; set; }
+            // Student Details
+            public string StudentName { get; set; }
+            public string StudentEmail { get; set; }
+            public string DepartmentName { get; set; }
+            public string CourseName { get; set; }
+            public int? Year { get; set; }
+
+            // Resolved Ticket Details
+            public string Solution { get; set; }
+            public string ApprovalStatus { get; set; }
+            public string AdditionalNotes { get; set; }
+            public List<DocumentViewModel> Documents { get; set; }
+        }
+
+      
 
 
     }

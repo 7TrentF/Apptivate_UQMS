@@ -3,14 +3,15 @@
     ViewData["Title"] = "View Ticket";
     var initialTickets = ViewData["InitialTickets"] as IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>;
     <link rel="stylesheet" href="~/css/viewTicket.css" asp-append-version="true">
-
 }
 
 
 <div class="page-container">
     <div class="ticket-detail" data-aos="fade-up">
         <div class="progress-bar">
-            <div class="progress" style="width: @(Model.Status.ToLower() == "completed" ? "100%" : Model.Status.ToLower() == "in-progress" ? "50%" : "25%")"></div>
+            <div class="progress" style="width: @(Model.Status.ToString().ToLower() == "completed" ? "100%" : Model.Status.ToString().ToLower() == "in-progress" ? "50%" : "25%")"></div>
+
+
         </div>
 
         <div class="ticket-header">
@@ -22,8 +23,8 @@
                         <strong>Ticket# @Model.QueryID</strong>
                     </div>
                     <div class="ticket-status">
-                        <span class="status-badge @Model.Status.ToLower()">
-                            <i class="fas @(Model.Status.ToLower() == "completed" ? "fa-check-circle" : Model.Status.ToLower() == "in-progress" ? "fa-clock" : "fa-hourglass-start")"></i>
+                        <span class="status-badge @Model.Status.ToString().ToLower()">
+                            <i class="fas @(Model.Status.ToString().ToLower() == "completed" ? "fa-check-circle" : Model.Status.ToString().ToLower() == "in-progress" ? "fa-clock" : "fa-hourglass-start")"></i>
                             @Model.Status
                         </span>
                     </div>

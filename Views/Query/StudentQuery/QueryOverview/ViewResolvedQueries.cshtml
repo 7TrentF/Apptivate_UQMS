@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>
+﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.QueryResolutions>
 
 <link rel="stylesheet" type="text/css" href="~/css/QueryDetails.css" />
 
@@ -12,16 +12,11 @@
                     <div class="ticket-id">
                         <strong>Ticket# @query.QueryID</strong>
                     </div>
-                    <div class="ticket-status">
-                        <span class="status-badge @query.Status.ToString().ToLower()">@query.Status</span>
-
-                    </div>
+                
                 </div>
                 <div class="ticket-body">
-                    <p class="ticket-description">@query.Description</p>
-                    <p class="ticket-details">
-                        Submission Date: @query.SubmissionDate?.ToString("f")
-                    </p>
+                    <p class="ticket-description">@query.Solution</p>
+                 
                 </div>
                 <div class="ticket-footer">
                     <a href="@Url.Action("ViewResolvedTicket", new { queryId = query.QueryID })" class="open-ticket-btn">Open Ticket</a>

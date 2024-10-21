@@ -15,14 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Views\Dashboard\AdminDashboard.tsx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Views\Dashboard\AdminDashboard.tsx" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\Images\.DS_Store" />
     <None Include="wwwroot\Svgs\.DS_Store" />
   </ItemGroup>

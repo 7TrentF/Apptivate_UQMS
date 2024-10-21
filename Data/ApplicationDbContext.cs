@@ -142,6 +142,12 @@ namespace Apptivate_UQMS_WebApp.Data
                 .WithMany(qd => qd.ResolutionDocuments)
                 .HasForeignKey(rd => rd.DocumentID);
 
+            modelBuilder.Entity<Query>()
+                .Property(q => q.Status)
+                .HasConversion<string>(); // Store the enum as a string
+
+
+
         }
 
     }

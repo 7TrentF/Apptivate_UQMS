@@ -12,6 +12,7 @@ using static Apptivate_UQMS_WebApp.Models.Account;
 using Microsoft.AspNetCore.Authorization;
 using Apptivate_UQMS_WebApp.Extentions; // Add this using directive
 using static Apptivate_UQMS_WebApp.DTOs.QueryModelDto;
+using QueryStatus = Apptivate_UQMS_WebApp.Models.QueryModel.QueryStatus;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
@@ -195,6 +196,15 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
 
 
+
+        // Action to render the dashboard view
+        public IActionResult TicketDashboard()
+        {
+            return View("StudentQuery/TicketDashboard");
+        }
+
+
+
         public IActionResult Confirmation()
         {
             return View();
@@ -245,7 +255,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             // Fetch new tickets for the student
             var newTickets = await _context.Queries
-                .Where(q => q.StudentID == studentDetail.StudentID && q.Status == "New")
+                .Where(q => q.StudentID == studentDetail.StudentID && q.Status.Equals(QueryStatus.Ongoing))
                 .ToListAsync();
 
             return PartialView("StudentQuery/QueryOverview/NewTickets", newTickets);
@@ -260,7 +270,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             // Fetch ongoing tickets for the student
             var ongoingTickets = await _context.Queries
-                .Where(q => q.StudentID == studentDetail.StudentID && q.Status == "On-going")
+                .Where(q => q.StudentID == studentDetail.StudentID && q.Status.Equals(QueryStatus.Ongoing))
                 .ToListAsync();
 
             return PartialView("StudentQuery/QueryOverview/OnGoingTickets", ongoingTickets);
@@ -275,7 +285,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             // Fetch resolved tickets for the student
             var resolvedTickets = await _context.Queries
-                .Where(q => q.StudentID == studentDetail.StudentID && q.Status == "Resolved")
+                .Where(q => q.StudentID == studentDetail.StudentID && q.Status.Equals(QueryStatus.Resolved))
                 .ToListAsync();
 
             return PartialView("StudentQuery/QueryOverview/ResolvedTickets", resolvedTickets);
@@ -319,6 +329,87 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return View("StudentQuery/QueryOverview/ViewTicket", query);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> ViewResolvedTicket(int queryId)
+        {
+            _logger.LogInformation("Started ViewResolvedTicket for QueryID: {QueryID}", queryId);
+
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+            if (firebaseUid == null)
+            {
+                _logger.LogWarning("Firebase UID is missing.");
+                return RedirectToAction("Login", "Account");
+            }
+
+            try
+            {
+                var resolvedTicketDetails = await _queryService.GetResolvedTicketDetails(queryId, firebaseUid);
+
+                if (resolvedTicketDetails == null)
+                {
+                    _logger.LogError("Resolved ticket details not found for QueryID: {QueryID}", queryId);
+                    return NotFound();
+                }
+
+                _logger.LogInformation("Successfully retrieved resolved ticket for QueryID: {QueryID}", queryId);
+                return View("StudentQuery/QueryOverview/ViewResolvedTicket", resolvedTicketDetails);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while retrieving resolved ticket for QueryID: {QueryID}", queryId);
+                return BadRequest("An error occurred while fetching the resolved query.");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SubmitFeedback(int queryId, int rating, string comments)
+        {
+            // Get Firebase UID from session
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+            if (firebaseUid == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Get the user from the database based on Firebase UID
+            var user = await _context.Users
+                .Include(u => u.StudentDetails)
+                .FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+
+            if (user == null || !user.StudentDetails.Any())
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            // Assuming the first entry in StudentDetails is the correct one (adjust if needed)
+            var studentId = user.StudentDetails.First().StudentID;
+
+            // Check if the query exists and belongs to the user
+            var query = await _context.Queries.FirstOrDefaultAsync(q => q.QueryID == queryId && q.Status == QueryStatus.Resolved);
+
+            if (query == null)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            // Create a new feedback entry
+            var feedback = new Feedback
+            {
+                QueryID = queryId,
+                StudentID = studentId,  // Use the student ID
+                Rating = rating,
+                Comments = comments,
+                SubmissionDate = DateTime.UtcNow
+            };
+
+            _context.Feedbacks.Add(feedback);
+            query.Status = QueryStatus.Closed;  // Update query status to 'Closed'
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("ViewResolvedTicket", new { queryId });
+        }
+
         public async Task<IActionResult> Search(string searchQuery, string statusFilter)
         {
             var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
@@ -358,7 +449,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             if (!string.IsNullOrEmpty(statusFilter))
             {
-                queryResults = queryResults.Where(q => q.Status == statusFilter);
+                queryResults = queryResults.Where(q => q.Status.Equals(QueryStatus.Ongoing));
             }
 
             _logger.LogWarning("statusFilter  " + statusFilter);
@@ -425,8 +516,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             return PartialView("StudentQuery/QueryOverview/AllTickets", userQueries);
         }
-
-
 
         public async Task<IActionResult> Queries()
         {
