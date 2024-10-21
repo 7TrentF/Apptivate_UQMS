@@ -461,6 +461,10 @@
       "PackagePath": "staticwebassets\\css\\UserRoles.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\ViewResolvedTicketStyling.css",
+      "PackagePath": "staticwebassets\\css\\ViewResolvedTicketStyling.css"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\dashboard.css",
       "PackagePath": "staticwebassets\\css\\dashboard.css"
     },

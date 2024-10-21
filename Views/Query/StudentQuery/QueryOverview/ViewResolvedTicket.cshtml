@@ -1,72 +1,267 @@
-﻿@model Apptivate_UQMS_WebApp.Models.QueryModel.ResolvedTicketAndQueryViewModel
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css//ViewResolvedTicketStyling.css" asp-append-version="true">
 
-<h2>Query and Resolved Ticket Details</h2>
+</head>
+<body>
+    <!-- Progress Indicator -->
+    <div class="progress-indicator"></div>
 
-<!-- Query Details -->
-<div>
-    <h3>Query Information</h3>
-    <p><strong>Query ID:</strong> @Model.QueryID</p>
-    <p><strong>Description:</strong> @Model.Description</p>
-    <p><strong>Submission Date:</strong> @Model.SubmissionDate?.ToString("dd MMM yyyy")</p>
-    <p><strong>Status:</strong> @Model.Status</p>
-</div>
+    <!-- Loading Indicator -->
+    <div class="loading">
+        <div class="spinner"></div>
+    </div>
 
-<!-- Student Details -->
-<div>
-    <h3>Student Information</h3>
-    <p><strong>Student Name:</strong> @Model.StudentName</p>
-    <p><strong>Email:</strong> @Model.StudentEmail</p>
-    <p><strong>Department:</strong> @Model.DepartmentName</p>
-    <p><strong>Course:</strong> @Model.CourseName</p>
-    <p><strong>Year:</strong> @Model.Year</p>
-</div>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Action completed successfully!</span>
+    </div>
 
-<!-- Resolved Query Details -->
-<div>
-    <h3>Resolved Query</h3>
-    <p><strong>Solution:</strong> @Model.Solution</p>
-    <p><strong>Approval Status:</strong> @Model.ApprovalStatus</p>
-    <p><strong>Additional Notes:</strong> @Model.AdditionalNotes</p>
-</div>
+    <div class="container">
+        @model Apptivate_UQMS_WebApp.Models.QueryModel.ResolvedTicketAndQueryViewModel
+        @inject Apptivate_UQMS_WebApp.Services.FileUploadService FileUploadService
 
-<!-- Documents -->
-<h3>Related Documents</h3>
-@if (Model.Documents != null && Model.Documents.Any())
-{
-    <ul>
-        @foreach (var document in Model.Documents)
-        {
-            <li>
-                <strong>@document.DocumentName</strong> (Uploaded on @document.UploadDate.ToString("MM/dd/yyyy"))<br />
-                <a href="@document.DocumentPath" target="_blank">View Document</a>
-            </li>
+        <!-- Page Header -->
+        <div class="page-header">
+            <h2>Query and Resolved Ticket Details</h2>
+        </div>
+
+        <!-- Query Details -->
+        <div class="card">
+            <h3><i class="fas fa-info-circle"></i> Query Information</h3>
+            <div class="info-grid">
+                <div class="info-item pulse">
+                    <strong><i class="fas fa-hashtag"></i> Query ID</strong>
+                    <span>@Model.QueryID</span>
+                </div>
+                <div class="info-item">
+                    <strong><i class="fas fa-align-left"></i> Description</strong>
+                    <span>@Model.Description</span>
+                </div>
+                <div class="info-item">
+                    <strong><i class="fas fa-calendar-alt"></i> Submission Date</strong>
+                    <span>@Model.SubmissionDate?.ToString("dd MMM yyyy")</span>
+                </div>
+                <div class="info-item">
+                    <strong><i class="fas fa-check-circle"></i> Status</strong>
+                    <span class="status-badge status-resolved">
+                        <i class="fas fa-check"></i>
+                        @Model.Status
+                    </span>
+                </div>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">@Model.SubmissionDate?.ToString("dd MMM yyyy HH:mm")</div>
+                        <div>Query Created</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Now</div>
+                        <div>Query Resolved</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resolved Query Details -->
+        <div class="card">
+            <h3><i class="fas fa-check-double"></i> Resolved Query</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong><i class="fas fa-lightbulb"></i> Solution</strong>
+                    <span>@Model.Solution</span>
+                </div>
+                <div class="info-item">
+                    <strong><i class="fas fa-thumbs-up"></i> Approval Status</strong>
+                    <span>@Model.ApprovalStatus</span>
+                </div>
+                <div class="info-item">
+                    <strong><i class="fas fa-sticky-note"></i> Additional Notes</strong>
+                    <span>@Model.AdditionalNotes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Documents -->
+        <div class="card">
+            <h3><i class="fas fa-folder-open"></i> Related Documents</h3>
+            @if (Model.Documents != null && Model.Documents.Any())
+            {
+                <ul class="document-list">
+                    @foreach (var doc in Model.Documents)
+                    {
+                        var signedUrl = FileUploadService.GenerateSignedUrl(doc.DocumentPath);
+                        <li>
+                            <a href="@signedUrl" target="_blank" class="document-link" onclick="handleDocumentClick(event)">
+                                <i class="fas fa-file-alt"></i>
+                                <span>@doc.DocumentName</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p><i class="fas fa-info-circle"></i> No documents available.</p>
+            }
+        </div>
+
+        <!-- Feedback Form -->
+        <div class="card">
+            <h3><i class="fas fa-star"></i> Submit Your Feedback</h3>
+            <form id="feedbackForm" asp-action="SubmitFeedback" method="post" class="feedback-form">
+                <input type="hidden" asp-for="QueryID" value="@Model.QueryID" />
+                <div class="form-group">
+                    <label for="Rating">Rating:</label>
+                    <div class="rating-stars">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                    <select name="Rating" class="form-control" id="ratingSelect" style="display: none;">
+                        <option value="1">1 - Poor</option>
+                        <option value="2">2 - Fair</option>
+                        <option value="3">3 - Good</option>
+                        <option value="4">4 - Very Good</option>
+                        <option value="5">5 - Excellent</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Comments">Comments:</label>
+                    <textarea name="Comments" class="form-control" placeholder="Share your thoughts about the resolution..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                    Submit Feedback
+                </button>
+            </form>
+
+            <!-- Feedback Submitted Message -->
+            <div class="feedback-submitted" id="feedbackSubmitted">
+                <i class="fas fa-check-circle pulse"></i>
+                <h4>Thank you for your feedback!</h4>
+                <p>Your input helps us improve our service.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Progress indicator
+            const progress = document.querySelector('.progress-indicator');
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                progress.style.width = scrolled + '%';
+            });
+
+            // Star rating system
+            const stars = document.querySelectorAll('.star');
+            const ratingSelect = document.getElementById('ratingSelect');
+
+            function updateStars(rating) {
+                stars.forEach(star => {
+                    const starRating = parseInt(star.dataset.rating);
+                    if (starRating <= rating) {
+                        star.classList.add('active');
+                    } else {
+                        star.classList.remove('active');
+                    }
+                });
+                ratingSelect.value = rating;
+            }
+
+            stars.forEach(star => {
+                star.addEventListener('click', function () {
+                    const rating = parseInt(this.dataset.rating);
+                    updateStars(rating);
+                    showToast('Rating selected: ' + rating + ' stars');
+                });
+
+                star.addEventListener('mouseover', function () {
+                    const rating = parseInt(this.dataset.rating);
+                    stars.forEach(s => {
+                        const starRating = parseInt(s.dataset.rating);
+                        if (starRating <= rating) {
+                            s.classList.add('active');
+                        } else {
+                            s.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            document.querySelector('.rating-stars').addEventListener('mouseleave', function () {
+                const currentRating = parseInt(ratingSelect.value);
+                updateStars(currentRating);
+            });
+
+            // Form submission
+            const feedbackForm = document.getElementById('feedbackForm');
+            const feedbackSubmitted = document.getElementById('feedbackSubmitted');
+
+            feedbackForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Show loading
+                document.querySelector('.loading').classList.add('show');
+
+                // Simulate form submission
+                setTimeout(() => {
+                    document.querySelector('.loading').classList.remove('show');
+                    feedbackForm.style.display = 'none';
+                    feedbackSubmitted.style.display = 'block';
+                    showToast('Feedback submitted successfully!');
+                }, 1000);
+            });
+        });
+
+        // Toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.querySelector('span').textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
         }
-    </ul>
-}
-else
-{
-    <p>No documents available.</p>
-}
 
-<h3>Submit Your Feedback</h3>
-<form asp-action="SubmitFeedback" method="post">
-    <input type="hidden" asp-for="QueryID" value="@Model.QueryID" />
+        // Document click handler
+        function handleDocumentClick(event) {
+            showToast('Opening document...');
+            document.querySelector('.loading').classList.add('show');
+            setTimeout(() => {
+                document.querySelector('.loading').classList.remove('show');
+            }, 1000);
+        }
 
-    <div class="form-group">
-        <label for="Rating">Rating:</label>
-        <select name="Rating" class="form-control">
-            <option value="1">1 - Poor</option>
-            <option value="2">2 - Fair</option>
-            <option value="3">3 - Good</option>
-            <option value="4">4 - Very Good</option>
-            <option value="5">5 - Excellent</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="Comments">Comments:</label>
-        <textarea name="Comments" class="form-control"></textarea>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Submit Feedback</button>
-</form>
+        // Add hover animations to info items
+        const infoItems = document.querySelectorAll('.info-item');
+        infoItems.forEach(item => {
+            item.addEventListener('mouseenter', function () {
+                this.style.transform = 'scale(1.02)';
+            });
+            item.addEventListener('mouseleave', function () {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
