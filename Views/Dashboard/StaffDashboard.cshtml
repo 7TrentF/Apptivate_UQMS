@@ -21,7 +21,7 @@
                 <img src="~/Images/profile-pic.png" alt="Profile Picture" class="profile-pic">
                 <div>
                   
-                    <p>@Model.Users.Name @Model.Users.Surname</p>
+                    <p>@Model.Users.Name" "@Model.Users.Surname</p>
                     <h5>@Model.StaffDetails.Position.PositionName</h5>
                   
                 </div>
@@ -88,7 +88,8 @@
                         @foreach (var assignment in Model.AssignedQueries)
                         {
                             var query = assignment.Query;
-                            <tr class="query-row" onclick="window.location.href='@Url.Action("QueryDetails", "Query", new { queryId = query.QueryID })'">
+
+                            <tr class="query-row" onclick="window.location.href='@Url.Action("QueryDetails", "StaffQuery", new { queryId = query.QueryID})'">
                                 <td>@query.Student?.User?.Email</td>
                                 <td>@query.Category?.QueryType?.TypeName</td>
                                 <td>@query.Department?.DepartmentName</td>
@@ -99,7 +100,9 @@
                                 </td>
                                 <td>@query.SubmissionDate?.ToString("dd MMM yyyy")</td>
                                 <td>
-                                    <a href="@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })" class="btn-view">View</a>
+                                    <a href="@Url.Action("QueryDetails", "StaffQuery", new { queryId = query.QueryID })" class="btn-view">View</a>
+
+                                
                                     @if (query.ResolvedDate == null)
                                     {
                                         <form asp-action="MarkAsResolved" method="post" class="resolve-form">

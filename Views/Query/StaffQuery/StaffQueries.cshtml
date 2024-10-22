@@ -79,7 +79,7 @@
             @foreach (var queryAssignment in Model)
 {
     <tr class="query-row" data-query-id="@queryAssignment.QueryID">
-        <td>@queryAssignment.Query.QueryID</td>
+        <td>@queryAssignment.Query.TicketNumber</td>
         <td>@queryAssignment.Query.Description</td>
         <td>@queryAssignment.Query.SubmissionDate?.ToString("dd MMM yyyy")</td>
         <td>

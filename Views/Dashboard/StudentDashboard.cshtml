@@ -72,7 +72,7 @@
                     <table class="query-table">
                         <thead>
                             <tr>
-                                <th>Query ID</th>
+                                <th>Ticket Number</th>
                                 <th>Query</th>
                                 <th>Submission Date</th>
                                 <th>Status</th>
@@ -83,7 +83,7 @@
                             @foreach (var query in Model.RecentQueries)
                             {
                                 <tr class="query-row" onclick="window.location.href='@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })'">
-                                    <td>@query.QueryID</td>
+                                    <td>@query.TicketNumber</td>
                                     <td>@query.Description</td>
                                     <td>@query.SubmissionDate?.ToString("dd MMM yyyy")</td>
                                     <td>

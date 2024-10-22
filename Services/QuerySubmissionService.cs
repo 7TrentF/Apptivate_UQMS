@@ -98,6 +98,16 @@ namespace Apptivate_UQMS_WebApp.Services
             };
         }
 
+
+        public string GenerateDateBasedTicketNumber()
+        {
+            var random = new Random();
+            string datePart = DateTime.UtcNow.ToString("yyyyMMdd");  // Example: 20241022
+            string randomPart = random.Next(10000, 99999).ToString(); // Example: 58423
+            return $"{datePart}-{randomPart}";
+        }
+
+
         public async Task SubmitAcademicQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
         {
             _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
@@ -131,6 +141,7 @@ namespace Apptivate_UQMS_WebApp.Services
                 {
                     StudentID = studentDetail.StudentID,
                     QueryTypeID = model.QueryTypeID,
+                    TicketNumber = GenerateDateBasedTicketNumber(), // or GenerateDateBasedTicketNumber()
                     CategoryID = model.CategoryID,
                     DepartmentID = studentDetail.DepartmentID ?? 0,
                     CourseID = studentDetail.CourseID ?? 0,
@@ -161,6 +172,72 @@ namespace Apptivate_UQMS_WebApp.Services
                 throw new Exception("Query submission failed.");
             }
         }
+
+        public async Task SubmitAdministrativeQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
+        {
+            _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
+
+            var queryTypeID = model.QueryTypeID;
+
+            try
+            {
+                // Use the existing method to fetch the student details and query type
+                var academicQueryDetails = await GetAcademicQueryAsync(queryTypeID, firebaseUid);
+
+                // Extract the necessary details
+                dynamic queryData = academicQueryDetails;
+                var studentDetail = queryData.StudentDetail;
+                var queryCategories = queryData.QueryCategories;
+
+
+                _logger.LogWarning("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
+                _logger.LogWarning("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
+
+
+                // Validate the query type and category
+                if (model.QueryTypeID != queryData.QueryTypeID)
+                {
+                    _logger.LogError("Invalid query type or category.");
+                    throw new Exception("Invalid query type or category.");
+                }
+
+                // Create the query record
+                var query = new Query
+                {
+                    StudentID = studentDetail.StudentID,
+                    TicketNumber = GenerateDateBasedTicketNumber(), // or GenerateDateBasedTicketNumber()
+                    QueryTypeID = model.QueryTypeID,
+                    CategoryID = model.CategoryID,
+                    DepartmentID = studentDetail.DepartmentID ?? 0,
+                    CourseID = studentDetail.CourseID ?? 0,
+                    Year = studentDetail.Year,
+                    Description = model.Description,
+                    Status = QueryStatus.Pending, // Update status to Ongoing
+                    SubmissionDate = DateTime.Now
+                };
+
+                _context.Queries.Add(query);
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Query with ID {QueryID} successfully created.", query.QueryID);
+
+                // Handle file upload if exists
+                if (uploadedFile != null && uploadedFile.Length > 0)
+                {
+                    await HandleFileUpload(uploadedFile, query.QueryID);
+                }
+
+                // Assign query to the least busy lecturer or escalate
+                await AssignQueryToStaffAsync(query);
+
+                _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
+                throw new Exception("Query submission failed.");
+            }
+        }
+
 
         private async Task HandleFileUpload(IFormFile uploadedFile, int queryId)
         {
@@ -253,69 +330,6 @@ namespace Apptivate_UQMS_WebApp.Services
             }
         }
 
-        public async Task SubmitAdministrativeQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
-        {
-            _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
-
-            var queryTypeID = model.QueryTypeID;
-
-            try
-            {
-                // Use the existing method to fetch the student details and query type
-                var academicQueryDetails = await GetAcademicQueryAsync(queryTypeID, firebaseUid);
-
-                // Extract the necessary details
-                dynamic queryData = academicQueryDetails;
-                var studentDetail = queryData.StudentDetail;
-                var queryCategories = queryData.QueryCategories;
-
-
-                _logger.LogWarning("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
-                _logger.LogWarning("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
-
-
-                // Validate the query type and category
-                if (model.QueryTypeID != queryData.QueryTypeID)
-                {
-                    _logger.LogError("Invalid query type or category.");
-                    throw new Exception("Invalid query type or category.");
-                }
-
-                // Create the query record
-                var query = new Query
-                {
-                    StudentID = studentDetail.StudentID,
-                    QueryTypeID = model.QueryTypeID,
-                    CategoryID = model.CategoryID,
-                    DepartmentID = studentDetail.DepartmentID ?? 0,
-                    CourseID = studentDetail.CourseID ?? 0,
-                    Year = studentDetail.Year,
-                    Description = model.Description,
-                    Status = QueryStatus.Pending, // Update status to Ongoing
-                    SubmissionDate = DateTime.Now
-                };
-
-                _context.Queries.Add(query);
-                await _context.SaveChangesAsync();
-                _logger.LogInformation("Query with ID {QueryID} successfully created.", query.QueryID);
-
-                // Handle file upload if exists
-                if (uploadedFile != null && uploadedFile.Length > 0)
-                {
-                    await HandleFileUpload(uploadedFile, query.QueryID);
-                }
-
-                // Assign query to the least busy lecturer or escalate
-                await AssignQueryToStaffAsync(query);
-
-                _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
-                throw new Exception("Query submission failed.");
-            }
-        }
 
         public async Task<object> GetStaffAssignmentQueryDetails(int queryId, string firebaseUid)
         {
@@ -405,12 +419,6 @@ namespace Apptivate_UQMS_WebApp.Services
 
 
         }
-
-
-
-
-
-
 
         private async Task HandleFileUploadForResolution(IFormFile uploadedFile, int resolutionId, int queryId)
         {

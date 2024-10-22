@@ -13,6 +13,10 @@ namespace Apptivate_UQMS_WebApp.Models
         {
             [Key]
             public int QueryID { get; set; }
+
+            [Required]
+            [MaxLength(20)]
+            public string TicketNumber { get; set; }
             public int StudentID { get; set; } // Foreign Key
             public int? DepartmentID { get; set; } // Foreign Key
             public int? CourseID { get; set; } // Foreign Key
@@ -215,6 +219,8 @@ namespace Apptivate_UQMS_WebApp.Models
         {
             // Query Details
             public int QueryID { get; set; }
+            public string TicketNumber { get; set; }
+
             public string? Description { get; set; }
             public DateTime? SubmissionDate { get; set; }
             public QueryStatus Status { get; set; }
