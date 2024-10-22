@@ -68,7 +68,7 @@
         <table class="query-table">
             <thead>
                 <tr>
-                    <th data-sort="id">Query ID <i class="fas fa-sort sort-icon"></i></th>
+                    <th data-sort="id">Ticket # <i class="fas fa-sort sort-icon"></i></th>
                     <th data-sort="description">Description <i class="fas fa-sort sort-icon"></i></th>
                     <th data-sort="date">Submission Date <i class="fas fa-sort sort-icon"></i></th>
                     <th data-sort="status">Status <i class="fas fa-sort sort-icon"></i></th>
@@ -79,8 +79,8 @@
             @foreach (var queryAssignment in Model)
 {
     <tr class="query-row" data-query-id="@queryAssignment.QueryID">
+        <td>@queryAssignment.Query.QueryID</td>
         <td>@queryAssignment.Query.Description</td>
-        <td>@queryAssignment.Query.StudentID</td>
         <td>@queryAssignment.Query.SubmissionDate?.ToString("dd MMM yyyy")</td>
         <td>
             <span class="status-badge @queryAssignment.Query.Status.ToString().ToLower()">

@@ -360,55 +360,71 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 return BadRequest("An error occurred while fetching the resolved query.");
             }
         }
-
+       
         [HttpPost]
-        public async Task<IActionResult> SubmitFeedback(int queryId, int rating, string comments)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SubmitFeedback(int queryId, int rating, string comments, bool isAnonymous)
         {
-            // Get Firebase UID from session
+            // Log the start of feedback submission
+            _logger.LogInformation("Started SubmitFeedback for QueryID: {QueryID}, Rating: {Rating}, Anonymous: {IsAnonymous}", queryId, rating, isAnonymous);
+
             var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
 
             if (firebaseUid == null)
             {
+                _logger.LogWarning("FirebaseUID is null. Redirecting to login.");
                 return RedirectToAction("Login", "Account");
             }
 
-            // Get the user from the database based on Firebase UID
+            // Fetch user and student details
             var user = await _context.Users
                 .Include(u => u.StudentDetails)
                 .FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
 
             if (user == null || !user.StudentDetails.Any())
             {
+                _logger.LogError("No user or student details found for FirebaseUID: {FirebaseUID}", firebaseUid);
                 return RedirectToAction("Error", "Home");
             }
 
-            // Assuming the first entry in StudentDetails is the correct one (adjust if needed)
             var studentId = user.StudentDetails.First().StudentID;
+            _logger.LogInformation("Fetched student details for StudentID: {StudentID}", studentId);
 
-            // Check if the query exists and belongs to the user
+            // Fetch the query to ensure it's resolved
             var query = await _context.Queries.FirstOrDefaultAsync(q => q.QueryID == queryId && q.Status == QueryStatus.Resolved);
 
             if (query == null)
             {
+                _logger.LogWarning("No resolved query found for QueryID: {QueryID}", queryId);
                 return RedirectToAction("Error", "Home");
             }
 
-            // Create a new feedback entry
+            _logger.LogInformation("Resolved query found for QueryID: {QueryID}", queryId);
+
+            // Create the feedback, handling anonymous option
             var feedback = new Feedback
             {
-                QueryID = queryId,
-                StudentID = studentId,  // Use the student ID
+                QueryID = isAnonymous ? (int?)null : queryId,  // If anonymous, set QueryID to null
+                StudentID = isAnonymous ? (int?)null : studentId,  // If anonymous, set StudentID to null
                 Rating = rating,
                 Comments = comments,
-                SubmissionDate = DateTime.UtcNow
+                SubmissionDate = DateTime.UtcNow,
+                IsAnonymous = isAnonymous
             };
 
-            _context.Feedbacks.Add(feedback);
-            query.Status = QueryStatus.Closed;  // Update query status to 'Closed'
+            _logger.LogInformation("Created feedback for QueryID: {QueryID}, IsAnonymous: {IsAnonymous}", isAnonymous ? "Anonymous" : queryId.ToString(), isAnonymous);
+
+            // Add feedback to the database
+            _context.Feedback.Add(feedback);
+            query.Status = QueryStatus.Closed;  // Mark query as closed after feedback submission
             await _context.SaveChangesAsync();
+
+            _logger.LogInformation("Feedback submitted successfully for QueryID: {QueryID}, StudentID: {StudentID}, Anonymous: {IsAnonymous}", queryId, studentId, isAnonymous);
 
             return RedirectToAction("ViewResolvedTicket", new { queryId });
         }
+
+
 
         public async Task<IActionResult> Search(string searchQuery, string statusFilter)
         {

@@ -129,16 +129,24 @@ namespace Apptivate_UQMS_WebApp.Models
         {
             [Key]
             public int FeedbackID { get; set; }
-            public int QueryID { get; set; } // Foreign Key
-            public int StudentID { get; set; } // Foreign Key
+            public int? QueryID { get; set; } // Foreign Key
+            public int? StudentID { get; set; } // Foreign Key
             public int Rating { get; set; }
             public string Comments { get; set; }
             public DateTime SubmissionDate { get; set; }
+
+            public bool IsAnonymous { get; set; } // Indicates if the feedback was anonymous
+
 
             // Navigation properties
             public Query Query { get; set; }
             public StudentDetail Student { get; set; }
         }
+
+
+
+
+
 
 
         public class QueryResolutions
@@ -189,9 +197,17 @@ namespace Apptivate_UQMS_WebApp.Models
 
         public class DocumentViewModel
         {
-            public string DocumentPath { get; set; }
+            [Key]
+            public int DocumentID { get; set; }
+            public int QueryID { get; set; } // Foreign Key
             public string DocumentName { get; set; }
+            public string DocumentPath { get; set; }
             public DateTime UploadDate { get; set; }
+
+            // Navigation property
+            public Query Query { get; set; }
+            public ICollection<ResolutionDocuments> ResolutionDocuments { get; set; } = new HashSet<ResolutionDocuments>();
+
         }
 
 

@@ -73,7 +73,7 @@
                         <thead>
                             <tr>
                                 <th>Query ID</th>
-                                <th>Description</th>
+                                <th>Query</th>
                                 <th>Submission Date</th>
                                 <th>Status</th>
                                 <th>Actions</th>
@@ -92,14 +92,17 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <a href="@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })" class="btn-view">View</a>
-                                        @if (query.ResolvedDate == null)
+                                       
+                                            @if (query.Status == QueryModel.QueryStatus.Resolved)
                                         {
-                                            <form asp-action="MarkAsResolved" method="post" class="resolve-form">
-                                                <input type="hidden" name="queryId" value="@query.QueryID" />
-                                            </form>
-                                        }
-                                    </td>
+                                                <a href="@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })" class="btn-view">View</a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })" class="btn-view">view</a>
+
+                                            }
+                                        </td>
                                 </tr>
                             }
                         </tbody>

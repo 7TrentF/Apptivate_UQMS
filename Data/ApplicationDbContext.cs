@@ -25,7 +25,7 @@ namespace Apptivate_UQMS_WebApp.Data
         public DbSet<Query> Queries { get; set; }
         public DbSet<QueryAssignment> QueryAssignments { get; set; }
         public DbSet<QueryDocument> QueryDocuments { get; set; }
-        public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<Feedback> Feedback { get; set; }
         public DbSet<QueryCategory> QueryCategories { get; set; }
         public DbSet<QueryType> QueryTypes { get; set; }
         public DbSet<AppUsers> appUsers { get; set; }

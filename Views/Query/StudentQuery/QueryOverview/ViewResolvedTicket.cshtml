@@ -24,6 +24,9 @@
         @model Apptivate_UQMS_WebApp.Models.QueryModel.ResolvedTicketAndQueryViewModel
         @inject Apptivate_UQMS_WebApp.Services.FileUploadService FileUploadService
 
+        TempData["FeedbackSubmitted"] = true;
+
+
         <!-- Page Header -->
         <div class="page-header">
             <h2>Query and Resolved Ticket Details</h2>
@@ -70,7 +73,7 @@
                         <i class="fas fa-check-circle"></i>
                     </div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Now   </div>
+                        <div class="timeline-date">@Model.ResolutionDate?.ToString("dd MMM yyyy HH:mm")</div>
                         <div>Query Resolved</div>
                     </div>
                 </div>
@@ -82,13 +85,10 @@
             <h3><i class="fas fa-check-double"></i> Resolved Query</h3>
             <div class="info-grid">
                 <div class="info-item">
-                    <strong><i class="fas fa-lightbulb"></i> Solution</strong>
+                    <strong><i class="fas fa-lightbulb"></i> Resolution</strong>
                     <span>@Model.Solution</span>
                 </div>
-                <div class="info-item">
-                    <strong><i class="fas fa-thumbs-up"></i> Approval Status</strong>
-                    <span>@Model.ApprovalStatus</span>
-                </div>
+              
                 <div class="info-item">
                     <strong><i class="fas fa-sticky-note"></i> Additional Notes</strong>
                     <span>@Model.AdditionalNotes</span>
@@ -146,6 +146,15 @@
                     <label for="Comments">Comments:</label>
                     <textarea name="Comments" class="form-control" placeholder="Share your thoughts about the resolution..."></textarea>
                 </div>
+                <div class="form-group">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="isAnonymous" name="IsAnonymous" class="form-check-input" />
+                        <label for="isAnonymous" class="form-check-label">Submit Feedback Anonymously</label>
+                        <small class="text-muted d-block mt-1">
+                            When checked, your name and user information will not be associated with this feedback
+                        </small>
+                    </div>
+                </div>
                 <button type="submit" class="btn-primary">
                     <i class="fas fa-paper-plane"></i>
                     Submit Feedback
@@ -159,109 +168,143 @@
                 <p>Your input helps us improve our service.</p>
             </div>
         </div>
-    </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Progress indicator
-            const progress = document.querySelector('.progress-indicator');
-            window.addEventListener('scroll', () => {
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (winScroll / height) * 100;
-                progress.style.width = scrolled + '%';
-            });
-
-            // Star rating system
-            const stars = document.querySelectorAll('.star');
-            const ratingSelect = document.getElementById('ratingSelect');
-
-            function updateStars(rating) {
-                stars.forEach(star => {
-                    const starRating = parseInt(star.dataset.rating);
-                    if (starRating <= rating) {
-                        star.classList.add('active');
-                    } else {
-                        star.classList.remove('active');
-                    }
-                });
-                ratingSelect.value = rating;
-            }
-
-            stars.forEach(star => {
-                star.addEventListener('click', function () {
-                    const rating = parseInt(this.dataset.rating);
-                    updateStars(rating);
-                    showToast('Rating selected: ' + rating + ' stars');
+            document.addEventListener('DOMContentLoaded', function () {
+                // Progress indicator
+                const progress = document.querySelector('.progress-indicator');
+                window.addEventListener('scroll', () => {
+                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (winScroll / height) * 100;
+                    progress.style.width = scrolled + '%';
                 });
 
-                star.addEventListener('mouseover', function () {
-                    const rating = parseInt(this.dataset.rating);
-                    stars.forEach(s => {
-                        const starRating = parseInt(s.dataset.rating);
+                // Star rating system
+                const stars = document.querySelectorAll('.star');
+                const ratingSelect = document.getElementById('ratingSelect');
+
+                function updateStars(rating) {
+                    stars.forEach(star => {
+                        const starRating = parseInt(star.dataset.rating);
                         if (starRating <= rating) {
-                            s.classList.add('active');
+                            star.classList.add('active');
                         } else {
-                            s.classList.remove('active');
+                            star.classList.remove('active');
                         }
                     });
+                    ratingSelect.value = rating;
+                }
+
+                stars.forEach(star => {
+                    star.addEventListener('click', function () {
+                        const rating = parseInt(this.dataset.rating);
+                        updateStars(rating);
+                        showToast('Rating selected: ' + rating + ' stars');
+                    });
+
+                    star.addEventListener('mouseover', function () {
+                        const rating = parseInt(this.dataset.rating);
+                        stars.forEach(s => {
+                            const starRating = parseInt(s.dataset.rating);
+                            if (starRating <= rating) {
+                                s.classList.add('active');
+                            } else {
+                                s.classList.remove('active');
+                            }
+                        });
+                    });
+                });
+
+                document.querySelector('.rating-stars').addEventListener('mouseleave', function () {
+                    const currentRating = parseInt(ratingSelect.value);
+                    updateStars(currentRating);
+                });
+
+           
+
+
+                const anonymousCheckbox = document.getElementById('isAnonymous');
+                if (anonymousCheckbox) {
+                    anonymousCheckbox.addEventListener('change', function () {
+                        this.value = this.checked;
+                    });
+                }
+
+
+                // Form submission
+                const feedbackForm = document.getElementById('feedbackForm');
+                const feedbackSubmitted = document.getElementById('feedbackSubmitted');
+
+                feedbackForm.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    // Show loading
+                    document.querySelector('.loading').classList.add('show');
+
+                    try {
+                        const formData = new FormData(this);
+
+                        // Add anonymous flag to form data
+                        const isAnonymous = document.getElementById('isAnonymous').checked;
+                        formData.append('IsAnonymous', isAnonymous);
+
+                        const response = await fetch(this.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value
+                            }
+                        });
+
+                        if (response.ok) {
+                            feedbackForm.style.display = 'none';
+                            feedbackSubmitted.style.display = 'block';
+                            const successMessage = isAnonymous ?
+                                'Anonymous feedback submitted successfully!' :
+                                'Feedback submitted successfully!';
+                            showToast(successMessage);
+                        } else {
+                            showToast('Error submitting feedback. Please try again.');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        showToast('Error submitting feedback. Please try again.');
+                    } finally {
+                        document.querySelector('.loading').classList.remove('show');
+                    }
                 });
             });
 
-            document.querySelector('.rating-stars').addEventListener('mouseleave', function () {
-                const currentRating = parseInt(ratingSelect.value);
-                updateStars(currentRating);
-            });
+            // Toast notification
+            function showToast(message) {
+                const toast = document.getElementById('toast');
+                toast.querySelector('span').textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
 
-            // Form submission
-            const feedbackForm = document.getElementById('feedbackForm');
-            const feedbackSubmitted = document.getElementById('feedbackSubmitted');
-
-            feedbackForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                // Show loading
+            // Document click handler
+            function handleDocumentClick(event) {
+                showToast('Opening document...');
                 document.querySelector('.loading').classList.add('show');
-
-                // Simulate form submission
                 setTimeout(() => {
                     document.querySelector('.loading').classList.remove('show');
-                    feedbackForm.style.display = 'none';
-                    feedbackSubmitted.style.display = 'block';
-                    showToast('Feedback submitted successfully!');
                 }, 1000);
-            });
-        });
+            }
 
-        // Toast notification
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.querySelector('span').textContent = message;
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        // Document click handler
-        function handleDocumentClick(event) {
-            showToast('Opening document...');
-            document.querySelector('.loading').classList.add('show');
-            setTimeout(() => {
-                document.querySelector('.loading').classList.remove('show');
-            }, 1000);
-        }
-
-        // Add hover animations to info items
-        const infoItems = document.querySelectorAll('.info-item');
-        infoItems.forEach(item => {
-            item.addEventListener('mouseenter', function () {
-                this.style.transform = 'scale(1.02)';
+            // Add hover animations to info items
+            const infoItems = document.querySelectorAll('.info-item');
+            infoItems.forEach(item => {
+                item.addEventListener('mouseenter', function () {
+                    this.style.transform = 'scale(1.02)';
+                });
+                item.addEventListener('mouseleave', function () {
+                    this.style.transform = 'scale(1)';
+                });
             });
-            item.addEventListener('mouseleave', function () {
-                this.style.transform = 'scale(1)';
-            });
-        });
     </script>
 </body>
 </html>
