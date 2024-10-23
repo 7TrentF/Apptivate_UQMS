@@ -7,8 +7,18 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure Serilog to log to both the console and a file
+builder.Host.UseSerilog((context, configuration) =>
+    configuration
+        .WriteTo.Console() // Logs to the console
+        .WriteTo.File(
+            Path.Combine(Directory.GetCurrentDirectory(), "Logs/log-.txt"), // Logs to the file
+            rollingInterval: RollingInterval.Day));
 
 // Add services to the container
 builder.Services.AddControllersWithViews();
@@ -55,6 +65,13 @@ builder.Services.AddSignalR();
 builder.Logging.ClearProviders(); // Optional: Clears default providers
 builder.Logging.AddConsole(); // Add console logging
 builder.Logging.AddDebug(); // Add debug logging (visible in Debug output window)
+
+
+builder.Logging.AddFile("Logs/log-{Date}.txt");  // Add this line to enable file logging
+
+
+
+
 
 // Add session services
 builder.Services.AddDistributedMemoryCache();

@@ -41,9 +41,12 @@
                 <img src="~/images/Apptivate_circle _logo.png" alt="Apptivate Logo" class="img-fluid" />
             </div>
             <ul class="nav flex-column">
+              
+                
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <img src="~/svgs/home-1.svg" alt="Dashboard Icon" class="icon" /><span>Home</span>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Logs" asp-action="Index">
+
+                        <img src="~/svgs/home-1.svg" alt="Home Icon" class="icon" /><span>Home</span>
                     </a>
                 </li>
 
@@ -54,6 +57,7 @@
                     </a>
                 </li>
 
+              
                 <!-- Queries visible to Students and Staff -->
                 @if (User.IsInRole("Student"))
                 {
@@ -79,6 +83,7 @@
                         <img src="~/svgs/chat-round-svgrepo-com (1).svg" alt="Chat Icon" class="icon" /><span>Chats</span>
                     </a>
                 </li>
+
 
 
                 @if (User.IsInRole("Admin"))

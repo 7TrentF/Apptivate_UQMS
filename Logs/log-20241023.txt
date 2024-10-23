@@ -1,0 +1,800 @@
+2024-10-23 10:14:57.152 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-23 10:14:57.321 +02:00 [INF] Now listening on: https://localhost:7061
+2024-10-23 10:14:57.322 +02:00 [INF] Now listening on: http://localhost:5042
+2024-10-23 10:14:57.324 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-23 10:14:57.324 +02:00 [INF] Hosting environment: Development
+2024-10-23 10:14:57.324 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-10-23 10:14:57.608 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/Index - null null
+2024-10-23 10:14:58.408 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:14:58.427 +02:00 [INF] Route matched with {action = "Index", controller = "Logs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:14:58.434 +02:00 [INF] Found 1 log files
+2024-10-23 10:14:58.444 +02:00 [INF] Executing ViewResult, running view Index.
+2024-10-23 10:14:58.561 +02:00 [INF] Executed ViewResult - view Index executed in 119.4902ms.
+2024-10-23 10:14:58.569 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp) in 141.0873ms
+2024-10-23 10:14:58.570 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:14:58.576 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/Index - 200 null text/html; charset=utf-8 969.4163ms
+2024-10-23 10:14:58.821 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:14:58.826 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:14:58.826 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 5.8593ms
+2024-10-23 10:14:59.077 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 250.8125ms
+2024-10-23 10:15:02.468 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - null null
+2024-10-23 10:15:02.477 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:15:02.488 +02:00 [INF] Route matched with {action = "ViewLog", controller = "Logs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ViewLog(System.String) on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:15:02.510 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp) in 22.1852ms
+2024-10-23 10:15:02.511 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:15:02.515 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IO.IOException: The process cannot access the file 'C:\Users\trent\source\repos\Apptivate_UQMS\Logs\log-20241023.txt' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.File.AsyncStreamReader(String path, Encoding encoding)
+   at System.IO.File.InternalReadAllTextAsync(String path, Encoding encoding, CancellationToken cancellationToken)
+   at Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog(String logFileName) in C:\Users\trent\source\repos\Apptivate_UQMS\Controllers\LogsController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-23 10:15:02.732 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - 500 null text/html; charset=utf-8 264.5475ms
+2024-10-23 10:15:02.835 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:15:02.839 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:15:02.840 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.8752ms
+2024-10-23 10:15:02.853 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.9563ms
+2024-10-23 10:15:14.346 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/Index - null null
+2024-10-23 10:15:14.351 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:15:14.351 +02:00 [INF] Route matched with {action = "Index", controller = "Logs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:15:14.351 +02:00 [INF] Found 1 log files
+2024-10-23 10:15:14.352 +02:00 [INF] Executing ViewResult, running view Index.
+2024-10-23 10:15:14.356 +02:00 [INF] Executed ViewResult - view Index executed in 4.3657ms.
+2024-10-23 10:15:14.356 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp) in 5.1442ms
+2024-10-23 10:15:14.356 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:15:14.356 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/Index - 200 null text/html; charset=utf-8 10.0896ms
+2024-10-23 10:15:14.379 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:15:14.379 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.5249ms
+2024-10-23 10:15:53.432 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - null null
+2024-10-23 10:15:53.436 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:15:53.436 +02:00 [INF] Route matched with {action = "ViewLog", controller = "Logs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ViewLog(System.String) on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:15:53.437 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp) in 1.6991ms
+2024-10-23 10:15:53.438 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:15:53.438 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IO.IOException: The process cannot access the file 'C:\Users\trent\source\repos\Apptivate_UQMS\Logs\log-20241023.txt' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.File.AsyncStreamReader(String path, Encoding encoding)
+   at System.IO.File.InternalReadAllTextAsync(String path, Encoding encoding, CancellationToken cancellationToken)
+   at Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog(String logFileName) in C:\Users\trent\source\repos\Apptivate_UQMS\Controllers\LogsController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-23 10:15:53.442 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - 500 null text/html; charset=utf-8 9.8228ms
+2024-10-23 10:15:53.461 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:15:53.463 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:15:53.464 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.3743ms
+2024-10-23 10:15:53.465 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3.4755ms
+2024-10-23 10:20:35.952 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-23 10:20:36.056 +02:00 [INF] Now listening on: https://localhost:7061
+2024-10-23 10:20:36.056 +02:00 [INF] Now listening on: http://localhost:5042
+2024-10-23 10:20:36.059 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-23 10:20:36.059 +02:00 [INF] Hosting environment: Development
+2024-10-23 10:20:36.059 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-10-23 10:20:36.425 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - null null
+2024-10-23 10:20:36.920 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:20:36.941 +02:00 [INF] Route matched with {action = "ViewLog", controller = "Logs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ViewLog(System.String) on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:20:37.093 +02:00 [INF] Executing ViewResult, running view LogDetail.
+2024-10-23 10:20:37.191 +02:00 [INF] Executed ViewResult - view LogDetail executed in 99.3798ms.
+2024-10-23 10:20:37.197 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp) in 255.3053ms
+2024-10-23 10:20:37.197 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:20:37.202 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - 200 null text/html; charset=utf-8 779.7123ms
+2024-10-23 10:20:37.345 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:20:37.349 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 3.4239ms
+2024-10-23 10:20:37.372 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:20:37.399 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.1559ms
+2024-10-23 10:20:49.265 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Query/TicketDashboard - null null
+2024-10-23 10:20:49.284 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.QueryController.TicketDashboard (Apptivate_UQMS_WebApp)'
+2024-10-23 10:20:49.287 +02:00 [INF] Route matched with {action = "TicketDashboard", controller = "Query"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TicketDashboard() on controller Apptivate_UQMS_WebApp.Controllers.QueryController (Apptivate_UQMS_WebApp).
+2024-10-23 10:20:49.536 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-10-23 10:20:49.538 +02:00 [INF] Executing ViewResult, running view StudentQuery/TicketDashboard.
+2024-10-23 10:20:49.558 +02:00 [INF] Executed ViewResult - view StudentQuery/TicketDashboard executed in 21.2434ms.
+2024-10-23 10:20:49.558 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.QueryController.TicketDashboard (Apptivate_UQMS_WebApp) in 271.1255ms
+2024-10-23 10:20:49.558 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.QueryController.TicketDashboard (Apptivate_UQMS_WebApp)'
+2024-10-23 10:20:49.562 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Query/TicketDashboard - 200 null text/html; charset=utf-8 296.5893ms
+2024-10-23 10:20:49.614 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:20:49.614 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:20:49.615 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.9404ms
+2024-10-23 10:20:49.619 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 4.8761ms
+2024-10-23 10:20:51.585 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/Index - null null
+2024-10-23 10:20:51.590 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:20:51.591 +02:00 [INF] Route matched with {action = "Index", controller = "Logs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:20:51.595 +02:00 [INF] Found 1 log files
+2024-10-23 10:20:51.597 +02:00 [INF] Executing ViewResult, running view Index.
+2024-10-23 10:20:51.633 +02:00 [INF] Executed ViewResult - view Index executed in 37.361ms.
+2024-10-23 10:20:51.634 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp) in 42.4861ms
+2024-10-23 10:20:51.634 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:20:51.634 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/Index - 200 null text/html; charset=utf-8 48.8337ms
+2024-10-23 10:20:51.655 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:20:51.658 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:20:51.658 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.3825ms
+2024-10-23 10:20:51.659 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3.825ms
+2024-10-23 10:20:54.166 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - null null
+2024-10-23 10:20:54.171 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:20:54.171 +02:00 [INF] Route matched with {action = "ViewLog", controller = "Logs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ViewLog(System.String) on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:20:54.223 +02:00 [INF] Executing ViewResult, running view LogDetail.
+2024-10-23 10:20:54.226 +02:00 [INF] Executed ViewResult - view LogDetail executed in 2.5144ms.
+2024-10-23 10:20:54.226 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp) in 55.0912ms
+2024-10-23 10:20:54.226 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:20:54.226 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - 200 null text/html; charset=utf-8 59.7446ms
+2024-10-23 10:20:54.246 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:20:54.249 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2.9354ms
+2024-10-23 10:20:54.251 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:20:54.251 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.3984ms
+2024-10-23 10:21:01.650 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/Index - null null
+2024-10-23 10:21:01.655 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:21:01.655 +02:00 [INF] Route matched with {action = "Index", controller = "Logs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:21:01.656 +02:00 [INF] Found 1 log files
+2024-10-23 10:21:01.656 +02:00 [INF] Executing ViewResult, running view Index.
+2024-10-23 10:21:01.659 +02:00 [INF] Executed ViewResult - view Index executed in 2.6554ms.
+2024-10-23 10:21:01.659 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp) in 3.9689ms
+2024-10-23 10:21:01.659 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:21:01.659 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/Index - 200 null text/html; charset=utf-8 8.523ms
+2024-10-23 10:21:01.675 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:21:01.680 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 4.4233ms
+2024-10-23 10:21:01.682 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:21:01.682 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.3543ms
+2024-10-23 10:21:20.500 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - null null
+2024-10-23 10:21:20.505 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:21:20.505 +02:00 [INF] Route matched with {action = "ViewLog", controller = "Logs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ViewLog(System.String) on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:21:20.523 +02:00 [INF] Executing ViewResult, running view LogDetail.
+2024-10-23 10:21:20.525 +02:00 [INF] Executed ViewResult - view LogDetail executed in 2.0201ms.
+2024-10-23 10:21:20.526 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp) in 20.2429ms
+2024-10-23 10:21:20.526 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:21:20.526 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - 200 null text/html; charset=utf-8 25.5861ms
+2024-10-23 10:21:20.543 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:21:20.546 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3.3588ms
+2024-10-23 10:21:20.551 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:21:20.551 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.275ms
+2024-10-23 10:21:50.352 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-10-23 10:21:50.484 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:21:50.485 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:21:50.485 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-10-23 10:21:50.593 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-10-23 10:21:50.663 +02:00 [INF] Executing ViewResult, running view Login.
+2024-10-23 10:21:50.704 +02:00 [INF] Executed ViewResult - view Login executed in 48.0837ms.
+2024-10-23 10:21:50.705 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 111.9754ms
+2024-10-23 10:21:50.705 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-10-23 10:21:50.708 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 357.8409ms
+2024-10-23 10:21:50.775 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-10-23 10:21:50.782 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:21:50.790 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2024-10-23 10:21:50.790 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-10-23 10:21:50.791 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:21:50.791 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:21:50.794 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/password-toggle.js - null null
+2024-10-23 10:21:50.794 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:21:50.794 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/Login.css - null null
+2024-10-23 10:21:50.794 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-10-23 10:21:50.795 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/lib/jquery/dist/jquery.min.js - null null
+2024-10-23 10:21:50.795 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:21:50.795 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:21:50.795 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:21:50.795 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - null null
+2024-10-23 10:21:50.795 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:21:50.795 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:21:50.823 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 28.6138ms
+2024-10-23 10:21:50.824 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:21:50.827 +02:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\css\site.css'
+2024-10-23 10:21:50.827 +02:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\js\site.js'
+2024-10-23 10:21:50.829 +02:00 [INF] Sending file. Request path: '/Apptivate_UQMS_WebApp.styles.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\bundle\Apptivate_UQMS_WebApp.styles.css'
+2024-10-23 10:21:50.829 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 200 362 text/css 38.7392ms
+2024-10-23 10:21:50.829 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 200 10213 text/css 38.6481ms
+2024-10-23 10:21:50.829 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - 200 3 text/javascript 34.0187ms
+2024-10-23 10:21:50.847 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.1739ms
+2024-10-23 10:21:50.901 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css - null null
+2024-10-23 10:21:50.902 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:21:50.916 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2024-10-23 10:21:50.916 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/css/bootstrap.min.css - 200 162726 text/css 141.6198ms
+2024-10-23 10:21:50.923 +02:00 [INF] Sending file. Request path: '/css/Login.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\css\Login.css'
+2024-10-23 10:21:50.923 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/Login.css - 200 2084 text/css 128.4623ms
+2024-10-23 10:21:51.012 +02:00 [INF] Sending file. Request path: '/js/password-toggle.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\js\password-toggle.js'
+2024-10-23 10:21:51.012 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/password-toggle.js - 200 597 text/javascript 218.2432ms
+2024-10-23 10:21:51.218 +02:00 [INF] Sending file. Request path: '/_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css'. Physical path: 'C:\Users\trent\.nuget\packages\microsoft.aspnetcore.components.quickgrid\8.0.8\staticwebassets\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css'
+2024-10-23 10:21:51.218 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css - 200 8251 text/css 317.4561ms
+2024-10-23 10:21:51.308 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2024-10-23 10:21:51.308 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78474 text/javascript 513.4079ms
+2024-10-23 10:21:51.332 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/Aptivate_background.png - null null
+2024-10-23 10:21:51.333 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:21:51.495 +02:00 [INF] Sending file. Request path: '/Images/Aptivate_background.png'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Images\Aptivate_background.png'
+2024-10-23 10:21:51.496 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/Aptivate_background.png - 200 77509 image/png 163.7026ms
+2024-10-23 10:21:51.501 +02:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\lib\jquery\dist\jquery.min.js'
+2024-10-23 10:21:51.517 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/lib/jquery/dist/jquery.min.js - 200 89503 text/javascript 721.6338ms
+2024-10-23 10:21:53.074 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/favicon.ico - null null
+2024-10-23 10:21:53.074 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:21:53.115 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\favicon.ico'
+2024-10-23 10:21:53.115 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/favicon.ico - 200 5430 image/x-icon 41.4678ms
+2024-10-23 10:22:00.362 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/ - application/x-www-form-urlencoded 224
+2024-10-23 10:22:00.404 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:22:00.404 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-23 10:22:00.404 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:00.459 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LoginViewModel) on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:00.565 +02:00 [INF] Attempting to log in user with email: admin@gmail.com
+2024-10-23 10:22:00.632 +02:00 [INF] Start processing HTTP request POST https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDXB0dEozyPQdXzlGyQFP1elMObEksarR0
+2024-10-23 10:22:00.640 +02:00 [INF] Sending HTTP request POST https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDXB0dEozyPQdXzlGyQFP1elMObEksarR0
+2024-10-23 10:22:01.301 +02:00 [INF] Received HTTP response headers after 656.0801ms - 200
+2024-10-23 10:22:01.302 +02:00 [INF] End processing HTTP request after 672.3585ms - 200
+2024-10-23 10:22:01.306 +02:00 [INF] User logged in successfully.
+2024-10-23 10:22:03.718 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-10-23 10:22:05.308 +02:00 [INF] Executed DbCommand (82ms) [Parameters=[@__firebaseUser_Uid_0='C9orrhtKXpgX4jsjPpwEI3J9a3t2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[Email], [u].[FirebaseUID], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUser_Uid_0
+2024-10-23 10:22:05.572 +02:00 [INF] Executed DbCommand (19ms) [Parameters=[@p1='5', @p0='2024-10-23T08:22:05.4445850Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastSeen] = @p0
+OUTPUT 1
+WHERE [UserID] = @p1;
+2024-10-23 10:22:05.601 +02:00 [INF] Accessing expired session, Key:84310605-81c9-62a9-5bdc-0648e09af279
+2024-10-23 10:22:05.602 +02:00 [INF] User admin@gmail.com logged in successfully.
+2024-10-23 10:22:05.604 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/AdminDashboard.
+2024-10-23 10:22:05.605 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 5146.2226ms
+2024-10-23 10:22:05.606 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:05.607 +02:00 [INF] Session started; Key:84310605-81c9-62a9-5bdc-0648e09af279, Id:7263e43b-8514-ecbe-d7c8-a8784314b54a
+2024-10-23 10:22:05.614 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/ - 302 0 null 5251.6739ms
+2024-10-23 10:22:05.615 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/AdminDashboard - null null
+2024-10-23 10:22:05.626 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.AdminDashboard (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:05.632 +02:00 [INF] Route matched with {action = "AdminDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AdminDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:05.791 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[@__firebaseUid_0='C9orrhtKXpgX4jsjPpwEI3J9a3t2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[AdminID], [a].[Department], [a].[UserID], [u].[UserID], [u].[Email], [u].[FirebaseUID], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [AdminDetails] AS [a]
+INNER JOIN [Users] AS [u] ON [a].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-10-23 10:22:05.825 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__firebaseUid_0='C9orrhtKXpgX4jsjPpwEI3J9a3t2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[Email], [u].[FirebaseUID], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-10-23 10:22:05.840 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__user_UserID_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-10-23 10:22:05.922 +02:00 [INF] Executed DbCommand (57ms) [Parameters=[@__user_UserID_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-10-23 10:22:05.980 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+2024-10-23 10:22:05.994 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+2024-10-23 10:22:06.018 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Resolved'
+2024-10-23 10:22:06.026 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Pending'
+2024-10-23 10:22:06.100 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='18'], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Role], COUNT(*) AS [Count], CAST((CAST(COUNT(*) AS float) * 100.0E0) / @__p_0 AS int) AS [Percentage]
+FROM [Users] AS [u]
+GROUP BY [u].[Role]
+2024-10-23 10:22:06.135 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM (
+    SELECT CONVERT(date, [q].[SubmissionDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Ongoing'
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-10-23 10:22:06.143 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM (
+    SELECT CONVERT(date, [q].[SubmissionDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Ongoing'
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-10-23 10:22:06.155 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM (
+    SELECT DATEPART(month, [q].[SubmissionDate]) AS [Key]
+    FROM [Queries] AS [q]
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-10-23 10:22:06.223 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[@__p_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT CAST(1 AS bit), [u].[Name], [u].[Surname], [t].[Description], CASE
+    WHEN [t].[SubmissionDate] IS NOT NULL THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END, [t].[SubmissionDate]
+FROM (
+    SELECT TOP(@__p_0) [q].[Description], [q].[StudentID], [q].[SubmissionDate]
+    FROM [Queries] AS [q]
+    ORDER BY [q].[SubmissionDate] DESC
+) AS [t]
+INNER JOIN [StudentDetails] AS [s] ON [t].[StudentID] = [s].[StudentID]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+ORDER BY [t].[SubmissionDate] DESC
+2024-10-23 10:22:06.229 +02:00 [INF] Executing ViewResult, running view AdminDashboard.
+2024-10-23 10:22:06.282 +02:00 [INF] Executed ViewResult - view AdminDashboard executed in 54.3638ms.
+2024-10-23 10:22:06.283 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.AdminDashboard (Apptivate_UQMS_WebApp) in 650.1656ms
+2024-10-23 10:22:06.283 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.AdminDashboard (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:06.283 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/AdminDashboard - 200 null text/html; charset=utf-8 668.4389ms
+2024-10-23 10:22:06.335 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/tempSidebar.css - null null
+2024-10-23 10:22:06.343 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/images/menu-icon.png - null null
+2024-10-23 10:22:06.343 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/svgs/home-1.svg - null null
+2024-10-23 10:22:06.344 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/images/Apptivate_circle _logo.png - null null
+2024-10-23 10:22:06.347 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/svgs/four-squares-button-of-view-options.svg - null null
+2024-10-23 10:22:06.347 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/AdminDashboard.css?v=Pk1r7Vu7IS5Va_w44tXq0XiXAytgj242Vnn7Zd5Oqu8 - null null
+2024-10-23 10:22:06.347 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/svgs/chat-round-svgrepo-com (1).svg - null null
+2024-10-23 10:22:06.348 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/AdminDashboard.js - null null
+2024-10-23 10:22:06.348 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/Sidebar.js?v=Qia1IPeDLSkb2Pa5EKSPN8fIRSPsZWHbBAaRE7PuMV0 - null null
+2024-10-23 10:22:06.349 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/Users.png - null null
+2024-10-23 10:22:06.350 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:22:06.351 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.8887ms
+2024-10-23 10:22:06.353 +02:00 [INF] Sending file. Request path: '/images/menu-icon.png'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Images\menu-icon.png'
+2024-10-23 10:22:06.353 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/images/menu-icon.png - 200 153 image/png 10.4097ms
+2024-10-23 10:22:06.354 +02:00 [INF] Sending file. Request path: '/js/Sidebar.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\js\Sidebar.js'
+2024-10-23 10:22:06.354 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/Sidebar.js?v=Qia1IPeDLSkb2Pa5EKSPN8fIRSPsZWHbBAaRE7PuMV0 - 200 1793 text/javascript 5.4659ms
+2024-10-23 10:22:06.354 +02:00 [INF] Sending file. Request path: '/css/AdminDashboard.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\css\AdminDashboard.css'
+2024-10-23 10:22:06.354 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/AdminDashboard.css?v=Pk1r7Vu7IS5Va_w44tXq0XiXAytgj242Vnn7Zd5Oqu8 - 200 5575 text/css 6.8641ms
+2024-10-23 10:22:06.357 +02:00 [INF] Sending file. Request path: '/images/Apptivate_circle _logo.png'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Images\Apptivate_circle _logo.png'
+2024-10-23 10:22:06.357 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/images/Apptivate_circle _logo.png - 200 33306 image/png 13.5569ms
+2024-10-23 10:22:06.358 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/pie-chart.png - null null
+2024-10-23 10:22:06.360 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Svgs/user-id-portrait-svgrepo-com (1).svg - null null
+2024-10-23 10:22:06.361 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/svgs/table-alt.svg - null null
+2024-10-23 10:22:06.361 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Svgs/logout.svg - null null
+2024-10-23 10:22:06.363 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/images/Users.png - null null
+2024-10-23 10:22:06.365 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Svgs/active.svg - null null
+2024-10-23 10:22:06.371 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Svgs/total.svg - null null
+2024-10-23 10:22:06.372 +02:00 [INF] Sending file. Request path: '/svgs/chat-round-svgrepo-com (1).svg'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Svgs\chat-round-svgrepo-com (1).svg'
+2024-10-23 10:22:06.372 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/svgs/chat-round-svgrepo-com (1).svg - 200 906 image/svg+xml 25.2919ms
+2024-10-23 10:22:06.373 +02:00 [INF] Sending file. Request path: '/css/tempSidebar.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\css\tempSidebar.css'
+2024-10-23 10:22:06.373 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/tempSidebar.css - 200 3975 text/css 37.9771ms
+2024-10-23 10:22:06.373 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Svgs/system-pending-line.svg - null null
+2024-10-23 10:22:06.373 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Svgs/user_id_portrait.svg - null null
+2024-10-23 10:22:06.374 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Svgs/resolved.svg - null null
+2024-10-23 10:22:06.415 +02:00 [INF] Sending file. Request path: '/Images/pie-chart.png'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Images\pie-chart.png'
+2024-10-23 10:22:06.415 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/pie-chart.png - 200 898 image/png 57.0733ms
+2024-10-23 10:22:06.415 +02:00 [INF] Sending file. Request path: '/Images/Users.png'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Images\Users.png'
+2024-10-23 10:22:06.415 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/Users.png - 200 874 image/png 65.9077ms
+2024-10-23 10:22:06.416 +02:00 [INF] Sending file. Request path: '/images/Users.png'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Images\Users.png'
+2024-10-23 10:22:06.416 +02:00 [INF] Sending file. Request path: '/Svgs/user-id-portrait-svgrepo-com (1).svg'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Svgs\user-id-portrait-svgrepo-com (1).svg'
+2024-10-23 10:22:06.416 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Svgs/user-id-portrait-svgrepo-com (1).svg - 200 1495 image/svg+xml 55.8709ms
+2024-10-23 10:22:06.416 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/images/Users.png - 200 874 image/png 53.5475ms
+2024-10-23 10:22:06.416 +02:00 [INF] Sending file. Request path: '/Svgs/user_id_portrait.svg'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Svgs\user_id_portrait.svg'
+2024-10-23 10:22:06.416 +02:00 [INF] Sending file. Request path: '/svgs/table-alt.svg'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Svgs\table-alt.svg'
+2024-10-23 10:22:06.416 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Svgs/user_id_portrait.svg - 200 1495 image/svg+xml 42.9292ms
+2024-10-23 10:22:06.416 +02:00 [INF] Sending file. Request path: '/Svgs/logout.svg'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Svgs\logout.svg'
+2024-10-23 10:22:06.416 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/svgs/table-alt.svg - 200 827 image/svg+xml 56.7878ms
+2024-10-23 10:22:06.416 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Svgs/logout.svg - 200 746 image/svg+xml 55.5659ms
+2024-10-23 10:22:06.416 +02:00 [INF] Sending file. Request path: '/svgs/home-1.svg'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Svgs\home-1.svg'
+2024-10-23 10:22:06.416 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:22:06.417 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/svgs/home-1.svg - 200 372 image/svg+xml 73.4685ms
+2024-10-23 10:22:06.417 +02:00 [INF] Sending file. Request path: '/svgs/four-squares-button-of-view-options.svg'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Svgs\four-squares-button-of-view-options.svg'
+2024-10-23 10:22:06.417 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/svgs/four-squares-button-of-view-options.svg - 200 5356 image/svg+xml 70.1856ms
+2024-10-23 10:22:06.427 +02:00 [INF] Sending file. Request path: '/js/AdminDashboard.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\js\AdminDashboard.js'
+2024-10-23 10:22:06.428 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/AdminDashboard.js - 200 3207 text/javascript 79.5507ms
+2024-10-23 10:22:06.434 +02:00 [INF] Sending file. Request path: '/Svgs/system-pending-line.svg'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Svgs\system-pending-line.svg'
+2024-10-23 10:22:06.434 +02:00 [INF] Sending file. Request path: '/Svgs/active.svg'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Svgs\active.svg'
+2024-10-23 10:22:06.434 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Svgs/active.svg - 200 799 image/svg+xml 69.3506ms
+2024-10-23 10:22:06.434 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Svgs/system-pending-line.svg - 200 569 image/svg+xml 61.1114ms
+2024-10-23 10:22:06.434 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.7686ms
+2024-10-23 10:22:06.435 +02:00 [INF] Sending file. Request path: '/Svgs/resolved.svg'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Svgs\resolved.svg'
+2024-10-23 10:22:06.435 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Svgs/resolved.svg - 200 494 image/svg+xml 61.511ms
+2024-10-23 10:22:06.437 +02:00 [INF] Sending file. Request path: '/Svgs/total.svg'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Svgs\total.svg'
+2024-10-23 10:22:06.438 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Svgs/total.svg - 200 659 image/svg+xml 67.0308ms
+2024-10-23 10:22:06.611 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/favicon.ico - null null
+2024-10-23 10:22:06.656 +02:00 [INF] Sending file. Request path: '/Images/favicon.ico'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Images\favicon.ico'
+2024-10-23 10:22:06.656 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/favicon.ico - 200 15406 image/x-icon 45.2758ms
+2024-10-23 10:22:13.931 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/Index - null null
+2024-10-23 10:22:13.934 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:13.935 +02:00 [INF] Route matched with {action = "Index", controller = "Logs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:13.938 +02:00 [INF] Found 1 log files
+2024-10-23 10:22:13.939 +02:00 [INF] Executing ViewResult, running view Index.
+2024-10-23 10:22:13.942 +02:00 [INF] Executed ViewResult - view Index executed in 3.3351ms.
+2024-10-23 10:22:13.942 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp) in 7.5827ms
+2024-10-23 10:22:13.942 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:13.942 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/Index - 200 null text/html; charset=utf-8 11.5522ms
+2024-10-23 10:22:14.036 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:22:14.042 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.3398ms
+2024-10-23 10:22:14.046 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:22:14.046 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.3044ms
+2024-10-23 10:22:17.074 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - null null
+2024-10-23 10:22:17.088 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:17.089 +02:00 [INF] Route matched with {action = "ViewLog", controller = "Logs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ViewLog(System.String) on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:17.118 +02:00 [INF] Executing ViewResult, running view LogDetail.
+2024-10-23 10:22:17.119 +02:00 [INF] Executed ViewResult - view LogDetail executed in 1.8183ms.
+2024-10-23 10:22:17.119 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp) in 30.7972ms
+2024-10-23 10:22:17.119 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:17.120 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - 200 null text/html; charset=utf-8 45.477ms
+2024-10-23 10:22:17.150 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:22:17.152 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2.158ms
+2024-10-23 10:22:17.156 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:22:17.156 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.2399ms
+2024-10-23 10:22:38.192 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Users/UserManagement - null null
+2024-10-23 10:22:38.199 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.UsersController.UserManagement (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:38.203 +02:00 [INF] Route matched with {action = "UserManagement", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserManagement(System.String, System.String) on controller Apptivate_UQMS_WebApp.Controllers.UsersController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:40.719 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/Index - null null
+2024-10-23 10:22:40.723 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:40.723 +02:00 [INF] Route matched with {action = "Index", controller = "Logs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:40.724 +02:00 [INF] Found 1 log files
+2024-10-23 10:22:40.725 +02:00 [INF] Executing ViewResult, running view Index.
+2024-10-23 10:22:40.726 +02:00 [INF] Executed ViewResult - view Index executed in 1.5786ms.
+2024-10-23 10:22:40.726 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp) in 3.0747ms
+2024-10-23 10:22:40.726 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:40.726 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/Index - 200 null text/html; charset=utf-8 7.9269ms
+2024-10-23 10:22:40.756 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:22:40.758 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:22:40.758 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.2565ms
+2024-10-23 10:22:40.760 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 4.405ms
+2024-10-23 10:22:41.547 +02:00 [INF] Executed DbCommand (3,278ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserID], [u].[Email], [u].[FirebaseUID], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+ORDER BY [u].[Name]
+2024-10-23 10:22:41.563 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+2024-10-23 10:22:41.569 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Resolved'
+2024-10-23 10:22:41.574 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Pending'
+2024-10-23 10:22:41.585 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='18'], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Role], COUNT(*) AS [Count], CAST((CAST(COUNT(*) AS float) * 100.0E0) / @__p_0 AS int) AS [Percentage]
+FROM [Users] AS [u]
+GROUP BY [u].[Role]
+2024-10-23 10:22:41.588 +02:00 [INF] Executing ViewResult, running view UserManagement.
+2024-10-23 10:22:41.625 +02:00 [INF] Executed ViewResult - view UserManagement executed in 39.0949ms.
+2024-10-23 10:22:41.625 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.UsersController.UserManagement (Apptivate_UQMS_WebApp) in 3422.1031ms
+2024-10-23 10:22:41.625 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.UsersController.UserManagement (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:41.626 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Users/UserManagement - 200 null text/html; charset=utf-8 3434.0578ms
+2024-10-23 10:22:41.679 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/UserManagement.css?v=roIeAljPkjxX6obiDxk6Hf-jha1UPIT-C23vuGXQr4o - null null
+2024-10-23 10:22:41.680 +02:00 [INF] Sending file. Request path: '/css/UserManagement.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\css\UserManagement.css'
+2024-10-23 10:22:41.680 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/UserManagement.css?v=roIeAljPkjxX6obiDxk6Hf-jha1UPIT-C23vuGXQr4o - 200 8137 text/css 1.5718ms
+2024-10-23 10:22:41.690 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/UserManagement.js - null null
+2024-10-23 10:22:41.691 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:22:41.691 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.1671ms
+2024-10-23 10:22:41.693 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:22:41.700 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.8416ms
+2024-10-23 10:22:41.801 +02:00 [INF] Sending file. Request path: '/js/UserManagement.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\js\UserManagement.js'
+2024-10-23 10:22:41.801 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/UserManagement.js - 200 7538 text/javascript 110.656ms
+2024-10-23 10:22:44.597 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - null null
+2024-10-23 10:22:44.599 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:44.599 +02:00 [INF] Route matched with {action = "ViewLog", controller = "Logs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ViewLog(System.String) on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:44.616 +02:00 [INF] Executing ViewResult, running view LogDetail.
+2024-10-23 10:22:44.617 +02:00 [INF] Executed ViewResult - view LogDetail executed in 1.1276ms.
+2024-10-23 10:22:44.617 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp) in 17.3762ms
+2024-10-23 10:22:44.617 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:44.617 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - 200 null text/html; charset=utf-8 19.692ms
+2024-10-23 10:22:44.637 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:22:44.639 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:22:44.639 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.2503ms
+2024-10-23 10:22:44.640 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2.8084ms
+2024-10-23 10:22:52.944 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Users/UserManagement - null null
+2024-10-23 10:22:52.949 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.UsersController.UserManagement (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:52.950 +02:00 [INF] Route matched with {action = "UserManagement", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserManagement(System.String, System.String) on controller Apptivate_UQMS_WebApp.Controllers.UsersController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:53.376 +02:00 [INF] Executed DbCommand (423ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserID], [u].[Email], [u].[FirebaseUID], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+ORDER BY [u].[Name]
+2024-10-23 10:22:53.379 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+2024-10-23 10:22:53.382 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Resolved'
+2024-10-23 10:22:53.383 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Pending'
+2024-10-23 10:22:53.391 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='18'], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Role], COUNT(*) AS [Count], CAST((CAST(COUNT(*) AS float) * 100.0E0) / @__p_0 AS int) AS [Percentage]
+FROM [Users] AS [u]
+GROUP BY [u].[Role]
+2024-10-23 10:22:53.391 +02:00 [INF] Executing ViewResult, running view UserManagement.
+2024-10-23 10:22:53.394 +02:00 [INF] Executed ViewResult - view UserManagement executed in 2.4491ms.
+2024-10-23 10:22:53.394 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.UsersController.UserManagement (Apptivate_UQMS_WebApp) in 444.0464ms
+2024-10-23 10:22:53.394 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.UsersController.UserManagement (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:53.394 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Users/UserManagement - 200 null text/html; charset=utf-8 449.9141ms
+2024-10-23 10:22:53.439 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:22:53.439 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.2454ms
+2024-10-23 10:22:53.444 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:22:53.448 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3.7103ms
+2024-10-23 10:22:56.883 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/Index - null null
+2024-10-23 10:22:56.885 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:56.886 +02:00 [INF] Route matched with {action = "Index", controller = "Logs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:56.886 +02:00 [INF] Found 1 log files
+2024-10-23 10:22:56.886 +02:00 [INF] Executing ViewResult, running view Index.
+2024-10-23 10:22:56.887 +02:00 [INF] Executed ViewResult - view Index executed in 0.8666ms.
+2024-10-23 10:22:56.887 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp) in 1.7672ms
+2024-10-23 10:22:56.887 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:56.888 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/Index - 200 null text/html; charset=utf-8 4.7078ms
+2024-10-23 10:22:56.915 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:22:56.916 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:22:56.917 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.2815ms
+2024-10-23 10:22:56.920 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 5.3161ms
+2024-10-23 10:22:58.054 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/Index - null null
+2024-10-23 10:22:58.057 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:58.057 +02:00 [INF] Route matched with {action = "Index", controller = "Logs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:58.057 +02:00 [INF] Found 1 log files
+2024-10-23 10:22:58.057 +02:00 [INF] Executing ViewResult, running view Index.
+2024-10-23 10:22:58.059 +02:00 [INF] Executed ViewResult - view Index executed in 1.1504ms.
+2024-10-23 10:22:58.059 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp) in 1.893ms
+2024-10-23 10:22:58.059 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:58.059 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/Index - 200 null text/html; charset=utf-8 4.4049ms
+2024-10-23 10:22:58.082 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:22:58.083 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:22:58.083 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.2708ms
+2024-10-23 10:22:58.088 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.0373ms
+2024-10-23 10:22:58.896 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/Index - null null
+2024-10-23 10:22:58.898 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:58.899 +02:00 [INF] Route matched with {action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:58.900 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/StudentDashboard.
+2024-10-23 10:22:58.900 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp) in 0.6303ms
+2024-10-23 10:22:58.900 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:58.900 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/Index - 302 0 null 4.5556ms
+2024-10-23 10:22:58.910 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/StudentDashboard - null null
+2024-10-23 10:22:58.912 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:58.914 +02:00 [INF] Route matched with {action = "StudentDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StudentDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:58.917 +02:00 [INF] Accessing expired session, Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa
+2024-10-23 10:22:58.917 +02:00 [ERR] User not logged in.
+2024-10-23 10:22:58.917 +02:00 [INF] Executing RedirectResult, redirecting to /.
+2024-10-23 10:22:58.917 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp) in 2.5337ms
+2024-10-23 10:22:58.917 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:58.917 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/StudentDashboard - 302 0 null 6.7288ms
+2024-10-23 10:22:58.922 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-10-23 10:22:58.924 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:58.925 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:59.245 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__firebaseUser_Uid_0='a5zHm5xhMpfm1TbNBSM3GXRXWLf2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[Email], [u].[FirebaseUID], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUser_Uid_0
+2024-10-23 10:22:59.246 +02:00 [INF] Accessing expired session, Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa
+2024-10-23 10:22:59.246 +02:00 [INF] Auto-login successful for user Jorge@gmail.com.
+2024-10-23 10:22:59.246 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/Index.
+2024-10-23 10:22:59.246 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 321.3911ms
+2024-10-23 10:22:59.246 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:59.246 +02:00 [INF] Session started; Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa, Id:294627d7-cb13-0f95-7b15-d7de1c747b78
+2024-10-23 10:22:59.246 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 302 0 null 324.1058ms
+2024-10-23 10:22:59.250 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/Index - null null
+2024-10-23 10:22:59.252 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:59.252 +02:00 [INF] Route matched with {action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:59.253 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/StudentDashboard.
+2024-10-23 10:22:59.253 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp) in 0.3201ms
+2024-10-23 10:22:59.253 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:59.253 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/Index - 302 0 null 2.5852ms
+2024-10-23 10:22:59.257 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/StudentDashboard - null null
+2024-10-23 10:22:59.259 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:59.259 +02:00 [INF] Route matched with {action = "StudentDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StudentDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:59.271 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__firebaseUid_0='a5zHm5xhMpfm1TbNBSM3GXRXWLf2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [u].[UserID], [u].[Email], [u].[FirebaseUID], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [StudentDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-10-23 10:22:59.291 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__student_StudentID_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE [q].[StudentID] = @__student_StudentID_0
+GROUP BY [q].[Status]
+2024-10-23 10:22:59.328 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__student_StudentID_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID], [q].[CategoryID], [q].[CourseID], [q].[DepartmentID], [q].[Description], [q].[ModuleID], [q].[QueryTypeID], [q].[ResolvedDate], [q].[Status], [q].[StudentID], [q].[SubmissionDate], [q].[TicketNumber], [q].[Year], [q0].[DocumentID], [q0].[DocumentName], [q0].[DocumentPath], [q0].[QueryID], [q0].[UploadDate]
+FROM [Queries] AS [q]
+LEFT JOIN [QueryDocuments] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+WHERE [q].[StudentID] = @__student_StudentID_0
+ORDER BY [q].[QueryID]
+2024-10-23 10:22:59.366 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__firebaseUid_0='a5zHm5xhMpfm1TbNBSM3GXRXWLf2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[Email], [u].[FirebaseUID], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-10-23 10:22:59.369 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_UserID_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-10-23 10:22:59.373 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_UserID_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-10-23 10:22:59.374 +02:00 [INF] Executing ViewResult, running view StudentDashboard.
+2024-10-23 10:22:59.386 +02:00 [INF] Executed ViewResult - view StudentDashboard executed in 12.1841ms.
+2024-10-23 10:22:59.386 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp) in 126.6531ms
+2024-10-23 10:22:59.386 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:59.386 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/StudentDashboard - 200 null text/html; charset=utf-8 128.9603ms
+2024-10-23 10:22:59.425 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:22:59.426 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.2484ms
+2024-10-23 10:22:59.428 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:22:59.431 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2.8412ms
+2024-10-23 10:22:59.955 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/Index - null null
+2024-10-23 10:22:59.958 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:59.958 +02:00 [INF] Route matched with {action = "Index", controller = "Logs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:22:59.959 +02:00 [INF] Found 1 log files
+2024-10-23 10:22:59.959 +02:00 [INF] Executing ViewResult, running view Index.
+2024-10-23 10:22:59.961 +02:00 [INF] Executed ViewResult - view Index executed in 1.3214ms.
+2024-10-23 10:22:59.961 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp) in 2.4524ms
+2024-10-23 10:22:59.961 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:22:59.961 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/Index - 200 null text/html; charset=utf-8 6.3156ms
+2024-10-23 10:22:59.988 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:22:59.995 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.5322ms
+2024-10-23 10:23:00.000 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:23:00.001 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.3163ms
+2024-10-23 10:23:02.931 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - null null
+2024-10-23 10:23:02.933 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:23:02.933 +02:00 [INF] Route matched with {action = "ViewLog", controller = "Logs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ViewLog(System.String) on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:23:02.952 +02:00 [INF] Executing ViewResult, running view LogDetail.
+2024-10-23 10:23:02.954 +02:00 [INF] Executed ViewResult - view LogDetail executed in 2.0447ms.
+2024-10-23 10:23:02.954 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp) in 20.1519ms
+2024-10-23 10:23:02.954 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:23:02.954 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - 200 null text/html; charset=utf-8 22.7273ms
+2024-10-23 10:23:02.972 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:23:02.975 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2.703ms
+2024-10-23 10:23:02.976 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:23:02.977 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.21ms
+2024-10-23 10:23:16.969 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Query/TicketDashboard - null null
+2024-10-23 10:23:16.975 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.QueryController.TicketDashboard (Apptivate_UQMS_WebApp)'
+2024-10-23 10:23:16.975 +02:00 [INF] Route matched with {action = "TicketDashboard", controller = "Query"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TicketDashboard() on controller Apptivate_UQMS_WebApp.Controllers.QueryController (Apptivate_UQMS_WebApp).
+2024-10-23 10:23:16.986 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-10-23 10:23:16.987 +02:00 [INF] Executing ViewResult, running view StudentQuery/TicketDashboard.
+2024-10-23 10:23:16.989 +02:00 [INF] Executed ViewResult - view StudentQuery/TicketDashboard executed in 2.076ms.
+2024-10-23 10:23:16.989 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.QueryController.TicketDashboard (Apptivate_UQMS_WebApp) in 14.0276ms
+2024-10-23 10:23:16.989 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.QueryController.TicketDashboard (Apptivate_UQMS_WebApp)'
+2024-10-23 10:23:16.989 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Query/TicketDashboard - 200 null text/html; charset=utf-8 19.9494ms
+2024-10-23 10:23:17.009 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:23:17.010 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.1925ms
+2024-10-23 10:23:17.015 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:23:17.023 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.0908ms
+2024-10-23 10:23:18.030 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Query/Queries - null null
+2024-10-23 10:23:18.033 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.QueryController.Queries (Apptivate_UQMS_WebApp)'
+2024-10-23 10:23:18.036 +02:00 [INF] Route matched with {action = "Queries", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Queries() on controller Apptivate_UQMS_WebApp.Controllers.QueryController (Apptivate_UQMS_WebApp).
+2024-10-23 10:23:18.039 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-10-23 10:23:18.048 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__firebaseUid_0='a5zHm5xhMpfm1TbNBSM3GXRXWLf2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[Email], [u].[FirebaseUID], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-10-23 10:23:18.051 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_UserID_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-10-23 10:23:18.059 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__studentDetail_StudentID_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID], [q].[CategoryID], [q].[CourseID], [q].[DepartmentID], [q].[Description], [q].[ModuleID], [q].[QueryTypeID], [q].[ResolvedDate], [q].[Status], [q].[StudentID], [q].[SubmissionDate], [q].[TicketNumber], [q].[Year]
+FROM [Queries] AS [q]
+WHERE [q].[StudentID] = @__studentDetail_StudentID_0
+2024-10-23 10:23:18.062 +02:00 [INF] Executing ViewResult, running view StudentQuery/Queries.
+2024-10-23 10:23:18.079 +02:00 [INF] Executed ViewResult - view StudentQuery/Queries executed in 18.6898ms.
+2024-10-23 10:23:18.079 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.QueryController.Queries (Apptivate_UQMS_WebApp) in 42.3246ms
+2024-10-23 10:23:18.079 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.QueryController.Queries (Apptivate_UQMS_WebApp)'
+2024-10-23 10:23:18.079 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Query/Queries - 200 null text/html; charset=utf-8 49.2557ms
+2024-10-23 10:23:18.111 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:23:18.111 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.3417ms
+2024-10-23 10:23:18.112 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:23:18.116 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3.3866ms
+2024-10-23 10:23:19.828 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/Index - null null
+2024-10-23 10:23:19.831 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:23:19.831 +02:00 [INF] Route matched with {action = "Index", controller = "Logs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:23:19.832 +02:00 [INF] Found 1 log files
+2024-10-23 10:23:19.832 +02:00 [INF] Executing ViewResult, running view Index.
+2024-10-23 10:23:19.834 +02:00 [INF] Executed ViewResult - view Index executed in 1.3494ms.
+2024-10-23 10:23:19.834 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp) in 2.5003ms
+2024-10-23 10:23:19.834 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:23:19.834 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/Index - 200 null text/html; charset=utf-8 5.5105ms
+2024-10-23 10:23:19.852 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:23:19.856 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:23:19.857 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 1.3129ms
+2024-10-23 10:23:19.858 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 5.3629ms
+2024-10-23 10:23:21.715 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - null null
+2024-10-23 10:23:21.717 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:23:21.717 +02:00 [INF] Route matched with {action = "ViewLog", controller = "Logs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ViewLog(System.String) on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:23:21.734 +02:00 [INF] Executing ViewResult, running view LogDetail.
+2024-10-23 10:23:21.736 +02:00 [INF] Executed ViewResult - view LogDetail executed in 2.4961ms.
+2024-10-23 10:23:21.736 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp) in 19.2725ms
+2024-10-23 10:23:21.736 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:23:21.736 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - 200 null text/html; charset=utf-8 21.495ms
+2024-10-23 10:23:21.753 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:23:21.757 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3.7976ms
+2024-10-23 10:23:21.760 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:23:21.761 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 0.2236ms
+2024-10-23 10:33:02.359 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-23 10:33:02.595 +02:00 [INF] Now listening on: https://localhost:7061
+2024-10-23 10:33:02.596 +02:00 [INF] Now listening on: http://localhost:5042
+2024-10-23 10:33:02.600 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-23 10:33:02.601 +02:00 [INF] Hosting environment: Development
+2024-10-23 10:33:02.602 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-10-23 10:33:03.029 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - null null
+2024-10-23 10:33:03.575 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:33:03.596 +02:00 [INF] Route matched with {action = "ViewLog", controller = "Logs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ViewLog(System.String) on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:33:03.736 +02:00 [INF] Executing ViewResult, running view LogDetail.
+2024-10-23 10:33:03.865 +02:00 [INF] Executed ViewResult - view LogDetail executed in 131.9879ms.
+2024-10-23 10:33:03.875 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp) in 276.3175ms
+2024-10-23 10:33:03.878 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:33:03.885 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - 200 null text/html; charset=utf-8 857.0865ms
+2024-10-23 10:33:04.472 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:33:04.480 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 8.0333ms
+2024-10-23 10:33:04.543 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:33:04.625 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 81.5281ms
+2024-10-23 10:33:18.418 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - null null
+2024-10-23 10:33:18.776 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:33:18.778 +02:00 [INF] Route matched with {action = "ViewLog", controller = "Logs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ViewLog(System.String) on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:33:18.819 +02:00 [INF] Executing ViewResult, running view LogDetail.
+2024-10-23 10:33:18.832 +02:00 [INF] Executed ViewResult - view LogDetail executed in 13.441ms.
+2024-10-23 10:33:18.834 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp) in 53.9079ms
+2024-10-23 10:33:18.859 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:33:18.861 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - 200 null text/html; charset=utf-8 442.4788ms
+2024-10-23 10:33:19.063 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:33:19.064 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:33:19.181 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 117.1643ms
+2024-10-23 10:33:19.181 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 111.9956ms
+2024-10-23 10:33:28.139 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/Index - null null
+2024-10-23 10:33:28.149 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:33:28.154 +02:00 [INF] Route matched with {action = "Index", controller = "Logs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:33:28.161 +02:00 [INF] Found 1 log files
+2024-10-23 10:33:28.165 +02:00 [INF] Executing ViewResult, running view Index.
+2024-10-23 10:33:28.196 +02:00 [INF] Executed ViewResult - view Index executed in 32.2615ms.
+2024-10-23 10:33:28.197 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp) in 41.5329ms
+2024-10-23 10:33:28.198 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-23 10:33:28.199 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/Index - 200 null text/html; charset=utf-8 60.064ms
+2024-10-23 10:33:28.325 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-10-23 10:33:28.326 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:33:28.330 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:33:28.331 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 4.9737ms
+2024-10-23 10:33:28.339 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-10-23 10:33:28.341 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.5626ms
+2024-10-23 10:33:28.343 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 304 null text/css 17.9686ms
+2024-10-23 10:33:30.644 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - null null
+2024-10-23 10:33:30.656 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:33:30.657 +02:00 [INF] Route matched with {action = "ViewLog", controller = "Logs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ViewLog(System.String) on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-23 10:33:30.678 +02:00 [INF] Executing ViewResult, running view LogDetail.
+2024-10-23 10:33:30.682 +02:00 [INF] Executed ViewResult - view LogDetail executed in 3.5264ms.
+2024-10-23 10:33:30.683 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp) in 24.6425ms
+2024-10-23 10:33:30.684 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-23 10:33:30.689 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241023.txt - 200 null text/html; charset=utf-8 44.1332ms
+2024-10-23 10:33:30.737 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-23 10:33:30.742 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-23 10:33:30.745 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.0825ms
+2024-10-23 10:33:30.748 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 5.6406ms

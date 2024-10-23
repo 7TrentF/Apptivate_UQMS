@@ -1,0 +1,22 @@
+﻿@model string
+
+<h2>Log Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <pre class="log-content">@Model</pre>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a href="@Url.Action("Index", "Logs")" class="btn btn-secondary">Back to Log List</a>
+</div>
+
+<style>
+    .log-content {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+</style>

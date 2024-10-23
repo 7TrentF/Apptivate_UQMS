@@ -1,0 +1,68 @@
+﻿@page
+@model Apptivate_UQMS_WebApp.Models.LogsModel
+@{
+    ViewData["Title"] = "Log Viewer";
+}
+
+<div class="container">
+    <h2>Application Logs</h2>
+    <div class="mb-3">
+        <button class="btn btn-primary" onclick="refreshLogs()">Refresh Logs</button>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped" id="logTable">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Level</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script src="/_framework/aspnetcore-browser-refresh.js"></script>'
+
+@section Scripts {
+    <script>
+        function refreshLogs() {
+            fetch('/api/logs')
+                .then(response => response.json())
+                .then(logs => {
+                    const tbody = document.querySelector('#logTable tbody');
+                    tbody.innerHTML = '';
+                    
+                    logs.reverse().forEach(log => {
+                        const row = document.createElement('tr');
+                        row.className = getRowClass(log.level);
+                        
+                        row.innerHTML = `
+                            <td>${new Date(log.timestamp).toLocaleString()}</td>
+                            <td>${log.level}</td>
+                            <td>${log.message}</td>
+                        `;
+                        
+                        tbody.appendChild(row);
+                    });
+                });
+        }
+
+        function getRowClass(level) {
+            switch (level.toLowerCase()) {
+                case 'error': return 'table-danger';
+                case 'warning': return 'table-warning';
+                case 'information': return 'table-info';
+                default: return '';
+            }
+        }
+
+        // Refresh logs on page load
+        refreshLogs();
+        // Refresh logs every 5 seconds
+        setInterval(refreshLogs, 5000);
+    </script>
+}
