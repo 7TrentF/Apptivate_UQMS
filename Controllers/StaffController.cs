@@ -28,6 +28,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
             _hubContext = hubContext;
         }
 
+    
         [HttpGet]
         public async Task<IActionResult> QueryDetails(int queryId)
         {
@@ -148,6 +149,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return Json(new { NewQueries = newQueryCount });
         }
 
+
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> SubmitSolutionToQuery(QueryResolutions model, IFormFile uploadedFile)
         {

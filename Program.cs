@@ -1,5 +1,6 @@
 using Apptivate_UQMS_WebApp.Data;
 using Apptivate_UQMS_WebApp.Services;
+using Apptivate_UQMS_WebApp.Services.AccountServices;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
 using Microsoft.AspNetCore.Authentication;
@@ -70,9 +71,6 @@ builder.Logging.AddDebug(); // Add debug logging (visible in Debug output window
 builder.Logging.AddFile("Logs/log-{Date}.txt");  // Add this line to enable file logging
 
 
-
-
-
 // Add session services
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
@@ -119,6 +117,13 @@ app.UseRouting();
 // Enable authentication and authorization
 app.UseAuthentication();
 app.UseAuthorization();
+
+
+//app.UseHsts(); // Enforces HSTS policy
+//app.UseXContentTypeOptions(); // Adds X-Content-Type-Options header
+//app.UseReferrerPolicy(opts => opts.NoReferrer()); // Adds a referrer policy header
+
+
 
 app.MapControllerRoute(
     name: "default",

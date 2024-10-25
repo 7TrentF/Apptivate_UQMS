@@ -11,8 +11,6 @@
     //int assignmentID = ViewBag.AssignmentID;
 }
 
-
-
 <link rel="stylesheet" href="~/css/AssignedQueryDetails.css" asp-append-version="true">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -31,7 +29,7 @@
             </div>
             <div class="card-content">
                 <div class="info-item">
-                    <label>Query ID</label>
+                    <label>Ticket Number</label>
                     <span>@Model.TicketNumber</span>
                 </div>
                 <div class="info-item">
@@ -41,13 +39,6 @@
                 <div class="info-item">
                     <label>Submission Date</label>
                     <span>@Model.SubmissionDate?.ToString("dd MMM yyyy")</span>
-                </div>
-
-
-                
-                  <div class="info-item">
-                    <label>Query ID  </label>
-                    <span>@queryId</span>
                 </div>
 
 
@@ -157,6 +148,7 @@
     </div>
     <div class="card-content">
         <form class="feedback-form" asp-action="SubmitSolutionToQuery" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
             <input type="hidden" name="QueryID" value="@queryId" />
             <input type="hidden" name="AssignmentID" value="@assignmentID" />
             <div class="form-group">

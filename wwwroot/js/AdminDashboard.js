@@ -1,103 +1,140 @@
-﻿// Wait for the document to be ready
-$(document).ready(function () {
-    // Initialize search functionality
-    const searchInput = $('#searchInput');
-    const usersTable = $('#usersTable');
+﻿// AdminDashboard.js
+document.addEventListener('DOMContentLoaded', () => {
+    initializeAnimations();
+    initializeCharts();
+    initializeInteractions();
+});
 
-    searchInput.on('input', function () {
-        const searchTerm = $(this).val().toLowerCase();
-
-        $('#usersTable tbody tr').each(function () {
-            const row = $(this);
-            const text = row.text().toLowerCase();
-            row.toggle(text.indexOf(searchTerm) > -1);
-        });
+function initializeAnimations() {
+    // Animate stats counters
+    const stats = document.querySelectorAll('.stat-item p');
+    stats.forEach(stat => {
+        const finalValue = parseInt(stat.textContent.replace(/,/g, ''));
+        animateCounter(stat, finalValue);
     });
 
-    // Initialize sorting
-    $('#sortSelect').on('change', function () {
-        const sortValue = $(this).val();
-        const tbody = $('#usersTable tbody');
-        const rows = tbody.find('tr').toArray();
-
-        rows.sort(function (a, b) {
-            let aVal, bVal;
-
-            switch (sortValue) {
-                case 'asc':
-                case 'desc':
-                    aVal = $(a).find('td:first').text();
-                    bVal = $(b).find('td:first').text();
-                    break;
-                case 'email_asc':
-                case 'email_desc':
-                    aVal = $(a).find('td:eq(1)').text();
-                    bVal = $(b).find('td:eq(1)').text();
-                    break;
-                case 'role_asc':
-                case 'role_desc':
-                    aVal = $(a).find('td:eq(3)').text();
-                    bVal = $(b).find('td:eq(3)').text();
-                    break;
-            }
-
-            if (sortValue.includes('desc')) {
-                return bVal.localeCompare(aVal);
-            }
-            return aVal.localeCompare(bVal);
-        });
-
-        tbody.empty();
-        tbody.append(rows);
-    });
-
-    // Animate statistics on page load
-    $('.stat-card').each(function (index) {
-        $(this).delay(100 * index).animate({
-            opacity: 1,
-            top: 0
-        }, 500);
-    });
-
-    // Progress bar animation
-    $('.progress-bar').each(function () {
-        const bar = $(this);
-        const width = bar.css('width');
-        bar.css('width', '0');
+    // Animate progress bars
+    const progressBars = document.querySelectorAll('.progress-bar');
+    progressBars.forEach(bar => {
+        const percentage = bar.style.width;
+        bar.style.width = '0%';
         setTimeout(() => {
-            bar.css('width', width);
+            bar.style.width = percentage;
         }, 100);
     });
+}
 
-    // Add smooth hover effects to table rows
-    $('#usersTable tbody tr').hover(
-        function () {
-            $(this).css('transition', 'background-color 0.3s ease');
-        },
-        function () {
-            $(this).css('transition', 'background-color 0.3s ease');
-        }
-    );
+function animateCounter(element, finalValue) {
+    const duration = 2000;
+    const steps = 60;
+    const stepValue = finalValue / steps;
+    let currentValue = 0;
+    let currentStep = 0;
 
-    // Add confirmation dialog for delete action
-    $('.action-icon[title="Delete"]').click(function (e) {
-        if (!confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
-            e.preventDefault();
-        }
-    });
+    const animate = () => {
+        currentStep++;
+        currentValue += stepValue;
 
-    // Add tooltip functionality
-    $('[title]').tooltip({
-        placement: 'top',
-        trigger: 'hover'
-    });
-
-    // Add responsive table handling
-    $(window).on('resize', function () {
-        if ($(window).width() < 768) {
-            $('.table-responsive').css('max-height', '500px');
+        if (currentStep === steps) {
+            element.textContent = finalValue.toLocaleString();
         } else {
-            $('.table-responsive').css('max-height', 'none');
+            element.textContent = Math.round(currentValue).toLocaleString();
+            requestAnimationFrame(animate);
         }
-    }).trigger('resize');
+    };
+
+    requestAnimationFrame(animate);
+}
+
+function initializeCharts() {
+    // Add any chart initializations here
+    // For example, using Chart.js or other visualization libraries
+}
+
+function initializeInteractions() {
+    // Stats hover effects
+    const statItems = document.querySelectorAll('.stat-item');
+    statItems.forEach(item => {
+        item.addEventListener('mouseover', () => {
+            item.style.transform = 'translateY(-4px)';
+        });
+
+        item.addEventListener('mouseout', () => {
+            item.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Activity list interactions
+    const activityItems = document.querySelectorAll('.activity-list li');
+    activityItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.style.backgroundColor = '#f8fafc';
+        });
+
+        item.addEventListener('mouseleave', () => {
+            item.style.backgroundColor = 'transparent';
+        });
+    });
+
+    // Show more button functionality
+    const showMoreBtn = document.querySelector('.show-more-btn');
+    if (showMoreBtn) {
+        const activityList = document.querySelector('.activity-list');
+        let isExpanded = false;
+
+        showMoreBtn.addEventListener('click', () => {
+            isExpanded = !isExpanded;
+
+            if (isExpanded) {
+                activityList.style.maxHeight = `${activityList.scrollHeight}px`;
+                showMoreBtn.textContent = 'Show Less';
+            } else {
+                activityList.style.maxHeight = '400px';
+                showMoreBtn.textContent = 'Show More';
+            }
+        });
+    }
+
+    // Add smooth scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+}
+
+// Handle responsive layout changes
+const resizeObserver = new ResizeObserver(entries => {
+    entries.forEach(entry => {
+        const width = entry.contentRect.width;
+        const container = entry.target;
+
+        if (width < 768) {
+            container.classList.add('mobile-layout');
+        } else {
+            container.classList.remove('mobile-layout');
+        }
+    });
+});
+
+const container = document.querySelector('.container');
+if (container) {
+    resizeObserver.observe(container);
+}
+
+// Add smooth loading transitions
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+
+    // Stagger the appearance of stat items
+    const stats = document.querySelectorAll('.stat-item');
+    stats.forEach((stat, index) => {
+        setTimeout(() => {
+            stat.style.opacity = '1';
+            stat.style.transform = 'translateY(0)';
+        }, 100 * index);
+    });
 });

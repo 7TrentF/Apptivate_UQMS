@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using FirebaseAdmin.Auth;
 using Microsoft.AspNetCore.Authorization;
+using Apptivate_UQMS_WebApp.Services.AccountServices;
 
 
 namespace Apptivate_UQMS_WebApp.Controllers
@@ -50,7 +51,22 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Register()
+        public async Task<IActionResult> GetCoursesByDepartment(int departmentId)
+        {
+            _logger.LogInformation($"GetDepartmentWithCourses hit !! : {departmentId}");
+
+
+            var courses = await _userRegistrationService.GetDepartmentWithCoursesAsync(departmentId);
+            if (courses == null || !courses.Any())
+            {
+                return NotFound(); // Return 404 if no courses are found
+            }
+            return Ok(courses); // Return the list of courses with IDs and codes
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Register()
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -61,25 +77,10 @@ namespace Apptivate_UQMS_WebApp.Controllers
             _logger.LogInformation("Register page loaded.");
 
 
-
-            // Fetch departments from the database
-             var departments = _context.Departments.Select(d => new SelectListItem
-            {
-                Value = d.DepartmentID.ToString(),
-                Text = d.DepartmentName
-            }).ToList();
-
-            var courses = _context.Courses.Select(d => new SelectListItem
-            {
-                Value = d.CourseID.ToString(),
-                Text = d.CourseName
-            }).ToList();
-
-            var positions = _context.Positions.Select(p => new SelectListItem
-            {
-                Value = p.PositionID.ToString(),
-                Text = p.PositionName
-            }).ToList();
+            var departments = await _userRegistrationService.GetDepartmentsAsync();
+            var courses = await _userRegistrationService.GetCoursesAsync();
+            var positions = await _userRegistrationService.GetPositionsAsync();
+          
 
             // Pass the selected role to the view
             var selectedRole = TempData["SelectedRole"]?.ToString();
@@ -94,6 +95,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             return View(model);
         }
+
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -101,20 +104,18 @@ namespace Apptivate_UQMS_WebApp.Controllers
             {
                 try
                 {
-                    // Use the service to register the user
                     var user = await _userRegistrationService.RegisterUserAsync(model);
+                    _logger.LogInformation("User registered successfully.");
 
-                    _logger.LogInformation($"User registered successfully with email: {user.Email}");
-                    return RedirectToAction("Login");
+                    return Json(new { success = true, message = "Registration successful! You can now login." });
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, $"An error occurred while registering user: {ex.Message}");
-                    ModelState.AddModelError(string.Empty, "An error occurred during registration. Please try again.");
+                    _logger.LogError(ex, "Registration error.");
+                    return Json(new { success = false, message = ex.Message });
                 }
             }
 
-            
             // Repopulate departments list if validation fails
             model.Departments = _context.Departments.Select(d => new SelectListItem
             {
@@ -128,10 +129,18 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 Value = d.CourseID.ToString(),
                 Text = d.CourseName
             }).ToList();
-            
 
-            _logger.LogWarning($"Registration failed for user with email: {model.Email}");
-            return View(model);
+            // If ModelState is invalid, collect all error messages
+            var errorMessages = ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList();
+
+            // Combine all error messages into a single string
+            string combinedErrors = string.Join(" ", errorMessages);
+            _logger.LogWarning($"Registration failed: {combinedErrors}");
+
+            return Json(new { success = false, message = combinedErrors });
         }
 
 

@@ -1,4 +1,4 @@
-﻿namespace Apptivate_UQMS_WebApp.Services
+﻿namespace Apptivate_UQMS_WebApp.Services.AccountServices
 {
     using FirebaseAdmin.Auth;
     using System.Net.Http;
@@ -153,7 +153,7 @@
                     throw new Exception("Email address is already taken.");
                 }
 
-                else 
+                else
                 {
                     _logger.LogError(ex, $"Failed to register user with email: {email}");
                     throw new Exception("Registration failed. Please try again..");

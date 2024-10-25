@@ -1,119 +1,229 @@
 ﻿@model Apptivate_UQMS_WebApp.Models.AdminDashboardViewModel
 
-@{
-    ViewData["Title"] = "Admin Dashboard";
-}
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]</title>
+    <title>Admin Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <link rel="stylesheet" href="~/css/AdminDashboard.css" asp-append-version="true">
+
 </head>
-
-<body>
-
-    <div class="container">
-        <!-- User Profile Section -->
-        <div class="user-profile">
-            <img src="~/Svgs/user-id-portrait-svgrepo-com (1).svg" alt="User Profile" class="user-profile-picture" />
-            <h2>@Model.Users.Name @Model.Users.Surname</h2>
-        </div>
-
-        <!-- Stats Section -->
-        <div class="stats-section">
-            <div class="stat-item">
-                <img src="~/images/Users.png" alt="Users Icon" class="icon" />
-                <h3>Total Users</h3>
-                <p>@Model.TotalUsers</p>
-            </div>
-
-            <div class="stat-item">
-                <img src="~/Svgs/active.svg" alt="Active Users Icon" class="icon" />
-                <h3>Active Users</h3>
-                <p>@Model.ActiveUsers</p>
-            </div>
-
-            <div class="stat-item">
-                <img src="~/Svgs/total.svg" alt="Queries Icon" class="icon" />
-                <h3>Total Queries</h3>
-                <p>@Model.TotalQueries</p>
-            </div>
-
-            <div class="stat-item">
-                <img src="~/Svgs/resolved.svg" alt="Resolved Queries Icon" class="icon" />
-                <h3>Resolved Queries</h3>
-                <p>@Model.ResolvedQueries</p>
-            </div>
-
-            <div class="stat-item">
-                <img src="~/Svgs/system-pending-line.svg" alt="Pending Queries Icon" class="icon" />
-                <h3>Pending Queries</h3>
-                <p>@Model.PendingQueries</p>
-            </div>
-        </div>
-
-        <div class="content-wrapper">
-            <!-- Main Content Section -->
-            <div class="main-content">
-                <!-- User Management Overview Section -->
-                <div class="progress-container">
-                    <h3>User Management Overview</h3>
-                    <div class="progress-section">
-                        @foreach (var overview in Model.UserManagementOverview)
-                        {
-                            <div class="progress-item">
-                                <span>@overview.Role</span>
-                                <div class="progress">
-                                    <span>@overview.Percentage%</span>
-                                    <div class="progress-bar" style="width:@overview.Percentage%;"></div>
-                                </div>
-                            </div>
-                        }
-                    </div>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Top Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-600">UQMS Dashboard</span>
                 </div>
-
-
-
-
-                <!-- Query Heatmap Section -->
-                <div class="query-heatmap">
-                    <h4>Query Heatmap</h4>
-                    <div class="heatmap-grid">
-                        <!-- Example Heatmap Items -->
-                        <div class="heatmap-item low-load">CS Department <br> 5 queries</div>
-                        <div class="heatmap-item medium-load">Physics Department <br> 18 queries</div>
-                        <div class="heatmap-item high-load">Chemistry Department <br> 25 queries</div>
-                        <!-- Add more departments as needed -->
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2">
+                        <img class="h-8 w-8 rounded-full" src="/api/placeholder/32/32" alt="Profile">
+                        <span class="text-gray-700">@Model.Users.Name @Model.Users.Surname</span>
                     </div>
                 </div>
             </div>
+        </div>
+    </nav>
 
-            <!-- System Activity Section -->
-            <div class="system-activity">
-                <h4>System Activity</h4>
-                <ul class="activity-list">
-                    @foreach (var activity in Model.SystemActivities)
+    <!-- Main Content -->
+    <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-8">
+            <div class="dashboard-card">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-gray-500 text-sm font-medium">Total Users</h3>
+                    <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <p class="text-3xl font-bold stat-value">@Model.TotalUsers</p>
+                <div class="mt-2 text-sm text-gray-600">
+                    <span class="text-green-500">↑ 12%</span> vs last month
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-gray-500 text-sm font-medium">Active Users</h3>
+                    <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </div>
+                <p class="text-3xl font-bold stat-value">@Model.ActiveUsers</p>
+                <div class="mt-2 text-sm text-gray-600">
+                    <span class="text-green-500">↑ 8%</span> vs last month
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-gray-500 text-sm font-medium">Total Queries</h3>
+                    <svg class="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <p class="text-3xl font-bold stat-value">@Model.TotalQueries</p>
+                <div class="mt-2 text-sm text-gray-600">
+                    <span class="text-red-500">↓ 3%</span> vs last month
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-gray-500 text-sm font-medium">Resolved Queries</h3>
+                    <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <p class="text-3xl font-bold stat-value">@Model.ResolvedQueries</p>
+                <div class="mt-2 text-sm text-gray-600">
+                    <span class="text-green-500">↑ 15%</span> vs last month
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-gray-500 text-sm font-medium">Pending Queries</h3>
+                    <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <p class="text-3xl font-bold stat-value">@Model.PendingQueries</p>
+                <div class="mt-2 text-sm text-gray-600">
+                    <span class="text-yellow-500">↔ 0%</span> vs last month
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts and Activity Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- User Management Chart -->
+            <div class="dashboard-card lg:col-span-2">
+                <h3 class="text-lg font-semibold text-gray-800 mb-6">User Management Overview</h3>
+                <canvas id="userManagementChart" height="300"></canvas>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="dashboard-card">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-800">Recent Activity</h3>
+                    <button class="text-blue-600 hover:text-blue-800">View All</button>
+                </div>
+                <div class="space-y-4">
+                    @foreach (var activity in Model.SystemActivities.Take(5))
                     {
-                        <li>
-                            <img src="~/Svgs/user_id_portrait.svg" alt="User Avatar" class="avatar" />
-                            <div class="activity-details">
-                                <p>@activity.UserName @activity.Action</p>
-                                <span>@activity.Timestamp</span>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0">
+                                <img class="h-10 w-10 rounded-full" src="/api/placeholder/40/40" alt="User">
                             </div>
-                        </li>
+                            <div>
+                                <p class="text-sm font-medium text-gray-900">@activity.UserName</p>
+                                <p class="text-sm text-gray-500">@activity.Action</p>
+                                <p class="text-xs text-gray-400">@activity.Timestamp</p>
+                            </div>
+                        </div>
                     }
-                </ul>
-                <button class="btn show-more-btn">Show More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Department Query Distribution -->
+        <div class="mt-8 dashboard-card">
+            <h3 class="text-lg font-semibold text-gray-800 mb-6">Department Query Distribution</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="p-4 bg-blue-50 rounded-lg">
+                    <div class="flex justify-between items-center">
+                        <span class="text-blue-800 font-medium">CS Department</span>
+                        <span class="text-blue-600 font-bold">5 queries</span>
+                    </div>
+                    <div class="mt-2 h-2 bg-blue-200 rounded-full">
+                        <div class="h-2 bg-blue-600 rounded-full" style="width: 20%"></div>
+                    </div>
+                </div>
+                <div class="p-4 bg-yellow-50 rounded-lg">
+                    <div class="flex justify-between items-center">
+                        <span class="text-yellow-800 font-medium">Physics Department</span>
+                        <span class="text-yellow-600 font-bold">18 queries</span>
+                    </div>
+                    <div class="mt-2 h-2 bg-yellow-200 rounded-full">
+                        <div class="h-2 bg-yellow-600 rounded-full" style="width: 60%"></div>
+                    </div>
+                </div>
+                <div class="p-4 bg-red-50 rounded-lg">
+                    <div class="flex justify-between items-center">
+                        <span class="text-red-800 font-medium">Chemistry Department</span>
+                        <span class="text-red-600 font-bold">25 queries</span>
+                    </div>
+                    <div class="mt-2 h-2 bg-red-200 rounded-full">
+                        <div class="h-2 bg-red-600 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="~/js/AdminDashboard.js"></script>
+    <script>
+        // Initialize charts when the document is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // User Management Chart
+            const ctx = document.getElementById('userManagementChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Active Users',
+                        data: [65, 78, 86, 82, 95, 90],
+                        borderColor: '#3B82F6',
+                        tension: 0.4,
+                        fill: false
+                    }, {
+                        label: 'Queries',
+                        data: [45, 55, 65, 60, 75, 70],
+                        borderColor: '#10B981',
+                        tension: 0.4,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
 
+            // Add animation to stats
+            const stats = document.querySelectorAll('.stat-value');
+            stats.forEach(stat => {
+                const value = parseInt(stat.textContent);
+                animateValue(stat, 0, value, 1500);
+            });
+        });
+
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+    </script>
 </body>
-
 </html>

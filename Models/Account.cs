@@ -42,7 +42,7 @@ namespace Apptivate_UQMS_WebApp.Models
             [Required]
             public int? Year { get; set; }
 
-            [Required]
+           
             public int? SelectedPositionID { get; set; }
 
             public IEnumerable<SelectListItem> Positions { get; set; } = new HashSet<SelectListItem>();

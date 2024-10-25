@@ -10,7 +10,7 @@
     min-height: 100vh;
     width: 260px;
     flex-shrink: 0;
-    background: #ffffff;
+    background-color: white;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
     position: sticky;
@@ -35,9 +35,18 @@
 
 /* Logo styles */
 .logo {
-    padding: 1rem;
+    padding: 8rem;
     transition: all 0.3s ease;
+    background-image: url('/Images/Apptivate_circle _logo.png');
+    background-size: contain; /* Ensures the image scales appropriately */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image */
+    width: 100px; /* Set an appropriate width */
+    height: 100px; /* Set an appropriate height */
+    margin: 0 auto; /* Center the logo horizontally */
 }
+
+
 
 #sidebar.collapsed .logo img {
     width: 40px;

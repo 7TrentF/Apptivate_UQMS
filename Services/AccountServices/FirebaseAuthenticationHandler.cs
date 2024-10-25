@@ -1,4 +1,4 @@
-﻿using Apptivate_UQMS_WebApp.Services;
+﻿using Apptivate_UQMS_WebApp.Services.AccountServices;
 using FirebaseAdmin.Auth;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;

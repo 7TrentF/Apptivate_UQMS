@@ -98,7 +98,6 @@ namespace Apptivate_UQMS_WebApp.Services
             };
         }
 
-
         public string GenerateDateBasedTicketNumber()
         {
             var random = new Random();
@@ -106,7 +105,6 @@ namespace Apptivate_UQMS_WebApp.Services
             string randomPart = random.Next(10000, 99999).ToString(); // Example: 58423
             return $"{datePart}-{randomPart}";
         }
-
 
         public async Task SubmitAcademicQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
         {
@@ -238,7 +236,6 @@ namespace Apptivate_UQMS_WebApp.Services
             }
         }
 
-
         private async Task HandleFileUpload(IFormFile uploadedFile, int queryId)
         {
             var allowedExtensions = new[] { ".jpg", ".png", ".pdf", ".zip" };
@@ -329,7 +326,6 @@ namespace Apptivate_UQMS_WebApp.Services
                 }
             }
         }
-
 
         public async Task<object> GetStaffAssignmentQueryDetails(int queryId, string firebaseUid)
         {
@@ -460,7 +456,6 @@ namespace Apptivate_UQMS_WebApp.Services
 
             _logger.LogInformation("Document associated with ResolutionID {ResolutionID} and DocumentID {DocumentID}.", resolutionId, queryDocument.DocumentID);
         }
-
 
         public async Task SubmitSolutionToQueryAsync(QueryResolutions model, IFormFile uploadedFile, string firebaseUid)
         {

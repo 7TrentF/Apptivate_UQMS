@@ -118,6 +118,8 @@ namespace Apptivate_UQMS_WebApp.Models
             public int? AssignmentID { get; set; }
             public int? QueryID { get; set; } // Foreign Key
             public int? StaffID { get; set; } // Foreign Key
+
+            public string AssignmentNumber { get; set; }
             public DateTime? AssignedDate { get; set; }
             public DateTime? ResolutionDate { get; set; }
 
