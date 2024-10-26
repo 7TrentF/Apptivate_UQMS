@@ -51,7 +51,10 @@ builder.Services.AddHttpClient<FirebaseAuthService>();
 builder.Services.AddScoped<IUserRegistrationService, UserRegistrationService>();
 builder.Services.AddScoped<IQueryService, QuerySubmissionService>(); // Add this line
 builder.Services.AddScoped<IUserProfileService, UserProfileService>();
+builder.Services.AddScoped<IEmailService, BrevoEmailService>();
+
 // Add authentication
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = "Firebase";

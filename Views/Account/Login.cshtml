@@ -33,13 +33,101 @@
             </div>
             <button type="submit" class="btn">LOG IN</button>
             <div class="form-footer">
-                <a href="#">Foot Password?</a><br>
+                <a href="#">Forgot Password?</a><br>
                 <span>Don't have an account? <a href="/Account/SelectRole">Register</a></span>
             </div>
+            <div class="divider">
+                <span>OR</span>
+            </div>
+            <div id="googleSignIn" class="google-btn">
+                <button type="button" class="btn btn-google">
+                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo">
+                    Sign in with Google
+                </button>
+            </div>
         </form>
-</div>
+    </div>
+
 
    <script src="~/js/login.js"></script>
+    @section Scripts {
+        <!-- Update to specific Firebase version -->
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+        <script>
+            console.log('Starting Firebase initialization...');
 
+            const firebaseConfig = {
+                apiKey: "AIzaSyDXB0dEozyPQdXzlGyQFP1elMObEksarR0",
+                authDomain: "uqms-a3d87.firebaseapp.com",
+                projectId: "uqms-a3d87",
+                storageBucket: "uqms-a3d87.appspot.com",
+                messagingSenderId: "728626322581",
+                appId: "1:728626322581:web:a5809843d30cf49aef4f9c",
+                measurementId: "G-ZGLBS2PFY8"
+            };
 
+            try {
+                const app = firebase.initializeApp(firebaseConfig);
+                console.log('Firebase initialized successfully');
+
+                function initializeGoogleSignIn() {
+                    console.log('Setting up Google Sign-In...');
+                    const googleBtn = document.querySelector('.btn-google');
+
+                    if (!googleBtn) {
+                        console.error('Google sign-in button not found');
+                        return;
+                    }
+
+                    googleBtn.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        console.log('Google button clicked');
+
+                        try {
+                            const provider = new firebase.auth.GoogleAuthProvider();
+                            const result = await firebase.auth().signInWithPopup(provider);
+                            const idToken = await result.user.getIdToken();
+
+                            const response = await fetch('/Account/GoogleLogin', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ idToken: idToken })
+                            });
+
+                            const data = await response.json();
+                            console.log('Backend response:', data);
+
+                            if (data.success) {
+                                window.location.href = data.redirectUrl;
+                            } else {
+                                if (data.requiresRegistration) {
+                                    // Show a more specific message for unregistered users
+                                    alert('This email is not registered. Please register your account first with your university details.');
+                                    window.location.href = '/Account/SelectRole'; // Redirect to registration
+                                } else {
+                                    alert('Failed to login with Google: ' + data.error);
+                                }
+                            }
+                        } catch (error) {
+                            console.error('Google sign-in error:', error);
+                            alert('Failed to login with Google: ' + error.message);
+                        }
+                    });
+                }
+
+                // Initialize when DOM is ready
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', initializeGoogleSignIn);
+                } else {
+                    initializeGoogleSignIn();
+                }
+
+            } catch (error) {
+                console.error('Firebase initialization error:', error);
+            }
+        </script>
+    }
 </body>

@@ -271,10 +271,94 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return View(model);
         }
 
-
-
-
         [HttpPost]
+        public async Task<IActionResult> GoogleLogin([FromBody] GoogleLoginViewModel model)
+        {
+            _logger.LogInformation("GoogleLogin attempt initiated");
+
+            try
+            {
+                // First verify the token
+                var decodedToken = await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(model.IdToken);
+                var email = decodedToken.Claims["email"].ToString();
+
+                // Check if user exists in your database by email
+                var existingUser = await _context.Users
+                    .FirstOrDefaultAsync(u => u.Email.ToLower() == email.ToLower());
+
+                if (existingUser == null)
+                {
+                    _logger.LogWarning($"Google login attempted with non-registered email: {email}");
+                    return Json(new
+                    {
+                        success = false,
+                        error = "This email is not registered. Please register through the standard registration process first.",
+                        requiresRegistration = true
+                    });
+                }
+
+                _logger.LogWarning($"Id Token: {model.IdToken}");
+
+
+                // If we get here, the user exists, so we can proceed with the Google sign-in
+                var firebaseToken = await _firebaseAuthService.LoginWithGoogle(model.IdToken);
+
+                // Update the Firebase UID if it's not set or different
+                if (existingUser.FirebaseUID != decodedToken.Uid)
+                {
+                    existingUser.FirebaseUID = decodedToken.Uid;
+                    await _context.SaveChangesAsync();
+                }
+
+                // Update LastSeen
+                existingUser.LastSeen = DateTime.UtcNow;
+                await _context.SaveChangesAsync();
+
+                // Set authentication cookie
+                Response.Cookies.Append("FirebaseToken", firebaseToken, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = true,
+                    Expires = DateTimeOffset.UtcNow.AddDays(7),
+                    SameSite = SameSiteMode.Strict
+                });
+
+                HttpContext.Session.SetString("FirebaseUID", existingUser.FirebaseUID);
+
+                _logger.LogInformation($"User {existingUser.Email} successfully logged in via Google");
+
+                // Return success with role-based redirect
+                return Json(new
+                {
+                    success = true,
+                    redirectUrl = existingUser.Role switch
+                    {
+                        "Student" => Url.Action("StudentDashboard", "Dashboard"),
+                        "Staff" => Url.Action("StaffDashboard", "Dashboard"),
+                        "Admin" => Url.Action("AdminDashboard", "Dashboard"),
+                        _ => Url.Action("Index", "Home")
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during Google login");
+                return Json(new { success = false, error = "Failed to login with Google" });
+            }
+        }
+
+
+        // GoogleLoginViewModel.cs
+        public class GoogleLoginViewModel
+    {
+        [Required]
+        public string IdToken { get; set; }
+    }
+
+
+
+
+    [HttpPost]
         public IActionResult Logout()
         {
             // Log information about logout

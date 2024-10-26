@@ -6,6 +6,7 @@ using QueryStatus = Apptivate_UQMS_WebApp.Models.QueryModel.QueryStatus;
 using Query = Apptivate_UQMS_WebApp.Models.QueryModel.Query;
 using Apptivate_UQMS_WebApp.ViewModels;
 using static Apptivate_UQMS_WebApp.ViewModels.QueryViewModel;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 
 namespace Apptivate_UQMS_WebApp.Services
@@ -15,11 +16,14 @@ namespace Apptivate_UQMS_WebApp.Services
         private readonly ApplicationDbContext _context;
         private readonly FileUploadService _fileUploadService;  // Inject fileUploadService
         private readonly ILogger<QuerySubmissionService> _logger;
+        private readonly IEmailService _emailService;
 
-        public QuerySubmissionService(ApplicationDbContext context, FileUploadService fileUploadService, ILogger<QuerySubmissionService> logger)
+        public QuerySubmissionService(IEmailService emailService, ApplicationDbContext context, FileUploadService fileUploadService, ILogger<QuerySubmissionService> logger)
         {
             _context = context;
             _fileUploadService = fileUploadService;
+            _emailService = emailService;
+
             _logger = logger;
         }
 
@@ -106,7 +110,7 @@ namespace Apptivate_UQMS_WebApp.Services
             return $"{datePart}-{randomPart}";
         }
 
-        public async Task SubmitAcademicQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
+        public async Task SubmitAcademicQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid, string userEmail)
         {
             _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
 
@@ -126,6 +130,7 @@ namespace Apptivate_UQMS_WebApp.Services
                 _logger.LogWarning("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
                 _logger.LogWarning("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
 
+                _logger.LogInformation("received email {UserEmail}", userEmail);
 
                 // Validate the query type and category
                 if (model.QueryTypeID != queryData.QueryTypeID)
@@ -153,6 +158,7 @@ namespace Apptivate_UQMS_WebApp.Services
                 await _context.SaveChangesAsync();
                 _logger.LogInformation("Query with ID {QueryID} successfully created.", query.QueryID);
 
+
                 // Handle file upload if exists
                 if (uploadedFile != null && uploadedFile.Length > 0)
                 {
@@ -162,11 +168,27 @@ namespace Apptivate_UQMS_WebApp.Services
                 // Assign query to the least busy lecturer or escalate
                 await AssignQueryToStaffAsync(query);
 
+
                 _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
+
+                _logger.LogInformation("tyring for emial {UserEmail}", userEmail);
+
+
+                // Send notification email after successful submission
+                var emailData = new Dictionary<string, object>
+        {
+            { "user_name", userEmail.Split('@')[0] },
+            { "query_description", model.Description.Substring(0, Math.Min(50, model.Description.Length)) }
+           
+        };
+
+                await _emailService.SendTemplateEmailAsync(userEmail,1, emailData); // Replace 1 with your actual template ID
+                _logger.LogInformation("Notification email sent to user {UserEmail}", userEmail);
+
             }
             catch (Exception ex)
             {
-                _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
+                _logger.LogError("An error occurred while submitting the query or sending email: {Message}", ex.Message);
                 throw new Exception("Query submission failed.");
             }
         }
@@ -289,6 +311,7 @@ namespace Apptivate_UQMS_WebApp.Services
                     // Assign the query to the least busy lecturer
                     var queryAssignment = new QueryAssignment
                     {
+                        AssignmentNumber = GenerateDateBasedTicketNumber(),
                         QueryID = query.QueryID,
                         StaffID = leastBusyLecturer.StaffID,
                         AssignedDate = DateTime.Now
@@ -384,9 +407,46 @@ namespace Apptivate_UQMS_WebApp.Services
 
         }
 
+        public async Task<object> GetStudentEmailAsync(string firebaseUid)
+        {
+            _logger.LogInformation($"GetStudentEmailAsync called with firebaseUid: {firebaseUid}");
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+            if (user == null)
+            {
+                _logger.LogError("User not found.");
+                throw new Exception("User not found.");
+            }
+
+            // Fetch the user's email based on the Firebase UID
+            var studentEmail = await _context.Users
+                .Where(u => u.FirebaseUID == firebaseUid) // Replace with the actual column name for Firebase UID
+                .Select(u => u.Email)
+                .FirstOrDefaultAsync();
+
+
+            if (studentEmail == null)
+            {
+                _logger.LogError("Student email not found.");
+                throw new Exception("Student email  details not found.");
+            }
+
+            // Return the AssignmentID for the specific QueryID
+            return new
+            {
+                Email = studentEmail,
+                
+
+            };
+
+
+
+
+        }
+
         public async Task<object> GetStudentQueryAsync(int queryId, string firebaseUid)
         {
-            _logger.LogInformation($"GetAcademicQuery called with queryTypeId: {queryId}");
+            _logger.LogInformation($"GetStudentQueryAsync called with queryId: {queryId}");
 
             var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
             if (user == null)

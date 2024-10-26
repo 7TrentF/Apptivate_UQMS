@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 using Apptivate_UQMS_WebApp.Extentions; // Add this using directive
 using static Apptivate_UQMS_WebApp.DTOs.QueryModelDto;
 using QueryStatus = Apptivate_UQMS_WebApp.Models.QueryModel.QueryStatus;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
@@ -20,15 +21,19 @@ namespace Apptivate_UQMS_WebApp.Controllers
     [Authorize(Roles = "Student")]
     public class QueryController : Controller
     {
+        private readonly IEmailService _emailService;
+
         private readonly ApplicationDbContext _context; // Inject _context
         private readonly ILogger<QueryController> _logger;  // Inject ILogger 
         private readonly IQueryService _queryService;  // Inject IQueryService
 
-        public QueryController(IQueryService queryService, ApplicationDbContext context, ILogger<QueryController> logger)
+        public QueryController(IQueryService queryService, ApplicationDbContext context, ILogger<QueryController> logger, IEmailService emailService)
         {
             _queryService = queryService;
             _context = context;
             _logger = logger;
+            _emailService = emailService;
+
         }
 
         // Action to render the CreateQuery page
@@ -141,9 +146,21 @@ namespace Apptivate_UQMS_WebApp.Controllers
                     return View("StudentQuery/NewQuery/AcademicQuery"); // Return the form if validation fails
                 }
 
+
+                // Use the service to fetch the academic query details
+                var studentEmailDetails = await _queryService.GetStudentEmailAsync(firebaseUid);
+                dynamic StudentEmailData = studentEmailDetails;
+
+                string Email = StudentEmailData.Email;
+
+                _logger.LogInformation("tyring for email {UserEmail}", Email);
+
+
                 try
                 {
-                    await _queryService.SubmitAcademicQueryAsync(model, uploadedFile, firebaseUid);
+                    await _queryService.SubmitAcademicQueryAsync(model, uploadedFile, firebaseUid, Email); // Add email parameter
+
+
 
                     return RedirectToAction("CreateQuery");
                 }

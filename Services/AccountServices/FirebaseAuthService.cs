@@ -88,6 +88,94 @@
             }
         }
 
+
+
+        public async Task<string> LoginUser(string email, string password)
+        {
+            _logger.LogInformation($"Attempting to log in user with email: {email}");
+
+            try
+            {
+                // Define the request payload
+                var payload = new
+                {
+                    email,
+                    password,
+                    returnSecureToken = true
+                };
+
+                // Make the request to Firebase Authentication REST API
+                var response = await _httpClient.PostAsJsonAsync($"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDXB0dEozyPQdXzlGyQFP1elMObEksarR0", payload);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    _logger.LogError($"Failed to log in user with email: {email}, StatusCode: {response.StatusCode}");
+                    throw new Exception("Failed to log in user");
+                }
+
+                // Parse the response to get the ID token
+                var content = await response.Content.ReadAsStringAsync();
+                var jsonDoc = JsonDocument.Parse(content);
+                var idToken = jsonDoc.RootElement.GetProperty("idToken").GetString();
+
+                _logger.LogInformation("User logged in successfully.");
+                return idToken;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Failed to log in user with email: {email}");
+                throw;
+            }
+        }
+
+
+        public async Task<string> LoginWithGoogle(string idToken)
+        {
+            _logger.LogInformation("Attempting to login with Google.");
+            try
+            {
+                // URL encode the ID token
+                var encodedIdToken = Uri.EscapeDataString(idToken);
+
+                // Prepare the payload with proper format
+                var payload = new
+                {
+                    requestUri = "http://localhost:5000", // Update this to your actual application URL
+                    postBody = $"id_token={encodedIdToken}&providerId=google.com",
+                    returnSecureToken = true
+                };
+
+                // Send the POST request
+                var response = await _httpClient.PostAsJsonAsync(
+                    "https://identitytoolkit.googleapis.com/v1/accounts:signInWithIdp?key=AIzaSyDXB0dEozyPQdXzlGyQFP1elMObEksarR0",
+                    payload
+                );
+
+                var content = await response.Content.ReadAsStringAsync();
+                _logger.LogInformation("Received response from Firebase with Status Code: {StatusCode}", response.StatusCode);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    _logger.LogError("Failed to login with Google. Status Code: {StatusCode}, Content: {Content}",
+                        response.StatusCode, content);
+                    throw new Exception($"Failed to login with Google: {content}");
+                }
+
+                var jsonDoc = JsonDocument.Parse(content);
+                var firebaseToken = jsonDoc.RootElement.GetProperty("idToken").GetString();
+                _logger.LogInformation("Google login successful, Firebase token retrieved.");
+                return firebaseToken;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during Google login.");
+                throw;
+            }
+        }
+
+
+
+
         public async Task<string> RegisterUser(string email, string password, string role)
         {
             _logger.LogInformation($"Attempting to register user with email: {email}");
@@ -161,44 +249,5 @@
             }
         }
 
-
-
-        public async Task<string> LoginUser(string email, string password)
-        {
-            _logger.LogInformation($"Attempting to log in user with email: {email}");
-
-            try
-            {
-                // Define the request payload
-                var payload = new
-                {
-                    email,
-                    password,
-                    returnSecureToken = true
-                };
-
-                // Make the request to Firebase Authentication REST API
-                var response = await _httpClient.PostAsJsonAsync($"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDXB0dEozyPQdXzlGyQFP1elMObEksarR0", payload);
-
-                if (!response.IsSuccessStatusCode)
-                {
-                    _logger.LogError($"Failed to log in user with email: {email}, StatusCode: {response.StatusCode}");
-                    throw new Exception("Failed to log in user");
-                }
-
-                // Parse the response to get the ID token
-                var content = await response.Content.ReadAsStringAsync();
-                var jsonDoc = JsonDocument.Parse(content);
-                var idToken = jsonDoc.RootElement.GetProperty("idToken").GetString();
-
-                _logger.LogInformation("User logged in successfully.");
-                return idToken;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, $"Failed to log in user with email: {email}");
-                throw;
-            }
-        }
     }
 }

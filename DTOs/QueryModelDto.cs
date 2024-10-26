@@ -16,6 +16,7 @@ namespace Apptivate_UQMS_WebApp.DTOs
         {
             public int QueryID { get; set; }
             public int StudentID { get; set; }
+            public string? Email { get; set; }
             public int? DepartmentID { get; set; }
             public int? CourseID { get; set; }
             public int? ModuleID { get; set; }

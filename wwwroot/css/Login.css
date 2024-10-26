@@ -23,6 +23,26 @@
     overflow: hidden;
 }
 
+
+.google-signin-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4285F4;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .google-signin-btn:hover {
+        background-color: #357ae8;
+    }
+
+
     /* Animated background shapes */
     .body::before,
     .body::after {
@@ -265,3 +285,54 @@
         padding: 0.9rem 1rem;
     }
 }
+
+.btn-google {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .btn-google:hover {
+        background-color: #f8f8f8;
+    }
+
+    .btn-google img {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+    }
+
+.divider {
+    margin: 20px 0;
+    text-align: center;
+    position: relative;
+}
+
+    .divider::before,
+    .divider::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 45%;
+        height: 1px;
+        background-color: #ccc;
+    }
+
+    .divider::before {
+        left: 0;
+    }
+
+    .divider::after {
+        right: 0;
+    }
+
+    .divider span {
+        background-color: white;
+        padding: 0 10px;
+        color: #666;
+    }

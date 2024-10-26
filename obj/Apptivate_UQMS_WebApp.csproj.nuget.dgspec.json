@@ -104,6 +104,10 @@
               "target": "Package",
               "version": "[1.2.1, )"
             },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.29.3, )"
+            },
             "Serilog": {
               "target": "Package",
               "version": "[4.1.0, )"
@@ -127,6 +131,10 @@
             "UploadThing.Core": {
               "target": "Package",
               "version": "[0.1.0, )"
+            },
+            "sib_api_v3_sdk": {
+              "target": "Package",
+              "version": "[4.0.2, )"
             }
           },
           "imports": [

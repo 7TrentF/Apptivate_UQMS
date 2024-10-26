@@ -850,3 +850,9 @@ C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Serilog.Sinks.Debug.
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Serilog.Sinks.File.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\Serilog.Sinks.RollingFile.dll
 C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\NReco.Logging.File.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\FubarCoder.RestSharp.Portable.Core.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\FubarCoder.RestSharp.Portable.HttpClient.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\JsonSubTypes.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\SendGrid.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\sib_api_v3_sdk.dll
+C:\Users\trent\source\repos\Apptivate_UQMS\bin\Debug\net8.0\StarkbankEcdsa.dll
