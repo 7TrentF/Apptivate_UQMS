@@ -110,7 +110,7 @@ namespace Apptivate_UQMS_WebApp.Services
             return $"{datePart}-{randomPart}";
         }
 
-        public async Task SubmitAcademicQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid, string userEmail)
+        public async Task SubmitAcademicQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
         {
             _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
 
@@ -118,6 +118,10 @@ namespace Apptivate_UQMS_WebApp.Services
 
             try
             {
+
+                // Use the service to fetch the academic query details
+                var userEmailAdress = await GetEmailAsync(firebaseUid);
+              
                 // Use the existing method to fetch the student details and query type
                 var academicQueryDetails = await GetAcademicQueryAsync(queryTypeID, firebaseUid);
 
@@ -126,10 +130,11 @@ namespace Apptivate_UQMS_WebApp.Services
                 var studentDetail = queryData.StudentDetail;
                 var queryCategories = queryData.QueryCategories;
 
+                dynamic EmailAdressData = userEmailAdress;
+                string userEmail = EmailAdressData.Email;
 
-                _logger.LogWarning("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
-                _logger.LogWarning("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
-
+                _logger.LogInformation("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
+                _logger.LogInformation("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
                 _logger.LogInformation("received email {UserEmail}", userEmail);
 
                 // Validate the query type and category
@@ -168,30 +173,45 @@ namespace Apptivate_UQMS_WebApp.Services
                 // Assign query to the least busy lecturer or escalate
                 await AssignQueryToStaffAsync(query);
 
-
                 _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
 
-                _logger.LogInformation("tyring for emial {UserEmail}", userEmail);
+                _logger.LogInformation("email {UserEmail}", userEmail);
 
-
-                // Send notification email after successful submission
-                var emailData = new Dictionary<string, object>
-        {
-            { "user_name", userEmail.Split('@')[0] },
-            { "query_description", model.Description.Substring(0, Math.Min(50, model.Description.Length)) }
-           
-        };
-
-                await _emailService.SendTemplateEmailAsync(userEmail,1, emailData); // Replace 1 with your actual template ID
-                _logger.LogInformation("Notification email sent to user {UserEmail}", userEmail);
-
+                await SendQuerySubmissionNotificationEmailAsync(userEmail, query, model);
             }
+
             catch (Exception ex)
             {
-                _logger.LogError("An error occurred while submitting the query or sending email: {Message}", ex.Message);
+                _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
                 throw new Exception("Query submission failed.");
             }
         }
+
+        private async Task SendQuerySubmissionNotificationEmailAsync(string userEmail, Query query, QueryDto model)
+        {
+            try
+            {
+                var emailData = new Dictionary<string, object>
+        {
+            { "user_name", userEmail.Split('@')[0] },
+            { "query_description", model.Description.Substring(0, Math.Min(50, model.Description.Length)) },
+            { "ticket_number", query.TicketNumber },
+            { "submitted_date", query.SubmissionDate?.ToString("f") }
+        };
+
+                // Replace '1' with your actual email template ID
+                await _emailService.SendTemplateEmailAsync(userEmail, 1, emailData);
+                _logger.LogInformation("Notification email sent to user {UserEmail}", userEmail);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Failed to send query submission notification email to {UserEmail}: {Message}", userEmail, ex.Message);
+                throw new ApplicationException("Failed to send notification email", ex);
+            }
+        }
+
+
+
 
         public async Task SubmitAdministrativeQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
         {
@@ -201,6 +221,9 @@ namespace Apptivate_UQMS_WebApp.Services
 
             try
             {
+                // Use the service to fetch the academic query details
+                var userEmailAdress = await GetEmailAsync(firebaseUid);
+              
                 // Use the existing method to fetch the student details and query type
                 var academicQueryDetails = await GetAcademicQueryAsync(queryTypeID, firebaseUid);
 
@@ -208,10 +231,13 @@ namespace Apptivate_UQMS_WebApp.Services
                 dynamic queryData = academicQueryDetails;
                 var studentDetail = queryData.StudentDetail;
                 var queryCategories = queryData.QueryCategories;
-
+               
+                dynamic EmailAdressData = userEmailAdress;
+                string userEmail = EmailAdressData.Email;
 
                 _logger.LogWarning("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
                 _logger.LogWarning("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
+                _logger.LogInformation("received email {UserEmail}", userEmail);
 
 
                 // Validate the query type and category
@@ -250,6 +276,11 @@ namespace Apptivate_UQMS_WebApp.Services
                 await AssignQueryToStaffAsync(query);
 
                 _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
+
+
+                _logger.LogInformation("email {UserEmail}", userEmail);
+                await SendQuerySubmissionNotificationEmailAsync(userEmail, query, model);
+
             }
             catch (Exception ex)
             {
@@ -407,7 +438,7 @@ namespace Apptivate_UQMS_WebApp.Services
 
         }
 
-        public async Task<object> GetStudentEmailAsync(string firebaseUid)
+        public async Task<object> GetEmailAsync(string firebaseUid)
         {
             _logger.LogInformation($"GetStudentEmailAsync called with firebaseUid: {firebaseUid}");
 

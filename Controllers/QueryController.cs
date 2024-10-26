@@ -147,18 +147,12 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 }
 
 
-                // Use the service to fetch the academic query details
-                var studentEmailDetails = await _queryService.GetStudentEmailAsync(firebaseUid);
-                dynamic StudentEmailData = studentEmailDetails;
-
-                string Email = StudentEmailData.Email;
-
-                _logger.LogInformation("tyring for email {UserEmail}", Email);
+               
 
 
                 try
                 {
-                    await _queryService.SubmitAcademicQueryAsync(model, uploadedFile, firebaseUid, Email); // Add email parameter
+                    await _queryService.SubmitAcademicQueryAsync(model, uploadedFile, firebaseUid); // Add email parameter
 
 
 
