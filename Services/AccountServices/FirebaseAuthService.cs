@@ -134,18 +134,14 @@
             _logger.LogInformation("Attempting to login with Google.");
             try
             {
-                // URL encode the ID token
-                var encodedIdToken = Uri.EscapeDataString(idToken);
-
-                // Prepare the payload with proper format
+                // Create the proper payload without URL encoding the token
                 var payload = new
                 {
-                    requestUri = "http://localhost:5000", // Update this to your actual application URL
-                    postBody = $"id_token={encodedIdToken}&providerId=google.com",
+                    postBody = $"id_token={idToken}&providerId=google.com",
+                    requestUri = "http://localhost:5042",
                     returnSecureToken = true
                 };
 
-                // Send the POST request
                 var response = await _httpClient.PostAsJsonAsync(
                     "https://identitytoolkit.googleapis.com/v1/accounts:signInWithIdp?key=AIzaSyDXB0dEozyPQdXzlGyQFP1elMObEksarR0",
                     payload

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using FirebaseAdmin.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Apptivate_UQMS_WebApp.Services.AccountServices;
+using Azure.Core;
 
 
 namespace Apptivate_UQMS_WebApp.Controllers
@@ -278,44 +279,43 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             try
             {
-                // First verify the token
-                var decodedToken = await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(model.IdToken);
-                var email = decodedToken.Claims["email"].ToString();
-
-                // Check if user exists in your database by email
-                var existingUser = await _context.Users
-                    .FirstOrDefaultAsync(u => u.Email.ToLower() == email.ToLower());
-
-                if (existingUser == null)
+                // Check if IdToken is provided
+                if (string.IsNullOrEmpty(model.IdToken))
                 {
-                    _logger.LogWarning($"Google login attempted with non-registered email: {email}");
-                    return Json(new
-                    {
-                        success = false,
-                        error = "This email is not registered. Please register through the standard registration process first.",
-                        requiresRegistration = true
-                    });
+                    _logger.LogWarning("GoogleLogin failed: IdToken is missing from request.");
+                    return BadRequest(new { error = "IdToken is required" });
                 }
 
-                _logger.LogWarning($"Id Token: {model.IdToken}");
+                _logger.LogInformation("here is your token grump {UID}", model.IdToken);
 
 
-                // If we get here, the user exists, so we can proceed with the Google sign-in
-                var firebaseToken = await _firebaseAuthService.LoginWithGoogle(model.IdToken);
+                // Step 1: Verify the Firebase ID token
+                _logger.LogInformation("Verifying Firebase ID token.");
+                FirebaseToken decodedToken = await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(model.IdToken);
+                string uid = decodedToken.Uid;
+                _logger.LogInformation("Firebase ID token verified successfully for UID: {UID}", uid);
 
-                // Update the Firebase UID if it's not set or different
-                if (existingUser.FirebaseUID != decodedToken.Uid)
+                // Step 2: Fetch Firebase user details
+                _logger.LogInformation("Retrieving user information for UID: {UID}", uid);
+                UserRecord userRecord = await FirebaseAuth.DefaultInstance.GetUserAsync(uid);
+                _logger.LogInformation("User information retrieved successfully. Email: {Email}, Display Name: {DisplayName}", userRecord.Email, userRecord.DisplayName);
+
+                // Step 3: Check if user exists in the database
+                var user = await _context.Users.SingleOrDefaultAsync(u => u.FirebaseUID == uid);
+
+                if (user == null)
                 {
-                    existingUser.FirebaseUID = decodedToken.Uid;
-                    await _context.SaveChangesAsync();
+                    _logger.LogError("User not found in the database for UID: {UID}", uid);
+                    return BadRequest(new { error = "User not found." });
                 }
 
-                // Update LastSeen
-                existingUser.LastSeen = DateTime.UtcNow;
+                // Step 4: Update the LastSeen property and save
+                user.LastSeen = DateTime.UtcNow;
                 await _context.SaveChangesAsync();
 
-                // Set authentication cookie
-                Response.Cookies.Append("FirebaseToken", firebaseToken, new CookieOptions
+                // Step 5: Store the Firebase token in a cookie for persistent login
+                var token = model.IdToken; // Or retrieve an updated token if necessary
+                Response.Cookies.Append("FirebaseToken", token, new CookieOptions
                 {
                     HttpOnly = true,
                     Secure = true,
@@ -323,38 +323,101 @@ namespace Apptivate_UQMS_WebApp.Controllers
                     SameSite = SameSiteMode.Strict
                 });
 
-                HttpContext.Session.SetString("FirebaseUID", existingUser.FirebaseUID);
+                // Step 6: Store FirebaseUID in session
+                HttpContext.Session.SetString("FirebaseUID", user.FirebaseUID);
 
-                _logger.LogInformation($"User {existingUser.Email} successfully logged in via Google");
+                _logger.LogInformation("GoogleLogin successful for user {Email} with role {Role}", user.Email, user.Role);
+                // Instead of redirecting, return a JSON response with the redirect URL
+                var redirectUrl = user.Role switch
+                {
+                    "Student" => Url.Action("StudentDashboard", "Dashboard"),
+                    "Staff" => Url.Action("StaffDashboard", "Dashboard"),
+                    "Admin" => Url.Action("AdminDashboard", "Dashboard"),
+                    _ => null
+                };
 
-                // Return success with role-based redirect
+                if (redirectUrl == null)
+                {
+                    return Json(new { success = false, error = "Unknown role." });
+                }
+
+                // Set cookies and session as before
+                Response.Cookies.Append("FirebaseToken", model.IdToken, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = true,
+                    Expires = DateTimeOffset.UtcNow.AddDays(7),
+                    SameSite = SameSiteMode.Strict
+                });
+
+                HttpContext.Session.SetString("FirebaseUID", user.FirebaseUID);
+
                 return Json(new
                 {
                     success = true,
-                    redirectUrl = existingUser.Role switch
-                    {
-                        "Student" => Url.Action("StudentDashboard", "Dashboard"),
-                        "Staff" => Url.Action("StaffDashboard", "Dashboard"),
-                        "Admin" => Url.Action("AdminDashboard", "Dashboard"),
-                        _ => Url.Action("Index", "Home")
-                    }
+                    redirectUrl = redirectUrl
                 });
+            }
+            catch (FirebaseAuthException ex)
+            {
+                _logger.LogError(ex, "GoogleLogin failed during Firebase authentication");
+                return Json(new { success = false, error = "Invalid or expired token" });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error during Google login");
-                return Json(new { success = false, error = "Failed to login with Google" });
+                _logger.LogError(ex, "An unexpected error occurred during GoogleLogin");
+                return Json(new { success = false, error = "Google login failed due to an unexpected error" });
             }
         }
+
+
 
 
         // GoogleLoginViewModel.cs
         public class GoogleLoginViewModel
     {
-        [Required]
-        public string IdToken { get; set; }
-    }
 
+            public string IdToken { get; set; }
+            public string Provider { get; set; }
+
+
+        }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> ExternalLoginCallback([FromBody] ExternalLoginRequest request)
+        {
+            try
+            {
+                // Verify the Firebase ID token
+                FirebaseToken decodedToken = await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(request.IdToken);
+                string uid = decodedToken.Uid;
+
+                // Get the user's info
+                UserRecord userRecord = await FirebaseAuth.DefaultInstance.GetUserAsync(uid);
+
+
+                // Here you can:
+                // 1. Create or update user in your database
+                // 2. Set up authentication cookie
+                // 3. Create claims and roles
+
+                return Ok(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+    
+
+
+    public class ExternalLoginRequest
+    {
+        public string IdToken { get; set; }
+        public string Provider { get; set; }
+    }
 
 
 

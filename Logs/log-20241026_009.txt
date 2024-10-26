@@ -1,0 +1,77 @@
+2024-10-26 18:52:17.461 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-10-26 18:52:18.781 +02:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-10-26 18:52:18.853 +02:00 [INF] Executed DbCommand (52ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-10-26 18:52:18.856 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-10-26 18:52:18.858 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-10-26 18:52:18.943 +02:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-10-26 18:52:18.970 +02:00 [INF] Applying migration '20241026165048_NewChat'.
+2024-10-26 18:52:19.237 +02:00 [INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Messages] DROP CONSTRAINT [FK_Messages_Chats_ChatId];
+2024-10-26 18:52:19.356 +02:00 [INF] Executed DbCommand (117ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP TABLE [Chats];
+2024-10-26 18:52:19.364 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP INDEX [IX_Messages_ChatId] ON [Messages];
+2024-10-26 18:52:44.349 +02:00 [INF] Executed DbCommand (24,984ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Messages]') AND [c].[name] = N'RecipientEmail');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [Messages] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [Messages] DROP COLUMN [RecipientEmail];
+2024-10-26 18:52:54.974 +02:00 [INF] Executed DbCommand (10,625ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var1 sysname;
+SELECT @var1 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Messages]') AND [c].[name] = N'SenderEmail');
+IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [Messages] DROP CONSTRAINT [' + @var1 + '];');
+ALTER TABLE [Messages] DROP COLUMN [SenderEmail];
+2024-10-26 18:53:22.966 +02:00 [INF] Executed DbCommand (27,992ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Messages].[MessageId]', N'MessageID', N'COLUMN';
+2024-10-26 18:53:22.971 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Messages].[SentAt]', N'Timestamp', N'COLUMN';
+2024-10-26 18:53:22.975 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Messages].[SenderUserId]', N'SenderID', N'COLUMN';
+2024-10-26 18:53:22.977 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Messages].[ChatId]', N'ReceiverID', N'COLUMN';
+2024-10-26 18:53:23.001 +02:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Users] ADD [ConnectionId] nvarchar(max) NULL;
+2024-10-26 18:53:23.007 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Messages] ADD [IsRead] bit NOT NULL DEFAULT CAST(0 AS bit);
+2024-10-26 18:53:23.023 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20241026165048_NewChat', N'8.0.8');
+2024-10-26 18:53:23.055 +02:00 [INF] Applying migration '20241026165132_UpdatedMessage'.
+2024-10-26 18:53:23.244 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var2 sysname;
+SELECT @var2 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Messages]') AND [c].[name] = N'SenderID');
+IF @var2 IS NOT NULL EXEC(N'ALTER TABLE [Messages] DROP CONSTRAINT [' + @var2 + '];');
+ALTER TABLE [Messages] ALTER COLUMN [SenderID] nvarchar(max) NOT NULL;
+2024-10-26 18:53:23.283 +02:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var3 sysname;
+SELECT @var3 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Messages]') AND [c].[name] = N'ReceiverID');
+IF @var3 IS NOT NULL EXEC(N'ALTER TABLE [Messages] DROP CONSTRAINT [' + @var3 + '];');
+ALTER TABLE [Messages] ALTER COLUMN [ReceiverID] nvarchar(max) NOT NULL;
+2024-10-26 18:53:23.292 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20241026165132_UpdatedMessage', N'8.0.8');
+2024-10-26 18:53:54.307 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-26 18:53:54.640 +02:00 [INF] Now listening on: https://localhost:7061
+2024-10-26 18:53:54.648 +02:00 [INF] Now listening on: http://localhost:5042
+2024-10-26 18:53:54.655 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-26 18:53:54.656 +02:00 [INF] Hosting environment: Development
+2024-10-26 18:53:54.658 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS

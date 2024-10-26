@@ -1,0 +1,29 @@
+2024-10-26 19:03:15.735 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-10-26 19:03:16.729 +02:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-10-26 19:03:16.785 +02:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-10-26 19:03:16.789 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-10-26 19:03:16.790 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-10-26 19:03:16.867 +02:00 [INF] Executed DbCommand (48ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-10-26 19:03:16.896 +02:00 [INF] Applying migration '20241026165357_NewConvo'.
+2024-10-26 19:03:17.088 +02:00 [INF] Executed DbCommand (49ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Conversations] (
+    [ConversationID] int NOT NULL IDENTITY,
+    [User1ID] nvarchar(max) NOT NULL,
+    [User2ID] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Conversations] PRIMARY KEY ([ConversationID])
+);
+2024-10-26 19:03:17.139 +02:00 [ERR] Failed executing DbCommand (48ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Messages_ConversationID] ON [Messages] ([ConversationID]);
+2024-10-26 19:06:23.227 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-26 19:06:23.759 +02:00 [INF] Now listening on: https://localhost:7061
+2024-10-26 19:06:23.760 +02:00 [INF] Now listening on: http://localhost:5042
+2024-10-26 19:06:23.766 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-26 19:06:23.768 +02:00 [INF] Hosting environment: Development
+2024-10-26 19:06:23.791 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS

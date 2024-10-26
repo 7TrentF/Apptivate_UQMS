@@ -1,0 +1,6 @@
+2024-10-26 19:12:05.180 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-26 19:12:06.259 +02:00 [INF] Now listening on: https://localhost:7061
+2024-10-26 19:12:06.281 +02:00 [INF] Now listening on: http://localhost:5042
+2024-10-26 19:12:06.285 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-26 19:12:06.286 +02:00 [INF] Hosting environment: Development
+2024-10-26 19:12:06.287 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS

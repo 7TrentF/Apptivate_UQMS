@@ -1,0 +1,31 @@
+2024-10-26 19:11:08.650 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-10-26 19:12:04.200 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-10-26 19:12:06.678 +02:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-10-26 19:12:06.748 +02:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-10-26 19:12:06.751 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-10-26 19:12:06.753 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-10-26 19:12:06.800 +02:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-10-26 19:12:06.826 +02:00 [INF] Applying migration '20241026171113_NewMigration'.
+2024-10-26 19:12:07.062 +02:00 [INF] Executed DbCommand (76ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Conversations] (
+    [ConversationID] int NOT NULL IDENTITY,
+    [User1ID] nvarchar(max) NULL,
+    [User2ID] nvarchar(max) NULL,
+    CONSTRAINT [PK_Conversations] PRIMARY KEY ([ConversationID])
+);
+2024-10-26 19:12:07.082 +02:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Messages] ADD [ConversationID] int NULL;
+2024-10-26 19:12:07.093 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Messages_ConversationID] ON [Messages] ([ConversationID]);
+2024-10-26 19:12:07.097 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Messages] ADD CONSTRAINT [FK_Messages_Conversations_ConversationID] FOREIGN KEY ([ConversationID]) REFERENCES [Conversations] ([ConversationID]) ON DELETE NO ACTION;
+2024-10-26 19:12:07.111 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20241026171113_NewMigration', N'8.0.8');

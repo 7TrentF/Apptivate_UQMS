@@ -92,10 +92,17 @@
                             const response = await fetch('/Account/GoogleLogin', {
                                 method: 'POST',
                                 headers: {
-                                    'Content-Type': 'application/json'
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json'  // Explicitly request JSON response
                                 },
                                 body: JSON.stringify({ idToken: idToken })
                             });
+
+                            // Check if response is JSON
+                            const contentType = response.headers.get('content-type');
+                            if (!contentType || !contentType.includes('application/json')) {
+                                throw new Error('Received non-JSON response from server');
+                            }
 
                             const data = await response.json();
                             console.log('Backend response:', data);
@@ -104,9 +111,8 @@
                                 window.location.href = data.redirectUrl;
                             } else {
                                 if (data.requiresRegistration) {
-                                    // Show a more specific message for unregistered users
                                     alert('This email is not registered. Please register your account first with your university details.');
-                                    window.location.href = '/Account/SelectRole'; // Redirect to registration
+                                    window.location.href = '/Account/SelectRole';
                                 } else {
                                     alert('Failed to login with Google: ' + data.error);
                                 }

@@ -121,8 +121,6 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
             }
         }
 
-
-
         public async Task<List<CourseDto>> GetDepartmentWithCoursesAsync(int departmentId)
         {
 
@@ -144,8 +142,6 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
 
             return courses;
         }
-
-
 
         // method to find a user by Firebase UID
         public async Task<User> GetUserByFirebaseUidAsync(string firebaseUid)

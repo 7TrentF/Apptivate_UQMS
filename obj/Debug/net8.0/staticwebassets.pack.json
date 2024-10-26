@@ -533,6 +533,10 @@
       "PackagePath": "staticwebassets\\js\\conditionalDisplay.js"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\firebase-auth.js",
+      "PackagePath": "staticwebassets\\js\\firebase-auth.js"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\login.js",
       "PackagePath": "staticwebassets\\js\\login.js"
     },

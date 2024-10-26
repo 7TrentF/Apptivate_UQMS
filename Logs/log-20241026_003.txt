@@ -1,0 +1,38 @@
+2024-10-26 18:45:12.484 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-10-26 18:47:25.037 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-10-26 18:47:26.647 +02:00 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-10-26 18:47:26.728 +02:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-10-26 18:47:26.733 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-10-26 18:47:26.735 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-10-26 18:47:26.789 +02:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-10-26 18:47:26.813 +02:00 [INF] Applying migration '20241026164514_AddChatAndMessageModels'.
+2024-10-26 18:47:27.009 +02:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Chats] (
+    [ChatId] int NOT NULL IDENTITY,
+    [SenderUserId] int NOT NULL,
+    [RecipientUserId] int NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Chats] PRIMARY KEY ([ChatId])
+);
+2024-10-26 18:47:27.024 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Messages] (
+    [MessageId] int NOT NULL IDENTITY,
+    [ChatId] int NOT NULL,
+    [Content] nvarchar(max) NOT NULL,
+    [SentAt] datetime2 NOT NULL,
+    [SenderUserId] int NOT NULL,
+    CONSTRAINT [PK_Messages] PRIMARY KEY ([MessageId]),
+    CONSTRAINT [FK_Messages_Chats_ChatId] FOREIGN KEY ([ChatId]) REFERENCES [Chats] ([ChatId]) ON DELETE CASCADE
+);
+2024-10-26 18:47:27.067 +02:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Messages_ChatId] ON [Messages] ([ChatId]);
+2024-10-26 18:47:27.196 +02:00 [INF] Executed DbCommand (129ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20241026164514_AddChatAndMessageModels', N'8.0.8');
