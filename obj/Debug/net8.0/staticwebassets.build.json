@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "s32W2iepRyFTcldH2xTV3f4t02Pa5dzN6e7p57/fYfk=",
+  "Hash": "M5kxmwDmdu8D9mMNGnRVPAH4t//xST0xqXOKg7u+05c=",
   "Source": "Apptivate_UQMS_WebApp",
   "BasePath": "_content/Apptivate_UQMS_WebApp",
   "Mode": "Default",
@@ -148,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\AssignedQueryDetails.css"
+    },
+    {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Chats.css",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "css/Chats.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Chats.css"
     },
     {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\dashboard.css",
@@ -1307,6 +1326,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\AdminDashboard.js"
+    },
+    {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\chat.js",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "js/chat.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\chat.js"
     },
     {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\conditionalDisplay.js",

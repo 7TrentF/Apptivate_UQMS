@@ -1,0 +1,227 @@
+﻿
+<style>
+    :root {
+        --primary-color: #4a90e2;
+        --secondary-color: #f3f4f6;
+        --text-color: #333;
+        --light-text-color: #6b7280;
+        --border-color: #e5e7eb;
+        --hover-color: #e2e8f0;
+        --sent-message-color: #dcf8c6;
+        --received-message-color: #f1f0f0;
+        --online-color: #10b981;
+        --offline-color: #ef4444;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+        background-color: #f9fafb;
+    }
+
+    .container-fluid {
+        padding: 20px;
+    }
+
+    .sidebar {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        padding: 20px;
+        height: calc(100vh - 40px);
+        overflow-y: auto;
+    }
+
+        .sidebar h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+    .user-item {
+        cursor: pointer;
+        padding: 12px 15px;
+        border-radius: 6px;
+        margin-bottom: 8px;
+        transition: all 0.3s ease;
+        position: relative;
+        border: 1px solid var(--border-color);
+    }
+
+        .user-item:hover {
+            background-color: var(--hover-color);
+        }
+
+        .user-item.active {
+            background-color: var(--secondary-color);
+            border-color: var(--primary-color);
+        }
+
+    .user-name {
+        font-weight: 500;
+    }
+
+    .user-status {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-left: 8px;
+    }
+
+        .user-status.online {
+            background-color: var(--online-color);
+        }
+
+        .user-status.offline {
+            background-color: var(--offline-color);
+        }
+
+    .unread-count {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 12px;
+        padding: 2px 8px;
+        font-size: 0.75rem;
+        min-width: 20px;
+        text-align: center;
+    }
+
+    .chat-area {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        padding: 20px;
+        height: calc(100vh - 40px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .message-thread {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background-color: #fff;
+        margin-bottom: 20px;
+    }
+
+    .message {
+        margin-bottom: 15px;
+        padding: 10px 15px;
+        border-radius: 18px;
+        max-width: 70%;
+        word-wrap: break-word;
+        position: relative;
+        clear: both;
+    }
+
+        .message.sent {
+            background-color: var(--sent-message-color);
+            color: var(--text-color);
+            float: right;
+        }
+
+        .message.received {
+            background-color: var(--received-message-color);
+            color: var(--text-color);
+            float: left;
+        }
+
+    .timestamp {
+        font-size: 0.75rem;
+        color: var(--light-text-color);
+        margin-top: 5px;
+        display: block;
+    }
+
+    .input-group {
+        margin-top: auto;
+    }
+
+    #messageInput {
+        border-radius: 20px;
+        padding: 10px 20px;
+        border: 1px solid var(--border-color);
+    }
+
+    #emojiButton {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0 10px;
+    }
+
+    #emojiPicker {
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        z-index: 1000;
+    }
+
+    #sendButton {
+        border-radius: 20px;
+        padding: 10px 20px;
+        background-color: var(--primary-color);
+        border: none;
+        margin-left: 10px;
+    }
+
+        #sendButton:hover {
+            background-color: darken(var(--primary-color), 10%);
+        }
+
+    /* Responsive adjustments */
+    @@media (max-width: 768px) {
+        .sidebar, .chat-area {
+            height: auto;
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-lg-3 sidebar">
+            <h3>Conversations</h3>
+            <ul id="userList" class="list-unstyled">
+                @foreach (var user in Model)
+                {
+                    <li class="user-item" data-user-id="@user.UserID">
+                        <span class="user-name">@user.Name @user.Surname</span>
+                        <span class="user-status @(user.IsOnline ? "online" : "offline")"></span>
+                        <span class="unread-count @(user.UnreadCount > 0 ? "d-inline-block" : "d-none")">
+                            @(user.UnreadCount > 0 ? user.UnreadCount.ToString() : "")
+                        </span>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="col-md-8 col-lg-9 chat-area">
+            <div id="messageThread" class="message-thread">
+                <!-- Messages will be displayed here -->
+            </div>
+            <div class="input-group">
+                <input type="text" id="messageInput" class="form-control" placeholder="Type a message...">
+                <div class="input-group-append">
+                    <button id="emojiButton" type="button">😊</button>
+                    <emoji-picker id="emojiPicker" style="display: none;"></emoji-picker>
+                    <button id="sendButton" class="btn btn-primary" type="button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emoji-picker-element@1/index.js" type="module"></script>
+    <script src="/js/chat.js"></script>
+}

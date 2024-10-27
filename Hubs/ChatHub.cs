@@ -6,9 +6,7 @@ using System.Security.Claims;
 
 namespace Apptivate_UQMS_WebApp.Hubs
 {
-
-    /*
-    public class ChatHub : Hub
+  public class ChatHub : Hub
     {
         private readonly ApplicationDbContext _context;
         public ChatHub(ApplicationDbContext context)
@@ -24,7 +22,7 @@ namespace Apptivate_UQMS_WebApp.Hubs
                 SenderId = senderId,
                 ReceiverId = receiverId,
                 Content = message,
-                Timestamp = DateTime.UtcNow,
+                Timestamp = DateTime.Now,
                 IsRead = false
             };
             _context.Messages.Add(newMessage);
@@ -92,5 +90,5 @@ namespace Apptivate_UQMS_WebApp.Hubs
         }
     }
 
-    */
+    
 }

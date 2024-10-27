@@ -32,6 +32,11 @@ namespace Apptivate_UQMS_WebApp.Data
         public DbSet<QueryResolutions> QueryResolutions { get; set; }
         public DbSet<ResolutionDocuments> ResolutionDocuments { get; set; }
 
+
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Conversation> Conversations { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

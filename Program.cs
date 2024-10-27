@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using Serilog;
+using Apptivate_UQMS_WebApp.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -102,6 +103,8 @@ app.UseAuthorization();
 
 // Map the SignalR Hub
 app.MapHub<NotificationHub>("/notificationHub");
+
+app.MapHub<ChatHub>("/chatHub");
 
 app.MapControllers(); // Ensure controllers are mapped
 
