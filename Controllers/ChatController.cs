@@ -1,5 +1,6 @@
 ﻿using Apptivate_UQMS_WebApp.Data;
 using Apptivate_UQMS_WebApp.Models;
+using Apptivate_UQMS_WebApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,40 +15,20 @@ namespace Apptivate_UQMS_WebApp.Controllers;
 public class ChatController : Controller
 {
     private readonly ApplicationDbContext _context;
-
-    public ChatController(ApplicationDbContext context)
+    private readonly IChatService _chatService;
+    public ChatController(ApplicationDbContext context, IChatService chatService)
     {
         _context = context;
+        _chatService = chatService;
+
     }
+
     public async Task<IActionResult> Chats()
     {
         var currentUserId = GetCurrentUserId();
-
-        // Fetch users based on role in a single query
-        var users = await _context.Users
-            .Where(u => u.UserID != currentUserId && // Exclude current user
-                       (u.Role == "Admin" || u.Role == "Staff" ||
-                       (u.Role == "Student" && u.Role == "Staff")))
-            .GroupJoin(_context.Messages.Where(m => m.ReceiverId == currentUserId && !m.IsRead),
-                       u => u.UserID,
-                       m => m.SenderId,
-                       (user, messages) => new ChatUserViewModel
-                       {
-                           UserID = user.UserID,
-                           Name = user.Name,
-                           Surname = user.Surname,
-                           IsOnline = user.IsOnline,
-                           LastSeen = user.LastSeen,
-                           UnreadCount = messages.Count() // Count unread messages for each user
-                       })
-            .ToListAsync();
-
+        var users = await _chatService.GetChatUsersAsync(currentUserId);
         return View(users);
     }
-
-
-
-
 
 
     [HttpGet]

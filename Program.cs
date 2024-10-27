@@ -53,6 +53,8 @@ builder.Services.AddScoped<IUserRegistrationService, UserRegistrationService>();
 builder.Services.AddScoped<IQueryService, QuerySubmissionService>(); // Add this line
 builder.Services.AddScoped<IUserProfileService, UserProfileService>();
 builder.Services.AddScoped<IEmailService, BrevoEmailService>();
+// In Startup.cs or Program.cs
+builder.Services.AddScoped<IChatService, ChatService>();
 
 // Add authentication
 
