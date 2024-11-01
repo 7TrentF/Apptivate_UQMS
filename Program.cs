@@ -55,7 +55,9 @@ builder.Services.AddScoped<IUserProfileService, UserProfileService>();
 builder.Services.AddScoped<IEmailService, BrevoEmailService>();
 // In Startup.cs or Program.cs
 builder.Services.AddScoped<IChatService, ChatService>();
-
+builder.Services.AddScoped<AnalyticsService>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<ReportingService>();
 // Add authentication
 
 builder.Services.AddAuthentication(options =>

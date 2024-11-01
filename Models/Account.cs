@@ -53,8 +53,6 @@ namespace Apptivate_UQMS_WebApp.Models
             public IEnumerable<SelectListItem> Courses { get; set; } = new HashSet<SelectListItem>();
         }
 
-
-
         public class LoginViewModel
         {
             [Required]
@@ -65,7 +63,6 @@ namespace Apptivate_UQMS_WebApp.Models
             [DataType(DataType.Password)]
             public string Password { get; set; }
         }
-
 
         public class UserProfileViewModel
         {
@@ -99,11 +96,6 @@ namespace Apptivate_UQMS_WebApp.Models
             public ICollection<AdminDetail> AdminDetails { get; set; } 
         }
 
-
-
-
-
-
         public class StudentDetail
         {
             [Key]
@@ -119,7 +111,6 @@ namespace Apptivate_UQMS_WebApp.Models
             // Navigation property for related queries
             public ICollection<Query> Queries { get; set; }
         }
-
 
         public class StaffDetail
         {
@@ -137,6 +128,8 @@ namespace Apptivate_UQMS_WebApp.Models
             // Navigation property for User
             public User User { get; set; }
 
+
+
             // Navigation property for query assignments
             public ICollection<QueryAssignment> QueryAssignments { get; set; }
         }
@@ -151,7 +144,6 @@ namespace Apptivate_UQMS_WebApp.Models
             public ICollection<StaffDetail> StaffDetails { get; set; }
         }
 
-
         public class AdminDetail
         {
             [Key]
@@ -162,7 +154,6 @@ namespace Apptivate_UQMS_WebApp.Models
             // Navigation property
             public User User { get; set; }
         }
-
 
         public class Department
         {

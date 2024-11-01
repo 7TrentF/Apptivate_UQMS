@@ -43,7 +43,7 @@ public class ChatController : Controller
             .Select(m => new
             {
                 m.MessageId,
-                m.Content,
+                m.Content,     
                 m.Timestamp,
                 IsFromCurrentUser = m.SenderId == currentUserId
             })

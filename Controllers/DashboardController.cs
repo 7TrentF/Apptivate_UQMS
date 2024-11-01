@@ -18,12 +18,25 @@ namespace Apptivate_UQMS_WebApp.Controllers
         private readonly ILogger<StaffQueryController> _logger;
         private readonly ApplicationDbContext _context; // Inject _context
         private readonly IUserProfileService _userProfileService;
+        private readonly AnalyticsService _analyticsService;
+        private readonly INotificationService _notificationService;
 
-        public DashboardController(ApplicationDbContext context, ILogger<StaffQueryController> logger,IUserProfileService userProfileService)
+
+        public DashboardController(ApplicationDbContext context, ILogger<StaffQueryController> logger,IUserProfileService userProfileService, AnalyticsService analyticsService, INotificationService notificationService)
         {
             _context = context;
             _logger = logger;
             _userProfileService = userProfileService;
+            _analyticsService = analyticsService;
+            _notificationService = notificationService;
+
+        }
+
+
+        [HttpGet]
+        public IActionResult TestToast()
+        {
+            return View();
         }
 
 
@@ -238,6 +251,19 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<IActionResult> GetResponseTimeTrends(int days = 30)
+        {
+            var trends = await _analyticsService.GetResponseTimeTrendsAsync(days);
+            return Json(trends);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetQueryResolutionRates(int days = 30)
+        {
+            var rates = await _analyticsService.GetQueryResolutionRatesAsync(days);
+            return Json(rates);
+        }
 
 
         [HttpGet]
@@ -271,15 +297,16 @@ namespace Apptivate_UQMS_WebApp.Controllers
             }
 
 
+
             // Fetch total users
             var totalUsers = await _context.Users.CountAsync();
 
-            /*
+            
             // Fetch active users (assuming 'Active' status is determined by some property, e.g., last login date)
             var activeUsers = await _context.Users
-                .Where(u => u.LastLoginDate >= DateTime.UtcNow.AddMonths(-1)) // Example condition
+                .Where(u => u.LastSeen >= DateTime.UtcNow.AddMonths(-1)) // Example condition
                 .CountAsync(); 
-            */
+            
 
             // Fetch total queries
             var totalQueries = await _context.Queries.CountAsync();
@@ -292,6 +319,11 @@ namespace Apptivate_UQMS_WebApp.Controllers
             // Fetch pending queries
             var pendingQueries = await _context.Queries
                 .Where(q => q.Status == QueryStatus.Pending)
+                .CountAsync();
+
+            // Fetch pending queries
+            var ongoingQueries = await _context.Queries
+                .Where(q => q.Status == QueryStatus.Ongoing)
                 .CountAsync();
 
             // User Management Overview
@@ -354,13 +386,21 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 TotalQueries = totalQueries,
                 ResolvedQueries = resolvedQueries,
                 PendingQueries = pendingQueries,
+                OngoingQueries = ongoingQueries,
                 UserManagementOverview = userManagementOverview,
                 OpenQueries = openQueries,
                 ReQueries = reQueries,
+                ActiveUsers = activeUsers,
                 CardExpenseData = cardExpenseData,
                 QueriesReceivedData = queriesReceivedData,
                 SystemActivities = systemActivities
             };
+
+
+            var responseTimeTrends = await _analyticsService.GetResponseTimeTrendsAsync(30);
+
+            viewModel.ResponseTimeTrends = responseTimeTrends;
+
 
             return View(viewModel);
         }

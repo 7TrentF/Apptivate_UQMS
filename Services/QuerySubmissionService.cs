@@ -8,6 +8,7 @@ using Apptivate_UQMS_WebApp.ViewModels;
 using static Apptivate_UQMS_WebApp.ViewModels.QueryViewModel;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Apptivate_UQMS_WebApp.Hubs;
 
 
 namespace Apptivate_UQMS_WebApp.Services
@@ -18,13 +19,14 @@ namespace Apptivate_UQMS_WebApp.Services
         private readonly FileUploadService _fileUploadService;  // Inject fileUploadService
         private readonly ILogger<QuerySubmissionService> _logger;
         private readonly IEmailService _emailService;
+        private readonly INotificationService _notificationService;
 
-        public QuerySubmissionService(IEmailService emailService, ApplicationDbContext context, FileUploadService fileUploadService, ILogger<QuerySubmissionService> logger)
+        public QuerySubmissionService(IEmailService emailService, ApplicationDbContext context, FileUploadService fileUploadService, ILogger<QuerySubmissionService> logger, INotificationService notificationService)
         {
             _context = context;
             _fileUploadService = fileUploadService;
             _emailService = emailService;
-
+            _notificationService = notificationService;
             _logger = logger;
         }
 
@@ -362,7 +364,16 @@ namespace Apptivate_UQMS_WebApp.Services
                     await _context.SaveChangesAsync();
                     _logger.LogInformation("Query assigned to Lecturer with StaffID {StaffID}.", leastBusyLecturer.StaffID);
 
-                   // await SendQuerySubmissionNotificationEmailAsync(query, model, firebaseUid);
+
+
+                    _logger.LogInformation("sending notification to  { leastBusyLecturer.StaffID}.", leastBusyLecturer.StaffID);
+
+                    // Send notification to staff member
+                    await _notificationService.NotifyStaffMember(leastBusyLecturer.StaffID, $"Query #{query.TicketNumber} has been assigned to you");
+                    _logger.LogInformation("sent notification to  {StaffID}.", leastBusyLecturer.StaffID);
+
+
+                    // await SendQuerySubmissionNotificationEmailAsync(query, model, firebaseUid);
 
                 }
             }

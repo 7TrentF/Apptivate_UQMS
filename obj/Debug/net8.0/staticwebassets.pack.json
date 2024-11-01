@@ -473,6 +473,10 @@
       "PackagePath": "staticwebassets\\css\\ViewResolvedTicketStyling.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\chat_interface.css",
+      "PackagePath": "staticwebassets\\css\\chat_interface.css"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\dashboard.css",
       "PackagePath": "staticwebassets\\css\\dashboard.css"
     },
@@ -491,6 +495,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\tempSidebar.css",
       "PackagePath": "staticwebassets\\css\\tempSidebar.css"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\toast.css",
+      "PackagePath": "staticwebassets\\css\\toast.css"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\viewTicket.css",
@@ -533,6 +541,10 @@
       "PackagePath": "staticwebassets\\js\\UserProfile.js"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\chat-enhanced.js",
+      "PackagePath": "staticwebassets\\js\\chat-enhanced.js"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\chat.js",
       "PackagePath": "staticwebassets\\js\\chat.js"
     },
@@ -549,6 +561,10 @@
       "PackagePath": "staticwebassets\\js\\login.js"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\notification.js",
+      "PackagePath": "staticwebassets\\js\\notification.js"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\password-toggle.js",
       "PackagePath": "staticwebassets\\js\\password-toggle.js"
     },
@@ -557,12 +573,28 @@
       "PackagePath": "staticwebassets\\js\\queryDetails.js"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\reports.js",
+      "PackagePath": "staticwebassets\\js\\reports.js"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\resolutionRateChart.js",
+      "PackagePath": "staticwebassets\\js\\resolutionRateChart.js"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\responseTimeChart.js",
+      "PackagePath": "staticwebassets\\js\\responseTimeChart.js"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\studentDashboard.js",
       "PackagePath": "staticwebassets\\js\\studentDashboard.js"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\toast.js",
+      "PackagePath": "staticwebassets\\js\\toast.js"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\validateRegistrationForm.js",

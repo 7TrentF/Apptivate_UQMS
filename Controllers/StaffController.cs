@@ -8,6 +8,7 @@ using static Apptivate_UQMS_WebApp.DTOs.QueryModelDto;
 using static Apptivate_UQMS_WebApp.Models.QueryModel;
 using static Apptivate_UQMS_WebApp.Models.QueryModel.QueryResolutions;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Apptivate_UQMS_WebApp.Hubs;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
@@ -18,6 +19,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
         private readonly ILogger<StaffQueryController> _logger;
         private readonly IHubContext<NotificationHub> _hubContext;  // Inject SignalR Hub Context
         private readonly IQueryService _queryService;  // Inject IQueryService
+
 
         public StaffQueryController(IQueryService queryService, ApplicationDbContext context, ILogger<StaffQueryController> logger, IHubContext<NotificationHub> hubContext)
         {

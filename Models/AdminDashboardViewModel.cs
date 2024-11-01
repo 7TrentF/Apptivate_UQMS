@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using static Apptivate_UQMS_WebApp.Models.Account;
+using static Apptivate_UQMS_WebApp.Services.AnalyticsService;
 
 namespace Apptivate_UQMS_WebApp.Models
 {
@@ -13,6 +14,9 @@ namespace Apptivate_UQMS_WebApp.Models
         public int TotalQueries { get; set; }
         public int ResolvedQueries { get; set; }
         public int PendingQueries { get; set; }
+
+        public int OngoingQueries { get; set; }
+        public int ClosedQueries { get; set; }
 
         // Counts for different user roles
         public int StaffCount { get; set; }
@@ -39,6 +43,15 @@ namespace Apptivate_UQMS_WebApp.Models
 
         // Users List (for table)
         public IEnumerable<User> UsersList { get; set; }
+
+        public TimeSpan AverageResponseTime { get; set; }
+        public List<int> ResolvedQueryTrends { get; set; } // Monthly or Weekly Data
+
+        public List<ResolutionRateDataPoint> ResolutionRates { get; set; }
+
+
+        public List<ResponseTimeDataPoint> ResponseTimeTrends { get; set; }
+
     }
 
     public class ApplicationUsers
@@ -79,4 +92,19 @@ namespace Apptivate_UQMS_WebApp.Models
         public string Action { get; set; }
         public string Timestamp { get; set; }
     }
+
+    public class QueryMetric
+    {
+        public int MetricID { get; set; }
+        public DateTime Date { get; set; }
+        public int TotalQueries { get; set; }
+        public int ResolvedQueries { get; set; }
+        public int PendingQueries { get; set; }
+        public TimeSpan AverageResponseTime { get; set; }
+        public TimeSpan AverageResolutionTime { get; set; }
+    }
+
+ 
+
+
 }
