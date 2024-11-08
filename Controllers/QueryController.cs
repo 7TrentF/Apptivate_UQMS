@@ -17,7 +17,6 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
-
     [Authorize(Roles = "Student")]
     public class QueryController : Controller
     {

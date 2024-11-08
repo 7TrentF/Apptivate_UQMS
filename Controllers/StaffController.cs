@@ -18,7 +18,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
         private readonly ApplicationDbContext _context;
         private readonly ILogger<StaffQueryController> _logger;
         private readonly IHubContext<NotificationHub> _hubContext;  // Inject SignalR Hub Context
-        private readonly IQueryService _queryService;  // Inject IQueryService
+        private readonly IQueryService _queryServic;  // Inject IQueryService
 
 
         public StaffQueryController(IQueryService queryService, ApplicationDbContext context, ILogger<StaffQueryController> logger, IHubContext<NotificationHub> hubContext)

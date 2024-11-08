@@ -30,8 +30,7 @@ public class ChatController : Controller
         return View(users);
     }
 
-
-    [HttpGet]
+  [HttpGet]
     public async Task<IActionResult> GetMessages(int userId)
     {
         var currentUserId = GetCurrentUserId();
@@ -51,6 +50,7 @@ public class ChatController : Controller
         return Json(messages);
     }
 
+  
     [HttpGet("api/users/statuses")]
     public async Task<IActionResult> GetUserStatuses()
     {

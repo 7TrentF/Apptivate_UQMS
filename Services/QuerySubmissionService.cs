@@ -522,9 +522,6 @@ namespace Apptivate_UQMS_WebApp.Services
             }
 
             return StudentQueryDetails;
-
-
-
         }
 
         private async Task HandleFileUploadForResolution(IFormFile uploadedFile, int resolutionId, int queryId)
@@ -636,6 +633,11 @@ namespace Apptivate_UQMS_WebApp.Services
             }
         }
 
+
+
+
+
+
         public async Task<ResolvedTicketAndQueryViewModel> GetResolvedTicketDetails(int queryId, string firebaseUid)
         {
             _logger.LogInformation($"Fetching resolved ticket details for QueryID: {queryId}");
@@ -654,6 +656,7 @@ namespace Apptivate_UQMS_WebApp.Services
                 {
                     // Query Details
                     QueryID = q.QueryID,
+                    TicketNumber = q.TicketNumber,
                     Description = q.Description,
                     SubmissionDate = q.SubmissionDate,
                     Status = q.Status,
