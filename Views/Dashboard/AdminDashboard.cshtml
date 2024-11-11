@@ -49,7 +49,7 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <a class="nav-link text-dark" asp-area="" asp-controller="Reports" asp-action="Index">
                 <button class="p-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors has-tooltip">
-                    <i class="fas fa-plus-circle mr-2"></i>New Query
+                    <i class="fas fa-plus-circle mr-2"></i>View Reports
                     <span class="tooltip">View reports</span>
                 </button>
                 </a>
@@ -240,6 +240,16 @@
                     </div>
                 </div>
             </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold">Department Query Distribution</h3>
+                </div>
+                <div class="h-64">
+                    <canvas id="departmentHeatmap"></canvas>
+                </div>
+            </div>
+
         </div>
 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -252,6 +262,17 @@
 
         <script src="~/js/toast.js"></script>
     <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Your existing chart initializations...
+
+                // Load department heatmap data
+                fetch('/Dashboard/GetDepartmentQueryData')
+                    .then(response => response.json())
+                    .then(data => {
+                        initializeDepartmentHeatmap(data);
+                    })
+                    .catch(error => console.error('Error loading department data:', error));
+            });
 
         // Update current time
         function updateTime() {
@@ -283,27 +304,76 @@
             }
         });
 
-        const queryChartContext = document.getElementById('queryChart').getContext('2d');
+            // Department Heatmap
+            function initializeDepartmentHeatmap(data) {
+                const ctx = document.getElementById('departmentHeatmap').getContext('2d');
 
-            const queryChart = new Chart(queryChartContext, {
-                type: 'line',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], // Sample months
-                    datasets: [{
-                        label: 'Resolved Queries',
-                        data: [15, 20, 30, 25, 40, 35], // Sample data, replace with backend data
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        fill: false
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: { title: { display: true, text: 'Query Resolution Trends' } }
+                // Function to get color on a yellow-to-red scale
+                function getHeatMapColor(value) {
+                    // Convert value from 0-1 to a color between yellow and red
+                    const hue = ((1 - value) * 60); // 60 is yellow, 0 is red
+                    const saturation = 100;
+                    const lightness = 50;
+                    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
                 }
-            });
 
-          
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.departments,
+                        datasets: [{
+                            label: 'Number of Queries',
+                            data: data.queryCounts,
+                            backgroundColor: data.queryCounts.map(count => {
+                                const intensity = count / Math.max(...data.queryCounts);
+                                return getHeatMapColor(intensity);
+                            }),
+                            borderColor: data.queryCounts.map(count => {
+                                const intensity = count / Math.max(...data.queryCounts);
+                                return getHeatMapColor(intensity);
+                            }),
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Number of Queries'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Departments'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                text: 'Query Distribution by Department'
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        return `Queries: ${context.raw}`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
 
-    </script>
+       
+        </script>
 </body>
 </html>

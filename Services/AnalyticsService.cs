@@ -123,24 +123,7 @@ namespace Apptivate_UQMS_WebApp.Services
 
 
 
-        // AnalyticsService.cs
-        public class ResponseTimeDataPoint
-        {
-            public DateTime Date { get; set; }
-            public double AverageResponseTime { get; set; }
-        }
-
-
-
-        // Add this to your AnalyticsService.cs
-        public class ResolutionRateDataPoint
-        {
-            public DateTime Date { get; set; }
-            public int TotalQueries { get; set; }
-            public int ResolvedQueries { get; set; }
-            public double ResolutionRate { get; set; }
-        }
-
+       
 
     }
 

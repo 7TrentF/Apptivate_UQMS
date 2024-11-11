@@ -10,6 +10,7 @@ using static Apptivate_UQMS_WebApp.Models.Account;
 using static Apptivate_UQMS_WebApp.DTOs.QueryModelDto;
 using Microsoft.EntityFrameworkCore;
 using static Apptivate_UQMS_WebApp.ViewModels.QueryViewModel;
+using SendGrid.Helpers.Mail;
 
 
 namespace Apptivate_UQMS_WebApp.Services
@@ -32,6 +33,8 @@ namespace Apptivate_UQMS_WebApp.Services
         //Task<object> GetResolvedTicketDetails(int queryId, string firebaseUid);
         Task<ResolvedTicketAndQueryViewModel> GetResolvedTicketDetails(int queryId, string firebaseUid);
 
+        Task<bool> SubmitFeedbackAsync(string firebaseUid, int queryId, int rating, string comments, bool isAnonymous);
+        
     }
 }
 

@@ -121,7 +121,6 @@ namespace Apptivate_UQMS_WebApp.Services
 
             try
             {
-
                 // Use the existing method to fetch the student details and query type
                 var academicQueryDetails = await GetAcademicQueryAsync(queryTypeID, firebaseUid);
 
@@ -129,8 +128,6 @@ namespace Apptivate_UQMS_WebApp.Services
                 dynamic queryData = academicQueryDetails;
                 var studentDetail = queryData.StudentDetail;
                 var queryCategories = queryData.QueryCategories;
-
-            
 
                 _logger.LogInformation("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
                 _logger.LogInformation("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
@@ -161,7 +158,6 @@ namespace Apptivate_UQMS_WebApp.Services
                 await _context.SaveChangesAsync();
                 _logger.LogInformation("Query with ID {QueryID} successfully created.", query.QueryID);
 
-
                 // Handle file upload if exists
                 if (uploadedFile != null && uploadedFile.Length > 0)
                 {
@@ -181,6 +177,8 @@ namespace Apptivate_UQMS_WebApp.Services
                 throw new Exception("Query submission failed.");
             }
         }
+
+
 
         private async Task SendQuerySubmissionNotificationEmailAsync( Query query, QueryDto model, string firebaseUid)
         {
@@ -230,6 +228,10 @@ namespace Apptivate_UQMS_WebApp.Services
             }
         }
 
+        
+        
+        
+        
         public async Task SubmitAdministrativeQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
         {
             _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
@@ -458,6 +460,11 @@ namespace Apptivate_UQMS_WebApp.Services
 
         }
 
+
+
+
+
+
         public async Task<object> GetEmailAsync(string firebaseUid)
         {
             _logger.LogInformation($"GetStudentEmailAsync called with firebaseUid: {firebaseUid}");
@@ -495,6 +502,11 @@ namespace Apptivate_UQMS_WebApp.Services
 
         }
 
+      
+        
+        
+        
+        
         public async Task<object> GetStudentQueryAsync(int queryId, string firebaseUid)
         {
             _logger.LogInformation($"GetStudentQueryAsync called with queryId: {queryId}");
@@ -697,6 +709,56 @@ namespace Apptivate_UQMS_WebApp.Services
             return queryData;
         }
 
+
+
+
+        public async Task<bool> SubmitFeedbackAsync(string firebaseUid, int queryId, int rating, string comments, bool isAnonymous)
+        {
+            _logger.LogInformation("Started SubmitFeedback for QueryID: {QueryID}, Rating: {Rating}, Anonymous: {IsAnonymous}", queryId, rating, isAnonymous);
+
+            var user = await _context.Users
+                .Include(u => u.StudentDetails)
+                .FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+
+            if (user == null || !user.StudentDetails.Any())
+            {
+                _logger.LogError("No user or student details found for FirebaseUID: {FirebaseUID}", firebaseUid);
+                return false;
+            }
+
+            var studentId = user.StudentDetails.First().StudentID;
+            _logger.LogInformation("Fetched student details for StudentID: {StudentID}", studentId);
+
+            var query = await _context.Queries.FirstOrDefaultAsync(q => q.QueryID == queryId && q.Status == QueryStatus.Resolved);
+
+            if (query == null)
+            {
+                _logger.LogWarning("No resolved query found for QueryID: {QueryID}", queryId);
+                return false;
+            }
+
+            _logger.LogInformation("Resolved query found for QueryID: {QueryID}", queryId);
+
+            var feedback = new Feedback
+            {
+                QueryID = isAnonymous ? (int?)null : queryId,
+                StudentID = isAnonymous ? (int?)null : studentId,
+                Rating = rating,
+                Comments = comments,
+                SubmissionDate = DateTime.UtcNow,
+                IsAnonymous = isAnonymous
+            };
+
+            _logger.LogInformation("Created feedback for QueryID: {QueryID}, IsAnonymous: {IsAnonymous}", isAnonymous ? "Anonymous" : queryId.ToString(), isAnonymous);
+
+            _context.Feedback.Add(feedback);
+            query.Status = QueryStatus.Closed;
+            await _context.SaveChangesAsync();
+
+            _logger.LogInformation("Feedback submitted successfully for QueryID: {QueryID}, StudentID: {StudentID}, Anonymous: {IsAnonymous}", queryId, studentId, isAnonymous);
+
+            return true;
+        }
     }
 
 } 

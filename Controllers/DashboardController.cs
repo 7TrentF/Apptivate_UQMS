@@ -33,6 +33,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
 
+
+
         [HttpGet]
         public IActionResult TestToast()
         {
@@ -140,9 +142,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             return View(viewModel);
         }
-
-
-
 
         [HttpGet]
         [Authorize(Roles = "Staff")]
@@ -263,6 +262,28 @@ namespace Apptivate_UQMS_WebApp.Controllers
         {
             var rates = await _analyticsService.GetQueryResolutionRatesAsync(days);
             return Json(rates);
+        }
+
+
+        public async Task<IActionResult> GetDepartmentQueryData()
+        {
+            var departmentData = await _context.Queries
+                .GroupBy(q => q.Department.DepartmentName)
+                .Select(g => new
+                {
+                    Department = g.Key,
+                    QueryCount = g.Count()
+                })
+                .OrderByDescending(x => x.QueryCount)
+                .ToListAsync();
+
+            var data = new
+            {
+                departments = departmentData.Select(d => d.Department).ToList(),
+                queryCounts = departmentData.Select(d => d.QueryCount).ToList()
+            };
+
+            return Json(data);
         }
 
 
@@ -393,7 +414,10 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 ActiveUsers = activeUsers,
                 CardExpenseData = cardExpenseData,
                 QueriesReceivedData = queriesReceivedData,
-                SystemActivities = systemActivities
+                SystemActivities = systemActivities,
+
+
+                 
             };
 
 

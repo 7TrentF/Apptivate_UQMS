@@ -49,10 +49,20 @@ namespace Apptivate_UQMS_WebApp.Models
 
         public List<ResolutionRateDataPoint> ResolutionRates { get; set; }
 
+        public List<DepartmentQueryData> DepartmentQueries { get; set; }
 
         public List<ResponseTimeDataPoint> ResponseTimeTrends { get; set; }
 
     }
+
+
+    public class DepartmentQueryData
+    {
+        public string DepartmentName { get; set; }
+        public int QueryCount { get; set; }
+    }
+
+   
 
     public class ApplicationUsers
     {
@@ -104,7 +114,24 @@ namespace Apptivate_UQMS_WebApp.Models
         public TimeSpan AverageResolutionTime { get; set; }
     }
 
- 
+    // AnalyticsService.cs
+    public class ResponseTimeDataPoint
+    {
+        public DateTime Date { get; set; }
+        public double AverageResponseTime { get; set; }
+    }
+
+
+
+    // Add this to your AnalyticsService.cs
+    public class ResolutionRateDataPoint
+    {
+        public DateTime Date { get; set; }
+        public int TotalQueries { get; set; }
+        public int ResolvedQueries { get; set; }
+        public double ResolutionRate { get; set; }
+    }
+
 
 
 }

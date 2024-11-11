@@ -436,6 +436,35 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
 
 
+
+        /*
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SubmitFeedback(int queryId, int rating, string comments, bool isAnonymous)
+        {
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+            if (firebaseUid == null)
+            {
+                _logger.LogWarning("FirebaseUID is null. Redirecting to login.");
+                return RedirectToAction("Login", "Account");
+            }
+
+            var success = await _queryService.SubmitFeedbackAsync(firebaseUid, queryId, rating, comments, isAnonymous);
+
+            if (!success)
+            {
+                _logger.LogError("Failed to submit feedback for QueryID: {QueryID}", queryId);
+                return RedirectToAction("Error", "Home");
+            }
+
+            return RedirectToAction("ViewResolvedTicket", new { queryId });
+        }
+
+        */
+
+
+
         public async Task<IActionResult> Search(string searchQuery, string statusFilter)
         {
             var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
