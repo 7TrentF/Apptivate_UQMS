@@ -6,7 +6,7 @@ using System.Diagnostics;
 namespace Apptivate_UQMS_WebApp.Controllers
 {
 
-    [Authorize]
+   // [Authorize]
     public class HomeController : Controller
     {
        // private readonly ILogger<HomeController> _logger;
