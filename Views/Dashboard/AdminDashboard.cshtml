@@ -131,8 +131,28 @@
             </div>
         </div>
 
+        <div class="mb-6">
+            <div class="border-b border-gray-200">
+                <nav class="-mb-px flex space-x-8">
+                    <button class="tab-button px-3 py-2 border-b-2 border-blue-500 text-blue-600 font-medium" data-tab="performance">
+                        Performance Metrics
+                    </button>
+                    <button class="tab-button px-3 py-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="distribution">
+                        Query Distribution
+                    </button>
+                    <button class="tab-button px-3 py-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="activity">
+                        Recent Activity
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+
+
+        <div class="tab-content active" id="performance">
+
         <!-- Charts Section -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
             <div class="bg-white rounded-xl shadow-md p-6">
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-lg font-semibold">Query Resolution Status</h3>
@@ -165,9 +185,12 @@
                 </div>
                 <canvas id="resolutionRateChart" height="200"></canvas>
             </div>
-
+         </div>
 
         </div>
+
+
+        <div class="tab-content" id="activity">
 
 
         <!-- Recent Activity -->
@@ -241,31 +264,36 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-xl shadow-md p-6">
+        </div>
+
+        </div>
+         <div class="tab-content" id="distribution">
+
+            <div class="bg-white rounded-xl shadow-md p-6" style="width: 1200px;">
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-lg font-semibold">Department Query Distribution</h3>
                 </div>
-                <div class="h-64">
+                <div style="height: 600px; width: 100%;">
                     <canvas id="departmentHeatmap"></canvas>
                 </div>
             </div>
 
-        </div>
+          </div>
+
+     
+
 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script src="~/js/responseTimeChart.js"></script>
             <script src="~/js/resolutionRateChart.js"></script>
+            <script src="~/js/AdminCharts.js"></script>
+            <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+            <script src="~/js/notification.js"></script>
 
-        <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
-        <script src="~/js/notification.js"></script>
-
-
-        <script src="~/js/toast.js"></script>
+ 
+            <script src="~/js/toast.js"></script>
     <script>
             document.addEventListener('DOMContentLoaded', function () {
-                // Your existing chart initializations...
-
-                // Load department heatmap data
                 fetch('/Dashboard/GetDepartmentQueryData')
                     .then(response => response.json())
                     .then(data => {
@@ -273,7 +301,6 @@
                     })
                     .catch(error => console.error('Error loading department data:', error));
             });
-
         // Update current time
         function updateTime() {
             const now = new Date();
@@ -304,49 +331,56 @@
             }
         });
 
-            // Department Heatmap
             function initializeDepartmentHeatmap(data) {
                 const ctx = document.getElementById('departmentHeatmap').getContext('2d');
 
-                // Function to get color on a yellow-to-red scale
+                // Function to get color on a gradient from yellow to red
                 function getHeatMapColor(value) {
-                    // Convert value from 0-1 to a color between yellow and red
                     const hue = ((1 - value) * 60); // 60 is yellow, 0 is red
-                    const saturation = 100;
-                    const lightness = 50;
-                    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+                    return `hsl(${hue}, 100%, 50%)`;
                 }
+
+                // Process data into a format suitable for heatmap
+                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const datasets = data.departments.map((dept, index) => ({
+                    label: dept,
+                    data: months.map((_, monthIndex) => {
+                        const matchingData = data.heatmapData.find(d =>
+                            d.department === dept && d.month === monthIndex
+                        );
+                        return matchingData ? matchingData.queryCount : 0;
+                    }),
+                    backgroundColor: function (context) {
+                        const value = context.raw;
+                        const maxValue = Math.max(...data.heatmapData.map(d => d.queryCount));
+                        const intensity = value / maxValue;
+                        return getHeatMapColor(intensity);
+                    },
+                    borderColor: 'white',
+                    borderWidth: 1,
+                    stack: 'stack'
+                }));
 
                 new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: data.departments,
-                        datasets: [{
-                            label: 'Number of Queries',
-                            data: data.queryCounts,
-                            backgroundColor: data.queryCounts.map(count => {
-                                const intensity = count / Math.max(...data.queryCounts);
-                                return getHeatMapColor(intensity);
-                            }),
-                            borderColor: data.queryCounts.map(count => {
-                                const intensity = count / Math.max(...data.queryCounts);
-                                return getHeatMapColor(intensity);
-                            }),
-                            borderWidth: 1
-                        }]
+                        labels: months,
+                        datasets: datasets
                     },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
+                        indexAxis: 'y',  // This makes it horizontal
                         scales: {
-                            y: {
-                                beginAtZero: true,
+                            x: {
+                                stacked: true,
                                 title: {
                                     display: true,
-                                    text: 'Number of Queries'
+                                    text: 'Months'
                                 }
                             },
-                            x: {
+                            y: {
+                                stacked: true,
                                 title: {
                                     display: true,
                                     text: 'Departments'
@@ -355,16 +389,13 @@
                         },
                         plugins: {
                             legend: {
-                                display: false
-                            },
-                            title: {
                                 display: true,
-                                text: 'Query Distribution by Department'
+                                position: 'right'
                             },
                             tooltip: {
                                 callbacks: {
                                     label: function (context) {
-                                        return `Queries: ${context.raw}`;
+                                        return `${context.dataset.label}: ${context.raw} queries`;
                                     }
                                 }
                             }
@@ -372,8 +403,6 @@
                     }
                 });
             }
-
-       
         </script>
 </body>
 </html>

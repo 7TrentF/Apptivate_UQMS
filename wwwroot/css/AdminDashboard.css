@@ -1,4 +1,53 @@
 ﻿
+
+/* Add to your existing AdminDashboard.css */
+.tab-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+    .tab-content.active {
+        display: block;
+        opacity: 1;
+    }
+
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.collapse-button {
+    transition: transform 0.3s ease;
+}
+
+    .collapse-button.collapsed {
+        transform: rotate(-90deg);
+    }
+
+.gradient-bg {
+    background: linear-gradient(to right, #2563eb, #3b82f6);
+}
+
+/* Enhanced Chart Container */
+.chart-container {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+    .chart-container:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
 .stat-card {
     transition: all 0.3s ease-in-out;
 }

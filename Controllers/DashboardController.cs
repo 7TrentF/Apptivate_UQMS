@@ -264,26 +264,35 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return Json(rates);
         }
 
-
         public async Task<IActionResult> GetDepartmentQueryData()
         {
-            var departmentData = await _context.Queries
-                .GroupBy(q => q.Department.DepartmentName)
+            var endDate = DateTime.Now;
+            var startDate = endDate.AddMonths(-11);
+
+            var queryData = await _context.Queries
+                .Where(q => q.SubmissionDate >= startDate && q.SubmissionDate <= endDate)
+                .GroupBy(q => new {
+                    Department = q.Department.DepartmentName,
+                    Month = q.SubmissionDate.Value.Month - 1  // 0-based month
+                })
                 .Select(g => new
                 {
-                    Department = g.Key,
-                    QueryCount = g.Count()
+                    department = g.Key.Department,
+                    month = g.Key.Month,
+                    queryCount = g.Count()
                 })
-                .OrderByDescending(x => x.QueryCount)
                 .ToListAsync();
 
-            var data = new
-            {
-                departments = departmentData.Select(d => d.Department).ToList(),
-                queryCounts = departmentData.Select(d => d.QueryCount).ToList()
-            };
+            var departments = await _context.Departments
+                .Select(d => d.DepartmentName)
+                .OrderBy(n => n)
+                .ToListAsync();
 
-            return Json(data);
+            return Json(new
+            {
+                departments = departments,
+                heatmapData = queryData
+            });
         }
 
 

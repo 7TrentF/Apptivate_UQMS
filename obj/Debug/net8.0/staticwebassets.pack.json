@@ -509,6 +509,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\AdminCharts.js",
+      "PackagePath": "staticwebassets\\js\\AdminCharts.js"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\AdminDashboard.js",
       "PackagePath": "staticwebassets\\js\\AdminDashboard.js"
     },
