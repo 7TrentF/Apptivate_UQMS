@@ -146,10 +146,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
                     return View("StudentQuery/NewQuery/AcademicQuery"); // Return the form if validation fails
                 }
 
-
-               
-
-
                 try
                 {
                     await _queryService.SubmitAcademicQueryAsync(model, uploadedFile, firebaseUid); // Add email parameter
