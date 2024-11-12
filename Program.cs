@@ -11,6 +11,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using Serilog;
 using Apptivate_UQMS_WebApp.Hubs;
+using Apptivate_UQMS_WebApp.Services.QueryServices;
 
 var builder = WebApplication.CreateBuilder(args);
 

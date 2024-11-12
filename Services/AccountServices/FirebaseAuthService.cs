@@ -188,7 +188,6 @@
             }
             catch (FirebaseAuthException ex)
             {
-                // Firebase throws a "User not found" exception when the email doesn't exist, which we can ignore.
                 if (ex.AuthErrorCode != AuthErrorCode.UserNotFound)
                 {
                     _logger.LogError(ex, "Error while checking if the user already exists.");
@@ -213,11 +212,25 @@
                 await AssignUserRole(userRecord.Uid, role);
 
                 _logger.LogInformation($"User registered successfully with UID: {userRecord.Uid}");
+
+                // Generate and send verification email
+                var actionCodeSettings = new ActionCodeSettings()
+                {
+                    Url = "https://192.168.1.68:7086/Account/Login", // Redirect to your app after verification
+                    HandleCodeInApp = true,
+                };
+
+                //
+
+                var verificationLink = await FirebaseAuth.DefaultInstance.GenerateEmailVerificationLinkAsync(email, actionCodeSettings);
+
+                // Optional: Send the link via Brevo
+              //  await SendVerificationEmailWithBrevo(email, verificationLink);
+
                 return userRecord.Uid;
             }
             catch (FirebaseAuthException ex)
             {
-                // Handle different types of FirebaseAuthException
                 var errorMessage = ex.Message.ToLower();
 
                 if (errorMessage.Contains("email") && errorMessage.Contains("invalid"))
@@ -230,17 +243,15 @@
                     _logger.LogError("Password is too weak.");
                     throw new Exception("Password must be at least 6 characters long.");
                 }
-
                 else if (errorMessage.Contains("email") && errorMessage.Contains("already exists"))
                 {
                     _logger.LogError($"Email address is already taken: {email}");
                     throw new Exception("Email address is already taken.");
                 }
-
                 else
                 {
                     _logger.LogError(ex, $"Failed to register user with email: {email}");
-                    throw new Exception("Registration failed. Please try again..");
+                    throw new Exception("Registration failed. Please try again.");
                 }
             }
         }

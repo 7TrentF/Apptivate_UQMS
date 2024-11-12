@@ -1,5 +1,4 @@
 ﻿using Apptivate_UQMS_WebApp.Data;
-using Apptivate_UQMS_WebApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
@@ -9,6 +8,7 @@ using static Apptivate_UQMS_WebApp.Models.QueryModel;
 using static Apptivate_UQMS_WebApp.Models.QueryModel.QueryResolutions;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using Apptivate_UQMS_WebApp.Hubs;
+using Apptivate_UQMS_WebApp.Services.QueryServices;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {

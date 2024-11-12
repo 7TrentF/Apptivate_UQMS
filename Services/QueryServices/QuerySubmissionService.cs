@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Apptivate_UQMS_WebApp.Hubs;
 
 
-namespace Apptivate_UQMS_WebApp.Services
+namespace Apptivate_UQMS_WebApp.Services.QueryServices
 {
     public class QuerySubmissionService : IQueryService
     {
@@ -54,7 +54,7 @@ namespace Apptivate_UQMS_WebApp.Services
                 select new
                 {
                     student.StudentID,
-                    CourseCode = course.CourseCode,
+                    course.CourseCode,
                     Department = department.DepartmentName,
                     DepartmentID = department != null ? department.DepartmentID : (int?)null,
                     CourseID = course != null ? course.CourseID : (int?)null,
@@ -91,7 +91,7 @@ namespace Apptivate_UQMS_WebApp.Services
             return new
             {
                 QueryTypeID = queryTypeId,
-                QueryCategories = queryTypeDto.QueryCategories,
+                queryTypeDto.QueryCategories,
                 StudentDetail = new
                 {
                     studentDetailQuery.CourseCode,
@@ -180,7 +180,7 @@ namespace Apptivate_UQMS_WebApp.Services
 
 
 
-        private async Task SendQuerySubmissionNotificationEmailAsync( Query query, QueryDto model, string firebaseUid)
+        private async Task SendQuerySubmissionNotificationEmailAsync(Query query, QueryDto model, string firebaseUid)
         {
             _logger.LogInformation($"GetStudentEmailAsync called with firebaseUid: {firebaseUid}");
 
@@ -228,10 +228,10 @@ namespace Apptivate_UQMS_WebApp.Services
             }
         }
 
-        
-        
-        
-        
+
+
+
+
         public async Task SubmitAdministrativeQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
         {
             _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
@@ -240,8 +240,8 @@ namespace Apptivate_UQMS_WebApp.Services
 
             try
             {
-                
-              
+
+
                 // Use the existing method to fetch the student details and query type
                 var academicQueryDetails = await GetAcademicQueryAsync(queryTypeID, firebaseUid);
 
@@ -249,7 +249,7 @@ namespace Apptivate_UQMS_WebApp.Services
                 dynamic queryData = academicQueryDetails;
                 var studentDetail = queryData.StudentDetail;
                 var queryCategories = queryData.QueryCategories;
-             
+
 
                 _logger.LogWarning("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
                 _logger.LogWarning("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
@@ -493,7 +493,7 @@ namespace Apptivate_UQMS_WebApp.Services
             return new
             {
                 Email = studentEmail,
-                
+
 
             };
 
@@ -502,11 +502,11 @@ namespace Apptivate_UQMS_WebApp.Services
 
         }
 
-      
-        
-        
-        
-        
+
+
+
+
+
         public async Task<object> GetStudentQueryAsync(int queryId, string firebaseUid)
         {
             _logger.LogInformation($"GetStudentQueryAsync called with queryId: {queryId}");
@@ -614,7 +614,7 @@ namespace Apptivate_UQMS_WebApp.Services
                     query.Status = QueryStatus.Resolved; // Update status to Resolved
                     query.ResolvedDate = DateTime.Now;
                 }
-               
+
                 else
                 {
                     _logger.LogError("Query with ID {QueryID} not found.", model.QueryID);
@@ -684,7 +684,7 @@ namespace Apptivate_UQMS_WebApp.Services
                     Solution = q.QueryResolutions.FirstOrDefault().Solution,
                     ApprovalStatus = q.QueryResolutions.FirstOrDefault().ApprovalStatus,
                     AdditionalNotes = q.QueryResolutions.FirstOrDefault().AdditionalNotes,
-                    ResolutionDate= q.QueryResolutions.FirstOrDefault().ResolutionDate,
+                    ResolutionDate = q.QueryResolutions.FirstOrDefault().ResolutionDate,
 
 
                     // Resolution Documents (Lazy-loaded)
@@ -741,8 +741,8 @@ namespace Apptivate_UQMS_WebApp.Services
 
             var feedback = new Feedback
             {
-                QueryID = isAnonymous ? (int?)null : queryId,
-                StudentID = isAnonymous ? (int?)null : studentId,
+                QueryID = isAnonymous ? null : queryId,
+                StudentID = isAnonymous ? null : studentId,
                 Rating = rating,
                 Comments = comments,
                 SubmissionDate = DateTime.UtcNow,
@@ -761,8 +761,8 @@ namespace Apptivate_UQMS_WebApp.Services
         }
     }
 
-} 
+}
 
-    
+
 
 

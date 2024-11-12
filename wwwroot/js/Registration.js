@@ -34,11 +34,9 @@
 
         content.textContent = message;
         overlay.style.display = 'flex';
-
-        setTimeout(() => {
-            hideMessage();
-        }, 5000);
     }
+
+    document.querySelector('.close-button').addEventListener('click', hideMessage);
 
     function hideMessage() {
         const overlay = document.getElementById('messageOverlay');

@@ -14,6 +14,7 @@ using Apptivate_UQMS_WebApp.Extentions; // Add this using directive
 using static Apptivate_UQMS_WebApp.DTOs.QueryModelDto;
 using QueryStatus = Apptivate_UQMS_WebApp.Models.QueryModel.QueryStatus;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Apptivate_UQMS_WebApp.Services.QueryServices;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {

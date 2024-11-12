@@ -13,7 +13,7 @@ using static Apptivate_UQMS_WebApp.ViewModels.QueryViewModel;
 using SendGrid.Helpers.Mail;
 
 
-namespace Apptivate_UQMS_WebApp.Services
+namespace Apptivate_UQMS_WebApp.Services.QueryServices
 {
     public interface IQueryService
     {
@@ -34,13 +34,13 @@ namespace Apptivate_UQMS_WebApp.Services
         Task<ResolvedTicketAndQueryViewModel> GetResolvedTicketDetails(int queryId, string firebaseUid);
 
         Task<bool> SubmitFeedbackAsync(string firebaseUid, int queryId, int rating, string comments, bool isAnonymous);
-        
+
     }
 }
 
 
 
 
-     
-   
+
+
 
