@@ -53,6 +53,9 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" value="@Model.Password" required>
                 <span class="toggle-password">👁️</span>
                 <span asp-validation-for="Password" class="text-danger"></span>
+                <div class="password-feedback"></div>
+
+
             </div>
 
             <div class="form-group">
@@ -77,12 +80,18 @@
                 </select>
             </div>
 
-                  <div id="yearField" class="form-group">
-                <label for="year">Year</label>
-                <input type="number" class="form-control" id="year" name="year" placeholder="1st, 2nd or 3rd year" value="@Model.Year" required>
-            </div>
+            
+            @if (Model.Role == ("Student"))
+            {
 
-            @if (User.IsInRole("Staff"))
+
+                <div id="yearField" class="form-group">
+                    <label for="year">What Year of study are you in</label>
+                    <input type="number" class="form-control" id="year" name="year" placeholder="1st, 2nd or 3rd year" value="@Model.Year" required min="1">
+            </div>
+            }
+
+            @if (Model.Role == ("Staff"))
             {
 
                 <div>
@@ -90,7 +99,16 @@
                     <option value="">Select Position</option>
                 </select>
                 <span asp-validation-for="Positions" class="text-danger"></span>
+
+
+                    <div id="yearField" class="form-group">
+                        <label for="year">What year group do you teach</label>
+                        <input type="number" class="form-control" id="year" name="year" placeholder="1st, 2nd or 3rd year" value="@Model.Year" required min="1">
+                    </div>
             </div>
+
+              
+
             }
 
 

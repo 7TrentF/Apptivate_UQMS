@@ -23,9 +23,9 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
         public QuerySubmissionService(IEmailService emailService, ApplicationDbContext context, FileUploadService fileUploadService, ILogger<QuerySubmissionService> logger, INotificationService notificationService)
         {
-            _context = context;
+            _context = context; 
             _fileUploadService = fileUploadService;
-            _emailService = emailService;
+            _emailService = emailService; 
             _notificationService = notificationService;
             _logger = logger;
         }
@@ -228,7 +228,62 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
             }
         }
 
+        private async Task SendQuerySubmissionNotificationEmailStaff(Query query,int staffId)
+        {
+            _logger.LogInformation($"Get Staff email called with staffId: {staffId}");
 
+
+            // Fetch the user's email based on the Firebase UID
+            var userId = await _context.StaffDetails
+                 .Where(u => u.StaffID == staffId) // Replace with the actual column name for Firebase UID
+                .Select(u => u.UserID)
+                .FirstOrDefaultAsync();
+
+
+            if (userId == null)
+            {
+                _logger.LogError("UserId not found.");
+                throw new Exception("UserId not found.");
+            }
+
+
+            var staffEmail = await _context.Users
+                .Where(u => u.UserID == userId) // Replace with the actual column name for Firebase UID
+                .Select(u => u.Email)
+                .FirstOrDefaultAsync();
+
+
+            if (staffEmail == null)
+            {
+                _logger.LogError("Staff email not found.");
+                throw new Exception("Staff email  details not found.");
+            }
+
+            _logger.LogInformation("This is the email you require {UserEmail}", staffEmail);
+
+
+            try
+            {
+                var emailData = new Dictionary<string, object>
+        {
+            { "user_name", staffEmail.Split('@')[0] },
+            { "query_description", query.Description.Substring(0, Math.Min(50, query.Description.Length)) },
+            { "ticket_number", query.TicketNumber },
+            { "submitted_date", query.SubmissionDate?.ToString("f") }
+        };
+
+                // Replace '1' with your actual email template ID
+                await _emailService.SendTemplateEmailAsync(staffEmail, 2, emailData);
+                _logger.LogInformation("Notification email sent to user {UserEmail}", staffEmail);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Failed to send query submission notification email to {UserEmail}: {Message}", staffEmail, ex.Message);
+                throw new ApplicationException("Failed to send notification email", ex);
+            }
+        }
+
+        
 
 
 
@@ -367,15 +422,15 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
                     _logger.LogInformation("Query assigned to Lecturer with StaffID {StaffID}.", leastBusyLecturer.StaffID);
 
 
+                    await SendQuerySubmissionNotificationEmailStaff(query, leastBusyLecturer.StaffID);
 
-                    _logger.LogInformation("sending notification to  { leastBusyLecturer.StaffID}.", leastBusyLecturer.StaffID);
+                    _logger.LogInformation("sending email to  { leastBusyLecturer.StaffID}.", leastBusyLecturer.StaffID);
 
                     // Send notification to staff member
                     await _notificationService.NotifyStaffMember(leastBusyLecturer.StaffID, $"Query #{query.TicketNumber} has been assigned to you");
                     _logger.LogInformation("sent notification to  {StaffID}.", leastBusyLecturer.StaffID);
 
 
-                    // await SendQuerySubmissionNotificationEmailAsync(query, model, firebaseUid);
 
                 }
             }

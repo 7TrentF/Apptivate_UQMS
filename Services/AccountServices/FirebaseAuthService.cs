@@ -6,16 +6,22 @@
     using System.Text.Json;
     using System.Security.Cryptography;
     using System.Text;
+    using Apptivate_UQMS_WebApp.Data;
 
     public class FirebaseAuthService
     {
         private readonly ILogger<FirebaseAuthService> _logger;
         private readonly HttpClient _httpClient;
+        private readonly IEmailService _emailService;
+              private readonly ApplicationDbContext _context;
 
-        public FirebaseAuthService(ILogger<FirebaseAuthService> logger, HttpClient httpClient)
+
+        public FirebaseAuthService(ILogger<FirebaseAuthService> logger, HttpClient httpClient, IEmailService emailService, ApplicationDbContext context)
         {
             _logger = logger;
             _httpClient = httpClient;
+            _emailService = emailService;
+            _context = context; 
         }
 
         // Method to generate a hashed password using PBKDF2
@@ -115,7 +121,10 @@
 
                 // Parse the response to get the ID token
                 var content = await response.Content.ReadAsStringAsync();
+               
                 var jsonDoc = JsonDocument.Parse(content);
+                
+                
                 var idToken = jsonDoc.RootElement.GetProperty("idToken").GetString();
 
                 _logger.LogInformation("User logged in successfully.");
@@ -202,7 +211,6 @@
                 Password = password,
                 Disabled = false,
             };
-
             try
             {
                 // Create the user
@@ -216,16 +224,17 @@
                 // Generate and send verification email
                 var actionCodeSettings = new ActionCodeSettings()
                 {
-                    Url = "https://192.168.1.68:7086/Account/Login", // Redirect to your app after verification
+                    Url = "http://localhost:7086/Account/Login", // Adjust the port as per your setup
                     HandleCodeInApp = true,
                 };
 
-                //
-
                 var verificationLink = await FirebaseAuth.DefaultInstance.GenerateEmailVerificationLinkAsync(email, actionCodeSettings);
 
-                // Optional: Send the link via Brevo
-              //  await SendVerificationEmailWithBrevo(email, verificationLink);
+
+                _logger.LogInformation($"Sending verification to: {userRecord.Email}");
+
+                // Optional: Send the link via Brevo or other email service
+                await _emailService.SendEmailVerification(email, verificationLink);
 
                 return userRecord.Uid;
             }

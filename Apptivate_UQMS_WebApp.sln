@@ -10,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UQMS.Tests", "..\UQMS.Tests\UQMS.Tests.csproj", "{D196D7CC-0A14-45F7-8BE4-72FD6B5CBE7B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,10 +20,6 @@ Global
 		{708E1030-051C-4DA2-B2CC-AE701D61AB43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{708E1030-051C-4DA2-B2CC-AE701D61AB43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{708E1030-051C-4DA2-B2CC-AE701D61AB43}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D196D7CC-0A14-45F7-8BE4-72FD6B5CBE7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D196D7CC-0A14-45F7-8BE4-72FD6B5CBE7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D196D7CC-0A14-45F7-8BE4-72FD6B5CBE7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D196D7CC-0A14-45F7-8BE4-72FD6B5CBE7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

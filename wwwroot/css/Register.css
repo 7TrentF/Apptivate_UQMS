@@ -483,3 +483,9 @@ select {
     .close-button:hover {
         background-color: #0056b3;
     }
+
+.password-feedback {
+    margin-top: 8px;
+    font-size: 14px;
+    color: red;
+}

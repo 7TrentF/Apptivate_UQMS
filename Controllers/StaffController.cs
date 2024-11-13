@@ -24,7 +24,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
         public StaffQueryController(IQueryService queryService, ApplicationDbContext context, ILogger<StaffQueryController> logger, IHubContext<NotificationHub> hubContext)
         {
             _queryService = queryService;
-
             _context = context;
             _logger = logger;
             _hubContext = hubContext;

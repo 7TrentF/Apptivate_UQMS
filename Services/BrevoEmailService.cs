@@ -3,6 +3,8 @@ using sib_api_v3_sdk.Client;
 using sib_api_v3_sdk.Model;
 using Microsoft.EntityFrameworkCore;
 using Task = System.Threading.Tasks.Task;
+using SendGrid.Helpers.Mail;
+using Apptivate_UQMS_WebApp.Data;
 
 namespace Apptivate_UQMS_WebApp.Services
 {
@@ -10,6 +12,9 @@ namespace Apptivate_UQMS_WebApp.Services
     {
         Task SendEmailAsync(string to, string subject, string htmlContent);
         Task SendTemplateEmailAsync(string to, long templateId, Dictionary<string, object> templateData);
+
+        Task SendEmailVerification(string email, string verificationLink);
+
     }
 
     public class BrevoEmailService : IEmailService
@@ -17,13 +22,15 @@ namespace Apptivate_UQMS_WebApp.Services
         private readonly string _apiKey;
         private readonly TransactionalEmailsApi _emailApi;
         private readonly ILogger<BrevoEmailService> _logger;
+                private readonly ApplicationDbContext _context;
 
-        public BrevoEmailService(IConfiguration configuration, ILogger<BrevoEmailService> logger)
+        public BrevoEmailService(IConfiguration configuration, ILogger<BrevoEmailService> logger, ApplicationDbContext context)
         {
             _apiKey = configuration["Brevo:ApiKey"];
             Configuration.Default.ApiKey["api-key"] = _apiKey;
             _emailApi = new TransactionalEmailsApi();
             _logger = logger;
+            _context = context; 
         }
 
         public async Task SendEmailAsync(string to, string subject, string htmlContent)
@@ -94,6 +101,31 @@ namespace Apptivate_UQMS_WebApp.Services
                 throw new ApplicationException("Failed to send template email", ex);
             }
         }
+
+        public async Task SendEmailVerification(string email, string verificationLink )
+        {
+            _logger.LogInformation($"SendEmailVerification hit");
+            _logger.LogInformation("This is the email you require sire {email}", email);
+
+            try
+            {
+                var emailData = new Dictionary<string, object>
+                {
+                    {"user_name", email.Split('@')[0] },
+                    {"link", verificationLink },
+                };
+
+                // Replace '1' with your actual email template ID
+                await  SendTemplateEmailAsync(email, 4, emailData);
+                _logger.LogInformation("Email sent to user {email}", email);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Failed to send verification email to {email}: {Message}", email, ex.Message);
+                throw new ApplicationException("Failed to send verification email", ex);
+            }
+        }
+
     }
 
 }

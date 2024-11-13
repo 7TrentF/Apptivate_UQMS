@@ -21,6 +21,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
         private readonly ILogger<AccountController> _logger;
         private readonly ApplicationDbContext _context;
         private readonly IUserRegistrationService _userRegistrationService;
+
+
         private readonly IUserProfileService _userProfileService;
 
         public AccountController(FirebaseAuthService firebaseAuthService, ILogger<AccountController> logger, ApplicationDbContext context,IUserRegistrationService userRegistrationService, IUserProfileService userProfileService)
@@ -93,6 +95,9 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 Positions = positions
             };
 
+            _logger.LogInformation("SELECTED model ROLE: " +  model.Role);
+
+            _logger.LogInformation("SELECTED ROLE: " + selectedRole);
 
             return View(model);
         }
@@ -108,7 +113,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
                     var user = await _userRegistrationService.RegisterUserAsync(model);
                     _logger.LogInformation("User registered successfully.");
 
-                    return Json(new { success = true, message = "Registration successful! You can now login." });
+                    return Json(new { success = true, message = "Registration successful! A verification link has been sent to your email address." });
                 }
                 catch (Exception ex)
                 {
@@ -157,6 +162,8 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 {
                     // Validate the Firebase token
                     var decodedToken = await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(token);
+
+
                     var firebaseUser = await FirebaseAuth.DefaultInstance.GetUserAsync(decodedToken.Uid);
 
                     // Find the user in your SQL database by Firebase UID
@@ -256,6 +263,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
                             return RedirectToAction("StaffDashboard", "Dashboard");
                         case "Admin":
                             return RedirectToAction("AdminDashboard", "Dashboard");
+                       
                         default:
                             _logger.LogError($"Unknown role: {user.Role}");
                             ModelState.AddModelError(string.Empty, "Unknown role.");

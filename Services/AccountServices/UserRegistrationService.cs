@@ -29,16 +29,17 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
         // Method to check password strength
         private bool IsPasswordStrong(string password)
         {
-            // Define password strength criteria
-            int strength = 0;
-            if (password.Length >= 8) strength++;
-            if (System.Text.RegularExpressions.Regex.IsMatch(password, "[A-Z]")) strength++;
-            if (System.Text.RegularExpressions.Regex.IsMatch(password, "[a-z]")) strength++;
-            if (System.Text.RegularExpressions.Regex.IsMatch(password, "[0-9]")) strength++;
-            if (System.Text.RegularExpressions.Regex.IsMatch(password, @"[^A-Za-z0-9]")) strength++;
+            // Check if the password meets all the criteria
+            bool hasUpperCase = System.Text.RegularExpressions.Regex.IsMatch(password, "[A-Z]");
+            bool hasLowerCase = System.Text.RegularExpressions.Regex.IsMatch(password, "[a-z]");
+            bool hasDigit = System.Text.RegularExpressions.Regex.IsMatch(password, "[0-9]");
+            bool hasSpecialChar = System.Text.RegularExpressions.Regex.IsMatch(password, @"[^A-Za-z0-9]");
+            bool isLongEnough = password.Length >= 8;
 
-            return strength >= 3; // Adjust as necessary for your requirements
+            // Ensure all conditions are true for a strong password
+            return hasUpperCase && hasLowerCase && hasDigit && hasSpecialChar && isLongEnough;
         }
+
 
         public async Task<User> RegisterUserAsync(RegisterViewModel model)
         {
@@ -55,10 +56,12 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
 
                 // Attempt Firebase registration
                 string firebaseUID;
+
                 try
                 {
                     firebaseUID = await _firebaseAuthService.RegisterUser(model.Email, model.Password, model.Role);
                 }
+
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, "Firebase registration failed.");

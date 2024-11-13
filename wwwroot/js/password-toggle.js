@@ -98,17 +98,43 @@ document.addEventListener('DOMContentLoaded', function () {
     function updatePasswordStrength(password) {
         let strength = 0;
         const meter = document.querySelector('.password-strength-meter');
+        const feedback = document.querySelector('.password-feedback');
+        const missingRequirements = [];
 
         // Length check
-        if (password.length >= 8) strength++;
+        if (password.length >= 8) {
+            strength++;
+        } else {
+            missingRequirements.push('at least 8 characters');
+        }
+
         // Uppercase check
-        if (/[A-Z]/.test(password)) strength++;
+        if (/[A-Z]/.test(password)) {
+            strength++;
+        } else {
+            missingRequirements.push('an uppercase letter');
+        }
+
         // Lowercase check
-        if (/[a-z]/.test(password)) strength++;
+        if (/[a-z]/.test(password)) {
+            strength++;
+        } else {
+            missingRequirements.push('a lowercase letter');
+        }
+
         // Number check
-        if (/[0-9]/.test(password)) strength++;
+        if (/[0-9]/.test(password)) {
+            strength++;
+        } else {
+            missingRequirements.push('a number');
+        }
+
         // Special character check
-        if (/[^A-Za-z0-9]/.test(password)) strength++;
+        if (/[^A-Za-z0-9]/.test(password)) {
+            strength++;
+        } else {
+            missingRequirements.push('a special character (e.g., !, @, #, $)');
+        }
 
         const percentage = (strength / 5) * 100;
         meter.style.setProperty('--strength', `${percentage}%`);
@@ -116,7 +142,17 @@ document.addEventListener('DOMContentLoaded', function () {
         // Update meter color based on strength
         const colors = ['#ff4d4d', '#ffa64d', '#ffff4d', '#4dff4d', '#4d4dff'];
         meter.style.backgroundColor = colors[strength - 1] || '#eee';
+
+        // Show missing requirements to the user
+        if (missingRequirements.length > 0) {
+            feedback.innerHTML = 'Password is missing: ' + missingRequirements.join(', ') + '.';
+            feedback.style.color = 'red';
+        } else {
+            feedback.innerHTML = 'Password is strong!';
+            feedback.style.color = 'green';
+        }
     }
+
 
     // Add input event listeners
     inputs.forEach(input => {
