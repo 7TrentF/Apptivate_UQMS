@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const colors = ['#6B73FF', '#000DFF', '#5D69BE', '#C89FEB'];
     const body = document.querySelector('.body');
 
+
     for (let i = 0; i < particlesCount; i++) {
         createParticle();
     }

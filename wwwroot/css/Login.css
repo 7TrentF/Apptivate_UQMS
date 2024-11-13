@@ -336,3 +336,82 @@
         padding: 0 10px;
         color: #666;
     }
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.alert {
+    position: relative;
+    padding: 12px 35px 12px 12px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.error-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+    .error-list li {
+        margin-bottom: 5px;
+    }
+
+.close-alert {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 12px;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+}
+
+    .close-alert:hover {
+        color: #000;
+        text-decoration: none;
+        opacity: 0.75;
+    }
+
+/* Add animation for the error message */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-danger {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Add animation for dismissing */
+.alert.fade {
+    transition: opacity 0.15s linear;
+}
+
+    .alert.fade.show {
+        opacity: 1;
+    }

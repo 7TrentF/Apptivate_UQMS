@@ -113,14 +113,22 @@
                 // Make the request to Firebase Authentication REST API
                 var response = await _httpClient.PostAsJsonAsync($"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDXB0dEozyPQdXzlGyQFP1elMObEksarR0", payload);
 
+                var content = await response.Content.ReadAsStringAsync();
+
                 if (!response.IsSuccessStatusCode)
                 {
-                    _logger.LogError($"Failed to log in user with email: {email}, StatusCode: {response.StatusCode}");
-                    throw new Exception("Failed to log in user");
+                    var errorResponse = JsonDocument.Parse(content);
+                    var errorMessage = errorResponse.RootElement
+                        .GetProperty("error")
+                        .GetProperty("message")
+                        .GetString();
+
+                    throw new Exception(GetUserFriendlyErrorMessage(errorMessage));
                 }
 
+
                 // Parse the response to get the ID token
-                var content = await response.Content.ReadAsStringAsync();
+               // var content = await response.Content.ReadAsStringAsync();
                
                 var jsonDoc = JsonDocument.Parse(content);
                 
@@ -130,12 +138,34 @@
                 _logger.LogInformation("User logged in successfully.");
                 return idToken;
             }
+            catch (FirebaseAuthException)
+            {
+                throw;
+            }
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Failed to log in user with email: {email}");
-                throw;
+                throw new Exception("Your Email or password is incorrect. Please try again");
             }
         }
+
+
+        private string GetUserFriendlyErrorMessage(string firebaseError)
+        {
+            return firebaseError switch
+            {
+                "EMAIL_NOT_FOUND" => "No account exists with this email address.",
+                "INVALID_PASSWORD" => "Incorrect password. Please try again.",
+                "USER_DISABLED" => "This account has been disabled. Please contact support.",
+                "INVALID_EMAIL" => "Please enter a valid email address.",
+                "EMAIL_EXISTS" => "An account already exists with this email.",
+                "OPERATION_NOT_ALLOWED" => "Password sign-in is disabled for this project.",
+                "TOO_MANY_ATTEMPTS_TRY_LATER" => "Too many failed login attempts. Please try again later.",
+                _ => "An error occurred during login. Please try again."
+            };
+        }
+
+
 
 
         public async Task<string> LoginWithGoogle(string idToken)

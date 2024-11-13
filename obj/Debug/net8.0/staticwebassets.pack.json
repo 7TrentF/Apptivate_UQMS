@@ -569,6 +569,10 @@
       "PackagePath": "staticwebassets\\js\\login.js"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\loginErrorHandeling.js",
+      "PackagePath": "staticwebassets\\js\\loginErrorHandeling.js"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\notification.js",
       "PackagePath": "staticwebassets\\js\\notification.js"
     },
