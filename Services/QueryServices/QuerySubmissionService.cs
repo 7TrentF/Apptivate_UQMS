@@ -178,8 +178,6 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
             }
         }
 
-
-
         private async Task SendQuerySubmissionNotificationEmailAsync(Query query, QueryDto model, string firebaseUid)
         {
             _logger.LogInformation($"GetStudentEmailAsync called with firebaseUid: {firebaseUid}");
@@ -283,10 +281,7 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
             }
         }
 
-        
-
-
-
+       
         public async Task SubmitAdministrativeQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
         {
             _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
@@ -295,7 +290,6 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
             try
             {
-
 
                 // Use the existing method to fetch the student details and query type
                 var academicQueryDetails = await GetAcademicQueryAsync(queryTypeID, firebaseUid);
@@ -515,11 +509,6 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
         }
 
-
-
-
-
-
         public async Task<object> GetEmailAsync(string firebaseUid)
         {
             _logger.LogInformation($"GetStudentEmailAsync called with firebaseUid: {firebaseUid}");
@@ -556,10 +545,6 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
 
         }
-
-
-
-
 
 
         public async Task<object> GetStudentQueryAsync(int queryId, string firebaseUid)

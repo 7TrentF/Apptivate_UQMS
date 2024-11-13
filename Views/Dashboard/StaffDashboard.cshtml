@@ -20,8 +20,8 @@
             <div class="profile-info">
                 <img src="~/Images/profile-pic.png" alt="Profile Picture" class="profile-pic">
                 <div>
-                  
-                    <p>@Model.Users.Name" "@Model.Users.Surname</p>
+
+                    <h2>@Model.Users.Name @Model.Users.Surname</h2>
                     <h5>@Model.StaffDetails.Position.PositionName</h5>
                   
                 </div>
@@ -100,14 +100,7 @@
                                     <a href="@Url.Action("QueryDetails", "StaffQuery", new { queryId = query.QueryID })" class="btn-view">View</a>
 
                                 
-                                    @if (query.ResolvedDate == null)
-                                    {
-                                        <form asp-action="MarkAsResolved" method="post" class="resolve-form">
-                                            @Html.AntiForgeryToken()
-                                            <input type="hidden" name="queryId" value="@query.QueryID" />
-                                            <button type="submit" class="btn-resolve">Resolve</button>
-                                        </form>
-                                    }
+                                 
                                 </td>
                             </tr>
                         }

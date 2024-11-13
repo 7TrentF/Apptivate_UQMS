@@ -14,7 +14,7 @@
             showMessage(responseData.message, true);
             setTimeout(() => {
                 window.location.href = '/Account/Login';
-            }, 10000);
+            }, 80000);
         } else {
             showMessage(responseData.message || 'Registration failed. Please try again.', false);
         }

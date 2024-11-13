@@ -98,24 +98,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
         // Action to mark a query as resolved
-        [HttpPost]
-        public async Task<IActionResult> MarkAsResolved(int queryId)
-        {
-            var queryAssignment = await _context.QueryAssignments
-                                                .FirstOrDefaultAsync(qa => qa.QueryID == queryId);
-
-            if (queryAssignment == null)
-            {
-                _logger.LogError("QueryAssignment not found for QueryID {QueryID}.", queryId);
-                return NotFound();
-            }
-
-            queryAssignment.ResolutionDate = DateTime.Now;
-            await _context.SaveChangesAsync();
-
-            _logger.LogInformation("Query with ID {QueryID} marked as resolved by StaffID {StaffID}.", queryId, queryAssignment.StaffID);
-            return RedirectToAction("MyQueries");
-        }
+      
 
         // Notify staff when they have new queries to resolve
         public async Task<IActionResult> NotifyNewQueries()

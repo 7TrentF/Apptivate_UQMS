@@ -91,15 +91,7 @@
                                    class="btn btn-view">
                                     <i class="fas fa-eye"></i> View
                                 </a>
-                                @if (queryAssignment.ResolutionDate == null)
-                                {
-                                    <form asp-action="MarkAsResolved" method="post" class="resolve-form">
-                                        <input type="hidden" name="queryId" value="@queryAssignment.QueryID" />
-                                        <button type="submit" class="btn btn-resolve">
-                                            <i class="fas fa-check"></i> Resolve
-                                        </button>
-                                    </form>
-                                }
+                           
                                 <div class="task-menu">
                                     <button class="btn" onclick="toggleTaskMenu(this)">
                                         <i class="fas fa-ellipsis-v"></i>
