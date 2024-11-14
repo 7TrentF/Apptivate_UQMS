@@ -1,0 +1,144 @@
+﻿@model Apptivate_UQMS_WebApp.Models.StudentDashboardViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="~/css/tempDashboard.css" asp-append-version="true">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="~/js/studentDashboard.js"></script>
+
+    <div class="background">
+</head>
+
+<body>
+
+
+    <div class="background">
+        <div class="wrapper-container">
+            <!-- Main Dashboard Content -->
+            <div class="dashboard-container">
+                <!-- Profile Section -->
+                <div class="profile-section">
+                    <div class="profile-info">
+                        <img src="~/Images/profile-pic.png" alt="Profile Picture" class="profile-pic">
+                        <h2>@Model.Users.Name @Model.Users.Surname</h2>
+                    </div>
+                    <div class="notification-icon">
+                        <img src="~/Images/notification-icon.jpg" alt="Notifications">
+                    </div>
+                </div>
+
+            <!-- Quick Stats Section -->
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <img src="~/Images/pending-icon.png" alt="Pending Queries">
+                    </div>
+                    <div class="stat-info">
+                        <p>Pending Queries</p>
+                        <h3>@Model.DashboardStats.PendingCount</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <img src="~/Images/resolved.png" alt="Resolved Queries">
+                    </div>
+                    <div class="stat-info">
+                        <p>Resolved Queries</p>
+                        <h3>@Model.DashboardStats.ResolvedCount</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <img src="~/Images/in-progress-icon.png" alt="In Progress Queries">
+                    </div>
+                    <div class="stat-info">
+                        <p>In Progress Queries</p>
+                        <h3>@Model.DashboardStats.InProgressCount</h3>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Recent Queries Section -->
+            <div class="dashboard-section recent-queries">
+                <h2>Recent Queries</h2>
+                <div class="table-responsive">
+                    <table class="query-table">
+                        <thead>
+                            <tr>
+                                <th>Ticket Number</th>
+                                <th>Query</th>
+                                <th>Submission Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var query in Model.RecentQueries)
+                            {
+                                <tr class="query-row" onclick="window.location.href='@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })'">
+                                    <td>@query.TicketNumber</td>
+                                    <td>@query.Description</td>
+                                    <td>@query.SubmissionDate?.ToString("dd MMM yyyy")</td>
+                                    <td>
+                                        <span class="status-badge @(query.Status == QueryModel.QueryStatus.Pending)">
+                                            @query.Status
+                                        </span>
+                                    </td>
+                                    <td>
+                                       
+                                            @if (query.Status == QueryModel.QueryStatus.Resolved)
+                                        {
+                                                <a href="@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })" class="btn-view">View</a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })" class="btn-view">view</a>
+
+                                            }
+                                        </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Academic Information Section -->
+            <div class="academic-info">
+                <h3>Academic Information</h3>
+                <p><strong>Year:</strong> @Model.StudentDetails?.Year</p>
+                <p><strong>Department:</strong> @Model.StudentDetails?.Department</p>
+                <p><strong>Course:</strong> @Model.StudentDetails?.Course</p>
+            </div>
+        </div>
+
+        <!-- Recent Activity Section -->
+        <div class="recent-activity-section">
+            <h2>Recent Activity</h2>
+            <ul class="activity-list">
+                <li>
+                    <img src="~/Images/profile-pic.png" alt="User">
+                    <p>Sonal closed "How do I reset my password?"</p>
+                    <span>14 Nov 2022, 5:26 PM</span>
+                </li>
+                <!-- Add more recent activity items here -->
+            </ul>
+            <button class="show-more-btn">Show More</button>
+        </div>
+    </div>
+
+    <script>
+      
+    </script>
+
+</body>
+
+</html>

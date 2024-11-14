@@ -1,0 +1,382 @@
+2024-11-07 12:47:15.896 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 12:47:16.514 +02:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address https://127.0.0.1:7061: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-11-07 15:01:52.059 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 15:01:52.207 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 15:01:52.215 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 15:01:52.247 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 15:01:53.027 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 15:01:53.195 +02:00 [INF] Hosting environment: Development
+2024-11-07 15:01:53.213 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 15:01:53.359 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984513.
+2024-11-07 15:01:53.365 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984513.
+2024-11-07 15:01:53.370 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:01:53.382 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 15:01:53.484 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730984513.
+2024-11-07 15:01:53.494 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 15:01:53.597 +02:00 [INF] Executed ViewResult - view Login executed in 104.2625ms.
+2024-11-07 15:01:53.914 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 528.7317ms
+2024-11-07 15:01:53.916 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:01:53.925 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 899.033ms
+2024-11-07 15:01:53.945 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-11-07 15:01:53.947 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 15:01:53.948 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 15:01:53.957 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984513.
+2024-11-07 15:01:53.983 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 36.2388ms
+2024-11-07 15:01:54.047 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 98.7075ms
+2024-11-07 15:01:54.065 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-11-07 15:01:54.080 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 304 null text/css 134.7715ms
+2024-11-07 15:03:03.537 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 15:03:03.792 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 15:03:03.809 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 15:03:04.005 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 15:03:04.113 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 15:03:04.122 +02:00 [INF] Hosting environment: Development
+2024-11-07 15:03:04.326 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984584.
+2024-11-07 15:03:04.326 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 15:03:04.328 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984584.
+2024-11-07 15:03:04.332 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:03:04.344 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 15:03:04.824 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730984584.
+2024-11-07 15:03:06.129 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 15:03:06.690 +02:00 [INF] Executed ViewResult - view Login executed in 562.3143ms.
+2024-11-07 15:03:06.959 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 15:03:06.988 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 2597.6118ms
+2024-11-07 15:03:06.996 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:03:07.005 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 2892.8274ms
+2024-11-07 15:03:07.010 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 15:03:07.027 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 68.1449ms
+2024-11-07 15:03:07.117 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 107.0929ms
+2024-11-07 15:06:28.901 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 15:06:29.080 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 15:06:29.089 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 15:06:29.119 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 15:06:29.122 +02:00 [INF] Hosting environment: Development
+2024-11-07 15:06:29.123 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 15:08:46.725 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 15:08:46.855 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 15:08:46.866 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 15:08:46.900 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 15:08:47.513 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 15:08:47.737 +02:00 [INF] Hosting environment: Development
+2024-11-07 15:08:47.887 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984927.
+2024-11-07 15:08:47.888 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 15:08:47.892 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984927.
+2024-11-07 15:08:47.898 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:08:47.910 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 15:08:48.186 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730984928.
+2024-11-07 15:08:48.202 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 15:08:48.346 +02:00 [INF] Executed ViewResult - view Login executed in 146.9025ms.
+2024-11-07 15:08:48.768 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 687.6257ms
+2024-11-07 15:08:48.770 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:08:48.775 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 1263.6093ms
+2024-11-07 15:08:48.814 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/tempSidebar.css - null null
+2024-11-07 15:08:48.814 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/toast.css - null null
+2024-11-07 15:08:48.816 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/images/menu-icon.png - null null
+2024-11-07 15:08:48.821 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984928.
+2024-11-07 15:08:48.823 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984928.
+2024-11-07 15:08:48.825 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984928.
+2024-11-07 15:08:48.899 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/svgs/home-1.svg - null null
+2024-11-07 15:08:48.928 +02:00 [INF] Sending file. Request path: '/css/toast.css'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\css\toast.css'
+2024-11-07 15:08:48.938 +02:00 [INF] Sending file. Request path: '/images/menu-icon.png'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Images\menu-icon.png'
+2024-11-07 15:08:48.951 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984928.
+2024-11-07 15:08:48.952 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/toast.css - 200 388 text/css 138.3521ms
+2024-11-07 15:08:48.954 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/images/menu-icon.png - 200 153 image/png 137.9371ms
+2024-11-07 15:08:48.969 +02:00 [INF] Sending file. Request path: '/svgs/home-1.svg'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Svgs\home-1.svg'
+2024-11-07 15:08:48.972 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/svgs/four-squares-button-of-view-options.svg - null null
+2024-11-07 15:08:48.986 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/svgs/home-1.svg - 200 369 image/svg+xml 87.684ms
+2024-11-07 15:08:48.990 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984928.
+2024-11-07 15:08:49.267 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/svgs/chat-round-svgrepo-com (1).svg - null null
+2024-11-07 15:08:49.271 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984929.
+2024-11-07 15:08:49.283 +02:00 [INF] Sending file. Request path: '/svgs/chat-round-svgrepo-com (1).svg'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Svgs\chat-round-svgrepo-com (1).svg'
+2024-11-07 15:08:49.284 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/svgs/chat-round-svgrepo-com (1).svg - 200 906 image/svg+xml 17.0928ms
+2024-11-07 15:08:49.290 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Svgs/logout.svg - null null
+2024-11-07 15:08:49.292 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984929.
+2024-11-07 15:08:49.307 +02:00 [INF] Sending file. Request path: '/Svgs/logout.svg'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Svgs\logout.svg'
+2024-11-07 15:08:49.308 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Svgs/logout.svg - 200 741 image/svg+xml 18.2007ms
+2024-11-07 15:08:49.310 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Svgs/user-id-portrait-svgrepo-com (1).svg - null null
+2024-11-07 15:08:49.314 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984929.
+2024-11-07 15:08:49.334 +02:00 [INF] Sending file. Request path: '/Svgs/user-id-portrait-svgrepo-com (1).svg'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Svgs\user-id-portrait-svgrepo-com (1).svg'
+2024-11-07 15:08:49.335 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 15:08:49.335 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/Sidebar.js?v=7l_eRDEpAlwkhG3eKqfIFAYeflFCxLExRAgKfPXlYGA - null null
+2024-11-07 15:08:49.336 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Svgs/user-id-portrait-svgrepo-com (1).svg - 200 1495 image/svg+xml 25.4663ms
+2024-11-07 15:08:49.339 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 15:08:49.342 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984929.
+2024-11-07 15:08:49.372 +02:00 [INF] Sending file. Request path: '/css/tempSidebar.css'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\css\tempSidebar.css'
+2024-11-07 15:08:49.385 +02:00 [INF] Sending file. Request path: '/svgs/four-squares-button-of-view-options.svg'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Svgs\four-squares-button-of-view-options.svg'
+2024-11-07 15:08:49.387 +02:00 [INF] Sending file. Request path: '/js/Sidebar.js'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\js\Sidebar.js'
+2024-11-07 15:08:49.388 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/tempSidebar.css - 200 4195 text/css 574.5116ms
+2024-11-07 15:08:49.389 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/svgs/four-squares-button-of-view-options.svg - 200 5294 image/svg+xml 417.4409ms
+2024-11-07 15:08:49.391 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/Sidebar.js?v=7l_eRDEpAlwkhG3eKqfIFAYeflFCxLExRAgKfPXlYGA - 200 1744 text/javascript 55.744ms
+2024-11-07 15:08:49.689 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/Apptivate_circle _logo.png - null null
+2024-11-07 15:08:50.831 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984930.
+2024-11-07 15:08:49.393 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 58.6436ms
+2024-11-07 15:08:50.842 +02:00 [INF] Sending file. Request path: '/Images/Apptivate_circle _logo.png'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Images\Apptivate_circle _logo.png'
+2024-11-07 15:08:50.870 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/Apptivate_circle _logo.png - 200 33306 image/png 1180.9847ms
+2024-11-07 15:08:50.902 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1562.5817ms
+2024-11-07 15:09:10.739 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/Index - null null
+2024-11-07 15:09:10.749 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730984950.
+2024-11-07 15:09:10.752 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-07 15:09:10.753 +02:00 [INF] AuthenticationScheme: Firebase was challenged.
+2024-11-07 15:09:10.755 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/Index - 401 0 null 16.1057ms
+2024-11-07 15:14:35.348 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 15:14:35.540 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 15:14:35.548 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 15:14:35.575 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 15:14:35.581 +02:00 [INF] Hosting environment: Development
+2024-11-07 15:14:35.581 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 15:14:36.381 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 15:14:37.015 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730985277.
+2024-11-07 15:14:37.098 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730985277.
+2024-11-07 15:14:37.100 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:14:37.115 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 15:14:37.224 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730985277.
+2024-11-07 15:14:37.234 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 15:14:37.354 +02:00 [INF] Executed ViewResult - view Login executed in 121.9538ms.
+2024-11-07 15:14:37.930 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 803.0293ms
+2024-11-07 15:14:37.933 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:14:37.938 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 1558.0467ms
+2024-11-07 15:14:37.999 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 15:14:38.017 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 15:14:38.032 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 32.3209ms
+2024-11-07 15:14:38.782 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 764.3882ms
+2024-11-07 15:18:58.509 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 15:18:59.306 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 15:18:59.317 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 15:18:59.356 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 15:18:59.385 +02:00 [INF] Hosting environment: Development
+2024-11-07 15:18:59.386 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 15:19:00.110 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 15:19:00.324 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730985540.
+2024-11-07 15:19:00.336 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730985540.
+2024-11-07 15:19:00.340 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:19:00.355 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 15:19:00.480 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730985540.
+2024-11-07 15:19:00.525 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 15:19:00.656 +02:00 [INF] Executed ViewResult - view Login executed in 131.8048ms.
+2024-11-07 15:19:01.221 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 844.4314ms
+2024-11-07 15:19:01.223 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:19:01.227 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 1118.6867ms
+2024-11-07 15:19:01.265 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/path/to/your/background-image.jpg - null null
+2024-11-07 15:19:01.267 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 15:19:01.267 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 15:19:01.272 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730985541.
+2024-11-07 15:19:01.332 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 65.6658ms
+2024-11-07 15:19:01.346 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 79.4123ms
+2024-11-07 15:19:01.351 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730985541.
+2024-11-07 15:19:02.824 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/path/to/your/background-image.jpg - 404 0 null 1559.3211ms
+2024-11-07 15:19:02.941 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/path/to/your/background-image.jpg, Response status code: 404
+2024-11-07 15:26:35.772 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 15:26:35.931 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 15:26:35.938 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 15:26:35.969 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 15:26:35.982 +02:00 [INF] Hosting environment: Development
+2024-11-07 15:26:35.984 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 15:26:37.112 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 15:26:37.406 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730985997.
+2024-11-07 15:26:37.410 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730985997.
+2024-11-07 15:26:37.413 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:26:37.427 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 15:26:37.592 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730985997.
+2024-11-07 15:26:37.612 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 15:26:37.938 +02:00 [INF] Executed ViewResult - view Login executed in 314.5766ms.
+2024-11-07 15:26:38.415 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 985.1068ms
+2024-11-07 15:26:38.505 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:26:38.559 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 1447.5549ms
+2024-11-07 15:26:38.627 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 15:26:38.658 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 30.3731ms
+2024-11-07 15:26:38.686 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 15:26:39.923 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1237.197ms
+2024-11-07 15:28:22.422 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 15:28:23.448 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 15:28:23.478 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 15:28:23.549 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 15:28:25.101 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 15:28:25.588 +02:00 [INF] Hosting environment: Development
+2024-11-07 15:28:26.134 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730986106.
+2024-11-07 15:28:26.196 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730986106.
+2024-11-07 15:28:26.198 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:28:26.206 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 15:28:26.193 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 15:28:26.317 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730986106.
+2024-11-07 15:28:27.565 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 15:28:30.768 +02:00 [INF] Executed ViewResult - view Login executed in 3203.9555ms.
+2024-11-07 15:28:30.773 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 15:28:32.398 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 6189.1705ms
+2024-11-07 15:28:32.417 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 1644.9917ms
+2024-11-07 15:28:32.484 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:28:32.510 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 15:28:32.573 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 8580.7201ms
+2024-11-07 15:28:34.185 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1674.7525ms
+2024-11-07 15:30:15.408 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 15:30:15.803 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 15:30:15.816 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 15:30:15.851 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 15:30:15.860 +02:00 [INF] Hosting environment: Development
+2024-11-07 15:30:15.860 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 15:30:16.365 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 15:30:17.845 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730986217.
+2024-11-07 15:30:18.191 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730986217.
+2024-11-07 15:30:18.200 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:30:18.208 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 15:30:18.429 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730986218.
+2024-11-07 15:30:19.655 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 15:30:23.538 +02:00 [INF] Executed ViewResult - view Login executed in 3909.4248ms.
+2024-11-07 15:30:24.173 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 5964.316ms
+2024-11-07 15:30:24.174 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:30:24.180 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 7816.6234ms
+2024-11-07 15:30:24.969 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 15:30:24.969 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 15:30:25.801 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 831.8483ms
+2024-11-07 15:30:29.732 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 4762.6753ms
+2024-11-07 15:42:40.130 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 15:42:40.517 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 15:42:40.532 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 15:42:40.579 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 15:42:40.599 +02:00 [INF] Hosting environment: Development
+2024-11-07 15:42:40.600 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 15:42:47.535 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 15:42:47.767 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 15:42:47.775 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 15:42:47.821 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 15:42:47.841 +02:00 [INF] Hosting environment: Development
+2024-11-07 15:42:47.842 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 15:42:48.160 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 15:42:48.404 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730986968.
+2024-11-07 15:42:48.415 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730986968.
+2024-11-07 15:42:48.422 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:42:48.438 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 15:42:48.698 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730986968.
+2024-11-07 15:42:48.708 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 15:42:48.834 +02:00 [INF] Executed ViewResult - view Login executed in 120.9334ms.
+2024-11-07 15:42:49.260 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 701.9003ms
+2024-11-07 15:42:49.267 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:42:49.310 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 1150.7435ms
+2024-11-07 15:42:49.368 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 15:42:49.392 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 23.7725ms
+2024-11-07 15:42:49.401 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 15:42:50.282 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 881.4061ms
+2024-11-07 15:42:56.808 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 15:42:56.818 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730986976.
+2024-11-07 15:42:57.199 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730986976.
+2024-11-07 15:42:57.200 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:42:57.201 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 15:42:57.216 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730986977.
+2024-11-07 15:42:57.218 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 15:42:57.228 +02:00 [INF] Executed ViewResult - view Login executed in 10.9867ms.
+2024-11-07 15:42:57.231 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 28.6375ms
+2024-11-07 15:42:57.232 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:42:57.233 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 424.5236ms
+2024-11-07 15:42:57.410 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 15:42:57.414 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 15:42:57.518 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 108.0489ms
+2024-11-07 15:42:58.148 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 734.4468ms
+2024-11-07 15:44:00.437 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 15:44:00.772 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 15:44:00.782 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 15:44:00.839 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 15:44:01.579 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 15:44:01.612 +02:00 [INF] Hosting environment: Development
+2024-11-07 15:44:01.635 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 15:44:01.842 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730987041.
+2024-11-07 15:44:01.884 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730987041.
+2024-11-07 15:44:01.889 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:44:01.901 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 15:44:02.000 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730987042.
+2024-11-07 15:44:02.010 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 15:44:02.147 +02:00 [INF] Executed ViewResult - view Login executed in 140.165ms.
+2024-11-07 15:44:02.781 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 876.7516ms
+2024-11-07 15:44:02.783 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 15:44:02.794 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 1215.2512ms
+2024-11-07 15:44:02.802 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 15:44:02.804 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 15:44:02.815 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 12.9712ms
+2024-11-07 15:44:03.826 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1022.4586ms
+2024-11-07 16:04:08.668 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 16:04:09.248 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 16:04:09.267 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 16:04:09.312 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 16:04:09.320 +02:00 [INF] Hosting environment: Development
+2024-11-07 16:04:09.321 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 16:04:10.367 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 16:04:10.746 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730988250.
+2024-11-07 16:04:10.753 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730988250.
+2024-11-07 16:04:10.762 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 16:04:10.780 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 16:04:11.049 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730988251.
+2024-11-07 16:04:11.079 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 16:04:11.430 +02:00 [INF] Executed ViewResult - view Login executed in 354.4486ms.
+2024-11-07 16:04:11.458 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 638.206ms
+2024-11-07 16:04:11.460 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 16:04:11.474 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 1112.7445ms
+2024-11-07 16:04:16.128 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 16:04:16.147 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 18.91ms
+2024-11-07 16:04:16.237 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 16:04:16.307 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 69.8785ms
+2024-11-07 16:39:02.576 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 16:39:02.807 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 16:39:02.838 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 16:39:02.873 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 16:39:02.886 +02:00 [INF] Hosting environment: Development
+2024-11-07 16:39:02.886 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 16:39:03.689 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 16:39:03.995 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730990343.
+2024-11-07 16:39:04.002 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730990343.
+2024-11-07 16:39:04.004 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 16:39:04.017 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 16:39:04.171 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730990344.
+2024-11-07 16:39:04.183 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 16:39:04.398 +02:00 [INF] Executed ViewResult - view Login executed in 134.2353ms.
+2024-11-07 16:39:04.457 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 435.3192ms
+2024-11-07 16:39:04.461 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 16:39:04.469 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 781.7616ms
+2024-11-07 16:39:05.167 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 16:39:05.182 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 14.224ms
+2024-11-07 16:39:05.367 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 16:39:05.427 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 59.8997ms
+2024-11-07 16:49:16.831 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-07 16:49:17.027 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-07 16:49:17.045 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-07 16:49:17.103 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-07 16:49:17.393 +02:00 [INF] Hosting environment: Development
+2024-11-07 16:49:17.409 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-07 16:49:18.931 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-07 16:49:19.513 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730990959.
+2024-11-07 16:49:19.523 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1730990959.
+2024-11-07 16:49:19.531 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 16:49:19.545 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-07 16:49:19.992 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1730990959.
+2024-11-07 16:49:20.087 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-07 16:49:20.550 +02:00 [INF] Executed ViewResult - view Login executed in 466.7537ms.
+2024-11-07 16:49:21.500 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 1943.1799ms
+2024-11-07 16:49:21.508 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-07 16:49:21.840 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 2586.7631ms
+2024-11-07 16:49:21.991 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-07 16:49:22.409 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 418.2285ms
+2024-11-07 16:49:22.055 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-07 16:49:26.303 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 4248.2029ms

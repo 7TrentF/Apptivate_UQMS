@@ -1,0 +1,252 @@
+﻿@using Microsoft.CodeAnalysis.Differencing
+@*
+ Use the MinimalLayout for Register.cshtml and Login.cshtml
+*@
+@{
+    Layout = "~/Views/Shared/MinimalLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Query Management System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="~/css/LnadingPageStyles.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header and Navigation */
+        .header {
+            padding: 1rem 2rem;
+            transition: background 0.3s ease;
+            position: fixed;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .nav-container .nav-links a {
+            color: #555;
+            margin-left: 1.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-container .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom, rgba(52, 152, 219, 0.8), rgba(44, 62, 80, 0.8)), url('background-image.jpg') center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons .button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .primary-button {
+            background-color: #3498db;
+            color: #fff;
+            margin-right: 1rem;
+        }
+
+        .secondary-button {
+            background-color: #2c3e50;
+            color: #fff;
+        }
+
+        .cta-buttons .button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features-container {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .features-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            padding-top: 2rem;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        Edit
+        (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                background-color: rgba(44, 62, 80, 0.95);
+                top: 70px;
+                right: 0;
+                width: 200px;
+                padding: 1rem;
+                border-radius: 8px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links a {
+                padding: 0.5rem 0;
+                margin: 0;
+                color: #fff;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">UQMS</div>
+            <div class="nav-links">
+                <a href="/Account/Login">Login</a>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Welcome to the University Query Management System</h1>
+        <div class="p-8 bg-gray-100">
+            <p class="text-gray-500">
+                The University Query Management System (UQMS) is designed to streamline the process of handling student queries related to academic and administrative matters.
+                The system aims to improve the efficiency of query resolution, provide transparency in the handling process, and ensure timely feedback to students.
+                By developing a web-based and mobile application, the UQMS will facilitate better communication between students and university staff, enhancing the overall student experience.
+            </p>
+        </div>
+
+    </div>
+    
+    <section class="features" id="features">
+        <div class="features-container">
+            <h2 class="section-title">Key Features</h2>
+            <p class="section-subtitle">Discover how our system streamlines communication and query resolution in your university.</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-paper-plane feature-icon"></i>
+                    <h3>Easy Query Submission</h3>
+                    <p>Submit academic queries with detailed descriptions and attachments in just a few clicks.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-tasks feature-icon"></i>
+                    <h3>Efficient Management</h3>
+                    <p>Track, prioritize, and manage queries with our intuitive staff interface.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <h3>Progress Tracking</h3>
+                    <p>Monitor query status and resolution progress in real-time.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-cloud-upload-alt feature-icon"></i>
+                    <h3>Document Management</h3>
+                    <p>Secure cloud storage for all your supporting documents and attachments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(44, 62, 80, 0.95)';
+            } else {
+                header.style.background = 'transparent';
+            }
+        });
+    </script>
+
+</body>
+</html>

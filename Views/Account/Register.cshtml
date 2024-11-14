@@ -1,0 +1,160 @@
+﻿@model Apptivate_UQMS_WebApp.Models.Account.RegisterViewModel
+@{
+    Layout = "~/Views/Shared/MinimalLayout.cshtml";
+}
+
+<link href="~/css/Register.css" rel="stylesheet" type="text/css" />
+
+<body class="background">
+    <div class="register-container">
+        <h1>@Model.Role</h1>
+        <h3>Welcome to Apptivate</h3>
+
+
+        <div class="progress-steps">
+            <div class="progress-line"></div>
+            <div class="progress-step active" data-step="personal">
+                <div class="step-number">1</div>
+                <div class="step-label">Personal Info</div>
+            </div>
+            <div class="progress-step" data-step="account">
+                <div class="step-number">2</div>
+                <div class="step-label">Account</div>
+            </div>
+            <div class="progress-step" data-step="academic">
+                <div class="step-number">3</div>
+                <div class="step-label">Academic</div>
+            </div>
+        </div>
+
+        <form asp-action="Register" method="post">
+            <input type="hidden" asp-for="Role" />
+
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="Name" placeholder="Enter Your Name" value="@Model.Name" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="surname">Surname</label>
+                <input type="text" class="form-control" id="surname" name="Surname" placeholder="Enter Your Surname" value="@Model.Surname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="Email" placeholder="Enter Email Address" value="@Model.Email" required>
+                <span asp-validation-for="Email" class="text-danger"></span>
+      </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" value="@Model.Password" required>
+                <span class="toggle-password">👁️</span>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" value="@Model.ConfirmPassword" required>
+                <span class="toggle-password">👁️</span>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label for="department">Select Department</label>
+                <select id="department" asp-for="SelectedDepartmentID" asp-items="Model.Departments" required onchange="loadCourses(this.value)">
+                    <option value="">Select Department</option>
+                </select>
+                <span asp-validation-for="Departments" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label for="course">Select Course</label>
+                <select id="course" asp-for="SelectedCourseID" required>
+                    <option value="">Select Course</option>
+                </select>
+            </div>
+
+                  <div id="yearField" class="form-group">
+                <label for="year">Year</label>
+                <input type="number" class="form-control" id="year" name="year" placeholder="1st, 2nd or 3rd year" value="@Model.Year" required>
+            </div>
+
+            @if (User.IsInRole("Staff"))
+            {
+
+                <div>
+                    <select id="position" asp-for="SelectedPositionID" asp-items="Model.Positions" required>
+                    <option value="">Select Position</option>
+                </select>
+                <span asp-validation-for="Positions" class="text-danger"></span>
+            </div>
+            }
+
+
+            <button type="submit" class="btn">REGISTER</button>
+            <div class="form-footer">
+                <span>Already have an account? <a href="/Account/Login">Login</a></span>
+            </div>
+
+    
+            <div class="text-danger">
+                @if (ViewData.ModelState.ErrorCount > 0)
+                {
+                    foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        <p>@error.ErrorMessage</p>
+                    }
+                }
+            </div>
+            
+        </form>
+
+        <!-- Add this right after your form closing tag -->
+        <div id="messageOverlay" class="message-overlay" style="display: none;">
+            <div class="message-box">
+                <div id="messageContent"></div>
+                <button onclick="hideMessage()" class="close-button">Close</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Include your JavaScript files here -->
+    <script src="~/js/password-toggle.js"></script>
+    <script src="~/js/Registration.js"></script>
+
+    <script>
+        async function loadCourses(departmentId) {
+            const courseSelect = document.getElementById("course");
+
+            // Clear existing options
+            courseSelect.innerHTML = '<option value="">Select Course</option>';
+
+            if (departmentId) {
+                try {
+                    const response = await fetch(`/Account/GetCoursesByDepartment?departmentId=${departmentId}`);
+
+                    if (!response.ok) throw new Error("Failed to fetch courses");
+
+                    const courses = await response.json();
+
+                    courses.forEach(course => {
+                        const option = document.createElement("option");
+                        option.value = course.courseID;
+                        option.text = course.courseCode;
+                        courseSelect.appendChild(option);
+                    });
+                } catch (error) {
+                    console.error(error);
+                    // Optionally display an error message to the user
+                }
+            }
+        }
+
+    </script>
+
+</body>

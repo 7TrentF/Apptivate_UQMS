@@ -1,0 +1,534 @@
+﻿@using System.Collections
+@model Apptivate_UQMS_WebApp.Models.StaffDashboardViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="~/css/StaffDashboard.css" asp-append-version="true">
+</head>
+
+<body>
+
+    <div class="wrapper-container">
+
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-info">
+                <img src="~/Images/profile-pic.png" alt="Profile Picture" class="profile-pic">
+                <div>
+                  
+                    <p>@Model.Users.Name" "@Model.Users.Surname</p>
+                    <h5>@Model.StaffDetails.Position.PositionName</h5>
+                  
+                </div>
+
+                <div class="notification-icon">
+                    <img src="~/Svgs/notification.svg" alt="Notifications">
+                    <span id="notification-badge" class="notification-badge"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats Section -->
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <img src="~/Images/pending-icon.png" alt="Pending Queries">
+                </div>
+                <div class="stat-info">
+                    <p>Pending Queries</p>
+                    <h3>@Model.DashboardStats.PendingCount</h3>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <img src="~/Images/resolved.png" alt="Resolved Queries">
+                </div>
+                <div class="stat-info">
+                    <p>Resolved Queries</p>
+                    <h3>@Model.DashboardStats.ResolvedCount</h3>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <img src="~/Images/in-progress-icon.png" alt="In Progress Queries">
+                </div>
+                <div class="stat-info">
+                    <p>In Progress Queries</p>
+                    <h3>@Model.DashboardStats.InProgressCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Queries Section -->
+        <div class="recent-queries">
+            <h2>Incoming Student Queries</h2>
+            <div class="table-responsive">
+                <table class="query-table">
+                    <thead>
+                        <tr>
+                            <th>Student Email</th>
+                            <th>Query Type</th>
+                            <th>Department</th>
+                            <th>Status</th>
+                            <th>Submission Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var assignment in Model.AssignedQueries)
+                        {
+                            var query = assignment.Query;
+
+                            <tr class="query-row" onclick="window.location.href='@Url.Action("QueryDetails", "StaffQuery", new { queryId = query.QueryID})'">
+                                <td>@query.Student?.User?.Email</td>
+                                <td>@query.Category?.QueryType?.TypeName</td>
+                                <td>@query.Department?.DepartmentName</td>
+                                <td>
+                                    <span class="status-badge @(query.Status == QueryModel.QueryStatus.Ongoing))">
+                                        @query.Status
+                                    </span>
+                                </td>
+                                <td>@query.SubmissionDate?.ToString("dd MMM yyyy")</td>
+                                <td>
+                                    <a href="@Url.Action("QueryDetails", "StaffQuery", new { queryId = query.QueryID })" class="btn-view">View</a>
+
+                                
+                                    @if (query.ResolvedDate == null)
+                                    {
+                                        <form asp-action="MarkAsResolved" method="post" class="resolve-form">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="queryId" value="@query.QueryID" />
+                                            <button type="submit" class="btn-resolve">Resolve</button>
+                                        </form>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Recent Activity Section -->
+        <div class="recent-activity-section">
+            
+       <!-- Team Overview Section -->
+<div class="team-overview">
+    <h2>Team Overview</h2>
+    <div class="table-responsive">
+        <table class="team-table">
+            <thead>
+                <!-- No headers needed here since everything will be in one column -->
+            </thead>
+            <tbody>
+                @foreach (var teamMember in Model.TeamOverview)
+                {
+                    <tr class="team-row">
+                        <td>
+                            <div class="staff-info-card">
+                                <div class="staff-name">
+                                    <strong>@teamMember.StaffName</strong>
+                                </div>
+                                <div class="query-types">
+                                    @if (teamMember.QueryTypes.Any())
+                                    {
+                                        <ul>
+                                            @foreach (var qt in teamMember.QueryTypes)
+                                            {
+                                                <li>@qt</li>
+                                            }
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <span>N/A</span>
+                                    }
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+        </div>
+
+        </div>
+
+      
+
+    <!-- New Query Form Modal -->
+    <div id="query-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeQueryForm()">&times;</span>
+            <h2>Create a New Query</h2>
+            <form asp-action="CreateQuery" method="post">
+                @Html.AntiForgeryToken()
+                <label for="query-subject">Subject</label>
+                <input type="text" id="query-subject" name="Subject" placeholder="Enter your query subject" required>
+
+                <label for="query-details">Details</label>
+                <textarea id="query-details" name="Details" rows="4" placeholder="Enter query details" required></textarea>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.18/signalr.min.js"></script>
+    <script>
+        (function () {
+            // Constants
+            const NOTIFICATION_DURATION = 3000;
+            const ANIMATION_DURATION = 1000;
+            const DEFAULT_MAX_VALUE = 100;
+
+            // Initialize everything when DOM is ready
+            document.addEventListener('DOMContentLoaded', function () {
+                initializeUI();
+                initializeSignalR();
+                initializeEventListeners();
+            });
+
+            // Main UI initialization
+            function initializeUI() {
+                initializeStatCards();
+                initializeTooltips();
+                initializeTableSorting();
+                createNotificationDropdown();
+                addQuickActions();
+                simulateLoadingStates();
+            }
+
+            // Event listeners initialization
+            function initializeEventListeners() {
+                // Stat card animations
+                const statCards = document.querySelectorAll('.stat-card');
+                statCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100 * index);
+                });
+
+                // Smooth scrolling
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+
+                // Table row hover effects
+                const queryRows = document.querySelectorAll('.query-row');
+                queryRows.forEach(row => {
+                    row.addEventListener('mouseenter', () => {
+                        row.style.transform = 'scale(1.01)';
+                        row.style.transition = 'transform 0.2s ease';
+                    });
+                    row.addEventListener('mouseleave', () => {
+                        row.style.transform = 'scale(1)';
+                    });
+                });
+
+                // Modal functionality
+                initializeModal();
+
+                // Form submission
+                initializeFormSubmission();
+            }
+
+            // Modal initialization
+            function initializeModal() {
+                const modal = document.getElementById('query-modal');
+                const closeBtn = document.querySelector('.close-btn');
+
+                if (closeBtn && modal) {
+                    closeBtn.addEventListener('click', () => {
+                        modal.style.display = 'none';
+                    });
+
+                    window.addEventListener('click', (e) => {
+                        if (e.target === modal) {
+                            modal.style.display = 'none';
+                        }
+                    });
+                }
+            }
+
+            // Form submission handling
+            function initializeFormSubmission() {
+                const queryForm = document.querySelector('form[asp-action="CreateQuery"]');
+                if (queryForm) {
+                    queryForm.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+
+                        try {
+                            const formData = new FormData(queryForm);
+                            const response = await fetch(queryForm.action, {
+                                method: 'POST',
+                                body: formData
+                            });
+
+                            if (response.ok) {
+                                showNotification('Query submitted successfully!', 'success');
+                                document.getElementById('query-modal').style.display = 'none';
+                                queryForm.reset();
+                            } else {
+                                const errorData = await response.json();
+                                showNotification(errorData.message || 'Error submitting query. Please try again.', 'error');
+                            }
+                        } catch (error) {
+                            showNotification('An error occurred. Please try again.', 'error');
+                            console.error('Form submission error:', error);
+                        }
+                    });
+                }
+            }
+
+            // Notification system
+            function showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.textContent = message;
+
+                // Remove existing notifications
+                document.querySelectorAll('.notification').forEach(n => n.remove());
+
+                document.body.appendChild(notification);
+
+                requestAnimationFrame(() => {
+                    notification.classList.add('show');
+
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                        setTimeout(() => notification.remove(), 300);
+                    }, NOTIFICATION_DURATION);
+                });
+            }
+
+            function updateNotificationCount() {
+                const badge = document.getElementById('notification-badge');
+                if (badge) {
+                    const currentCount = parseInt(badge.textContent || '0');
+                    badge.textContent = currentCount + 1;
+                    badge.style.display = currentCount + 1 > 0 ? 'flex' : 'none';
+                }
+            }
+
+            // SignalR initialization
+            function initializeSignalR() {
+                if (typeof signalR === 'undefined') {
+                    console.error('SignalR library not loaded');
+                    return;
+                }
+
+                const connection = new signalR.HubConnectionBuilder()
+                    .withUrl("/notificationHub")
+                    .withAutomaticReconnect()
+                    .build();
+
+                connection.on("ReceiveNotification", function (message) {
+                    showNotification(message, 'info');
+                    updateNotificationCount();
+                    playNotificationSound();
+                });
+
+                connection.start().catch(err => console.error('SignalR connection error:', err));
+            }
+
+            // Stat cards initialization
+            function initializeStatCards() {
+                const statCards = document.querySelectorAll('.stat-card');
+                statCards.forEach(card => {
+                    // Add progress bar
+                    const progressBar = document.createElement('div');
+                    progressBar.className = 'progress-bar';
+
+                    const value = parseInt(card.querySelector('h3').textContent);
+                    const max = DEFAULT_MAX_VALUE;
+
+                    progressBar.style.width = `${(value / max) * 100}%`;
+                    card.appendChild(progressBar);
+
+                    // Animate value
+                    const statValue = card.querySelector('h3');
+                    const finalValue = parseInt(statValue.textContent);
+                    animateValue(statValue, 0, finalValue, ANIMATION_DURATION);
+                });
+            }
+
+            // Value animation
+            function animateValue(element, start, end, duration) {
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+
+                    const value = Math.floor(progress * (end - start) + start);
+                    element.textContent = value;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                }
+
+                requestAnimationFrame(update);
+            }
+
+            // Tooltip initialization
+            function initializeTooltips() {
+                // Status badges
+                document.querySelectorAll('.status-badge').forEach(badge => {
+                    const status = badge.textContent.trim();
+                    badge.setAttribute('data-tooltip', `Last updated: ${new Date().toLocaleDateString()}`);
+                });
+
+                // Action buttons
+                document.querySelectorAll('.btn-view, .btn-resolve').forEach(button => {
+                    button.setAttribute('data-tooltip', `Click to ${button.textContent.toLowerCase()} this query`);
+                });
+            }
+
+            // Table sorting
+            function initializeTableSorting() {
+                const table = document.querySelector('.query-table');
+                if (!table) return;
+
+                const headers = table.querySelectorAll('th');
+                headers.forEach(header => {
+                    header.addEventListener('click', () => {
+                        const column = header.cellIndex;
+                        const rows = Array.from(table.querySelectorAll('tbody tr'));
+
+                        const isNumeric = rows.every(row =>
+                            !isNaN(parseFloat(row.cells[column].textContent))
+                        );
+
+                        rows.sort((a, b) => {
+                            const aValue = a.cells[column].textContent;
+                            const bValue = b.cells[column].textContent;
+
+                            return isNumeric ?
+                                parseFloat(aValue) - parseFloat(bValue) :
+                                aValue.localeCompare(bValue);
+                        });
+
+                        if (header.classList.contains('sort-asc')) {
+                            rows.reverse();
+                            header.classList.remove('sort-asc');
+                            header.classList.add('sort-desc');
+                        } else {
+                            header.classList.remove('sort-desc');
+                            header.classList.add('sort-asc');
+                        }
+
+                        const tbody = table.querySelector('tbody');
+                        tbody.innerHTML = '';
+                        rows.forEach(row => tbody.appendChild(row));
+                    });
+                });
+            }
+
+            // Loading states simulation
+            function simulateLoadingStates() {
+                const contentAreas = document.querySelectorAll('.stat-card, .query-row, .staff-info-card');
+
+                function showLoading() {
+                    contentAreas.forEach(area => {
+                        area.classList.add('loading-skeleton');
+                    });
+                }
+
+                function hideLoading() {
+                    contentAreas.forEach(area => {
+                        area.classList.remove('loading-skeleton');
+                    });
+                }
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'r' && e.ctrlKey) {
+                        showLoading();
+                        setTimeout(hideLoading, 1000);
+                    }
+                });
+            }
+
+            // Notification dropdown
+            function createNotificationDropdown() {
+                const notificationIcon = document.querySelector('.notification-icon');
+                if (!notificationIcon) return;
+
+                const dropdown = document.createElement('div');
+                dropdown.className = 'notification-dropdown';
+                dropdown.style.display = 'none';
+
+                notificationIcon.appendChild(dropdown);
+
+                notificationIcon.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+                });
+
+                document.addEventListener('click', () => {
+                    dropdown.style.display = 'none';
+                });
+            }
+
+            // Quick actions
+            function addQuickActions() {
+                const actions = [
+                    { title: 'Filter Queries', description: 'Sort and filter your assigned queries' },
+                    { title: 'Export Report', description: 'Download current view as report' },
+                    { title: 'Team Chat', description: 'Quick access to team communication' }
+                ];
+
+                const actionContainer = document.createElement('div');
+                actionContainer.className = 'quick-actions';
+
+                actions.forEach(action => {
+                    const actionCard = document.createElement('div');
+                    actionCard.className = 'action-card';
+                    actionCard.innerHTML = `
+                        <h4>${action.title}</h4>
+                        <p>${action.description}</p>
+                    `;
+                    actionContainer.appendChild(actionCard);
+                });
+
+                const profileSection = document.querySelector('.profile-section');
+                if (profileSection) {
+                    profileSection.parentNode.insertBefore(actionContainer, profileSection.nextSibling);
+                }
+            }
+
+            // Notification sound
+            function playNotificationSound() {
+                const audio = new Audio('/assets/sounds/notification.mp3');
+                audio.volume = 0.5;
+                audio.play().catch(err => console.warn('Audio playback failed:', err));
+            }
+        })();
+
+    </script>
+
+
+
+</body>
+
+</html>

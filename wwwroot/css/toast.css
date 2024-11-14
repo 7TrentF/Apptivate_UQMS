@@ -1,0 +1,16 @@
+﻿/* wwwroot/css/toast.css */
+.toast-notification {
+    background-color: #333;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transform: translateX(120%);
+    transition: transform 0.3s ease-in-out;
+    max-width: 300px;
+}
+
+    .toast-notification.show {
+        transform: translateX(0);
+    }

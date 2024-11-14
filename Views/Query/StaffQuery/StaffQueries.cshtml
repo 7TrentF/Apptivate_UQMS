@@ -1,0 +1,567 @@
+﻿ @model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.QueryAssignment>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/staffQueries.css" asp-append-version="true">
+
+</head>
+<body>
+   
+    <!-- Dashboard Header -->
+    <div class="dashboard-header">
+        <h2 class="dashboard-title">My Queries Dashboard</h2>
+    </div>
+
+    <!-- Stats Overview -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-title">Total Queries</div>
+            <div class="stat-value">0</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-title">Pending</div>
+            <div class="stat-value">0</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-title">Resolved Today</div>
+            <div class="stat-value">0</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-title">Priority Queries</div>
+            <div class="stat-value">0</div>
+        </div>
+    </div>
+
+    <!-- Controls Bar -->
+    <div class="controls-bar">
+        <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="Search queries...">
+        </div>
+        <div class="filter-group">
+            <select class="filter-select" id="statusFilter">
+                <option value="">All Statuses</option>
+                <option value="Pending">Pending</option>
+                <option value="Resolved">Resolved</option>
+            </select>
+            <select class="filter-select" id="priorityFilter">
+                <option value="">All Priorities</option>
+                <option value="High">High Priority</option>
+                <option value="Medium">Medium Priority</option>
+                <option value="Low">Low Priority</option>
+            </select>
+            <select class="filter-select" id="dateFilter">
+                <option value="">All Dates</option>
+                <option value="today">Today</option>
+                <option value="week">This Week</option>
+                <option value="month">This Month</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Original Table with Enhancements -->
+    <div class="table-container">
+        <table class="query-table">
+            <thead>
+                <tr>
+                    <th data-sort="id">Ticket # <i class="fas fa-sort sort-icon"></i></th>
+                    <th data-sort="description">Description <i class="fas fa-sort sort-icon"></i></th>
+                    <th data-sort="date">Submission Date <i class="fas fa-sort sort-icon"></i></th>
+                    <th data-sort="status">Status <i class="fas fa-sort sort-icon"></i></th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var queryAssignment in Model)
+{
+    <tr class="query-row" data-query-id="@queryAssignment.QueryID">
+        <td>@queryAssignment.Query.TicketNumber</td>
+        <td>@queryAssignment.Query.Description</td>
+        <td>@queryAssignment.Query.SubmissionDate?.ToString("dd MMM yyyy")</td>
+        <td>
+            <span class="status-badge @queryAssignment.Query.Status.ToString().ToLower()">
+                <i class="fas @(queryAssignment.Query.Status == QueryModel.QueryStatus.Pending  ? "fa-clock" : "fa-check-circle")"></i>
+               
+                @queryAssignment.Query.Status.ToString().ToLower()
+            </span>
+        </td>
+                        <td>
+                            <div class="action-buttons">
+                                <a href="@Url.Action("QueryDetails", "StaffQuery", new { queryId = queryAssignment.QueryID })"
+                                   class="btn btn-view">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                @if (queryAssignment.ResolutionDate == null)
+                                {
+                                    <form asp-action="MarkAsResolved" method="post" class="resolve-form">
+                                        <input type="hidden" name="queryId" value="@queryAssignment.QueryID" />
+                                        <button type="submit" class="btn btn-resolve">
+                                            <i class="fas fa-check"></i> Resolve
+                                        </button>
+                                    </form>
+                                }
+                                <div class="task-menu">
+                                    <button class="btn" onclick="toggleTaskMenu(this)">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="task-menu-content">
+                                        <a href="#" class="task-menu-item">
+                                            <i class="fas fa-flag"></i> Set Priority
+                                        </a>
+                                        <a href="#" class="task-menu-item">
+                                            <i class="fas fa-user-plus"></i> Reassign
+                                        </a>
+                                        <a href="#" class="task-menu-item">
+                                            <i class="fas fa-clock"></i> Set Reminder
+                                        </a>
+                                        <a href="#" class="task-menu-item">
+                                            <i class="fas fa-history"></i> View History
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+        <div class="task-menu-content">
+            <div class="priority-submenu">
+                <div class="submenu-title">Set Priority</div>
+                <a href="#" class="task-menu-item set-priority" data-priority="High">
+                    <i class="fas fa-circle text-danger"></i> High Priority
+                </a>
+                <a href="#" class="task-menu-item set-priority" data-priority="Medium">
+                    <i class="fas fa-circle text-warning"></i> Medium Priority
+                </a>
+                <a href="#" class="task-menu-item set-priority" data-priority="Low">
+                    <i class="fas fa-circle text-success"></i> Low Priority
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <div class="page-info">
+            Showing <span id="startRange">1</span>-<span id="endRange">10</span> of <span id="totalItems">0</span> queries
+        </div>
+        <div class="page-buttons">
+            <button class="page-button" id="prevPage" disabled>
+                <i class="fas fa-chevron-left"></i> Previous
+            </button>
+            <button class="page-button" id="nextPage">
+                Next <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Include jQuery if not already included in your layout -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        // Initialize the dashboard functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeSearchAndFilters();
+            initializeSorting();
+            initializeTaskMenus();
+            initializePrioritySystem();
+            initializePagination();
+            updateStats();
+        });
+
+
+
+        // Search and Filters
+        function initializeSearchAndFilters() {
+            const searchInput = document.querySelector('.search-input');
+            const statusFilter = document.getElementById('statusFilter');
+            const priorityFilter = document.getElementById('priorityFilter');
+            const dateFilter = document.getElementById('dateFilter');
+
+            // Debounce search input
+            let searchTimeout;
+            searchInput.addEventListener('input', function () {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => filterQueries(), 300);
+            });
+
+            // Add event listeners to filters
+            [statusFilter, priorityFilter, dateFilter].forEach(filter => {
+                filter.addEventListener('change', filterQueries);
+            });
+        }
+        // Modified filter function to work with pagination
+        function filterQueries() {
+            const searchTerm = document.querySelector('.search-input').value.toLowerCase();
+            const status = document.getElementById('statusFilter').value;
+            const priority = document.getElementById('priorityFilter').value;
+            const dateRange = document.getElementById('dateFilter').value;
+
+            const rows = document.querySelectorAll('.query-row');
+
+            rows.forEach(row => {
+                const description = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                const rowStatus = row.querySelector('td:nth-child(4)').textContent.trim();
+                const rowPriority = row.getAttribute('data-priority') || 'Medium';
+                const rowDate = new Date(row.querySelector('td:nth-child(3)').textContent);
+
+                let showRow = true;
+
+                // Apply filters
+                if (searchTerm && !description.includes(searchTerm)) showRow = false;
+                if (status && !rowStatus.includes(status)) showRow = false;
+                if (priority && rowPriority !== priority) showRow = false;
+                if (dateRange) {
+                    const today = new Date();
+                    const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+                    const monthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+
+                    switch (dateRange) {
+                        case 'today':
+                            if (!isSameDay(rowDate, today)) showRow = false;
+                            break;
+                        case 'week':
+                            if (rowDate < weekAgo) showRow = false;
+                            break;
+                        case 'month':
+                            if (rowDate < monthAgo) showRow = false;
+                            break;
+                    }
+                }
+
+                // Mark row as filtered out instead of hiding it
+                if (!showRow) {
+                    row.setAttribute('data-filtered-out', '');
+                } else {
+                    row.removeAttribute('data-filtered-out');
+                }
+            });
+
+            // Update pagination after filtering
+            if (window.updatePagination) {
+                window.updatePagination();
+            }
+        }
+        // Sorting functionality
+        function initializeSorting() {
+            const headers = document.querySelectorAll('th[data-sort]');
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const column = header.dataset.sort;
+                    const isAsc = header.classList.contains('sort-asc');
+
+                    // Remove sort classes from all headers
+                    headers.forEach(h => {
+                        h.classList.remove('sort-asc', 'sort-desc');
+                    });
+
+                    // Add sort class to clicked header
+                    header.classList.add(isAsc ? 'sort-desc' : 'sort-asc');
+
+                    sortTable(column, !isAsc);
+                });
+            });
+        }
+
+        function sortTable(column, asc) {
+            const tbody = document.querySelector('.query-table tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+
+            const sortedRows = rows.sort((a, b) => {
+                const aValue = a.querySelector(`td:nth-child(${getColumnIndex(column)})`).textContent;
+                const bValue = b.querySelector(`td:nth-child(${getColumnIndex(column)})`).textContent;
+
+                if (column === 'date') {
+                    return asc ?
+                        new Date(aValue) - new Date(bValue) :
+                        new Date(bValue) - new Date(aValue);
+                }
+
+                return asc ?
+                    aValue.localeCompare(bValue) :
+                    bValue.localeCompare(aValue);
+            });
+
+            tbody.innerHTML = '';
+            sortedRows.forEach(row => tbody.appendChild(row));
+        }
+
+        // Priority System
+        function initializePrioritySystem() {
+            // Add priority column if not exists
+            const headerRow = document.querySelector('.query-table thead tr');
+            if (!headerRow.querySelector('th[data-sort="priority"]')) {
+                const priorityHeader = document.createElement('th');
+                priorityHeader.setAttribute('data-sort', 'priority');
+                priorityHeader.innerHTML = 'Priority <i class="fas fa-sort sort-icon"></i>';
+                headerRow.insertBefore(priorityHeader, headerRow.querySelector('th:last-child'));
+            }
+
+            // Add priority cells to existing rows
+            const rows = document.querySelectorAll('.query-table tbody tr');
+            rows.forEach(row => {
+                if (!row.querySelector('.priority-cell')) {
+                    const priorityCell = document.createElement('td');
+                    priorityCell.className = 'priority-cell';
+                    const priority = row.getAttribute('data-priority') || 'Medium';
+                    priorityCell.innerHTML = createPriorityBadge(priority);
+                    row.insertBefore(priorityCell, row.querySelector('td:last-child'));
+                }
+            });
+
+            // Initialize priority click handlers
+            initializePriorityHandlers();
+        }
+
+        function initializePriorityHandlers() {
+            document.querySelectorAll('.set-priority').forEach(item => {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const queryId = this.closest('.query-row').getAttribute('data-query-id');
+                    const priority = this.getAttribute('data-priority');
+                    setPriority(queryId, priority);
+                    closeAllTaskMenus();
+
+                    // Show confirmation toast
+                    showToast(`Priority set to ${priority}`);
+                });
+            });
+        }
+
+        function createPriorityBadge(priority) {
+            const colors = {
+                'High': '#e74c3c',
+                'Medium': '#f1c40f',
+                'Low': '#2ecc71'
+            };
+            const bgColors = {
+                'High': '#fdedec',
+                'Medium': '#fef9e7',
+                'Low': '#eafaf1'
+            };
+            return `
+                <span class="priority-badge" style="
+                    background-color: ${bgColors[priority]};
+                    color: ${colors[priority]};
+                    border: 1px solid ${colors[priority]};
+                    padding: 4px 8px;
+                    border-radius: 12px;
+                    font-size: 0.85rem;
+                    font-weight: 500;
+                ">
+                    <i class="fas fa-circle" style="font-size: 0.6rem; margin-right: 4px;"></i>
+                    ${priority}
+                </span>
+            `;
+        }
+
+        function setPriority(queryId, priority) {
+            const row = document.querySelector(`[data-query-id="${queryId}"]`);
+            if (row) {
+                // Update the row's priority attribute
+                row.setAttribute('data-priority', priority);
+
+                // Update the priority cell
+                const priorityCell = row.querySelector('.priority-cell');
+                if (priorityCell) {
+                    priorityCell.innerHTML = createPriorityBadge(priority);
+                }
+
+                // Save to backend (you'll need to implement this)
+                savePriorityToServer(queryId, priority);
+
+                // Update statistics
+                updateStats();
+            }
+        }
+
+        // Toast notification system
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            // Trigger animation
+            setTimeout(() => toast.classList.add('show'), 100);
+
+            // Remove toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Task Menu functionality
+        function initializeTaskMenus() {
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.task-menu')) {
+                    closeAllTaskMenus();
+                }
+            });
+
+            // Initialize priority selection in task menu
+            const priorityMenuItems = document.querySelectorAll('.task-menu-item[data-action="setPriority"]');
+            priorityMenuItems.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const queryId = this.closest('.query-row').getAttribute('data-query-id');
+                    const priority = this.getAttribute('data-priority');
+                    setPriority(queryId, priority);
+                    closeAllTaskMenus();
+                });
+            });
+        }
+
+        function toggleTaskMenu(button) {
+            const menu = button.nextElementSibling;
+            const isOpen = menu.style.display === 'block';
+
+            closeAllTaskMenus();
+
+            if (!isOpen) {
+                menu.style.display = 'block';
+            }
+        }
+
+        function closeAllTaskMenus() {
+            document.querySelectorAll('.task-menu-content').forEach(menu => {
+                menu.style.display = 'none';
+            });
+        }
+
+        // Pagination functionality
+        function initializePagination() {
+            const paginationState = {
+                itemsPerPage: 10,
+                currentPage: 1,
+                totalItems: 0,
+                totalPages: 1
+            };
+
+            function updatePaginationDisplay() {
+                const visibleRows = getVisibleRows();
+                paginationState.totalItems = visibleRows.length;
+                paginationState.totalPages = Math.ceil(paginationState.totalItems / paginationState.itemsPerPage);
+
+                // Update pagination text
+                const startItem = ((paginationState.currentPage - 1) * paginationState.itemsPerPage) + 1;
+                const endItem = Math.min(paginationState.currentPage * paginationState.itemsPerPage, paginationState.totalItems);
+
+                document.getElementById('startRange').textContent = paginationState.totalItems === 0 ? 0 : startItem;
+                document.getElementById('endRange').textContent = endItem;
+                document.getElementById('totalItems').textContent = paginationState.totalItems;
+
+                // Update button states
+                const prevButton = document.getElementById('prevPage');
+                const nextButton = document.getElementById('nextPage');
+
+                prevButton.disabled = paginationState.currentPage === 1;
+                nextButton.disabled = paginationState.currentPage === paginationState.totalPages || paginationState.totalItems === 0;
+
+                // Show/hide rows based on current page
+                updateVisibleRows(visibleRows);
+            }
+
+
+            function getVisibleRows() {
+                return Array.from(document.querySelectorAll('.query-row'))
+                    .filter(row => !row.hasAttribute('data-filtered-out'));
+            }
+
+            function updateVisibleRows(visibleRows) {
+                const startIndex = (paginationState.currentPage - 1) * paginationState.itemsPerPage;
+                const endIndex = startIndex + paginationState.itemsPerPage;
+
+                visibleRows.forEach((row, index) => {
+                    row.style.display = (index >= startIndex && index < endIndex) ? '' : 'none';
+                });
+            }
+
+            function changePage(direction) {
+                const newPage = paginationState.currentPage + direction;
+                if (newPage >= 1 && newPage <= paginationState.totalPages) {
+                    paginationState.currentPage = newPage;
+                    updatePaginationDisplay();
+                }
+            }
+
+            // Add event listeners to pagination buttons
+            document.getElementById('prevPage').addEventListener('click', () => changePage(-1));
+            document.getElementById('nextPage').addEventListener('click', () => changePage(1));
+
+            // Initialize pagination
+            updatePaginationDisplay();
+
+            // Export pagination update function for use by filters
+            window.updatePagination = updatePaginationDisplay;
+        }
+
+        // Simulated backend save function
+        function savePriorityToServer(queryId, priority) {
+            console.log(`Saving priority ${priority} for query ${queryId} to server...`);
+            // Implement your actual server save logic here
+        }
+
+        // Stats Update
+        function updateStats() {
+            const rows = document.querySelectorAll('.query-row');
+            let total = rows.length;
+            let pending = 0;
+            let resolvedToday = 0;
+            let highPriority = 0;
+
+            rows.forEach(row => {
+                const status = row.querySelector('td:nth-child(4)').textContent.trim();
+                const date = new Date(row.querySelector('td:nth-child(3)').textContent);
+                const priority = row.getAttribute('data-priority');
+
+                if (status === 'Pending') pending++;
+                if (status === 'Resolved' && isSameDay(date, new Date())) resolvedToday++;
+                if (priority === 'High') highPriority++;
+            });
+
+            document.querySelector('.stat-card:nth-child(1) .stat-value').textContent = total;
+            document.querySelector('.stat-card:nth-child(2) .stat-value').textContent = pending;
+            document.querySelector('.stat-card:nth-child(3) .stat-value').textContent = resolvedToday;
+            document.querySelector('.stat-card:nth-child(4) .stat-value').textContent = highPriority;
+        }
+
+        // Utility functions
+        function isSameDay(date1, date2) {
+            return date1.getDate() === date2.getDate() &&
+                date1.getMonth() === date2.getMonth() &&
+                date1.getFullYear() === date2.getFullYear();
+        }
+
+        function getColumnIndex(column) {
+            const columns = {
+                'id': 1,
+                'description': 2,
+                'date': 3,
+                'status': 4,
+                'priority': 5
+            };
+            return columns[column];
+        }
+
+        function updatePaginationInfo(visibleCount) {
+            document.getElementById('totalItems').textContent = visibleCount;
+            const itemsPerPage = 10;
+            document.getElementById('endRange').textContent = Math.min(itemsPerPage, visibleCount);
+        }
+    </script>
+</body>
+</html>

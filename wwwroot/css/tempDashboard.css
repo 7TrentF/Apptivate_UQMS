@@ -1,0 +1,374 @@
+﻿/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: #f5f7fb;
+    color: #2d3748;
+    min-height: 100vh;
+}
+
+.wrapper-container {
+    max-width: 98%;
+    margin: 1rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 1.5rem;
+}
+
+.dashboard-container {
+    flex: 1;
+}
+
+/* Profile Section */
+.profile-section {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-pic {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4f46e5;
+    padding: 2px;
+}
+
+.profile-info h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a202c;
+}
+
+.notification-icon img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+    .notification-icon img:hover {
+        transform: scale(1.1);
+    }
+
+/* Stats Cards */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 100%;
+}
+
+    .stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.15);
+    }
+
+.stat-icon img {
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+    background: #f3f4f6;
+    border-radius: 12px;
+}
+
+.stat-info p {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.stat-info h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1a202c;
+}
+
+/* Recent Queries Section */
+.recent-queries {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+    .recent-queries h2 {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        color: #1a202c;
+    }
+
+.table-responsive {
+    overflow-x: auto;
+    margin: 0 -1.5rem;
+    padding: 0 1.5rem;
+}
+
+.query-table {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+    .query-table th {
+        position: sticky;
+        top: 0;
+        background: white;
+        text-align: left;
+        padding: 1rem;
+        color: #64748b;
+        font-weight: 500;
+        border-bottom: 2px solid #e2e8f0;
+    }
+
+.query-row {
+    background: #f8fafc;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+    .query-row:hover {
+        transform: translateY(-2px);
+        background: #f1f5f9;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .query-row td {
+        padding: 1rem;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .query-row:last-child td {
+        border-bottom: none;
+    }
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.status-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-resolved {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.btn-view {
+    padding: 0.5rem 1rem;
+    background: #4f46e5;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    transition: background-color 0.2s;
+}
+
+    .btn-view:hover {
+        background: #4338ca;
+    }
+
+/* Academic Information */
+.academic-info {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+    .academic-info h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        color: #1a202c;
+    }
+
+    .academic-info p {
+        margin-bottom: 0.75rem;
+        color: #4a5568;
+    }
+
+    .academic-info strong {
+        color: #2d3748;
+    }
+
+/* Recent Activity Section */
+.recent-activity-section {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 1rem;
+}
+
+    .recent-activity-section h2 {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        color: #1a202c;
+    }
+
+.activity-list {
+    list-style: none;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+    .activity-list li {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+        .activity-list li:last-child {
+            border-bottom: none;
+        }
+
+    .activity-list img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .activity-list p {
+        flex: 1;
+        color: #4a5568;
+        font-size: 0.875rem;
+        margin: 0;
+    }
+
+    .activity-list span {
+        font-size: 0.75rem;
+        color: #64748b;
+        display: block;
+        margin-top: 0.25rem;
+    }
+
+.show-more-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 500;
+}
+
+    .show-more-btn:hover {
+        background: #4338ca;
+    }
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .wrapper-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper-container {
+        grid-template-columns: 1fr;
+    }
+
+    .recent-activity-section {
+        position: static;
+    }
+
+    .activity-list {
+        max-height: 400px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper-container {
+        padding: 0.5rem;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .profile-info {
+        flex-direction: column;
+    }
+
+    .notification-icon {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .table-responsive {
+        margin: 0 -1rem;
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .profile-info h2 {
+        font-size: 1.25rem;
+    }
+
+    .recent-queries h2,
+    .academic-info h3,
+    .recent-activity-section h2 {
+        font-size: 1.125rem;
+    }
+}

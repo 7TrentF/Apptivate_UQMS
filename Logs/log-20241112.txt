@@ -1,0 +1,755 @@
+2024-11-12 10:38:59.827 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 10:39:00.339 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 10:39:01.639 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 10:39:02.153 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 10:39:02.175 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 10:39:02.188 +02:00 [INF] Hosting environment: Development
+2024-11-12 10:39:02.191 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 10:39:02.396 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731400742.
+2024-11-12 10:39:02.403 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-12 10:39:02.404 +02:00 [INF] AuthenticationScheme: Firebase was challenged.
+2024-11-12 10:39:02.406 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 401 0 null 254.1719ms
+2024-11-12 10:50:39.323 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 10:50:39.528 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 10:50:39.539 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 10:50:39.580 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 10:50:39.586 +02:00 [INF] Hosting environment: Development
+2024-11-12 10:50:39.586 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 10:50:40.136 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 10:50:40.376 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401440.
+2024-11-12 10:50:40.401 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-12 10:50:40.403 +02:00 [INF] AuthenticationScheme: Firebase was challenged.
+2024-11-12 10:50:40.407 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 401 0 null 270.873ms
+2024-11-12 10:56:05.486 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 10:56:05.777 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 10:56:05.784 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 10:56:05.814 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 10:56:05.818 +02:00 [INF] Hosting environment: Development
+2024-11-12 10:56:05.819 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 10:56:06.436 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 10:56:06.752 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401766.
+2024-11-12 10:56:06.760 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-12 10:56:06.763 +02:00 [INF] AuthenticationScheme: Firebase was challenged.
+2024-11-12 10:56:06.768 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 401 0 null 329.9788ms
+2024-11-12 10:56:19.353 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 10:56:19.365 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 10:56:19.367 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-12 10:56:19.368 +02:00 [INF] AuthenticationScheme: Firebase was challenged.
+2024-11-12 10:56:19.369 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 401 0 null 16.0646ms
+2024-11-12 10:56:20.960 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 10:56:20.964 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 10:56:20.966 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-12 10:56:20.967 +02:00 [INF] AuthenticationScheme: Firebase was challenged.
+2024-11-12 10:56:20.968 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 401 0 null 7.3885ms
+2024-11-12 10:57:18.381 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 10:57:18.890 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 10:57:19.112 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 10:57:19.141 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 10:57:19.146 +02:00 [INF] Hosting environment: Development
+2024-11-12 10:57:19.146 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 10:57:19.773 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 10:57:19.945 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401839.
+2024-11-12 10:57:19.953 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-12 10:57:19.975 +02:00 [INF] AuthenticationScheme: Firebase was challenged.
+2024-11-12 10:57:19.981 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 401 0 null 209.5879ms
+2024-11-12 10:57:57.349 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 10:57:57.476 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 10:57:57.483 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 10:57:57.509 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 10:57:57.515 +02:00 [INF] Hosting environment: Development
+2024-11-12 10:57:57.516 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 10:57:58.094 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 10:57:58.338 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401878.
+2024-11-12 10:57:58.344 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401878.
+2024-11-12 10:57:58.349 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-12 10:57:58.363 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-12 10:57:58.596 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1730801015. Expected to be greater than 1731401878.
+2024-11-12 10:57:58.606 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-12 10:57:58.847 +02:00 [INF] Executed ViewResult - view Login executed in 240.6993ms.
+2024-11-12 10:57:59.759 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 1395.0123ms
+2024-11-12 10:57:59.764 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-12 10:57:59.769 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 1675.7817ms
+2024-11-12 10:57:59.780 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-11-12 10:57:59.785 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401879.
+2024-11-12 10:57:59.839 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/site.css?v=fq4OtvJTWuD083OjgIkrWt8Sxacuhen85BiZk9X3pVw - null null
+2024-11-12 10:57:59.846 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401879.
+2024-11-12 10:57:59.854 +02:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\css\site.css'
+2024-11-12 10:57:59.855 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/site.css?v=fq4OtvJTWuD083OjgIkrWt8Sxacuhen85BiZk9X3pVw - 200 941 text/css 16.715ms
+2024-11-12 10:57:59.857 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-11-12 10:57:59.858 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401879.
+2024-11-12 10:57:59.859 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/Login.css - null null
+2024-11-12 10:57:59.885 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401879.
+2024-11-12 10:57:59.924 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/login.js - null null
+2024-11-12 10:57:59.926 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 10:57:59.926 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/lib/jquery/dist/jquery.min.js - null null
+2024-11-12 10:57:59.926 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - null null
+2024-11-12 10:57:59.926 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-11-12 10:57:59.940 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401879.
+2024-11-12 10:57:59.948 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 10:57:59.951 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401879.
+2024-11-12 10:57:59.952 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401879.
+2024-11-12 10:57:59.953 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401879.
+2024-11-12 10:58:00.001 +02:00 [INF] Sending file. Request path: '/Apptivate_UQMS_WebApp.styles.css'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\obj\Debug\net8.0\scopedcss\bundle\Apptivate_UQMS_WebApp.styles.css'
+2024-11-12 10:58:00.027 +02:00 [INF] Sending file. Request path: '/css/Login.css'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\css\Login.css'
+2024-11-12 10:58:00.042 +02:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\js\site.js'
+2024-11-12 10:58:00.165 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 238.997ms
+2024-11-12 10:58:00.171 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 200 10213 text/css 313.5197ms
+2024-11-12 10:58:00.173 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/Login.css - 200 6904 text/css 313.9589ms
+2024-11-12 10:58:00.175 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - 200 3 text/javascript 248.7918ms
+2024-11-12 10:58:00.192 +02:00 [INF] Sending file. Request path: '/js/login.js'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\js\login.js'
+2024-11-12 10:58:00.217 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css - null null
+2024-11-12 10:58:00.231 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2024-11-12 10:58:00.250 +02:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\lib\jquery\dist\jquery.min.js'
+2024-11-12 10:58:00.256 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2024-11-12 10:58:00.257 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/login.js - 200 5252 text/javascript 333.4678ms
+2024-11-12 10:58:00.259 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401880.
+2024-11-12 10:58:00.262 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78468 text/javascript 336.1274ms
+2024-11-12 10:58:00.263 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 336.9697ms
+2024-11-12 10:58:00.263 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/css/bootstrap.min.css - 200 162720 text/css 483.3947ms
+2024-11-12 10:58:00.269 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 321.3265ms
+2024-11-12 10:58:00.318 +02:00 [INF] Sending file. Request path: '/_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css'. Physical path: 'C:\Users\User\.nuget\packages\microsoft.aspnetcore.components.quickgrid\8.0.8\staticwebassets\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css'
+2024-11-12 10:58:00.332 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css - 200 8251 text/css 114.5643ms
+2024-11-12 10:58:01.605 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/Aptivate_background.png - null null
+2024-11-12 10:58:01.816 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401881.
+2024-11-12 10:58:02.317 +02:00 [INF] Sending file. Request path: '/Images/Aptivate_background.png'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Images\Aptivate_background.png'
+2024-11-12 10:58:02.319 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/Aptivate_background.png - 200 77509 image/png 714.3864ms
+2024-11-12 10:58:04.650 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/favicon.ico - null null
+2024-11-12 10:58:05.678 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731401885.
+2024-11-12 10:58:05.694 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\favicon.ico'
+2024-11-12 10:58:05.696 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/favicon.ico - 200 5430 image/x-icon 1045.1182ms
+2024-11-12 11:03:19.799 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 11:03:20.054 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 11:03:20.704 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 11:03:20.723 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 11:03:20.769 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 11:03:20.772 +02:00 [INF] Hosting environment: Development
+2024-11-12 11:03:20.772 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 11:03:20.919 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731402200.
+2024-11-12 11:03:20.924 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1730801015. Expected to be greater than 1731402200.
+2024-11-12 11:03:20.927 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 404 0 null 223.9878ms
+2024-11-12 11:03:20.972 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/, Response status code: 404
+2024-11-12 11:03:48.905 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 11:03:49.045 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 11:03:49.050 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 11:03:49.079 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 11:03:49.083 +02:00 [INF] Hosting environment: Development
+2024-11-12 11:03:49.086 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 11:03:55.144 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 11:03:59.750 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:04:02.447 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:04:02.451 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 404 0 null 7307.0901ms
+2024-11-12 11:04:02.461 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/, Response status code: 404
+2024-11-12 11:04:02.792 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/favicon.ico - null null
+2024-11-12 11:04:03.788 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:04:03.816 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\favicon.ico'
+2024-11-12 11:04:03.819 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/favicon.ico - 200 5430 image/x-icon 1027.0621ms
+2024-11-12 11:05:04.122 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 11:05:04.465 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 11:05:04.470 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 11:05:04.497 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 11:05:04.502 +02:00 [INF] Hosting environment: Development
+2024-11-12 11:05:04.502 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 11:05:08.797 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 11:05:12.611 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:05:12.656 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:05:12.741 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 404 0 null 3946.8371ms
+2024-11-12 11:05:12.944 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/, Response status code: 404
+2024-11-12 11:05:18.872 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 11:05:18.891 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:05:18.891 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:05:18.892 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 404 0 null 20.5958ms
+2024-11-12 11:05:18.958 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/, Response status code: 404
+2024-11-12 11:09:37.020 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 11:09:37.416 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 11:09:37.451 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 11:09:37.461 +02:00 [INF] Hosting environment: Development
+2024-11-12 11:09:37.462 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 11:09:38.335 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/ - null null
+2024-11-12 11:09:38.834 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:09:38.850 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-11-12 11:09:38.851 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:09:38.855 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/ - 404 0 null 521.0174ms
+2024-11-12 11:09:38.867 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5042/, Response status code: 404
+2024-11-12 11:27:56.621 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 11:27:56.926 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 11:27:56.988 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 11:27:56.993 +02:00 [INF] Hosting environment: Development
+2024-11-12 11:27:56.993 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 11:27:58.126 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/ - null null
+2024-11-12 11:27:58.680 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:27:58.703 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-11-12 11:27:58.706 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:27:58.819 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/ - 404 0 null 585.5081ms
+2024-11-12 11:27:58.839 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5042/, Response status code: 404
+2024-11-12 11:41:51.055 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 11:41:51.190 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 11:41:51.342 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 11:41:51.349 +02:00 [INF] Hosting environment: Development
+2024-11-12 11:41:51.350 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 11:41:54.424 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/ - null null
+2024-11-12 11:41:55.551 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:41:55.556 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-11-12 11:41:55.557 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:41:55.568 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 11:41:55.574 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 11:41:55.588 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 11:41:55.663 +02:00 [INF] Executed ViewResult - view Index executed in 75.9608ms.
+2024-11-12 11:41:55.680 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 96.8645ms
+2024-11-12 11:41:55.681 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 11:41:55.684 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/ - 200 null text/html; charset=utf-8 1260.8984ms
+2024-11-12 11:41:55.772 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-11-12 11:41:55.796 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:41:55.834 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/css/site.css?v=fq4OtvJTWuD083OjgIkrWt8Sxacuhen85BiZk9X3pVw - null null
+2024-11-12 11:41:55.840 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:41:55.850 +02:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\css\site.css'
+2024-11-12 11:41:55.852 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/css/site.css?v=fq4OtvJTWuD083OjgIkrWt8Sxacuhen85BiZk9X3pVw - 200 941 text/css 18.6187ms
+2024-11-12 11:41:55.856 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-11-12 11:41:55.866 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:41:55.868 +02:00 [INF] Sending file. Request path: '/Apptivate_UQMS_WebApp.styles.css'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\obj\Debug\net8.0\scopedcss\bundle\Apptivate_UQMS_WebApp.styles.css'
+2024-11-12 11:41:55.869 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 200 10213 text/css 13.3855ms
+2024-11-12 11:41:55.872 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/css/LnadingPageStyles.css - null null
+2024-11-12 11:41:55.889 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:41:55.901 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:41:55.902 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/css/LnadingPageStyles.css - 404 0 null 29.9971ms
+2024-11-12 11:41:55.907 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5042/css/LnadingPageStyles.css, Response status code: 404
+2024-11-12 11:41:55.926 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 11:41:55.940 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 13.7386ms
+2024-11-12 11:41:55.951 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/lib/jquery/dist/jquery.min.js - null null
+2024-11-12 11:41:55.956 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:41:55.985 +02:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\lib\jquery\dist\jquery.min.js'
+2024-11-12 11:41:55.990 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 40.2189ms
+2024-11-12 11:41:56.002 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-11-12 11:41:56.006 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:41:56.011 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - null null
+2024-11-12 11:41:56.015 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:41:56.016 +02:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\js\site.js'
+2024-11-12 11:41:56.017 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - 200 3 text/javascript 6.7322ms
+2024-11-12 11:41:56.020 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css - null null
+2024-11-12 11:41:56.022 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:41:56.036 +02:00 [INF] Sending file. Request path: '/_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css'. Physical path: 'C:\Users\User\.nuget\packages\microsoft.aspnetcore.components.quickgrid\8.0.8\staticwebassets\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css'
+2024-11-12 11:41:56.061 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css - 200 8251 text/css 41.2675ms
+2024-11-12 11:41:56.083 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2024-11-12 11:41:56.083 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2024-11-12 11:41:56.281 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/lib/bootstrap/dist/css/bootstrap.min.css - 200 162720 text/css 508.8319ms
+2024-11-12 11:41:56.279 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78468 text/javascript 276.924ms
+2024-11-12 11:41:56.172 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/_vs/browserLink - null null
+2024-11-12 11:41:56.343 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/_vs/browserLink - 200 null text/javascript; charset=UTF-8 171.064ms
+2024-11-12 11:41:56.579 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5042/favicon.ico - null null
+2024-11-12 11:41:56.860 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:41:56.862 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\favicon.ico'
+2024-11-12 11:41:56.869 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5042/favicon.ico - 200 5430 image/x-icon 289.559ms
+2024-11-12 11:42:42.593 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 11:42:42.893 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 11:42:42.903 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 11:42:42.936 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 11:42:42.941 +02:00 [INF] Hosting environment: Development
+2024-11-12 11:42:42.942 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 11:42:44.401 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 11:42:45.345 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:42:45.352 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:42:45.355 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 11:42:45.364 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 11:42:45.372 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 11:42:45.450 +02:00 [INF] Executed ViewResult - view Index executed in 78.2375ms.
+2024-11-12 11:42:45.997 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 629.1294ms
+2024-11-12 11:42:45.998 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 11:42:46.006 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 1606.2446ms
+2024-11-12 11:42:46.014 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - null null
+2024-11-12 11:42:46.019 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:42:46.022 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:42:46.023 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - 404 0 null 9.2241ms
+2024-11-12 11:42:46.029 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LnadingPageStyles.css, Response status code: 404
+2024-11-12 11:42:46.038 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 11:42:46.046 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-11-12 11:42:46.054 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:42:46.088 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 50.9002ms
+2024-11-12 11:42:46.101 +02:00 [INF] Sending file. Request path: '/Apptivate_UQMS_WebApp.styles.css'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\obj\Debug\net8.0\scopedcss\bundle\Apptivate_UQMS_WebApp.styles.css'
+2024-11-12 11:42:46.102 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 200 10213 text/css 55.7604ms
+2024-11-12 11:42:46.119 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 11:42:46.198 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 78.4559ms
+2024-11-12 11:45:03.035 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Account/Login - null null
+2024-11-12 11:45:03.049 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:45:03.050 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:45:03.050 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-12 11:45:03.067 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-12 11:45:03.270 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-12 11:45:03.305 +02:00 [INF] Executed ViewResult - view Login executed in 35.1257ms.
+2024-11-12 11:45:03.604 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 535.9107ms
+2024-11-12 11:45:03.605 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-12 11:45:03.611 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Account/Login - 200 null text/html; charset=utf-8 571.4474ms
+2024-11-12 11:45:03.612 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-11-12 11:45:03.622 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 11:45:03.631 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-11-12 11:45:03.632 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 304 null text/css 19.5084ms
+2024-11-12 11:45:03.633 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 11:45:03.634 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 1.204ms
+2024-11-12 11:45:03.917 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 11:45:04.868 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 950.8619ms
+2024-11-12 11:45:26.383 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 11:45:26.416 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 33.1497ms
+2024-11-12 12:01:13.655 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 12:01:13.885 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 12:01:13.894 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 12:01:13.944 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 12:01:13.949 +02:00 [INF] Hosting environment: Development
+2024-11-12 12:01:13.949 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 12:01:16.019 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 12:01:16.935 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:01:17.132 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:01:17.412 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 12:01:17.547 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 12:01:17.562 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 12:01:17.911 +02:00 [INF] Executed ViewResult - view Index executed in 350.7274ms.
+2024-11-12 12:01:18.205 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 12:01:18.513 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - null null
+2024-11-12 12:01:18.519 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:01:18.526 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:01:18.528 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - 404 0 null 14.7416ms
+2024-11-12 12:01:18.532 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LnadingPageStyles.css, Response status code: 404
+2024-11-12 12:01:18.495 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 945.4201ms
+2024-11-12 12:01:18.542 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 12:01:18.545 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 2527.2697ms
+2024-11-12 12:01:18.294 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-11-12 12:01:18.557 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:01:18.562 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-11-12 12:01:18.563 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 304 null text/css 269.0776ms
+2024-11-12 12:01:18.595 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 389.9869ms
+2024-11-12 12:01:18.826 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 12:01:19.757 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 931.5164ms
+2024-11-12 12:04:07.008 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 12:04:07.775 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 12:04:08.027 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 12:04:08.055 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 12:04:08.060 +02:00 [INF] Hosting environment: Development
+2024-11-12 12:04:08.060 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 12:04:08.628 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 12:04:08.882 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:04:08.891 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:04:08.903 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 12:04:08.936 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 12:04:08.974 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 12:04:09.025 +02:00 [INF] Executed ViewResult - view Index executed in 51.948ms.
+2024-11-12 12:04:09.042 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 81.1569ms
+2024-11-12 12:04:09.043 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 12:04:09.046 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 419.416ms
+2024-11-12 12:04:09.341 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 12:04:09.362 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-11-12 12:04:09.367 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 26.7979ms
+2024-11-12 12:04:09.370 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - null null
+2024-11-12 12:04:09.406 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:04:09.410 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:04:09.411 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - 404 0 null 41.1008ms
+2024-11-12 12:04:09.413 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LnadingPageStyles.css, Response status code: 404
+2024-11-12 12:04:09.375 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:04:09.419 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-11-12 12:04:09.421 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 304 null text/css 59.1677ms
+2024-11-12 12:04:10.016 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 12:04:10.203 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 187.5365ms
+2024-11-12 12:05:50.645 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 12:05:50.765 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 12:05:50.771 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 12:05:50.797 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 12:05:50.802 +02:00 [INF] Hosting environment: Development
+2024-11-12 12:05:50.802 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 12:05:51.145 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 12:05:51.259 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:05:51.262 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:05:51.264 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 12:05:51.272 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 12:05:51.279 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 12:05:51.327 +02:00 [INF] Executed ViewResult - view Index executed in 48.5401ms.
+2024-11-12 12:05:51.332 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 57.9757ms
+2024-11-12 12:05:51.332 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 12:05:51.337 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 192.9865ms
+2024-11-12 12:05:51.365 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 12:05:51.404 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:05:51.405 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:05:51.406 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 12:05:51.406 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 12:05:51.410 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 12:05:51.472 +02:00 [INF] Executed ViewResult - view Index executed in 61.8088ms.
+2024-11-12 12:05:51.725 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 318.3077ms
+2024-11-12 12:05:51.727 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 12:05:51.730 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 364.9693ms
+2024-11-12 12:05:51.876 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 12:05:51.877 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - null null
+2024-11-12 12:05:51.890 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:05:51.892 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:05:51.893 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - 404 0 null 15.5204ms
+2024-11-12 12:05:51.895 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LnadingPageStyles.css, Response status code: 404
+2024-11-12 12:05:51.908 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 31.7861ms
+2024-11-12 12:05:51.887 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 12:05:51.945 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 57.306ms
+2024-11-12 12:06:02.301 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Account/Login - null null
+2024-11-12 12:06:02.311 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:06:02.369 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:06:02.370 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-12 12:06:02.378 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-12 12:06:02.487 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-12 12:06:02.530 +02:00 [INF] Executed ViewResult - view Login executed in 43.7347ms.
+2024-11-12 12:06:02.919 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 538.4081ms
+2024-11-12 12:06:02.921 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-12 12:06:02.934 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Account/Login - 200 null text/html; charset=utf-8 632.708ms
+2024-11-12 12:06:02.945 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 12:06:02.951 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 12:06:02.953 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 8.0238ms
+2024-11-12 12:06:03.530 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 579.3017ms
+2024-11-12 12:06:08.630 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 12:06:08.658 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 27.1571ms
+2024-11-12 12:43:27.293 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 12:43:27.626 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 12:43:27.640 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 12:43:27.669 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 12:43:27.678 +02:00 [INF] Hosting environment: Development
+2024-11-12 12:43:27.681 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 12:43:28.348 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 12:43:28.811 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:28.817 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:28.819 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 12:43:28.825 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 12:43:28.831 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 12:43:28.960 +02:00 [INF] Executed ViewResult - view Index executed in 129.7349ms.
+2024-11-12 12:43:29.272 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 446.2769ms
+2024-11-12 12:43:29.274 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 12:43:29.288 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 941.7588ms
+2024-11-12 12:43:29.317 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/tempSidebar.css - null null
+2024-11-12 12:43:29.328 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:29.364 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/toast.css - null null
+2024-11-12 12:43:29.374 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:29.391 +02:00 [INF] Sending file. Request path: '/css/toast.css'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\css\toast.css'
+2024-11-12 12:43:29.392 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/toast.css - 200 388 text/css 27.6822ms
+2024-11-12 12:43:29.395 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/images/menu-icon.png - null null
+2024-11-12 12:43:29.398 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:29.408 +02:00 [INF] Sending file. Request path: '/images/menu-icon.png'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Images\menu-icon.png'
+2024-11-12 12:43:29.410 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/images/menu-icon.png - 200 153 image/png 14.5376ms
+2024-11-12 12:43:29.413 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/svgs/home-1.svg - null null
+2024-11-12 12:43:29.415 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:29.426 +02:00 [INF] Sending file. Request path: '/svgs/home-1.svg'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Svgs\home-1.svg'
+2024-11-12 12:43:29.440 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/svgs/home-1.svg - 200 369 image/svg+xml 26.7846ms
+2024-11-12 12:43:29.442 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-11-12 12:43:29.442 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/svgs/four-squares-button-of-view-options.svg - null null
+2024-11-12 12:43:29.449 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:29.448 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:29.456 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-11-12 12:43:29.457 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 304 null text/css 15.0548ms
+2024-11-12 12:43:29.462 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/svgs/chat-round-svgrepo-com (1).svg - null null
+2024-11-12 12:43:29.475 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:29.473 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Svgs/logout.svg - null null
+2024-11-12 12:43:29.490 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:29.487 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - null null
+2024-11-12 12:43:29.505 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:29.499 +02:00 [INF] Sending file. Request path: '/svgs/chat-round-svgrepo-com (1).svg'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Svgs\chat-round-svgrepo-com (1).svg'
+2024-11-12 12:43:29.531 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/svgs/chat-round-svgrepo-com (1).svg - 200 906 image/svg+xml 68.8475ms
+2024-11-12 12:43:29.533 +02:00 [INF] Sending file. Request path: '/Svgs/logout.svg'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Svgs\logout.svg'
+2024-11-12 12:43:29.541 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Svgs/logout.svg - 200 741 image/svg+xml 67.208ms
+2024-11-12 12:43:29.542 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Svgs/user-id-portrait-svgrepo-com (1).svg - null null
+2024-11-12 12:43:29.544 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:29.526 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:29.558 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - 404 0 null 70.7458ms
+2024-11-12 12:43:29.560 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LnadingPageStyles.css, Response status code: 404
+2024-11-12 12:43:29.590 +02:00 [INF] Sending file. Request path: '/Svgs/user-id-portrait-svgrepo-com (1).svg'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Svgs\user-id-portrait-svgrepo-com (1).svg'
+2024-11-12 12:43:29.591 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Svgs/user-id-portrait-svgrepo-com (1).svg - 200 1495 image/svg+xml 48.2319ms
+2024-11-12 12:43:29.594 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 12:43:29.598 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/Sidebar.js?v=7l_eRDEpAlwkhG3eKqfIFAYeflFCxLExRAgKfPXlYGA - null null
+2024-11-12 12:43:29.600 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:29.604 +02:00 [INF] Sending file. Request path: '/js/Sidebar.js'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\js\Sidebar.js'
+2024-11-12 12:43:29.605 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/Sidebar.js?v=7l_eRDEpAlwkhG3eKqfIFAYeflFCxLExRAgKfPXlYGA - 200 1744 text/javascript 7.0312ms
+2024-11-12 12:43:29.607 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 12:43:29.642 +02:00 [INF] Sending file. Request path: '/css/tempSidebar.css'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\css\tempSidebar.css'
+2024-11-12 12:43:29.645 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/tempSidebar.css - 200 4195 text/css 327.8541ms
+2024-11-12 12:43:29.647 +02:00 [INF] Sending file. Request path: '/svgs/four-squares-button-of-view-options.svg'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Svgs\four-squares-button-of-view-options.svg'
+2024-11-12 12:43:29.648 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/svgs/four-squares-button-of-view-options.svg - 200 5294 image/svg+xml 205.9103ms
+2024-11-12 12:43:29.652 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 56.0576ms
+2024-11-12 12:43:30.340 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/Apptivate_circle _logo.png - null null
+2024-11-12 12:43:30.397 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 12:43:30.409 +02:00 [INF] Sending file. Request path: '/Images/Apptivate_circle _logo.png'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\Images\Apptivate_circle _logo.png'
+2024-11-12 12:43:30.410 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/Apptivate_circle _logo.png - 200 33306 image/png 70.038ms
+2024-11-12 12:43:30.433 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 825.7153ms
+2024-11-12 13:01:23.791 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 13:01:24.087 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 13:01:24.239 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 13:01:24.263 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 13:01:24.269 +02:00 [INF] Hosting environment: Development
+2024-11-12 13:01:24.269 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 13:01:26.808 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 13:01:27.153 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 13:01:27.157 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 13:01:27.159 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 13:01:27.166 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 13:01:27.175 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 13:01:27.518 +02:00 [INF] Executed ViewResult - view Index executed in 344.0111ms.
+2024-11-12 13:01:27.614 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 445.7645ms
+2024-11-12 13:01:27.616 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 13:01:27.620 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 812.6724ms
+2024-11-12 13:01:27.625 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - null null
+2024-11-12 13:01:27.645 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 13:01:27.648 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 13:01:27.649 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - 404 0 null 24.2362ms
+2024-11-12 13:01:27.652 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LnadingPageStyles.css, Response status code: 404
+2024-11-12 13:01:27.609 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-11-12 13:01:27.669 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 13:01:27.671 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-11-12 13:01:27.672 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 304 null text/css 63.5178ms
+2024-11-12 13:01:27.685 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 13:01:27.751 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 13:01:27.873 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 188.1073ms
+2024-11-12 13:01:27.963 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 212.7615ms
+2024-11-12 13:04:33.047 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 13:04:33.181 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 13:04:33.187 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 13:04:33.216 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 13:04:33.296 +02:00 [INF] Hosting environment: Development
+2024-11-12 13:04:33.296 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 13:04:33.690 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 13:04:33.958 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 13:04:34.129 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 13:04:34.130 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 13:04:34.136 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 13:04:34.143 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 13:04:34.282 +02:00 [INF] Executed ViewResult - view Index executed in 141.4032ms.
+2024-11-12 13:04:35.347 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 1210.3284ms
+2024-11-12 13:04:35.349 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 13:04:35.353 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 1664.0663ms
+2024-11-12 13:04:35.362 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - null null
+2024-11-12 13:04:35.416 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 13:04:35.433 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 16.3673ms
+2024-11-12 13:04:35.429 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 13:04:35.446 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 13:04:35.449 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - 404 0 null 91.2811ms
+2024-11-12 13:04:35.450 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LnadingPageStyles.css, Response status code: 404
+2024-11-12 13:04:35.417 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 13:04:36.016 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 598.6798ms
+2024-11-12 15:02:05.367 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 15:02:06.183 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 15:02:06.244 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 15:02:06.327 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 15:02:06.416 +02:00 [INF] Hosting environment: Development
+2024-11-12 15:02:06.468 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 15:02:14.829 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 15:02:15.343 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:02:15.350 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:02:15.359 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 15:02:15.416 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 15:02:15.459 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 15:02:15.691 +02:00 [INF] Executed ViewResult - view Index executed in 239.6667ms.
+2024-11-12 15:02:16.182 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 748.2936ms
+2024-11-12 15:02:16.183 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 15:02:16.190 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 1362.8946ms
+2024-11-12 15:02:16.168 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - null null
+2024-11-12 15:02:16.168 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 15:02:16.223 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 55.5085ms
+2024-11-12 15:02:16.213 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:02:16.249 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:02:16.255 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - 404 0 null 87.1849ms
+2024-11-12 15:02:16.259 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LnadingPageStyles.css, Response status code: 404
+2024-11-12 15:02:16.291 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-11-12 15:02:16.320 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:02:16.320 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 15:02:16.326 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-11-12 15:02:16.342 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 304 null text/css 51.32ms
+2024-11-12 15:02:16.472 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 151.769ms
+2024-11-12 15:02:23.203 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Account/Login - null null
+2024-11-12 15:02:23.245 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:02:23.247 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:02:23.248 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-12 15:02:23.255 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-12 15:02:23.551 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-12 15:02:23.594 +02:00 [INF] Executed ViewResult - view Login executed in 43.8493ms.
+2024-11-12 15:02:23.745 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 15:02:24.468 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 723.13ms
+2024-11-12 15:02:24.465 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 1189.74ms
+2024-11-12 15:02:24.470 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-12 15:02:24.478 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Account/Login - 200 null text/html; charset=utf-8 1274.8066ms
+2024-11-12 15:02:23.802 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 15:02:26.482 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2680.63ms
+2024-11-12 15:02:27.594 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 15:02:28.509 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 914.4504ms
+2024-11-12 15:24:38.555 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 15:24:38.920 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 15:24:38.930 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 15:24:38.960 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 15:24:38.971 +02:00 [INF] Hosting environment: Development
+2024-11-12 15:24:38.972 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 15:24:39.576 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 15:24:40.170 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:24:40.193 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:24:40.195 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 15:24:40.201 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 15:24:40.215 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 15:24:40.551 +02:00 [INF] Executed ViewResult - view Index executed in 159.4263ms.
+2024-11-12 15:24:40.941 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 738.799ms
+2024-11-12 15:24:40.947 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 15:24:40.950 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 1375.7429ms
+2024-11-12 15:24:40.957 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LandingPageStyles.css - null null
+2024-11-12 15:24:40.985 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:24:40.988 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:24:40.990 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LandingPageStyles.css - 404 0 null 32.5471ms
+2024-11-12 15:24:40.994 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LandingPageStyles.css, Response status code: 404
+2024-11-12 15:24:41.004 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-11-12 15:24:41.013 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:24:41.190 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-11-12 15:24:41.628 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 15:24:41.740 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 15:24:41.800 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 304 null text/css 795.0435ms
+2024-11-12 15:24:41.829 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 201.4031ms
+2024-11-12 15:24:42.729 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/background-image.jpg - null null
+2024-11-12 15:24:43.002 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1262.0133ms
+2024-11-12 15:24:43.100 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:24:43.106 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:24:43.107 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/background-image.jpg - 404 0 null 378.401ms
+2024-11-12 15:24:43.110 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/background-image.jpg, Response status code: 404
+2024-11-12 15:25:16.310 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Account/Login - null null
+2024-11-12 15:25:16.388 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:25:16.389 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:25:16.390 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-12 15:25:16.401 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-12 15:25:16.550 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-12 15:25:16.587 +02:00 [INF] Executed ViewResult - view Login executed in 42.0968ms.
+2024-11-12 15:25:17.040 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 15:25:17.228 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 187.9975ms
+2024-11-12 15:25:17.190 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 785.8361ms
+2024-11-12 15:25:17.234 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-12 15:25:17.235 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Account/Login - 200 null text/html; charset=utf-8 925.2758ms
+2024-11-12 15:25:17.073 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 15:25:18.337 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1263.5207ms
+2024-11-12 15:25:19.327 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 15:25:19.500 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:25:19.501 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:25:19.503 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 15:25:19.504 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 15:25:19.511 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 15:25:19.662 +02:00 [INF] Executed ViewResult - view Index executed in 151.0702ms.
+2024-11-12 15:25:19.935 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 15:25:19.986 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 50.1289ms
+2024-11-12 15:25:19.982 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 471.4752ms
+2024-11-12 15:25:20.018 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 15:25:20.019 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 697.8426ms
+2024-11-12 15:26:19.403 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 15:26:19.601 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 15:26:19.609 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 15:26:19.647 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 15:26:19.656 +02:00 [INF] Hosting environment: Development
+2024-11-12 15:26:19.657 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 15:26:20.493 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 15:26:20.653 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:26:20.668 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:26:20.669 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 15:26:20.677 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 15:26:20.689 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 15:26:20.775 +02:00 [INF] Executed ViewResult - view Index executed in 86.8677ms.
+2024-11-12 15:26:20.786 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 104.0193ms
+2024-11-12 15:26:20.787 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 15:26:20.790 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 302.9331ms
+2024-11-12 15:26:20.941 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - null null
+2024-11-12 15:26:20.948 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:26:20.966 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:26:20.971 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - 404 0 null 30.0959ms
+2024-11-12 15:26:20.977 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LnadingPageStyles.css, Response status code: 404
+2024-11-12 15:26:20.980 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 15:26:20.989 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 8.7178ms
+2024-11-12 15:26:21.114 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 15:26:21.154 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.7533ms
+2024-11-12 15:26:21.260 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/background-image.jpg - null null
+2024-11-12 15:26:21.276 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:26:21.281 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:26:21.286 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/background-image.jpg - 404 0 null 25.4635ms
+2024-11-12 15:26:21.287 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/background-image.jpg, Response status code: 404
+2024-11-12 15:28:33.817 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 15:28:33.978 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 15:28:33.992 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 15:28:34.023 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 15:28:34.037 +02:00 [INF] Hosting environment: Development
+2024-11-12 15:28:34.038 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 15:28:34.498 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 15:28:34.654 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:28:34.663 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:28:34.668 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 15:28:34.677 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 15:28:34.686 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 15:28:34.774 +02:00 [INF] Executed ViewResult - view Index executed in 85.4917ms.
+2024-11-12 15:28:34.794 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 114.5368ms
+2024-11-12 15:28:34.795 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 15:28:34.799 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 302.686ms
+2024-11-12 15:28:35.106 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - null null
+2024-11-12 15:28:35.115 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:28:35.118 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:28:35.120 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - 404 0 null 14.0318ms
+2024-11-12 15:28:35.122 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LnadingPageStyles.css, Response status code: 404
+2024-11-12 15:28:35.137 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 15:28:35.143 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 5.7903ms
+2024-11-12 15:28:35.154 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 15:28:35.212 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.049ms
+2024-11-12 15:28:35.692 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/background-image.jpg - null null
+2024-11-12 15:28:35.699 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:28:35.701 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:28:35.702 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/background-image.jpg - 404 0 null 10.2866ms
+2024-11-12 15:28:35.703 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/background-image.jpg, Response status code: 404
+2024-11-12 15:35:21.941 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - null null
+2024-11-12 15:35:21.954 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:35:21.955 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:35:21.956 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - 404 0 null 15.0649ms
+2024-11-12 15:35:21.957 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LnadingPageStyles.css, Response status code: 404
+2024-11-12 15:35:21.959 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - null null
+2024-11-12 15:35:21.961 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:35:22.318 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/css/bootstrap.min.css.map - null null
+2024-11-12 15:35:22.323 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:35:22.960 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map'
+2024-11-12 15:35:22.967 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/css/bootstrap.min.css.map - 200 449111 text/plain 649.2777ms
+2024-11-12 15:35:23.239 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'. Physical path: 'C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map'
+2024-11-12 15:35:23.241 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - 200 327261 text/plain 1282.2377ms
+2024-11-12 15:51:40.933 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-12 15:51:41.277 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-12 15:51:41.290 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-12 15:51:41.328 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 15:51:41.332 +02:00 [INF] Hosting environment: Development
+2024-11-12 15:51:41.333 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-12 15:51:48.392 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-12 15:51:48.531 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:51:48.538 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:51:48.541 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 15:51:48.551 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-12 15:51:48.560 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-12 15:51:48.657 +02:00 [INF] Executed ViewResult - view Index executed in 100.0455ms.
+2024-11-12 15:51:49.038 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 485.4117ms
+2024-11-12 15:51:49.039 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-12 15:51:49.042 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 651.6903ms
+2024-11-12 15:51:49.113 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-11-12 15:51:49.150 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - null null
+2024-11-12 15:51:49.150 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 15:51:49.157 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:51:49.160 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:51:49.168 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 18.0355ms
+2024-11-12 15:51:49.179 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-11-12 15:51:49.182 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:51:49.209 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 15:51:49.210 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 304 null text/css 97.3464ms
+2024-11-12 15:51:49.211 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - 404 0 null 60.7661ms
+2024-11-12 15:51:50.618 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LnadingPageStyles.css, Response status code: 404
+2024-11-12 15:51:50.635 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/background-image.jpg - null null
+2024-11-12 15:51:50.639 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:51:50.642 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:51:50.649 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/background-image.jpg - 404 0 null 14.5097ms
+2024-11-12 15:51:50.651 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/background-image.jpg, Response status code: 404
+2024-11-12 15:51:50.743 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1533.853ms
+2024-11-12 15:51:52.653 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Account/Login - null null
+2024-11-12 15:51:52.667 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:51:52.689 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-12 15:51:52.700 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-12 15:51:52.717 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-12 15:51:52.884 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-12 15:51:53.034 +02:00 [INF] Executed ViewResult - view Login executed in 151.825ms.
+2024-11-12 15:51:53.035 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 316.1471ms
+2024-11-12 15:51:53.035 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-12 15:51:53.037 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Account/Login - 200 null text/html; charset=utf-8 384.4082ms
+2024-11-12 15:51:53.587 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 15:51:53.712 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-12 15:51:53.719 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 131.1877ms
+2024-11-12 15:51:53.735 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.9047ms
+2024-11-12 15:51:58.274 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-12 15:51:58.299 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 25.7704ms

@@ -1,0 +1,30 @@
+2024-10-26 19:08:45.762 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-10-26 19:08:46.714 +02:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-10-26 19:08:46.787 +02:00 [INF] Executed DbCommand (55ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-10-26 19:08:46.790 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-10-26 19:08:46.792 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-10-26 19:08:46.851 +02:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-10-26 19:08:46.873 +02:00 [INF] Applying migration '20241026170805_NewChatting'.
+2024-10-26 19:08:47.168 +02:00 [ERR] Failed executing DbCommand (98ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Messages] (
+    [MessageID] int NOT NULL IDENTITY,
+    [SenderEmail] nvarchar(254) NOT NULL,
+    [ReceiverEmail] nvarchar(254) NOT NULL,
+    [Content] nvarchar(max) NOT NULL,
+    [Timestamp] datetime2 NOT NULL,
+    [IsRead] bit NOT NULL DEFAULT CAST(0 AS bit),
+    CONSTRAINT [PK_Messages] PRIMARY KEY ([MessageID])
+);
+2024-10-26 19:09:24.916 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-26 19:09:25.073 +02:00 [INF] Now listening on: https://localhost:7061
+2024-10-26 19:09:25.074 +02:00 [INF] Now listening on: http://localhost:5042
+2024-10-26 19:09:25.078 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-26 19:09:25.079 +02:00 [INF] Hosting environment: Development
+2024-10-26 19:09:25.079 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS

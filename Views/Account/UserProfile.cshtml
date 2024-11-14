@@ -1,0 +1,72 @@
+﻿@model Apptivate_UQMS_WebApp.Models.Account.UserProfileViewModel
+
+<link rel="stylesheet" type="text/css" href="~/css/UserProfile.css" />
+
+<div class="background">
+<div class="header">
+            <h1>Apptivate User Profile</h1>
+</div>
+
+
+
+
+<div class="profile-card">
+        <!-- Profile Image Section -->
+        <div class="profile-image">
+            <img src="~/Svgs/profile-1341" class="profile-pic">
+        </div>
+
+        <!-- Profile Details Section -->
+        <div class="profile-details">
+            <h2>@Model.User.Name @Model.User.Surname</h2>
+            <p class="role">@Model.User.Role</p>
+
+            <!-- General User Information -->
+            <div class="profile-info">
+                <p><strong>Email: </strong> <span>@Model.User.Email</span></p>
+            </div>
+
+            <!-- Student Details Section -->
+            @if (Model.StudentDetail != null)
+            {
+                <h2>Student Details:</h2>
+                <div class="profile-sections">
+                    <div class="profile-section">
+                        <h3>Department</h3>
+                        <p>@Model.StudentDetail.Department</p>
+                    </div>
+                    <div class="profile-section">
+                        <h3>Course</h3>
+                        <p>@Model.StudentDetail.Course</p>
+                    </div>
+                    <div class="profile-section">
+                        <h3>Year</h3>
+                        <p>@Model.StudentDetail.Year st Year Student</p>
+                    </div>
+                </div>
+            }
+        <!-- Staff Details Section -->
+        @if (Model.StaffDetail != null)
+        {
+            <h2>Staff Details</h2>
+            <div class="profile-sections">
+                <div class="profile-section">
+                    <h3>Department</h3>
+                    <p>@Model.StaffDetail.Department</p>
+                </div>
+                <div class="profile-section">
+                    <h3>Position</h3>
+                    <!-- Display the PositionName or the name field from the Position entity -->
+                    <p>@Model.StaffDetail.Position?.PositionName</p> <!-- Safely check if Position is null -->
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/UserProfile.js"></script>
+}

@@ -1,0 +1,54 @@
+2024-11-13 11:36:07.513 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-13 11:36:07.891 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-13 11:36:09.511 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-13 11:36:09.554 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-13 11:36:09.748 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-13 11:36:09.753 +02:00 [INF] Hosting environment: Development
+2024-11-13 11:36:09.756 +02:00 [INF] Content root path: C:\Users\User\Downloads\Apptivate_UQMS-main (3)\Apptivate_UQMS-main
+2024-11-13 11:36:10.021 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-13 11:36:10.030 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-13 11:36:10.041 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-13 11:36:10.112 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-13 11:36:10.136 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-13 11:36:10.285 +02:00 [INF] Executed ViewResult - view Index executed in 157.5744ms.
+2024-11-13 11:36:10.292 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 174.2487ms
+2024-11-13 11:36:10.293 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-13 11:36:10.296 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 744.3368ms
+2024-11-13 11:36:10.609 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - null null
+2024-11-13 11:36:10.620 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-13 11:36:10.632 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-13 11:36:10.640 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-13 11:36:10.641 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/LnadingPageStyles.css - 404 0 null 31.7533ms
+2024-11-13 11:36:10.644 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/LnadingPageStyles.css, Response status code: 404
+2024-11-13 11:36:10.638 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 17.3811ms
+2024-11-13 11:36:10.657 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/site.css?v=fq4OtvJTWuD083OjgIkrWt8Sxacuhen85BiZk9X3pVw - null null
+2024-11-13 11:36:10.656 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-11-13 11:36:10.670 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-13 11:36:10.669 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-13 11:36:10.674 +02:00 [INF] The file /css/site.css was not modified
+2024-11-13 11:36:10.679 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/site.css?v=fq4OtvJTWuD083OjgIkrWt8Sxacuhen85BiZk9X3pVw - 304 null text/css 21.4864ms
+2024-11-13 11:36:10.685 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-11-13 11:36:10.687 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-13 11:36:10.688 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-11-13 11:36:10.688 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 304 null text/css 3.4321ms
+2024-11-13 11:36:10.691 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-11-13 11:36:10.692 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-13 11:36:10.693 +02:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2024-11-13 11:36:10.694 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 304 null text/javascript 2.9687ms
+2024-11-13 11:36:10.696 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/lib/jquery/dist/jquery.min.js - null null
+2024-11-13 11:36:10.704 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-13 11:36:10.705 +02:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2024-11-13 11:36:10.706 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/lib/jquery/dist/jquery.min.js - 304 null text/javascript 9.8669ms
+2024-11-13 11:36:10.709 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - null null
+2024-11-13 11:36:10.710 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-13 11:36:10.711 +02:00 [INF] The file /js/site.js was not modified
+2024-11-13 11:36:10.712 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - 304 null text/javascript 3.0814ms
+2024-11-13 11:36:10.728 +02:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2024-11-13 11:36:12.304 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/lib/bootstrap/dist/css/bootstrap.min.css - 304 null text/css 1647.9891ms
+2024-11-13 11:36:12.317 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-13 11:36:12.517 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 190.0723ms
+2024-11-13 11:36:13.657 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/background-image.jpg - null null
+2024-11-13 11:36:13.701 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-13 11:36:13.703 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-13 11:36:13.704 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/background-image.jpg - 404 0 null 46.8298ms
+2024-11-13 11:36:13.706 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/background-image.jpg, Response status code: 404

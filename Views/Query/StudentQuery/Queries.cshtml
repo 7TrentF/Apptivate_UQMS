@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>
+
+@{
+    ViewData["Title"] = "Queries";
+    var initialTickets = ViewData["InitialTickets"] as IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>;
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/Queries.css" />
+
+<div class="dashboard-container">
+    <div class="dashboard-content">
+        <div class="dashboard-header">
+            <h1>Queries</h1>
+            <div class="filter-container">
+                <select id="dateFilter">
+                    <option>This Week</option>
+                    <option>Last Week</option>
+                </select>
+                <form id="searchForm" method="get" action="@Url.Action("Search", "Query")">
+                    <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for query" /> <button type="submit">🔍</button>
+                    
+                    <button type="button" id="clearSearch">Clear Search</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="ticket-section">
+            <div class="tabs">
+                <button class="tab active" data-target="AllTickets">
+                    <img src="~/images/all-tickets.png" alt="All Tickets Icon" />
+                    All Tickets
+                </button>
+                <button class="tab" data-target="NewTickets">
+                    <img src="~/images/new.png" alt="New Icon" />
+                    New
+                </button>
+                <button class="tab" data-target="OnGoingTickets">
+                    <img src="~/images/on-going.png" alt="On-going Icon" />
+                    On-going
+                </button>
+                <button class="tab" data-target="ResolvedTickets">
+                    <img src="~/images/resolved.png" alt="Resolved Icon" />
+                    Resolved
+                </button>
+            </div>
+
+            <div id="ticketContent">
+                @await Html.PartialAsync("StudentQuery/QueryOverview/AllTickets", initialTickets)
+            </div>
+        </div>
+    </div>
+
+    <div class="query-box">
+        <h3>New query</h3>
+        <p>Write and address new queries and issues</p>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Query" asp-action="CreateQuery">
+            <button class="new-query-btn">
+                <span>+ New query</span>
+            </button>
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.tab').on('click', function () {
+                var target = $(this).data('target');
+
+                // Remove 'active' class from all tabs and add it to the clicked tab
+                $('.tab').removeClass('active');
+                $(this).addClass('active');
+
+                // Load the partial view based on the target
+                $('#ticketContent').load('/Query/' + target);
+            });
+
+            // Handle the search form submission via AJAX
+            $('#searchForm').on('submit', function (e) {
+                e.preventDefault(); // Prevent the default form submission
+                var searchQuery = $('#searchQuery').val();
+                var dateFilter = $('#dateFilter').val(); // If you want to use date filter
+
+                // Load the search results into the ticketContent div
+                $.get('/Query/Search', { searchQuery: searchQuery, dateFilter: dateFilter }, function (data) {
+                    $('#ticketContent').html(data);
+                });
+            });
+
+            // Handle the clear search button click
+            $('#clearSearch').on('click', function () {
+                $('#searchQuery').val(''); // Clear the search query input
+                $('#dateFilter').val(''); // Reset date filter if necessary
+
+                // Load the AllTickets partial view again
+                $('#ticketContent').load('/Query/AllTickets');
+            });
+        });
+    </script>
+}

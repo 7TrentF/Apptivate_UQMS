@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>
+
+<link rel="stylesheet" type="text/css" href="~/css/QueryDetails.css" />
+
+<div class="tickets">
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var query in Model)
+        {
+            <div class="ticket-card">
+                <div class="ticket-header">
+                    <div class="ticket-id">
+                        <strong>Ticket# @query.TicketNumber</strong>
+                    </div>
+                    <div class="ticket-status">
+                        <span class="status-badge @query.Status.ToString().ToLower()">@query.Status</span>
+
+                    </div>
+                </div>
+                <div class="ticket-body">
+                    <p class="ticket-description">@query.Description</p>
+                    <p class="ticket-details">
+                        Submission Date: @query.SubmissionDate?.ToString("f")
+                    </p>
+                </div>
+                <div class="ticket-footer">
+                    <a href="@Url.Action("ViewTicket", new { queryId = query.QueryID })" class="open-ticket-btn">Open Ticket</a>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No tickets found.</p>
+    }
+</div>
