@@ -1,11 +1,20 @@
-﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>
+﻿@model Apptivate_UQMS_WebApp.Models.QueryModel.Query
 
 @{
     ViewData["Title"] = "Queries";
     var initialTickets = ViewData["InitialTickets"] as IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>;
 }
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
 <link rel="stylesheet" type="text/css" href="~/css/Queries.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+   
+</head>
+<body>   
 
 <div class="dashboard-container">
     <div class="dashboard-content">
@@ -17,10 +26,18 @@
                     <option>Last Week</option>
                 </select>
                 <form id="searchForm" method="get" action="@Url.Action("Search", "Query")">
-                    <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for query" /> <button type="submit">🔍</button>
-                    
+                    <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for query" />
+                    <button type="submit">🔍</button>
                     <button type="button" id="clearSearch">Clear Search</button>
                 </form>
+                <div class="view-buttons">
+                    <button type="button" id="cardView">
+                        <i class="fas fa-th-large"></i> Card View
+                    </button>
+                    <button type="button" id="listView">
+                        <i class="fas fa-list"></i> List View
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -55,6 +72,7 @@
         <p>Write and address new queries and issues</p>
         <a class="nav-link text-dark" asp-area="" asp-controller="Query" asp-action="CreateQuery">
             <button class="new-query-btn">
+
                 <span>+ New query</span>
             </button>
         </a>
@@ -98,4 +116,26 @@
             });
         });
     </script>
+
+
+    <script>
+            $(document).ready(function () {
+                const cardViewButton = document.getElementById("cardView");
+                const listViewButton = document.getElementById("listView");
+                const dynamicStylesheet = document.getElementById("dynamicStylesheet");
+
+                cardViewButton.addEventListener("click", function () {
+                    dynamicStylesheet.href = "@Url.Content("~/css/QueryDetailsCardView.css")";
+                });
+
+                listViewButton.addEventListener("click", function () {
+                    dynamicStylesheet.href = "@Url.Content("~/css/QueryDetails.css")";
+                });
+            });
+    </script>
+
+
 }
+
+</body>
+</html>

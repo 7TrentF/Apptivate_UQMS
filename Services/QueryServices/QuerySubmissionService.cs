@@ -30,6 +30,110 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
             _logger = logger;
         }
 
+        /*////////////////////////////////////////////////////Methods///////////////////////////////////////////////////////////////////  */
+
+
+        public string GenerateDateBasedTicketNumber()
+        {
+            var random = new Random();
+            string datePart = DateTime.UtcNow.ToString("yyyyMMdd");  // Example: 20241022
+            string randomPart = random.Next(10000, 99999).ToString(); // Example: 58423
+            return $"{datePart}-{randomPart}";
+        }
+
+        private async Task HandleFileUpload(IFormFile uploadedFile, int queryId)
+        {
+            var allowedExtensions = new[] { ".jpg", ".png", ".pdf", ".zip" };
+            var fileExtension = Path.GetExtension(uploadedFile.FileName).ToLower();
+
+            if (!allowedExtensions.Contains(fileExtension))
+            {
+                _logger.LogWarning("Unsupported file type: {FileExtension}.", fileExtension);
+                throw new Exception("Unsupported file type. Please upload a .jpg, .png, .pdf, or .zip file.");
+            }
+
+            var documentUrl = await _fileUploadService.UploadFileAsync(uploadedFile);
+            var queryDocument = new QueryDocument
+            {
+                QueryID = queryId,
+                DocumentName = uploadedFile.FileName,
+                DocumentPath = documentUrl,
+                UploadDate = DateTime.Now
+            };
+
+
+
+
+            _context.QueryDocuments.Add(queryDocument);
+            await _context.SaveChangesAsync();
+            _logger.LogInformation("Document associated with QueryID {QueryID}.", queryId);
+        }
+
+        public async Task<object> GetEmailAsync(string firebaseUid)
+        {
+            _logger.LogInformation($"GetStudentEmailAsync called with firebaseUid: {firebaseUid}");
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+            if (user == null)
+            {
+                _logger.LogError("User not found.");
+                throw new Exception("User not found.");
+            }
+
+            // Fetch the user's email based on the Firebase UID
+            var studentEmail = await _context.Users
+                .Where(u => u.FirebaseUID == firebaseUid) // Replace with the actual column name for Firebase UID
+                .Select(u => u.Email)
+                .FirstOrDefaultAsync();
+
+
+            if (studentEmail == null)
+            {
+                _logger.LogError("Student email not found.");
+                throw new Exception("Student email  details not found.");
+            }
+
+            // Return the AssignmentID for the specific QueryID
+            return new
+            {
+                Email = studentEmail,
+
+
+            };
+
+        }
+
+        public async Task CleanUpClosedQueriesAsync()
+        {
+            var twoDaysAgo = DateTime.UtcNow.AddDays(-2);
+
+            // Step 1: Get the Query IDs of closed queries resolved more than 2 days ago
+            var closedQueries = await _context.Queries
+                .Where(q => q.Status == QueryStatus.Closed && q.ResolvedDate <= twoDaysAgo)
+                .Select(q => q.QueryID)
+                .ToListAsync();
+
+            if (closedQueries.Any())
+            {
+                // Step 2: Delete related documents from QueryDocuments table
+                var documentsToDelete = _context.QueryDocuments
+                    .Where(doc => closedQueries.Contains(doc.QueryID));
+                _context.QueryDocuments.RemoveRange(documentsToDelete);
+
+                // Step 3: Delete the closed queries from Queries table
+                var queriesToDelete = _context.Queries
+                    .Where(q => closedQueries.Contains(q.QueryID));
+                _context.Queries.RemoveRange(queriesToDelete);
+
+                // Save all changes to the database
+                await _context.SaveChangesAsync();
+            }
+        }
+
+
+
+        /*////////////////////////////////////////////////////Student Queries///////////////////////////////////////////////////////////////////  */
+
         public async Task<object> GetAcademicQueryAsync(int queryTypeId, string firebaseUid)
         {
             _logger.LogInformation($"GetAcademicQuery called with queryTypeId: {queryTypeId}");
@@ -105,15 +209,7 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
             };
         }
 
-        public string GenerateDateBasedTicketNumber()
-        {
-            var random = new Random();
-            string datePart = DateTime.UtcNow.ToString("yyyyMMdd");  // Example: 20241022
-            string randomPart = random.Next(10000, 99999).ToString(); // Example: 58423
-            return $"{datePart}-{randomPart}";
-        }
-
-        public async Task SubmitAcademicQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
+        public async Task SubmitAcademicQueryAsync(QueryDto model, IFormFile? uploadedFile, string firebaseUid)
         {
             _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
 
@@ -171,6 +267,74 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
                 await SendQuerySubmissionNotificationEmailAsync(query, model, firebaseUid);
             }
 
+            catch (Exception ex)
+            {
+                _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
+                throw new Exception("Query submission failed.");
+            }
+        }
+
+        public async Task SubmitAdministrativeQueryAsync(QueryDto model, IFormFile? uploadedFile, string firebaseUid)
+        {
+            _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
+
+            var queryTypeID = model.QueryTypeID;
+
+            try
+            {
+
+                // Use the existing method to fetch the student details and query type
+                var academicQueryDetails = await GetAcademicQueryAsync(queryTypeID, firebaseUid);
+
+                // Extract the necessary details
+                dynamic queryData = academicQueryDetails;
+                var studentDetail = queryData.StudentDetail;
+                var queryCategories = queryData.QueryCategories;
+
+
+                _logger.LogWarning("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
+                _logger.LogWarning("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
+
+
+                // Validate the query type and category
+                if (model.QueryTypeID != queryData.QueryTypeID)
+                {
+                    _logger.LogError("Invalid query type or category.");
+                    throw new Exception("Invalid query type or category.");
+                }
+
+                // Create the query record
+                var query = new Query
+                {
+                    StudentID = studentDetail.StudentID,
+                    TicketNumber = GenerateDateBasedTicketNumber(), // or GenerateDateBasedTicketNumber()
+                    QueryTypeID = model.QueryTypeID,
+                    CategoryID = model.CategoryID,
+                    DepartmentID = studentDetail.DepartmentID ?? 0,
+                    CourseID = studentDetail.CourseID ?? 0,
+                    Year = studentDetail.Year,
+                    Description = model.Description,
+                    Status = QueryStatus.Pending, // Update status to Ongoing
+                    SubmissionDate = DateTime.Now
+                };
+
+                _context.Queries.Add(query);
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Query with ID {QueryID} successfully created.", query.QueryID);
+
+                // Handle file upload if exists
+                if (uploadedFile != null && uploadedFile.Length > 0)
+                {
+                    await HandleFileUpload(uploadedFile, query.QueryID);
+                }
+
+                // Assign query to the least busy lecturer or escalate
+                await AssignQueryToStaffAsync(query);
+
+                _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
+
+                await SendQuerySubmissionNotificationEmailAsync(query, model, firebaseUid);
+            }
             catch (Exception ex)
             {
                 _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
@@ -281,102 +445,9 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
             }
         }
 
-       
-        public async Task SubmitAdministrativeQueryAsync(QueryDto model, IFormFile uploadedFile, string firebaseUid)
-        {
-            _logger.LogInformation("Query submission process started for FirebaseUID: {FirebaseUID}", firebaseUid);
-
-            var queryTypeID = model.QueryTypeID;
-
-            try
-            {
-
-                // Use the existing method to fetch the student details and query type
-                var academicQueryDetails = await GetAcademicQueryAsync(queryTypeID, firebaseUid);
-
-                // Extract the necessary details
-                dynamic queryData = academicQueryDetails;
-                var studentDetail = queryData.StudentDetail;
-                var queryCategories = queryData.QueryCategories;
 
 
-                _logger.LogWarning("Received QueryTypeID: {QueryTypeID}, CategoryID: {CategoryID}", model.QueryTypeID, model.CategoryID);
-                _logger.LogWarning("Student details:" + model.StudentID, model.QueryTypeID, model.DepartmentID, model.Year);
-
-
-                // Validate the query type and category
-                if (model.QueryTypeID != queryData.QueryTypeID)
-                {
-                    _logger.LogError("Invalid query type or category.");
-                    throw new Exception("Invalid query type or category.");
-                }
-
-                // Create the query record
-                var query = new Query
-                {
-                    StudentID = studentDetail.StudentID,
-                    TicketNumber = GenerateDateBasedTicketNumber(), // or GenerateDateBasedTicketNumber()
-                    QueryTypeID = model.QueryTypeID,
-                    CategoryID = model.CategoryID,
-                    DepartmentID = studentDetail.DepartmentID ?? 0,
-                    CourseID = studentDetail.CourseID ?? 0,
-                    Year = studentDetail.Year,
-                    Description = model.Description,
-                    Status = QueryStatus.Pending, // Update status to Ongoing
-                    SubmissionDate = DateTime.Now
-                };
-
-                _context.Queries.Add(query);
-                await _context.SaveChangesAsync();
-                _logger.LogInformation("Query with ID {QueryID} successfully created.", query.QueryID);
-
-                // Handle file upload if exists
-                if (uploadedFile != null && uploadedFile.Length > 0)
-                {
-                    await HandleFileUpload(uploadedFile, query.QueryID);
-                }
-
-                // Assign query to the least busy lecturer or escalate
-                await AssignQueryToStaffAsync(query);
-
-                _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", query.QueryID);
-
-                await SendQuerySubmissionNotificationEmailAsync(query, model, firebaseUid);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError("An error occurred while submitting the query: {Message}", ex.Message);
-                throw new Exception("Query submission failed.");
-            }
-        }
-
-        private async Task HandleFileUpload(IFormFile uploadedFile, int queryId)
-        {
-            var allowedExtensions = new[] { ".jpg", ".png", ".pdf", ".zip" };
-            var fileExtension = Path.GetExtension(uploadedFile.FileName).ToLower();
-
-            if (!allowedExtensions.Contains(fileExtension))
-            {
-                _logger.LogWarning("Unsupported file type: {FileExtension}.", fileExtension);
-                throw new Exception("Unsupported file type. Please upload a .jpg, .png, .pdf, or .zip file.");
-            }
-
-            var documentUrl = await _fileUploadService.UploadFileAsync(uploadedFile);
-            var queryDocument = new QueryDocument
-            {
-                QueryID = queryId,
-                DocumentName = uploadedFile.FileName,
-                DocumentPath = documentUrl,
-                UploadDate = DateTime.Now
-            };
-
-
-
-
-            _context.QueryDocuments.Add(queryDocument);
-            await _context.SaveChangesAsync();
-            _logger.LogInformation("Document associated with QueryID {QueryID}.", queryId);
-        }
+        /*////////////////////////////////////////////////////Staff Queries///////////////////////////////////////////////////////////////////  */
 
         private async Task AssignQueryToStaffAsync(Query query)
         {
@@ -509,9 +580,9 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
         }
 
-        public async Task<object> GetEmailAsync(string firebaseUid)
+        public async Task<ResolvedTicketAndQueryViewModel> GetResolvedTicketDetails(int queryId, string firebaseUid)
         {
-            _logger.LogInformation($"GetStudentEmailAsync called with firebaseUid: {firebaseUid}");
+            _logger.LogInformation($"Fetching resolved ticket details for QueryID: {queryId}");
 
             var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
             if (user == null)
@@ -520,32 +591,53 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
                 throw new Exception("User not found.");
             }
 
-            // Fetch the user's email based on the Firebase UID
-            var studentEmail = await _context.Users
-                .Where(u => u.FirebaseUID == firebaseUid) // Replace with the actual column name for Firebase UID
-                .Select(u => u.Email)
+            // Fetch the query and resolution details
+            var queryData = await _context.Queries
+                .Where(q => q.QueryID == queryId)
+                .Select(q => new ResolvedTicketAndQueryViewModel
+                {
+                    // Query Details
+                    QueryID = q.QueryID,
+                    TicketNumber = q.TicketNumber,
+                    Description = q.Description,
+                    SubmissionDate = q.SubmissionDate,
+                    Status = q.Status,
+
+                    // Student Details
+                    StudentName = q.Student.User.Name + " " + q.Student.User.Surname,
+                    StudentEmail = q.Student.User.Email,
+                    DepartmentName = q.Department.DepartmentName,
+                    CourseName = q.Course.CourseName,
+                    Year = q.Student.Year,
+
+                    // Resolved Ticket Details - Getting the first `QueryResolution` object related to the query
+                    Solution = q.QueryResolutions.FirstOrDefault().Solution,
+                    ApprovalStatus = q.QueryResolutions.FirstOrDefault().ApprovalStatus,
+                    AdditionalNotes = q.QueryResolutions.FirstOrDefault().AdditionalNotes,
+                    ResolutionDate = q.QueryResolutions.FirstOrDefault().ResolutionDate,
+
+
+                    // Resolution Documents (Lazy-loaded)
+                    Documents = q.QueryResolutions.FirstOrDefault().ResolutionDocuments
+                        .Select(rd => new DocumentViewModel
+                        {
+                            DocumentPath = rd.QueryDocument.DocumentPath,
+                            DocumentName = rd.QueryDocument.DocumentName,
+                            UploadDate = rd.QueryDocument.UploadDate
+                        }).ToList()
+                })
                 .FirstOrDefaultAsync();
 
-
-            if (studentEmail == null)
+            if (queryData == null)
             {
-                _logger.LogError("Student email not found.");
-                throw new Exception("Student email  details not found.");
+                _logger.LogWarning("No query or resolution found for QueryID: {QueryID}", queryId);
+                return null;
             }
 
-            // Return the AssignmentID for the specific QueryID
-            return new
-            {
-                Email = studentEmail,
+            _logger.LogInformation("Successfully retrieved query and resolution details for QueryID: {QueryID}", queryId);
 
-
-            };
-
-
-
-
+            return queryData;
         }
-
 
         public async Task<object> GetStudentQueryAsync(int queryId, string firebaseUid)
         {
@@ -630,8 +722,7 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
                 // Extract the necessary details
                 dynamic queryData = StaffQueryAssignment;
-                //   
-
+                
                 _logger.LogWarning("Received QueryID: {QueryID}, AssignmentID: {AssignmentID}", model.QueryID, model.AssignmentID);
 
 
@@ -685,73 +776,6 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
             }
         }
 
-
-
-
-
-
-        public async Task<ResolvedTicketAndQueryViewModel> GetResolvedTicketDetails(int queryId, string firebaseUid)
-        {
-            _logger.LogInformation($"Fetching resolved ticket details for QueryID: {queryId}");
-
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
-            if (user == null)
-            {
-                _logger.LogError("User not found.");
-                throw new Exception("User not found.");
-            }
-
-            // Fetch the query and resolution details
-            var queryData = await _context.Queries
-                .Where(q => q.QueryID == queryId)
-                .Select(q => new ResolvedTicketAndQueryViewModel
-                {
-                    // Query Details
-                    QueryID = q.QueryID,
-                    TicketNumber = q.TicketNumber,
-                    Description = q.Description,
-                    SubmissionDate = q.SubmissionDate,
-                    Status = q.Status,
-
-                    // Student Details
-                    StudentName = q.Student.User.Name + " " + q.Student.User.Surname,
-                    StudentEmail = q.Student.User.Email,
-                    DepartmentName = q.Department.DepartmentName,
-                    CourseName = q.Course.CourseName,
-                    Year = q.Student.Year,
-
-                    // Resolved Ticket Details - Getting the first `QueryResolution` object related to the query
-                    Solution = q.QueryResolutions.FirstOrDefault().Solution,
-                    ApprovalStatus = q.QueryResolutions.FirstOrDefault().ApprovalStatus,
-                    AdditionalNotes = q.QueryResolutions.FirstOrDefault().AdditionalNotes,
-                    ResolutionDate = q.QueryResolutions.FirstOrDefault().ResolutionDate,
-
-
-                    // Resolution Documents (Lazy-loaded)
-                    Documents = q.QueryResolutions.FirstOrDefault().ResolutionDocuments
-                        .Select(rd => new DocumentViewModel
-                        {
-                            DocumentPath = rd.QueryDocument.DocumentPath,
-                            DocumentName = rd.QueryDocument.DocumentName,
-                            UploadDate = rd.QueryDocument.UploadDate
-                        }).ToList()
-                })
-                .FirstOrDefaultAsync();
-
-            if (queryData == null)
-            {
-                _logger.LogWarning("No query or resolution found for QueryID: {QueryID}", queryId);
-                return null;
-            }
-
-            _logger.LogInformation("Successfully retrieved query and resolution details for QueryID: {QueryID}", queryId);
-
-            return queryData;
-        }
-
-
-
-
         public async Task<bool> SubmitFeedbackAsync(string firebaseUid, int queryId, int rating, string comments, bool isAnonymous)
         {
             _logger.LogInformation("Started SubmitFeedback for QueryID: {QueryID}, Rating: {Rating}, Anonymous: {IsAnonymous}", queryId, rating, isAnonymous);
@@ -799,6 +823,7 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
             return true;
         }
+
     }
 
 }

@@ -51,4 +51,8 @@
     <PackageReference Include="UploadThing.Core" Version="0.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Query\StudentQuery\ResolvedQuery\" />
+  </ItemGroup>
+
 </Project>

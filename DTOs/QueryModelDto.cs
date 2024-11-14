@@ -29,7 +29,7 @@ namespace Apptivate_UQMS_WebApp.DTOs
             public DateTime? ResolvedDate { get; set; }
 
             public FeedbackDto? Feedback { get; set; }
-            public List<QueryDocumentDto> QueryDocuments { get; set; } = new List<QueryDocumentDto>();
+            public List<QueryDocumentDto>? QueryDocuments { get; set; } = new List<QueryDocumentDto>();
             public QueryCategoryDto? Category { get; set; }
             public QueryTypeDto? QueryType { get; set; }
         }

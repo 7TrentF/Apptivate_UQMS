@@ -401,6 +401,10 @@
       "PackagePath": "staticwebassets\\css\\AdminDashboard.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\AdministrativeQuery.css",
+      "PackagePath": "staticwebassets\\css\\AdministrativeQuery.css"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\AssignedQueryDetails.css",
       "PackagePath": "staticwebassets\\css\\AssignedQueryDetails.css"
     },
@@ -437,8 +441,16 @@
       "PackagePath": "staticwebassets\\css\\QueryDetails.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\QueryDetailsCardView.css",
+      "PackagePath": "staticwebassets\\css\\QueryDetailsCardView.css"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\QueryTabs.css",
       "PackagePath": "staticwebassets\\css\\QueryTabs.css"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\QueryView.css",
+      "PackagePath": "staticwebassets\\css\\QueryView.css"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Register.css",

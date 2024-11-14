@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="~/js/studentDashboard.js"></script>
 
-    <div class="background">
 </head>
 
 <body>
@@ -64,51 +63,51 @@
                 </div>
             </div>
 
-
-            <!-- Recent Queries Section -->
-            <div class="dashboard-section recent-queries">
-                <h2>Recent Queries</h2>
-                <div class="table-responsive">
-                    <table class="query-table">
-                        <thead>
-                            <tr>
-                                <th>Ticket Number</th>
-                                <th>Query</th>
-                                <th>Submission Date</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var query in Model.RecentQueries)
-                            {
-                                <tr class="query-row" onclick="window.location.href='@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })'">
-                                    <td>@query.TicketNumber</td>
-                                    <td>@query.Description</td>
-                                    <td>@query.SubmissionDate?.ToString("dd MMM yyyy")</td>
-                                    <td>
-                                        <span class="status-badge @(query.Status == QueryModel.QueryStatus.Pending)">
-                                            @query.Status
-                                        </span>
-                                    </td>
-                                    <td>
-                                       
+                <!-- Recent Queries Section -->
+                <div class="dashboard-section recent-queries">
+                    <h2>Recent Queries</h2>
+                    <div class="table-responsive">
+                        <table class="query-table">
+                            <thead>
+                                <tr>
+                                    <th>Ticket Number</th>
+                                    <th>Query</th>
+                                    <th>Submission Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var recentQueries = Model.RecentQueries.OrderByDescending(q => q.SubmissionDate).Take(10);
+                                }
+                                @foreach (var query in recentQueries)
+                                {
+                                    <tr class="query-row" onclick="window.location.href='@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })'">
+                                        <td>@query.TicketNumber</td>
+                                        <td>@query.Description</td>
+                                        <td>@query.SubmissionDate?.ToString("dd MMM yyyy")</td>
+                                        <td>
+                                            <span class="status-badge @(query.Status == QueryModel.QueryStatus.Pending)">
+                                                @query.Status
+                                            </span>
+                                        </td>
+                                        <td>
                                             @if (query.Status == QueryModel.QueryStatus.Resolved)
-                                        {
+                                            {
                                                 <a href="@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })" class="btn-view">View</a>
                                             }
                                             else
                                             {
                                                 <a href="@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })" class="btn-view">view</a>
-
                                             }
                                         </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
             <!-- Academic Information Section -->
             <div class="academic-info">

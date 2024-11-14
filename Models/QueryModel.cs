@@ -192,13 +192,13 @@ namespace Apptivate_UQMS_WebApp.Models
 
         public class ResolvedTicketViewModel
         {
-            public int ResolutionID { get; set; }
-            public int AssignmentID { get; set; }
-            public int QueryID { get; set; }
-            public string Solution { get; set; }
-            public string ApprovalStatus { get; set; }
-            public string AdditionalNotes { get; set; }
-            public List<DocumentViewModel> Documents { get; set; }
+            public int? ResolutionID { get; set; }
+            public int? AssignmentID { get; set; }
+            public int? QueryID { get; set; }
+            public string? Solution { get; set; }
+            public string? ApprovalStatus { get; set; }
+            public string? AdditionalNotes { get; set; }
+            public List<DocumentViewModel>? Documents { get; set; }
         }
 
         public class DocumentViewModel
@@ -206,12 +206,12 @@ namespace Apptivate_UQMS_WebApp.Models
             [Key]
             public int DocumentID { get; set; }
             public int QueryID { get; set; } // Foreign Key
-            public string DocumentName { get; set; }
-            public string DocumentPath { get; set; }
+            public string? DocumentName { get; set; }
+            public string? DocumentPath { get; set; }
             public DateTime UploadDate { get; set; }
 
             // Navigation property
-            public Query Query { get; set; }
+            public Query? Query { get; set; }
             public ICollection<ResolutionDocuments> ResolutionDocuments { get; set; } = new HashSet<ResolutionDocuments>();
 
         }
@@ -221,28 +221,59 @@ namespace Apptivate_UQMS_WebApp.Models
         {
             // Query Details
             public int QueryID { get; set; }
-            public string TicketNumber { get; set; }
+            public string? TicketNumber { get; set; }
 
             public string? Description { get; set; }
             public DateTime? SubmissionDate { get; set; }
             public QueryStatus Status { get; set; }
             // Student Details
-            public string StudentName { get; set; }
-            public string StudentEmail { get; set; }
-            public string DepartmentName { get; set; }
-            public string CourseName { get; set; }
+            public string? StudentName { get; set; }
+            public string? StudentEmail { get; set; }
+            public string? DepartmentName { get; set; }
+            public string? CourseName { get; set; }
             public int? Year { get; set; }
 
             // Resolved Ticket Details
-            public string Solution { get; set; }
-            public string ApprovalStatus { get; set; }
-            public string AdditionalNotes { get; set; }
+            public string? Solution { get; set; }
+            public string? ApprovalStatus { get; set; }
+            public string? AdditionalNotes { get; set; }
 
             public DateTime?  ResolutionDate { get; set; }
-            public List<DocumentViewModel> Documents { get; set; }
+            public List<DocumentViewModel>? Documents { get; set; }
         }
 
-      
+
+        public class ResolvedTicketAndFeedbackViewModel
+        {
+            // Query Details
+            public int QueryID { get; set; }
+            public string? TicketNumber { get; set; }
+            public string? Description { get; set; }
+            public DateTime? SubmissionDate { get; set; }
+       
+            //staff resolution 
+            public string? Solution { get; set; }
+            public string? AdditionalNotes { get; set; }
+
+
+            // Feedback  Ticket Details
+            public int FeedbackID { get; set; }
+            public int Rating { get; set; }
+            public string? Comments { get; set; }
+        }
+
+
+        public class FeedbackViewModel
+        {
+            public int FeedbackID { get; set; }
+            public int? QueryID { get; set; }
+            public int? StudentID { get; set; }
+            public int? Rating { get; set; }
+            public string Comments { get; set; }
+            public DateTime SubmissionDate { get; set; }
+            public bool IsAnonymous { get; set; }
+        }
+
 
 
     }

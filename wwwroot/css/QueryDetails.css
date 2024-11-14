@@ -1,4 +1,4 @@
-﻿.tickets {
+﻿﻿.tickets {
     background-color: #fff;
     border: 1px solid #ddd;
     padding: 15px;
@@ -30,13 +30,14 @@
 
 .ticket-id {
     font-size: 25px;
-    font-weight:normal ;
+    font-weight: normal;
     color: #333;
 }
 
 .ticket-status {
     font-size: 14px;
 }
+
 .status-badge {
     padding: 5px 10px;
     border-radius: 5px;

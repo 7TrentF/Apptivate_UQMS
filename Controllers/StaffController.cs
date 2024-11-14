@@ -198,7 +198,57 @@ namespace Apptivate_UQMS_WebApp.Controllers
             }
         }
 
-    
+        public async Task<IActionResult> ViewFeedback()
+        {
+            // Retrieve the currently logged-in staff member based on FirebaseUID
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+            // Fetch the user using the FirebaseUID
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+
+            // If user not found, handle the case
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            // Fetch the staff details associated with the user
+            var staffDetail = await _context.StaffDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+
+            // If staff detail is not found, return an error message
+            if (staffDetail == null)
+            {
+                return NotFound("Staff details not found.");
+            }
+
+            // Fetch all feedback for queries resolved by the staff member and map to FeedbackViewModel
+            var studentFeedback = await _context.Feedback
+                .Where(f => f.Query.QueryAssignments.Any(qa => qa.StaffID == staffDetail.StaffID))
+                .Select(f => new FeedbackViewModel
+                {
+                    FeedbackID = f.FeedbackID,
+                    QueryID = f.QueryID,
+                    StudentID = f.StudentID,
+                    Rating = f.Rating,
+                    Comments = f.Comments,
+                    SubmissionDate = f.SubmissionDate,
+                    IsAnonymous = f.IsAnonymous
+                })
+                .ToListAsync();
+
+            // If no feedback is found, return a message
+            if (!studentFeedback.Any())
+            {
+                return NotFound("No feedback found.");
+            }
+
+            // Pass the feedback to the view
+            return View("~/Views/Query/StaffQuery/ViewStudentFeedback.cshtml", studentFeedback);
+        }
+
+
+
+
 
     }
 

@@ -504,3 +504,44 @@ h1 {
 .query-form-section {
 	animation: slideIn 0.6s ease-out 0.2s both;
 }
+
+.loading-spinner {
+	display: none;
+	width: 20px;
+	height: 20px;
+	border: 3px solid #f3f3f3;
+	border-top: 3px solid #3498db;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+	margin-left: 10px;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.success-message {
+	display: none;
+	background-color: #4CAF50;
+	color: white;
+	padding: 15px;
+	border-radius: 4px;
+	margin-top: 20px;
+}
+
+.btn-submit {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+	.btn-submit:disabled {
+		opacity: 0.7;
+		cursor: not-allowed;
+	}

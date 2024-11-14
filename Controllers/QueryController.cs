@@ -128,7 +128,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SubmitAcademicQuery(QueryDto model, IFormFile uploadedFile)
+        public async Task<IActionResult> SubmitAcademicQuery(QueryDto model, IFormFile? uploadedFile)
         {
             if (ModelState.IsValid)
             {
@@ -167,7 +167,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> SubmitAdministrativeQuery(QueryDto model, IFormFile uploadedFile)
+        public async Task<IActionResult> SubmitAdministrativeQuery(QueryDto model, IFormFile? uploadedFile)
         {
             if (ModelState.IsValid)
             {
@@ -297,6 +297,24 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             return PartialView("StudentQuery/QueryOverview/ResolvedTickets", resolvedTickets);
         }
+
+
+        // Action for displaying resolved tickets
+        public async Task<IActionResult> ViewResolvedQueries()
+        {
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FirebaseUID == firebaseUid);
+            var studentDetail = await _context.StudentDetails.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+
+            // Fetch resolved tickets for the student
+            var resolvedTickets = await _context.Queries
+                .Where(q => q.StudentID == studentDetail.StudentID && q.Status.Equals(QueryStatus.Resolved))
+                .ToListAsync();
+
+            return View("StudentQuery/QueryOverview/ViewResolvedQueries", resolvedTickets);
+        }
+
+
 
         [HttpGet]
         public async Task<IActionResult> ViewTicket(int queryId)
