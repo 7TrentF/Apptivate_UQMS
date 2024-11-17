@@ -220,12 +220,18 @@ namespace Apptivate_UQMS_WebApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserID"));
 
+                    b.Property<string>("ConnectionId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirebaseUID")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsOnline")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("LastSeen")
                         .HasColumnType("datetime2");
@@ -292,6 +298,27 @@ namespace Apptivate_UQMS_WebApp.Migrations
                     b.ToTable("appUsers");
                 });
 
+            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.Conversation", b =>
+                {
+                    b.Property<int>("ConversationID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ConversationID"));
+
+                    b.Property<string>("User1ID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("User2ID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ConversationID");
+
+                    b.ToTable("Conversations");
+                });
+
             modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.DummyTable", b =>
                 {
                     b.Property<int>("Id")
@@ -307,6 +334,44 @@ namespace Apptivate_UQMS_WebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DummyTables");
+                });
+
+            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.Message", b =>
+                {
+                    b.Property<int>("MessageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageId"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ConversationID")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ReceiverId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SenderId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("MessageId");
+
+                    b.HasIndex("ConversationID");
+
+                    b.HasIndex("ReceiverId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.QueryModel+Feedback", b =>
@@ -639,6 +704,29 @@ namespace Apptivate_UQMS_WebApp.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.Message", b =>
+                {
+                    b.HasOne("Apptivate_UQMS_WebApp.Models.Conversation", null)
+                        .WithMany("Messages")
+                        .HasForeignKey("ConversationID");
+
+                    b.HasOne("Apptivate_UQMS_WebApp.Models.Account+User", "Receiver")
+                        .WithMany()
+                        .HasForeignKey("ReceiverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Apptivate_UQMS_WebApp.Models.Account+User", "Sender")
+                        .WithMany()
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Receiver");
+
+                    b.Navigation("Sender");
+                });
+
             modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.QueryModel+Feedback", b =>
                 {
                     b.HasOne("Apptivate_UQMS_WebApp.Models.QueryModel+Query", "Query")
@@ -809,6 +897,11 @@ namespace Apptivate_UQMS_WebApp.Migrations
                     b.Navigation("StaffDetails");
 
                     b.Navigation("StudentDetails");
+                });
+
+            modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.Conversation", b =>
+                {
+                    b.Navigation("Messages");
                 });
 
             modelBuilder.Entity("Apptivate_UQMS_WebApp.Models.QueryModel+Query", b =>

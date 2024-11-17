@@ -1,0 +1,260 @@
+2024-11-17 22:21:48.629 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-17 22:21:49.118 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-17 22:21:49.124 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-17 22:21:49.129 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-17 22:21:49.131 +02:00 [INF] Hosting environment: Development
+2024-11-17 22:21:49.135 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-11-17 22:21:49.418 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - null null
+2024-11-17 22:21:51.761 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-17 22:21:51.843 +02:00 [INF] Route matched with {action = "StaffDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StaffDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-17 22:21:51.867 +02:00 [INF] Accessing expired session, Key:84310605-81c9-62a9-5bdc-0648e09af279
+2024-11-17 22:21:51.869 +02:00 [ERR] User not logged in.
+2024-11-17 22:21:51.914 +02:00 [INF] Executing RedirectResult, redirecting to /.
+2024-11-17 22:21:51.921 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp) in 70.2595ms
+2024-11-17 22:21:51.927 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-17 22:21:51.936 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - 302 0 null 2526.0944ms
+2024-11-17 22:21:51.973 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-17 22:21:52.011 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-17 22:21:52.023 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-17 22:21:54.115 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-17 22:21:55.640 +02:00 [INF] Executed DbCommand (123ms) [Parameters=[@__firebaseUser_Uid_0='3IhEre6G93NccKd5sZ8x65HHrTF3' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUser_Uid_0
+2024-11-17 22:21:55.850 +02:00 [INF] Accessing expired session, Key:84310605-81c9-62a9-5bdc-0648e09af279
+2024-11-17 22:21:55.853 +02:00 [INF] Auto-login successful for user trentfisher16@gmail.com.
+2024-11-17 22:21:55.859 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/Index.
+2024-11-17 22:21:55.861 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 3794.0118ms
+2024-11-17 22:21:55.863 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-17 22:21:55.869 +02:00 [INF] Session started; Key:84310605-81c9-62a9-5bdc-0648e09af279, Id:eaaeac67-0135-ede9-1444-05b3fdf88622
+2024-11-17 22:21:55.878 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 302 0 null 3905.3074ms
+2024-11-17 22:21:55.883 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/Index - null null
+2024-11-17 22:21:55.913 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-17 22:21:55.921 +02:00 [INF] Route matched with {action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-17 22:21:55.925 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/StaffDashboard.
+2024-11-17 22:21:55.926 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp) in 4.0215ms
+2024-11-17 22:21:55.927 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-17 22:21:55.929 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/Index - 302 0 null 45.2501ms
+2024-11-17 22:21:55.937 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - null null
+2024-11-17 22:21:55.942 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-17 22:21:55.943 +02:00 [INF] Route matched with {action = "StaffDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StaffDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-17 22:21:56.205 +02:00 [INF] Executed DbCommand (21ms) [Parameters=[@__firebaseUid_0='3IhEre6G93NccKd5sZ8x65HHrTF3' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-17 22:21:56.461 +02:00 [INF] Executed DbCommand (29ms) [Parameters=[@__staff_StaffID_0='10' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE EXISTS (
+    SELECT 1
+    FROM [QueryAssignments] AS [q0]
+    WHERE [q].[QueryID] = [q0].[QueryID] AND [q0].[StaffID] = @__staff_StaffID_0)
+GROUP BY [q].[Status]
+2024-11-17 22:21:56.623 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@__staff_StaffID_0='10' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[AssignmentID], [q].[AssignedDate], [q].[AssignmentNumber], [q].[QueryID], [q].[ResolutionDate], [q].[StaffID], [q0].[QueryID], [q0].[CategoryID], [q0].[CourseID], [q0].[DepartmentID], [q0].[Description], [q0].[ModuleID], [q0].[QueryTypeID], [q0].[ResolvedDate], [q0].[Status], [q0].[StudentID], [q0].[SubmissionDate], [q0].[TicketNumber], [q0].[Year], [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname], [q1].[CategoryID], [q1].[CategoryName], [q1].[QueryTypeID], [q2].[QueryTypeID], [q2].[TypeName], [d].[DepartmentID], [d].[DepartmentName]
+FROM [QueryAssignments] AS [q]
+LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+LEFT JOIN [StudentDetails] AS [s] ON [q0].[StudentID] = [s].[StudentID]
+LEFT JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [QueryCategories] AS [q1] ON [q0].[CategoryID] = [q1].[CategoryID]
+LEFT JOIN [QueryTypes] AS [q2] ON [q1].[QueryTypeID] = [q2].[QueryTypeID]
+LEFT JOIN [Departments] AS [d] ON [q0].[DepartmentID] = [d].[DepartmentID]
+WHERE [q].[StaffID] = @__staff_StaffID_0
+2024-11-17 22:21:57.128 +02:00 [INF] Executed DbCommand (120ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname], [p].[PositionID], [p].[PositionName], [t].[AssignmentID], [t].[AssignedDate], [t].[AssignmentNumber], [t].[QueryID], [t].[ResolutionDate], [t].[StaffID], [t].[QueryID0], [t].[CategoryID], [t].[CourseID], [t].[DepartmentID], [t].[Description], [t].[ModuleID], [t].[QueryTypeID], [t].[ResolvedDate], [t].[Status], [t].[StudentID], [t].[SubmissionDate], [t].[TicketNumber], [t].[Year], [t].[CategoryID0], [t].[CategoryName], [t].[QueryTypeID0], [t].[QueryTypeID1], [t].[TypeName]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+LEFT JOIN (
+    SELECT [q1].[AssignmentID], [q1].[AssignedDate], [q1].[AssignmentNumber], [q1].[QueryID], [q1].[ResolutionDate], [q1].[StaffID], [q2].[QueryID] AS [QueryID0], [q2].[CategoryID], [q2].[CourseID], [q2].[DepartmentID], [q2].[Description], [q2].[ModuleID], [q2].[QueryTypeID], [q2].[ResolvedDate], [q2].[Status], [q2].[StudentID], [q2].[SubmissionDate], [q2].[TicketNumber], [q2].[Year], [q3].[CategoryID] AS [CategoryID0], [q3].[CategoryName], [q3].[QueryTypeID] AS [QueryTypeID0], [q4].[QueryTypeID] AS [QueryTypeID1], [q4].[TypeName]
+    FROM [QueryAssignments] AS [q1]
+    LEFT JOIN [Queries] AS [q2] ON [q1].[QueryID] = [q2].[QueryID]
+    LEFT JOIN [QueryCategories] AS [q3] ON [q2].[CategoryID] = [q3].[CategoryID]
+    LEFT JOIN [QueryTypes] AS [q4] ON [q3].[QueryTypeID] = [q4].[QueryTypeID]
+) AS [t] ON [s].[StaffID] = [t].[StaffID]
+WHERE EXISTS (
+    SELECT 1
+    FROM [QueryAssignments] AS [q]
+    LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+    WHERE [s].[StaffID] = [q].[StaffID] AND [q0].[QueryID] IS NOT NULL)
+ORDER BY [s].[StaffID], [u].[UserID], [p].[PositionID], [t].[AssignmentID], [t].[QueryID0], [t].[CategoryID0]
+2024-11-17 22:21:57.180 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__firebaseUid_0='3IhEre6G93NccKd5sZ8x65HHrTF3' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-17 22:21:57.201 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_UserID_0='45'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-17 22:21:57.230 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__user_UserID_0='45'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-17 22:21:57.247 +02:00 [INF] Executing ViewResult, running view StaffDashboard.
+2024-11-17 22:21:57.495 +02:00 [INF] Executed ViewResult - view StaffDashboard executed in 254.5203ms.
+2024-11-17 22:21:57.499 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp) in 1553.4726ms
+2024-11-17 22:21:57.502 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-17 22:21:57.509 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - 200 null text/html; charset=utf-8 1571.7803ms
+2024-11-17 22:21:57.628 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/notificationHub/negotiate?studentId=30&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-17 22:21:57.643 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-17 22:21:57.657 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-17 22:21:57.670 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1731874362. Expected to be greater than 1731874917.
+2024-11-17 22:21:57.673 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 30.3314ms
+2024-11-17 22:21:57.688 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1731874362. Expected to be greater than 1731874917.
+2024-11-17 22:21:57.693 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-17 22:21:57.721 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-17 22:21:57.724 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/notificationHub/negotiate?studentId=30&negotiateVersion=1 - 200 316 application/json 95.7401ms
+2024-11-17 22:21:57.757 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 99.9638ms
+2024-11-17 22:21:57.775 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7061/notificationHub?studentId=30&id=Kh_-uRkDyBbj76QPFt413g - null null
+2024-11-17 22:21:57.793 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1731874362. Expected to be greater than 1731874917.
+2024-11-17 22:21:57.799 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1731874362. Expected to be greater than 1731874917.
+2024-11-17 22:21:57.801 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-17 22:21:58.380 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=10&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-17 22:21:58.398 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-17 22:21:58.406 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-17 22:21:58.410 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=10&negotiateVersion=1 - 200 316 application/json 29.3522ms
+2024-11-17 22:21:58.415 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7061/notificationHub?staffId=10&id=q1OVJDRqJgGlu75QK_EJ0w - null null
+2024-11-17 22:21:58.420 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-17 22:21:58.423 +02:00 [INF] Student with ID 30 is connecting. Connection ID: Qb3h2jqJaEpK9AtOVWJ9dQ
+2024-11-17 22:21:58.426 +02:00 [INF] Student with ID 30 connected and added to group. Connection ID: Qb3h2jqJaEpK9AtOVWJ9dQ
+2024-11-17 22:21:58.428 +02:00 [INF] Staff member with ID 10 is connecting. Connection ID: Xxtj4nwR1VsgzI-3ryakfg
+2024-11-17 22:21:58.430 +02:00 [INF] Staff member with ID 10 connected and added to group. Connection ID: Xxtj4nwR1VsgzI-3ryakfg
+2024-11-17 22:22:10.750 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-17 22:22:11.062 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-17 22:22:11.078 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-17 22:22:11.087 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-17 22:22:11.099 +02:00 [INF] Hosting environment: Development
+2024-11-17 22:22:11.103 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-11-17 22:22:11.264 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=10&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-17 22:22:11.264 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - null null
+2024-11-17 22:22:11.264 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/notificationHub/negotiate?studentId=30&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-17 22:22:11.761 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1731874362. Expected to be greater than 1731874931.
+2024-11-17 22:22:11.768 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1731874362. Expected to be greater than 1731874931.
+2024-11-17 22:22:11.773 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-17 22:22:11.805 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-17 22:22:11.834 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/notificationHub/negotiate?studentId=30&negotiateVersion=1 - 200 316 application/json 570.3704ms
+2024-11-17 22:22:11.849 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7061/notificationHub?studentId=30&id=NmVaP4lTO1fJtggmJMSbUQ - null null
+2024-11-17 22:22:11.858 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1731874362. Expected to be greater than 1731874931.
+2024-11-17 22:22:11.860 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1731874362. Expected to be greater than 1731874931.
+2024-11-17 22:22:11.861 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-17 22:22:11.936 +02:00 [INF] Student with ID 30 is connecting. Connection ID: TI99PyD0hY8lwJ6EtQU8eg
+2024-11-17 22:22:11.940 +02:00 [INF] Student with ID 30 connected and added to group. Connection ID: TI99PyD0hY8lwJ6EtQU8eg
+2024-11-17 22:22:13.357 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-17 22:22:13.384 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-17 22:22:13.388 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=10&negotiateVersion=1 - 200 316 application/json 2127.4377ms
+2024-11-17 22:22:13.391 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-17 22:22:13.419 +02:00 [INF] Route matched with {action = "StaffDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StaffDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-17 22:22:13.558 +02:00 [INF] Accessing expired session, Key:84310605-81c9-62a9-5bdc-0648e09af279
+2024-11-17 22:22:13.561 +02:00 [ERR] User not logged in.
+2024-11-17 22:22:13.570 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7061/notificationHub?staffId=10&id=0E4pF2K9lHlQS8givLWWEA - null null
+2024-11-17 22:22:13.576 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-17 22:22:13.590 +02:00 [INF] Staff member with ID 10 is connecting. Connection ID: xv4ICoU1PvkoR6BFYOlNTQ
+2024-11-17 22:22:13.592 +02:00 [INF] Staff member with ID 10 connected and added to group. Connection ID: xv4ICoU1PvkoR6BFYOlNTQ
+2024-11-17 22:22:13.595 +02:00 [INF] Executing RedirectResult, redirecting to /.
+2024-11-17 22:22:13.608 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp) in 111.8743ms
+2024-11-17 22:22:13.610 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-17 22:22:13.613 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - 302 0 null 2351.6481ms
+2024-11-17 22:22:13.626 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-17 22:22:13.645 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-17 22:22:13.659 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-17 22:22:15.963 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-17 22:22:17.918 +02:00 [INF] Executed DbCommand (107ms) [Parameters=[@__firebaseUser_Uid_0='3IhEre6G93NccKd5sZ8x65HHrTF3' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUser_Uid_0
+2024-11-17 22:22:18.152 +02:00 [INF] Accessing expired session, Key:84310605-81c9-62a9-5bdc-0648e09af279
+2024-11-17 22:22:18.154 +02:00 [INF] Auto-login successful for user trentfisher16@gmail.com.
+2024-11-17 22:22:18.161 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/Index.
+2024-11-17 22:22:18.163 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 4502.4081ms
+2024-11-17 22:22:18.165 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-17 22:22:18.168 +02:00 [INF] Session started; Key:84310605-81c9-62a9-5bdc-0648e09af279, Id:447f934d-2e05-6391-a0a9-f09fbf81fab5
+2024-11-17 22:22:18.179 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 302 0 null 4553.2552ms
+2024-11-17 22:22:18.187 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/Index - null null
+2024-11-17 22:22:18.202 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-17 22:22:18.207 +02:00 [INF] Route matched with {action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-17 22:22:18.211 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/StaffDashboard.
+2024-11-17 22:22:18.213 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp) in 4.1128ms
+2024-11-17 22:22:18.214 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-17 22:22:18.216 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/Index - 302 0 null 28.4822ms
+2024-11-17 22:22:18.226 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - null null
+2024-11-17 22:22:18.236 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-17 22:22:18.237 +02:00 [INF] Route matched with {action = "StaffDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StaffDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-17 22:22:18.615 +02:00 [INF] Executed DbCommand (59ms) [Parameters=[@__firebaseUid_0='3IhEre6G93NccKd5sZ8x65HHrTF3' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-17 22:22:18.874 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[@__staff_StaffID_0='10' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE EXISTS (
+    SELECT 1
+    FROM [QueryAssignments] AS [q0]
+    WHERE [q].[QueryID] = [q0].[QueryID] AND [q0].[StaffID] = @__staff_StaffID_0)
+GROUP BY [q].[Status]
+2024-11-17 22:22:19.029 +02:00 [INF] Executed DbCommand (50ms) [Parameters=[@__staff_StaffID_0='10' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[AssignmentID], [q].[AssignedDate], [q].[AssignmentNumber], [q].[QueryID], [q].[ResolutionDate], [q].[StaffID], [q0].[QueryID], [q0].[CategoryID], [q0].[CourseID], [q0].[DepartmentID], [q0].[Description], [q0].[ModuleID], [q0].[QueryTypeID], [q0].[ResolvedDate], [q0].[Status], [q0].[StudentID], [q0].[SubmissionDate], [q0].[TicketNumber], [q0].[Year], [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname], [q1].[CategoryID], [q1].[CategoryName], [q1].[QueryTypeID], [q2].[QueryTypeID], [q2].[TypeName], [d].[DepartmentID], [d].[DepartmentName]
+FROM [QueryAssignments] AS [q]
+LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+LEFT JOIN [StudentDetails] AS [s] ON [q0].[StudentID] = [s].[StudentID]
+LEFT JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [QueryCategories] AS [q1] ON [q0].[CategoryID] = [q1].[CategoryID]
+LEFT JOIN [QueryTypes] AS [q2] ON [q1].[QueryTypeID] = [q2].[QueryTypeID]
+LEFT JOIN [Departments] AS [d] ON [q0].[DepartmentID] = [d].[DepartmentID]
+WHERE [q].[StaffID] = @__staff_StaffID_0
+2024-11-17 22:22:19.464 +02:00 [INF] Executed DbCommand (87ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname], [p].[PositionID], [p].[PositionName], [t].[AssignmentID], [t].[AssignedDate], [t].[AssignmentNumber], [t].[QueryID], [t].[ResolutionDate], [t].[StaffID], [t].[QueryID0], [t].[CategoryID], [t].[CourseID], [t].[DepartmentID], [t].[Description], [t].[ModuleID], [t].[QueryTypeID], [t].[ResolvedDate], [t].[Status], [t].[StudentID], [t].[SubmissionDate], [t].[TicketNumber], [t].[Year], [t].[CategoryID0], [t].[CategoryName], [t].[QueryTypeID0], [t].[QueryTypeID1], [t].[TypeName]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+LEFT JOIN (
+    SELECT [q1].[AssignmentID], [q1].[AssignedDate], [q1].[AssignmentNumber], [q1].[QueryID], [q1].[ResolutionDate], [q1].[StaffID], [q2].[QueryID] AS [QueryID0], [q2].[CategoryID], [q2].[CourseID], [q2].[DepartmentID], [q2].[Description], [q2].[ModuleID], [q2].[QueryTypeID], [q2].[ResolvedDate], [q2].[Status], [q2].[StudentID], [q2].[SubmissionDate], [q2].[TicketNumber], [q2].[Year], [q3].[CategoryID] AS [CategoryID0], [q3].[CategoryName], [q3].[QueryTypeID] AS [QueryTypeID0], [q4].[QueryTypeID] AS [QueryTypeID1], [q4].[TypeName]
+    FROM [QueryAssignments] AS [q1]
+    LEFT JOIN [Queries] AS [q2] ON [q1].[QueryID] = [q2].[QueryID]
+    LEFT JOIN [QueryCategories] AS [q3] ON [q2].[CategoryID] = [q3].[CategoryID]
+    LEFT JOIN [QueryTypes] AS [q4] ON [q3].[QueryTypeID] = [q4].[QueryTypeID]
+) AS [t] ON [s].[StaffID] = [t].[StaffID]
+WHERE EXISTS (
+    SELECT 1
+    FROM [QueryAssignments] AS [q]
+    LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+    WHERE [s].[StaffID] = [q].[StaffID] AND [q0].[QueryID] IS NOT NULL)
+ORDER BY [s].[StaffID], [u].[UserID], [p].[PositionID], [t].[AssignmentID], [t].[QueryID0], [t].[CategoryID0]
+2024-11-17 22:22:19.529 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__firebaseUid_0='3IhEre6G93NccKd5sZ8x65HHrTF3' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-17 22:22:19.557 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_UserID_0='45'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-17 22:22:19.597 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[@__user_UserID_0='45'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-17 22:22:19.617 +02:00 [INF] Executing ViewResult, running view StaffDashboard.
+2024-11-17 22:22:19.891 +02:00 [INF] Executed ViewResult - view StaffDashboard executed in 285.7407ms.
+2024-11-17 22:22:19.894 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp) in 1655.2733ms
+2024-11-17 22:22:19.896 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-17 22:22:19.900 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - 200 null text/html; charset=utf-8 1673.9991ms
+2024-11-17 22:22:19.937 +02:00 [INF] Staff member with ID 10 is disconnecting. Connection ID: xv4ICoU1PvkoR6BFYOlNTQ
+2024-11-17 22:22:19.939 +02:00 [INF] Staff member with ID 10 removed from group and connection removed. Connection ID: xv4ICoU1PvkoR6BFYOlNTQ
+2024-11-17 22:22:19.948 +02:00 [INF] Executed endpoint '/notificationHub'
+2024-11-17 22:22:19.950 +02:00 [INF] Request finished HTTP/2 CONNECT https://localhost:7061/notificationHub?staffId=10&id=0E4pF2K9lHlQS8givLWWEA - 200 null null 6379.7325ms
+2024-11-17 22:22:19.968 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-17 22:22:19.981 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-17 22:22:20.011 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 42.9931ms
+2024-11-17 22:22:20.151 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=10&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-17 22:22:20.156 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-17 22:22:20.157 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-17 22:22:20.158 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=10&negotiateVersion=1 - 200 316 application/json 7.0925ms
+2024-11-17 22:22:20.338 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7061/notificationHub?staffId=10&id=K_VFTKo8Zc1IbGP5fYmDGg - null null
+2024-11-17 22:22:20.449 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-17 22:22:20.454 +02:00 [INF] Staff member with ID 10 is connecting. Connection ID: qDZM77O6V1PnXKfxXO3FLg
+2024-11-17 22:22:20.455 +02:00 [INF] Staff member with ID 10 connected and added to group. Connection ID: qDZM77O6V1PnXKfxXO3FLg
+2024-11-17 22:22:20.716 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 734.7967ms

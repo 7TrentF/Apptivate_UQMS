@@ -16,7 +16,7 @@ namespace Apptivate_UQMS_WebApp.Models
 
             [Required]
             [MaxLength(20)]
-            public string TicketNumber { get; set; }
+            public string? TicketNumber { get; set; }
             public int StudentID { get; set; } // Foreign Key
             public int? DepartmentID { get; set; } // Foreign Key
             public int? CourseID { get; set; } // Foreign Key

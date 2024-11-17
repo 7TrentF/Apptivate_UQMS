@@ -73,6 +73,7 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
                     Name = model.Name,
                     Surname = model.Surname,
                     Email = model.Email,
+                    PhoneNumber = model.PhoneNumber,
                     PasswordHash = _firebaseAuthService.GeneratePasswordHash(model.Password),
                     Role = model.Role,
                     RegistrationDate = DateTime.Now,
@@ -90,6 +91,7 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
                     var studentDetail = new StudentDetail
                     {
                         UserID = user.UserID,
+                        studentNumber = model.studentNumber,
                         Department = _context.Departments.FirstOrDefault(d => d.DepartmentID == model.SelectedDepartmentID)?.DepartmentName,
                         Course = _context.Courses.FirstOrDefault(d => d.CourseID == model.SelectedCourseID)?.CourseCode,
                         Year = model.Year,

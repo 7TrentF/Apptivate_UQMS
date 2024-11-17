@@ -10,11 +10,13 @@
     <link rel="stylesheet" href="~/css/tempDashboard.css" asp-append-version="true">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="~/js/studentDashboard.js"></script>
+    <input type="hidden" id="studentId" value="@Model.StudentDetails.StudentID" />
 
 </head>
 
 <body>
 
+    <div id="notificationContainer"></div>
     <div class="background">
         <div class="wrapper-container">
             <!-- Main Dashboard Content -->
@@ -25,9 +27,17 @@
                         <img src="~/Images/profile-pic.png" alt="Profile Picture" class="profile-pic">
                         <h2>@Model.Users.Name @Model.Users.Surname</h2>
                     </div>
+
+
                     <div class="notification-icon">
-                        <img src="~/Images/notification-icon.jpg" alt="Notifications">
+                        <img src="~/Svgs/notification.svg" alt="Notifications">
+                        <span id="notification-badge" class="notification-badge">0</span>
                     </div>
+
+
+               
+
+
                 </div>
 
             <!-- Quick Stats Section -->
@@ -133,41 +143,309 @@
         </div>
     </div>
 
-    <script>
-            // JavaScript client code for student notifications
-            const connection = new signalR.HubConnectionBuilder()
-                .withUrl("/notificationHub?studentId=" + studentId)  // Replace studentId with actual student ID
-                .withAutomaticReconnect()
-                .build();
 
-            connection.on("ReceiveFeedbackNotification", (notification) => {
-                // Handle the feedback notification
-                console.log("Received feedback:", notification);
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-                // Create and show notification
-                const toast = document.createElement("div");
-                toast.className = "notification-toast";
-                toast.innerHTML = `
-                    <div class="notification-content">
-                        <h4>New Feedback Received</h4>
-                        <p>${notification.message}</p>
-                        <small>${new Date(notification.timestamp).toLocaleString()}</small>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.18/signalr.min.js"></script>
+
+        <script>
+            (function () {
+                // Constants
+                const NOTIFICATION_DURATION = 10000;
+                const ANIMATION_DURATION = 1000;
+                const DEFAULT_MAX_VALUE = 100;
+
+                document.addEventListener('DOMContentLoaded', function () {
+                    initializeSignalR();
+                    initializeEventListeners();
+                    createNotificationContainer();
+                    createNotificationDropdown();
+                    initializeNotificationBadge(); // This will now properly initialize with no count
+                  
+
+                    // Debug check for notification elements
+                    console.log('Notification icon:', document.querySelector('.notification-icon'));
+                    console.log('Notification badge:', document.getElementById('notification-badge'));
+                });
+         
+
+                // Event listeners initialization
+                function initializeEventListeners() {
+
+
+
+                    // Stat card animations
+                    const statCards = document.querySelectorAll('.stat-card');
+                    statCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100 * index);
+                    });
+
+                    // Smooth scrolling
+                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                        anchor.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            const target = document.querySelector(this.getAttribute('href'));
+                            if (target) {
+                                target.scrollIntoView({
+                                    behavior: 'smooth'
+                                });
+                            }
+                        });
+                    });
+
+                    // Table row hover effects
+                    const queryRows = document.querySelectorAll('.query-row');
+                    queryRows.forEach(row => {
+                        row.addEventListener('mouseenter', () => {
+                            row.style.transform = 'scale(1.01)';
+                            row.style.transition = 'transform 0.2s ease';
+                        });
+                        row.addEventListener('mouseleave', () => {
+                            row.style.transform = 'scale(1)';
+                        });
+                    });
+
+                    // Modal functionality
+                    initializeModal();
+
+                    // Form submission
+                    initializeFormSubmission();
+                }
+
+                // Modal initialization
+                function initializeModal() {
+                    const modal = document.getElementById('query-modal');
+                    const closeBtn = document.querySelector('.close-btn');
+
+                    if (closeBtn && modal) {
+                        closeBtn.addEventListener('click', () => {
+                            modal.style.display = 'none';
+                        });
+
+                        window.addEventListener('click', (e) => {
+                            if (e.target === modal) {
+                                modal.style.display = 'none';
+                            }
+                        });
+                    }
+                }
+
+                // Form submission handling
+                function initializeFormSubmission() {
+                    const queryForm = document.querySelector('form[asp-action="CreateQuery"]');
+                    if (queryForm) {
+                        queryForm.addEventListener('submit', async (e) => {
+                            e.preventDefault();
+
+                            try {
+                                const formData = new FormData(queryForm);
+                                const response = await fetch(queryForm.action, {
+                                    method: 'POST',
+                                    body: formData
+                                });
+
+                                if (response.ok) {
+                                    showNotification('Query submitted successfully!', 'success');
+                                    document.getElementById('query-modal').style.display = 'none';
+                                    queryForm.reset();
+                                } else {
+                                    const errorData = await response.json();
+                                    showNotification(errorData.message || 'Error submitting query. Please try again.', 'error');
+                                }
+                            } catch (error) {
+                                showNotification('An error occurred. Please try again.', 'error');
+                                console.error('Form submission error:', error);
+                            }
+                        });
+                    }
+                }
+
+                function showNotification(message, type = 'info') {
+                    const container = document.getElementById('notification-container');
+
+                    const notification = document.createElement('div');
+                    notification.className = 'notification-alert';
+                    notification.style.cssText = `
+                    background: white;
+                    border-left: 4px solid #2196F3;
+                    border-radius: 4px;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                    margin-bottom: 10px;
+                    padding: 16px;
+                    transform: translateX(120%);
+                    transition: transform 0.3s ease-in-out;
+                    animation: slideIn 0.3s forwards;
+                `;
+
+                    notification.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div>
+                            <div style="font-weight: bold; margin-bottom: 4px;"> A Query has been resolved</div>
+                            <div style="color: #666;">${message}</div>
+                            <div style="color: #999; font-size: 0.8em; margin-top: 4px;">
+                                ${new Date().toLocaleTimeString()}
+                            </div>
+                        </div>
+                        <button class="close-notification" style="background: none; border: none; color: #999; cursor: pointer; padding: 4px;">
+                            ×
+                        </button>
                     </div>
                 `;
 
-                // Add to notification container
-                document.getElementById("notificationContainer").appendChild(toast);
+                    container.appendChild(notification);
 
-                // Optional: Remove after 5 seconds
-                setTimeout(() => toast.remove(), 5000);
-            });
+                    const closeButton = notification.querySelector('.close-notification');
+                    closeButton.addEventListener('click', () => {
+                        removeNotification(notification);
+                    });
 
-            // Start the connection
-            connection.start()
-                .then(() => console.log("Connected to SignalR hub"))
-                .catch(err => console.error("Error connecting to SignalR hub:", err));
+                    setTimeout(() => {
+                        removeNotification(notification);
+                    }, NOTIFICATION_DURATION);
+                }
 
-    </script>
+                function removeNotification(notification) {
+                    notification.style.transform = 'translateX(120%)';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }
+
+
+                function createNotificationContainer() {
+                    if (!document.getElementById('notification-container')) {
+                        const container = document.createElement('div');
+                        container.id = 'notification-container';
+                        container.style.cssText = `
+                                    position: fixed;
+                                    top: 20px;
+                                    right: 20px;
+                                    z-index: 1000;
+                                    max-width: 400px;
+                                `;
+                        document.body.appendChild(container);
+                    }
+                }
+
+                function initializeSignalR() {
+                    if (typeof signalR === 'undefined') {
+                        console.error('SignalR library not loaded');
+                        return;
+                    }
+
+                    const studentId = document.getElementById('studentId')?.value;
+                    if (!studentId) {
+                        console.error('Student ID not found');
+                        return;
+                    }
+
+                    const connection = new signalR.HubConnectionBuilder()
+                        .withUrl(`/notificationHub?studentId=${studentId}`)
+                        .withAutomaticReconnect()
+                        .build();
+
+                    connection.on("ReceiveNotification", function (message) {
+                        console.log('Function exists?:', typeof updateNotificationCount);  // Add this line
+
+                        console.log('BEFORE UPDATE - Badge display:', document.getElementById('notification-badge').style.display);
+                        console.log('BEFORE UPDATE - Badge text:', document.getElementById('notification-badge').textContent);
+
+                        console.log('Notification received:', message);
+                        showNotification(message);
+                        incrementNotificationCount(); // Increment badge count when notification arrives
+
+                        console.log('AFTER UPDATE - Badge display:', document.getElementById('notification-badge').style.display);
+                        console.log('AFTER UPDATE - Badge text:', document.getElementById('notification-badge').textContent);
+                    });
+
+
+
+                    connection.start()
+                        .then(() => {
+                            console.log('SignalR connected successfully.');
+                            // Don't update count on initial connection
+                        })
+                        .catch(err => console.error('SignalR connection error:', err));
+                }
+
+                // Notification dropdown
+                function createNotificationDropdown() {
+                    const notificationIcon = document.querySelector('.notification-icon');
+                    if (!notificationIcon) return;
+
+                    const dropdown = document.createElement('div');
+                    dropdown.className = 'notification-dropdown';
+                    dropdown.style.display = 'none';
+
+                    notificationIcon.appendChild(dropdown);
+
+                    notificationIcon.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+                    });
+
+                    document.addEventListener('click', () => {
+                        dropdown.style.display = 'none';
+                    });
+                }
+
+                function removeNotification(notification) {
+                    notification.style.transform = 'translateX(120%)';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }
+
+                function playNotificationSound() {
+                    // Create audio element if it doesn't exist
+                    let audio = document.getElementById('notification-sound');
+                    if (!audio) {
+                        audio = new Audio('/assets/notification.mp3');
+                        audio.id = 'notification-sound';
+                        audio.volume = 5;
+                    }
+
+                    const playPromise = audio.play();
+                    if (playPromise) {
+                        playPromise.catch(err => {
+                            console.warn('Audio playback failed:', err);
+                        });
+                    }
+                }
+
+                function initializeNotificationBadge() {
+                    const badge = document.getElementById('notification-badge');
+                    if (badge) {
+                        // Initialize with 0 and hide
+                        badge.textContent = '0';
+                        console.log('Notification badge initialized:', badge);
+                    } else {
+                        console.error('Failed to initialize notification badge: Element not found.');
+                    }
+                }
+
+                function incrementNotificationCount() {
+                 
+                        const badge = document.getElementById('notification-badge');
+                        if (badge) {
+                            const currentCount = parseInt(badge.textContent || '0');
+                            badge.textContent = currentCount + 1;
+                            badge.style.display = currentCount + 1 > 0 ? 'inline' : 'none';
+                        }
+                }
+
+
+
+                // Place this at the end of the script to list unused functions.
+                console.log(Object.getOwnPropertyNames(window).filter(prop => typeof window[prop] === 'function'));
+
+            })();
+
+        </script>
+       
 
 </body>
 

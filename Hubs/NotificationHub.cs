@@ -8,6 +8,7 @@ namespace Apptivate_UQMS_WebApp.Hubs
     {
         private static readonly Dictionary<string, string> StaffConnections = new();
         private static readonly Dictionary<string, string> StudentConnections = new();
+
         private readonly ILogger<NotificationHub> _logger;
         private readonly ApplicationDbContext _context;
 
@@ -26,38 +27,40 @@ namespace Apptivate_UQMS_WebApp.Hubs
 
                 if (!string.IsNullOrEmpty(staffId))
                 {
-                    await HandleStaffConnection(staffId);
+                    _logger.LogInformation("Staff member with ID {StaffId} is connecting. Connection ID: {ConnectionId}", staffId, Context.ConnectionId);
+
+                    // Add connection to the staff member's group
+                    await Groups.AddToGroupAsync(Context.ConnectionId, staffId);
+
+                    // Store in dictionary to track
+                    StaffConnections[Context.ConnectionId] = staffId;
+
+                    _logger.LogInformation("Staff member with ID {StaffId} connected and added to group. Connection ID: {ConnectionId}", staffId, Context.ConnectionId);
                 }
                 else if (!string.IsNullOrEmpty(studentId))
                 {
-                    await HandleStudentConnection(studentId);
+                    _logger.LogInformation("Student with ID {StudentId} is connecting. Connection ID: {ConnectionId}", studentId, Context.ConnectionId);
+
+                    // Add connection to the student's group
+                    await Groups.AddToGroupAsync(Context.ConnectionId, studentId);
+
+                    // Store in dictionary to track
+                    StudentConnections[Context.ConnectionId] = studentId;
+
+                    _logger.LogInformation("Student with ID {StudentId} connected and added to group. Connection ID: {ConnectionId}", studentId, Context.ConnectionId);
                 }
                 else
                 {
-                    _logger.LogWarning("Connection attempt failed. No staffId or studentId in query string. Connection ID: {ConnectionId}", Context.ConnectionId);
+                    _logger.LogWarning("Connection attempt failed. No valid staffId or studentId in query string. Connection ID: {ConnectionId}", Context.ConnectionId);
                 }
 
                 await base.OnConnectedAsync();
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error in OnConnectedAsync for Connection ID: {ConnectionId}", Context.ConnectionId);
+                _logger.LogError(ex, "Error occurred while processing OnConnectedAsync for Connection ID: {ConnectionId}", Context.ConnectionId);
                 throw;
             }
-        }
-
-        private async Task HandleStaffConnection(string staffId)
-        {
-            _logger.LogInformation("Staff member connecting. ID: {StaffId}, Connection: {ConnectionId}", staffId, Context.ConnectionId);
-            await Groups.AddToGroupAsync(Context.ConnectionId, $"staff_{staffId}");
-            StaffConnections[Context.ConnectionId] = staffId;
-        }
-
-        private async Task HandleStudentConnection(string studentId)
-        {
-            _logger.LogInformation("Student connecting. ID: {StudentId}, Connection: {ConnectionId}", studentId, Context.ConnectionId);
-            await Groups.AddToGroupAsync(Context.ConnectionId, $"student_{studentId}");
-            StudentConnections[Context.ConnectionId] = studentId;
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)
@@ -65,78 +68,73 @@ namespace Apptivate_UQMS_WebApp.Hubs
             try
             {
                 var staffId = StaffConnections.GetValueOrDefault(Context.ConnectionId);
-                var studentId = StudentConnections.GetValueOrDefault(Context.ConnectionId);
-
                 if (!string.IsNullOrEmpty(staffId))
                 {
-                    await HandleStaffDisconnection(staffId);
+                    _logger.LogInformation("Staff member with ID {StaffId} is disconnecting. Connection ID: {ConnectionId}", staffId, Context.ConnectionId);
+
+                    // Remove from group when disconnecting
+                    await Groups.RemoveFromGroupAsync(Context.ConnectionId, staffId);
+                    StaffConnections.Remove(Context.ConnectionId);
+
+                    _logger.LogInformation("Staff member with ID {StaffId} removed from group and connection removed. Connection ID: {ConnectionId}", staffId, Context.ConnectionId);
                 }
-                else if (!string.IsNullOrEmpty(studentId))
+
+                var studentId = StudentConnections.GetValueOrDefault(Context.ConnectionId);
+                if (!string.IsNullOrEmpty(studentId))
                 {
-                    await HandleStudentDisconnection(studentId);
+                    _logger.LogInformation("Student with ID {StudentId} is disconnecting. Connection ID: {ConnectionId}", studentId, Context.ConnectionId);
+
+                    // Remove from group when disconnecting
+                    await Groups.RemoveFromGroupAsync(Context.ConnectionId, studentId);
+                    StudentConnections.Remove(Context.ConnectionId);
+
+                    _logger.LogInformation("Student with ID {StudentId} removed from group and connection removed. Connection ID: {ConnectionId}", studentId, Context.ConnectionId);
                 }
 
                 await base.OnDisconnectedAsync(exception);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error in OnDisconnectedAsync for Connection ID: {ConnectionId}", Context.ConnectionId);
+                _logger.LogError(ex, "Error occurred while processing OnDisconnectedAsync for Connection ID: {ConnectionId}", Context.ConnectionId);
                 throw;
             }
         }
 
-        private async Task HandleStaffDisconnection(string staffId)
-        {
-            await Groups.RemoveFromGroupAsync(Context.ConnectionId, $"staff_{staffId}");
-            StaffConnections.Remove(Context.ConnectionId);
-            _logger.LogInformation("Staff member disconnected. ID: {StaffId}", staffId);
-        }
-
-        private async Task HandleStudentDisconnection(string studentId)
-        {
-            await Groups.RemoveFromGroupAsync(Context.ConnectionId, $"student_{studentId}");
-            StudentConnections.Remove(Context.ConnectionId);
-            _logger.LogInformation("Student disconnected. ID: {StudentId}", studentId);
-        }
-
-        // Method to notify student when feedback is given
-        public async Task NotifyStudentFeedback(string studentId, int queryId, string message)
-        {
-            try
-            {
-                _logger.LogInformation("Sending feedback notification to student {StudentId} for query {QueryId}", studentId, queryId);
-
-                var notification = new
-                {
-                    type = "feedback",
-                    queryId = queryId,
-                    message = message,
-                    timestamp = DateTime.UtcNow
-                };
-
-                await Clients.Group($"student_{studentId}").SendAsync("ReceiveFeedbackNotification", notification);
-                _logger.LogInformation("Feedback notification sent to student {StudentId}", studentId);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error sending feedback notification to student {StudentId}", studentId);
-                throw;
-            }
-        }
-
-        // Method to notify staff (keeping existing functionality)
+        // Notify staff members via their group
         public async Task NotifyStaff(string staffId, string message)
         {
             try
             {
-                _logger.LogInformation("Sending notification to staff {StaffId}", staffId);
-                await Clients.Group($"staff_{staffId}").SendAsync("ReceiveNotification", message);
+                _logger.LogInformation("Sending notification to staff with ID {StaffId}. Message: {Message}", staffId, message);
+
+                await Clients.Group(staffId).SendAsync("ReceiveNotification", message);
+
+                _logger.LogInformation("Notification sent to staff with ID {StaffId}.", staffId);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error sending notification to staff {StaffId}", staffId);
+                _logger.LogError(ex, "Error occurred while sending notification to staff with ID {StaffId}.", staffId);
+                throw;
+            }
+        }
+
+        // Notify students via their group
+        public async Task NotifyStudent(string studentId, string message)
+        {
+            try
+            {
+                _logger.LogInformation("Sending notification to student with ID {StudentId}. Message: {Message}", studentId, message);
+
+                await Clients.Group(studentId).SendAsync("ReceiveNotification", message);
+
+                _logger.LogInformation("Notification sent to student with ID {StudentId}.", studentId);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while sending notification to student with ID {StudentId}.", studentId);
                 throw;
             }
         }
     }
+
 }

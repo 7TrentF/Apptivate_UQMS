@@ -136,7 +136,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<IActionResult> SubmitSolutionToQuery(QueryResolutions model, IFormFile uploadedFile)
+        public async Task<IActionResult> SubmitSolutionToQuery(QueryResolutions model, IFormFile? uploadedFile)
         {
             _logger.LogWarning("SubmitSolutionToQuery hit");
 

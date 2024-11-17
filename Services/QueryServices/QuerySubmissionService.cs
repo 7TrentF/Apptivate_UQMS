@@ -266,7 +266,7 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
                 {
                     StudentID = studentDetail.StudentID,
                     QueryTypeID = model.QueryTypeID,
-                    TicketNumber = GenerateDateBasedTicketNumber(), // or GenerateDateBasedTicketNumber()
+                    TicketNumber = GenerateDateBasedTicketNumber(), 
                     CategoryID = model.CategoryID,
                     DepartmentID = studentDetail.DepartmentID ?? 0,
                     CourseID = studentDetail.CourseID ?? 0,
@@ -791,6 +791,7 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
             _logger.LogInformation("This is the email you require {UserEmail}", studentEmail);
 
+            await _notificationHubContext.Clients.All.SendAsync("NotifyStudentFeedback", studentId, queryId, "Your query has been resolved");
 
             try
             {
@@ -822,7 +823,7 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
         
 
-        public async Task SubmitSolutionToQueryAsync(QueryResolutions model, IFormFile uploadedFile, string firebaseUid)
+        public async Task SubmitSolutionToQueryAsync(QueryResolutions model, IFormFile? uploadedFile, string firebaseUid)
         {
             _logger.LogInformation("Query resolution process started for FirebaseUID: {FirebaseUID}", firebaseUid);
 
@@ -884,7 +885,22 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
                 _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", queryResolution.QueryID);
 
 
-                  await SendQueryResoultionEmailStudent(query, firebaseUid, queryID);
+
+                try
+                {
+                    await _notificationHubContext.Clients.Group(query.StudentID.ToString())
+                        .SendAsync("ReceiveNotification", "A new query has been submitted.");
+
+                    _logger.LogInformation("_notificationHubContext sent successfully to lecturer with StudentId: {StudentID}", query.StudentID);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Failed to send notification to lecturer with StaffID: {StaffID}", query.StudentID);
+                }
+
+
+
+                await SendQueryResoultionEmailStudent(query, firebaseUid, queryID);
 
 
                 //await ApprovalStatusAsync(queryResolution);

@@ -425,8 +425,8 @@
                 // Handle incoming notifications
                 connection.on("ReceiveNotification", function (message) {
                     showNotification(message);
-                    playNotificationSound();
                     updateNotificationCount();
+
                 });
 
                 connection.start()
@@ -656,7 +656,7 @@
                 // Create audio element if it doesn't exist
                 let audio = document.getElementById('notification-sound');
                 if (!audio) {
-                    audio = new Audio('/assets/sounds/notification.mp3');
+                    audio = new Audio('/assets/notification.mp3');
                     audio.id = 'notification-sound';
                     audio.volume = 5;
                 }

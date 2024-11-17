@@ -32,6 +32,9 @@ namespace Apptivate_UQMS_WebApp.Models
 
             public string Role { get; set; }
 
+            public string? PhoneNumber { get; set; }
+
+
             // Selected department ID
             [Required]
             public int? SelectedDepartmentID { get; set; }
@@ -42,7 +45,8 @@ namespace Apptivate_UQMS_WebApp.Models
             [Required]
             public int? Year { get; set; }
 
-           
+           public string ? studentNumber { get; set; }
+
             public int? SelectedPositionID { get; set; }
 
             public IEnumerable<SelectListItem> Positions { get; set; } = new HashSet<SelectListItem>();
@@ -80,6 +84,8 @@ namespace Apptivate_UQMS_WebApp.Models
             public string Email { get; set; }
             public string PasswordHash { get; set; }
             public string Role { get; set; }
+            public string? PhoneNumber { get; set; }
+
             public DateTime RegistrationDate { get; set; } = DateTime.Now;
 
             public string? FirebaseUID { get; set; } // Add this field
@@ -104,6 +110,9 @@ namespace Apptivate_UQMS_WebApp.Models
             public string Department { get; set; }
             public string Course { get; set; }
             public int? Year { get; set; }
+
+            public string? studentNumber { get; set; }
+
 
             // Navigation property for User
             public User User { get; set; }
