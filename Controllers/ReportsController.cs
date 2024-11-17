@@ -1,4 +1,5 @@
-﻿using Apptivate_UQMS_WebApp.Services;
+﻿using Apptivate_UQMS_WebApp.Data;
+using Apptivate_UQMS_WebApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,16 +11,19 @@ namespace Apptivate_UQMS_WebApp.Controllers
     {
         private readonly ReportingService _reportingService;
         private readonly ILogger<ReportsController> _logger;
-
+        private readonly ApplicationDbContext _context;
         public ReportsController(
+            ApplicationDbContext context,
             ReportingService reportingService,
             ILogger<ReportsController> logger)
         {
             _reportingService = reportingService;
             _logger = logger;
-        }
+            _context = context;         
 
-        public IActionResult Index()
+    }
+
+    public IActionResult Index()
         {
             return View();
         }
@@ -29,6 +33,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
         {
             startDate ??= DateTime.UtcNow.AddDays(-30);
             endDate ??= DateTime.UtcNow;
+
 
             var report = await _reportingService.GetQueryResolutionTimeReportAsync(startDate.Value, endDate.Value, department);
             return Json(report);

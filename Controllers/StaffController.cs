@@ -249,6 +249,45 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
 
 
+        // Action to render the dashboard view
+        public IActionResult TicketDashboard()
+        {
+            return View("~/Views/Query/StaffQuery/TicketDashboard.cshtml");
+        }
+
+
+
+        [HttpGet]
+        public IActionResult GetQueriesForStaff(int staffId)
+        {
+            var queries = _context.QueryAssignments.Where(q => q.StaffID == staffId).ToList();
+            return Json(queries);
+        }
+
+        [HttpPost]
+        public IActionResult ReassignQuery([FromBody] ReassignQueryRequest request)
+        {
+            // Perform the reassignment
+            foreach (var queryId in request.SelectedQueries)
+            {
+                var query = _context.QueryAssignments.FirstOrDefault(q => q.QueryID == queryId);
+                if (query != null)
+                {
+                  //  query.AssignedTo = request.NewStaffId;
+                }
+            }
+
+            _context.SaveChanges();
+            return Ok();
+        }
+
+        public class ReassignQueryRequest
+        {
+            public List<int> SelectedQueries { get; set; }
+            public int NewStaffId { get; set; }
+        }
+
+
 
     }
 

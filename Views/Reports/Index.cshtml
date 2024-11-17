@@ -179,4 +179,137 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment"></script>
     <script src="~/js/reports.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function initializeQueryResolutionReport() {
+            const ctx = document.getElementById('resolutionChart').getContext('2d');
+            let chart = null;
+
+            function updateTable(data) {
+                const tbody = document.querySelector('#resolutionTable tbody');
+                tbody.innerHTML = '';
+
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+    <td>${row.category}</td>
+    <td>${row.department}</td>
+    <td>${row.queryCount}</td>
+    <td>${row.averageResponseTime.toFixed(2)}</td>
+    <td>${row.medianResponseTime.toFixed(2)}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function createChart(data) {
+            const departments = [...new Set(data.map(item => item.department))];
+            const categories = [...new Set(data.map(item => item.category))];
+
+            const datasets = departments.map(dept => ({
+                label: dept,
+                data: categories.map(cat => {
+                    const match = data.find(item => item.department === dept && item.category === cat);
+                    return match ? match.averageResponseTime : 0;
+                }),
+                backgroundColor: getRandomColor(0.5),
+                borderColor: getRandomColor(1),
+                borderWidth: 1
+            }));
+
+            if (chart) {
+                chart.destroy();
+            }
+
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: categories,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Average Response Time (hours)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Query Categories'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Query Resolution Time by Department and Category'
+                        }
+                    }
+                }
+            });
+        }
+
+        function getRandomColor(alpha) {
+            const r = Math.floor(Math.random() * 255);
+            const g = Math.floor(Math.random() * 255);
+            const b = Math.floor(Math.random() * 255);
+            return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        }
+
+        // Function to load data from your controller
+        function loadData(startDate, endDate, department) {
+            const url = `/YourController/GetQueryResolutionTimeReport?startDate=${startDate}&endDate=${endDate}&department=${department || ''}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    createChart(data);
+                    updateTable(data);
+                })
+                .catch(error => console.error('Error loading data:', error));
+        }
+
+        // Initialize date pickers and department filter if needed
+        const startDatePicker = document.getElementById('startDate');
+        const endDatePicker = document.getElementById('endDate');
+        const departmentSelect = document.getElementById('department');
+
+        if (startDatePicker && endDatePicker && departmentSelect) {
+            function updateReport() {
+                loadData(
+                    startDatePicker.value,
+                    endDatePicker.value,
+                    departmentSelect.value
+                );
+            }
+
+            startDatePicker.addEventListener('change', updateReport);
+            endDatePicker.addEventListener('change', updateReport);
+            departmentSelect.addEventListener('change', updateReport);
+        }
+
+        // Initial load
+        const today = new Date();
+        const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+        loadData(
+            lastMonth.toISOString().split('T')[0],
+            today.toISOString().split('T')[0],
+            ''
+        );
+    }
+
+    // Initialize the report
+    initializeQueryResolutionReport();
+});
+    </script>
+
 }

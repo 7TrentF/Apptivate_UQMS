@@ -18,6 +18,13 @@ namespace Apptivate_UQMS_WebApp.Models.Reports
             public double MedianResponseTime { get; set; }
             public DateTime Period { get; set; }
             public int QueryCount { get; set; }
+            public List<double> ResponseTimes { get; set; } // Temporary property for calculation
+            public int TotalQueries { get; set; }
+            public int ResolvedQueries { get; set; }
+            public int PendingQueries { get; set; }
+
+            public int QueriesWithinSLA { get; set; }
+            public double SLAComplianceRate { get; set; }
         }
 
         public class HighVolumeQueryReport

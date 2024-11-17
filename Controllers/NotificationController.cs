@@ -1,5 +1,7 @@
-﻿using Apptivate_UQMS_WebApp.Services;
+﻿using Apptivate_UQMS_WebApp.Hubs;
+using Apptivate_UQMS_WebApp.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
@@ -8,11 +10,21 @@ namespace Apptivate_UQMS_WebApp.Controllers
     {
         private readonly IEmailService _emailService;
         private readonly ILogger<NotificationController> _logger;
+        private readonly IHubContext<NotificationHub> _hubContext;
 
-        public NotificationController(IEmailService emailService, ILogger<NotificationController> logger)
+        public NotificationController(IEmailService emailService, ILogger<NotificationController> logger, IHubContext<NotificationHub> hubContext)
         {
             _emailService = emailService;
             _logger = logger;
+            _hubContext = hubContext;
+
+        }
+
+        [HttpPost("send-notification")]
+        public async Task<IActionResult> SendTestNotification([FromBody] string message)
+        {
+            await _hubContext.Clients.All.SendAsync("ReceiveNotification", message);
+            return Ok(new { Status = "Notification Sent", Message = message });
         }
 
         public async Task<IActionResult> SendNotification(string userEmail)

@@ -1,5 +1,4 @@
-﻿@model Apptivate_UQMS_WebApp.Models.StudentDashboardViewModel
-
+﻿
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,97 +12,54 @@
 <body>
     <div class="dashboard-container">
         <div class="dashboard-header">
-            <h2 class="dashboard-title">Ticket Dashboard</h2>
-            <div class="quick-actions">
-                <button class="action-button">
-                    <i class="fas fa-filter"></i>
-                    Filter
-                </button>
-                <button class="action-button">
-                    <i class="fas fa-sort"></i>
-                    Sort
-                </button>
-            </div>
-        </div>
-
-        <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-title">Open Tickets</div>
-                <div class="stat-value">22</div>
-                <div class="stat-trend">
-                    <i class="fas fa-arrow-up"></i>
-                    <span>12% from last week</span>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Resolved Today</div>
-                <div class="stat-value">2</div>
-                <div class="stat-trend">
-                    <i class="fas fa-arrow-up"></i>
-                    <span>20% from yesterday</span>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Average Response Time</div>
-                <div class="stat-value">2.4h</div>
-                <div class="stat-trend" style="color: var(--success-color)">
-                    <i class="fas fa-arrow-down"></i>
-                    <span>15% improvement</span>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Customer Satisfaction</div>
-                <div class="stat-value">94%</div>
-                <div class="stat-trend">
-                    <i class="fas fa-arrow-up"></i>
-                    <span>5% from last month</span>
-                </div>
-            </div>
+            <h2 class="dashboard-title">My Query Dashboard</h2>
+           
         </div>
 
         <div class="option-cards-container">
             <div class="option-card">
-                <a asp-controller="Query" asp-action="Queries" class="option-link">
+                <a asp-controller="StaffQuery" asp-action="StaffQueries" class="option-link">
                     <div class="notification-badge">1 New</div>
                     <div class="card-icon">
                         <i class="fas fa-ticket-alt"></i>
                     </div>
                     <div class="card-title">
-                        View Tickets
+                        View Assigned Queries
                     </div>
+
                     <div class="card-description">
-                        Browse and manage all active tickets
+                        Browse and manage all active tickets that have been assigned to you 
                     </div>
                 </a>
             </div>
             <div class="option-card">
-                <a asp-controller="Query" asp-action="CreateQuery" class="option-link">
+                <a asp-controller="Staff" asp-action="AssignQuery" class="option-link">
                     <div class="card-icon">
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="card-title">
-                        Create Ticket
+                       Assign team members
                     </div>
                     <div class="card-description">
-                        Submit a new ticket 
+                       Assign new queries to other staff members in your Department
                     </div>
                 </a>
             </div>
             <div class="option-card">
-                <a asp-controller="Query" asp-action="ViewResolvedQueries" class="option-link">
+                <a asp-controller="StaffQuery" asp-action="ViewFeedback" class="option-link">
                     <div class="card-icon">
                         <i class="fas fa-check-circle"></i>
                     </div>
                     <div class="card-title">
-                        View Resolved Tickets and give feedback
+                        View Student Feedback
                     </div>
                     <div class="card-description">
-                        Access history of completed tickets and give feedback
+                        View the feedback students have given about your resolutions
                     </div>
                 </a>
             </div>
 
-            <!--         
+            <!--
             <div class="option-card">
                 <a asp-controller="Query" asp-action="ViewResolvedTicket" class="option-link">
                     <div class="card-icon">

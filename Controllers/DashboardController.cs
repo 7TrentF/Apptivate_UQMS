@@ -29,7 +29,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
             _userProfileService = userProfileService;
             _analyticsService = analyticsService;
             _notificationService = notificationService;
-
         }
 
 

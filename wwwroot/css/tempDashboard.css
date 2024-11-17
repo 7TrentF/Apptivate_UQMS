@@ -372,3 +372,50 @@ body {
         font-size: 1.125rem;
     }
 }
+
+
+// CSS for notifications
+.notification-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #fff;
+    border-left: 4px solid #4CAF50;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 16px;
+    border-radius: 4px;
+    max-width: 300px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+    .notification-content h4 {
+        margin: 0;
+        color: #333;
+    }
+
+    .notification-content p {
+        margin: 0;
+        color: #666;
+    }
+
+    .notification-content small {
+        color: #999;
+    }

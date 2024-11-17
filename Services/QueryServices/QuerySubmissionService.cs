@@ -9,6 +9,7 @@ using static Apptivate_UQMS_WebApp.ViewModels.QueryViewModel;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Apptivate_UQMS_WebApp.Hubs;
+using Microsoft.AspNetCore.SignalR;
 
 
 namespace Apptivate_UQMS_WebApp.Services.QueryServices
@@ -21,12 +22,16 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
         private readonly IEmailService _emailService;
         private readonly INotificationService _notificationService;
 
-        public QuerySubmissionService(IEmailService emailService, ApplicationDbContext context, FileUploadService fileUploadService, ILogger<QuerySubmissionService> logger, INotificationService notificationService)
+        private readonly IHubContext<NotificationHub> _notificationHubContext;
+
+
+        public QuerySubmissionService(IEmailService emailService, ApplicationDbContext context, FileUploadService fileUploadService, ILogger<QuerySubmissionService> logger, INotificationService notificationService, IHubContext<NotificationHub> notificationHubContext)
         {
             _context = context; 
             _fileUploadService = fileUploadService;
             _emailService = emailService; 
             _notificationService = notificationService;
+            _notificationHubContext = notificationHubContext;
             _logger = logger;
         }
 
@@ -102,6 +107,27 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
             };
 
         }
+
+
+        public async Task<string> GetStaffEmailAsync(string firebaseUid)
+        {
+            _logger.LogInformation($"GetStaffEmailAsync called with firebaseUid: {firebaseUid}");
+
+            // Fetch the user's email based on the Firebase UID
+            var staffEmail = await _context.Users
+                .Where(u => u.FirebaseUID == firebaseUid) // Replace with the actual column name for Firebase UID
+                .Select(u => u.Email)
+                .FirstOrDefaultAsync();
+
+            if (staffEmail == null)
+            {
+                _logger.LogError("Staff email not found.");
+                throw new Exception("Staff email details not found.");
+            }
+
+            return staffEmail; // Directly return the email string
+        }
+
 
         public async Task CleanUpClosedQueriesAsync()
         {
@@ -392,7 +418,7 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
         private async Task SendQuerySubmissionNotificationEmailStaff(Query query,int staffId)
         {
-            _logger.LogInformation($"Get Staff email called with staffId: {staffId}");
+            _logger.LogInformation($"SendQuerySubmissionNotificationEmailStaff with staffId: {staffId}");
 
 
             // Fetch the user's email based on the Firebase UID
@@ -485,6 +511,22 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
                     await _context.SaveChangesAsync();
                     _logger.LogInformation("Query assigned to Lecturer with StaffID {StaffID}.", leastBusyLecturer.StaffID);
+
+                    //After query is assigned then send out the emails and notifications 
+
+
+                    try
+                    {
+                        await _notificationHubContext.Clients.Group(leastBusyLecturer.StaffID.ToString())
+                            .SendAsync("ReceiveNotification", "A new query has been submitted.");
+
+                        _logger.LogInformation("_notificationHubContext sent successfully to lecturer with StaffID: {StaffID}", leastBusyLecturer.StaffID);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Failed to send notification to lecturer with StaffID: {StaffID}", leastBusyLecturer.StaffID);
+                    }
+
 
 
                     await SendQuerySubmissionNotificationEmailStaff(query, leastBusyLecturer.StaffID);
@@ -709,6 +751,77 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
             _logger.LogInformation("Document associated with ResolutionID {ResolutionID} and DocumentID {DocumentID}.", resolutionId, queryDocument.DocumentID);
         }
 
+
+        private async Task SendQueryResoultionEmailStudent(Query query, string staffFirebaseUid, int queryId)
+        {
+            _logger.LogInformation($"SendQueryResoultionEmailStudent with queryID: {queryId}");
+
+            var staffEmail = await _context.Users
+                .Where(u => u.FirebaseUID == staffFirebaseUid) // Replace with the actual column name for Firebase UID
+                .Select(u => u.Email)
+                .FirstOrDefaultAsync();
+
+
+
+            // Fetch the user's email based on the Firebase UID
+            var studentId = await _context.Queries
+                 .Where(u => u.QueryID == queryId) // Replace with the actual column name for Firebase UID
+                .Select(u => u.StudentID)
+                .FirstOrDefaultAsync();
+
+
+            var userId = await _context.StudentDetails
+                .Where(s => s.StudentID == studentId)
+                .Select(s => s.UserID)
+                .FirstOrDefaultAsync();
+
+
+
+            var studentEmail = await _context.Users
+                .Where(s => s.UserID == userId)
+                .Select(s => s.Email)
+                .FirstOrDefaultAsync();
+
+
+            if (studentEmail == null)
+            {
+                _logger.LogError("Student email not found.");
+                throw new Exception("Student email  details not found.");
+            }
+
+            _logger.LogInformation("This is the email you require {UserEmail}", studentEmail);
+
+
+            try
+            {
+                var emailData = new Dictionary<string, object>
+        {
+            { "user_name", studentEmail.Split('@')[0] },
+            { "query_description", query.Description.Substring(0, Math.Min(50, query.Description.Length)) },
+            { "ticket_number", query.TicketNumber },
+            { "submitted_date", query.SubmissionDate?.ToString("f") },
+            {"staff_name", staffEmail},
+        };
+
+                // Replace '1' with your actual email template ID
+                await _emailService.SendTemplateEmailAsync(studentEmail, 3, emailData);
+                _logger.LogInformation("Notification email sent to user {UserEmail}", studentEmail);
+                _logger.LogInformation("Notification email sent to user {UserEmail}", studentEmail);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Failed to send query submission notification email to {UserEmail}: {Message}", studentEmail, ex.Message);
+                throw new ApplicationException("Failed to send notification email", ex);
+            }
+        }
+
+
+
+
+
+        
+
         public async Task SubmitSolutionToQueryAsync(QueryResolutions model, IFormFile uploadedFile, string firebaseUid)
         {
             _logger.LogInformation("Query resolution process started for FirebaseUID: {FirebaseUID}", firebaseUid);
@@ -717,6 +830,10 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
             try
             {
+
+
+
+
                 // Use the existing method to fetch the staff details
                 var StaffQueryAssignment = await GetStaffAssignmentQueryDetails(queryID, firebaseUid);
 
@@ -765,6 +882,10 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
                 }
 
                 _logger.LogInformation("Query submission process completed successfully for QueryID {QueryID}.", queryResolution.QueryID);
+
+
+                  await SendQueryResoultionEmailStudent(query, firebaseUid, queryID);
+
 
                 //await ApprovalStatusAsync(queryResolution);
 
