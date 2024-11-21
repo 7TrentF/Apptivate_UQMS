@@ -17,31 +17,101 @@
     box-sizing: border-box; /* Includes padding in the width calculation */
     justify-content: space-between;
 }
-
 .dashboard-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
 }
 
     .dashboard-header h1 {
-        font-size: 2.5rem; /* Increased for better visibility */
-        margin-left: 3rem; /* Add margin to prevent overlap */
+        font-size: 2.25rem;
+        color: #333;
+        font-weight: 600;
+        margin: 0;
     }
 
 .filter-container {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 15px;
 }
 
     .filter-container select,
     .filter-container input {
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
+        padding: 10px 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
     }
 
+        .filter-container select:focus,
+        .filter-container input:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+
+    .filter-container form {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .filter-container button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 6px;
+        background-color: #4a90e2;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+#clearSearch {
+    background-color: #f1f3f5;
+    color: #495057;
+}
+
+.filter-container button:hover {
+    background-color: #3a7bd5;
+}
+
+#clearSearch:hover {
+    background-color: #e9ecef;
+}
+
+.view-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+    .view-buttons button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 6px;
+        background-color: white;
+        color: #495057;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .view-buttons button:hover {
+            background-color: #f8f9fa;
+            border-color: #4a90e2;
+        }
+
+        .view-buttons button i {
+            font-size: 1rem;
+        }
 .dashboard-content {
     display: flex;
     gap: 35px;
@@ -604,4 +674,20 @@ h1 {
             background-color: #ddd;
             font-weight: bold;
         }
+}
+
+
+.loading, .error {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+.loading {
+    background-color: #f4f4f4;
+}
+
+.error {
+    color: #d9534f;
+    background-color: #ffdddd;
 }

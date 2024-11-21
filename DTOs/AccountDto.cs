@@ -206,10 +206,10 @@ namespace Apptivate_UQMS_WebApp.DTOs
             public string ModuleCode { get; set; }
             public string ModuleName { get; set; }
 
-            public ICollection<CourseModuleDto> CourseModules { get; set; }
+          //  public ICollection<CourseModuleDto> CourseModules { get; set; }
 
             // Navigation property for queries
-            public ICollection<QueryDto> Queries { get; set; }
+         //   public ICollection<QueryDto> Queries { get; set; }
         }
 
         public class DepartmentCourseDto

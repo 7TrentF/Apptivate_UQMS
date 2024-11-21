@@ -66,6 +66,21 @@ namespace Apptivate_UQMS_WebApp.DTOs
           //  public ICollection<Query> Queries { get; set; }
         }
 
+
+
+        public class ModuleDto
+        {
+            [Key]
+         
+            public int ModuleID { get; set; }
+            public string ModuleName { get; set; }
+
+            //   public int QueryTypeID { get; set; } // Foreign Key
+            //    public QueryType QueryType { get; set; }
+
+            //  public ICollection<Query> Queries { get; set; }
+        }
+
         public class AcademicQueryViewModel
         {
             public QueryType QueryType { get; set; }

@@ -10,14 +10,15 @@
     min-height: 100vh;
     width: 260px;
     flex-shrink: 0;
-    background-color: white;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f0f4f8; /* Soft, light blue background */
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease-in-out;
     position: sticky;
     top: 0;
     left: 0;
     height: 100vh;
 }
+
 
     /* Collapsed state */
     #sidebar.collapsed {
@@ -38,14 +39,22 @@
     padding: 8rem;
     transition: all 0.3s ease;
     background-image: url('/Images/Apptivate_circle _logo.png');
-    background-size: contain; /* Ensures the image scales appropriately */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center; /* Centers the image */
-    width: 100px; /* Set an appropriate width */
-    height: 100px; /* Set an appropriate height */
-    margin: 0 auto; /* Center the logo horizontally */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    opacity: 1;
 }
 
+#sidebar.collapsed .logo {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
 
 
 #sidebar.collapsed .logo img {
@@ -61,17 +70,18 @@
     display: flex;
     align-items: center;
     padding: 0.75rem 1.5rem;
-    color: #1a1a1a;
+    color: #2c3e50; /* Deep blue-gray text */
     transition: all 0.2s ease;
     white-space: nowrap;
 }
 
     .nav-link:hover {
-        background: #f8f9fa;
-        color: #0056b3;
+        background: #4a90e2; /* Bright, vibrant blue */
+        color: white;
         transform: translateX(5px);
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
 /* Icon styles */
 .icon {
     width: 20px;
@@ -103,11 +113,12 @@
     right: -12px;
     top: 20px;
     width: 24px;
+    color: white;
     height: 24px;
-    background: #ffffff;
+    background: #4a90e2; /* Matching the hover color */
     border: none;
     border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 6px rgba(74, 144, 226, 0.3);
     cursor: pointer;
     padding: 0;
     display: flex;
@@ -116,11 +127,10 @@
     transition: transform 0.3s ease;
     z-index: 1001;
 }
-
     #sidebarToggle:hover {
+        background: #357abd; /* Slightly darker blue */
         transform: scale(1.1);
     }
-
 #sidebar.collapsed #sidebarToggle {
     transform: rotate(180deg);
 }
@@ -129,8 +139,10 @@
 .user-logout-container {
     margin-top: auto;
     padding: 1rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #e1e6eb;
+    background-color: #e9f1f7; /* Slightly different shade for separation */
 }
+
 
 .user-profile {
     display: flex;
@@ -147,13 +159,16 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: #dc3545;
+    color: #e74c3c; /* Vibrant red for logout */
     transition: all 0.2s ease;
 }
 
     .user-logout-container form button:hover {
-        background: #fff1f1;
+        background: #ffeaea;
+        color: #c0392b;
+        border-radius: 8px;
     }
+
 
 /* Main content container */
 .content-wrapper {

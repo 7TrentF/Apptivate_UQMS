@@ -5,6 +5,7 @@
     ViewData["Title"] = "Submit Academic Query";
     int queryTypeId = ViewBag.QueryTypeID;
     var categories = ViewBag.QueryCategories as ICollection<Apptivate_UQMS_WebApp.DTOs.QueryModelDto.QueryCategoryDto>;
+
     var studentDetail = ViewBag.StudentDetail;
 }
 <!-- Form -->
@@ -34,6 +35,8 @@
                             </select>
                         </div>
                     </div>
+
+
 
                     <!-- Query Description -->
                     <div class="query-description">
