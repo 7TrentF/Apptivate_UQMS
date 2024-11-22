@@ -206,6 +206,7 @@ body {
     cursor: pointer;
     transition: var(--transition);
     border: none;
+    background: white;
 }
 
 .btn-view {

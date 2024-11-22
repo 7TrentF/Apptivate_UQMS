@@ -30,6 +30,7 @@ public class ChatController : Controller
         return View(users);
     }
 
+
   [HttpGet]
     public async Task<IActionResult> GetMessages(int userId)
     {

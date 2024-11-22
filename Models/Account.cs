@@ -102,6 +102,7 @@ namespace Apptivate_UQMS_WebApp.Models
             public ICollection<AdminDetail> AdminDetails { get; set; } 
         }
 
+
         public class StudentDetail
         {
             [Key]

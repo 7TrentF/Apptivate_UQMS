@@ -9,6 +9,11 @@ using static Apptivate_UQMS_WebApp.Models.QueryModel.QueryResolutions;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using Apptivate_UQMS_WebApp.Hubs;
 using Apptivate_UQMS_WebApp.Services.QueryServices;
+using System.Security.Claims;
+using Apptivate_UQMS_WebApp.Services;
+using QueryStatus = Apptivate_UQMS_WebApp.Models.QueryModel.QueryStatus;
+using Query = Apptivate_UQMS_WebApp.Models.QueryModel.Query;
+
 
 namespace Apptivate_UQMS_WebApp.Controllers
 {
@@ -19,18 +24,29 @@ namespace Apptivate_UQMS_WebApp.Controllers
         private readonly ILogger<StaffQueryController> _logger;
         private readonly IHubContext<NotificationHub> _hubContext;  // Inject SignalR Hub Context
         private readonly IQueryService _queryService;  // Inject IQueryService
+        private readonly IAssignQueryService _assignQueryService;  // Inject IQueryService
+        private readonly IEmailService _emailService;
+        private readonly INotificationService _notificationService;
 
 
-        public StaffQueryController(IQueryService queryService, ApplicationDbContext context, ILogger<StaffQueryController> logger, IHubContext<NotificationHub> hubContext)
+        public StaffQueryController(IEmailService emailService, IAssignQueryService assignQueryService, IQueryService queryService, ApplicationDbContext context, ILogger<StaffQueryController> logger, INotificationService notificationService, IHubContext<NotificationHub> hubContext)
         {
             _queryService = queryService;
             _context = context;
             _logger = logger;
             _hubContext = hubContext;
+            _assignQueryService = assignQueryService;
+
+
+         
+            _emailService = emailService;
+            _notificationService = notificationService;
+ 
+
         }
 
-    
-        [HttpGet]
+
+    [HttpGet]
         public async Task<IActionResult> QueryDetails(int queryId)
         {
             // Verify that the user is authenticated via session
@@ -97,8 +113,131 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
         }
 
-        // Action to mark a query as resolved
-      
+        [HttpGet]
+        public async Task<IActionResult> GetAssignedQueries(int staffId)
+        {
+            var queries = await _context.QueryAssignments
+                .Where(qa => qa.StaffID == staffId)
+                .Include(qa => qa.Query)
+                .Select(qa => new
+                {
+                    QueryID = qa.Query.QueryID,
+                    Description = qa.Query.Description,
+                    Priority = qa.Priority,
+                    SubmissionDate = qa.Query.SubmissionDate
+                })
+                .ToListAsync();
+            _logger.LogInformation("Assigned Queries:" + queries);
+
+            return Json(queries);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> ReAssignQuery(int queryId, int newStaffId)
+        {
+            _logger.LogInformation("ReAssignQuery initiated with QueryID: {QueryID} and NewStaffID: {NewStaffID}.", queryId, newStaffId);
+
+            try
+            {
+                // Get the current logged-in staff member's Firebase UID
+                var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+                if (firebaseUid == null)
+                {
+                    _logger.LogError("User not logged in.");
+                    return Json(new { success = false, message = "User not logged in." });
+                }
+
+                // Delegate to AssignQueryService
+                var result = await _assignQueryService.ReassignQueryAsync(queryId, newStaffId, firebaseUid);
+
+                if (result == "Success")
+                {
+                    return Json(new { success = true, message = "Query successfully reassigned." });
+                }
+                else
+                {
+                    return Json(new { success = false, message = result });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in ReAssignQuery method.");
+                return Json(new { success = false, message = "An error occurred while reassigning the query." });
+            }
+        }
+
+
+        // Helper method to send reassignment email
+        private async Task SendQueryReassignmentNotificationEmailStaff(Query query, int newStaffId)
+        {
+            var newStaff = await _context.StaffDetails
+                .Include(s => s.User)
+                .FirstOrDefaultAsync(s => s.StaffID == newStaffId);
+
+            if (newStaff != null && newStaff.User != null)
+            {
+                // Implement your email sending logic here
+                // Similar to your existing SendQuerySubmissionNotificationEmailStaff method
+                await _emailService.SendEmailAsync(
+                    newStaff.User.Email,
+                    "Query Reassigned",
+                    $"A query (#{query.TicketNumber}) has been reassigned to you."
+                );
+            }
+        }
+
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> AssignQuery()
+        {
+            var firebaseUid = HttpContext.Session.GetString("FirebaseUID");
+
+            if (firebaseUid == null)
+            {
+                _logger.LogError("User not logged in.");
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Find the staff member based on the logged-in Firebase UID
+            var staff = await _context.StaffDetails
+                .Include(s => s.User)
+                .FirstOrDefaultAsync(s => s.User.FirebaseUID == firebaseUid);
+
+            if (staff == null)
+            {
+                _logger.LogError("Staff not found for FirebaseUID {FirebaseUID}.", firebaseUid);
+                return NotFound();
+            }
+
+            // Fetch queries assigned to the logged-in staff member
+            var assignedQueries = await _context.QueryAssignments
+                .Where(qa => qa.StaffID == staff.StaffID)
+                .Select(qa => new
+                {
+                    QueryID = qa.Query.QueryID,
+                    Description = qa.Query.Description,
+                    Priority = qa.Priority,
+                    SubmissionDate = qa.Query.SubmissionDate
+                })
+                .ToListAsync();
+
+            ViewBag.AssignedQueries = assignedQueries;
+
+            var teamMembers = await _assignQueryService.GetTeamMembersAsync(staff.UserID);
+
+            return View("~/Views/Query/StaffQuery/AssignQuery.cshtml", teamMembers);
+        }
+
+
+
+
+
+
+
+
 
         // Notify staff when they have new queries to resolve
         public async Task<IActionResult> NotifyNewQueries()
@@ -255,8 +394,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return View("~/Views/Query/StaffQuery/TicketDashboard.cshtml");
         }
 
-
-
         [HttpGet]
         public IActionResult GetQueriesForStaff(int staffId)
         {
@@ -264,29 +401,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
             return Json(queries);
         }
 
-        [HttpPost]
-        public IActionResult ReassignQuery([FromBody] ReassignQueryRequest request)
-        {
-            // Perform the reassignment
-            foreach (var queryId in request.SelectedQueries)
-            {
-                var query = _context.QueryAssignments.FirstOrDefault(q => q.QueryID == queryId);
-                if (query != null)
-                {
-                  //  query.AssignedTo = request.NewStaffId;
-                }
-            }
-
-            _context.SaveChanges();
-            return Ok();
-        }
-
-        public class ReassignQueryRequest
-        {
-            public List<int> SelectedQueries { get; set; }
-            public int NewStaffId { get; set; }
-        }
-
+  
 
 
     }

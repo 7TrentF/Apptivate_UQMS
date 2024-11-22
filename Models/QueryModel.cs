@@ -50,7 +50,8 @@ namespace Apptivate_UQMS_WebApp.Models
             Pending,     // Query submitted but not yet assigned
             Ongoing,     // Query assigned to staff and in progress
             Resolved,    // Query has been resolved
-            Closed       // Query is closed and requires no further action
+            Closed   ,    // Query is closed and requires no further action
+                Reassigned
         }
 
 
@@ -111,7 +112,6 @@ namespace Apptivate_UQMS_WebApp.Models
 
         }
 
-
         public class QueryAssignment
         {
             [Key]
@@ -119,6 +119,7 @@ namespace Apptivate_UQMS_WebApp.Models
             public int? QueryID { get; set; } // Foreign Key
             public int? StaffID { get; set; } // Foreign Key
 
+            public string? Priority { get; set; }
             public string AssignmentNumber { get; set; }
             public DateTime? AssignedDate { get; set; }
             public DateTime? ResolutionDate { get; set; }

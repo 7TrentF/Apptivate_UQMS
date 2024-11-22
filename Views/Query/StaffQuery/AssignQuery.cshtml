@@ -1,0 +1,216 @@
+﻿@model List<Apptivate_UQMS_WebApp.Models.AssignQuery.TeamMemberModel>
+@{
+    ViewData["Title"] = "Assign Query";
+}
+
+<h1>Assign Query</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Staff ID</th>
+            <th>Staff Name</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Query Types</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model)
+        {
+            <tr data-staff-id="@member.StaffID" 
+                data-staff-name="@member.StaffName"
+                class="staff-member-row">
+                <td>@member.StaffID</td>
+                <td>@member.StaffName</td>
+                <td>@member.Position</td>
+                <td>@member.Department</td>
+                <td>
+                    @foreach (var queryType in member.QueryTypes)
+                    {
+                        <span class="badge bg-info text-dark">@queryType</span>
+                    }
+                </td>
+                <td>
+                    <button 
+                        type="button" 
+                        class="btn btn-primary view-queries-btn" 
+                        data-staff-id="@member.StaffID"
+                        data-bs-toggle="modal" 
+                        data-bs-target="#queryModal">
+                        View Assigned Queries
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal to Display Queries -->
+<div class="modal fade" id="queryModal" tabindex="-1" aria-labelledby="queryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="queryModalLabel">Assigned Queries</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Table to Display Assigned Queries -->
+                <table class="table table-striped" id="queriesTable">
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>Query ID</th>
+                            <th>Description</th>
+                            <th>Priority</th>
+                            <th>Submission Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.AssignedQueries != null && ViewBag.AssignedQueries.Count > 0)
+                        {
+                            foreach (var query in ViewBag.AssignedQueries)
+                            {
+                                <tr data-query-id="@query.QueryID">
+                                    <td>
+                                        <input type="radio" name="selectedQuery" 
+                                               value="@query.QueryID" 
+                                               data-query-id="@query.QueryID"/>
+                                    </td>
+                                    <td>@query.QueryID</td>
+                                    <td>@query.Description</td>
+                                    <td>@query.Priority</td>
+                                    <td>@query.SubmissionDate.ToString("yyyy-MM-dd")</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center">No queries assigned to you.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btnReassign" disabled>Reassign Query</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reassign Confirmation Modal -->
+<div class="modal fade" id="reassignConfirmModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Reassignment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to reassign this query to 
+                <span id="selectedStaffName"></span>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="confirmReassignBtn">Reassign</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+  $(document).ready(function() {
+    let selectedQueryId = null;
+    let selectedStaffId = null;
+    let selectedStaffName = null;
+
+    // Capture staff ID when "View Assigned Queries" button is clicked
+    $('.view-queries-btn').click(function() {
+        selectedStaffId = $(this).data('staff-id');
+    });
+
+    // Enable reassign button and capture query ID when a query is selected
+    $('#queriesTable').on('change', 'input[name="selectedQuery"]', function() {
+        selectedQueryId = $(this).data('query-id');
+        $('#btnReassign').prop('disabled', false);
+    });
+
+    $('#btnReassign').click(function() {
+        if (!selectedQueryId) {
+            toastr.error('Please select a query to reassign');
+            return;
+        }
+
+        $('#reassignConfirmModal').modal('show');
+    });
+
+    // Capture staff ID and name when a staff member row is clicked
+    $('.staff-member-row').click(function() {
+        $('.staff-member-row').removeClass('table-active');
+        $(this).addClass('table-active');
+        selectedStaffId = $(this).data('staff-id');
+        selectedStaffName = $(this).data('staff-name');
+        $('#selectedStaffName').text(selectedStaffName);
+    });
+
+    $('#confirmReassignBtn').click(function() {
+        if (!selectedQueryId || !selectedStaffId) {
+            toastr.error('Please select both a query and a staff member');
+            return;
+        }
+
+        $.ajax({
+            url: '@Url.Action("ReAssignQuery", "StaffQuery")',
+            type: 'POST',
+            data: {
+                queryId: selectedQueryId,
+                newStaffId: selectedStaffId
+            },
+            success: function(response) {
+                if (response.success) {
+                    toastr.success('Query reassigned successfully');
+                    $('#reassignConfirmModal').modal('hide');
+                    $('#queryModal').modal('hide');
+                    location.reload();
+                } else {
+                    toastr.error(response.message);
+                }
+            },
+            error: function() {
+                toastr.error('An error occurred while reassigning the query');
+            }
+        });
+    });
+
+    // Toastr options remain the same
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-bottom-left",
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+});
+
+    </script>
+}

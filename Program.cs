@@ -59,6 +59,11 @@ builder.Services.AddScoped<IChatService, ChatService>();
 builder.Services.AddScoped<AnalyticsService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<ReportingService>();
+builder.Services.AddScoped<IAssignQueryService, AssignQueryService>();
+
+
+
+
 // Add authentication
 
 builder.Services.AddAuthentication(options =>

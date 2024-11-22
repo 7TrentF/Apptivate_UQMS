@@ -1,7 +1,0 @@
-2024-10-26 19:08:03.619 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
-2024-10-26 19:08:43.330 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
-2024-10-26 19:08:43.860 +02:00 [INF] Now listening on: https://localhost:7061
-2024-10-26 19:08:43.886 +02:00 [INF] Now listening on: http://localhost:5042
-2024-10-26 19:08:44.620 +02:00 [INF] Application started. Press Ctrl+C to shut down.
-2024-10-26 19:08:44.627 +02:00 [INF] Hosting environment: Development
-2024-10-26 19:08:44.628 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS

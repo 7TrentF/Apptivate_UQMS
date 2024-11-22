@@ -125,43 +125,7 @@
             <thead>
                 <!-- No headers needed here since everything will be in one column -->
             </thead>
-                        <tbody>
-                            @foreach (var teamMember in Model.TeamOverview)
-                            {
-                                <tr class="team-row">
-                                    <td>
-                                        <div class="staff-info-card">
-                                            <div class="staff-name">
-                                                <strong>@teamMember.StaffName</strong>
-                                            </div>
-                                            <div class="query-types">
-                                                @if (teamMember.QueryTypes.Any())
-                                                {
-                                                    <ul>
-                                                        @foreach (var qt in teamMember.QueryTypes)
-                                                        {
-                                                            <li>@qt</li>
-                                                        }
-                                                    </ul>
-                                                }
-                                                else
-                                                {
-                                                    <span>N/A</span>
-                                                }
-                                            </div>
-                                            <!-- Assign Button -->
-                                            <button class="btn btn-primary assign-btn"
-                                                    data-bs-toggle="modal"
-                                                    data-bs-target="#assignQueryModal"
-                                                    data-staff-id="@teamMember.StaffID"
-                                                    data-staff-name="@teamMember.StaffName">
-                                                Assign Query
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
+               
 
         </table>
     </div>
