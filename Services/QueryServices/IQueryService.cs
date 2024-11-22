@@ -35,6 +35,7 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
         Task<bool> SubmitFeedbackAsync(string firebaseUid, int queryId, int rating, string comments, bool isAnonymous);
 
+        Task CleanUpClosedQueriesAsync();
     }
 }
 

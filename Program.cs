@@ -60,7 +60,7 @@ builder.Services.AddScoped<AnalyticsService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<ReportingService>();
 builder.Services.AddScoped<IAssignQueryService, AssignQueryService>();
-
+builder.Services.AddHostedService<QueryCleanupService>();
 
 
 

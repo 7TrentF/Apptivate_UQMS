@@ -16547,3 +16547,996 @@ WHERE EXISTS (
 2024-11-22 22:32:28.747 +02:00 [INF] Sending file. Request path: '/css/feedback.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\css\feedback.css'
 2024-11-22 22:32:28.756 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/feedback.css?v=0wFqB0IEIEln-nC2HqA4ZEZnruaO6A5EwvGQMYMZ3l8 - 200 7121 text/css 14.9016ms
 2024-11-22 22:32:28.756 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.7676ms
+2024-11-22 22:33:45.069 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard - null null
+2024-11-22 22:33:45.262 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:45.329 +02:00 [INF] Route matched with {action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-22 22:33:45.361 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/StaffDashboard.
+2024-11-22 22:33:45.365 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp) in 33.1563ms
+2024-11-22 22:33:45.367 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:45.372 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard - 302 0 null 306.421ms
+2024-11-22 22:33:45.388 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - null null
+2024-11-22 22:33:45.402 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:45.404 +02:00 [INF] Route matched with {action = "StaffDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StaffDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-22 22:33:45.537 +02:00 [INF] Executed DbCommand (62ms) [Parameters=[@__firebaseUid_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-22 22:33:45.634 +02:00 [INF] Executed DbCommand (44ms) [Parameters=[@__staff_StaffID_0='1' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE EXISTS (
+    SELECT 1
+    FROM [QueryAssignments] AS [q0]
+    WHERE [q].[QueryID] = [q0].[QueryID] AND [q0].[StaffID] = @__staff_StaffID_0)
+GROUP BY [q].[Status]
+2024-11-22 22:33:45.708 +02:00 [INF] Executed DbCommand (65ms) [Parameters=[@__staff_StaffID_0='1' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[AssignmentID], [q].[AssignedDate], [q].[AssignmentNumber], [q].[Priority], [q].[QueryID], [q].[ResolutionDate], [q].[StaffID], [q0].[QueryID], [q0].[CategoryID], [q0].[CourseID], [q0].[DepartmentID], [q0].[Description], [q0].[ModuleID], [q0].[QueryTypeID], [q0].[ResolvedDate], [q0].[Status], [q0].[StudentID], [q0].[SubmissionDate], [q0].[TicketNumber], [q0].[Year], [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname], [q1].[CategoryID], [q1].[CategoryName], [q1].[QueryTypeID], [q2].[QueryTypeID], [q2].[TypeName], [d].[DepartmentID], [d].[DepartmentName]
+FROM [QueryAssignments] AS [q]
+LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+LEFT JOIN [StudentDetails] AS [s] ON [q0].[StudentID] = [s].[StudentID]
+LEFT JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [QueryCategories] AS [q1] ON [q0].[CategoryID] = [q1].[CategoryID]
+LEFT JOIN [QueryTypes] AS [q2] ON [q1].[QueryTypeID] = [q2].[QueryTypeID]
+LEFT JOIN [Departments] AS [d] ON [q0].[DepartmentID] = [d].[DepartmentID]
+WHERE [q].[StaffID] = @__staff_StaffID_0
+2024-11-22 22:33:45.838 +02:00 [INF] Executed DbCommand (68ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname], [p].[PositionID], [p].[PositionName], [t].[AssignmentID], [t].[AssignedDate], [t].[AssignmentNumber], [t].[Priority], [t].[QueryID], [t].[ResolutionDate], [t].[StaffID], [t].[QueryID0], [t].[CategoryID], [t].[CourseID], [t].[DepartmentID], [t].[Description], [t].[ModuleID], [t].[QueryTypeID], [t].[ResolvedDate], [t].[Status], [t].[StudentID], [t].[SubmissionDate], [t].[TicketNumber], [t].[Year], [t].[CategoryID0], [t].[CategoryName], [t].[QueryTypeID0], [t].[QueryTypeID1], [t].[TypeName]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+LEFT JOIN (
+    SELECT [q1].[AssignmentID], [q1].[AssignedDate], [q1].[AssignmentNumber], [q1].[Priority], [q1].[QueryID], [q1].[ResolutionDate], [q1].[StaffID], [q2].[QueryID] AS [QueryID0], [q2].[CategoryID], [q2].[CourseID], [q2].[DepartmentID], [q2].[Description], [q2].[ModuleID], [q2].[QueryTypeID], [q2].[ResolvedDate], [q2].[Status], [q2].[StudentID], [q2].[SubmissionDate], [q2].[TicketNumber], [q2].[Year], [q3].[CategoryID] AS [CategoryID0], [q3].[CategoryName], [q3].[QueryTypeID] AS [QueryTypeID0], [q4].[QueryTypeID] AS [QueryTypeID1], [q4].[TypeName]
+    FROM [QueryAssignments] AS [q1]
+    LEFT JOIN [Queries] AS [q2] ON [q1].[QueryID] = [q2].[QueryID]
+    LEFT JOIN [QueryCategories] AS [q3] ON [q2].[CategoryID] = [q3].[CategoryID]
+    LEFT JOIN [QueryTypes] AS [q4] ON [q3].[QueryTypeID] = [q4].[QueryTypeID]
+) AS [t] ON [s].[StaffID] = [t].[StaffID]
+WHERE EXISTS (
+    SELECT 1
+    FROM [QueryAssignments] AS [q]
+    LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+    WHERE [s].[StaffID] = [q].[StaffID] AND [q0].[QueryID] IS NOT NULL)
+ORDER BY [s].[StaffID], [u].[UserID], [p].[PositionID], [t].[AssignmentID], [t].[QueryID0], [t].[CategoryID0]
+2024-11-22 22:33:45.897 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__firebaseUid_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-22 22:33:45.906 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_UserID_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-22 22:33:45.913 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__user_UserID_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-22 22:33:45.926 +02:00 [INF] Executing ViewResult, running view StaffDashboard.
+2024-11-22 22:33:45.996 +02:00 [INF] Executed ViewResult - view StaffDashboard executed in 76.4342ms.
+2024-11-22 22:33:45.997 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp) in 592.3463ms
+2024-11-22 22:33:45.998 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:46.002 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - 200 null text/html; charset=utf-8 613.8764ms
+2024-11-22 22:33:46.239 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:33:46.239 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:33:46.269 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 32.6866ms
+2024-11-22 22:33:46.292 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.5669ms
+2024-11-22 22:33:46.475 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=1&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-22 22:33:46.517 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-22 22:33:46.574 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-22 22:33:46.577 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=1&negotiateVersion=1 - 200 316 application/json 102.2322ms
+2024-11-22 22:33:46.751 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7061/notificationHub?staffId=1&id=eUwCnB3TMuYgEEAknhVlfg - null null
+2024-11-22 22:33:46.757 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-22 22:33:46.830 +02:00 [INF] Staff member with ID 1 is connecting. Connection ID: WdNW03Mq9zOV6G-2Z-caRw
+2024-11-22 22:33:46.831 +02:00 [INF] Staff member with ID 1 connected and added to group. Connection ID: WdNW03Mq9zOV6G-2Z-caRw
+2024-11-22 22:33:48.160 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/StaffQuery/TicketDashboard - null null
+2024-11-22 22:33:48.169 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.StaffQueryController.TicketDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:48.170 +02:00 [INF] Route matched with {action = "TicketDashboard", controller = "StaffQuery"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TicketDashboard() on controller Apptivate_UQMS_WebApp.Controllers.StaffQueryController (Apptivate_UQMS_WebApp).
+2024-11-22 22:33:48.188 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-22 22:33:48.189 +02:00 [INF] Executing ViewResult, running view ~/Views/Query/StaffQuery/TicketDashboard.cshtml.
+2024-11-22 22:33:48.192 +02:00 [INF] Executed ViewResult - view ~/Views/Query/StaffQuery/TicketDashboard.cshtml executed in 3.385ms.
+2024-11-22 22:33:48.194 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.StaffQueryController.TicketDashboard (Apptivate_UQMS_WebApp) in 22.4227ms
+2024-11-22 22:33:48.195 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.StaffQueryController.TicketDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:48.197 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/StaffQuery/TicketDashboard - 200 null text/html; charset=utf-8 36.2511ms
+2024-11-22 22:33:48.211 +02:00 [INF] Staff member with ID 1 is disconnecting. Connection ID: WdNW03Mq9zOV6G-2Z-caRw
+2024-11-22 22:33:48.212 +02:00 [INF] Staff member with ID 1 removed from group and connection removed. Connection ID: WdNW03Mq9zOV6G-2Z-caRw
+2024-11-22 22:33:48.214 +02:00 [INF] Executed endpoint '/notificationHub'
+2024-11-22 22:33:48.214 +02:00 [INF] Request finished HTTP/2 CONNECT https://localhost:7061/notificationHub?staffId=1&id=eUwCnB3TMuYgEEAknhVlfg - 200 null null 1463.7366ms
+2024-11-22 22:33:48.243 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:33:48.245 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 2.5617ms
+2024-11-22 22:33:48.248 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:33:48.261 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 13.5611ms
+2024-11-22 22:33:49.406 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Chat/Chats - null null
+2024-11-22 22:33:49.415 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.Chats (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:49.421 +02:00 [INF] Route matched with {action = "Chats", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Chats() on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-11-22 22:33:49.480 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[@__firebaseUserId_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-11-22 22:33:49.573 +02:00 [INF] Executed DbCommand (19ms) [Parameters=[@__currentUserId_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserID], [u].[Name], [u].[Surname], [u].[IsOnline], [u].[LastSeen], (
+    SELECT COUNT(*)
+    FROM [Messages] AS [m]
+    WHERE [m].[ReceiverId] = @__currentUserId_0 AND [m].[IsRead] = CAST(0 AS bit) AND [u].[UserID] = [m].[SenderId]) AS [UnreadCount]
+FROM [Users] AS [u]
+WHERE [u].[UserID] <> @__currentUserId_0
+2024-11-22 22:33:49.581 +02:00 [INF] Executing ViewResult, running view Chats.
+2024-11-22 22:33:49.701 +02:00 [INF] Executed ViewResult - view Chats executed in 122.0558ms.
+2024-11-22 22:33:49.703 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.Chats (Apptivate_UQMS_WebApp) in 279.657ms
+2024-11-22 22:33:49.704 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.Chats (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:49.706 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Chat/Chats - 200 null text/html; charset=utf-8 299.9391ms
+2024-11-22 22:33:49.757 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/Chats.css - null null
+2024-11-22 22:33:49.757 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/chat.js - null null
+2024-11-22 22:33:49.758 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:33:49.759 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/chat-enhanced.js - null null
+2024-11-22 22:33:49.759 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:33:49.764 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 6.4101ms
+2024-11-22 22:33:49.786 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.4344ms
+2024-11-22 22:33:50.013 +02:00 [INF] Sending file. Request path: '/css/Chats.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\css\Chats.css'
+2024-11-22 22:33:50.014 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/Chats.css - 200 8830 text/css 257.3235ms
+2024-11-22 22:33:50.222 +02:00 [INF] Sending file. Request path: '/js/chat.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\js\chat.js'
+2024-11-22 22:33:50.229 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/chat.js - 200 5912 text/javascript 472.0761ms
+2024-11-22 22:33:50.230 +02:00 [INF] Sending file. Request path: '/js/chat-enhanced.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\js\chat-enhanced.js'
+2024-11-22 22:33:50.243 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/chatHub/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-22 22:33:50.244 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/chat-enhanced.js - 200 8476 text/javascript 484.8956ms
+2024-11-22 22:33:50.256 +02:00 [INF] Executing endpoint '/chatHub/negotiate'
+2024-11-22 22:33:50.259 +02:00 [INF] Executed endpoint '/chatHub/negotiate'
+2024-11-22 22:33:50.260 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/chatHub/negotiate?negotiateVersion=1 - 200 316 application/json 17.6502ms
+2024-11-22 22:33:50.439 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7061/chatHub?id=A3NdORMpuupmnPopeOtYEg - null null
+2024-11-22 22:33:50.444 +02:00 [INF] Executing endpoint '/chatHub'
+2024-11-22 22:33:50.474 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/api/users/statuses - null null
+2024-11-22 22:33:50.488 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetUserStatuses (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:50.506 +02:00 [INF] Route matched with {action = "GetUserStatuses", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserStatuses() on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-11-22 22:33:50.509 +02:00 [INF] Executed DbCommand (20ms) [Parameters=[@__firebaseUserId_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-11-22 22:33:50.526 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserID] AS [userId], [u].[IsOnline] AS [isOnline]
+FROM [Users] AS [u]
+2024-11-22 22:33:50.553 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType6`2[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-22 22:33:50.596 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.GetUserStatuses (Apptivate_UQMS_WebApp) in 87.7465ms
+2024-11-22 22:33:50.597 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetUserStatuses (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:50.599 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/api/users/statuses - 200 null application/json; charset=utf-8 124.8096ms
+2024-11-22 22:33:50.612 +02:00 [INF] Executed DbCommand (31ms) [Parameters=[@p2='3', @p0='True', @p1='2024-11-22T20:33:50.5153247Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [IsOnline] = @p0, [LastSeen] = @p1
+OUTPUT 1
+WHERE [UserID] = @p2;
+2024-11-22 22:33:53.103 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-22 22:33:53.112 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:53.113 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-22 22:33:53.114 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-22 22:33:53.118 +02:00 [INF] Executed ViewResult - view Index executed in 3.6167ms.
+2024-11-22 22:33:53.119 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 4.8135ms
+2024-11-22 22:33:53.120 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:53.121 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 17.2716ms
+2024-11-22 22:33:53.134 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__firebaseUserId_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-11-22 22:33:53.141 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@p2='3', @p0='False', @p1='2024-11-22T20:33:53.1365990Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [IsOnline] = @p0, [LastSeen] = @p1
+OUTPUT 1
+WHERE [UserID] = @p2;
+2024-11-22 22:33:53.146 +02:00 [INF] Executed endpoint '/chatHub'
+2024-11-22 22:33:53.147 +02:00 [INF] Request finished HTTP/2 CONNECT https://localhost:7061/chatHub?id=A3NdORMpuupmnPopeOtYEg - 200 null null 2707.3702ms
+2024-11-22 22:33:53.162 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:33:53.162 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:33:53.164 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 2.122ms
+2024-11-22 22:33:53.172 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.1983ms
+2024-11-22 22:33:56.812 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Chat/Chats - null null
+2024-11-22 22:33:56.819 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.Chats (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:56.820 +02:00 [INF] Route matched with {action = "Chats", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Chats() on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-11-22 22:33:56.825 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__firebaseUserId_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-11-22 22:33:56.836 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__currentUserId_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserID], [u].[Name], [u].[Surname], [u].[IsOnline], [u].[LastSeen], (
+    SELECT COUNT(*)
+    FROM [Messages] AS [m]
+    WHERE [m].[ReceiverId] = @__currentUserId_0 AND [m].[IsRead] = CAST(0 AS bit) AND [u].[UserID] = [m].[SenderId]) AS [UnreadCount]
+FROM [Users] AS [u]
+WHERE [u].[UserID] <> @__currentUserId_0
+2024-11-22 22:33:56.838 +02:00 [INF] Executing ViewResult, running view Chats.
+2024-11-22 22:33:56.841 +02:00 [INF] Executed ViewResult - view Chats executed in 2.3835ms.
+2024-11-22 22:33:56.842 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.Chats (Apptivate_UQMS_WebApp) in 20.6718ms
+2024-11-22 22:33:56.842 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.Chats (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:56.843 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Chat/Chats - 200 null text/html; charset=utf-8 31.6942ms
+2024-11-22 22:33:56.874 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:33:56.877 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 3.4895ms
+2024-11-22 22:33:56.889 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/chatHub/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-22 22:33:56.893 +02:00 [INF] Executing endpoint '/chatHub/negotiate'
+2024-11-22 22:33:56.894 +02:00 [INF] Executed endpoint '/chatHub/negotiate'
+2024-11-22 22:33:56.897 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/chatHub/negotiate?negotiateVersion=1 - 200 316 application/json 7.0254ms
+2024-11-22 22:33:56.959 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7061/chatHub?id=pm0lyBLAJcZiuiQUZHHbdA - null null
+2024-11-22 22:33:56.963 +02:00 [INF] Executing endpoint '/chatHub'
+2024-11-22 22:33:56.978 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/api/users/statuses - null null
+2024-11-22 22:33:56.979 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__firebaseUserId_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-11-22 22:33:56.981 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetUserStatuses (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:56.984 +02:00 [INF] Route matched with {action = "GetUserStatuses", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserStatuses() on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-11-22 22:33:56.988 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@p2='3', @p0='True', @p1='2024-11-22T20:33:56.9829590Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [IsOnline] = @p0, [LastSeen] = @p1
+OUTPUT 1
+WHERE [UserID] = @p2;
+2024-11-22 22:33:56.990 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserID] AS [userId], [u].[IsOnline] AS [isOnline]
+FROM [Users] AS [u]
+2024-11-22 22:33:56.992 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType6`2[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-22 22:33:56.994 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.GetUserStatuses (Apptivate_UQMS_WebApp) in 8.5674ms
+2024-11-22 22:33:56.998 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetUserStatuses (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:57.001 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/api/users/statuses - 200 null application/json; charset=utf-8 23.2365ms
+2024-11-22 22:33:58.708 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard - null null
+2024-11-22 22:33:58.714 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:58.714 +02:00 [INF] Route matched with {action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-22 22:33:58.716 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/StaffDashboard.
+2024-11-22 22:33:58.717 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp) in 1.0551ms
+2024-11-22 22:33:58.718 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:58.720 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard - 302 0 null 11.6725ms
+2024-11-22 22:33:58.725 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - null null
+2024-11-22 22:33:58.728 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:58.729 +02:00 [INF] Route matched with {action = "StaffDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StaffDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-22 22:33:58.739 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__firebaseUid_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-22 22:33:58.753 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[@__staff_StaffID_0='1' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE EXISTS (
+    SELECT 1
+    FROM [QueryAssignments] AS [q0]
+    WHERE [q].[QueryID] = [q0].[QueryID] AND [q0].[StaffID] = @__staff_StaffID_0)
+GROUP BY [q].[Status]
+2024-11-22 22:33:58.785 +02:00 [INF] Executed DbCommand (26ms) [Parameters=[@__staff_StaffID_0='1' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[AssignmentID], [q].[AssignedDate], [q].[AssignmentNumber], [q].[Priority], [q].[QueryID], [q].[ResolutionDate], [q].[StaffID], [q0].[QueryID], [q0].[CategoryID], [q0].[CourseID], [q0].[DepartmentID], [q0].[Description], [q0].[ModuleID], [q0].[QueryTypeID], [q0].[ResolvedDate], [q0].[Status], [q0].[StudentID], [q0].[SubmissionDate], [q0].[TicketNumber], [q0].[Year], [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname], [q1].[CategoryID], [q1].[CategoryName], [q1].[QueryTypeID], [q2].[QueryTypeID], [q2].[TypeName], [d].[DepartmentID], [d].[DepartmentName]
+FROM [QueryAssignments] AS [q]
+LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+LEFT JOIN [StudentDetails] AS [s] ON [q0].[StudentID] = [s].[StudentID]
+LEFT JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [QueryCategories] AS [q1] ON [q0].[CategoryID] = [q1].[CategoryID]
+LEFT JOIN [QueryTypes] AS [q2] ON [q1].[QueryTypeID] = [q2].[QueryTypeID]
+LEFT JOIN [Departments] AS [d] ON [q0].[DepartmentID] = [d].[DepartmentID]
+WHERE [q].[StaffID] = @__staff_StaffID_0
+2024-11-22 22:33:58.853 +02:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname], [p].[PositionID], [p].[PositionName], [t].[AssignmentID], [t].[AssignedDate], [t].[AssignmentNumber], [t].[Priority], [t].[QueryID], [t].[ResolutionDate], [t].[StaffID], [t].[QueryID0], [t].[CategoryID], [t].[CourseID], [t].[DepartmentID], [t].[Description], [t].[ModuleID], [t].[QueryTypeID], [t].[ResolvedDate], [t].[Status], [t].[StudentID], [t].[SubmissionDate], [t].[TicketNumber], [t].[Year], [t].[CategoryID0], [t].[CategoryName], [t].[QueryTypeID0], [t].[QueryTypeID1], [t].[TypeName]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+LEFT JOIN (
+    SELECT [q1].[AssignmentID], [q1].[AssignedDate], [q1].[AssignmentNumber], [q1].[Priority], [q1].[QueryID], [q1].[ResolutionDate], [q1].[StaffID], [q2].[QueryID] AS [QueryID0], [q2].[CategoryID], [q2].[CourseID], [q2].[DepartmentID], [q2].[Description], [q2].[ModuleID], [q2].[QueryTypeID], [q2].[ResolvedDate], [q2].[Status], [q2].[StudentID], [q2].[SubmissionDate], [q2].[TicketNumber], [q2].[Year], [q3].[CategoryID] AS [CategoryID0], [q3].[CategoryName], [q3].[QueryTypeID] AS [QueryTypeID0], [q4].[QueryTypeID] AS [QueryTypeID1], [q4].[TypeName]
+    FROM [QueryAssignments] AS [q1]
+    LEFT JOIN [Queries] AS [q2] ON [q1].[QueryID] = [q2].[QueryID]
+    LEFT JOIN [QueryCategories] AS [q3] ON [q2].[CategoryID] = [q3].[CategoryID]
+    LEFT JOIN [QueryTypes] AS [q4] ON [q3].[QueryTypeID] = [q4].[QueryTypeID]
+) AS [t] ON [s].[StaffID] = [t].[StaffID]
+WHERE EXISTS (
+    SELECT 1
+    FROM [QueryAssignments] AS [q]
+    LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+    WHERE [s].[StaffID] = [q].[StaffID] AND [q0].[QueryID] IS NOT NULL)
+ORDER BY [s].[StaffID], [u].[UserID], [p].[PositionID], [t].[AssignmentID], [t].[QueryID0], [t].[CategoryID0]
+2024-11-22 22:33:58.874 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__firebaseUid_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-22 22:33:58.881 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_UserID_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-22 22:33:58.886 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_UserID_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-22 22:33:58.890 +02:00 [INF] Executing ViewResult, running view StaffDashboard.
+2024-11-22 22:33:58.894 +02:00 [INF] Executed ViewResult - view StaffDashboard executed in 4.0187ms.
+2024-11-22 22:33:58.895 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp) in 164.4056ms
+2024-11-22 22:33:58.896 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:33:58.896 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - 200 null text/html; charset=utf-8 171.6197ms
+2024-11-22 22:33:58.910 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__firebaseUserId_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-11-22 22:33:58.919 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@p2='3', @p0='False', @p1='2024-11-22T20:33:58.9124178Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [IsOnline] = @p0, [LastSeen] = @p1
+OUTPUT 1
+WHERE [UserID] = @p2;
+2024-11-22 22:33:58.920 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:33:58.920 +02:00 [INF] Executed endpoint '/chatHub'
+2024-11-22 22:33:58.923 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 2.7139ms
+2024-11-22 22:33:58.924 +02:00 [INF] Request finished HTTP/2 CONNECT https://localhost:7061/chatHub?id=pm0lyBLAJcZiuiQUZHHbdA - 200 null null 1964.7725ms
+2024-11-22 22:33:58.926 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:33:58.934 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.3068ms
+2024-11-22 22:33:58.968 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=1&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-22 22:33:58.970 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-22 22:33:58.972 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-22 22:33:58.973 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=1&negotiateVersion=1 - 200 316 application/json 5.7907ms
+2024-11-22 22:33:59.023 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7061/notificationHub?staffId=1&id=f2dpiQZrcblhBCeklM2wIw - null null
+2024-11-22 22:33:59.025 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-22 22:33:59.054 +02:00 [INF] Staff member with ID 1 is connecting. Connection ID: cyFYxse59SduCCOsqLU31Q
+2024-11-22 22:33:59.055 +02:00 [INF] Staff member with ID 1 connected and added to group. Connection ID: cyFYxse59SduCCOsqLU31Q
+2024-11-22 22:34:19.908 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/StaffQuery/TicketDashboard - null null
+2024-11-22 22:34:19.914 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.StaffQueryController.TicketDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:34:19.916 +02:00 [INF] Route matched with {action = "TicketDashboard", controller = "StaffQuery"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TicketDashboard() on controller Apptivate_UQMS_WebApp.Controllers.StaffQueryController (Apptivate_UQMS_WebApp).
+2024-11-22 22:34:19.920 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-22 22:34:19.921 +02:00 [INF] Executing ViewResult, running view ~/Views/Query/StaffQuery/TicketDashboard.cshtml.
+2024-11-22 22:34:19.923 +02:00 [INF] Executed ViewResult - view ~/Views/Query/StaffQuery/TicketDashboard.cshtml executed in 1.8701ms.
+2024-11-22 22:34:19.924 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.StaffQueryController.TicketDashboard (Apptivate_UQMS_WebApp) in 6.3718ms
+2024-11-22 22:34:19.925 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.StaffQueryController.TicketDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:34:19.925 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/StaffQuery/TicketDashboard - 200 null text/html; charset=utf-8 17.2064ms
+2024-11-22 22:34:19.929 +02:00 [INF] Staff member with ID 1 is disconnecting. Connection ID: cyFYxse59SduCCOsqLU31Q
+2024-11-22 22:34:19.930 +02:00 [INF] Staff member with ID 1 removed from group and connection removed. Connection ID: cyFYxse59SduCCOsqLU31Q
+2024-11-22 22:34:19.931 +02:00 [INF] Executed endpoint '/notificationHub'
+2024-11-22 22:34:19.933 +02:00 [INF] Request finished HTTP/2 CONNECT https://localhost:7061/notificationHub?staffId=1&id=f2dpiQZrcblhBCeklM2wIw - 200 null null 20909.1986ms
+2024-11-22 22:34:19.948 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:34:19.950 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:34:19.951 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 2.5365ms
+2024-11-22 22:34:19.961 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.0963ms
+2024-11-22 22:34:21.780 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/StaffQuery/AssignQuery - null null
+2024-11-22 22:34:21.786 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.StaffQueryController.AssignQuery (Apptivate_UQMS_WebApp)'
+2024-11-22 22:34:21.791 +02:00 [INF] Route matched with {action = "AssignQuery", controller = "StaffQuery"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AssignQuery() on controller Apptivate_UQMS_WebApp.Controllers.StaffQueryController (Apptivate_UQMS_WebApp).
+2024-11-22 22:34:21.796 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-22 22:34:21.818 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__firebaseUid_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-22 22:34:21.829 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__staff_StaffID_0='1' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q0].[TicketNumber], [q0].[QueryID], [q0].[Description], [q].[Priority], [q0].[SubmissionDate]
+FROM [QueryAssignments] AS [q]
+LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+WHERE [q].[StaffID] = @__staff_StaffID_0
+2024-11-22 22:34:21.860 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__currentUserId_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+WHERE [s].[UserID] = @__currentUserId_0
+2024-11-22 22:34:21.885 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[@__currentUserDepartment_0='School of Information Technology' (Size = 4000), @__currentUserId_1='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[StaffID], [u].[Name] + N' ' + [u].[Surname] AS [StaffName], [p].[PositionName] AS [Position], [s].[Department]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[Department] = @__currentUserDepartment_0 AND [s].[UserID] <> @__currentUserId_1
+2024-11-22 22:34:21.890 +02:00 [INF] Executing ViewResult, running view ~/Views/Query/StaffQuery/AssignQuery.cshtml.
+2024-11-22 22:34:21.941 +02:00 [INF] Executed ViewResult - view ~/Views/Query/StaffQuery/AssignQuery.cshtml executed in 52.398ms.
+2024-11-22 22:34:21.942 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.StaffQueryController.AssignQuery (Apptivate_UQMS_WebApp) in 148.5734ms
+2024-11-22 22:34:21.944 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.StaffQueryController.AssignQuery (Apptivate_UQMS_WebApp)'
+2024-11-22 22:34:21.945 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/StaffQuery/AssignQuery - 200 null text/html; charset=utf-8 164.6289ms
+2024-11-22 22:34:21.974 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/AssignQuery.css?v=qOJFp-923vRjcu6rS8kozxKYDQmugIndMzuw2GHRNOs - null null
+2024-11-22 22:34:21.975 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:34:21.978 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 3.1712ms
+2024-11-22 22:34:21.979 +02:00 [INF] Sending file. Request path: '/css/AssignQuery.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\css\AssignQuery.css'
+2024-11-22 22:34:21.983 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:34:21.986 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/AssignQuery.css?v=qOJFp-923vRjcu6rS8kozxKYDQmugIndMzuw2GHRNOs - 200 2953 text/css 12.3857ms
+2024-11-22 22:34:21.991 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.9391ms
+2024-11-22 22:39:03.470 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/StaffQuery/TicketDashboard - null null
+2024-11-22 22:39:03.978 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.StaffQueryController.TicketDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:39:04.013 +02:00 [INF] Route matched with {action = "TicketDashboard", controller = "StaffQuery"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TicketDashboard() on controller Apptivate_UQMS_WebApp.Controllers.StaffQueryController (Apptivate_UQMS_WebApp).
+2024-11-22 22:39:04.096 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-22 22:39:04.128 +02:00 [INF] Executing ViewResult, running view ~/Views/Query/StaffQuery/TicketDashboard.cshtml.
+2024-11-22 22:39:04.241 +02:00 [INF] Executed ViewResult - view ~/Views/Query/StaffQuery/TicketDashboard.cshtml executed in 126.2142ms.
+2024-11-22 22:39:04.246 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.StaffQueryController.TicketDashboard (Apptivate_UQMS_WebApp) in 228.333ms
+2024-11-22 22:39:04.248 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.StaffQueryController.TicketDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:39:04.256 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/StaffQuery/TicketDashboard - 200 null text/html; charset=utf-8 792.774ms
+2024-11-22 22:39:04.487 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:39:04.487 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:39:04.517 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 29.2134ms
+2024-11-22 22:39:04.627 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 139.8724ms
+2024-11-22 22:39:05.475 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/StaffQuery/StaffQueries - null null
+2024-11-22 22:39:05.492 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.StaffQueryController.StaffQueries (Apptivate_UQMS_WebApp)'
+2024-11-22 22:39:05.604 +02:00 [INF] Route matched with {action = "StaffQueries", controller = "StaffQuery"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StaffQueries() on controller Apptivate_UQMS_WebApp.Controllers.StaffQueryController (Apptivate_UQMS_WebApp).
+2024-11-22 22:39:05.617 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-22 22:39:05.967 +02:00 [INF] Executed DbCommand (97ms) [Parameters=[@__firebaseUid_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-22 22:39:06.315 +02:00 [INF] Executed DbCommand (66ms) [Parameters=[@__staff_StaffID_0='1' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[AssignmentID], [q].[AssignedDate], [q].[AssignmentNumber], [q].[Priority], [q].[QueryID], [q].[ResolutionDate], [q].[StaffID], [q0].[QueryID], [q0].[CategoryID], [q0].[CourseID], [q0].[DepartmentID], [q0].[Description], [q0].[ModuleID], [q0].[QueryTypeID], [q0].[ResolvedDate], [q0].[Status], [q0].[StudentID], [q0].[SubmissionDate], [q0].[TicketNumber], [q0].[Year], [q1].[DocumentID], [q1].[DocumentName], [q1].[DocumentPath], [q1].[QueryID], [q1].[UploadDate]
+FROM [QueryAssignments] AS [q]
+LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+LEFT JOIN [QueryDocuments] AS [q1] ON [q0].[QueryID] = [q1].[QueryID]
+WHERE [q].[StaffID] = @__staff_StaffID_0
+ORDER BY [q].[AssignmentID], [q0].[QueryID]
+2024-11-22 22:39:06.461 +02:00 [INF] Executing ViewResult, running view ~/Views/Query/StaffQuery/StaffQueries.cshtml.
+2024-11-22 22:39:06.582 +02:00 [INF] Executed ViewResult - view ~/Views/Query/StaffQuery/StaffQueries.cshtml executed in 128.695ms.
+2024-11-22 22:39:06.597 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.StaffQueryController.StaffQueries (Apptivate_UQMS_WebApp) in 992.4045ms
+2024-11-22 22:39:06.601 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.StaffQueryController.StaffQueries (Apptivate_UQMS_WebApp)'
+2024-11-22 22:39:06.613 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/StaffQuery/StaffQueries - 200 null text/html; charset=utf-8 1137.6161ms
+2024-11-22 22:39:06.683 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/staffQueries.css?v=WSbYJ_pXfczDl7kSSnhoQMtvkF6i96ewSPaJq6MoDkY - null null
+2024-11-22 22:39:06.705 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:39:06.705 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:39:06.707 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 2.0043ms
+2024-11-22 22:39:06.713 +02:00 [INF] Sending file. Request path: '/css/staffQueries.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\css\staffQueries.css'
+2024-11-22 22:39:06.716 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/staffQueries.css?v=WSbYJ_pXfczDl7kSSnhoQMtvkF6i96ewSPaJq6MoDkY - 200 7967 text/css 32.4748ms
+2024-11-22 22:39:06.725 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 19.228ms
+2024-11-22 22:53:30.467 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-22 22:53:30.697 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-22 22:53:30.698 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-22 22:53:30.701 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-22 22:53:30.702 +02:00 [INF] Hosting environment: Development
+2024-11-22 22:53:30.702 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-11-22 22:53:31.034 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/StaffQuery/StaffQueries - null null
+2024-11-22 22:53:31.664 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.StaffQueryController.StaffQueries (Apptivate_UQMS_WebApp)'
+2024-11-22 22:53:31.676 +02:00 [INF] Route matched with {action = "StaffQueries", controller = "StaffQuery"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StaffQueries() on controller Apptivate_UQMS_WebApp.Controllers.StaffQueryController (Apptivate_UQMS_WebApp).
+2024-11-22 22:53:31.699 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-22 22:53:31.707 +02:00 [INF] Accessing expired session, Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa
+2024-11-22 22:53:31.708 +02:00 [ERR] User not logged in.
+2024-11-22 22:53:31.722 +02:00 [INF] Executing RedirectResult, redirecting to /Account/Login.
+2024-11-22 22:53:31.729 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.StaffQueryController.StaffQueries (Apptivate_UQMS_WebApp) in 47.0013ms
+2024-11-22 22:53:31.735 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.StaffQueryController.StaffQueries (Apptivate_UQMS_WebApp)'
+2024-11-22 22:53:31.740 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/StaffQuery/StaffQueries - 302 0 null 708.6106ms
+2024-11-22 22:53:31.764 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Account/Login - null null
+2024-11-22 22:53:31.783 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-22 22:53:31.789 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-22 22:53:33.545 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-22 22:53:34.456 +02:00 [INF] Executed DbCommand (120ms) [Parameters=[@__firebaseUser_Uid_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUser_Uid_0
+2024-11-22 22:53:34.555 +02:00 [INF] Accessing expired session, Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa
+2024-11-22 22:53:34.557 +02:00 [INF] Auto-login successful for user Daniel@gmail.com.
+2024-11-22 22:53:34.563 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard.
+2024-11-22 22:53:34.565 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 2773.8682ms
+2024-11-22 22:53:34.566 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-22 22:53:34.569 +02:00 [INF] Session started; Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa, Id:d0a4cd72-ff13-87d6-5320-253a760f15b8
+2024-11-22 22:53:34.576 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Account/Login - 302 0 null 2811.7509ms
+2024-11-22 22:53:34.581 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard - null null
+2024-11-22 22:53:34.589 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-22 22:53:34.591 +02:00 [INF] Route matched with {action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-22 22:53:34.595 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/StaffDashboard.
+2024-11-22 22:53:34.596 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp) in 2.6763ms
+2024-11-22 22:53:34.597 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-22 22:53:34.598 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard - 302 0 null 17.5835ms
+2024-11-22 22:53:34.605 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - null null
+2024-11-22 22:53:34.610 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:53:34.614 +02:00 [INF] Route matched with {action = "StaffDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StaffDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-22 22:53:34.739 +02:00 [INF] Executed DbCommand (26ms) [Parameters=[@__firebaseUid_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-22 22:53:34.885 +02:00 [INF] Executed DbCommand (62ms) [Parameters=[@__staff_StaffID_0='1' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE EXISTS (
+    SELECT 1
+    FROM [QueryAssignments] AS [q0]
+    WHERE [q].[QueryID] = [q0].[QueryID] AND [q0].[StaffID] = @__staff_StaffID_0)
+GROUP BY [q].[Status]
+2024-11-22 22:53:34.984 +02:00 [INF] Executed DbCommand (62ms) [Parameters=[@__staff_StaffID_0='1' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[AssignmentID], [q].[AssignedDate], [q].[AssignmentNumber], [q].[Priority], [q].[QueryID], [q].[ResolutionDate], [q].[StaffID], [q0].[QueryID], [q0].[CategoryID], [q0].[CourseID], [q0].[DepartmentID], [q0].[Description], [q0].[ModuleID], [q0].[QueryTypeID], [q0].[ResolvedDate], [q0].[Status], [q0].[StudentID], [q0].[SubmissionDate], [q0].[TicketNumber], [q0].[Year], [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname], [q1].[CategoryID], [q1].[CategoryName], [q1].[QueryTypeID], [q2].[QueryTypeID], [q2].[TypeName], [d].[DepartmentID], [d].[DepartmentName]
+FROM [QueryAssignments] AS [q]
+LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+LEFT JOIN [StudentDetails] AS [s] ON [q0].[StudentID] = [s].[StudentID]
+LEFT JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [QueryCategories] AS [q1] ON [q0].[CategoryID] = [q1].[CategoryID]
+LEFT JOIN [QueryTypes] AS [q2] ON [q1].[QueryTypeID] = [q2].[QueryTypeID]
+LEFT JOIN [Departments] AS [d] ON [q0].[DepartmentID] = [d].[DepartmentID]
+WHERE [q].[StaffID] = @__staff_StaffID_0
+2024-11-22 22:53:35.170 +02:00 [INF] Executed DbCommand (69ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname], [p].[PositionID], [p].[PositionName], [t].[AssignmentID], [t].[AssignedDate], [t].[AssignmentNumber], [t].[Priority], [t].[QueryID], [t].[ResolutionDate], [t].[StaffID], [t].[QueryID0], [t].[CategoryID], [t].[CourseID], [t].[DepartmentID], [t].[Description], [t].[ModuleID], [t].[QueryTypeID], [t].[ResolvedDate], [t].[Status], [t].[StudentID], [t].[SubmissionDate], [t].[TicketNumber], [t].[Year], [t].[CategoryID0], [t].[CategoryName], [t].[QueryTypeID0], [t].[QueryTypeID1], [t].[TypeName]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+LEFT JOIN (
+    SELECT [q1].[AssignmentID], [q1].[AssignedDate], [q1].[AssignmentNumber], [q1].[Priority], [q1].[QueryID], [q1].[ResolutionDate], [q1].[StaffID], [q2].[QueryID] AS [QueryID0], [q2].[CategoryID], [q2].[CourseID], [q2].[DepartmentID], [q2].[Description], [q2].[ModuleID], [q2].[QueryTypeID], [q2].[ResolvedDate], [q2].[Status], [q2].[StudentID], [q2].[SubmissionDate], [q2].[TicketNumber], [q2].[Year], [q3].[CategoryID] AS [CategoryID0], [q3].[CategoryName], [q3].[QueryTypeID] AS [QueryTypeID0], [q4].[QueryTypeID] AS [QueryTypeID1], [q4].[TypeName]
+    FROM [QueryAssignments] AS [q1]
+    LEFT JOIN [Queries] AS [q2] ON [q1].[QueryID] = [q2].[QueryID]
+    LEFT JOIN [QueryCategories] AS [q3] ON [q2].[CategoryID] = [q3].[CategoryID]
+    LEFT JOIN [QueryTypes] AS [q4] ON [q3].[QueryTypeID] = [q4].[QueryTypeID]
+) AS [t] ON [s].[StaffID] = [t].[StaffID]
+WHERE EXISTS (
+    SELECT 1
+    FROM [QueryAssignments] AS [q]
+    LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+    WHERE [s].[StaffID] = [q].[StaffID] AND [q0].[QueryID] IS NOT NULL)
+ORDER BY [s].[StaffID], [u].[UserID], [p].[PositionID], [t].[AssignmentID], [t].[QueryID0], [t].[CategoryID0]
+2024-11-22 22:53:35.210 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__firebaseUid_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-22 22:53:35.225 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_UserID_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-22 22:53:35.271 +02:00 [INF] Executed DbCommand (29ms) [Parameters=[@__user_UserID_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-22 22:53:35.285 +02:00 [INF] Executing ViewResult, running view StaffDashboard.
+2024-11-22 22:53:35.459 +02:00 [INF] Executed ViewResult - view StaffDashboard executed in 179.2478ms.
+2024-11-22 22:53:35.462 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp) in 846.3613ms
+2024-11-22 22:53:35.465 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:53:35.470 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - 200 null text/html; charset=utf-8 864.059ms
+2024-11-22 22:53:35.682 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=qs5ueYQNnxdPY2nMnSxwZf003j75T8GJr2KVZR7pV-Q - null null
+2024-11-22 22:53:35.684 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:53:35.702 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-11-22 22:53:35.703 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:53:35.706 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 21.7378ms
+2024-11-22 22:53:35.717 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=qs5ueYQNnxdPY2nMnSxwZf003j75T8GJr2KVZR7pV-Q - 304 null text/css 35.5678ms
+2024-11-22 22:53:35.803 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 99.3247ms
+2024-11-22 22:53:35.920 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=1&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-22 22:53:35.924 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-22 22:53:35.937 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-22 22:53:35.938 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=1&negotiateVersion=1 - 200 316 application/json 17.9201ms
+2024-11-22 22:53:35.977 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7061/notificationHub?staffId=1&id=6TF9A6sobDUbwI3swqiE7w - null null
+2024-11-22 22:53:35.981 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-22 22:53:36.181 +02:00 [INF] Staff member with ID 1 is connecting. Connection ID: FCk7D4kMiWYa5kfM52_REQ
+2024-11-22 22:53:36.185 +02:00 [INF] Staff member with ID 1 connected and added to group. Connection ID: FCk7D4kMiWYa5kfM52_REQ
+2024-11-22 22:56:17.194 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-22 22:56:17.291 +02:00 [INF] QueryCleanupService is running at: "2024-11-22T22:56:17.2885953+02:00"
+2024-11-22 22:56:17.486 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-22 22:56:18.066 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-22 22:56:18.736 +02:00 [INF] Now listening on: https://localhost:7061
+2024-11-22 22:56:18.737 +02:00 [INF] Now listening on: http://localhost:5042
+2024-11-22 22:56:18.738 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-22 22:56:18.739 +02:00 [INF] Hosting environment: Development
+2024-11-22 22:56:18.741 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-11-22 22:56:18.850 +02:00 [INF] Executed DbCommand (47ms) [Parameters=[@__twoDaysAgo_0='2024-11-20T20:56:17.4927619Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID]
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Closed' AND [q].[ResolvedDate] <= @__twoDaysAgo_0
+2024-11-22 22:56:18.991 +02:00 [INF] Executed DbCommand (25ms) [Parameters=[@__closedQueries_0='[31,33,34,37,38,39,47,49,60,80,108]' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[DocumentID], [q].[DocumentName], [q].[DocumentPath], [q].[QueryID], [q].[UploadDate]
+FROM [QueryDocuments] AS [q]
+WHERE [q].[QueryID] IN (
+    SELECT [c].[value]
+    FROM OPENJSON(@__closedQueries_0) WITH ([value] int '$') AS [c]
+)
+2024-11-22 22:56:19.061 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - null null
+2024-11-22 22:56:19.080 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[@__closedQueries_0='[31,33,34,37,38,39,47,49,60,80,108]' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID], [q].[CategoryID], [q].[CourseID], [q].[DepartmentID], [q].[Description], [q].[ModuleID], [q].[QueryTypeID], [q].[ResolvedDate], [q].[Status], [q].[StudentID], [q].[SubmissionDate], [q].[TicketNumber], [q].[Year]
+FROM [Queries] AS [q]
+WHERE [q].[QueryID] IN (
+    SELECT [c].[value]
+    FROM OPENJSON(@__closedQueries_0) WITH ([value] int '$') AS [c]
+)
+2024-11-22 22:56:19.566 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:56:19.579 +02:00 [INF] Route matched with {action = "StaffDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StaffDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-22 22:56:19.587 +02:00 [INF] Accessing expired session, Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa
+2024-11-22 22:56:19.589 +02:00 [ERR] User not logged in.
+2024-11-22 22:56:19.603 +02:00 [INF] Executing RedirectResult, redirecting to /Account/Login.
+2024-11-22 22:56:19.607 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp) in 23.766ms
+2024-11-22 22:56:19.610 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:56:19.615 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - 302 0 null 555.858ms
+2024-11-22 22:56:19.625 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Account/Login - null null
+2024-11-22 22:56:19.636 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-22 22:56:19.641 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-22 22:56:21.134 +02:00 [INF] Executed DbCommand (423ms) [Parameters=[@__firebaseUser_Uid_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUser_Uid_0
+2024-11-22 22:56:21.178 +02:00 [INF] Accessing expired session, Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa
+2024-11-22 22:56:21.181 +02:00 [INF] Auto-login successful for user Daniel@gmail.com.
+2024-11-22 22:56:21.184 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard.
+2024-11-22 22:56:21.185 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 1543.2361ms
+2024-11-22 22:56:21.186 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-22 22:56:21.190 +02:00 [INF] Session started; Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa, Id:d33bda0d-d8ae-97c2-2845-7056c9a13c98
+2024-11-22 22:56:21.197 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Account/Login - 302 0 null 1571.9289ms
+2024-11-22 22:56:21.206 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard - null null
+2024-11-22 22:56:21.215 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-22 22:56:21.218 +02:00 [INF] Route matched with {action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-22 22:56:21.220 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/StaffDashboard.
+2024-11-22 22:56:21.221 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp) in 1.987ms
+2024-11-22 22:56:21.222 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-22 22:56:21.223 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard - 302 0 null 16.5343ms
+2024-11-22 22:56:21.235 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - null null
+2024-11-22 22:56:21.244 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:56:21.246 +02:00 [INF] Route matched with {action = "StaffDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StaffDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-22 22:56:21.383 +02:00 [INF] Executed DbCommand (2,100ms) [Parameters=[@p0='31', @p1='26', @p2='27', @p3='30', @p4='31', @p5='32', @p6='36', @p7='38', @p8='46', @p9='60', @p10='61', @p11='70', @p12='71', @p13='72', @p14='73', @p15='74', @p16='76', @p17='83', @p18='84', @p19='85', @p20='113', @p21='114', @p22='119', @p23='33', @p24='34', @p25='37', @p26='38', @p27='39', @p28='47', @p29='49', @p30='60', @p31='80', @p32='108'], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [Queries]
+OUTPUT 1
+WHERE [QueryID] = @p0;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p1;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p2;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p3;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p4;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p5;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p6;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p7;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p8;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p9;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p10;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p11;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p12;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p13;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p14;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p15;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p16;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p17;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p18;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p19;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p20;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p21;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p22;
+DELETE FROM [Queries]
+OUTPUT 1
+WHERE [QueryID] = @p23;
+DELETE FROM [Queries]
+OUTPUT 1
+WHERE [QueryID] = @p24;
+DELETE FROM [Queries]
+OUTPUT 1
+WHERE [QueryID] = @p25;
+DELETE FROM [Queries]
+OUTPUT 1
+WHERE [QueryID] = @p26;
+DELETE FROM [Queries]
+OUTPUT 1
+WHERE [QueryID] = @p27;
+DELETE FROM [Queries]
+OUTPUT 1
+WHERE [QueryID] = @p28;
+DELETE FROM [Queries]
+OUTPUT 1
+WHERE [QueryID] = @p29;
+DELETE FROM [Queries]
+OUTPUT 1
+WHERE [QueryID] = @p30;
+DELETE FROM [Queries]
+OUTPUT 1
+WHERE [QueryID] = @p31;
+DELETE FROM [Queries]
+OUTPUT 1
+WHERE [QueryID] = @p32;
+2024-11-22 22:56:21.383 +02:00 [INF] Executed DbCommand (31ms) [Parameters=[@__firebaseUid_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-22 22:56:21.405 +02:00 [INF] Query cleanup completed at: "2024-11-22T22:56:21.4056114+02:00"
+2024-11-22 22:56:21.523 +02:00 [INF] Executed DbCommand (77ms) [Parameters=[@__staff_StaffID_0='1' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE EXISTS (
+    SELECT 1
+    FROM [QueryAssignments] AS [q0]
+    WHERE [q].[QueryID] = [q0].[QueryID] AND [q0].[StaffID] = @__staff_StaffID_0)
+GROUP BY [q].[Status]
+2024-11-22 22:56:21.617 +02:00 [INF] Executed DbCommand (57ms) [Parameters=[@__staff_StaffID_0='1' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[AssignmentID], [q].[AssignedDate], [q].[AssignmentNumber], [q].[Priority], [q].[QueryID], [q].[ResolutionDate], [q].[StaffID], [q0].[QueryID], [q0].[CategoryID], [q0].[CourseID], [q0].[DepartmentID], [q0].[Description], [q0].[ModuleID], [q0].[QueryTypeID], [q0].[ResolvedDate], [q0].[Status], [q0].[StudentID], [q0].[SubmissionDate], [q0].[TicketNumber], [q0].[Year], [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname], [q1].[CategoryID], [q1].[CategoryName], [q1].[QueryTypeID], [q2].[QueryTypeID], [q2].[TypeName], [d].[DepartmentID], [d].[DepartmentName]
+FROM [QueryAssignments] AS [q]
+LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+LEFT JOIN [StudentDetails] AS [s] ON [q0].[StudentID] = [s].[StudentID]
+LEFT JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [QueryCategories] AS [q1] ON [q0].[CategoryID] = [q1].[CategoryID]
+LEFT JOIN [QueryTypes] AS [q2] ON [q1].[QueryTypeID] = [q2].[QueryTypeID]
+LEFT JOIN [Departments] AS [d] ON [q0].[DepartmentID] = [d].[DepartmentID]
+WHERE [q].[StaffID] = @__staff_StaffID_0
+2024-11-22 22:56:22.369 +02:00 [INF] Executed DbCommand (663ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname], [p].[PositionID], [p].[PositionName], [t].[AssignmentID], [t].[AssignedDate], [t].[AssignmentNumber], [t].[Priority], [t].[QueryID], [t].[ResolutionDate], [t].[StaffID], [t].[QueryID0], [t].[CategoryID], [t].[CourseID], [t].[DepartmentID], [t].[Description], [t].[ModuleID], [t].[QueryTypeID], [t].[ResolvedDate], [t].[Status], [t].[StudentID], [t].[SubmissionDate], [t].[TicketNumber], [t].[Year], [t].[CategoryID0], [t].[CategoryName], [t].[QueryTypeID0], [t].[QueryTypeID1], [t].[TypeName]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+LEFT JOIN (
+    SELECT [q1].[AssignmentID], [q1].[AssignedDate], [q1].[AssignmentNumber], [q1].[Priority], [q1].[QueryID], [q1].[ResolutionDate], [q1].[StaffID], [q2].[QueryID] AS [QueryID0], [q2].[CategoryID], [q2].[CourseID], [q2].[DepartmentID], [q2].[Description], [q2].[ModuleID], [q2].[QueryTypeID], [q2].[ResolvedDate], [q2].[Status], [q2].[StudentID], [q2].[SubmissionDate], [q2].[TicketNumber], [q2].[Year], [q3].[CategoryID] AS [CategoryID0], [q3].[CategoryName], [q3].[QueryTypeID] AS [QueryTypeID0], [q4].[QueryTypeID] AS [QueryTypeID1], [q4].[TypeName]
+    FROM [QueryAssignments] AS [q1]
+    LEFT JOIN [Queries] AS [q2] ON [q1].[QueryID] = [q2].[QueryID]
+    LEFT JOIN [QueryCategories] AS [q3] ON [q2].[CategoryID] = [q3].[CategoryID]
+    LEFT JOIN [QueryTypes] AS [q4] ON [q3].[QueryTypeID] = [q4].[QueryTypeID]
+) AS [t] ON [s].[StaffID] = [t].[StaffID]
+WHERE EXISTS (
+    SELECT 1
+    FROM [QueryAssignments] AS [q]
+    LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+    WHERE [s].[StaffID] = [q].[StaffID] AND [q0].[QueryID] IS NOT NULL)
+ORDER BY [s].[StaffID], [u].[UserID], [p].[PositionID], [t].[AssignmentID], [t].[QueryID0], [t].[CategoryID0]
+2024-11-22 22:56:22.406 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__firebaseUid_0='8gmggRNCMUaYTwAThlXahoTs8W12' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-22 22:56:22.418 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_UserID_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-22 22:56:22.433 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__user_UserID_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-22 22:56:22.440 +02:00 [INF] Executing ViewResult, running view StaffDashboard.
+2024-11-22 22:56:22.534 +02:00 [INF] Executed ViewResult - view StaffDashboard executed in 97.285ms.
+2024-11-22 22:56:22.537 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp) in 1289.9811ms
+2024-11-22 22:56:22.539 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StaffDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 22:56:22.542 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/StaffDashboard - 200 null text/html; charset=utf-8 1306.8882ms
+2024-11-22 22:56:22.630 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:56:22.635 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:56:22.639 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 8.3476ms
+2024-11-22 22:56:22.675 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.9192ms
+2024-11-22 22:56:22.698 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=1&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-22 22:56:22.704 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-22 22:56:22.714 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-22 22:56:22.715 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/notificationHub/negotiate?staffId=1&negotiateVersion=1 - 200 316 application/json 16.8554ms
+2024-11-22 22:56:22.756 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7061/notificationHub?staffId=1&id=Q_LospOLoNF9exnVGdAREw - null null
+2024-11-22 22:56:22.761 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-22 22:56:22.909 +02:00 [INF] Staff member with ID 1 is connecting. Connection ID: SA7NMMQZDwkilbDnbb1LRQ
+2024-11-22 22:56:22.913 +02:00 [INF] Staff member with ID 1 connected and added to group. Connection ID: SA7NMMQZDwkilbDnbb1LRQ
+2024-11-22 22:59:16.356 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/Account/Logout - application/x-www-form-urlencoded 225
+2024-11-22 22:59:16.409 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Logout (Apptivate_UQMS_WebApp)'
+2024-11-22 22:59:16.427 +02:00 [INF] Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-22 22:59:16.432 +02:00 [INF] User logged out.
+2024-11-22 22:59:16.438 +02:00 [INF] Executing RedirectResult, redirecting to /Account/Login.
+2024-11-22 22:59:16.439 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Logout (Apptivate_UQMS_WebApp) in 11.1065ms
+2024-11-22 22:59:16.440 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Logout (Apptivate_UQMS_WebApp)'
+2024-11-22 22:59:16.442 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/Account/Logout - 302 0 null 88.5911ms
+2024-11-22 22:59:16.449 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Account/Login - null null
+2024-11-22 22:59:16.454 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 22:59:16.454 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 22:59:16.455 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-22 22:59:16.456 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-22 22:59:16.465 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-22 22:59:16.494 +02:00 [INF] Executed ViewResult - view Login executed in 33.8355ms.
+2024-11-22 22:59:16.495 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 37.8146ms
+2024-11-22 22:59:16.496 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-22 22:59:16.497 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Account/Login - 200 null text/html; charset=utf-8 47.3872ms
+2024-11-22 22:59:16.516 +02:00 [INF] Staff member with ID 1 is disconnecting. Connection ID: SA7NMMQZDwkilbDnbb1LRQ
+2024-11-22 22:59:16.517 +02:00 [INF] Staff member with ID 1 removed from group and connection removed. Connection ID: SA7NMMQZDwkilbDnbb1LRQ
+2024-11-22 22:59:16.524 +02:00 [INF] Executed endpoint '/notificationHub'
+2024-11-22 22:59:16.525 +02:00 [INF] Request finished HTTP/2 CONNECT https://localhost:7061/notificationHub?staffId=1&id=Q_LospOLoNF9exnVGdAREw - 200 null null 173768.942ms
+2024-11-22 22:59:16.549 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:59:16.557 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:59:16.559 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 9.4134ms
+2024-11-22 22:59:16.584 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.4978ms
+2024-11-22 22:59:28.405 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/Account/GoogleLogin - application/json 1191
+2024-11-22 22:59:28.409 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 22:59:28.410 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 22:59:28.411 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp)'
+2024-11-22 22:59:28.432 +02:00 [INF] Route matched with {action = "GoogleLogin", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleLogin(GoogleLoginViewModel) on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-22 22:59:28.516 +02:00 [INF] GoogleLogin attempt initiated
+2024-11-22 22:59:28.518 +02:00 [INF] here is your token grump eyJhbGciOiJSUzI1NiIsImtpZCI6IjkyODg2OGRjNDRlYTZhOThjODhiMzkzZDM2NDQ1MTM2NWViYjMwZDgiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiVHJlbnQgRmlzaGVyIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0lfMG11MTRncWZqLW4zMDZsZUlEZ2JmZk83bHByOWQyUUlUd2h2OVdLanZCaXdMcDh3PXM5Ni1jIiwicm9sZSI6IlN0dWRlbnQiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdXFtcy1hM2Q4NyIsImF1ZCI6InVxbXMtYTNkODciLCJhdXRoX3RpbWUiOjE3MzIzMDkxNjcsInVzZXJfaWQiOiJjc3VzVXRJWkMzY1Z0cW5UOW1xRjNlN0pnbDIzIiwic3ViIjoiY3N1c1V0SVpDM2NWdHFuVDltcUYzZTdKZ2wyMyIsImlhdCI6MTczMjMwOTE2NywiZXhwIjoxNzMyMzEyNzY3LCJlbWFpbCI6InRyZW50ZmlzaGVyMDE3QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7Imdvb2dsZS5jb20iOlsiMTE4MDQwODkyMzQ5OTA3NzczODcyIl0sImVtYWlsIjpbInRyZW50ZmlzaGVyMDE3QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.PzzRyxp2L0Ir11Jvyv4O138bLGPV2RveStoowTdA9a2ZA5yVCNs2awWCzZ3CnoMcgskSYg2cmdvbEXCsgB7EWmujcnNvKX2jD81Xo5NLVjp0sZoMJr4IyNh3BnVYPbkAkFDi24Sf2HyQ9UArtr0ksDrCeeximlVg8VJqQxc6IBoRENpP99B8RhGygoFXb7OtQ0wnKABKEZNprSBRupZGoyDFVHi2gfFvdQBPtXvVlDTr7a95OkmAtvpj_WpBMoNKGIRcEWrZlDnvzzZ3_hYsMMF74thEkNMq6WATrwwP7wM_14DTlUjhQO_f0ZjXDs0RKOAK08AT46O9KpON8iiR5g
+2024-11-22 22:59:28.519 +02:00 [INF] Verifying Firebase ID token.
+2024-11-22 22:59:28.522 +02:00 [INF] Firebase ID token verified successfully for UID: csusUtIZC3cVtqnT9mqF3e7Jgl23
+2024-11-22 22:59:28.522 +02:00 [INF] Retrieving user information for UID: csusUtIZC3cVtqnT9mqF3e7Jgl23
+2024-11-22 22:59:29.061 +02:00 [INF] User information retrieved successfully. Email: trentfisher017@gmail.com, Display Name: Trent Fisher
+2024-11-22 22:59:49.127 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Account/Login - null null
+2024-11-22 22:59:49.135 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 22:59:49.136 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 22:59:49.137 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-22 22:59:49.138 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-22 22:59:49.141 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-22 22:59:49.145 +02:00 [INF] Executed ViewResult - view Login executed in 4.0676ms.
+2024-11-22 22:59:49.147 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 6.7437ms
+2024-11-22 22:59:49.148 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-22 22:59:49.149 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Account/Login - 200 null text/html; charset=utf-8 22.2124ms
+2024-11-22 22:59:51.079 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:59:51.082 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:59:51.083 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 4.6629ms
+2024-11-22 22:59:51.128 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.2364ms
+2024-11-22 22:59:57.917 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-11-22 22:59:57.927 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 22:59:57.929 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 22:59:57.935 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-22 22:59:57.938 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-22 22:59:57.943 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-22 22:59:57.954 +02:00 [INF] Executed ViewResult - view Index executed in 13.1864ms.
+2024-11-22 22:59:57.956 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 15.7981ms
+2024-11-22 22:59:57.958 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-22 22:59:57.959 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 41.299ms
+2024-11-22 22:59:57.992 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 22:59:57.992 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:59:57.997 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 5.1077ms
+2024-11-22 22:59:58.000 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.1702ms
+2024-11-22 22:59:58.029 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/background-image.jpg - null null
+2024-11-22 22:59:58.036 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 22:59:58.053 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 22:59:58.057 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/background-image.jpg - 404 0 null 28.1731ms
+2024-11-22 22:59:58.064 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/css/background-image.jpg, Response status code: 404
+2024-11-22 22:59:59.953 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Account/Login - null null
+2024-11-22 22:59:59.960 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 22:59:59.960 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 22:59:59.961 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-22 22:59:59.962 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-22 22:59:59.963 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-22 22:59:59.965 +02:00 [INF] Executed ViewResult - view Login executed in 2.2048ms.
+2024-11-22 22:59:59.966 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 3.2635ms
+2024-11-22 22:59:59.967 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-22 22:59:59.968 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Account/Login - 200 null text/html; charset=utf-8 14.7398ms
+2024-11-22 22:59:59.999 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 22:59:59.999 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 23:00:00.003 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 4.4428ms
+2024-11-22 23:00:00.011 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 12.3678ms
+2024-11-22 23:00:04.151 +02:00 [ERR] Failed executing DbCommand (35,043ms) [Parameters=[@__uid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__uid_0
+2024-11-22 23:00:04.220 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Apptivate_UQMS_WebApp.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:5190aaa5-477f-4414-9e1f-fe39d19447e3
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:5190aaa5-477f-4414-9e1f-fe39d19447e3
+Error Number:-2,State:0,Class:11
+2024-11-22 23:00:04.232 +02:00 [ERR] An unexpected error occurred during GoogleLogin
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin(GoogleLoginViewModel model) in C:\Users\trent\source\repos\Apptivate_UQMS\Controllers\AccountController.cs:line 312
+ClientConnectionId:5190aaa5-477f-4414-9e1f-fe39d19447e3
+Error Number:-2,State:0,Class:11
+2024-11-22 23:00:04.335 +02:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType2`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-22 23:00:04.360 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp) in 35926.2609ms
+2024-11-22 23:00:04.362 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp)'
+2024-11-22 23:00:04.363 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/Account/GoogleLogin - 499 null application/json; charset=utf-8 35958.6439ms
+2024-11-22 23:00:11.439 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/Account/GoogleLogin - application/json 1191
+2024-11-22 23:00:11.445 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 23:00:11.446 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-22 23:00:11.447 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp)'
+2024-11-22 23:00:11.449 +02:00 [INF] Route matched with {action = "GoogleLogin", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleLogin(GoogleLoginViewModel) on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-22 23:00:11.457 +02:00 [INF] GoogleLogin attempt initiated
+2024-11-22 23:00:11.459 +02:00 [INF] here is your token grump eyJhbGciOiJSUzI1NiIsImtpZCI6IjkyODg2OGRjNDRlYTZhOThjODhiMzkzZDM2NDQ1MTM2NWViYjMwZDgiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiVHJlbnQgRmlzaGVyIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0lfMG11MTRncWZqLW4zMDZsZUlEZ2JmZk83bHByOWQyUUlUd2h2OVdLanZCaXdMcDh3PXM5Ni1jIiwicm9sZSI6IlN0dWRlbnQiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdXFtcy1hM2Q4NyIsImF1ZCI6InVxbXMtYTNkODciLCJhdXRoX3RpbWUiOjE3MzIzMDkyMTAsInVzZXJfaWQiOiJjc3VzVXRJWkMzY1Z0cW5UOW1xRjNlN0pnbDIzIiwic3ViIjoiY3N1c1V0SVpDM2NWdHFuVDltcUYzZTdKZ2wyMyIsImlhdCI6MTczMjMwOTIxMCwiZXhwIjoxNzMyMzEyODEwLCJlbWFpbCI6InRyZW50ZmlzaGVyMDE3QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7Imdvb2dsZS5jb20iOlsiMTE4MDQwODkyMzQ5OTA3NzczODcyIl0sImVtYWlsIjpbInRyZW50ZmlzaGVyMDE3QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.kDz7pHQ_7h3Oj54Hot8LuFfyBGufHO-SYGYqexxOaJCmtQQdXBn6hW1lxDD6UUdGSpr9b5wLtApEWX2oYtTLHfSwzOemtJ2wLUHdH-lT6KGLFisnfYwwSAwrd3IdJ_FRbMh_d8cNMAhbUY7Q3K5ymUAW_OLv8n4ISIsSyggpKVi1nYxD02eGPo5klPy6tmuf-2_GZ-bHNDmLsRC2-xLT1Yozo4qMGttB6mBBDM3h_ZEidkV5Xw_QAeA5IRDNyxZHS5cX2fRLrpyeNmIBTxIaFv4XeccYRPKIro2VmcKIiIAL8OtOZMKVaeb7mdx6tRTzaZcg_TKqd9Ixmpnip73sgA
+2024-11-22 23:00:11.467 +02:00 [INF] Verifying Firebase ID token.
+2024-11-22 23:00:11.471 +02:00 [INF] Firebase ID token verified successfully for UID: csusUtIZC3cVtqnT9mqF3e7Jgl23
+2024-11-22 23:00:11.476 +02:00 [INF] Retrieving user information for UID: csusUtIZC3cVtqnT9mqF3e7Jgl23
+2024-11-22 23:00:11.784 +02:00 [INF] User information retrieved successfully. Email: trentfisher017@gmail.com, Display Name: Trent Fisher
+2024-11-22 23:00:25.057 +02:00 [INF] Executed DbCommand (13,263ms) [Parameters=[@__uid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__uid_0
+2024-11-22 23:00:25.141 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[@p1='46', @p0='2024-11-22T21:00:25.0659656Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastSeen] = @p0
+OUTPUT 1
+WHERE [UserID] = @p1;
+2024-11-22 23:00:25.151 +02:00 [INF] GoogleLogin successful for user trentfisher017@gmail.com with role Student
+2024-11-22 23:00:25.153 +02:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType3`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-22 23:00:25.159 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp) in 13706.753ms
+2024-11-22 23:00:25.160 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp)'
+2024-11-22 23:00:25.161 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/Account/GoogleLogin - 200 null application/json; charset=utf-8 13721.9732ms
+2024-11-22 23:00:25.171 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/StudentDashboard - null null
+2024-11-22 23:00:25.179 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 23:00:25.184 +02:00 [INF] Route matched with {action = "StudentDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StudentDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-22 23:00:35.287 +02:00 [INF] Executed DbCommand (10,079ms) [Parameters=[@__firebaseUid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [StudentDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-22 23:00:47.196 +02:00 [INF] Executed DbCommand (11,893ms) [Parameters=[@__student_StudentID_0='30'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE [q].[StudentID] = @__student_StudentID_0
+GROUP BY [q].[Status]
+2024-11-22 23:00:48.604 +02:00 [INF] Executed DbCommand (1,375ms) [Parameters=[@__student_StudentID_0='30'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID], [q].[CategoryID], [q].[CourseID], [q].[DepartmentID], [q].[Description], [q].[ModuleID], [q].[QueryTypeID], [q].[ResolvedDate], [q].[Status], [q].[StudentID], [q].[SubmissionDate], [q].[TicketNumber], [q].[Year], [q0].[DocumentID], [q0].[DocumentName], [q0].[DocumentPath], [q0].[QueryID], [q0].[UploadDate]
+FROM [Queries] AS [q]
+LEFT JOIN [QueryDocuments] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+WHERE [q].[StudentID] = @__student_StudentID_0
+ORDER BY [q].[QueryID]
+2024-11-22 23:00:48.649 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__firebaseUid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-22 23:00:48.657 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_UserID_0='46'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-22 23:00:48.668 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__user_UserID_0='46'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-22 23:00:48.674 +02:00 [INF] Executing ViewResult, running view StudentDashboard.
+2024-11-22 23:00:48.823 +02:00 [INF] Executed ViewResult - view StudentDashboard executed in 150.8724ms.
+2024-11-22 23:00:48.825 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp) in 23638.7437ms
+2024-11-22 23:00:48.826 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-11-22 23:00:48.827 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/StudentDashboard - 200 null text/html; charset=utf-8 23655.8873ms
+2024-11-22 23:00:48.910 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/tempDashboard.css?v=uZncrUPZFX_1Gt2w1btEnylJSyPqHBrAwXbjHMMbJt8 - null null
+2024-11-22 23:00:48.910 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/studentDashboard.js - null null
+2024-11-22 23:00:48.916 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-22 23:00:48.917 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-11-22 23:00:48.941 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 24.5075ms
+2024-11-22 23:00:48.969 +02:00 [INF] Sending file. Request path: '/css/tempDashboard.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\css\tempDashboard.css'
+2024-11-22 23:00:48.978 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/tempDashboard.css?v=uZncrUPZFX_1Gt2w1btEnylJSyPqHBrAwXbjHMMbJt8 - 200 8387 text/css 68.8313ms
+2024-11-22 23:00:48.981 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 64.7551ms
+2024-11-22 23:00:49.073 +02:00 [INF] Sending file. Request path: '/js/studentDashboard.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\js\studentDashboard.js'
+2024-11-22 23:00:49.075 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/studentDashboard.js - 200 4849 text/javascript 164.9651ms
+2024-11-22 23:00:49.189 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/notificationHub/negotiate?studentId=30&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-22 23:00:49.194 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-22 23:00:49.196 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-22 23:00:49.198 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/notificationHub/negotiate?studentId=30&negotiateVersion=1 - 200 316 application/json 8.0111ms
+2024-11-22 23:00:49.207 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7061/notificationHub?studentId=30&id=dcSWY7vK9xaz7DPgb6QFVA - null null
+2024-11-22 23:00:49.212 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-22 23:00:49.282 +02:00 [INF] Student with ID 30 is connecting. Connection ID: 3zpDj2CHqAl7MKzJby_jYg
+2024-11-22 23:00:49.284 +02:00 [INF] Student with ID 30 connected and added to group. Connection ID: 3zpDj2CHqAl7MKzJby_jYg

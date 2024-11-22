@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "B/nruW4P5BuFng/kJ8lUL5gpZgjHpHzMDUslLOiAM7fU7vzNmxpHRFzGVj8u+bvIe6RbDSSNOCLuEyjezjNN1A==",
+  "dgSpecHash": "atgjHOm9IJRe2YjAVCz9lUhWNtxFH1kG0nN5WeEYO8CE6tFcwyCwpxaoG/JrJZ+MrBccaox2HFUPD9W/vLNW9g==",
   "success": true,
   "projectFilePath": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\Apptivate_UQMS_WebApp.csproj",
   "expectedPackageFiles": [
@@ -18,6 +18,11 @@
     "C:\\Users\\trent\\.nuget\\packages\\google.apis.core\\1.68.0\\google.apis.core.1.68.0.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\google.apis.storage.v1\\1.67.0.3365\\google.apis.storage.v1.1.67.0.3365.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\google.cloud.storage.v1\\4.10.0\\google.cloud.storage.v1.4.10.0.nupkg.sha512",
+    "C:\\Users\\trent\\.nuget\\packages\\hangfire\\1.8.15\\hangfire.1.8.15.nupkg.sha512",
+    "C:\\Users\\trent\\.nuget\\packages\\hangfire.aspnetcore\\1.8.15\\hangfire.aspnetcore.1.8.15.nupkg.sha512",
+    "C:\\Users\\trent\\.nuget\\packages\\hangfire.core\\1.8.15\\hangfire.core.1.8.15.nupkg.sha512",
+    "C:\\Users\\trent\\.nuget\\packages\\hangfire.netcore\\1.8.15\\hangfire.netcore.1.8.15.nupkg.sha512",
+    "C:\\Users\\trent\\.nuget\\packages\\hangfire.sqlserver\\1.8.15\\hangfire.sqlserver.1.8.15.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
