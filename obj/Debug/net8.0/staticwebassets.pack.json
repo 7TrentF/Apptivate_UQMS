@@ -513,6 +513,10 @@
       "PackagePath": "staticwebassets\\css\\feedback.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\sessionEndModal.css",
+      "PackagePath": "staticwebassets\\css\\sessionEndModal.css"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -623,6 +627,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\responseTimeChart.js",
       "PackagePath": "staticwebassets\\js\\responseTimeChart.js"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\sessionEndModal.js",
+      "PackagePath": "staticwebassets\\js\\sessionEndModal.js"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\site.js",

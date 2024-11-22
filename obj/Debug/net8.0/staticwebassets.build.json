@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eXVkmB3NT8WqaFT81LDi4SnP49h3nnvUk3N7JnE+U88=",
+  "Hash": "BV8KYB6nAZQH4m+gU36q0lIwg0/U1pLcbBZN1KXp7nU=",
   "Source": "Apptivate_UQMS_WebApp",
   "BasePath": "_content/Apptivate_UQMS_WebApp",
   "Mode": "Default",
@@ -509,6 +509,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Register.css"
+    },
+    {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\sessionEndModal.css",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "css/sessionEndModal.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\sessionEndModal.css"
     },
     {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Sidebar.css",
@@ -1820,6 +1839,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\responseTimeChart.js"
+    },
+    {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\sessionEndModal.js",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "js/sessionEndModal.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\sessionEndModal.js"
     },
     {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\Sidebar.js",

@@ -96,7 +96,9 @@ builder.Services.AddSession(options =>
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.AccessDeniedPath = "/Account/AccessDenied";
+    options.LoginPath = "/Account/Login"; // Path to login page
+    options.AccessDeniedPath = "/Account/AccessDenied"; // Path to access denied page
+
 });
 
 

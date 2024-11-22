@@ -1,133 +1,190 @@
-﻿/* Custom Modern Design for Query Reassignment */
+﻿/* Modern styling for Query Assignment page */
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --background-light: #f4f6f7;
-    --text-dark: #2c3e50;
-    --border-subtle: #ecf0f1;
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --background-color: #f8fafc;
+    --card-background: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
 }
 
 body {
-    background-color: var(--background-light);
-    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
-    color: var(--text-dark);
-    line-height: 1.6;
-}
-
-.container-fluid {
-    padding: 2rem;
+    background-color: var(--background-color);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
 }
 
 .card-staff-list {
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: none;
-    transition: all 0.3s ease;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin: 2rem 0;
+    overflow: hidden;
 }
 
-    .card-staff-list:hover {
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
-    }
-
 .card-header {
-    background-color: white;
-    border-bottom: 2px solid var(--primary-color);
+    background-color: var(--card-background);
+    border-bottom: 1px solid var(--border-color);
     padding: 1.5rem;
 }
 
-    .card-header h2 {
-        color: var(--primary-color);
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-    }
+.card-title {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
 
 .table-staff {
-    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
 }
 
-    .table-staff thead {
-        background-color: var(--primary-color);
-        color: white;
+    .table-staff thead th {
+        background-color: var(--background-color);
+        color: var(--text-secondary);
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        padding: 1rem;
+        border-bottom: 2px solid var(--border-color);
     }
 
-        .table-staff thead th {
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border: none;
+    .table-staff tbody tr {
+        transition: all 0.2s ease-in-out;
+    }
+
+        .table-staff tbody tr:hover {
+            background-color: rgba(37, 99, 235, 0.05);
         }
 
-.staff-member-row {
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-    .staff-member-row:hover {
-        background-color: rgba(52, 152, 219, 0.05);
-    }
-
-    .staff-member-row.table-active {
-        background-color: rgba(52, 152, 219, 0.2) !important;
+    .table-staff td {
+        padding: 1rem;
+        vertical-align: middle;
+        border-bottom: 1px solid var(--border-color);
     }
 
 .badge {
+    font-size: 0.75rem;
     font-weight: 500;
-    padding: 0.4rem 0.6rem;
-    margin-right: 0.3rem;
-    border-radius: 4px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-right: 0.5rem;
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
 }
 
 .btn-primary {
     background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    transition: all 0.3s ease;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
 }
 
     .btn-primary:hover {
-        background-color: #2980b9;
-        border-color: #2980b9;
-        transform: translateY(-2px);
+        background-color: var(--secondary-color);
+        transform: translateY(-1px);
     }
 
-.modal-content {
-    border-radius: 12px;
+.btn-secondary {
+    background-color: #f1f5f9;
+    color: var(--text-secondary);
     border: none;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.modal-content {
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .modal-header {
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem;
+}
+
+.modal-body {
+    padding: 1.5rem;
 }
 
 .modal-footer {
-    border-top: 1px solid var(--border-subtle);
+    border-top: 1px solid var(--border-color);
+    padding: 1.5rem;
 }
 
-/* Responsive Adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
-    .table-responsive-stack tr {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        margin-bottom: 1rem;
-        border: 1px solid var(--border-subtle);
-        border-radius: 8px;
-    }
-
-    .table-responsive-stack td {
+    .table-responsive-stack td,
+    .table-responsive-stack th {
         display: block;
-        text-align: right;
+        width: 100%;
     }
 
-        .table-responsive-stack td::before {
-            content: attr(data-label);
-            float: left;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+    .table-responsive-stack tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+    }
+
+    .table-responsive-stack thead {
+        display: none;
+    }
+
+    .table-responsive-stack td:before {
+        content: attr(data-label);
+        font-weight: 600;
+        display: inline-block;
+        width: 120px;
+        color: var(--text-secondary);
+    }
 }
 
+/* Toast Notifications Styling */
+.toast-success {
+    background-color: var(--success-color) !important;
+}
+
+.toast-error {
+    background-color: var(--danger-color) !important;
+}
+
+/* Loading States */
+.btn-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+    .btn-loading:after {
+        content: '';
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid #ffffff;
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spin 1s linear infinite;
+        margin-left: 0.5rem;
+    }
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
