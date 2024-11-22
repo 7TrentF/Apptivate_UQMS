@@ -3,16 +3,35 @@
     ViewData["Title"] = "Assign Query";
 }
 
-<h1>Assign Query</h1>
 
-<table class="table table-bordered">
+<!DOCTYPE html>
+<html>
+<head>    
+    <link rel="stylesheet" href="~/css/AssignQuery.css" asp-append-version="true">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+</head>
+<body>
+   
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-staff-list">
+                <div class="card-header">
+                    <h2 class="card-title">Query Reassignment</h2>
+                    <p class="text-muted">Select a staff member to reassign your query</p>
+                </div>
+                <div class="card-body">
+
+    <table class="table table-hover table-staff table-responsive-stack">
     <thead>
         <tr>
-            <th>Staff ID</th>
             <th>Staff Name</th>
             <th>Position</th>
             <th>Department</th>
-            <th>Query Types</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -22,7 +41,6 @@
             <tr data-staff-id="@member.StaffID" 
                 data-staff-name="@member.StaffName"
                 class="staff-member-row">
-                <td>@member.StaffID</td>
                 <td>@member.StaffName</td>
                 <td>@member.Position</td>
                 <td>@member.Department</td>
@@ -39,13 +57,19 @@
                         data-staff-id="@member.StaffID"
                         data-bs-toggle="modal" 
                         data-bs-target="#queryModal">
-                        View Assigned Queries
+                        Assign a Query
                     </button>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+</table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Modal to Display Queries -->
 <div class="modal fade" id="queryModal" tabindex="-1" aria-labelledby="queryModalLabel" aria-hidden="true">
@@ -61,7 +85,7 @@
                     <thead>
                         <tr>
                             <th>Select</th>
-                            <th>Query ID</th>
+                            <th>Ticket #</th>
                             <th>Description</th>
                             <th>Priority</th>
                             <th>Submission Date</th>
@@ -78,7 +102,7 @@
                                                value="@query.QueryID" 
                                                data-query-id="@query.QueryID"/>
                                     </td>
-                                    <td>@query.QueryID</td>
+                                    <td>@query.TicketNumber</td>
                                     <td>@query.Description</td>
                                     <td>@query.Priority</td>
                                     <td>@query.SubmissionDate.ToString("yyyy-MM-dd")</td>
@@ -124,9 +148,18 @@
 
 @section Scripts {
 
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+    <script>
+    // Add visual feedback for selected rows
+    $('.staff-member-row').on('click', function() {
+        $('.staff-member-row').removeClass('table-primary');
+        $(this).addClass('table-primary');
+    })
+</script>
+
 
     <script>
   $(document).ready(function() {
@@ -154,6 +187,28 @@
         $('#reassignConfirmModal').modal('show');
     });
 
+
+
+     // Add subtle hover and click effects
+    $('.staff-member-row').hover(
+        function() {
+            $(this).css('transform', 'scale(1.01)');
+        }, 
+        function() {
+            $(this).css('transform', 'scale(1)');
+        }
+    );
+
+    // Animated button state
+    $('#btnReassign').on('mouseenter', function() {
+        $(this).addClass('animate__animated animate__pulse');
+    }).on('mouseleave', function() {
+        $(this).removeClass('animate__animated animate__pulse');
+    });
+
+
+
+
     // Capture staff ID and name when a staff member row is clicked
     $('.staff-member-row').click(function() {
         $('.staff-member-row').removeClass('table-active');
@@ -176,12 +231,10 @@
                 queryId: selectedQueryId,
                 newStaffId: selectedStaffId
             },
-            success: function(response) {
+  success: function(response) {
                 if (response.success) {
                     toastr.success('Query reassigned successfully');
-                    $('#reassignConfirmModal').modal('hide');
-                    $('#queryModal').modal('hide');
-                    location.reload();
+                   
                 } else {
                     toastr.error(response.message);
                 }
@@ -192,7 +245,7 @@
         });
     });
 
-    // Toastr options remain the same
+ // Toastr options remain the same
     toastr.options = {
         "closeButton": true,
         "debug": false,
@@ -211,6 +264,7 @@
         "hideMethod": "fadeOut"
     };
 });
-
     </script>
 }
+</body>
+</html>

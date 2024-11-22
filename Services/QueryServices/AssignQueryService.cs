@@ -80,7 +80,15 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
                 queryAssignment.AssignedDate = DateTime.Now;
 
                 var query = await _context.Queries
+                    .Where(q => q.QueryID == queryId)
                     .FirstOrDefaultAsync(q => q.QueryID == queryId);
+
+                var ticketNumber = await _context.Queries
+                    .Where(q => q.QueryID == queryId)
+                    .Select(q => q.TicketNumber)
+                    .FirstOrDefaultAsync();
+
+
 
                 if (query != null)
                     query.Status = QueryStatus.Reassigned;
@@ -89,9 +97,9 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
                 // Notifications
                 await _notificationHubContext.Clients.Group(newStaffId.ToString())
-                    .SendAsync("ReceiveNotification", $"Query #{queryId} has been reassigned to you.");
+                    .SendAsync("ReceiveNotification", $"Ticket Number #{ticketNumber} has been reassigned to you.");
 
-                await _notificationService.NotifyStaffMember(newStaffId, $"Query #{query?.TicketNumber} has been reassigned to you.");
+                await _notificationService.NotifyStaffMember(newStaffId, $"Ticket Number #{ticketNumber} has been reassigned to you.");
 
                 await SendQueryReassignmentNotificationEmailAsync(query, newStaffId);
 
@@ -107,24 +115,65 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
             }
         }
 
-        private async Task SendQueryReassignmentNotificationEmailAsync(Query query, int newStaffId)
-        {
-            var newStaff = await _context.StaffDetails
-                .Include(s => s.User)
-                .FirstOrDefaultAsync(s => s.StaffID == newStaffId);
+ 
 
-            if (newStaff?.User != null)
+
+
+
+        private async Task SendQueryReassignmentNotificationEmailAsync(Query query, int staffId)
+        {
+            _logger.LogInformation($"SendQuerySubmissionNotificationEmailStaff with staffId: {staffId}");
+
+
+            // Fetch the user's email based on the Firebase UID
+            var userId = await _context.StaffDetails
+                 .Where(u => u.StaffID == staffId) // Replace with the actual column name for Firebase UID
+                .Select(u => u.UserID)
+                .FirstOrDefaultAsync();
+
+
+            if (userId == null)
             {
-                await _emailService.SendEmailAsync(
-                    newStaff.User.Email,
-                    "Query Reassigned",
-                    $"Query #{query?.TicketNumber} has been reassigned to you."
-                );
+                _logger.LogError("UserId not found.");
+                throw new Exception("UserId not found.");
+            }
+
+
+            var staffEmail = await _context.Users
+                .Where(u => u.UserID == userId) // Replace with the actual column name for Firebase UID
+                .Select(u => u.Email)
+                .FirstOrDefaultAsync();
+
+
+            if (staffEmail == null)
+            {
+                _logger.LogError("Staff email not found.");
+                throw new Exception("Staff email  details not found.");
+            }
+
+            _logger.LogInformation("This is the email you require {UserEmail}", staffEmail);
+
+
+            try
+            {
+                var emailData = new Dictionary<string, object>
+        {
+            { "user_name", staffEmail.Split('@')[0] },
+            { "query_description", query.Description.Substring(0, Math.Min(50, query.Description.Length)) },
+            { "ticket_number", query.TicketNumber },
+            { "submitted_date", query.SubmissionDate?.ToString("f") }
+        };
+
+                // Replace '1' with your actual email template ID
+                await _emailService.SendTemplateEmailAsync(staffEmail, 2, emailData);
+                _logger.LogInformation("Notification email sent to user {UserEmail}", staffEmail);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Failed to send query submission notification email to {UserEmail}: {Message}", staffEmail, ex.Message);
+                throw new ApplicationException("Failed to send notification email", ex);
             }
         }
-
-
-
 
 
 

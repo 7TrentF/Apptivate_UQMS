@@ -413,6 +413,10 @@
       "PackagePath": "staticwebassets\\css\\AdministrativeQuery.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\AssignQuery.css",
+      "PackagePath": "staticwebassets\\css\\AssignQuery.css"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\AssignedQueryDetails.css",
       "PackagePath": "staticwebassets\\css\\AssignedQueryDetails.css"
     },
@@ -503,6 +507,10 @@
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\dashboard.css",
       "PackagePath": "staticwebassets\\css\\dashboard.css"
+    },
+    {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\feedback.css",
+      "PackagePath": "staticwebassets\\css\\feedback.css"
     },
     {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\site.css",

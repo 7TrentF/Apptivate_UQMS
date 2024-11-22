@@ -1,22 +1,239 @@
-﻿@model List<Apptivate_UQMS_WebApp.Models.QueryModel.FeedbackViewModel>
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/feedback.css" asp-append-version="true">
 
-<h2>Student Feedback</h2>
+</head>
+<body class="bg-gray-50">
+    @model List<Apptivate_UQMS_WebApp.Models.QueryModel.FeedbackViewModel>
 
-@if (Model.Any())
-{
-    <ul>
-        @foreach (var feedback in Model)
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="feedback-container">
+        <h2 class="page-title animate__animated animate__fadeIn">
+            <i class="fas fa-comments"></i> Student Feedback Dashboard
+        </h2>
+
+        <!-- Filter Buttons -->
+        <div class="filter-container animate__animated animate__fadeInUp">
+            <button class="filter-btn active" data-filter="all">All Feedback</button>
+            <button class="filter-btn" data-filter="high">High Ratings (4-5)</button>
+            <button class="filter-btn" data-filter="medium">Medium Ratings (3)</button>
+            <button class="filter-btn" data-filter="low">Low Ratings (1-2)</button>
+        </div>
+
+        @if (Model.Any())
         {
-            <li>               
-                <p><strong>Rating:</strong> @feedback.Rating</p>
-                <p><strong>Feedback:</strong> @feedback.Comments</p>
-                <p><strong>Submission Date:</strong> @feedback.SubmissionDate.ToString("MM/dd/yyyy")</p>
-                <hr />
-            </li>
+            <div class="stats-container">
+                <div class="stat-card animate__animated animate__fadeInUp">
+                    <i class="fas fa-chart-bar fa-2x mb-4" style="color: var(--primary-color)"></i>
+                    <div class="stat-number">@Model.Count()</div>
+                    <div class="stat-label">Total Feedback</div>
+                    <div class="tooltip">
+                        <i class="fas fa-info-circle ml-2"></i>
+                        <span class="tooltiptext">Total number of feedback received</span>
+                    </div>
+                </div>
+                <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                    <i class="fas fa-star fa-2x mb-4" style="color: var(--accent-color)"></i>
+                    <div class="stat-number">
+                        @(Model.Where(f => f.Rating.HasValue).Any() 
+                            ? Model.Where(f => f.Rating.HasValue).Average(f => f.Rating.Value).ToString("N1") 
+                            : "N/A")
+                    </div>
+                    <div class="stat-label">Average Rating</div>
+                    <div class="tooltip">
+                        <i class="fas fa-info-circle ml-2"></i>
+                        <span class="tooltiptext">Average rating across all feedback</span>
+                    </div>
+                </div>
+                <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                    <i class="fas fa-trophy fa-2x mb-4" style="color: var(--secondary-color)"></i>
+                    <div class="stat-number">
+                        @(Model.Any(f => f.Rating.HasValue) ? Model.Max(f => f.Rating ?? 0) : "N/A")
+                    </div>
+                    <div class="stat-label">Highest Rating</div>
+                    <div class="tooltip">
+                        <i class="fas fa-info-circle ml-2"></i>
+                        <span class="tooltiptext">Highest rating received</span>
+                    </div>
+                </div>
+            </div>
+
+     <ul class="feedback-list">
+    @foreach (var feedback in Model)
+    {
+        <li class="feedback-item fade-in">
+            <div class="feedback-content">
+                <div class="feedback-rating">
+                    @if (feedback.Rating.HasValue)
+                    {
+                        for (int i = 0; i < feedback.Rating.Value; i++)
+                        {
+                            <span class="star-icon">★</span>
+                        }
+                        for (int i = feedback.Rating.Value; i < 5; i++)
+                        {
+                            <span class="star-icon" style="color: #ddd;">★</span>
+                        }
+                        <span class="rating-value" style="color: #2c3e50; margin-left: 10px;">
+                            (@feedback.Rating.Value/5)
+                        </span>
+                    }
+                    else
+                    {
+                        <span style="color: #6c757d;">No rating provided</span>
+                    }
+                </div>
+                <div class="rating-progress">
+                    <div class="rating-progress-bar" style="width: @(feedback.Rating.HasValue ? (feedback.Rating.Value * 20) : 0)%"></div>
+                </div>
+                <p><strong><i class="fas fa-comment-dots"></i> Feedback:</strong> 
+                    @if (!string.IsNullOrEmpty(feedback.Comments))
+                    {
+                        @feedback.Comments
+                    }
+                    else
+                    {
+                        <span style="color: #6c757d;">No comments provided</span>
+                    }
+                </p>
+                <p class="feedback-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <strong>Submission Date:</strong> @feedback.SubmissionDate.ToString("MM/dd/yyyy")
+                </p>
+            </div>
+        </li>
+    }
+</ul>
         }
-    </ul>
-}
-else
-{
-    <p>No feedback available.</p>
-}
+        else
+        {
+            <div class="no-feedback animate__animated animate__fadeIn">
+                <i class="fas fa-inbox fa-3x mb-4" style="color: var(--secondary-color)"></i>
+                <p>No feedback available.</p>
+            </div>
+        }
+    </div>
+
+    <script>
+        // Existing animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackItems = document.querySelectorAll('.feedback-item');
+            
+            feedbackItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+
+            // Show loading overlay
+            const showLoading = () => {
+                const overlay = document.querySelector('.loading-overlay');
+                overlay.style.opacity = '1';
+                overlay.style.pointerEvents = 'all';
+            };
+
+            // Hide loading overlay
+            const hideLoading = () => {
+                const overlay = document.querySelector('.loading-overlay');
+                overlay.style.opacity = '0';
+                overlay.style.pointerEvents = 'none';
+            };
+
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const feedbacks = document.querySelectorAll('.feedback-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    showLoading();
+
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const filterValue = button.getAttribute('data-filter');
+
+                    setTimeout(() => {
+                        feedbacks.forEach(feedback => {
+                            const rating = feedback.querySelector('.rating-value');
+                            if (rating) {
+                                const ratingValue = parseInt(rating.textContent.match(/\d+/)[0]);
+                                
+                                switch(filterValue) {
+                                    case 'high':
+                                        feedback.style.display = (ratingValue >= 4) ? 'block' : 'none';
+                                        break;
+                                    case 'medium':
+                                        feedback.style.display = (ratingValue === 3) ? 'block' : 'none';
+                                        break;
+                                    case 'low':
+                                        feedback.style.display = (ratingValue <= 2) ? 'block' : 'none';
+                                        break;
+                                    default:
+                                        feedback.style.display = 'block';
+                                }
+                            }
+                        });
+
+                        hideLoading();
+                    }, 500);
+                });
+            });
+
+            // Star rating hover animation
+            const stars = document.querySelectorAll('.star-icon');
+            stars.forEach(star => {
+                star.addEventListener('mouseover', () => {
+                    star.style.transform = 'scale(1.2) rotate(12deg)';
+                });
+                star.addEventListener('mouseout', () => {
+                    star.style.transform = 'scale(1) rotate(0)';
+                });
+            });
+
+            // Initialize tooltips
+            const tooltips = document.querySelectorAll('.tooltip');
+            tooltips.forEach(tooltip => {
+                tooltip.addEventListener('mouseover', () => {
+                    const tooltipText = tooltip.querySelector('.tooltiptext');
+                    tooltipText.style.visibility = 'visible';
+                    tooltipText.style.opacity = '1';
+                });
+                tooltip.addEventListener('mouseout', () => {
+                    const tooltipText = tooltip.querySelector('.tooltiptext');
+                    tooltipText.style.visibility = 'hidden';
+                    tooltipText.style.opacity = '0';
+                });
+            });
+
+            // Animate progress bars on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.width = entry.target.getAttribute('data-width');
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.rating-progress-bar').forEach(bar => {
+                observer.observe(bar);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -113,24 +113,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAssignedQueries(int staffId)
-        {
-            var queries = await _context.QueryAssignments
-                .Where(qa => qa.StaffID == staffId)
-                .Include(qa => qa.Query)
-                .Select(qa => new
-                {
-                    QueryID = qa.Query.QueryID,
-                    Description = qa.Query.Description,
-                    Priority = qa.Priority,
-                    SubmissionDate = qa.Query.SubmissionDate
-                })
-                .ToListAsync();
-            _logger.LogInformation("Assigned Queries:" + queries);
-
-            return Json(queries);
-        }
 
 
         [HttpPost]
@@ -167,27 +149,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
             }
         }
 
-
-        // Helper method to send reassignment email
-        private async Task SendQueryReassignmentNotificationEmailStaff(Query query, int newStaffId)
-        {
-            var newStaff = await _context.StaffDetails
-                .Include(s => s.User)
-                .FirstOrDefaultAsync(s => s.StaffID == newStaffId);
-
-            if (newStaff != null && newStaff.User != null)
-            {
-                // Implement your email sending logic here
-                // Similar to your existing SendQuerySubmissionNotificationEmailStaff method
-                await _emailService.SendEmailAsync(
-                    newStaff.User.Email,
-                    "Query Reassigned",
-                    $"A query (#{query.TicketNumber}) has been reassigned to you."
-                );
-            }
-        }
-
-
+     
 
 
         [HttpGet]
@@ -217,6 +179,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 .Where(qa => qa.StaffID == staff.StaffID)
                 .Select(qa => new
                 {
+                    TicketNumber = qa.Query.TicketNumber,
                     QueryID = qa.Query.QueryID,
                     Description = qa.Query.Description,
                     Priority = qa.Priority,
@@ -230,13 +193,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             return View("~/Views/Query/StaffQuery/AssignQuery.cshtml", teamMembers);
         }
-
-
-
-
-
-
-
 
 
         // Notify staff when they have new queries to resolve
