@@ -34,7 +34,7 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
                 .FirstOrDefaultAsync(x => x.IpAddress == ipAddress && x.Email == email);
 
             // If no existing attempt record or window expired, create/reset one
-            if (attempt == null || attempt.FirstAttemptAt.AddMinutes(AttemptWindowMinutes) < DateTime.UtcNow)
+            if (attempt == null || attempt.FirstAttemptAt.AddMinutes(AttemptWindowMinutes) < DateTime.Now)
             {
                 if (attempt == null)
                 {
@@ -43,14 +43,14 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
                         IpAddress = ipAddress,
                         Email = email,
                         AttemptCount = 1,
-                        FirstAttemptAt = DateTime.UtcNow
+                        FirstAttemptAt = DateTime.Now
                     };
                     _context.LoginAttempts.Add(attempt);
                 }
                 else
                 {
                     attempt.AttemptCount = 1;
-                    attempt.FirstAttemptAt = DateTime.UtcNow;
+                    attempt.FirstAttemptAt = DateTime.Now;
                     attempt.LockoutEnd = null;
                 }
                 await _context.SaveChangesAsync();
@@ -58,7 +58,7 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
             }
 
             // Check if account is locked
-            if (attempt.LockoutEnd.HasValue && attempt.LockoutEnd.Value > DateTime.UtcNow)
+            if (attempt.LockoutEnd.HasValue && attempt.LockoutEnd.Value > DateTime.Now)
             {
                 return (false, 0, attempt.LockoutEnd);
             }
@@ -70,7 +70,7 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
             // Check if should be locked out
             if (attempt.AttemptCount >= MaxAttempts)
             {
-                attempt.LockoutEnd = DateTime.UtcNow.AddMinutes(LockoutMinutes);
+                attempt.LockoutEnd = DateTime.Now.AddMinutes(LockoutMinutes);
                 await _context.SaveChangesAsync();
                 return (false, 0, attempt.LockoutEnd);
             }
@@ -93,9 +93,9 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
 
         private async Task CleanupOldAttempts()
         {
-            var cutoff = DateTime.UtcNow.AddMinutes(-AttemptWindowMinutes);
+            var cutoff = DateTime.Now.AddMinutes(-AttemptWindowMinutes);
             var oldAttempts = await _context.LoginAttempts
-                .Where(x => x.FirstAttemptAt < cutoff && (!x.LockoutEnd.HasValue || x.LockoutEnd < DateTime.UtcNow))
+                .Where(x => x.FirstAttemptAt < cutoff && (!x.LockoutEnd.HasValue || x.LockoutEnd < DateTime.Now))
                 .ToListAsync();
 
             if (oldAttempts.Any())
