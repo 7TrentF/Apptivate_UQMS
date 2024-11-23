@@ -16,7 +16,6 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
         private readonly ApplicationDbContext _context;
         private const int AttemptWindowMinutes = 15;
 
-
         public RateLimitingService(ApplicationDbContext context, IMemoryCache cache, IConfiguration configuration)
         {
             _context = context;

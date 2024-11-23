@@ -423,9 +423,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 CardExpenseData = cardExpenseData,
                 QueriesReceivedData = queriesReceivedData,
                 SystemActivities = systemActivities,
-
-
-                 
             };
 
 

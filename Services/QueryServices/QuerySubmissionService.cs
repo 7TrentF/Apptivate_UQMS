@@ -826,8 +826,6 @@ namespace Apptivate_UQMS_WebApp.Services.QueryServices
 
             try
             {
-
-
                 // Use the existing method to fetch the staff details
                 var StaffQueryAssignment = await GetStaffAssignmentQueryDetails(queryID, firebaseUid);
 
