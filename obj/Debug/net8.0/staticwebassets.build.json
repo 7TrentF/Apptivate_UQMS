@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BV8KYB6nAZQH4m+gU36q0lIwg0/U1pLcbBZN1KXp7nU=",
+  "Hash": "Nb3uGz7USjVcUAz18YB9r2ZVw+dXpW3ierrZ2uH08YA=",
   "Source": "Apptivate_UQMS_WebApp",
   "BasePath": "_content/Apptivate_UQMS_WebApp",
   "Mode": "Default",
@@ -1744,25 +1744,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\queryDetails.js"
-    },
-    {
-      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\QueryfileUpload.js",
-      "SourceId": "Apptivate_UQMS_WebApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
-      "BasePath": "_content/Apptivate_UQMS_WebApp",
-      "RelativePath": "js/QueryfileUpload.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\QueryfileUpload.js"
     },
     {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\Registration.js",

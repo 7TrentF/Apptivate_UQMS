@@ -37,6 +37,9 @@ namespace Apptivate_UQMS_WebApp.Data
         public DbSet<Conversation> Conversations { get; set; }
 
 
+        public DbSet<LoginAttempt> LoginAttempts { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

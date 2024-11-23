@@ -16,6 +16,7 @@
           "Hangfire.AspNetCore": "1.8.15",
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": "8.0.8",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.8",
+          "Microsoft.AspNetCore.RateLimiting": "7.0.0-rc.2.22476.2",
           "Microsoft.AspNetCore.SignalR": "1.1.0",
           "Microsoft.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.Design": "8.0.8",
@@ -1036,6 +1037,13 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.824.36908"
           }
+        }
+      },
+      "Microsoft.AspNetCore.RateLimiting/7.0.0-rc.2.22476.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.1",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "System.Threading.RateLimiting": "7.0.0-rc.2.22472.3"
         }
       },
       "Microsoft.AspNetCore.Razor.Language/6.0.24": {
@@ -3339,6 +3347,7 @@
         }
       },
       "System.Threading.Channels/7.0.0": {},
+      "System.Threading.RateLimiting/7.0.0-rc.2.22472.3": {},
       "System.Threading.Tasks/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
@@ -4092,6 +4101,13 @@
       "sha512": "sha512-4WSCv7ddawjabLZ7hj0Ai7hTzFYLw5PsvHVKrJkuBgrv+blELbIDMVj7b5q7PZs7Xvz0W0ViKY/rcVkqD0D5yQ==",
       "path": "microsoft.aspnetcore.metadata/8.0.8",
       "hashPath": "microsoft.aspnetcore.metadata.8.0.8.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.RateLimiting/7.0.0-rc.2.22476.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k3SEHb6sqJE4c4mOxgxhJGD05WoXYRcobZJYgVW8YFDkPf1x418ys8KoMIlsCuqDeiMy7ro54Vn9g36PcVORNQ==",
+      "path": "microsoft.aspnetcore.ratelimiting/7.0.0-rc.2.22476.2",
+      "hashPath": "microsoft.aspnetcore.ratelimiting.7.0.0-rc.2.22476.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Language/6.0.24": {
       "type": "package",
@@ -5513,6 +5529,13 @@
       "sha512": "sha512-qmeeYNROMsONF6ndEZcIQ+VxR4Q/TX/7uIVLJqtwIWL7dDWeh0l1UIqgo4wYyjG//5lUNhwkLDSFl+pAWO6oiA==",
       "path": "system.threading.channels/7.0.0",
       "hashPath": "system.threading.channels.7.0.0.nupkg.sha512"
+    },
+    "System.Threading.RateLimiting/7.0.0-rc.2.22472.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p+KDWsVR4HvIgpo6SkXFli7oX1Jy9INmd8AbMN3fEckaiCSCz+3Scr0M2VVbpLmBGdFaMbepn9Mk+mGDObAWSQ==",
+      "path": "system.threading.ratelimiting/7.0.0-rc.2.22472.3",
+      "hashPath": "system.threading.ratelimiting.7.0.0-rc.2.22472.3.nupkg.sha512"
     },
     "System.Threading.Tasks/4.3.0": {
       "type": "package",

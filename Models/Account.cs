@@ -68,6 +68,18 @@ namespace Apptivate_UQMS_WebApp.Models
             public string Password { get; set; }
         }
 
+
+        public class LoginAttempt
+        {
+            public int Id { get; set; }
+            public string? IpAddress { get; set; }
+            public string? Email { get; set; }
+            public int AttemptCount { get; set; }
+            public DateTime FirstAttemptAt { get; set; }
+            public DateTime? LockoutEnd { get; set; }
+        }
+
+
         public class UserProfileViewModel
         {
             public Account.User User { get; set; }

@@ -1322,6 +1322,27 @@
           }
         }
       },
+      "Microsoft.AspNetCore.RateLimiting/7.0.0-rc.2.22476.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0-rc.2.22472.3",
+          "Microsoft.Extensions.Options": "7.0.0-rc.2.22472.3",
+          "System.Threading.RateLimiting": "7.0.0-rc.2.22472.3"
+        },
+        "compile": {
+          "lib/net7.0/Microsoft.AspNetCore.RateLimiting.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.RateLimiting.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Razor.Language/6.0.24": {
         "type": "package",
         "compile": {
@@ -5232,6 +5253,22 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "System.Threading.RateLimiting/7.0.0-rc.2.22472.3": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/System.Threading.RateLimiting.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/System.Threading.RateLimiting.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
       "System.Threading.Tasks/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -6983,6 +7020,21 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
         "microsoft.aspnetcore.metadata.8.0.8.nupkg.sha512",
         "microsoft.aspnetcore.metadata.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.RateLimiting/7.0.0-rc.2.22476.2": {
+      "sha512": "k3SEHb6sqJE4c4mOxgxhJGD05WoXYRcobZJYgVW8YFDkPf1x418ys8KoMIlsCuqDeiMy7ro54Vn9g36PcVORNQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.ratelimiting/7.0.0-rc.2.22476.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net7.0/Microsoft.AspNetCore.RateLimiting.dll",
+        "lib/net7.0/Microsoft.AspNetCore.RateLimiting.xml",
+        "microsoft.aspnetcore.ratelimiting.7.0.0-rc.2.22476.2.nupkg.sha512",
+        "microsoft.aspnetcore.ratelimiting.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Razor.Language/6.0.24": {
@@ -15178,6 +15230,33 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "System.Threading.RateLimiting/7.0.0-rc.2.22472.3": {
+      "sha512": "p+KDWsVR4HvIgpo6SkXFli7oX1Jy9INmd8AbMN3fEckaiCSCz+3Scr0M2VVbpLmBGdFaMbepn9Mk+mGDObAWSQ==",
+      "type": "package",
+      "path": "system.threading.ratelimiting/7.0.0-rc.2.22472.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Threading.RateLimiting.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Threading.RateLimiting.targets",
+        "lib/net462/System.Threading.RateLimiting.dll",
+        "lib/net462/System.Threading.RateLimiting.xml",
+        "lib/net6.0/System.Threading.RateLimiting.dll",
+        "lib/net6.0/System.Threading.RateLimiting.xml",
+        "lib/net7.0/System.Threading.RateLimiting.dll",
+        "lib/net7.0/System.Threading.RateLimiting.xml",
+        "lib/netstandard2.0/System.Threading.RateLimiting.dll",
+        "lib/netstandard2.0/System.Threading.RateLimiting.xml",
+        "system.threading.ratelimiting.7.0.0-rc.2.22472.3.nupkg.sha512",
+        "system.threading.ratelimiting.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Threading.Tasks/4.3.0": {
       "sha512": "LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==",
       "type": "package",
@@ -15662,6 +15741,7 @@
       "Hangfire.AspNetCore >= 1.8.15",
       "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter >= 8.0.8",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 8.0.8",
+      "Microsoft.AspNetCore.RateLimiting >= 7.0.0-rc.2.22476.2",
       "Microsoft.AspNetCore.SignalR >= 1.1.0",
       "Microsoft.EntityFrameworkCore >= 8.0.8",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.8",
@@ -15751,6 +15831,10 @@
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.8, )"
+          },
+          "Microsoft.AspNetCore.RateLimiting": {
+            "target": "Package",
+            "version": "[7.0.0-rc.2.22476.2, )"
           },
           "Microsoft.AspNetCore.SignalR": {
             "target": "Package",

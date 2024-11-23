@@ -66,6 +66,33 @@
         </form>
     </div>
 
+    <div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Login Attempt</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                @if (TempData["Lockout"] != null)
+                {
+                    <p class="text-danger">
+                        Account temporarily locked. Please try again after @TempData["LockoutEnd"]
+                    </p>
+                }
+                else if (TempData["RemainingAttempts"] != null)
+                {
+                    <p class="text-warning">
+                        Invalid credentials. @TempData["RemainingAttempts"] attempts remaining before lockout.
+                    </p>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
    <script src="~/js/login.js"></script>
 
@@ -73,6 +100,19 @@
         <!-- Update to specific Firebase version -->
         <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+          <script>
+        // Show modal if there are any login attempt messages
+        document.addEventListener('DOMContentLoaded', function() {
+            if (@(TempData["Lockout"]?.ToString().ToLower() ?? "false") || 
+                @(TempData["RemainingAttempts"] != null ? "true" : "false")) {
+                var modal = new bootstrap.Modal(document.getElementById('loginModal'));
+                modal.show();
+            }
+        });
+    </script>
+
+
         <script>
             console.log('Starting Firebase initialization...');
 

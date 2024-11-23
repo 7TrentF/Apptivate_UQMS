@@ -10,6 +10,7 @@ using FirebaseAdmin.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Apptivate_UQMS_WebApp.Services.AccountServices;
 using Azure.Core;
+using Microsoft.AspNetCore.RateLimiting;
 
 
 namespace Apptivate_UQMS_WebApp.Controllers
@@ -21,17 +22,20 @@ namespace Apptivate_UQMS_WebApp.Controllers
         private readonly ILogger<AccountController> _logger;
         private readonly ApplicationDbContext _context;
         private readonly IUserRegistrationService _userRegistrationService;
+        private readonly RateLimitingService _rateLimitingService;
 
 
         private readonly IUserProfileService _userProfileService;
 
-        public AccountController(FirebaseAuthService firebaseAuthService, ILogger<AccountController> logger, ApplicationDbContext context,IUserRegistrationService userRegistrationService, IUserProfileService userProfileService)
+        public AccountController(RateLimitingService rateLimitingService, FirebaseAuthService firebaseAuthService, ILogger<AccountController> logger, ApplicationDbContext context,IUserRegistrationService userRegistrationService, IUserProfileService userProfileService)
         {
             _firebaseAuthService = firebaseAuthService;
             _logger = logger;
             _context = context; // Assign the injected context
             _userRegistrationService = userRegistrationService;
             _userProfileService = userProfileService;
+            _rateLimitingService = rateLimitingService;
+
         }
 
         [HttpGet]
@@ -215,16 +219,26 @@ namespace Apptivate_UQMS_WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
+            var ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
+            var rateLimitResult = await _rateLimitingService.CheckLoginAttempt(ipAddress, model.Email);
+
+            if (!rateLimitResult.isAllowed)
+            {
+                ModelState.AddModelError(string.Empty,
+                    $"Too many login attempts. Please try again after {rateLimitResult.lockoutEnd?.ToString("HH:mm")}");
+                TempData["Lockout"] = true;
+                TempData["LockoutEnd"] = rateLimitResult.lockoutEnd?.ToString("HH:mm");
+                return View(model);
+            }
+
             if (ModelState.IsValid)
             {
                 try
                 {
                     // Firebase login
                     var token = await _firebaseAuthService.LoginUser(model.Email, model.Password);
-
                     // Fetch Firebase user info
                     var firebaseUser = await FirebaseAuth.DefaultInstance.GetUserByEmailAsync(model.Email);
-
                     // Find the user in the database by Firebase UID
                     var user = await _context.Users.SingleOrDefaultAsync(u => u.FirebaseUID == firebaseUser.Uid);
 
@@ -232,26 +246,29 @@ namespace Apptivate_UQMS_WebApp.Controllers
                     {
                         _logger.LogError("User not found in the database.");
                         ModelState.AddModelError(string.Empty, "User not found.");
+                        // Store remaining attempts in TempData for the modal
+                        TempData["RemainingAttempts"] = rateLimitResult.remainingAttempts;
                         return View(model);
                     }
 
+                    // Reset login attempts on successful login
+                    await _rateLimitingService.ResetLoginAttempts(ipAddress, model.Email);
+
                     // Update the LastSeen property
                     user.LastSeen = DateTime.UtcNow;
-                    await _context.SaveChangesAsync(); // Ensure that changes are saved to the database
+                    await _context.SaveChangesAsync();
 
-
-                    // Store the Firebase token in a cookie (for persistent login)
+                    // Store the Firebase token in a cookie
                     Response.Cookies.Append("FirebaseToken", token, new CookieOptions
                     {
                         HttpOnly = true,
                         Secure = true,
-                        Expires = DateTimeOffset.UtcNow.AddDays(7), // Persistent for 7 days
+                        Expires = DateTimeOffset.UtcNow.AddDays(7),
                         SameSite = SameSiteMode.Strict
                     });
 
                     // Store FirebaseUID in session
                     HttpContext.Session.SetString("FirebaseUID", user.FirebaseUID);
-
                     _logger.LogInformation($"User {user.Email} logged in successfully.");
 
                     // Role-based redirection
@@ -263,7 +280,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
                             return RedirectToAction("StaffDashboard", "Dashboard");
                         case "Admin":
                             return RedirectToAction("AdminDashboard", "Dashboard");
-                       
                         default:
                             _logger.LogError($"Unknown role: {user.Role}");
                             ModelState.AddModelError(string.Empty, "Unknown role.");
@@ -273,10 +289,11 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, "Error occurred during login.");
-                    ModelState.AddModelError(string.Empty, ex.Message);
+                    ModelState.AddModelError(string.Empty, "Invalid credentials");
+                    // Store remaining attempts in TempData for the modal
+                    TempData["RemainingAttempts"] = rateLimitResult.remainingAttempts;
                 }
             }
-
             return View(model);
         }
 

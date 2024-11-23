@@ -12,6 +12,9 @@ using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pag
 using Serilog;
 using Apptivate_UQMS_WebApp.Hubs;
 using Apptivate_UQMS_WebApp.Services.QueryServices;
+using System.Threading.RateLimiting;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,7 +64,7 @@ builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<ReportingService>();
 builder.Services.AddScoped<IAssignQueryService, AssignQueryService>();
 builder.Services.AddHostedService<QueryCleanupService>();
-
+builder.Services.AddScoped<RateLimitingService>();
 
 
 // Add authentication
