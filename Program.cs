@@ -13,6 +13,7 @@ using Serilog;
 using Apptivate_UQMS_WebApp.Hubs;
 using Apptivate_UQMS_WebApp.Services.QueryServices;
 using System.Threading.RateLimiting;
+using Newtonsoft.Json;
 
 
 
@@ -37,17 +38,27 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 
 // Firebase initialization
-var firebaseConfigPath = Path.Combine(Directory.GetCurrentDirectory(), "Properties", "uqms-firebase-adminsdk.json");
+var firebaseConfigPath = Environment.GetEnvironmentVariable("FIREBASE_CONFIG");
 
 if (!File.Exists(firebaseConfigPath))
 {
+    Console.WriteLine($"The file does not exist at the specified path: {firebaseConfigPath}");
+
     throw new FileNotFoundException("Firebase configuration file not found.", firebaseConfigPath);
 }
+else
+{
+    Console.WriteLine($"The Firebase configuration file was found at: {firebaseConfigPath}");
+}
+
+
 
 FirebaseApp.Create(new AppOptions()
 {
     Credential = GoogleCredential.FromFile(firebaseConfigPath),
 });
+
+Console.WriteLine($"Firebase Config Path: {firebaseConfigPath}"); // For debugging
 
 // Register services
 builder.Services.AddTransient<FileUploadService>();
@@ -123,7 +134,7 @@ app.MapHub<ChatHub>("/chatHub");
 app.MapControllers(); // Ensure controllers are mapped
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsProduction())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();

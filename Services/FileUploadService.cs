@@ -19,7 +19,14 @@
             _logger = logger;
             try
             {
-                var firebaseConfigPath = Path.Combine(Directory.GetCurrentDirectory(), "Properties", "uqms-firebase-adminsdk.json");
+                var firebaseConfigPath = Environment.GetEnvironmentVariable("FIREBASE_CONFIG");
+
+                if (string.IsNullOrEmpty(firebaseConfigPath) || !File.Exists(firebaseConfigPath))
+                {
+                    _logger.LogError($"Invalid or missing Firebase configuration file path: {firebaseConfigPath}");
+                    throw new FileNotFoundException("Firebase configuration file not found.", firebaseConfigPath);
+                }
+
                 _storageClient = StorageClient.Create(Google.Apis.Auth.OAuth2.GoogleCredential.FromFile(firebaseConfigPath));
                 _bucketName = "uqms-a3d87.appspot.com"; // Replace with your bucket name
                 _logger.LogInformation("Successfully initialized Google Cloud Storage client.");
@@ -38,8 +45,16 @@
             {
                 _logger.LogInformation("Attempting to generate signed URL for object: {ObjectName}", objectName);
 
+
+                var firebaseConfigPath = Environment.GetEnvironmentVariable("FIREBASE_CONFIG");
+
+                if (string.IsNullOrEmpty(firebaseConfigPath) || !File.Exists(firebaseConfigPath))
+                {
+                    throw new FileNotFoundException("Firebase configuration file not found.", firebaseConfigPath);
+                }
+
                 // No encoding here, use the raw object name with spaces as it is in Firebase
-                var urlSigner = UrlSigner.FromServiceAccountPath("Properties/uqms-firebase-adminsdk.json");
+                var urlSigner = UrlSigner.FromServiceAccountPath(firebaseConfigPath);
 
                 // Sign the URL using the object name directly (with spaces)
                 string signedUrl = urlSigner.Sign(

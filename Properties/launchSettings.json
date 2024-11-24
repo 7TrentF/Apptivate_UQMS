@@ -15,24 +15,29 @@
       "launchBrowser": true,
       "applicationUrl": "http://localhost:5042",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production",
+        "FIREBASE_CONFIG": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\Env\\uqms-firebase-adminsdk.json"
       }
     },
     "https": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7061;http://localhost:5042",
+      "applicationUrl": "https://apptivateuqmswebapp20241124130023.azurewebsites.net/",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production",
+        "FIREBASE_CONFIG": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\Env\\uqms-firebase-adminsdk.json"
       }
     },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production",
+        "FIREBASE_CONFIG": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\Env\\uqms-firebase-adminsdk.json"
       }
     }
   }
 }
+
+ 

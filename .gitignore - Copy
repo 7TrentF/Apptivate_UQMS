@@ -1,0 +1,17 @@
+# Ignore Visual Studio temporary files, build results, and
+# common settings files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.VC.db
+
+# Ignore build output directories
+bin/
+obj/
+
+# Ignore Rider and other IDE files
+.idea/
+*.iml
+/.vs/Apptivate_UQMS_WebApp/v17/.suo
