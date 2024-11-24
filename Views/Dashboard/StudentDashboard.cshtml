@@ -1,0 +1,452 @@
+﻿@model Apptivate_UQMS_WebApp.Models.StudentDashboardViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="~/css/tempDashboard.css" asp-append-version="true">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="~/js/studentDashboard.js"></script>
+    <input type="hidden" id="studentId" value="@Model.StudentDetails.StudentID" />
+
+</head>
+
+<body>
+
+    <div id="notificationContainer"></div>
+    <div class="background">
+        <div class="wrapper-container">
+            <!-- Main Dashboard Content -->
+            <div class="dashboard-container">
+                <!-- Profile Section -->
+                <div class="profile-section">
+                    <div class="profile-info">
+                        <img src="~/Images/profile-pic.png" alt="Profile Picture" class="profile-pic">
+                        <h2>@Model.Users.Name @Model.Users.Surname</h2>
+                    </div>
+
+
+                    <div class="notification-icon">
+                        <img src="~/Svgs/notification.svg" alt="Notifications">
+                        <span id="notification-badge" class="notification-badge">0</span>
+                    </div>
+
+
+               
+
+
+                </div>
+
+            <!-- Quick Stats Section -->
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <img src="~/Images/pending-icon.png" alt="Pending Queries">
+                    </div>
+                    <div class="stat-info">
+                        <p>Pending Queries</p>
+                        <h3>@Model.DashboardStats.PendingCount</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <img src="~/Images/resolved.png" alt="Resolved Queries">
+                    </div>
+                    <div class="stat-info">
+                        <p>Resolved Queries</p>
+                        <h3>@Model.DashboardStats.ResolvedCount</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <img src="~/Images/in-progress-icon.png" alt="In Progress Queries">
+                    </div>
+                    <div class="stat-info">
+                        <p>In Progress Queries</p>
+                        <h3>@Model.DashboardStats.InProgressCount</h3>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Recent Queries Section -->
+                <div class="dashboard-section recent-queries">
+                    <h2>Recent Queries</h2>
+                    <div class="table-responsive">
+                        <table class="query-table">
+                            <thead>
+                                <tr>
+                                    <th>Ticket Number</th>
+                                    <th>Query</th>
+                                    <th>Submission Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var recentQueries = Model.RecentQueries.OrderByDescending(q => q.SubmissionDate).Take(10);
+                                }
+                                @foreach (var query in recentQueries)
+                                {
+                                    <tr class="query-row" onclick="window.location.href='@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })'">
+                                        <td>@query.TicketNumber</td>
+                                        <td>@query.Description</td>
+                                        <td>@query.SubmissionDate?.ToString("dd MMM yyyy")</td>
+                                        <td>
+                                            <span class="status-badge @(query.Status == QueryModel.QueryStatus.Pending)">
+                                                @query.Status
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @if (query.Status == QueryModel.QueryStatus.Resolved)
+                                            {
+                                                <a href="@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })" class="btn-view">View</a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("ViewTicket", "Query", new { queryId = query.QueryID })" class="btn-view">view</a>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            <!-- Academic Information Section -->
+            <div class="academic-info">
+                <h3>Academic Information</h3>
+                <p><strong>Year:</strong> @Model.StudentDetails?.Year</p>
+                <p><strong>Department:</strong> @Model.StudentDetails?.Department</p>
+                <p><strong>Course:</strong> @Model.StudentDetails?.Course</p>
+            </div>
+        </div>
+
+        <!-- Recent Activity Section -->
+        <div class="recent-activity-section">
+            <h2>Recent Activity</h2>
+            <ul class="activity-list">
+                <li>
+                    <img src="~/Images/profile-pic.png" alt="User">
+                    <p>Sonal closed "How do I reset my password?"</p>
+                    <span>14 Nov 2022, 5:26 PM</span>
+                </li>
+                <!-- Add more recent activity items here -->
+            </ul>
+            <button class="show-more-btn">Show More</button>
+        </div>
+    </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.18/signalr.min.js"></script>
+
+        <script>
+            (function () {
+                // Constants
+                const NOTIFICATION_DURATION = 10000;
+                const ANIMATION_DURATION = 1000;
+                const DEFAULT_MAX_VALUE = 100;
+
+                document.addEventListener('DOMContentLoaded', function () {
+                    initializeSignalR();
+                    initializeEventListeners();
+                    createNotificationContainer();
+                    createNotificationDropdown();
+                    initializeNotificationBadge(); // This will now properly initialize with no count
+                  
+
+                    // Debug check for notification elements
+                    console.log('Notification icon:', document.querySelector('.notification-icon'));
+                    console.log('Notification badge:', document.getElementById('notification-badge'));
+                });
+         
+
+                // Event listeners initialization
+                function initializeEventListeners() {
+
+
+
+                    // Stat card animations
+                    const statCards = document.querySelectorAll('.stat-card');
+                    statCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100 * index);
+                    });
+
+                    // Smooth scrolling
+                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                        anchor.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            const target = document.querySelector(this.getAttribute('href'));
+                            if (target) {
+                                target.scrollIntoView({
+                                    behavior: 'smooth'
+                                });
+                            }
+                        });
+                    });
+
+                    // Table row hover effects
+                    const queryRows = document.querySelectorAll('.query-row');
+                    queryRows.forEach(row => {
+                        row.addEventListener('mouseenter', () => {
+                            row.style.transform = 'scale(1.01)';
+                            row.style.transition = 'transform 0.2s ease';
+                        });
+                        row.addEventListener('mouseleave', () => {
+                            row.style.transform = 'scale(1)';
+                        });
+                    });
+
+                    // Modal functionality
+                    initializeModal();
+
+                    // Form submission
+                    initializeFormSubmission();
+                }
+
+                // Modal initialization
+                function initializeModal() {
+                    const modal = document.getElementById('query-modal');
+                    const closeBtn = document.querySelector('.close-btn');
+
+                    if (closeBtn && modal) {
+                        closeBtn.addEventListener('click', () => {
+                            modal.style.display = 'none';
+                        });
+
+                        window.addEventListener('click', (e) => {
+                            if (e.target === modal) {
+                                modal.style.display = 'none';
+                            }
+                        });
+                    }
+                }
+
+                // Form submission handling
+                function initializeFormSubmission() {
+                    const queryForm = document.querySelector('form[asp-action="CreateQuery"]');
+                    if (queryForm) {
+                        queryForm.addEventListener('submit', async (e) => {
+                            e.preventDefault();
+
+                            try {
+                                const formData = new FormData(queryForm);
+                                const response = await fetch(queryForm.action, {
+                                    method: 'POST',
+                                    body: formData
+                                });
+
+                                if (response.ok) {
+                                    showNotification('Query submitted successfully!', 'success');
+                                    document.getElementById('query-modal').style.display = 'none';
+                                    queryForm.reset();
+                                } else {
+                                    const errorData = await response.json();
+                                    showNotification(errorData.message || 'Error submitting query. Please try again.', 'error');
+                                }
+                            } catch (error) {
+                                showNotification('An error occurred. Please try again.', 'error');
+                                console.error('Form submission error:', error);
+                            }
+                        });
+                    }
+                }
+
+                function showNotification(message, type = 'info') {
+                    const container = document.getElementById('notification-container');
+
+                    const notification = document.createElement('div');
+                    notification.className = 'notification-alert';
+                    notification.style.cssText = `
+                    background: white;
+                    border-left: 4px solid #2196F3;
+                    border-radius: 4px;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                    margin-bottom: 10px;
+                    padding: 16px;
+                    transform: translateX(120%);
+                    transition: transform 0.3s ease-in-out;
+                    animation: slideIn 0.3s forwards;
+                `;
+
+                    notification.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div>
+                            <div style="font-weight: bold; margin-bottom: 4px;"> A Query has been resolved</div>
+                            <div style="color: #666;">${message}</div>
+                            <div style="color: #999; font-size: 0.8em; margin-top: 4px;">
+                                ${new Date().toLocaleTimeString()}
+                            </div>
+                        </div>
+                        <button class="close-notification" style="background: none; border: none; color: #999; cursor: pointer; padding: 4px;">
+                            ×
+                        </button>
+                    </div>
+                `;
+
+                    container.appendChild(notification);
+
+                    const closeButton = notification.querySelector('.close-notification');
+                    closeButton.addEventListener('click', () => {
+                        removeNotification(notification);
+                    });
+
+                    setTimeout(() => {
+                        removeNotification(notification);
+                    }, NOTIFICATION_DURATION);
+                }
+
+                function removeNotification(notification) {
+                    notification.style.transform = 'translateX(120%)';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }
+
+
+                function createNotificationContainer() {
+                    if (!document.getElementById('notification-container')) {
+                        const container = document.createElement('div');
+                        container.id = 'notification-container';
+                        container.style.cssText = `
+                                    position: fixed;
+                                    top: 20px;
+                                    right: 20px;
+                                    z-index: 1000;
+                                    max-width: 400px;
+                                `;
+                        document.body.appendChild(container);
+                    }
+                }
+
+                function initializeSignalR() {
+                    if (typeof signalR === 'undefined') {
+                        console.error('SignalR library not loaded');
+                        return;
+                    }
+
+                    const studentId = document.getElementById('studentId')?.value;
+                    if (!studentId) {
+                        console.error('Student ID not found');
+                        return;
+                    }
+
+                    const connection = new signalR.HubConnectionBuilder()
+                        .withUrl(`/notificationHub?studentId=${studentId}`)
+                        .withAutomaticReconnect()
+                        .build();
+
+                    connection.on("ReceiveNotification", function (message) {
+                        console.log('Function exists?:', typeof updateNotificationCount);  // Add this line
+
+                        console.log('BEFORE UPDATE - Badge display:', document.getElementById('notification-badge').style.display);
+                        console.log('BEFORE UPDATE - Badge text:', document.getElementById('notification-badge').textContent);
+
+                        console.log('Notification received:', message);
+                        showNotification(message);
+                        incrementNotificationCount(); // Increment badge count when notification arrives
+
+                        console.log('AFTER UPDATE - Badge display:', document.getElementById('notification-badge').style.display);
+                        console.log('AFTER UPDATE - Badge text:', document.getElementById('notification-badge').textContent);
+                    });
+
+
+
+                    connection.start()
+                        .then(() => {
+                            console.log('SignalR connected successfully.');
+                            // Don't update count on initial connection
+                        })
+                        .catch(err => console.error('SignalR connection error:', err));
+                }
+
+                // Notification dropdown
+                function createNotificationDropdown() {
+                    const notificationIcon = document.querySelector('.notification-icon');
+                    if (!notificationIcon) return;
+
+                    const dropdown = document.createElement('div');
+                    dropdown.className = 'notification-dropdown';
+                    dropdown.style.display = 'none';
+
+                    notificationIcon.appendChild(dropdown);
+
+                    notificationIcon.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+                    });
+
+                    document.addEventListener('click', () => {
+                        dropdown.style.display = 'none';
+                    });
+                }
+
+                function removeNotification(notification) {
+                    notification.style.transform = 'translateX(120%)';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }
+
+                function playNotificationSound() {
+                    // Create audio element if it doesn't exist
+                    let audio = document.getElementById('notification-sound');
+                    if (!audio) {
+                        audio = new Audio('/assets/notification.mp3');
+                        audio.id = 'notification-sound';
+                        audio.volume = 5;
+                    }
+
+                    const playPromise = audio.play();
+                    if (playPromise) {
+                        playPromise.catch(err => {
+                            console.warn('Audio playback failed:', err);
+                        });
+                    }
+                }
+
+                function initializeNotificationBadge() {
+                    const badge = document.getElementById('notification-badge');
+                    if (badge) {
+                        // Initialize with 0 and hide
+                        badge.textContent = '0';
+                        console.log('Notification badge initialized:', badge);
+                    } else {
+                        console.error('Failed to initialize notification badge: Element not found.');
+                    }
+                }
+
+                function incrementNotificationCount() {
+                 
+                        const badge = document.getElementById('notification-badge');
+                        if (badge) {
+                            const currentCount = parseInt(badge.textContent || '0');
+                            badge.textContent = currentCount + 1;
+                            badge.style.display = currentCount + 1 > 0 ? 'inline' : 'none';
+                        }
+                }
+
+
+
+                // Place this at the end of the script to list unused functions.
+                console.log(Object.getOwnPropertyNames(window).filter(prop => typeof window[prop] === 'function'));
+
+            })();
+
+        </script>
+       
+
+</body>
+
+</html>

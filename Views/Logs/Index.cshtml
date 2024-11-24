@@ -1,0 +1,35 @@
+﻿@model LogsModel.LogEntry[]
+
+<h2>Log Files</h2>
+
+@if (!Model.Any())
+{
+    <p>No log files found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>Last Modified</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var logFile in Model)
+            {
+                <tr>
+                    <td>@logFile.FileName</td>
+                    <td>@logFile.LastModified.ToString("g")</td>
+                    <td>
+                        <a href="@Url.Action("ViewLog", "Logs", new { logFileName = logFile.FileName })"
+                           class="btn btn-primary btn-sm">
+                            View
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

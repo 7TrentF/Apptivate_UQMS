@@ -1,0 +1,294 @@
+﻿<link rel="stylesheet" href="~/css/AcademicQuery.css" asp-append-version="true">
+
+@{
+    ViewData["Title"] = "Submit Administrative Query";
+    int queryTypeId = ViewBag.QueryTypeID;
+    var categories = ViewBag.QueryCategories as ICollection<Apptivate_UQMS_WebApp.DTOs.QueryModelDto.QueryCategoryDto>;
+    var studentDetail = ViewBag.StudentDetail;
+}
+
+<div class="main-container">
+    <div class="content-wrapper">
+        <h1>Submit an Administrative Query</h1>
+
+
+        <div class="query-form-section">
+            <h2>Create a Query</h2>
+            <p class="form-description">Submit your queries or issues, and we will address them promptly.</p>
+
+            <form class="query-form" asp-action="SubmitAdministrativeQuery" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="QueryTypeID" value="@queryTypeId" />
+
+                <div class="form-grid">
+                    <!-- Category Selection -->
+                    <div class="category-selection">
+                        <div class="form-group">
+                            <label for="query-category">Query Category</label>
+                            <select id="query-category" name="CategoryID" class="custom-select">
+                                @foreach (var category in categories)
+                                {
+                                    <option value="@category.CategoryID">@category.CategoryName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Query Description -->
+                    <div class="query-description">
+                        <div class="form-group">
+                            <label for="ticket-body">Query Description</label>
+                            <textarea id="ticket-body" name="Description" rows="4" maxlength="150"
+                                      placeholder="Type your query here..." required class="form-control"></textarea>
+                            <p id="charCount" class="character-limit">Maximum 150 characters</p>
+                        </div>
+                    </div>
+
+                    <!-- File Upload -->
+                    <div class="media-upload">
+                        <input type="file" id="media-upload" name="UploadedFile" />
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="submit-container">
+                        <button type="submit" class="btn-submit">Submit Query</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Enhanced character counter with progress bar
+        const ticketBody = document.getElementById('ticket-body');
+        const charCount = document.getElementById('charCount');
+        const maxLength = 150;
+
+        function updateCharCount() {
+            const length = ticketBody.value.length;
+            const remaining = maxLength - length;
+            const percentage = (length / maxLength) * 100;
+
+            let color = getProgressColor(percentage);
+
+            charCount.innerHTML = `
+                    <div class="char-counter">
+                        <span style="color: ${color}">${remaining}</span> characters remaining
+                        <div class="char-counter-bar">
+                            <div class="char-counter-progress"
+                                 style="width: ${percentage}%; background-color: ${color}">
+                            </div>
+                        </div>
+                    </div>
+                `;
+        }
+
+        function getProgressColor(percentage) {
+            if (percentage < 70) return 'var(--success-color)';
+            if (percentage < 90) return 'var(--warning-color)';
+            return 'var(--error-color)';
+        }
+
+        ticketBody.addEventListener('input', updateCharCount);
+        updateCharCount();
+
+        // Enhanced file upload handling with drag and drop
+        const uploadZone = document.createElement('div');
+        uploadZone.className = 'upload-zone';
+        const fileInput = document.getElementById('media-upload');
+        const uploadBtn = document.querySelector('.upload-btn');
+
+        uploadZone.innerHTML = `
+                <div class="upload-btn">
+                    <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                    </svg>
+                    Choose Files
+                </div>
+                <p class="file-types">Supported formats: .jpg, .png, .pdf, .zip</p>
+                <p class="drag-text">or drag and drop your file here</p>
+            `;
+
+        fileInput.parentElement.appendChild(uploadZone);
+
+        uploadZone.addEventListener('click', () => fileInput.click());
+
+        // Drag and drop handlers
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.style.borderColor = 'var(--primary-color)';
+            uploadZone.style.backgroundColor = 'rgba(79, 70, 229, 0.05)';
+        });
+
+        uploadZone.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            uploadZone.style.borderColor = 'var(--border-color)';
+            uploadZone.style.backgroundColor = 'transparent';
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const file = e.dataTransfer.files[0];
+            if (isValidFileType(file)) {
+                fileInput.files = e.dataTransfer.files;
+                handleFileSelection(file);
+            } else {
+                showFileError('Invalid file type. Please upload .jpg, .png, .pdf, or .zip files only.');
+            }
+        });
+
+        fileInput.addEventListener('change', function () {
+            if (this.files && this.files[0]) {
+                const file = this.files[0];
+                if (isValidFileType(file)) {
+                    handleFileSelection(file);
+                } else {
+                    showFileError('Invalid file type. Please upload .jpg, .png, .pdf, or .zip files only.');
+                    this.value = '';
+                }
+            }
+        });
+
+        function isValidFileType(file) {
+            const validTypes = ['.jpg', '.jpeg', '.png', '.pdf', '.zip'];
+            return validTypes.some(type => file.name.toLowerCase().endsWith(type));
+        }
+
+        function showFileError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.innerHTML = `
+                    <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    ${message}
+                `;
+            uploadZone.appendChild(errorDiv);
+            setTimeout(() => errorDiv.remove(), 3000);
+        }
+
+        function handleFileSelection(file) {
+            const fileName = file.name;
+            const fileSize = formatFileSize(file.size);
+
+            uploadZone.innerHTML = `
+                    <div class="upload-btn" style="background-color: var(--success-color)">
+                        <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        ${fileName} (${fileSize})
+                    </div>
+                    <p class="file-types">Click to change file or drag a new file</p>
+                    <button class="remove-file" onclick="removeFile(event)">Remove file</button>
+                `;
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Form submission handling with validation
+        const form = document.querySelector('.query-form');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const submitBtn = document.querySelector('.btn-submit');
+            const category = document.getElementById('query-category').value;
+            const description = ticketBody.value.trim();
+
+            if (!category || !description) {
+                showFormError('Please fill in all required fields.');
+                return;
+            }
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                    <svg class="animate-spin h-5 w-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Submitting...
+                `;
+
+            // Simulate form submission (replace with actual submission)
+            setTimeout(() => {
+                form.submit();
+            }, 1000);
+        });
+
+        function showFormError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.innerHTML = `
+                    <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    ${message}
+                `;
+            form.insertBefore(errorDiv, form.firstChild);
+            setTimeout(() => errorDiv.remove(), 3000);
+        }
+
+
+        const modal = document.getElementById('successModal');
+        const closeModalBtn = document.getElementsByClassName('close-btn')[0];
+        const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+        // Open the modal after the form is submitted successfully
+        function openModal() {
+            modal.style.display = 'flex';
+        }
+
+        // Close the modal when clicking the close button or the modal action button
+        closeModalBtn.onclick = closeModal;
+        modalCloseBtn.onclick = closeModal;
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Close modal if clicking outside of it
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Trigger the modal after a query submission
+        // Replace the setTimeout with the actual form submission success handler
+        document.querySelector('.query-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Simulate form submission
+            setTimeout(() => {
+                openModal();
+            }, 5000); // Assuming form submission success after 1 second
+        });
+
+
+    });
+
+    // Global function for removing file
+    function removeFile(event) {
+        event.stopPropagation();
+        const fileInput = document.getElementById('media-upload');
+        fileInput.value = '';
+        const uploadZone = document.querySelector('.upload-zone');
+        uploadZone.innerHTML = `
+                <div class="upload-btn">
+                    <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                    </svg>
+                    Choose Files
+                </div>
+                <p class="file-types">Supported formats: .jpg, .png, .pdf, .zip</p>
+                <p class="drag-text">or drag and drop your file here</p>
+            `;
+    }
+</script>

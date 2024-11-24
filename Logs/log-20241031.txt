@@ -1,0 +1,1279 @@
+2024-10-31 08:27:12.280 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-31 08:27:12.581 +02:00 [INF] Now listening on: https://localhost:7061
+2024-10-31 08:27:12.583 +02:00 [INF] Now listening on: http://localhost:5042
+2024-10-31 08:27:12.589 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-31 08:27:12.591 +02:00 [INF] Hosting environment: Development
+2024-10-31 08:27:12.592 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-10-31 08:27:14.018 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-10-31 08:27:14.250 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-31 08:27:14.255 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-31 08:27:14.259 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-10-31 08:27:14.280 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-10-31 08:27:14.449 +02:00 [INF] Executing ViewResult, running view Login.
+2024-10-31 08:27:14.622 +02:00 [INF] Executed ViewResult - view Login executed in 175.6407ms.
+2024-10-31 08:27:14.630 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 347.2224ms
+2024-10-31 08:27:14.632 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-10-31 08:27:14.637 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 621.6814ms
+2024-10-31 08:27:14.720 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - null null
+2024-10-31 08:27:14.720 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/site.css?v=jDyI1f6riKj4fnGtZytJN04bKOkAOtSQjUQukzomKFM - null null
+2024-10-31 08:27:14.721 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/Login.css - null null
+2024-10-31 08:27:14.729 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-31 08:27:14.731 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-31 08:27:14.731 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-31 08:27:14.732 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-31 08:27:14.734 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-31 08:27:14.734 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/login.js - null null
+2024-10-31 08:27:14.737 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 8.3234ms
+2024-10-31 08:27:14.743 +02:00 [INF] The file /css/Login.css was not modified
+2024-10-31 08:27:14.743 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-10-31 08:27:14.743 +02:00 [INF] The file /css/site.css was not modified
+2024-10-31 08:27:14.751 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Apptivate_UQMS_WebApp.styles.css?v=0y9_6wueCraVz4ynO7J42x1FtexlMJ4zX5Vi0NQ8vIQ - 304 null text/css 31.4245ms
+2024-10-31 08:27:14.751 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/Login.css - 304 null text/css 30.447ms
+2024-10-31 08:27:14.752 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-31 08:27:14.752 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/site.css?v=jDyI1f6riKj4fnGtZytJN04bKOkAOtSQjUQukzomKFM - 304 null text/css 31.7921ms
+2024-10-31 08:27:14.760 +02:00 [INF] The file /js/login.js was not modified
+2024-10-31 08:27:14.763 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/login.js - 304 null text/javascript 28.7841ms
+2024-10-31 08:27:14.813 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 78.8099ms
+2024-10-31 08:27:44.470 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/Account/GoogleLogin - application/json 1191
+2024-10-31 08:27:44.484 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-31 08:27:44.485 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-31 08:27:44.487 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp)'
+2024-10-31 08:27:44.509 +02:00 [INF] Route matched with {action = "GoogleLogin", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleLogin(GoogleLoginViewModel) on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-10-31 08:27:44.567 +02:00 [INF] GoogleLogin attempt initiated
+2024-10-31 08:27:44.568 +02:00 [INF] here is your token grump eyJhbGciOiJSUzI1NiIsImtpZCI6ImU2YWMzNTcyNzY3ZGUyNjE0ZmM1MTA4NjMzMDg3YTQ5MjMzMDNkM2IiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiVHJlbnQgRmlzaGVyIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0lfMG11MTRncWZqLW4zMDZsZUlEZ2JmZk83bHByOWQyUUlUd2h2OVdLanZCaXdMcDh3PXM5Ni1jIiwicm9sZSI6IlN0dWRlbnQiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdXFtcy1hM2Q4NyIsImF1ZCI6InVxbXMtYTNkODciLCJhdXRoX3RpbWUiOjE3MzAzNTYwNjMsInVzZXJfaWQiOiJ5ZTd0d3BIOVYyWk9haFRYMVR5WGZ5cGFhcEgyIiwic3ViIjoieWU3dHdwSDlWMlpPYWhUWDFUeVhmeXBhYXBIMiIsImlhdCI6MTczMDM1NjA2MywiZXhwIjoxNzMwMzU5NjYzLCJlbWFpbCI6InRyZW50ZmlzaGVyMDE3QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7Imdvb2dsZS5jb20iOlsiMTE4MDQwODkyMzQ5OTA3NzczODcyIl0sImVtYWlsIjpbInRyZW50ZmlzaGVyMDE3QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.jI99z1Y2rSEgshlT0gRYdS3Js993lkxSR_gDgcyvDjrwu9TMJdUG0Pkvw77x1r8O7dHQgoNp7p13v2euWbbWNrYY8TBfTTo2nhqRzbgM-2IfYufxpBwmqqYachKNEL0cBjCCYZhl2_4QXaAaXhD3upjTk7jKdBoqpaBwiz7_U-1T17R9G3dc1-YBdO5XcOrVYZ_XLKqThDsmJbQU2bEJ6zC353piiaPGtN3O87bntIWPi12YM4mOlKx9Nx5NhosuqnVDuut9NSbJIJ34guGBy328E4zqSL_7HqhZmX3cgNrfCxIhpoClnUZWr4OqhXu5kzWf9D3wIAsHKPG6HE4E0A
+2024-10-31 08:27:44.570 +02:00 [INF] Verifying Firebase ID token.
+2024-10-31 08:27:45.255 +02:00 [INF] Firebase ID token verified successfully for UID: ye7twpH9V2ZOahTX1TyXfypaapH2
+2024-10-31 08:27:45.256 +02:00 [INF] Retrieving user information for UID: ye7twpH9V2ZOahTX1TyXfypaapH2
+2024-10-31 08:27:46.785 +02:00 [INF] User information retrieved successfully. Email: trentfisher017@gmail.com, Display Name: Trent Fisher
+2024-10-31 08:27:47.424 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-10-31 08:27:48.814 +02:00 [INF] Executed DbCommand (134ms) [Parameters=[@__uid_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__uid_0
+2024-10-31 08:27:49.027 +02:00 [INF] Executed DbCommand (34ms) [Parameters=[@p1='38', @p0='2024-10-31T06:27:48.9157212Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastSeen] = @p0
+OUTPUT 1
+WHERE [UserID] = @p1;
+2024-10-31 08:27:49.044 +02:00 [INF] Accessing expired session, Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa
+2024-10-31 08:27:49.045 +02:00 [INF] GoogleLogin successful for user trentfisher017@gmail.com with role Student
+2024-10-31 08:27:49.050 +02:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType3`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-10-31 08:27:49.063 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp) in 4552.6061ms
+2024-10-31 08:27:49.065 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp)'
+2024-10-31 08:27:49.067 +02:00 [INF] Session started; Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa, Id:f2016498-1274-f049-adb2-70805e3bc795
+2024-10-31 08:27:49.082 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/Account/GoogleLogin - 200 null application/json; charset=utf-8 4611.1798ms
+2024-10-31 08:27:49.101 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/StudentDashboard - null null
+2024-10-31 08:27:49.122 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-10-31 08:27:49.128 +02:00 [INF] Route matched with {action = "StudentDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StudentDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-10-31 08:27:49.249 +02:00 [INF] Executed DbCommand (30ms) [Parameters=[@__firebaseUid_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [StudentDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-10-31 08:27:49.390 +02:00 [INF] Executed DbCommand (35ms) [Parameters=[@__student_StudentID_0='24'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE [q].[StudentID] = @__student_StudentID_0
+GROUP BY [q].[Status]
+2024-10-31 08:27:49.467 +02:00 [INF] Executed DbCommand (39ms) [Parameters=[@__student_StudentID_0='24'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID], [q].[CategoryID], [q].[CourseID], [q].[DepartmentID], [q].[Description], [q].[ModuleID], [q].[QueryTypeID], [q].[ResolvedDate], [q].[Status], [q].[StudentID], [q].[SubmissionDate], [q].[TicketNumber], [q].[Year], [q0].[DocumentID], [q0].[DocumentName], [q0].[DocumentPath], [q0].[QueryID], [q0].[UploadDate]
+FROM [Queries] AS [q]
+LEFT JOIN [QueryDocuments] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+WHERE [q].[StudentID] = @__student_StudentID_0
+ORDER BY [q].[QueryID]
+2024-10-31 08:27:49.536 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@__firebaseUid_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-10-31 08:27:49.554 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@__user_UserID_0='38'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-10-31 08:27:49.576 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__user_UserID_0='38'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-10-31 08:27:49.581 +02:00 [INF] Executing ViewResult, running view StudentDashboard.
+2024-10-31 08:27:49.832 +02:00 [INF] Executed ViewResult - view StudentDashboard executed in 252.7305ms.
+2024-10-31 08:27:49.834 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp) in 704.5561ms
+2024-10-31 08:27:49.836 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-10-31 08:27:49.840 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/StudentDashboard - 200 null text/html; charset=utf-8 737.9329ms
+2024-10-31 08:27:49.882 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/tempSidebar.css - null null
+2024-10-31 08:27:49.890 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/toast.css - null null
+2024-10-31 08:27:49.892 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-31 08:27:49.897 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/Sidebar.js?v=Qia1IPeDLSkb2Pa5EKSPN8fIRSPsZWHbBAaRE7PuMV0 - null null
+2024-10-31 08:27:49.898 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/studentDashboard.js - null null
+2024-10-31 08:27:49.898 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/tempDashboard.css?v=yr9T0gFxbWc0kHSpRvRbtLAWexDwn86Emltw3K4f1Rk - null null
+2024-10-31 08:27:49.898 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-31 08:27:49.898 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/profile-pic.png - null null
+2024-10-31 08:27:49.900 +02:00 [INF] The file /css/tempSidebar.css was not modified
+2024-10-31 08:27:49.902 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/notification-icon.jpg - null null
+2024-10-31 08:27:49.902 +02:00 [INF] The file /css/toast.css was not modified
+2024-10-31 08:27:49.905 +02:00 [INF] The file /js/Sidebar.js was not modified
+2024-10-31 08:27:49.908 +02:00 [INF] The file /js/studentDashboard.js was not modified
+2024-10-31 08:27:49.908 +02:00 [INF] The file /css/tempDashboard.css was not modified
+2024-10-31 08:27:49.909 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/pending-icon.png - null null
+2024-10-31 08:27:49.911 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/tempSidebar.css - 304 null text/css 29.3514ms
+2024-10-31 08:27:49.912 +02:00 [INF] The file /Images/profile-pic.png was not modified
+2024-10-31 08:27:49.914 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/toast.css - 304 null text/css 23.3699ms
+2024-10-31 08:27:49.914 +02:00 [INF] The file /Images/notification-icon.jpg was not modified
+2024-10-31 08:27:49.914 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/Sidebar.js?v=Qia1IPeDLSkb2Pa5EKSPN8fIRSPsZWHbBAaRE7PuMV0 - 304 null text/javascript 17.4191ms
+2024-10-31 08:27:49.915 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/studentDashboard.js - 304 null text/javascript 17.3257ms
+2024-10-31 08:27:49.916 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/tempDashboard.css?v=yr9T0gFxbWc0kHSpRvRbtLAWexDwn86Emltw3K4f1Rk - 304 null text/css 17.5201ms
+2024-10-31 08:27:49.918 +02:00 [INF] The file /Images/pending-icon.png was not modified
+2024-10-31 08:27:49.919 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/in-progress-icon.png - null null
+2024-10-31 08:27:49.920 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/profile-pic.png - 304 null image/png 21.5114ms
+2024-10-31 08:27:49.925 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 32.5864ms
+2024-10-31 08:27:49.925 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/notification-icon.jpg - 304 null image/jpeg 23.0415ms
+2024-10-31 08:27:49.940 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.2013ms
+2024-10-31 08:27:49.943 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/pending-icon.png - 304 null image/png 33.92ms
+2024-10-31 08:27:49.947 +02:00 [INF] The file /Images/in-progress-icon.png was not modified
+2024-10-31 08:27:49.964 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/in-progress-icon.png - 304 null image/png 45.1225ms
+2024-10-31 08:27:56.744 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Chat/Chats - null null
+2024-10-31 08:27:56.751 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.Chats (Apptivate_UQMS_WebApp)'
+2024-10-31 08:27:56.757 +02:00 [INF] Route matched with {action = "Chats", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Chats() on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-10-31 08:27:56.843 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:27:56.909 +02:00 [INF] Executed DbCommand (34ms) [Parameters=[@__currentUserId_0='38'], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserID], [u].[Name], [u].[Surname], [u].[IsOnline], [u].[LastSeen], (
+    SELECT COUNT(*)
+    FROM [Messages] AS [m]
+    WHERE [m].[ReceiverId] = @__currentUserId_0 AND [m].[IsRead] = CAST(0 AS bit) AND [u].[UserID] = [m].[SenderId]) AS [UnreadCount]
+FROM [Users] AS [u]
+WHERE [u].[UserID] <> @__currentUserId_0 AND [u].[Role] = N'Staff'
+2024-10-31 08:27:56.913 +02:00 [INF] Executing ViewResult, running view Chats.
+2024-10-31 08:27:56.972 +02:00 [INF] Executed ViewResult - view Chats executed in 59.6752ms.
+2024-10-31 08:27:56.975 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.Chats (Apptivate_UQMS_WebApp) in 212.6081ms
+2024-10-31 08:27:56.976 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.Chats (Apptivate_UQMS_WebApp)'
+2024-10-31 08:27:56.978 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Chat/Chats - 200 null text/html; charset=utf-8 234.2254ms
+2024-10-31 08:27:57.009 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/Chats.css - null null
+2024-10-31 08:27:57.013 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-31 08:27:57.013 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/chat.js - null null
+2024-10-31 08:27:57.013 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/chat-enhanced.js - null null
+2024-10-31 08:27:57.013 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-31 08:27:57.021 +02:00 [INF] The file /js/chat-enhanced.js was not modified
+2024-10-31 08:27:57.016 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 3.2435ms
+2024-10-31 08:27:57.019 +02:00 [INF] The file /js/chat.js was not modified
+2024-10-31 08:27:57.015 +02:00 [INF] The file /css/Chats.css was not modified
+2024-10-31 08:27:57.023 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/chat-enhanced.js - 304 null text/javascript 9.2315ms
+2024-10-31 08:27:57.027 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 13.0277ms
+2024-10-31 08:27:57.029 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/chat.js - 304 null text/javascript 15.7542ms
+2024-10-31 08:27:57.029 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/Chats.css - 304 null text/css 20.1066ms
+2024-10-31 08:27:57.047 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/chatHub/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-10-31 08:27:57.053 +02:00 [INF] Executing endpoint '/chatHub/negotiate'
+2024-10-31 08:27:57.065 +02:00 [INF] Executed endpoint '/chatHub/negotiate'
+2024-10-31 08:27:57.066 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/chatHub/negotiate?negotiateVersion=1 - 200 316 application/json 18.9747ms
+2024-10-31 08:27:57.096 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7061/chatHub?id=y3EIOUaYCw9yoeIe3rEGeQ - null null
+2024-10-31 08:27:57.099 +02:00 [INF] Executing endpoint '/chatHub'
+2024-10-31 08:27:57.189 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/api/users/statuses - null null
+2024-10-31 08:27:57.190 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:27:57.196 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetUserStatuses (Apptivate_UQMS_WebApp)'
+2024-10-31 08:27:57.202 +02:00 [INF] Route matched with {action = "GetUserStatuses", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserStatuses() on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-10-31 08:27:57.209 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@p2='38', @p0='True', @p1='2024-10-31T06:27:57.1980003Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [IsOnline] = @p0, [LastSeen] = @p1
+OUTPUT 1
+WHERE [UserID] = @p2;
+2024-10-31 08:27:57.218 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserID] AS [userId], [u].[IsOnline] AS [isOnline]
+FROM [Users] AS [u]
+2024-10-31 08:27:57.225 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType6`2[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:27:57.237 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.GetUserStatuses (Apptivate_UQMS_WebApp) in 33.5943ms
+2024-10-31 08:27:57.238 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetUserStatuses (Apptivate_UQMS_WebApp)'
+2024-10-31 08:27:57.243 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/api/users/statuses - 200 null application/json; charset=utf-8 53.5644ms
+2024-10-31 08:28:00.646 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=3 - null null
+2024-10-31 08:28:00.650 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:00.656 +02:00 [INF] Route matched with {action = "GetMessages", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32) on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:00.659 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:00.670 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:00.693 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@__senderId_0='3', @__currentUserId_1='38'], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MessageId], [m].[Content], [m].[ConversationID], [m].[IsRead], [m].[ReceiverId], [m].[SenderId], [m].[Timestamp]
+FROM [Messages] AS [m]
+WHERE [m].[SenderId] = @__senderId_0 AND [m].[ReceiverId] = @__currentUserId_1 AND [m].[IsRead] = CAST(0 AS bit)
+2024-10-31 08:28:00.726 +02:00 [INF] Executed DbCommand (39ms) [Parameters=[@__currentUserId_0='38', @__userId_1='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MessageId], [m].[Content], [m].[Timestamp], CASE
+    WHEN [m].[SenderId] = @__currentUserId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsFromCurrentUser]
+FROM [Messages] AS [m]
+WHERE ([m].[SenderId] = @__currentUserId_0 AND [m].[ReceiverId] = @__userId_1) OR ([m].[SenderId] = @__userId_1 AND [m].[ReceiverId] = @__currentUserId_0)
+ORDER BY [m].[Timestamp]
+2024-10-31 08:28:00.733 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:28:00.739 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp) in 81.4088ms
+2024-10-31 08:28:00.741 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:00.742 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=3 - 200 null application/json; charset=utf-8 95.4922ms
+2024-10-31 08:28:01.550 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=3 - null null
+2024-10-31 08:28:01.555 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:01.556 +02:00 [INF] Route matched with {action = "GetMessages", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32) on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:01.563 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:01.572 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__currentUserId_0='38', @__userId_1='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MessageId], [m].[Content], [m].[Timestamp], CASE
+    WHEN [m].[SenderId] = @__currentUserId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsFromCurrentUser]
+FROM [Messages] AS [m]
+WHERE ([m].[SenderId] = @__currentUserId_0 AND [m].[ReceiverId] = @__userId_1) OR ([m].[SenderId] = @__userId_1 AND [m].[ReceiverId] = @__currentUserId_0)
+ORDER BY [m].[Timestamp]
+2024-10-31 08:28:01.575 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:28:01.577 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp) in 20.6068ms
+2024-10-31 08:28:01.579 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:01.581 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=3 - 200 null application/json; charset=utf-8 30.7874ms
+2024-10-31 08:28:02.484 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=4 - null null
+2024-10-31 08:28:02.487 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:02.489 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:02.490 +02:00 [INF] Route matched with {action = "GetMessages", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32) on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:02.494 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:02.495 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__senderId_0='4', @__currentUserId_1='38'], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MessageId], [m].[Content], [m].[ConversationID], [m].[IsRead], [m].[ReceiverId], [m].[SenderId], [m].[Timestamp]
+FROM [Messages] AS [m]
+WHERE [m].[SenderId] = @__senderId_0 AND [m].[ReceiverId] = @__currentUserId_1 AND [m].[IsRead] = CAST(0 AS bit)
+2024-10-31 08:28:02.502 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__currentUserId_0='38', @__userId_1='4'], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MessageId], [m].[Content], [m].[Timestamp], CASE
+    WHEN [m].[SenderId] = @__currentUserId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsFromCurrentUser]
+FROM [Messages] AS [m]
+WHERE ([m].[SenderId] = @__currentUserId_0 AND [m].[ReceiverId] = @__userId_1) OR ([m].[SenderId] = @__userId_1 AND [m].[ReceiverId] = @__currentUserId_0)
+ORDER BY [m].[Timestamp]
+2024-10-31 08:28:02.504 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:28:02.506 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp) in 14.7636ms
+2024-10-31 08:28:02.508 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:02.509 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=4 - 200 null application/json; charset=utf-8 25.0823ms
+2024-10-31 08:28:03.057 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=4 - null null
+2024-10-31 08:28:03.060 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:03.060 +02:00 [INF] Route matched with {action = "GetMessages", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32) on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:03.068 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:03.078 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__currentUserId_0='38', @__userId_1='4'], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MessageId], [m].[Content], [m].[Timestamp], CASE
+    WHEN [m].[SenderId] = @__currentUserId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsFromCurrentUser]
+FROM [Messages] AS [m]
+WHERE ([m].[SenderId] = @__currentUserId_0 AND [m].[ReceiverId] = @__userId_1) OR ([m].[SenderId] = @__userId_1 AND [m].[ReceiverId] = @__currentUserId_0)
+ORDER BY [m].[Timestamp]
+2024-10-31 08:28:03.081 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:28:03.082 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp) in 20.3472ms
+2024-10-31 08:28:03.083 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:03.084 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=4 - null null
+2024-10-31 08:28:03.084 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=4 - 200 null application/json; charset=utf-8 27.9087ms
+2024-10-31 08:28:03.088 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:03.091 +02:00 [INF] Route matched with {action = "GetMessages", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32) on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:03.095 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:03.099 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__currentUserId_0='38', @__userId_1='4'], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MessageId], [m].[Content], [m].[Timestamp], CASE
+    WHEN [m].[SenderId] = @__currentUserId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsFromCurrentUser]
+FROM [Messages] AS [m]
+WHERE ([m].[SenderId] = @__currentUserId_0 AND [m].[ReceiverId] = @__userId_1) OR ([m].[SenderId] = @__userId_1 AND [m].[ReceiverId] = @__currentUserId_0)
+ORDER BY [m].[Timestamp]
+2024-10-31 08:28:03.102 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:28:03.103 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp) in 10.1334ms
+2024-10-31 08:28:03.104 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:03.105 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=4 - 200 null application/json; charset=utf-8 21.4543ms
+2024-10-31 08:28:04.553 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=4 - null null
+2024-10-31 08:28:04.557 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:04.559 +02:00 [INF] Route matched with {action = "GetMessages", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32) on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:04.567 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:04.578 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__currentUserId_0='38', @__userId_1='4'], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MessageId], [m].[Content], [m].[Timestamp], CASE
+    WHEN [m].[SenderId] = @__currentUserId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsFromCurrentUser]
+FROM [Messages] AS [m]
+WHERE ([m].[SenderId] = @__currentUserId_0 AND [m].[ReceiverId] = @__userId_1) OR ([m].[SenderId] = @__userId_1 AND [m].[ReceiverId] = @__currentUserId_0)
+ORDER BY [m].[Timestamp]
+2024-10-31 08:28:04.581 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:28:04.582 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp) in 21.253ms
+2024-10-31 08:28:04.583 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:04.584 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=4 - 200 null application/json; charset=utf-8 30.2481ms
+2024-10-31 08:28:05.110 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=12 - null null
+2024-10-31 08:28:05.114 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:05.114 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:05.114 +02:00 [INF] Route matched with {action = "GetMessages", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32) on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:05.120 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:05.122 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__senderId_0='12', @__currentUserId_1='38'], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MessageId], [m].[Content], [m].[ConversationID], [m].[IsRead], [m].[ReceiverId], [m].[SenderId], [m].[Timestamp]
+FROM [Messages] AS [m]
+WHERE [m].[SenderId] = @__senderId_0 AND [m].[ReceiverId] = @__currentUserId_1 AND [m].[IsRead] = CAST(0 AS bit)
+2024-10-31 08:28:05.129 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__currentUserId_0='38', @__userId_1='12'], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MessageId], [m].[Content], [m].[Timestamp], CASE
+    WHEN [m].[SenderId] = @__currentUserId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsFromCurrentUser]
+FROM [Messages] AS [m]
+WHERE ([m].[SenderId] = @__currentUserId_0 AND [m].[ReceiverId] = @__userId_1) OR ([m].[SenderId] = @__userId_1 AND [m].[ReceiverId] = @__currentUserId_0)
+ORDER BY [m].[Timestamp]
+2024-10-31 08:28:05.131 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:28:05.132 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp) in 13.5885ms
+2024-10-31 08:28:05.133 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:05.150 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=12 - 200 null application/json; charset=utf-8 40.2096ms
+2024-10-31 08:28:06.056 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=12 - null null
+2024-10-31 08:28:06.063 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:06.067 +02:00 [INF] Route matched with {action = "GetMessages", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32) on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:06.079 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:06.096 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[@__currentUserId_0='38', @__userId_1='12'], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MessageId], [m].[Content], [m].[Timestamp], CASE
+    WHEN [m].[SenderId] = @__currentUserId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsFromCurrentUser]
+FROM [Messages] AS [m]
+WHERE ([m].[SenderId] = @__currentUserId_0 AND [m].[ReceiverId] = @__userId_1) OR ([m].[SenderId] = @__userId_1 AND [m].[ReceiverId] = @__currentUserId_0)
+ORDER BY [m].[Timestamp]
+2024-10-31 08:28:06.102 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:28:06.106 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp) in 34.805ms
+2024-10-31 08:28:06.109 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:06.109 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=12 - null null
+2024-10-31 08:28:06.111 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=12 - 200 null application/json; charset=utf-8 55.3016ms
+2024-10-31 08:28:06.114 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:06.117 +02:00 [INF] Route matched with {action = "GetMessages", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32) on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:06.122 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:06.126 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__currentUserId_0='38', @__userId_1='12'], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MessageId], [m].[Content], [m].[Timestamp], CASE
+    WHEN [m].[SenderId] = @__currentUserId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsFromCurrentUser]
+FROM [Messages] AS [m]
+WHERE ([m].[SenderId] = @__currentUserId_0 AND [m].[ReceiverId] = @__userId_1) OR ([m].[SenderId] = @__userId_1 AND [m].[ReceiverId] = @__currentUserId_0)
+ORDER BY [m].[Timestamp]
+2024-10-31 08:28:06.129 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:28:06.130 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp) in 11.0425ms
+2024-10-31 08:28:06.131 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:06.132 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=12 - 200 null application/json; charset=utf-8 23.4529ms
+2024-10-31 08:28:07.562 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=12 - null null
+2024-10-31 08:28:07.569 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:07.570 +02:00 [INF] Route matched with {action = "GetMessages", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32) on controller Apptivate_UQMS_WebApp.Controllers.ChatController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:07.578 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:07.590 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__currentUserId_0='38', @__userId_1='12'], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MessageId], [m].[Content], [m].[Timestamp], CASE
+    WHEN [m].[SenderId] = @__currentUserId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsFromCurrentUser]
+FROM [Messages] AS [m]
+WHERE ([m].[SenderId] = @__currentUserId_0 AND [m].[ReceiverId] = @__userId_1) OR ([m].[SenderId] = @__userId_1 AND [m].[ReceiverId] = @__currentUserId_0)
+ORDER BY [m].[Timestamp]
+2024-10-31 08:28:07.593 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:28:07.594 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp) in 22.9418ms
+2024-10-31 08:28:07.595 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ChatController.GetMessages (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:07.596 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Chat/GetMessages?userId=12 - 200 null application/json; charset=utf-8 34.1272ms
+2024-10-31 08:28:08.767 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/Account/Logout - application/x-www-form-urlencoded 225
+2024-10-31 08:28:08.776 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Logout (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:08.779 +02:00 [INF] Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:08.785 +02:00 [INF] User logged out.
+2024-10-31 08:28:08.786 +02:00 [INF] Executing RedirectResult, redirecting to /.
+2024-10-31 08:28:08.787 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Logout (Apptivate_UQMS_WebApp) in 3.7689ms
+2024-10-31 08:28:08.789 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Logout (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:08.791 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/Account/Logout - 302 0 null 23.2952ms
+2024-10-31 08:28:08.795 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2024-10-31 08:28:08.798 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-31 08:28:08.799 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-31 08:28:08.800 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:08.801 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:08.803 +02:00 [INF] Executing ViewResult, running view Login.
+2024-10-31 08:28:08.807 +02:00 [INF] Executed ViewResult - view Login executed in 3.9563ms.
+2024-10-31 08:28:08.809 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 5.583ms
+2024-10-31 08:28:08.810 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:08.811 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 200 null text/html; charset=utf-8 16.3599ms
+2024-10-31 08:28:08.825 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__firebaseUserId_0='ye7twpH9V2ZOahTX1TyXfypaapH2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUserId_0
+2024-10-31 08:28:08.833 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@p2='38', @p0='False', @p1='2024-10-31T06:28:08.8276010Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [IsOnline] = @p0, [LastSeen] = @p1
+OUTPUT 1
+WHERE [UserID] = @p2;
+2024-10-31 08:28:08.843 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-31 08:28:08.844 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-31 08:28:08.845 +02:00 [INF] Executed endpoint '/chatHub'
+2024-10-31 08:28:08.846 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 2.7094ms
+2024-10-31 08:28:08.848 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7061/chatHub?id=y3EIOUaYCw9yoeIe3rEGeQ - 101 null null 11751.9793ms
+2024-10-31 08:28:08.851 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.5347ms
+2024-10-31 08:28:24.084 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7061/ - application/x-www-form-urlencoded 224
+2024-10-31 08:28:24.095 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-31 08:28:24.096 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-10-31 08:28:24.097 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:24.107 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LoginViewModel) on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:24.127 +02:00 [INF] Attempting to log in user with email: Admin@gmail.com
+2024-10-31 08:28:24.132 +02:00 [INF] Start processing HTTP request POST https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDXB0dEozyPQdXzlGyQFP1elMObEksarR0
+2024-10-31 08:28:24.136 +02:00 [INF] Sending HTTP request POST https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDXB0dEozyPQdXzlGyQFP1elMObEksarR0
+2024-10-31 08:28:24.658 +02:00 [INF] Received HTTP response headers after 518.1143ms - 200
+2024-10-31 08:28:24.660 +02:00 [INF] End processing HTTP request after 529.9507ms - 200
+2024-10-31 08:28:24.665 +02:00 [INF] User logged in successfully.
+2024-10-31 08:28:25.491 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__firebaseUser_Uid_0='C9orrhtKXpgX4jsjPpwEI3J9a3t2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUser_Uid_0
+2024-10-31 08:28:25.501 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@p1='5', @p0='2024-10-31T06:28:25.4950186Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastSeen] = @p0
+OUTPUT 1
+WHERE [UserID] = @p1;
+2024-10-31 08:28:25.504 +02:00 [INF] User admin@gmail.com logged in successfully.
+2024-10-31 08:28:25.506 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/AdminDashboard.
+2024-10-31 08:28:25.507 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 1399.0263ms
+2024-10-31 08:28:25.508 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:25.510 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7061/ - 302 0 null 1425.3304ms
+2024-10-31 08:28:25.544 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/AdminDashboard - null null
+2024-10-31 08:28:25.551 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.AdminDashboard (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:25.559 +02:00 [INF] Route matched with {action = "AdminDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AdminDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:25.594 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[@__firebaseUid_0='C9orrhtKXpgX4jsjPpwEI3J9a3t2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[AdminID], [a].[Department], [a].[UserID], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [AdminDetails] AS [a]
+INNER JOIN [Users] AS [u] ON [a].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-10-31 08:28:25.610 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__firebaseUid_0='C9orrhtKXpgX4jsjPpwEI3J9a3t2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-10-31 08:28:25.618 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__user_UserID_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-10-31 08:28:25.631 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@__user_UserID_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-10-31 08:28:25.649 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+2024-10-31 08:28:25.672 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+WHERE [u].[LastSeen] >= DATEADD(month, CAST(-1 AS int), GETUTCDATE())
+2024-10-31 08:28:25.685 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+2024-10-31 08:28:25.701 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Resolved'
+2024-10-31 08:28:25.713 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Pending'
+2024-10-31 08:28:25.732 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Ongoing'
+2024-10-31 08:28:25.752 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Role], COUNT(*) AS [Count], CAST((CAST(COUNT(*) AS float) * 100.0E0) / @__p_0 AS int) AS [Percentage]
+FROM [Users] AS [u]
+GROUP BY [u].[Role]
+2024-10-31 08:28:25.790 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM (
+    SELECT CONVERT(date, [q].[SubmissionDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Ongoing'
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-10-31 08:28:25.797 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM (
+    SELECT CONVERT(date, [q].[SubmissionDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Ongoing'
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-10-31 08:28:25.811 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM (
+    SELECT DATEPART(month, [q].[SubmissionDate]) AS [Key]
+    FROM [Queries] AS [q]
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-10-31 08:28:25.860 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[@__p_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT CAST(1 AS bit), [u].[Name], [u].[Surname], [t].[Description], CASE
+    WHEN [t].[SubmissionDate] IS NOT NULL THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END, [t].[SubmissionDate]
+FROM (
+    SELECT TOP(@__p_0) [q].[Description], [q].[StudentID], [q].[SubmissionDate]
+    FROM [Queries] AS [q]
+    ORDER BY [q].[SubmissionDate] DESC
+) AS [t]
+INNER JOIN [StudentDetails] AS [s] ON [t].[StudentID] = [s].[StudentID]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+ORDER BY [t].[SubmissionDate] DESC
+2024-10-31 08:28:25.907 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[@__startDate_0='2024-10-01T06:28:25.8664754Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Key] AS [Date], COALESCE(AVG(CAST(DATEDIFF(minute, [t].[SubmissionDate], [t].[ResolvedDate]) AS float)), 0.0E0) AS [AverageResponseTime]
+FROM (
+    SELECT [q].[ResolvedDate], [q].[SubmissionDate], CONVERT(date, [q].[ResolvedDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Resolved' AND [q].[ResolvedDate] >= @__startDate_0
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-10-31 08:28:25.926 +02:00 [INF] Executing ViewResult, running view AdminDashboard.
+2024-10-31 08:28:25.961 +02:00 [INF] Executed ViewResult - view AdminDashboard executed in 36.1583ms.
+2024-10-31 08:28:25.967 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.AdminDashboard (Apptivate_UQMS_WebApp) in 406.6058ms
+2024-10-31 08:28:25.993 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.AdminDashboard (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:25.994 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/AdminDashboard - 200 null text/html; charset=utf-8 450.3962ms
+2024-10-31 08:28:26.008 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/Users.png - null null
+2024-10-31 08:28:26.008 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/css/AdminDashboard.css - null null
+2024-10-31 08:28:26.013 +02:00 [INF] The file /css/AdminDashboard.css was not modified
+2024-10-31 08:28:26.013 +02:00 [INF] The file /Images/Users.png was not modified
+2024-10-31 08:28:26.014 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/css/AdminDashboard.css - 304 null text/css 5.5064ms
+2024-10-31 08:28:26.014 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/Users.png - 304 null image/png 6.4458ms
+2024-10-31 08:28:26.016 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/log.png - null null
+2024-10-31 08:28:26.016 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Images/pie-chart.png - null null
+2024-10-31 08:28:26.033 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/responseTimeChart.js - null null
+2024-10-31 08:28:26.033 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/resolutionRateChart.js - null null
+2024-10-31 08:28:26.036 +02:00 [INF] The file /Images/log.png was not modified
+2024-10-31 08:28:26.045 +02:00 [INF] The file /Images/pie-chart.png was not modified
+2024-10-31 08:28:26.047 +02:00 [INF] The file /js/responseTimeChart.js was not modified
+2024-10-31 08:28:26.048 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/log.png - 304 null image/png 32.2851ms
+2024-10-31 08:28:26.049 +02:00 [INF] The file /js/resolutionRateChart.js was not modified
+2024-10-31 08:28:26.049 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Images/pie-chart.png - 304 null image/png 33.2298ms
+2024-10-31 08:28:26.050 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/responseTimeChart.js - 304 null text/javascript 16.5021ms
+2024-10-31 08:28:26.054 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/resolutionRateChart.js - 304 null text/javascript 20.2979ms
+2024-10-31 08:28:26.064 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/lib/microsoft/signalr/dist/browser/signalr.js - null null
+2024-10-31 08:28:26.064 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/notification.js - null null
+2024-10-31 08:28:26.064 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/toast.js - null null
+2024-10-31 08:28:26.065 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-31 08:28:26.074 +02:00 [INF] The file /js/toast.js was not modified
+2024-10-31 08:28:26.067 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-31 08:28:26.071 +02:00 [INF] The file /js/notification.js was not modified
+2024-10-31 08:28:26.067 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/api/placeholder/32/32 - null null
+2024-10-31 08:28:26.074 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/lib/microsoft/signalr/dist/browser/signalr.js - 404 0 null 9.9934ms
+2024-10-31 08:28:26.074 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 8.9956ms
+2024-10-31 08:28:26.075 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/toast.js - 304 null text/javascript 10.7967ms
+2024-10-31 08:28:26.081 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/notification.js - 304 null text/javascript 16.7729ms
+2024-10-31 08:28:26.089 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/api/placeholder/32/32 - 404 0 null 21.94ms
+2024-10-31 08:28:26.094 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.3946ms
+2024-10-31 08:28:26.106 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/lib/microsoft/signalr/dist/browser/signalr.js, Response status code: 404
+2024-10-31 08:28:26.117 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/api/placeholder/32/32, Response status code: 404
+2024-10-31 08:28:26.308 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/GetQueryResolutionRates?days=30 - null null
+2024-10-31 08:28:26.309 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/GetResponseTimeTrends?days=30 - null null
+2024-10-31 08:28:26.313 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetQueryResolutionRates (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:26.314 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetResponseTimeTrends (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:26.319 +02:00 [INF] Route matched with {action = "GetQueryResolutionRates", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQueryResolutionRates(Int32) on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:26.320 +02:00 [INF] Route matched with {action = "GetResponseTimeTrends", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetResponseTimeTrends(Int32) on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:26.341 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@__startDate_0='2024-10-01T06:28:26.3289384Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Key] AS [Date], COALESCE(AVG(CAST(DATEDIFF(minute, [t].[SubmissionDate], [t].[ResolvedDate]) AS float)), 0.0E0) AS [AverageResponseTime]
+FROM (
+    SELECT [q].[ResolvedDate], [q].[SubmissionDate], CONVERT(date, [q].[ResolvedDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Resolved' AND [q].[ResolvedDate] >= @__startDate_0
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-10-31 08:28:26.343 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Apptivate_UQMS_WebApp.Services.AnalyticsService+ResponseTimeDataPoint, Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:28:26.348 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__startDate_0='2024-10-01T06:28:26.3311809Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT CONVERT(date, [q].[SubmissionDate]) AS [SubmissionDate], CASE
+    WHEN [q].[Status] = N'Resolved' THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsResolved], CASE
+    WHEN [q].[ResolvedDate] IS NOT NULL THEN CONVERT(date, [q].[ResolvedDate])
+    ELSE NULL
+END AS [ResolvedDate]
+FROM [Queries] AS [q]
+WHERE [q].[SubmissionDate] >= @__startDate_0
+2024-10-31 08:28:26.352 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.GetResponseTimeTrends (Apptivate_UQMS_WebApp) in 25.8466ms
+2024-10-31 08:28:26.353 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetResponseTimeTrends (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:26.355 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/GetResponseTimeTrends?days=30 - 200 null application/json; charset=utf-8 45.3632ms
+2024-10-31 08:28:26.356 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Apptivate_UQMS_WebApp.Services.AnalyticsService+ResolutionRateDataPoint, Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:28:26.360 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.GetQueryResolutionRates (Apptivate_UQMS_WebApp) in 34.8644ms
+2024-10-31 08:28:26.361 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetQueryResolutionRates (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:26.362 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/GetQueryResolutionRates?days=30 - 200 null application/json; charset=utf-8 53.6189ms
+2024-10-31 08:28:52.269 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Reports/Index - null null
+2024-10-31 08:28:52.275 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:52.280 +02:00 [INF] Route matched with {action = "Index", controller = "Reports"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.ReportsController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:52.288 +02:00 [INF] Executing ViewResult, running view Index.
+2024-10-31 08:28:52.300 +02:00 [INF] Executed ViewResult - view Index executed in 13.7145ms.
+2024-10-31 08:28:52.302 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ReportsController.Index (Apptivate_UQMS_WebApp) in 17.0182ms
+2024-10-31 08:28:52.304 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:52.306 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Reports/Index - 200 null text/html; charset=utf-8 37.0524ms
+2024-10-31 08:28:52.343 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-31 08:28:52.343 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/js/reports.js - null null
+2024-10-31 08:28:52.344 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-31 08:28:52.345 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 2.5703ms
+2024-10-31 08:28:52.349 +02:00 [INF] The file /js/reports.js was not modified
+2024-10-31 08:28:52.358 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/js/reports.js - 304 null text/javascript 14.9118ms
+2024-10-31 08:28:52.360 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.161ms
+2024-10-31 08:28:52.390 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Reports/QueryResolutionTime?startDate=2024-10-01&endDate=2024-10-31 - null null
+2024-10-31 08:28:52.396 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.QueryResolutionTime (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:52.407 +02:00 [INF] Route matched with {action = "QueryResolutionTime", controller = "Reports"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] QueryResolutionTime(System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime], System.String) on controller Apptivate_UQMS_WebApp.Controllers.ReportsController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:52.475 +02:00 [ERR] Failed executing DbCommand (21ms) [Parameters=[@__startDate_0='2024-10-01T00:00:00.0000000' (Nullable = true), @__endDate_1='2024-10-31T00:00:00.0000000' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q0].[CategoryName] AS [Category], [d].[DepartmentName] AS [Department], COUNT(*) AS [QueryCount], AVG(CASE
+    WHEN [q].[ResolvedDate] IS NOT NULL THEN CAST(DATEDIFF(hour, [q].[SubmissionDate], [q].[ResolvedDate]) AS float)
+    ELSE 0.0E0
+END) AS [AverageResponseTime], COALESCE((
+    SELECT CAST(DATEDIFF(hour, [q1].[SubmissionDate], [q1].[ResolvedDate]) AS float)
+    FROM [Queries] AS [q1]
+    LEFT JOIN [QueryCategories] AS [q2] ON [q1].[CategoryID] = [q2].[CategoryID]
+    LEFT JOIN [Departments] AS [d0] ON [q1].[DepartmentID] = [d0].[DepartmentID]
+    WHERE [q1].[SubmissionDate] >= @__startDate_0 AND [q1].[SubmissionDate] <= @__endDate_1 AND ([q0].[CategoryName] = [q2].[CategoryName] OR ([q0].[CategoryName] IS NULL AND [q2].[CategoryName] IS NULL)) AND ([d].[DepartmentName] = [d0].[DepartmentName] OR ([d].[DepartmentName] IS NULL AND [d0].[DepartmentName] IS NULL)) AND [q1].[ResolvedDate] IS NOT NULL
+    ORDER BY CAST(DATEDIFF(hour, [q1].[SubmissionDate], [q1].[ResolvedDate]) AS float)
+    OFFSET COUNT(*) / 2 ROWS FETCH NEXT 1 ROWS ONLY), 0.0E0) AS [MedianResponseTime]
+FROM [Queries] AS [q]
+LEFT JOIN [QueryCategories] AS [q0] ON [q].[CategoryID] = [q0].[CategoryID]
+LEFT JOIN [Departments] AS [d] ON [q].[DepartmentID] = [d].[DepartmentID]
+WHERE [q].[SubmissionDate] >= @__startDate_0 AND [q].[SubmissionDate] <= @__endDate_1
+GROUP BY [q0].[CategoryName], [d].[DepartmentName]
+2024-10-31 08:28:52.527 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Apptivate_UQMS_WebApp.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid expression in a TOP or OFFSET clause.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:e31011e4-1fb3-4a85-b049-c05d771023a4
+Error Number:162,State:1,Class:15
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid expression in a TOP or OFFSET clause.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:e31011e4-1fb3-4a85-b049-c05d771023a4
+Error Number:162,State:1,Class:15
+2024-10-31 08:28:52.537 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ReportsController.QueryResolutionTime (Apptivate_UQMS_WebApp) in 128.511ms
+2024-10-31 08:28:52.538 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.QueryResolutionTime (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:52.541 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid expression in a TOP or OFFSET clause.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Apptivate_UQMS_WebApp.Services.ReportingService.GetQueryResolutionTimeReportAsync(DateTime startDate, DateTime endDate, String department) in C:\Users\trent\source\repos\Apptivate_UQMS\Services\ReportingService.cs:line 43
+   at Apptivate_UQMS_WebApp.Controllers.ReportsController.QueryResolutionTime(Nullable`1 startDate, Nullable`1 endDate, String department) in C:\Users\trent\source\repos\Apptivate_UQMS\Controllers\ReportsController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:e31011e4-1fb3-4a85-b049-c05d771023a4
+Error Number:162,State:1,Class:15
+2024-10-31 08:28:52.670 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Reports/QueryResolutionTime?startDate=2024-10-01&endDate=2024-10-31 - 500 null text/plain; charset=utf-8 280.7979ms
+2024-10-31 08:28:54.960 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Reports/QueryResolutionTime?startDate=2024-10-01&endDate=2024-10-31 - null null
+2024-10-31 08:28:54.966 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.QueryResolutionTime (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:54.968 +02:00 [INF] Route matched with {action = "QueryResolutionTime", controller = "Reports"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] QueryResolutionTime(System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime], System.String) on controller Apptivate_UQMS_WebApp.Controllers.ReportsController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:54.981 +02:00 [ERR] Failed executing DbCommand (6ms) [Parameters=[@__startDate_0='2024-10-01T00:00:00.0000000' (Nullable = true), @__endDate_1='2024-10-31T00:00:00.0000000' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q0].[CategoryName] AS [Category], [d].[DepartmentName] AS [Department], COUNT(*) AS [QueryCount], AVG(CASE
+    WHEN [q].[ResolvedDate] IS NOT NULL THEN CAST(DATEDIFF(hour, [q].[SubmissionDate], [q].[ResolvedDate]) AS float)
+    ELSE 0.0E0
+END) AS [AverageResponseTime], COALESCE((
+    SELECT CAST(DATEDIFF(hour, [q1].[SubmissionDate], [q1].[ResolvedDate]) AS float)
+    FROM [Queries] AS [q1]
+    LEFT JOIN [QueryCategories] AS [q2] ON [q1].[CategoryID] = [q2].[CategoryID]
+    LEFT JOIN [Departments] AS [d0] ON [q1].[DepartmentID] = [d0].[DepartmentID]
+    WHERE [q1].[SubmissionDate] >= @__startDate_0 AND [q1].[SubmissionDate] <= @__endDate_1 AND ([q0].[CategoryName] = [q2].[CategoryName] OR ([q0].[CategoryName] IS NULL AND [q2].[CategoryName] IS NULL)) AND ([d].[DepartmentName] = [d0].[DepartmentName] OR ([d].[DepartmentName] IS NULL AND [d0].[DepartmentName] IS NULL)) AND [q1].[ResolvedDate] IS NOT NULL
+    ORDER BY CAST(DATEDIFF(hour, [q1].[SubmissionDate], [q1].[ResolvedDate]) AS float)
+    OFFSET COUNT(*) / 2 ROWS FETCH NEXT 1 ROWS ONLY), 0.0E0) AS [MedianResponseTime]
+FROM [Queries] AS [q]
+LEFT JOIN [QueryCategories] AS [q0] ON [q].[CategoryID] = [q0].[CategoryID]
+LEFT JOIN [Departments] AS [d] ON [q].[DepartmentID] = [d].[DepartmentID]
+WHERE [q].[SubmissionDate] >= @__startDate_0 AND [q].[SubmissionDate] <= @__endDate_1
+GROUP BY [q0].[CategoryName], [d].[DepartmentName]
+2024-10-31 08:28:54.987 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Apptivate_UQMS_WebApp.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid expression in a TOP or OFFSET clause.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:e31011e4-1fb3-4a85-b049-c05d771023a4
+Error Number:162,State:1,Class:15
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid expression in a TOP or OFFSET clause.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:e31011e4-1fb3-4a85-b049-c05d771023a4
+Error Number:162,State:1,Class:15
+2024-10-31 08:28:54.994 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ReportsController.QueryResolutionTime (Apptivate_UQMS_WebApp) in 24.0803ms
+2024-10-31 08:28:54.997 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.QueryResolutionTime (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:54.999 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid expression in a TOP or OFFSET clause.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Apptivate_UQMS_WebApp.Services.ReportingService.GetQueryResolutionTimeReportAsync(DateTime startDate, DateTime endDate, String department) in C:\Users\trent\source\repos\Apptivate_UQMS\Services\ReportingService.cs:line 43
+   at Apptivate_UQMS_WebApp.Controllers.ReportsController.QueryResolutionTime(Nullable`1 startDate, Nullable`1 endDate, String department) in C:\Users\trent\source\repos\Apptivate_UQMS\Controllers\ReportsController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:e31011e4-1fb3-4a85-b049-c05d771023a4
+Error Number:162,State:1,Class:15
+2024-10-31 08:28:55.028 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Reports/QueryResolutionTime?startDate=2024-10-01&endDate=2024-10-31 - 500 null text/plain; charset=utf-8 68.5377ms
+2024-10-31 08:28:55.343 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Reports/HighVolumeQueries?startDate=2024-10-01&endDate=2024-10-31 - null null
+2024-10-31 08:28:55.346 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.HighVolumeQueries (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:55.351 +02:00 [INF] Route matched with {action = "HighVolumeQueries", controller = "Reports"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HighVolumeQueries(System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller Apptivate_UQMS_WebApp.Controllers.ReportsController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:55.373 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__startDate_0='2024-10-01T00:00:00.0000000' (Nullable = true), @__endDate_1='2024-10-31T00:00:00.0000000' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[SubmissionDate] >= @__startDate_0 AND [q].[SubmissionDate] <= @__endDate_1
+2024-10-31 08:28:55.408 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ReportsController.HighVolumeQueries (Apptivate_UQMS_WebApp) in 55.2956ms
+2024-10-31 08:28:55.411 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.HighVolumeQueries (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:55.414 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The LINQ expression 'RelationalGroupByShaperExpression:
+KeySelector: new { 
+    CategoryName = q0.CategoryName, 
+    DepartmentName = d.DepartmentName
+ }, 
+ElementSelector: new TransparentIdentifier<TransparentIdentifier<Query, QueryCategory>, Department>(
+    Outer = new TransparentIdentifier<Query, QueryCategory>(
+        Outer = StructuralTypeShaperExpression: 
+            Apptivate_UQMS_WebApp.Models.QueryModel+Query
+            ValueBufferExpression: 
+                ProjectionBindingExpression: Outer.Outer
+            IsNullable: False
+        , 
+        Inner = StructuralTypeShaperExpression: 
+            Apptivate_UQMS_WebApp.Models.QueryModel+QueryCategory
+            ValueBufferExpression: 
+                ProjectionBindingExpression: Outer.Inner
+            IsNullable: True
+    ), 
+    Inner = StructuralTypeShaperExpression: 
+        Apptivate_UQMS_WebApp.Models.Account+Department
+        ValueBufferExpression: 
+            ProjectionBindingExpression: Inner
+        IsNullable: True
+), 
+GroupingEnumerable:ShapedQueryExpression: 
+    QueryExpression: 
+        Projection Mapping:
+            Outer.Outer -> EntityProjectionExpression: Query
+            Outer.Inner -> EntityProjectionExpression: QueryCategory
+            Inner -> EntityProjectionExpression: Department
+        SELECT 1
+        FROM Queries AS q
+        LEFT JOIN QueryCategories AS q0 ON q.CategoryID == q0.CategoryID
+        LEFT JOIN Departments AS d ON q.DepartmentID == d.DepartmentID
+        WHERE ((q.SubmissionDate >= @__startDate_0) && (q.SubmissionDate <= @__endDate_1)) && ((q0.CategoryName == q0.CategoryName) && (d.DepartmentName == d.DepartmentName))
+    ShaperExpression: new TransparentIdentifier<TransparentIdentifier<Query, QueryCategory>, Department>(
+            Outer = new TransparentIdentifier<Query, QueryCategory>(
+                Outer = StructuralTypeShaperExpression: 
+                    Apptivate_UQMS_WebApp.Models.QueryModel+Query
+                    ValueBufferExpression: 
+                        ProjectionBindingExpression: Outer.Outer
+                    IsNullable: False
+                , 
+                Inner = StructuralTypeShaperExpression: 
+                    Apptivate_UQMS_WebApp.Models.QueryModel+QueryCategory
+                    ValueBufferExpression: 
+                        ProjectionBindingExpression: Outer.Inner
+                    IsNullable: True
+            ), 
+            Inner = StructuralTypeShaperExpression: 
+                Apptivate_UQMS_WebApp.Models.Account+Department
+                ValueBufferExpression: 
+                    ProjectionBindingExpression: Inner
+                IsNullable: True
+        )
+
+    .AsQueryable()
+    .GroupBy(e => new DateTime(
+        e.Outer.Outer.SubmissionDate.Value.Year, 
+        e.Outer.Outer.SubmissionDate.Value.Month, 
+        1
+    ))
+    .Select(g0 => new MonthlyTrend{ 
+        Month = g0.Key, 
+        Count = g0
+            .AsQueryable()
+            .Count() 
+    }
+    )
+    .OrderBy(e1 => e1.Month)' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.Translate(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.Translate(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.TranslateSubquery(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.SqlServer.Query.Internal.SqlServerSqlTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.SqlServer.Query.Internal.SqlServerSqlTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor.TranslateInternal(Expression expression, Boolean applyDefaultTypeMapping)
+   at Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor.TranslateProjection(Expression expression, Boolean applyDefaultTypeMapping)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalProjectionBindingExpressionVisitor.Visit(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalProjectionBindingExpressionVisitor.VisitMemberAssignment(MemberAssignment memberAssignment)
+   at System.Linq.Expressions.ExpressionVisitor.VisitMemberBinding(MemberBinding node)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalProjectionBindingExpressionVisitor.VisitMemberInit(MemberInitExpression memberInitExpression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalProjectionBindingExpressionVisitor.Visit(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalProjectionBindingExpressionVisitor.Translate(SelectExpression selectExpression, Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.TranslateSelect(ShapedQueryExpression source, LambdaExpression selector)
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.Translate(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.Translate(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Storage.Database.CompileQuery[TResult](Expression query, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.CompileQueryCore[TResult](IDatabase database, Expression query, IModel model, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass12_0`1.<ExecuteAsync>b__0()
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteAsync[TResult](Expression query, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.ExecuteAsync[TResult](Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1.GetAsyncEnumerator(CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1.GetAsyncEnumerator()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Apptivate_UQMS_WebApp.Services.ReportingService.GetHighVolumeQueryReportAsync(DateTime startDate, DateTime endDate) in C:\Users\trent\source\repos\Apptivate_UQMS\Services\ReportingService.cs:line 71
+   at Apptivate_UQMS_WebApp.Controllers.ReportsController.HighVolumeQueries(Nullable`1 startDate, Nullable`1 endDate) in C:\Users\trent\source\repos\Apptivate_UQMS\Controllers\ReportsController.cs:line 43
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-31 08:28:55.470 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Reports/HighVolumeQueries?startDate=2024-10-01&endDate=2024-10-31 - 500 null text/plain; charset=utf-8 127.3018ms
+2024-10-31 08:28:56.917 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Reports/StaffPerformance?startDate=2024-10-01&endDate=2024-10-31 - null null
+2024-10-31 08:28:56.923 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.StaffPerformance (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:56.930 +02:00 [INF] Route matched with {action = "StaffPerformance", controller = "Reports"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StaffPerformance(System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller Apptivate_UQMS_WebApp.Controllers.ReportsController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:57.087 +02:00 [INF] Executed DbCommand (123ms) [Parameters=[@__startDate_0='2024-10-01T00:00:00.0000000' (Nullable = true), @__endDate_1='2024-10-31T00:00:00.0000000' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Name] + N' ' + [u].[Surname] AS [StaffName], (
+    SELECT COUNT(*)
+    FROM [QueryAssignments] AS [q5]
+    LEFT JOIN [Queries] AS [q6] ON [q5].[QueryID] = [q6].[QueryID]
+    WHERE [s].[StaffID] = [q5].[StaffID] AND [q6].[QueryID] IS NOT NULL AND [q6].[SubmissionDate] >= @__startDate_0 AND [q6].[SubmissionDate] <= @__endDate_1) AS [QueriesHandled], (
+    SELECT COUNT(*)
+    FROM [QueryAssignments] AS [q7]
+    LEFT JOIN [Queries] AS [q8] ON [q7].[QueryID] = [q8].[QueryID]
+    WHERE [s].[StaffID] = [q7].[StaffID] AND [q8].[QueryID] IS NOT NULL AND [q8].[Status] = N'Resolved' AND [q8].[ResolvedDate] >= @__startDate_0 AND [q8].[ResolvedDate] <= @__endDate_1) AS [QueriesResolved], COALESCE((
+    SELECT AVG(CAST(DATEDIFF(hour, [q10].[SubmissionDate], [q10].[ResolvedDate]) AS float))
+    FROM [QueryAssignments] AS [q9]
+    LEFT JOIN [Queries] AS [q10] ON [q9].[QueryID] = [q10].[QueryID]
+    WHERE [s].[StaffID] = [q9].[StaffID] AND [q10].[QueryID] IS NOT NULL AND [q10].[Status] = N'Resolved' AND [q10].[ResolvedDate] >= @__startDate_0 AND [q10].[ResolvedDate] <= @__endDate_1), 0.0E0) AS [AverageResponseTime], CASE
+    WHEN (
+        SELECT COUNT(*)
+        FROM [QueryAssignments] AS [q11]
+        LEFT JOIN [Queries] AS [q12] ON [q11].[QueryID] = [q12].[QueryID]
+        WHERE [s].[StaffID] = [q11].[StaffID] AND [q12].[QueryID] IS NOT NULL AND [q12].[SubmissionDate] >= @__startDate_0 AND [q12].[SubmissionDate] <= @__endDate_1) = 0 THEN 0.0E0
+    ELSE (CAST((
+        SELECT COUNT(*)
+        FROM [QueryAssignments] AS [q13]
+        LEFT JOIN [Queries] AS [q14] ON [q13].[QueryID] = [q14].[QueryID]
+        WHERE [s].[StaffID] = [q13].[StaffID] AND [q14].[QueryID] IS NOT NULL AND [q14].[Status] = N'Resolved' AND [q14].[ResolvedDate] >= @__startDate_0 AND [q14].[ResolvedDate] <= @__endDate_1) AS float) / CAST((
+        SELECT COUNT(*)
+        FROM [QueryAssignments] AS [q15]
+        LEFT JOIN [Queries] AS [q16] ON [q15].[QueryID] = [q16].[QueryID]
+        WHERE [s].[StaffID] = [q15].[StaffID] AND [q16].[QueryID] IS NOT NULL AND [q16].[SubmissionDate] >= @__startDate_0 AND [q16].[SubmissionDate] <= @__endDate_1) AS float)) * 100.0E0
+END AS [ResolutionRate]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+ORDER BY CASE
+    WHEN (
+        SELECT COUNT(*)
+        FROM [QueryAssignments] AS [q]
+        LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+        WHERE [s].[StaffID] = [q].[StaffID] AND [q0].[QueryID] IS NOT NULL AND [q0].[SubmissionDate] >= @__startDate_0 AND [q0].[SubmissionDate] <= @__endDate_1) = 0 THEN 0.0E0
+    ELSE (CAST((
+        SELECT COUNT(*)
+        FROM [QueryAssignments] AS [q1]
+        LEFT JOIN [Queries] AS [q2] ON [q1].[QueryID] = [q2].[QueryID]
+        WHERE [s].[StaffID] = [q1].[StaffID] AND [q2].[QueryID] IS NOT NULL AND [q2].[Status] = N'Resolved' AND [q2].[ResolvedDate] >= @__startDate_0 AND [q2].[ResolvedDate] <= @__endDate_1) AS float) / CAST((
+        SELECT COUNT(*)
+        FROM [QueryAssignments] AS [q3]
+        LEFT JOIN [Queries] AS [q4] ON [q3].[QueryID] = [q4].[QueryID]
+        WHERE [s].[StaffID] = [q3].[StaffID] AND [q4].[QueryID] IS NOT NULL AND [q4].[SubmissionDate] >= @__startDate_0 AND [q4].[SubmissionDate] <= @__endDate_1) AS float)) * 100.0E0
+END DESC
+2024-10-31 08:28:57.095 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Apptivate_UQMS_WebApp.Models.Reports.ReportViewModels+StaffPerformanceReport, Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:28:57.102 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ReportsController.StaffPerformance (Apptivate_UQMS_WebApp) in 168.0411ms
+2024-10-31 08:28:57.104 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.StaffPerformance (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:57.108 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Reports/StaffPerformance?startDate=2024-10-01&endDate=2024-10-31 - 200 null application/json; charset=utf-8 191.0295ms
+2024-10-31 08:28:58.164 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Reports/UnresolvedQueries - null null
+2024-10-31 08:28:58.168 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.UnresolvedQueries (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:58.177 +02:00 [INF] Route matched with {action = "UnresolvedQueries", controller = "Reports"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UnresolvedQueries() on controller Apptivate_UQMS_WebApp.Controllers.ReportsController (Apptivate_UQMS_WebApp).
+2024-10-31 08:28:58.273 +02:00 [INF] Executed DbCommand (57ms) [Parameters=[@__overdueDate_0='2024-10-30T06:28:58.1907747Z' (Nullable = true), @__currentDate_2='2024-10-31T06:28:58.1907747Z'], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[CategoryName], [t].[DepartmentName], [t].[c], [t].[c0], [t].[c1], [t0].[TicketNumber], [t0].[Name], [t0].[SubmissionDate], [t0].[PendingDays], [t0].[QueryID], [t0].[CategoryID], [t0].[DepartmentID], [t0].[StudentID], [t0].[UserID]
+FROM (
+    SELECT [q0].[CategoryName], [d].[DepartmentName], COUNT(*) AS [c], COUNT(CASE
+        WHEN [q].[SubmissionDate] <= @__overdueDate_0 THEN 1
+    END) AS [c0], (CAST(COUNT(CASE
+        WHEN [q].[SubmissionDate] <= @__overdueDate_0 THEN 1
+    END) AS float) / CAST(COUNT(*) AS float)) * 100.0E0 AS [c1]
+    FROM [Queries] AS [q]
+    LEFT JOIN [QueryCategories] AS [q0] ON [q].[CategoryID] = [q0].[CategoryID]
+    LEFT JOIN [Departments] AS [d] ON [q].[DepartmentID] = [d].[DepartmentID]
+    WHERE [q].[Status] <> N'Resolved'
+    GROUP BY [q0].[CategoryName], [d].[DepartmentName]
+) AS [t]
+LEFT JOIN (
+    SELECT [q1].[TicketNumber], [u].[Name], [q1].[SubmissionDate], DATEDIFF(day, [q1].[SubmissionDate], @__currentDate_2) AS [PendingDays], [q1].[QueryID], [q2].[CategoryID], [d0].[DepartmentID], [s].[StudentID], [u].[UserID], [q2].[CategoryName], [d0].[DepartmentName]
+    FROM [Queries] AS [q1]
+    LEFT JOIN [QueryCategories] AS [q2] ON [q1].[CategoryID] = [q2].[CategoryID]
+    LEFT JOIN [Departments] AS [d0] ON [q1].[DepartmentID] = [d0].[DepartmentID]
+    INNER JOIN [StudentDetails] AS [s] ON [q1].[StudentID] = [s].[StudentID]
+    INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+    WHERE [q1].[Status] <> N'Resolved' AND [q1].[SubmissionDate] <= @__overdueDate_0
+) AS [t0] ON ([t].[CategoryName] = [t0].[CategoryName] OR ([t].[CategoryName] IS NULL AND [t0].[CategoryName] IS NULL)) AND ([t].[DepartmentName] = [t0].[DepartmentName] OR ([t].[DepartmentName] IS NULL AND [t0].[DepartmentName] IS NULL))
+ORDER BY [t].[CategoryName], [t].[DepartmentName], [t0].[PendingDays] DESC, [t0].[QueryID], [t0].[CategoryID], [t0].[DepartmentID], [t0].[StudentID]
+2024-10-31 08:28:58.292 +02:00 [INF] Executing JsonResult, writing value of type 'Apptivate_UQMS_WebApp.Models.Reports.ReportViewModels+UnresolvedQueriesReport'.
+2024-10-31 08:28:58.303 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ReportsController.UnresolvedQueries (Apptivate_UQMS_WebApp) in 123.2839ms
+2024-10-31 08:28:58.306 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.UnresolvedQueries (Apptivate_UQMS_WebApp)'
+2024-10-31 08:28:58.308 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Reports/UnresolvedQueries - 200 null application/json; charset=utf-8 143.6123ms
+2024-10-31 08:29:08.764 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Reports/StaffPerformance?startDate=2024-10-01&endDate=2024-10-31 - null null
+2024-10-31 08:29:08.767 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.StaffPerformance (Apptivate_UQMS_WebApp)'
+2024-10-31 08:29:08.769 +02:00 [INF] Route matched with {action = "StaffPerformance", controller = "Reports"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StaffPerformance(System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller Apptivate_UQMS_WebApp.Controllers.ReportsController (Apptivate_UQMS_WebApp).
+2024-10-31 08:29:08.865 +02:00 [INF] Executed DbCommand (91ms) [Parameters=[@__startDate_0='2024-10-01T00:00:00.0000000' (Nullable = true), @__endDate_1='2024-10-31T00:00:00.0000000' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Name] + N' ' + [u].[Surname] AS [StaffName], (
+    SELECT COUNT(*)
+    FROM [QueryAssignments] AS [q5]
+    LEFT JOIN [Queries] AS [q6] ON [q5].[QueryID] = [q6].[QueryID]
+    WHERE [s].[StaffID] = [q5].[StaffID] AND [q6].[QueryID] IS NOT NULL AND [q6].[SubmissionDate] >= @__startDate_0 AND [q6].[SubmissionDate] <= @__endDate_1) AS [QueriesHandled], (
+    SELECT COUNT(*)
+    FROM [QueryAssignments] AS [q7]
+    LEFT JOIN [Queries] AS [q8] ON [q7].[QueryID] = [q8].[QueryID]
+    WHERE [s].[StaffID] = [q7].[StaffID] AND [q8].[QueryID] IS NOT NULL AND [q8].[Status] = N'Resolved' AND [q8].[ResolvedDate] >= @__startDate_0 AND [q8].[ResolvedDate] <= @__endDate_1) AS [QueriesResolved], COALESCE((
+    SELECT AVG(CAST(DATEDIFF(hour, [q10].[SubmissionDate], [q10].[ResolvedDate]) AS float))
+    FROM [QueryAssignments] AS [q9]
+    LEFT JOIN [Queries] AS [q10] ON [q9].[QueryID] = [q10].[QueryID]
+    WHERE [s].[StaffID] = [q9].[StaffID] AND [q10].[QueryID] IS NOT NULL AND [q10].[Status] = N'Resolved' AND [q10].[ResolvedDate] >= @__startDate_0 AND [q10].[ResolvedDate] <= @__endDate_1), 0.0E0) AS [AverageResponseTime], CASE
+    WHEN (
+        SELECT COUNT(*)
+        FROM [QueryAssignments] AS [q11]
+        LEFT JOIN [Queries] AS [q12] ON [q11].[QueryID] = [q12].[QueryID]
+        WHERE [s].[StaffID] = [q11].[StaffID] AND [q12].[QueryID] IS NOT NULL AND [q12].[SubmissionDate] >= @__startDate_0 AND [q12].[SubmissionDate] <= @__endDate_1) = 0 THEN 0.0E0
+    ELSE (CAST((
+        SELECT COUNT(*)
+        FROM [QueryAssignments] AS [q13]
+        LEFT JOIN [Queries] AS [q14] ON [q13].[QueryID] = [q14].[QueryID]
+        WHERE [s].[StaffID] = [q13].[StaffID] AND [q14].[QueryID] IS NOT NULL AND [q14].[Status] = N'Resolved' AND [q14].[ResolvedDate] >= @__startDate_0 AND [q14].[ResolvedDate] <= @__endDate_1) AS float) / CAST((
+        SELECT COUNT(*)
+        FROM [QueryAssignments] AS [q15]
+        LEFT JOIN [Queries] AS [q16] ON [q15].[QueryID] = [q16].[QueryID]
+        WHERE [s].[StaffID] = [q15].[StaffID] AND [q16].[QueryID] IS NOT NULL AND [q16].[SubmissionDate] >= @__startDate_0 AND [q16].[SubmissionDate] <= @__endDate_1) AS float)) * 100.0E0
+END AS [ResolutionRate]
+FROM [StaffDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+ORDER BY CASE
+    WHEN (
+        SELECT COUNT(*)
+        FROM [QueryAssignments] AS [q]
+        LEFT JOIN [Queries] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+        WHERE [s].[StaffID] = [q].[StaffID] AND [q0].[QueryID] IS NOT NULL AND [q0].[SubmissionDate] >= @__startDate_0 AND [q0].[SubmissionDate] <= @__endDate_1) = 0 THEN 0.0E0
+    ELSE (CAST((
+        SELECT COUNT(*)
+        FROM [QueryAssignments] AS [q1]
+        LEFT JOIN [Queries] AS [q2] ON [q1].[QueryID] = [q2].[QueryID]
+        WHERE [s].[StaffID] = [q1].[StaffID] AND [q2].[QueryID] IS NOT NULL AND [q2].[Status] = N'Resolved' AND [q2].[ResolvedDate] >= @__startDate_0 AND [q2].[ResolvedDate] <= @__endDate_1) AS float) / CAST((
+        SELECT COUNT(*)
+        FROM [QueryAssignments] AS [q3]
+        LEFT JOIN [Queries] AS [q4] ON [q3].[QueryID] = [q4].[QueryID]
+        WHERE [s].[StaffID] = [q3].[StaffID] AND [q4].[QueryID] IS NOT NULL AND [q4].[SubmissionDate] >= @__startDate_0 AND [q4].[SubmissionDate] <= @__endDate_1) AS float)) * 100.0E0
+END DESC
+2024-10-31 08:29:08.871 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Apptivate_UQMS_WebApp.Models.Reports.ReportViewModels+StaffPerformanceReport, Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:29:08.873 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.ReportsController.StaffPerformance (Apptivate_UQMS_WebApp) in 101.7231ms
+2024-10-31 08:29:08.874 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.ReportsController.StaffPerformance (Apptivate_UQMS_WebApp)'
+2024-10-31 08:29:08.875 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Reports/StaffPerformance?startDate=2024-10-01&endDate=2024-10-31 - 200 null application/json; charset=utf-8 111.6533ms
+2024-10-31 08:29:31.464 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/Index - null null
+2024-10-31 08:29:31.474 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-31 08:29:31.478 +02:00 [INF] Route matched with {action = "Index", controller = "Logs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-31 08:29:31.489 +02:00 [INF] Found 31 log files
+2024-10-31 08:29:31.494 +02:00 [INF] Executing ViewResult, running view Index.
+2024-10-31 08:29:31.505 +02:00 [INF] Executed ViewResult - view Index executed in 13.0266ms.
+2024-10-31 08:29:31.507 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp) in 26.0112ms
+2024-10-31 08:29:31.509 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.Index (Apptivate_UQMS_WebApp)'
+2024-10-31 08:29:31.510 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/Index - 200 null text/html; charset=utf-8 45.6559ms
+2024-10-31 08:29:31.536 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-31 08:29:31.538 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-31 08:29:31.542 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 3.7979ms
+2024-10-31 08:29:31.545 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.1367ms
+2024-10-31 08:29:44.648 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241031.txt - null null
+2024-10-31 08:29:44.654 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-31 08:29:44.663 +02:00 [INF] Route matched with {action = "ViewLog", controller = "Logs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ViewLog(System.String) on controller Apptivate_UQMS_WebApp.Controllers.LogsController (Apptivate_UQMS_WebApp).
+2024-10-31 08:29:44.794 +02:00 [INF] Executing ViewResult, running view LogDetail.
+2024-10-31 08:29:44.804 +02:00 [INF] Executed ViewResult - view LogDetail executed in 11.4518ms.
+2024-10-31 08:29:44.806 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp) in 140.1739ms
+2024-10-31 08:29:44.808 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.LogsController.ViewLog (Apptivate_UQMS_WebApp)'
+2024-10-31 08:29:44.809 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Logs/ViewLog?logFileName=log-20241031.txt - 200 null text/html; charset=utf-8 160.8653ms
+2024-10-31 08:29:44.829 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-31 08:29:44.831 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-31 08:29:44.836 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 4.7331ms
+2024-10-31 08:29:44.838 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.5378ms
+2024-10-31 08:30:07.309 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/Index - null null
+2024-10-31 08:30:07.317 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-10-31 08:30:07.322 +02:00 [INF] Route matched with {action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-10-31 08:30:07.326 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/AdminDashboard.
+2024-10-31 08:30:07.327 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp) in 2.9348ms
+2024-10-31 08:30:07.329 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-10-31 08:30:07.331 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/Index - 302 0 null 21.641ms
+2024-10-31 08:30:07.336 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/AdminDashboard - null null
+2024-10-31 08:30:07.341 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.AdminDashboard (Apptivate_UQMS_WebApp)'
+2024-10-31 08:30:07.342 +02:00 [INF] Route matched with {action = "AdminDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AdminDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-10-31 08:30:07.357 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@__firebaseUid_0='C9orrhtKXpgX4jsjPpwEI3J9a3t2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[AdminID], [a].[Department], [a].[UserID], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [AdminDetails] AS [a]
+INNER JOIN [Users] AS [u] ON [a].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-10-31 08:30:07.365 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__firebaseUid_0='C9orrhtKXpgX4jsjPpwEI3J9a3t2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-10-31 08:30:07.373 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_UserID_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-10-31 08:30:07.382 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__user_UserID_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-10-31 08:30:07.387 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+2024-10-31 08:30:07.395 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+WHERE [u].[LastSeen] >= DATEADD(month, CAST(-1 AS int), GETUTCDATE())
+2024-10-31 08:30:07.400 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+2024-10-31 08:30:07.409 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Resolved'
+2024-10-31 08:30:07.416 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Pending'
+2024-10-31 08:30:07.423 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Ongoing'
+2024-10-31 08:30:07.431 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='31'], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Role], COUNT(*) AS [Count], CAST((CAST(COUNT(*) AS float) * 100.0E0) / @__p_0 AS int) AS [Percentage]
+FROM [Users] AS [u]
+GROUP BY [u].[Role]
+2024-10-31 08:30:07.441 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM (
+    SELECT CONVERT(date, [q].[SubmissionDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Ongoing'
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-10-31 08:30:07.449 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM (
+    SELECT CONVERT(date, [q].[SubmissionDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Ongoing'
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-10-31 08:30:07.454 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM (
+    SELECT DATEPART(month, [q].[SubmissionDate]) AS [Key]
+    FROM [Queries] AS [q]
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-10-31 08:30:07.467 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT CAST(1 AS bit), [u].[Name], [u].[Surname], [t].[Description], CASE
+    WHEN [t].[SubmissionDate] IS NOT NULL THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END, [t].[SubmissionDate]
+FROM (
+    SELECT TOP(@__p_0) [q].[Description], [q].[StudentID], [q].[SubmissionDate]
+    FROM [Queries] AS [q]
+    ORDER BY [q].[SubmissionDate] DESC
+) AS [t]
+INNER JOIN [StudentDetails] AS [s] ON [t].[StudentID] = [s].[StudentID]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+ORDER BY [t].[SubmissionDate] DESC
+2024-10-31 08:30:07.480 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__startDate_0='2024-10-01T06:30:07.4721789Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Key] AS [Date], COALESCE(AVG(CAST(DATEDIFF(minute, [t].[SubmissionDate], [t].[ResolvedDate]) AS float)), 0.0E0) AS [AverageResponseTime]
+FROM (
+    SELECT [q].[ResolvedDate], [q].[SubmissionDate], CONVERT(date, [q].[ResolvedDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Resolved' AND [q].[ResolvedDate] >= @__startDate_0
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-10-31 08:30:07.484 +02:00 [INF] Executing ViewResult, running view AdminDashboard.
+2024-10-31 08:30:07.489 +02:00 [INF] Executed ViewResult - view AdminDashboard executed in 4.6823ms.
+2024-10-31 08:30:07.491 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.AdminDashboard (Apptivate_UQMS_WebApp) in 146.243ms
+2024-10-31 08:30:07.493 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.AdminDashboard (Apptivate_UQMS_WebApp)'
+2024-10-31 08:30:07.494 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/AdminDashboard - 200 null text/html; charset=utf-8 158.8292ms
+2024-10-31 08:30:07.521 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/api/placeholder/32/32 - null null
+2024-10-31 08:30:07.526 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/api/placeholder/32/32 - 404 0 null 4.5728ms
+2024-10-31 08:30:07.526 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2024-10-31 08:30:07.527 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/lib/microsoft/signalr/dist/browser/signalr.js - null null
+2024-10-31 08:30:07.527 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-31 08:30:07.532 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/api/placeholder/32/32, Response status code: 404
+2024-10-31 08:30:07.540 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/lib/microsoft/signalr/dist/browser/signalr.js - 404 0 null 13.1418ms
+2024-10-31 08:30:07.544 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.2822ms
+2024-10-31 08:30:07.549 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 21.697ms
+2024-10-31 08:30:07.560 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/lib/microsoft/signalr/dist/browser/signalr.js, Response status code: 404
+2024-10-31 08:30:07.633 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/GetResponseTimeTrends?days=30 - null null
+2024-10-31 08:30:07.633 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7061/Dashboard/GetQueryResolutionRates?days=30 - null null
+2024-10-31 08:30:07.639 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetResponseTimeTrends (Apptivate_UQMS_WebApp)'
+2024-10-31 08:30:07.641 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetQueryResolutionRates (Apptivate_UQMS_WebApp)'
+2024-10-31 08:30:07.643 +02:00 [INF] Route matched with {action = "GetResponseTimeTrends", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetResponseTimeTrends(Int32) on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-10-31 08:30:07.644 +02:00 [INF] Route matched with {action = "GetQueryResolutionRates", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQueryResolutionRates(Int32) on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-10-31 08:30:07.658 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[@__startDate_0='2024-10-01T06:30:07.6475559Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT CONVERT(date, [q].[SubmissionDate]) AS [SubmissionDate], CASE
+    WHEN [q].[Status] = N'Resolved' THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsResolved], CASE
+    WHEN [q].[ResolvedDate] IS NOT NULL THEN CONVERT(date, [q].[ResolvedDate])
+    ELSE NULL
+END AS [ResolvedDate]
+FROM [Queries] AS [q]
+WHERE [q].[SubmissionDate] >= @__startDate_0
+2024-10-31 08:30:07.660 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[@__startDate_0='2024-10-01T06:30:07.6464858Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Key] AS [Date], COALESCE(AVG(CAST(DATEDIFF(minute, [t].[SubmissionDate], [t].[ResolvedDate]) AS float)), 0.0E0) AS [AverageResponseTime]
+FROM (
+    SELECT [q].[ResolvedDate], [q].[SubmissionDate], CONVERT(date, [q].[ResolvedDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Resolved' AND [q].[ResolvedDate] >= @__startDate_0
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-10-31 08:30:07.661 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Apptivate_UQMS_WebApp.Services.AnalyticsService+ResolutionRateDataPoint, Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:30:07.663 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Apptivate_UQMS_WebApp.Services.AnalyticsService+ResponseTimeDataPoint, Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-31 08:30:07.663 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.GetQueryResolutionRates (Apptivate_UQMS_WebApp) in 16.5189ms
+2024-10-31 08:30:07.664 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.GetResponseTimeTrends (Apptivate_UQMS_WebApp) in 18.368ms
+2024-10-31 08:30:07.665 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetQueryResolutionRates (Apptivate_UQMS_WebApp)'
+2024-10-31 08:30:07.666 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetResponseTimeTrends (Apptivate_UQMS_WebApp)'
+2024-10-31 08:30:07.667 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/GetQueryResolutionRates?days=30 - 200 null application/json; charset=utf-8 33.5768ms
+2024-10-31 08:30:07.668 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7061/Dashboard/GetResponseTimeTrends?days=30 - 200 null application/json; charset=utf-8 35.3197ms

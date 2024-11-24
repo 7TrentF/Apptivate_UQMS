@@ -1,0 +1,247 @@
+﻿@model Apptivate_UQMS_WebApp.Models.QueryModel.Query
+@{
+    ViewData["Title"] = "View Ticket";
+    var initialTickets = ViewData["InitialTickets"] as IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>;
+    <link rel="stylesheet" href="~/css/viewTicket.css" asp-append-version="true">
+}
+
+
+<div class="page-container">
+    <div class="ticket-detail" data-aos="fade-up">
+        <div class="progress-bar">
+            <div class="progress" style="width: @(Model.Status.ToString().ToLower() == "completed" ? "100%" : Model.Status.ToString().ToLower() == "in-progress" ? "50%" : "25%")"></div>
+
+
+        </div>
+
+        <div class="ticket-header">
+            <div class="header-content">
+                <h2 class="animate-text">Ticket Details</h2>
+                <div class="ticket-meta">
+                    <div class="ticket-id pulse-animation">
+                        <i class="fas fa-ticket-alt"></i>
+                        <strong>Ticket# @Model.TicketNumber</strong>
+                    </div>
+                    <div class="ticket-status">
+                        <span class="status-badge @Model.Status.ToString().ToLower()">
+                            <i class="fas @(Model.Status.ToString().ToLower() == "completed" ? "fa-check-circle" : Model.Status.ToString().ToLower() == "in-progress" ? "fa-clock" : "fa-hourglass-start")"></i>
+                            @Model.Status
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ticket-body">
+            <div class="info-cards-container">
+                <div class="info-card description-card" data-aos="fade-right">
+                    <div class="card-icon">
+                        <i class="fas fa-align-left"></i>
+                    </div>
+                    <div class="info-group">
+                        <label>Description</label>
+                        <p class="description-text">@Model.Description</p>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card date-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="info-group">
+                            <label>Submission Date</label>
+                            <p>@Model.SubmissionDate?.ToString("f")</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card date-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-icon">
+                            <i class="fas fa-flag-checkered"></i>
+                        </div>
+                        <div class="info-group">
+                            <label>Resolved Date</label>
+                            <p>@(Model.ResolvedDate?.ToString("f") ?? "Pending")</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="info-group">
+                            <label>Student ID</label>
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="info-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="info-group">
+                            <label>Year</label>
+                            <p>@Model.Year</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ticket-footer">
+            <a href="@Url.Action("Queries", "Query")" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Tickets</span>
+            </a>
+            <button class="share-btn" onclick="shareTicket()">
+                <i class="fas fa-share-alt"></i>
+                <span>Share</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-in-out'
+        });
+
+        // Add hover effects and interactions
+        const cards = document.querySelectorAll('.info-card');
+        cards.forEach(card => {
+            // Add hover sound effect
+            card.addEventListener('mouseenter', () => {
+                playHoverSound();
+            });
+
+            // Add subtle movement on hover
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const xPercent = (x / rect.width - 0.5) * 20;
+                const yPercent = (y / rect.height - 0.5) * 20;
+
+                card.style.transform = `perspective(1000px) rotateX(${-yPercent}deg) rotateY(${xPercent}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            // Reset card position
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+
+        // Add ripple effect to buttons
+        const buttons = document.querySelectorAll('.back-btn, .share-btn');
+        buttons.forEach(button => {
+            button.addEventListener('click', createRipple);
+        });
+
+        // Initialize progress bar animation
+        animateProgressBar();
+    });
+
+    // Create ripple effect on button click
+    function createRipple(event) {
+        const button = event.currentTarget;
+        const circle = document.createElement('span');
+        const diameter = Math.max(button.clientWidth, button.clientHeight);
+        const radius = diameter / 2;
+
+        circle.style.width = circle.style.height = `${diameter}px`;
+        circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+        circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+        circle.classList.add('ripple');
+
+        const ripple = button.getElementsByClassName('ripple')[0];
+        if (ripple) {
+            ripple.remove();
+        }
+
+        button.appendChild(circle);
+    }
+
+    // Animate the progress bar
+    function animateProgressBar() {
+        const progress = document.querySelector('.progress');
+        const currentWidth = progress.style.width;
+        progress.style.width = '0';
+
+        setTimeout(() => {
+            progress.style.transition = 'width 1.5s ease-in-out';
+            progress.style.width = currentWidth;
+        }, 100);
+    }
+
+    // Share ticket functionality
+    function shareTicket() {
+        // Get ticket details
+        const ticketId = document.querySelector('.ticket-id strong').textContent;
+        const status = document.querySelector('.status-badge').textContent.trim();
+
+        // Create share text
+        const shareText = `Ticket Details:\n${ticketId}\nStatus: ${status}`;
+
+        // Check if Web Share API is available
+        if (navigator.share) {
+            navigator.share({
+                title: 'Ticket Details',
+                text: shareText,
+            })
+                .catch(console.error);
+        } else {
+            // Fallback: Copy to clipboard
+            navigator.clipboard.writeText(shareText)
+                .then(() => {
+                    showToast('Ticket details copied to clipboard!');
+                })
+                .catch(console.error);
+        }
+    }
+
+    // Show toast notification
+    function showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        toast.textContent = message;
+
+        document.body.appendChild(toast);
+
+        // Trigger animation
+        setTimeout(() => {
+            toast.classList.add('show');
+
+            // Remove toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3000);
+        }, 100);
+    }
+
+    // Play hover sound effect
+    function playHoverSound() {
+        const audio = new Audio("data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//ODEAAAAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAEAAABIADAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV6urq6urq6urq6urq6urq6urq6urq6urq6v////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAAAAAAAAAAAEiEhYdMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/zYsAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuMTAwVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV");
+        audio.volume = 0.2;  // Set volume to 20%
+        audio.play()
+            .catch(error => console.log('Audio play failed:', error));
+    }
+
+    // Add keyboard navigation
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            const backBtn = document.querySelector('.back-btn');
+            if (backBtn) {
+                backBtn.click();
+            }
+        }
+    });
+</script>

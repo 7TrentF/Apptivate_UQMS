@@ -1,0 +1,144 @@
+﻿﻿    <!-- AAAND here we go -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics and Reporting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .dashboard {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            color: #47b5ff;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .chart-card {
+            flex: 1;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Analytics and Reporting</h1>
+
+        <!-- Weekly Activity -->
+        <div class="chart-container">
+            <h2>Weekly Activity</h2>
+            <canvas id="weeklyActivityChart"></canvas>
+        </div>
+
+        <!-- Card Expense Statistics and Queries Received -->
+        <div class="row">
+            <div class="chart-card">
+                <div class="chart-container">
+                    <h2>Card Expense Statistics</h2>
+                    <canvas id="cardExpenseChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-container">
+                    <h2>Queries Received</h2>
+                    <canvas id="queriesReceivedChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Chart.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script>
+        // Weekly Activity Data
+        var weeklyActivityCtx = document.getElementById('weeklyActivityChart').getContext('2d');
+        var weeklyActivityChart = new Chart(weeklyActivityCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                datasets: [{
+                    label: 'Open Queries',
+                    data: [400, 300, 250, 450, 150, 300, 350],
+                    backgroundColor: '#47b5ff'
+                }, {
+                    label: 'Resolved Queries',
+                    data: [150, 100, 200, 400, 300, 250, 300],
+                    backgroundColor: '#00c4cc'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        // Card Expense Statistics Data
+        var cardExpenseCtx = document.getElementById('cardExpenseChart').getContext('2d');
+        var cardExpenseChart = new Chart(cardExpenseCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Open Queries', 'In Progress Queries', 'Resolved Queries', 'MCP Bank'],
+                datasets: [{
+                    data: [300, 150, 450, 100],
+                    backgroundColor: ['#47b5ff', '#ffb74d', '#00c4cc', '#ff6384']
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Queries Received Data
+        var queriesReceivedCtx = document.getElementById('queriesReceivedChart').getContext('2d');
+        var queriesReceivedChart = new Chart(queriesReceivedCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
+                datasets: [{
+                    label: 'Queries',
+                    data: [5000, 4000, 7000, 10000, 12500, 8000],
+                    backgroundColor: '#47b5ff'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>

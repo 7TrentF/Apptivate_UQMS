@@ -1,0 +1,191 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    margin: 0; /* Ensure no unwanted body margins */
+}
+
+#sidebar {
+    
+    display: flex;
+    flex-direction: column;
+    margin-right: 2vw;
+    width: 13vw; /* Sidebar takes up 13% of the screen width */
+    border-right: solid 0.1px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 1px 0 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+    background-color: white !important;
+}
+
+.sidebar-content {
+    flex-grow: 1; /* Let this section take up remaining space */
+    padding: 0 15px;
+    padding-bottom: 20px; /* Padding at the bottom */
+    overflow: hidden;
+}
+
+#sidebar.sidebar-collapsed {
+    width: 80px; /* Adjust to the width when collapsed */
+    /*    margin-left: 10px;*/
+}
+
+.container {
+    margin-left: calc(12vw + 20px); /* Adjust margin-left to match sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    width: calc(100% - 12vw); /* Ensure the container takes up remaining space */
+    box-sizing: border-box;
+}
+
+#sidebar.sidebar-collapsed + .container {
+    margin-left: 80px; /* Adjust based on collapsed sidebar */
+    width: calc(100% - 80px);
+}
+
+#sidebar .nav-link {
+    font-weight: 500;
+    font-size: 22px;
+    color: #333;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    margin-bottom: 18px;
+}
+
+    #sidebar .nav-link .icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        transition: margin-right 0.3s ease;
+    }
+
+#sidebar.sidebar-collapsed .nav-link .icon {
+    margin-right: 0;
+}
+
+#sidebar.sidebar-collapsed .nav-link {
+    justify-content: center;
+    text-align: center;
+}
+
+    #sidebar.sidebar-collapsed .nav-link span {
+        display: none;
+    }
+
+.logo {
+    padding-top: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+#sidebar.sidebar-collapsed .logo {
+    padding: 10px;
+    
+    text-align: center;
+}
+
+.user-profile {
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sidebar.sidebar-collapsed .user-profile {
+    padding: 0;
+}
+
+    #sidebar.sidebar-collapsed .user-profile div.ms-2 {
+        display: none;
+    }
+
+.icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+#sidebarToggle {
+    background: none;
+    border: none;
+    padding: 10px; /* Adjust padding as necessary */
+    margin-left: 15px; /* Adjust margin to align the button */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the button horizontally */
+    position: absolute; /* Place it wherever you want in the sidebar */
+    top: 15px; /* Adjust top spacing */
+    right: 15px; /* Align it to the right inside the sidebar */
+}
+
+#sidebar.sidebar-collapsed #sidebarToggle {
+    right: 5px; /* Adjust position when the sidebar is collapsed */
+}
+
+#sidebarToggle img.icon {
+    width: 24px;
+    height: 24px;
+}
+
+form button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px; /* Ensure spacing between button and bottom */
+}
+
+    form button img.icon {
+        width: 24px;
+        height: 24px;
+    }
+
+#sidebar.sidebar-collapsed form button span {
+    display: none;
+}
+
+/* User Profile and Logout container positioning */
+.user-logout-container {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    margin-top: auto; /* Pushes the container to the bottom of the sidebar */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center profile and logout button */
+}
+
+/* Adjust spacing for smaller screens */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 50px;
+    }
+
+    .container {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+    }
+}
+
+/* Adjust spacing for very small screens */
+@media (max-width: 480px) {
+    #sidebar {
+        width: 40px;
+    }
+
+    .container {
+        margin-left: 50px;
+    }
+}

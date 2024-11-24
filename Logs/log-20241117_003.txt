@@ -1,0 +1,22 @@
+2024-11-17 22:22:11.085 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-17 22:29:02.498 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-17 22:29:03.253 +02:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-11-17 22:29:03.329 +02:00 [INF] Executed DbCommand (59ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-11-17 22:29:03.333 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-11-17 22:29:03.335 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-11-17 22:29:03.394 +02:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-11-17 22:29:03.426 +02:00 [INF] Applying migration '20241117202217_studentPhone'.
+2024-11-17 22:29:04.050 +02:00 [INF] Executed DbCommand (375ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [StudentDetails] ADD [studentNumber] nvarchar(max) NULL;
+2024-11-17 22:29:04.068 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Users] ADD [PhoneNumber] varchar(20) NULL;
+2024-11-17 22:29:04.099 +02:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20241117202217_studentPhone', N'8.0.8');

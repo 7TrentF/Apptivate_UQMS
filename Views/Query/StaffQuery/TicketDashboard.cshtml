@@ -1,0 +1,141 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/QueryDashboard.css" asp-append-version="true">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h2 class="dashboard-title">My Query Dashboard</h2>
+           
+        </div>
+
+        <div class="option-cards-container">
+            <div class="option-card">
+                <a asp-controller="StaffQuery" asp-action="StaffQueries" class="option-link">
+                    <div class="notification-badge">1 New</div>
+                    <div class="card-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="card-title">
+                        View Assigned Queries
+                    </div>
+
+                    <div class="card-description">
+                        Browse and manage all active tickets that have been assigned to you 
+                    </div>
+                </a>
+            </div>
+            <div class="option-card">
+                <a asp-controller="Staff" asp-action="AssignQuery" class="option-link">
+                    <div class="card-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="card-title">
+                       Assign team members
+                    </div>
+                    <div class="card-description">
+                       Assign new queries to other staff members in your Department
+                    </div>
+                </a>
+            </div>
+            <div class="option-card">
+                <a asp-controller="StaffQuery" asp-action="ViewFeedback" class="option-link">
+                    <div class="card-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="card-title">
+                        View Student Feedback
+                    </div>
+                    <div class="card-description">
+                        View the feedback students have given about your resolutions
+                    </div>
+                </a>
+            </div>
+
+            <!--
+            <div class="option-card">
+                <a asp-controller="Query" asp-action="ViewResolvedTicket" class="option-link">
+                    <div class="card-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <div class="card-title">
+                        Give Feedback
+                    </div>
+                    <div class="card-description">
+                        Share your experience with our support
+                    </div>
+                </a>
+            </div>
+             -->
+
+
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        // Add smooth hover effects
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('mouseover', function () {
+                this.style.transition = 'all 0.3s ease';
+            });
+        });
+
+        // Add loading animation when clicking a card
+        document.querySelectorAll('.option-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const card = this.closest('.option-card');
+                card.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    card.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+
+        // Add click effect for action buttons
+        document.querySelectorAll('.action-button').forEach(button => {
+            button.addEventListener('click', function () {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+
+        // Animate stats on page load
+        function animateValue(element, start, end, duration) {
+            const range = end - start;
+            const increment = end > start ? 1 : -1;
+            const stepTime = Math.abs(Math.floor(duration / range));
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = current + (element.dataset.suffix || '');
+                if (current === end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+
+        // Initialize stat animations
+        document.querySelectorAll('.stat-value').forEach(stat => {
+            const value = parseInt(stat.textContent);
+            stat.textContent = '0';
+            setTimeout(() => {
+                animateValue(stat, 0, value, 1000);
+            }, 300);
+        });
+    </script>
+</body>
+</html>

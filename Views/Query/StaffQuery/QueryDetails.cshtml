@@ -1,0 +1,495 @@
+﻿@model Apptivate_UQMS_WebApp.Models.QueryModel.Query
+@inject Apptivate_UQMS_WebApp.Services.FileUploadService FileUploadService
+
+
+
+@{
+    ViewData["Title"] = "Submit Academic Query";
+    int queryId = ViewBag.QueryID;
+    var  assignmentID = ViewBag.AssignmentID;
+
+    //int assignmentID = ViewBag.AssignmentID;
+}
+
+<link rel="stylesheet" href="~/css/AssignedQueryDetails.css" asp-append-version="true">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<div class="query-details-container">
+    <div class="header-section">
+        <h1><i class="fas fa-file-alt"></i> Query Details</h1>
+        <div class="status-badge @Model.Status">@Model.Status</div>
+    </div>
+
+    <div class="details-grid">
+        <!-- Query Information Card -->
+        <div class="details-card query-info">
+            <div class="card-header">
+                <i class="fas fa-info-circle"></i>
+                <h2>Query Information</h2>
+            </div>
+            <div class="card-content">
+                <div class="info-item">
+                    <label>Ticket Number</label>
+                    <span>@Model.TicketNumber</span>
+                </div>
+                <div class="info-item">
+                    <label>Query</label>
+                    <p class="description">@Model.Description</p>
+                </div>
+                <div class="info-item">
+                    <label>Submission Date</label>
+                    <span>@Model.SubmissionDate?.ToString("dd MMM yyyy")</span>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Student Information Card -->
+        <div class="details-card student-info">
+            <div class="card-header">
+                <i class="fas fa-user-graduate"></i>
+                <h2>Student Information</h2>
+            </div>
+            <div class="card-content">
+                <div class="info-item">
+                    <label>Student Name</label>
+                    <span>
+                        @if (Model?.Student?.User != null)
+                        {
+                            @Model.Student.User.Name @Model.Student.User.Surname
+                        }
+                        else
+                        {
+                            <span class="na">N/A</span>
+                        }
+                    </span>
+                </div>
+                <div class="info-item">
+                    <label>Email</label>
+                    <span>
+                        @if (Model?.Student?.User?.Email != null)
+                        {
+                            @Model.Student.User.Email
+                        }
+                        else
+                        {
+                            <span class="na">N/A</span>
+                        }
+                    </span>
+                </div>
+                <div class="info-item">
+                    <label>Department</label>
+                    <span>
+                        @if (Model?.Department != null)
+                        {
+                            @Model.Department.DepartmentName
+                        }
+                        else
+                        {
+                            <span class="na">N/A</span>
+                        }
+                    </span>
+                </div>
+                <div class="info-item">
+                    <label>Course</label>
+                    <span>
+                        @if (Model?.Course != null)
+                        {
+                            @Model.Course.CourseName
+                        }
+                        else
+                        {
+                            <span class="na">N/A</span>
+                        }
+                    </span>
+                </div>
+                <div class="info-item">
+                    <label>Year</label>
+                    <span>@Model.Student?.Year</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Documents Card -->
+        <div class="details-card documents">
+            <div class="card-header">
+                <i class="fas fa-file-download"></i>
+                <h2>Documents</h2>
+            </div>
+            <div class="card-content">
+                <ul class="documents-list">
+                    @foreach (var doc in Model.QueryDocuments)
+                    {
+                        var signedUrl = FileUploadService.GenerateSignedUrl(doc.DocumentPath);
+                        <li>
+                            <a href="@signedUrl" target="_blank" class="document-link">
+                                <i class="fas fa-file-alt"></i>
+                                <span>@doc.DocumentName</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Solution and Feedback Card -->
+<div class="details-card solution-feedback">
+    <div class="card-header">
+        <i class="fas fa-comment-dots"></i>
+        <h2>Solution & Feedback</h2>
+    </div>
+    <div class="card-content">
+        <form class="feedback-form" asp-action="SubmitSolutionToQuery" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="QueryID" value="@queryId" />
+            <input type="hidden" name="AssignmentID" value="@assignmentID" />
+            <div class="form-group">
+                <label for="solution">Solution</label>
+                <textarea id="solution"
+                          name="Solution"
+                          rows="4"
+                          placeholder="Provide your solution here..."
+                          class="feedback-input"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="additionalNotes">Additional Notes</label>
+                <textarea id="additionalNotes"
+                          name="AdditionalNotes"
+                          rows="2"
+                          placeholder="Any additional notes or comments..."
+                          class="feedback-input"></textarea>
+            </div>
+            <div class="form-group attachment-section">
+                <label>
+                    <i class="fas fa-paperclip"></i> Attachments
+                </label>
+                <div class="file-upload-container">
+                    <input type="file"
+                           id="fileAttachment"
+                           multiple
+                           class="file-input"
+                           name="UploadedFile"
+                           accept=".pdf,.doc,.docx,.txt,.jpg,.png">
+                    <label for="fileAttachment" class="file-upload-button">
+                        <i class="fas fa-cloud-upload-alt"></i> Choose Files
+                    </label>
+                    <div id="fileList" class="file-list"></div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="submit-button">
+                    <i class="fas fa-paper-plane"></i> Submit Response
+                </button>
+                <button type="button" class="save-draft-button">
+                    <i class="fas fa-save"></i> Save Draft
+                </button>
+            </div>
+        </form>
+
+        <!-- Success Message (hidden by default) -->
+        <div id="submissionSuccess" class="submission-success" style="display: none;">
+            <div class="success-content">
+                <i class="fas fa-check-circle"></i>
+                <h3>Solution Submitted Successfully!</h3>
+                <p>Your response has been recorded and the student will be notified.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize time elapsed
+        updateTimeElapsed();
+
+        // Initialize scroll to top button
+        initScrollToTop();
+
+        // Initialize document search
+        initDocumentSearch();
+
+        // Add card animations
+        initCardAnimations();
+
+        // Initialize file upload functionality
+        initFileUpload();
+
+        // Initialize form submission
+        initFormSubmission();
+
+        // Initialize auto-save draft
+        initAutosave();
+    });
+
+    function initFormSubmission() {
+        const form = document.getElementById('solutionFeedbackForm');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Show loading state
+            const submitButton = form.querySelector('.submit-button');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitButton.disabled = true;
+
+            // Simulate form submission (replace with actual API call)
+            setTimeout(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+
+                // Show success message
+                showToast('Response submitted successfully!');
+
+                // Clear form
+                form.reset();
+                document.getElementById('fileList').innerHTML = '';
+            }, 1500);
+        });
+    }
+
+
+
+
+    function initFileUpload() {
+        const fileInput = document.getElementById('fileAttachment');
+        const fileList = document.getElementById('fileList');
+
+        fileInput.addEventListener('change', function (e) {
+            fileList.innerHTML = '';
+
+            Array.from(this.files).forEach(file => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+
+                const fileName = document.createElement('span');
+                fileName.textContent = file.name;
+
+                const fileSize = document.createElement('span');
+                fileSize.textContent = `(${formatFileSize(file.size)})`;
+                fileSize.style.color = '#64748b';
+                fileSize.style.marginLeft = '0.5rem';
+
+                const removeButton = document.createElement('span');
+                removeButton.innerHTML = '<i class="fas fa-times"></i>';
+                removeButton.className = 'remove-file';
+                removeButton.onclick = () => fileItem.remove();
+
+                fileItem.appendChild(fileName);
+                fileItem.appendChild(fileSize);
+                fileItem.appendChild(removeButton);
+                fileList.appendChild(fileItem);
+            });
+        });
+    }
+
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+   
+
+    function initAutosave() {
+        const form = document.getElementById('solutionFeedbackForm');
+        const saveButton = form.querySelector('.save-draft-button');
+
+        // Auto-save every 30 seconds
+        setInterval(() => {
+            const formData = {
+                solution: form.querySelector('#solution').value,
+                additionalNotes: form.querySelector('#additionalNotes').value
+            };
+
+            // Save to localStorage
+            localStorage.setItem('queryResponseDraft', JSON.stringify(formData));
+        }, 30000);
+
+        // Manual save
+        saveButton.addEventListener('click', function () {
+            const formData = {
+                solution: form.querySelector('#solution').value,
+                additionalNotes: form.querySelector('#additionalNotes').value
+            };
+
+            localStorage.setItem('queryResponseDraft', JSON.stringify(formData));
+            showToast('Draft saved successfully!');
+        });
+
+        // Load draft on page load
+        const savedDraft = localStorage.getItem('queryResponseDraft');
+        if (savedDraft) {
+            const formData = JSON.parse(savedDraft);
+            form.querySelector('#solution').value = formData.solution || '';
+            form.querySelector('#additionalNotes').value = formData.additionalNotes || '';
+        }
+    }
+
+
+
+    // Update time elapsed
+    function updateTimeElapsed() {
+        const submissionDate = new Date('@Model.SubmissionDate?.ToString("yyyy-MM-ddTHH:mm:ss")');
+        const timeElapsedElement = document.getElementById('timeElapsed');
+
+        function updateTime() {
+            const now = new Date();
+            const diff = now - submissionDate;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+            if (days > 0) {
+                timeElapsedElement.textContent = `${days}d ${hours}h`;
+            } else {
+                timeElapsedElement.textContent = `${hours}h`;
+            }
+        }
+
+        updateTime();
+        setInterval(updateTime, 60000); // Update every minute
+    }
+
+    // Scroll to top functionality
+    function initScrollToTop() {
+        const scrollBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Document search functionality
+    function initDocumentSearch() {
+        const searchInput = document.getElementById('documentSearch');
+        const documentsList = document.getElementById('documentsList');
+        const documents = documentsList.getElementsByTagName('li');
+
+        searchInput.addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+
+            Array.from(documents).forEach(doc => {
+                const documentName = doc.querySelector('.document-name').textContent.toLowerCase();
+                if (documentName.includes(searchTerm)) {
+                    doc.style.display = '';
+                } else {
+                    doc.style.display = 'none';
+                }
+            });
+        });
+    }
+
+    // Card animations and interactions
+    function initCardAnimations() {
+        // Add hover animations to cards
+        document.querySelectorAll('.details-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    }
+
+    // Toggle card expand/collapse
+    function toggleCard(header) {
+        const content = header.nextElementSibling;
+        const card = header.parentElement;
+
+        header.classList.toggle('collapsed');
+
+        if (header.classList.contains('collapsed')) {
+            content.style.maxHeight = '0';
+            content.style.opacity = '0';
+        } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            content.style.opacity = '1';
+        }
+    }
+
+    // Show toast notification
+    function showToast(message, duration = 3000) {
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+
+        toastMessage.textContent = message;
+        toast.classList.add('show');
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, duration);
+    }
+
+    // Description expand/collapse
+    document.querySelectorAll('.expand-description').forEach(button => {
+        button.addEventListener('click', function () {
+            const description = this.previousElementSibling;
+            description.classList.toggle('expanded');
+            this.textContent = description.classList.contains('expanded') ? 'Read Less' : 'Read More';
+        });
+    });
+
+    // Document link interactions
+    document.querySelectorAll('.document-link').forEach(link => {
+        link.addEventListener('click', () => {
+            showToast('Downloading document...');
+        });
+    });
+
+
+
+    const form = document.querySelector('.feedback-form');
+    const successMessage = document.getElementById('submissionSuccess');
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        try {
+            const formData = new FormData(this);
+            const response = await fetch(this.action, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                // Show success message
+                successMessage.style.display = 'block';
+                successMessage.classList.add('show');
+
+                // Hide success message and redirect after 2 seconds
+                setTimeout(() => {
+                    window.location.href = response.url;
+                }, 2000);
+            } else {
+                alert('There was an error submitting the solution. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('There was an error submitting the solution. Please try again.');
+        }
+    });
+
+</script>

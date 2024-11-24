@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css//ViewResolvedTicketStyling.css" asp-append-version="true">
+    TempData["FeedbackSubmitted"] = true;
+
+</head>
+<body>
+    <!-- Progress Indicator -->
+    <div class="progress-indicator"></div>
+
+    <!-- Loading Indicator -->
+    <div class="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Action completed successfully!</span>
+    </div>
+
+    <div class="container">
+        @model Apptivate_UQMS_WebApp.Models.QueryModel.ResolvedTicketAndQueryViewModel
+        @inject Apptivate_UQMS_WebApp.Services.FileUploadService FileUploadService
+
+
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h2>Query and Resolved Ticket Details</h2>
+        </div>
+
+        <!-- Query Details -->
+        <div class="card">
+            <h3><i class="fas fa-info-circle"></i> My Query Information</h3>
+            <div class="info-grid">
+                <div class="info-item pulse">
+                    <strong><i class="fas fa-hashtag"></i> Query ID</strong>
+                    <span>@Model.TicketNumber</span>
+                </div>
+                <div class="info-item">
+                    <strong><i class="fas fa-align-left"></i> Query</strong>
+                    <span>@Model.Description</span>
+                </div>
+                <div class="info-item">
+                    <strong><i class="fas fa-calendar-alt"></i> Submission Date</strong>
+                    <span>@Model.SubmissionDate?.ToString("dd MMM yyyy")</span>
+                </div>
+                <div class="info-item">
+                    <strong><i class="fas fa-check-circle"></i> Status</strong>
+                    <span class="status-badge status-resolved">
+                        <i class="fas fa-check"></i>
+                        @Model.Status
+                    </span>
+                </div>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">@Model.SubmissionDate?.ToString("dd MMM yyyy HH:mm")</div>
+                        <div>Query Created</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">@Model.ResolutionDate?.ToString("dd MMM yyyy HH:mm")</div>
+                        <div>Query Resolved</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resolved Query Details -->
+        <div class="card">
+            <h3><i class="fas fa-check-double"></i> Resolved Query</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong><i class="fas fa-lightbulb"></i> Resolution</strong>
+                    <span>@Model.Solution</span>
+                </div>
+              
+                <div class="info-item">
+                    <strong><i class="fas fa-sticky-note"></i> Additional Notes</strong>
+                    <span>@Model.AdditionalNotes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Documents -->
+        <div class="card">
+            <h3><i class="fas fa-folder-open"></i> Related Documents</h3>
+            @if (Model.Documents != null && Model.Documents.Any())
+            {
+                <ul class="document-list">
+                    @foreach (var doc in Model.Documents)
+                    {
+                        var signedUrl = FileUploadService.GenerateSignedUrl(doc.DocumentPath);
+                        <li>
+                            <a href="@signedUrl" target="_blank" class="document-link" onclick="handleDocumentClick(event)">
+                                <i class="fas fa-file-alt"></i>
+                                <span>@doc.DocumentName</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p><i class="fas fa-info-circle"></i> No documents available.</p>
+            }
+        </div>
+
+        <!-- Feedback Form -->
+        <div class="card">
+            <h3><i class="fas fa-star"></i> Submit Your Feedback</h3>
+            <form id="feedbackForm" asp-action="SubmitFeedback" method="post" class="feedback-form">
+                <input type="hidden" asp-for="QueryID" value="@Model.QueryID" />
+                <div class="form-group">
+                    <label for="Rating">Rating:</label>
+                    <div class="rating-stars">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                    <select name="Rating" class="form-control" id="ratingSelect" style="display: none;">
+                        <option value="1">1 - Poor</option>
+                        <option value="2">2 - Fair</option>
+                        <option value="3">3 - Good</option>
+                        <option value="4">4 - Very Good</option>
+                        <option value="5">5 - Excellent</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Comments">Comments:</label>
+                    <textarea name="Comments" class="form-control" placeholder="Share your thoughts about the resolution..."></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="isAnonymous" name="IsAnonymous" class="form-check-input" />
+                        <label for="isAnonymous" class="form-check-label">Submit Feedback Anonymously</label>
+                        <small class="text-muted d-block mt-1">
+                            When checked, your name and user information will not be associated with this feedback
+                        </small>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                    Submit Feedback
+                </button>
+            </form>
+
+            <!-- Feedback Submitted Message -->
+            <div class="feedback-submitted" id="feedbackSubmitted">
+                <i class="fas fa-check-circle pulse"></i>
+                <h4>Thank you for your feedback!</h4>
+                <p>Your input helps us improve our service.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Progress indicator
+                const progress = document.querySelector('.progress-indicator');
+                window.addEventListener('scroll', () => {
+                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (winScroll / height) * 100;
+                    progress.style.width = scrolled + '%';
+                });
+
+                // Star rating system
+                const stars = document.querySelectorAll('.star');
+                const ratingSelect = document.getElementById('ratingSelect');
+
+                function updateStars(rating) {
+                    stars.forEach(star => {
+                        const starRating = parseInt(star.dataset.rating);
+                        if (starRating <= rating) {
+                            star.classList.add('active');
+                        } else {
+                            star.classList.remove('active');
+                        }
+                    });
+                    ratingSelect.value = rating;
+                }
+
+                stars.forEach(star => {
+                    star.addEventListener('click', function () {
+                        const rating = parseInt(this.dataset.rating);
+                        updateStars(rating);
+                        showToast('Rating selected: ' + rating + ' stars');
+                    });
+
+                    star.addEventListener('mouseover', function () {
+                        const rating = parseInt(this.dataset.rating);
+                        stars.forEach(s => {
+                            const starRating = parseInt(s.dataset.rating);
+                            if (starRating <= rating) {
+                                s.classList.add('active');
+                            } else {
+                                s.classList.remove('active');
+                            }
+                        });
+                    });
+                });
+
+                document.querySelector('.rating-stars').addEventListener('mouseleave', function () {
+                    const currentRating = parseInt(ratingSelect.value);
+                    updateStars(currentRating);
+                });
+
+           
+
+
+                const anonymousCheckbox = document.getElementById('isAnonymous');
+                if (anonymousCheckbox) {
+                    anonymousCheckbox.addEventListener('change', function () {
+                        this.value = this.checked;
+                    });
+                }
+
+
+                // Form submission
+                const feedbackForm = document.getElementById('feedbackForm');
+                const feedbackSubmitted = document.getElementById('feedbackSubmitted');
+
+                feedbackForm.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    // Show loading
+                    document.querySelector('.loading').classList.add('show');
+
+                    try {
+                        const formData = new FormData(this);
+
+                        // Add anonymous flag to form data
+                        const isAnonymous = document.getElementById('isAnonymous').checked;
+                        formData.append('IsAnonymous', isAnonymous);
+
+                        const response = await fetch(this.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value
+                            }
+                        });
+
+                        if (response.ok) {
+                            feedbackForm.style.display = 'none';
+                            feedbackSubmitted.style.display = 'block';
+                            const successMessage = isAnonymous ?
+                                'Anonymous feedback submitted successfully!' :
+                                'Feedback submitted successfully!';
+                            showToast(successMessage);
+                        } else {
+                            showToast('Error submitting feedback. Please try again.');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        showToast('Error submitting feedback. Please try again.');
+                    } finally {
+                        document.querySelector('.loading').classList.remove('show');
+                    }
+                });
+            });
+
+            // Toast notification
+            function showToast(message) {
+                const toast = document.getElementById('toast');
+                toast.querySelector('span').textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+
+            // Document click handler
+            function handleDocumentClick(event) {
+                showToast('Opening document...');
+                document.querySelector('.loading').classList.add('show');
+                setTimeout(() => {
+                    document.querySelector('.loading').classList.remove('show');
+                }, 1000);
+            }
+
+            // Add hover animations to info items
+            const infoItems = document.querySelectorAll('.info-item');
+            infoItems.forEach(item => {
+                item.addEventListener('mouseenter', function () {
+                    this.style.transform = 'scale(1.02)';
+                });
+                item.addEventListener('mouseleave', function () {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+    </script>
+</body>
+</html>

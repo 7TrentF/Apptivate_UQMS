@@ -1,0 +1,376 @@
+﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.QueryModel.Query>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolved Queries</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+
+<body class="bg-gray-100">
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="px-6 py-4 bg-gray-900 text-white">
+            <h1 class="text-2xl font-bold">Student Feedback</h1>
+            <p class="text-gray-400">Open the Ticket to view the feedback given for your resolution</p>
+        </div>
+        <div class="px-6 py-4">
+            <div class="flex justify-between items-center mb-4">
+                <div class="stats-container flex space-x-4">
+                    <div class="stat-card bg-blue-500 text-white p-4 rounded-lg shadow-md">
+                        <div class="stat-title">Resolved</div>
+                        <div class="stat-value stat-resolved">0</div>
+                    </div>
+                </div>
+                <div class="filter-container">
+                    <input type="text" class="filter-input px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Search tickets..." />
+                </div>
+            </div>
+            <div class="tickets custom-scrollbar overflow-y-auto max-h-[70vh]">
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var query in Model)
+                    {
+                        <div class="ticket-card @query.Status.ToString().ToLower() bg-white shadow-lg rounded-lg mb-4">
+                            <div class="flex justify-between items-center px-6 py-4 border-b">
+                                <div class="ticket-id text-blue-500">
+                                    <i class="fas fa-ticket"></i>
+                                    <span>Ticket# @query.TicketNumber</span>
+                                </div>
+                                <div class="ticket-status">
+                                    <span class="status-badge @query.Status.ToString().ToLower() px-3 py-1 rounded-full text-white text-sm">@query.Status</span>
+                                </div>
+                            </div>
+                            <div class="px-6 py-4">
+                                <p class="ticket-description text-gray-700 mb-4">@query.Description</p>
+                                <div class="ticket-meta flex justify-between">
+                                    <div class="meta-item">
+                                        <span class="meta-label text-gray-500 text-sm">Submitted</span>
+                                        <span class="meta-value text-gray-700 text-sm" data-timestamp="@query.SubmissionDate?.ToString("o")">
+                                            @query.SubmissionDate?.ToString("f")
+                                        </span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <span class="meta-label text-gray-500 text-sm">Category</span>
+                                        <span class="meta-value text-gray-700 text-sm">@query.Category</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-6 py-4 border-t">
+                                <a href="@Url.Action("ViewResolvedTicket", new { queryId = query.QueryID })"
+                                   class="open-ticket-btn inline-flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                                   data-tooltip="View full ticket details">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    <span>Open Ticket</span>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="empty-state flex flex-col items-center justify-center h-64">
+                        <div class="empty-state-icon text-gray-400">
+                            <i class="fas fa-ticket-alt fa-3x"></i>
+                        </div>
+                        <h3 class="empty-state-text text-gray-700 text-xl font-bold mt-4">No tickets found</h3>
+                        <p class="empty-state-subtext text-gray-500 mt-2">Tickets will appear here once they are created</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy.umd.min.js"></script>
+    <script>
+    // QueryDetails.js
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize dashboard statistics
+        initializeStats();
+
+        // Initialize filters
+        initializeFilters();
+
+        // Initialize ticket interactions
+        initializeTickets();
+
+        // Initialize search functionality
+        initializeSearch();
+    });
+
+    function initializeStats() {
+        const stats = {
+            total: document.querySelectorAll('.ticket-card').length,
+            resolved: document.querySelectorAll('.ticket-card.resolved').length,
+            pending: document.querySelectorAll('.ticket-card.pending').length,
+            urgent: document.querySelectorAll('.ticket-card.urgent').length
+        };
+
+        // Update stats in the dashboard
+        Object.keys(stats).forEach(key => {
+            const statElement = document.querySelector(`.stat-${key}`);
+            if (statElement) {
+                animateNumber(statElement, 0, stats[key]);
+            }
+        });
+    }
+
+    function animateNumber(element, start, end) {
+        const duration = 1000;
+        const startTime = performance.now();
+
+        function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            const value = Math.floor(start + (end - start) * progress);
+            element.textContent = value;
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+
+        requestAnimationFrame(update);
+    }
+
+    function initializeFilters() {
+        const filterButtons = document.querySelectorAll('.filter-button');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const filter = this.dataset.filter;
+
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // Filter tickets
+                const tickets = document.querySelectorAll('.ticket-card');
+                tickets.forEach(ticket => {
+                    if (filter === 'all') {
+                        ticket.style.display = 'block';
+                    } else {
+                        ticket.style.display = ticket.classList.contains(filter) ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+    }
+
+    function initializeTickets() {
+        const tickets = document.querySelectorAll('.ticket-card');
+
+        tickets.forEach((ticket, index) => {
+            // Add staggered animation on load
+            ticket.style.opacity = '0';
+            ticket.style.transform = 'translateY(20px)';
+
+            setTimeout(() => {
+                ticket.style.opacity = '1';
+                ticket.style.transform = 'translateY(0)';
+            }, index * 100);
+
+            // Initialize hover effects
+            ticket.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-4px)';
+            });
+
+            ticket.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Initialize ticket buttons
+        const openButtons = document.querySelectorAll('.open-ticket-btn');
+        openButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                const originalText = this.textContent;
+                const loadingHtml = '<i class="fas fa-spinner fa-spin"></i> Opening...';
+
+                this.innerHTML = loadingHtml;
+                this.style.pointerEvents = 'none';
+
+                // Simulate loading (remove in production)
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.pointerEvents = 'auto';
+                }, 2000);
+            });
+        });
+    }
+
+    function initializeSearch() {
+        const searchInput = document.querySelector('.filter-input');
+        if (!searchInput) return;
+
+        searchInput.addEventListener('input', debounce(function () {
+            const searchTerm = this.value.toLowerCase();
+            const tickets = document.querySelectorAll('.ticket-card');
+
+            tickets.forEach(ticket => {
+                const text = ticket.textContent.toLowerCase();
+                const isVisible = text.includes(searchTerm);
+
+                ticket.style.display = isVisible ? 'block' : 'none';
+                ticket.style.opacity = isVisible ? '1' : '0';
+            });
+        }, 300));
+    }
+
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func.apply(this, args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Format dates using relative time
+    function formatRelativeDate(dateString) {
+        const date = new Date(dateString);
+        const now = new Date();
+        const diffTime = Math.abs(now - date);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        if (diffDays === 0) {
+            return 'Today';
+        } else if (diffDays === 1) {
+            return 'Yesterday';
+        } else if (diffDays < 7) {
+            return `${diffDays} days ago`;
+        } else {
+            return date.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            });
+        }
+    }
+
+    function updateDates() {
+        const dates = document.querySelectorAll('[data-timestamp]');
+        dates.forEach(date => {
+            const timestamp = date.dataset.timestamp;
+            date.textContent = formatRelativeDate(timestamp);
+        });
+    }
+
+    // Initialize tooltips
+    function initializeTooltips() {
+        const tooltips = document.querySelectorAll('[data-tooltip]');
+        tooltips.forEach(element => {
+            tippy(element, {
+                content: element.dataset.tooltip,
+                arrow: true,
+                placement: 'top'
+            });
+        });
+    }
+
+    // Refresh data periodically
+    function initializeAutoRefresh() {
+        setInterval(() => {
+            updateDates();
+            // Add any other refresh logic here
+        }, 60000); // Refresh every minute
+    }
+
+    // Handle ticket priority
+    function initializePriorityIndicators() {
+        const tickets = document.querySelectorAll('.ticket-card');
+        tickets.forEach(ticket => {
+            const priority = ticket.dataset.priority;
+            if (priority) {
+                const indicator = document.createElement('div');
+                indicator.className = `priority-indicator priority-${priority}`;
+                ticket.appendChild(indicator);
+            }
+        });
+    }
+
+    // Initialize pagination if needed
+    function initializePagination() {
+        const itemsPerPage = 10;
+        const tickets = document.querySelectorAll('.ticket-card');
+        const pageCount = Math.ceil(tickets.length / itemsPerPage);
+
+        if (pageCount <= 1) return;
+
+        const pagination = document.createElement('div');
+        pagination.className = 'pagination';
+
+        for (let i = 1; i <= pageCount; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.className = 'pagination-button';
+            pageButton.textContent = i;
+            pageButton.addEventListener('click', () => goToPage(i, itemsPerPage));
+            pagination.appendChild(pageButton);
+        }
+
+        document.querySelector('.tickets').after(pagination);
+        goToPage(1, itemsPerPage);
+    }
+
+    function goToPage(page, itemsPerPage) {
+        const tickets = document.querySelectorAll('.ticket-card');
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+
+        tickets.forEach((ticket, index) => {
+            ticket.style.display = (index >= startIndex && index < endIndex) ? 'block' : 'none';
+        });
+
+        // Update active page button
+        document.querySelectorAll('.pagination-button').forEach((button, index) => {
+            button.classList.toggle('active', index + 1 === page);
+        });
+    }
+
+    // Add keyboard shortcuts
+    function initializeKeyboardShortcuts() {
+        document.addEventListener('keydown', (e) => {
+            // Ctrl/Cmd + / to focus search
+            if ((e.ctrlKey || e.metaKey) && e.key === '/') {
+                e.preventDefault();
+                document.querySelector('.filter-input')?.focus();
+            }
+
+            // Esc to clear search
+            if (e.key === 'Escape') {
+                const searchInput = document.querySelector('.filter-input');
+                if (searchInput && document.activeElement === searchInput) {
+                    searchInput.value = '';
+                    searchInput.dispatchEvent(new Event('input'));
+                }
+            }
+        });
+    }
+
+    // Initialize all features
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeStats();
+        initializeFilters();
+        initializeTickets();
+        initializeSearch();
+        initializeTooltips();
+        initializeAutoRefresh();
+        initializePriorityIndicators();
+        initializePagination();
+        initializeKeyboardShortcuts();
+        updateDates();
+    });
+
+
+</script>
+</body>
+</html>

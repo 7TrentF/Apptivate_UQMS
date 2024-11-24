@@ -1,0 +1,52 @@
+2024-11-21 15:54:36.231 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-21 18:56:33.022 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-21 18:56:36.468 +02:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-11-21 18:56:36.514 +02:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-11-21 18:56:36.553 +02:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-11-21 18:56:58.305 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-21 18:58:31.798 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-21 18:58:32.915 +02:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-11-21 18:58:32.971 +02:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-11-21 18:58:32.978 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-11-21 18:58:32.984 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-11-21 18:58:33.025 +02:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-11-21 18:58:33.052 +02:00 [INF] Applying migration '20241121165659_AddKnowledgeBaseAndFaqTables'.
+2024-11-21 18:58:33.454 +02:00 [INF] Executed DbCommand (223ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [KnowledgeBase] (
+    [ArticleID] int NOT NULL IDENTITY,
+    [Title] nvarchar(max) NULL,
+    [Content] nvarchar(max) NULL,
+    [Category] nvarchar(max) NULL,
+    [CreatedDate] datetime2 NULL,
+    [LastUpdatedDate] datetime2 NULL,
+    CONSTRAINT [PK_KnowledgeBase] PRIMARY KEY ([ArticleID])
+);
+2024-11-21 18:58:33.482 +02:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [FAQ] (
+    [FaqId] int NOT NULL IDENTITY,
+    [ArticleID] int NOT NULL,
+    [Question] nvarchar(max) NULL,
+    [Answer] nvarchar(max) NULL,
+    [Category] nvarchar(max) NULL,
+    [CreatedDate] datetime2 NULL,
+    [LastUpdatedDate] datetime2 NULL,
+    CONSTRAINT [PK_FAQ] PRIMARY KEY ([FaqId]),
+    CONSTRAINT [FK_FAQ_KnowledgeBase_ArticleID] FOREIGN KEY ([ArticleID]) REFERENCES [KnowledgeBase] ([ArticleID]) ON DELETE CASCADE
+);
+2024-11-21 18:58:33.496 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_FAQ_ArticleID] ON [FAQ] ([ArticleID]);
+2024-11-21 18:58:33.530 +02:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20241121165659_AddKnowledgeBaseAndFaqTables', N'8.0.8');

@@ -1,0 +1,315 @@
+﻿@{
+    ViewData["Title"] = "Reports Dashboard";
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="mb-4">Service Performance Reports</h2>
+
+    <!-- Date Range Filters -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" id="startDate" class="form-control" />
+                        </div>
+                        <div class="col-md-5">
+                            <label for="endDate">End Date</label>
+                            <input type="date" id="endDate" class="form-control" />
+                        </div>
+                        <div class="col-md-2">
+                            <label>&nbsp;</label>
+                            <button id="refreshData" class="btn btn-primary form-control">Refresh</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Tabs -->
+    <ul class="nav nav-tabs" id="reportTabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="resolution-tab" data-toggle="tab" href="#resolution" role="tab">Resolution Time</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="volume-tab" data-toggle="tab" href="#volume" role="tab">Query Volume</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="unresolved-tab" data-toggle="tab" href="#unresolved" role="tab">Unresolved Queries</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="performance-tab" data-toggle="tab" href="#performance" role="tab">Staff Performance</a>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content mt-3" id="reportsContent">
+        <!-- Resolution Time Report -->
+        <div class="tab-pane fade show active" id="resolution" role="tabpanel">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Query Resolution Time Report</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="resolutionChart"></canvas>
+                    <div class="table-responsive mt-4">
+                        <table class="table table-striped" id="resolutionTable">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Department</th>
+                                    <th>Query Count</th>
+                                    <th>Avg Response (hrs)</th>
+                                    <th>Median Response (hrs)</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Query Volume Report -->
+        <div class="tab-pane fade" id="volume" role="tabpanel">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">High Volume Query Categories</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="volumeChart"></canvas>
+                    <div class="table-responsive mt-4">
+                        <table class="table table-striped" id="volumeTable">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Department</th>
+                                    <th>Query Count</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unresolved Queries Report -->
+        <div class="tab-pane fade" id="unresolved" role="tabpanel">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Unresolved and Overdue Queries</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6 class="card-title">Total Unresolved</h6>
+                                    <h2 id="totalUnresolved">0</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-warning text-dark">
+                                <div class="card-body">
+                                    <h6 class="card-title">Total Overdue</h6>
+                                    <h2 id="totalOverdue">0</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-danger text-white">
+                                <div class="card-body">
+                                    <h6 class="card-title">Overdue Percentage</h6>
+                                    <h2 id="overduePercentage">0%</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped" id="unresolvedTable">
+                            <thead>
+                                <tr>
+                                    <th>Ticket Number</th>
+                                    <th>Student</th>
+                                    <th>Submission Date</th>
+                                    <th>Pending Days</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Staff Performance Report -->
+        <div class="tab-pane fade" id="performance" role="tabpanel">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Staff Performance Report</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped" id="performanceTable">
+                            <thead>
+                                <tr>
+                                    <th>Staff Name</th>
+                                    <th>Queries Handled</th>
+                                    <th>Queries Resolved</th>
+                                    <th>Avg Response Time (hrs)</th>
+                                    <th>Resolution Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment"></script>
+    <script src="~/js/reports.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function initializeQueryResolutionReport() {
+            const ctx = document.getElementById('resolutionChart').getContext('2d');
+            let chart = null;
+
+            function updateTable(data) {
+                const tbody = document.querySelector('#resolutionTable tbody');
+                tbody.innerHTML = '';
+
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+    <td>${row.category}</td>
+    <td>${row.department}</td>
+    <td>${row.queryCount}</td>
+    <td>${row.averageResponseTime.toFixed(2)}</td>
+    <td>${row.medianResponseTime.toFixed(2)}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function createChart(data) {
+            const departments = [...new Set(data.map(item => item.department))];
+            const categories = [...new Set(data.map(item => item.category))];
+
+            const datasets = departments.map(dept => ({
+                label: dept,
+                data: categories.map(cat => {
+                    const match = data.find(item => item.department === dept && item.category === cat);
+                    return match ? match.averageResponseTime : 0;
+                }),
+                backgroundColor: getRandomColor(0.5),
+                borderColor: getRandomColor(1),
+                borderWidth: 1
+            }));
+
+            if (chart) {
+                chart.destroy();
+            }
+
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: categories,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Average Response Time (hours)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Query Categories'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Query Resolution Time by Department and Category'
+                        }
+                    }
+                }
+            });
+        }
+
+        function getRandomColor(alpha) {
+            const r = Math.floor(Math.random() * 255);
+            const g = Math.floor(Math.random() * 255);
+            const b = Math.floor(Math.random() * 255);
+            return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        }
+
+        // Function to load data from your controller
+        function loadData(startDate, endDate, department) {
+            const url = `/YourController/GetQueryResolutionTimeReport?startDate=${startDate}&endDate=${endDate}&department=${department || ''}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    createChart(data);
+                    updateTable(data);
+                })
+                .catch(error => console.error('Error loading data:', error));
+        }
+
+        // Initialize date pickers and department filter if needed
+        const startDatePicker = document.getElementById('startDate');
+        const endDatePicker = document.getElementById('endDate');
+        const departmentSelect = document.getElementById('department');
+
+        if (startDatePicker && endDatePicker && departmentSelect) {
+            function updateReport() {
+                loadData(
+                    startDatePicker.value,
+                    endDatePicker.value,
+                    departmentSelect.value
+                );
+            }
+
+            startDatePicker.addEventListener('change', updateReport);
+            endDatePicker.addEventListener('change', updateReport);
+            departmentSelect.addEventListener('change', updateReport);
+        }
+
+        // Initial load
+        const today = new Date();
+        const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+        loadData(
+            lastMonth.toISOString().split('T')[0],
+            today.toISOString().split('T')[0],
+            ''
+        );
+    }
+
+    // Initialize the report
+    initializeQueryResolutionReport();
+});
+    </script>
+
+}

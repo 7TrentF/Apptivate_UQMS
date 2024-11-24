@@ -1,0 +1,185 @@
+﻿@model Apptivate_UQMS_WebApp.Models.StudentDashboardViewModel
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/QueryDashboard.css" asp-append-version="true">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h2 class="dashboard-title">Ticket Dashboard</h2>
+            <div class="quick-actions">
+                <button class="action-button">
+                    <i class="fas fa-filter"></i>
+                    Filter
+                </button>
+                <button class="action-button">
+                    <i class="fas fa-sort"></i>
+                    Sort
+                </button>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-title">Open Tickets</div>
+                <div class="stat-value">22</div>
+                <div class="stat-trend">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>12% from last week</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Resolved Today</div>
+                <div class="stat-value">2</div>
+                <div class="stat-trend">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>20% from yesterday</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Average Response Time</div>
+                <div class="stat-value">2.4h</div>
+                <div class="stat-trend" style="color: var(--success-color)">
+                    <i class="fas fa-arrow-down"></i>
+                    <span>15% improvement</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Customer Satisfaction</div>
+                <div class="stat-value">94%</div>
+                <div class="stat-trend">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>5% from last month</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="option-cards-container">
+            <div class="option-card">
+                <a asp-controller="Query" asp-action="Queries" class="option-link">
+                    <div class="notification-badge">1 New</div>
+                    <div class="card-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="card-title">
+                        View Tickets
+                    </div>
+                    <div class="card-description">
+                        Browse and manage all active tickets
+                    </div>
+                </a>
+            </div>
+            <div class="option-card">
+                <a asp-controller="Query" asp-action="CreateQuery" class="option-link">
+                    <div class="card-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="card-title">
+                        Create Ticket
+                    </div>
+                    <div class="card-description">
+                        Submit a new ticket 
+                    </div>
+                </a>
+            </div>
+            <div class="option-card">
+                <a asp-controller="Query" asp-action="ViewResolvedQueries" class="option-link">
+                    <div class="card-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="card-title">
+                        View Resolved Tickets and give feedback
+                    </div>
+                    <div class="card-description">
+                        Access history of completed tickets and give feedback
+                    </div>
+                </a>
+            </div>
+
+            <!--         
+            <div class="option-card">
+                <a asp-controller="Query" asp-action="ViewResolvedTicket" class="option-link">
+                    <div class="card-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <div class="card-title">
+                        Give Feedback
+                    </div>
+                    <div class="card-description">
+                        Share your experience with our support
+                    </div>
+                </a>
+            </div>
+             -->
+
+
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        // Add smooth hover effects
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('mouseover', function () {
+                this.style.transition = 'all 0.3s ease';
+            });
+        });
+
+        // Add loading animation when clicking a card
+        document.querySelectorAll('.option-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const card = this.closest('.option-card');
+                card.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    card.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+
+        // Add click effect for action buttons
+        document.querySelectorAll('.action-button').forEach(button => {
+            button.addEventListener('click', function () {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+
+        // Animate stats on page load
+        function animateValue(element, start, end, duration) {
+            const range = end - start;
+            const increment = end > start ? 1 : -1;
+            const stepTime = Math.abs(Math.floor(duration / range));
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = current + (element.dataset.suffix || '');
+                if (current === end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+
+        // Initialize stat animations
+        document.querySelectorAll('.stat-value').forEach(stat => {
+            const value = parseInt(stat.textContent);
+            stat.textContent = '0';
+            setTimeout(() => {
+                animateValue(stat, 0, value, 1000);
+            }, 300);
+        });
+    </script>
+</body>
+</html>

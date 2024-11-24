@@ -1,0 +1,167 @@
+﻿@RenderSection("Styles", required: false) 
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Apptivate Query System</title>
+
+    <!-- Pre-load JavaScript to set sidebar state before the page is fully rendered -->
+    <script>
+        // Check the localStorage for sidebar state and apply it early
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("sidebarState") === "collapsed") {
+                document.documentElement.classList.add("sidebar-collapsed-initial");
+            }
+        });
+    </script>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Apptivate_UQMS_WebApp.styles.css" asp-append-version="true" />
+    <link href="~/css/tempSidebar.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="~/Images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="~/Images/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="~/Images/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="~/Images/apple-touch-icon.png" />
+    <link rel="stylesheet" href="~/css/toast.css" />
+
+</head>
+<body>
+    <header>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMpCJO5h8Zk60pH04z5PsBtc6Y1pFl9JgpU6fAv" crossorigin="anonymous">
+    </header>
+
+    <div class="layout-wrapper">
+
+    <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+        <button id="sidebarToggle">
+            <img src="~/images/menu-icon.png" alt="Toggle Sidebar" class="icon" />
+        </button>
+        <div class="sidebar-sticky">
+            <div class="logo text-center my-4">
+            </div>
+            <ul class="nav flex-column">
+              
+                
+                <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+
+                        <img src="~/svgs/home-1.svg" alt="Home Icon" class="icon" /><span>Home</span>
+                    </a>
+                </li>
+
+                <!-- Links common to all roles -->
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Dashboard" asp-action="Index">
+                        <img src="~/svgs/four-squares-button-of-view-options.svg" alt="Dashboard Icon" class="icon" /><span>Dashboard</span>
+                    </a>
+                </li>
+
+              
+                <!-- Queries visible to Students and Staff -->
+                @if (User.IsInRole("Student"))
+                {
+                    <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Query" asp-action="TicketDashboard">
+                            <img src="~/svgs/ticket.svg" alt="Queries Icon" class="icon" /><span>Queries</span>
+                        </a>
+                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Faq" asp-action="Index">
+                                <img src="~/Svgs/faq.png" alt="FAQs Icon" class="icon" /><span>FAQs</span>
+                            </a>
+                        </li>
+                }
+
+
+
+
+
+
+
+
+
+                @if (User.IsInRole("Staff"))
+                {
+                    <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="StaffQuery" asp-action="TicketDashboard">
+                            <img src="~/svgs/ticket.svg" alt="Queries Icon" class="icon" /><span>Staff Queries</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Faq" asp-action="Index">
+                                <img src="~/Svgs/faq.png" alt="FAQs Icon" class="icon" /><span>How-to-Guide</span>
+                            </a>
+                    </li>
+
+                }
+
+                <!-- Chat visible to all roles -->
+                <li class="nav-item">
+                        <a class="nav-link" asp-controller="Chat" asp-action="Chats">
+                            <img src="~/svgs/chat-round-svgrepo-com (1).svg" alt="Chat Icon" class="icon" /><span>Chats</span>
+                    </a>
+                </li>
+
+
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="UserManagement">
+                            <img src="~/Images/Users.png" alt="Users Icon" class="icon" /><span>Users</span>
+                        </a>
+                    </li>
+
+                  
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Logs" asp-action="Index">
+
+                                <img src="~/Images/log.png" alt="Home Icon" class="icon" /><span>System Logs</span>
+                            </a>
+                        </li>
+ 
+                }
+
+
+            </ul>
+
+            <!-- User Profile and Logout Container -->
+            <div class="user-logout-container">
+                <!-- User Profile -->
+                <div class="user-profile">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="UserProfile">
+                        <img src="~/Svgs/user-id-portrait-svgrepo-com (1).svg" class="rounded-circle" alt="User Image" width="40" height="40" /><span>Profile</span>
+                    </a>
+                    <div class="ms-2">
+                        <span></span>
+                        <small></small>
+                    </div>
+                </div>
+
+                <!-- Logout Button -->
+                <form asp-controller="Account" asp-action="Logout" method="post">
+
+                    <button type="submit">
+                        <img src="~/Svgs/logout.svg" alt="Logout Icon" class="icon" /><span>Logout</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/Sidebar.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

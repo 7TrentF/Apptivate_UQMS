@@ -1,0 +1,227 @@
+﻿
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1a1a1a;
+}
+
+.header h1 {
+    text-align: center;
+    color: #1a1a1a;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.description {
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #4a5568;
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tab Headers Style */
+.tab-headers {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+.tab-header {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-radius: 0.5rem 0.5rem 0 0;
+    position: relative;
+}
+
+    .tab-header:hover {
+        background-color: #f7fafc;
+        color: #2563eb;
+    }
+
+    .tab-header.active {
+        color: #2563eb;
+        font-weight: 600;
+    }
+
+        .tab-header.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #2563eb;
+            border-radius: 3px;
+        }
+
+/* Tab Content Style */
+.tab-content {
+    display: none;
+    margin-top: 2rem;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+    .tab-content.active {
+        display: block;
+    }
+
+/* FAQ Box Layout */
+.faq-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* FAQ Box Style */
+.faq-box {
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.2s ease;
+    height: auto;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+    .faq-box:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        border-color: #2563eb;
+    }
+
+.faq-question {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.faq-answer {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a5568;
+    display: none;
+    margin-top: 1rem;
+    flex-grow: 1;
+}
+
+/* Guide List Style */
+.guide-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.guide-item {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+    background-color: white;
+}
+
+    .guide-item:hover {
+        background-color: #f7fafc;
+        padding-left: 2rem;
+    }
+
+    .guide-item:last-child {
+        border-bottom: none;
+    }
+
+.guide-content {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+}
+
+/* Search Container Style */
+.search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.search-box {
+    width: 100%;
+    padding: 1rem 3rem 1rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 9999px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+    background-color: white;
+}
+
+    .search-box:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+.search-icon {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    pointer-events: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .faq-boxes {
+        grid-template-columns: 1fr;
+    }
+
+    .tab-headers {
+        flex-wrap: wrap;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+}
+

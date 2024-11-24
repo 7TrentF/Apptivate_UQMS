@@ -1,0 +1,22 @@
+﻿@model List<Apptivate_UQMS_WebApp.Models.QueryModel.FeedbackViewModel>
+
+<h2>Student Feedback</h2>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var feedback in Model)
+        {
+            <li>               
+                <p><strong>Rating:</strong> @feedback.Rating</p>
+                <p><strong>Feedback:</strong> @feedback.Comments</p>
+                <p><strong>Submission Date:</strong> @feedback.SubmissionDate.ToString("MM/dd/yyyy")</p>
+                <hr />
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No feedback available.</p>
+}

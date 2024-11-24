@@ -1,0 +1,413 @@
+﻿@model Apptivate_UQMS_WebApp.Models.AdminDashboardViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="~/css/AdminDashboard.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <link rel="stylesheet" href="~/css/toast.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+   
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Top Navigation -->
+    <!-- Top Navigation -->
+    <nav class="gradient-bg shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-white">Dashboard Overview</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="bg-white/20 rounded-lg px-4 py-2">
+                        <i class="fas fa-clock text-white mr-2"></i>
+                        <span class="text-white" id="currentTime"></span>
+                    </div>
+                    <button id="notificationBtn" class="relative p-2 text-white hover:bg-white/20 rounded-lg">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="flex items-center bg-white/20 rounded-lg px-4 py-2">
+                        <img class="h-8 w-8 rounded-full mr-2" src="/api/placeholder/32/32" alt="Profile">
+                        <span class="text-white">@Model.Users.Name @Model.Users.Surname</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Quick Actions -->
+        <div class="mb-8">
+            <h2 class="text-lg font-semibold mb-4">Quick Actions</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <button class="p-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors has-tooltip">
+
+                <a class="nav-link text-light" asp-area="" asp-controller="Reports" asp-action="Index">
+                    <i class="fas fa-plus-circle mr-2"></i>View Reports
+                    <span class="tooltip">View reports</span>
+            
+                </a>
+                </button>
+                <button class="p-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors has-tooltip">
+                    <i class="fas fa-file-export mr-2"></i>Export Report
+                    <span class="tooltip">Export current data</span>
+                </button>
+                <button class="p-4 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors has-tooltip">
+                    <i class="fas fa-user-plus mr-2"></i>Add User
+                    <span class="tooltip">Add new user</span>
+                </button>
+                <button class="p-4 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors has-tooltip">
+                    <i class="fas fa-cog mr-2"></i>Settings
+                    <span class="tooltip">Manage settings</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div class="stat-card bg-white rounded-xl shadow-md p-6 animate-fade-in" style="animation-delay: 0.1s">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Total Users</h3>
+                        <p class="text-3xl font-bold text-gray-900" id="totalUsersCounter">@Model.TotalUsers</p>
+                    </div>
+                    <div class="bg-blue-100 rounded-full p-3">
+                        <i class="fas fa-users text-blue-600 text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between text-sm text-gray-500 mb-1">
+                       
+                    </div>
+                    <div class="h-2 bg-blue-100 rounded-full">
+                        <div class="h-2 bg-blue-600 rounded-full transition-all duration-1000" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card bg-white rounded-xl shadow-md p-6 animate-fade-in" style="animation-delay: 0.2s">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Active Users</h3>
+                        <p class="text-3xl font-bold text-gray-900" id="activeUsersCounter">@Model.ActiveUsers</p>
+                    </div>
+                    <div class="bg-green-100 rounded-full p-3">
+                        <i class="fas fa-user-check text-green-600 text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between text-sm text-gray-500 mb-1">
+                       
+                    </div>
+                    <div class="h-2 bg-green-100 rounded-full">
+                        <div class="h-2 bg-green-600 rounded-full transition-all duration-1000" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card bg-white rounded-xl shadow-md p-6 animate-fade-in" style="animation-delay: 0.3s">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Total Queries</h3>
+                        <p class="text-3xl font-bold text-gray-900" id="totalQueriesCounter">@Model.TotalQueries</p>
+                    </div>
+                    <div class="bg-purple-100 rounded-full p-3">
+                        <i class="fas fa-question-circle text-purple-600 text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between text-sm text-gray-500 mb-1">
+                       
+                    </div>
+                    <div class="h-2 bg-purple-100 rounded-full">
+                        <div class="h-2 bg-purple-600 rounded-full transition-all duration-1000" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <div class="border-b border-gray-200">
+                <nav class="-mb-px flex space-x-8">
+                    <button class="tab-button px-3 py-2 border-b-2 border-blue-500 text-blue-600 font-medium" data-tab="performance">
+                        Performance Metrics
+                    </button>
+                    <button class="tab-button px-3 py-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="distribution">
+                        Query Distribution
+                    </button>
+                    <button class="tab-button px-3 py-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="activity">
+                        Recent Activity
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+
+   <div class="tab-content active" id="performance">
+
+        <!-- Charts Section -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold">Query Resolution Status</h3>
+                    <div class="space-x-2">
+                        <button class="text-sm px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">Weekly</button>
+                        <button class="text-sm px-3 py-1 rounded bg-blue-500 text-white hover:bg-blue-600">Monthly</button>
+                    </div>
+                </div>
+                <canvas id="queryChart" height="200"></canvas>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold">Response Time Trends</h3>
+                    <div class="space-x-2">
+                        <button data-period="7" class="text-sm px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">7 Days</button>
+                        <button data-period="30" class="text-sm px-3 py-1 rounded bg-blue-500 text-white hover:bg-blue-600">30 Days</button>
+                    </div>
+                </div>
+                <canvas id="responseTimeChart" height="200"></canvas>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold">Query Resolution Rates</h3>
+                    <div class="space-x-2">
+                        <button data-resolution-period="7" class="text-sm px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">7 Days</button>
+                        <button data-resolution-period="30" class="text-sm px-3 py-1 rounded bg-blue-500 text-white hover:bg-blue-600">30 Days</button>
+                    </div>
+                </div>
+                <canvas id="resolutionRateChart" height="200"></canvas>
+            </div>
+
+
+         </div>
+
+   </div>
+
+
+        <div class="tab-content" id="activity">
+
+
+        <!-- Recent Activity -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <h3 class="text-lg font-semibold mb-4">Recent Activity</h3>
+            <div class="space-y-4">
+                <div class="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-ticket-alt text-blue-500"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-900">New query submitted</p>
+                        <p class="text-sm text-gray-500">2 minutes ago</p>
+                    </div>
+                    <button class="ml-auto text-sm text-blue-500 hover:text-blue-700">View</button>
+                </div>
+                <div class="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
+                        <i class="fas fa-check text-green-500"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-900">Query resolved</p>
+                        <p class="text-sm text-gray-500">1 hour ago</p>
+                    </div>
+                    <button class="ml-auto text-sm text-blue-500 hover:text-blue-700">View</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Query Statistics -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="stat-card bg-white rounded-xl shadow-md p-6 animate-fade-in" style="animation-delay: 0.4s">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Resolved Queries</h3>
+                        <p class="text-3xl font-bold text-gray-900" id="resolvedQueriesCounter">@Model.ResolvedQueries</p>
+                    </div>
+                    <div class="bg-green-100 rounded-full p-3">
+                        <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between text-sm text-gray-500 mb-1">
+                        <span>Resolution Rate</span>
+                        <span id="resolutionRate">0%</span>
+                    </div>
+                    <div class="h-2 bg-green-100 rounded-full">
+                        <div class="h-2 bg-green-600 rounded-full transition-all duration-1000" id="resolutionProgress" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card bg-white rounded-xl shadow-md p-6 animate-fade-in" style="animation-delay: 0.5s">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Pending Queries</h3>
+                        <p class="text-3xl font-bold text-gray-900" id="pendingQueriesCounter">@Model.PendingQueries</p>
+                    </div>
+                    <div class="bg-yellow-100 rounded-full p-3">
+                        <i class="fas fa-clock text-yellow-600 text-xl pulse"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between text-sm text-gray-500 mb-1">
+                        <span>Pending Rate</span>
+                        <span id="pendingRate">0%</span>
+                    </div>
+                    <div class="h-2 bg-yellow-100 rounded-full">
+                        <div class="h-2 bg-yellow-600 rounded-full transition-all duration-1000" id="pendingProgress" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+         <div class="tab-content" id="distribution">
+
+            <div class="bg-white rounded-xl shadow-md p-6" style="width: 1200px;">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold">Department Query Distribution</h3>
+                </div>
+                <div style="height: 600px; width: 100%;">
+                    <canvas id="departmentHeatmap"></canvas>
+                </div>
+            </div>
+
+          </div>
+
+     
+
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="~/js/responseTimeChart.js"></script>
+            <script src="~/js/resolutionRateChart.js"></script>
+            <script src="~/js/AdminCharts.js"></script>
+            <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+            <script src="~/js/notification.js"></script>
+
+ 
+            <script src="~/js/toast.js"></script>
+    <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                fetch('/Dashboard/GetDepartmentQueryData')
+                    .then(response => response.json())
+                    .then(data => {
+                        initializeDepartmentHeatmap(data);
+                    })
+                    .catch(error => console.error('Error loading department data:', error));
+            });
+        // Update current time
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Query Resolution Chart
+        const queryCtx = document.getElementById('queryChart').getContext('2d');
+        new Chart(queryCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Resolved', 'Pending', 'Ongoing'],
+                datasets: [{
+                    data: [@Model.ResolvedQueries, @Model.PendingQueries, @Model.OngoingQueries],
+                    backgroundColor: ['#10B981', '#FFFF00', '#FFA500'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+            function initializeDepartmentHeatmap(data) {
+                const ctx = document.getElementById('departmentHeatmap').getContext('2d');
+
+                // Function to get color on a gradient from yellow to red
+                function getHeatMapColor(value) {
+                    const hue = ((1 - value) * 60); // 60 is yellow, 0 is red
+                    return `hsl(${hue}, 100%, 50%)`;
+                }
+
+                // Process data into a format suitable for heatmap
+                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const datasets = data.departments.map((dept, index) => ({
+                    label: dept,
+                    data: months.map((_, monthIndex) => {
+                        const matchingData = data.heatmapData.find(d =>
+                            d.department === dept && d.month === monthIndex
+                        );
+                        return matchingData ? matchingData.queryCount : 0;
+                    }),
+                    backgroundColor: function (context) {
+                        const value = context.raw;
+                        const maxValue = Math.max(...data.heatmapData.map(d => d.queryCount));
+                        const intensity = value / maxValue;
+                        return getHeatMapColor(intensity);
+                    },
+                    borderColor: 'white',
+                    borderWidth: 1,
+                    stack: 'stack'
+                }));
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: months,
+                        datasets: datasets
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'y',  // This makes it horizontal
+                        scales: {
+                            x: {
+                                stacked: true,
+                                title: {
+                                    display: true,
+                                    text: 'Months'
+                                }
+                            },
+                            y: {
+                                stacked: true,
+                                title: {
+                                    display: true,
+                                    text: 'Departments'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'right'
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        return `${context.dataset.label}: ${context.raw} queries`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        </script>
+</body>
+</html>
