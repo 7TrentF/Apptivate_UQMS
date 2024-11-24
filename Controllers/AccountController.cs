@@ -23,8 +23,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IUserRegistrationService _userRegistrationService;
         private readonly RateLimitingService _rateLimitingService;
-
-
         private readonly IUserProfileService _userProfileService;
 
         public AccountController(RateLimitingService rateLimitingService, FirebaseAuthService firebaseAuthService, ILogger<AccountController> logger, ApplicationDbContext context,IUserRegistrationService userRegistrationService, IUserProfileService userProfileService)
@@ -35,7 +33,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
             _userRegistrationService = userRegistrationService;
             _userProfileService = userProfileService;
             _rateLimitingService = rateLimitingService;
-
         }
 
         [HttpGet]
@@ -152,9 +149,6 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             return Json(new { success = false, message = combinedErrors });
         }
-
-
-
 
         // Method to automatically log in the user if a valid Firebase token exists
         private async Task<bool> TryAutoLoginAsync()
@@ -423,10 +417,7 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 UserRecord userRecord = await FirebaseAuth.DefaultInstance.GetUserAsync(uid);
 
 
-                // Here you can:
-                // 1. Create or update user in your database
-                // 2. Set up authentication cookie
-                // 3. Create claims and roles
+          
 
                 return Ok(new { success = true });
             }

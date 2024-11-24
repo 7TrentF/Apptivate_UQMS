@@ -23,7 +23,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://apptivateuqmswebapp20241124130023.azurewebsites.net/",
+      "applicationUrl": "https://localhost:7046",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production",
         "FIREBASE_CONFIG": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\Env\\uqms-firebase-adminsdk.json"
@@ -41,3 +41,4 @@
 }
 
  
+//      "applicationUrl": "https://apptivateuqmswebapp20241124130023.azurewebsites.net/",
