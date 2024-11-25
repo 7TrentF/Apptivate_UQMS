@@ -1,35 +1,202 @@
 ﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.KnowledgeBaseFAQ.FAQ>
-<h2>Frequently Asked Questions</h2>
 
-
-<div class="mb-4">
-    <a href="@Url.Action("Admin", "Faq")" class="btn btn-secondary">Admin</a>
-</div>
-
-<form asp-action="Search" method="get" class="mb-4">
-    <div class="input-group">
-        <input type="text" name="searchTerm" class="form-control" placeholder="Search FAQs...">
-        <button type="submit" class="btn btn-primary">Search</button>
+<div class="container py-5">
+    <!-- Header Section -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1 class="display-4 mb-4">Frequently Asked Questions</h1>
+            <p class="lead text-muted">Find answers to common questions about our services</p>
+        </div>
     </div>
-</form>
 
-<div class="accordion" id="faqAccordion">
-    @foreach (var faq in Model)
-    {
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-@faq.FaqId">
-                    @faq.Question
-                </button>
-            </h2>
-            <div id="faq-@faq.FaqId" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    @faq.Answer
-                    <div class="mt-2">
-                        <small class="text-muted">Category: @faq.Category</small>
-                    </div>
+    <!-- Search and Admin Section -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8">
+            <form asp-action="Search" method="get" class="mb-3">
+                <div class="input-group input-group-lg shadow-sm">
+                    <input type="text"
+                           name="searchTerm"
+                           class="form-control border-primary"
+                           id="searchInput"
+                           value="@Context.Request.Query["searchTerm"]"
+                           placeholder="What are you looking for?"
+                           aria-label="Search FAQs">
+                    <button type="submit" class="btn btn-primary px-4">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                    <button type="button" class="btn btn-secondary px-4" id="clearSearch" onclick="clearSearchInput()">
+                        <i class="fas fa-times"></i> Clear
+                    </button>
                 </div>
+            </form>
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="text-center">
+                    <a href="@Url.Action("Admin", "Faq")" class="btn btn-outline-secondary">
+                        <i class="fas fa-cog"></i> Manage FAQs
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Categories Filter -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+                <button class="btn btn-outline-primary active" onclick="filterFAQs('all')">All</button>
+                @foreach (var category in Model.Select(f => f.Category).Distinct())
+                {
+                    <button class="btn btn-outline-primary" onclick="filterFAQs('@category')">
+                        @category
+                    </button>
+                }
             </div>
         </div>
-    }
+    </div>
+
+    <!-- FAQ Cards -->
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="row row-cols-1 row-cols-md-2 g-4" id="faqCards">
+                @foreach (var faq in Model)
+                {
+                    <div class="col faq-item" data-category="@faq.Category">
+                        <div class="card h-100 shadow-sm hover-card" onclick="toggleAnswer(this)">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">@faq.Question</h5>
+                                <div class="faq-answer collapse">
+                                    <hr class="my-3">
+                                    <div class="card-text mb-3">@Html.Raw(faq.Answer)</div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">@faq.Category</span>
+                                        <small class="text-muted">Last updated: @faq.LastUpdatedDate.ToString("MMM dd, yyyy")</small>
+                                    </div>
+                                </div>
+                                <div class="text-center faq-toggle-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 </div>
+
+@section Styles {
+    <style>
+        .hover-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border-radius: 0.5rem;
+        }
+
+            .hover-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+            }
+
+        .card.active {
+            border-color: #0d6efd;
+        }
+
+            .card.active .faq-toggle-icon i {
+                transform: rotate(180deg);
+            }
+
+        .faq-toggle-icon {
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            right: 0;
+            color: #6c757d;
+        }
+
+            .faq-toggle-icon i {
+                transition: transform 0.3s ease;
+            }
+
+        .badge {
+            padding: 0.5em 1em;
+        }
+
+        .card-title {
+            padding-bottom: 2rem;
+            margin-bottom: 0;
+            color: #0d6efd;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+
+
+        function clearSearchInput() {
+            document.getElementById('searchInput').value = '';
+            window.location.href = '@Url.Action("Index", "Faq")'; // Redirects to the FAQ page without search params
+        }
+
+
+        function toggleAnswer(card) {
+            const answer = card.querySelector('.faq-answer');
+            const isCollapsed = answer.classList.contains('collapse');
+
+            // Toggle active state
+            card.classList.toggle('active');
+
+            // Toggle collapse
+            if (isCollapsed) {
+                answer.classList.remove('collapse');
+                answer.classList.add('show');
+            } else {
+                answer.classList.remove('show');
+                answer.classList.add('collapse');
+            }
+        }
+
+        function filterFAQs(category) {
+            const items = document.querySelectorAll('.faq-item');
+            const buttons = document.querySelectorAll('.btn-outline-primary');
+
+            // Update active button
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.trim() === category || (category === 'all' && btn.textContent.trim() === 'All')) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Filter items
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function highlightSearchTerm() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchTerm = urlParams.get('searchTerm');
+
+            if (searchTerm) {
+                const faqCards = document.getElementById('faqCards');
+                const regex = new RegExp(searchTerm, 'gi');
+                const elements = faqCards.querySelectorAll('.card-title, .card-text');
+
+                elements.forEach(element => {
+                    element.innerHTML = element.innerHTML.replace(
+                        regex,
+                        match => `<mark class="bg-warning">${match}</mark>`
+                    );
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', highlightSearchTerm);
+    </script>
+}
