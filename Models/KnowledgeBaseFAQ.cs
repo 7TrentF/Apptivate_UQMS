@@ -7,45 +7,47 @@ namespace Apptivate_UQMS_WebApp.Models
 
         public class KnowledgeBase
         {
-
             [Key]
-            int ArticleID { get; set; }
+            public int ArticleID { get; set; }
 
-            string? Tilte { get; set; }
 
-            string? Content { get; set; }
+            [Required]
+            public string? Title { get; set; }
 
-            string? Category { get; set; }
+            
+            public string? Content { get; set; }
 
-            DateTime? CreatedDate { get; set; }
 
-            DateTime? LastUpdatedDate { get; set; }
 
+            [Required]
+            [Url]
+            public string GuideUrl { get; set; }  // URL to the GitHub Pages guide
+
+            public string? Category { get; set; }
+
+            public DateTime? CreatedDate { get; set; }
+
+            public DateTime LastUpdatedDate { get; set; }
+
+            [Display(Name = "GitHub Repository URL")]
+            [Url]
+            public string GitHubRepoUrl { get; set; }  // Optional: Link to the source repository
         }
 
         public class FAQ
         {
-
             [Key]
-            int FaqId { get; set; }
-
-            int ArticleID { get; set; }
-
-            string? Question { get; set; }
-
-            string? Answer { get; set; }
-
-            string? Category { get; set; }
-
-            DateTime? CreatedDate { get; set; }
-
-            DateTime? LastUpdatedDate { get; set; }
-
+            public int FaqId { get; set; }
+            public string? Question { get; set; }
+            public string? Answer { get; set; }
+            public string? Category { get; set; }
+            public DateTime? CreatedDate { get; set; }
+            public DateTime LastUpdatedDate { get; set; }
         }
 
 
 
 
 
-        }
+    }
 }

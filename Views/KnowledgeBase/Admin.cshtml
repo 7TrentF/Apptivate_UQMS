@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.KnowledgeBaseFAQ.KnowledgeBase>
+
+<h2>Manage Knowledge Base</h2>
+<a asp-action="Create" class="btn btn-primary mb-3">Create New Article</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Last Updated</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var article in Model)
+        {
+            <tr>
+                <td>@article.Title</td>
+                <td>@article.Category</td>
+                <td>@article.LastUpdatedDate.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@article.ArticleID" class="btn btn-sm btn-primary">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@article.ArticleID" method="post" style="display: inline;">
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

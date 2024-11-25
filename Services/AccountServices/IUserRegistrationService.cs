@@ -25,6 +25,7 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
 
         Task UpdateUserAsync(User user);
 
+        Task PopulateDropdowns(RegisterViewModel model);
 
     }
 }

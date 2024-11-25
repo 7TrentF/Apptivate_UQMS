@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Nb3uGz7USjVcUAz18YB9r2ZVw+dXpW3ierrZ2uH08YA=",
+  "Hash": "TmJnvr1KLmPs/iUYBuR7X6d3WpH+kyiE87K1zySW8r4=",
   "Source": "Apptivate_UQMS_WebApp",
   "BasePath": "_content/Apptivate_UQMS_WebApp",
   "Mode": "Default",
@@ -300,6 +300,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\DashboardPage.css"
+    },
+    {
+      "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Faqs.css",
+      "SourceId": "Apptivate_UQMS_WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\",
+      "BasePath": "_content/Apptivate_UQMS_WebApp",
+      "RelativePath": "css/Faqs.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Faqs.css"
     },
     {
       "Identity": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\feedback.css",

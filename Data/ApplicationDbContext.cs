@@ -1,6 +1,7 @@
 ﻿using Apptivate_UQMS_WebApp.Models;
 using Microsoft.EntityFrameworkCore;
 using static Apptivate_UQMS_WebApp.Models.Account;
+using static Apptivate_UQMS_WebApp.Models.KnowledgeBaseFAQ;
 using static Apptivate_UQMS_WebApp.Models.QueryModel;
 
 namespace Apptivate_UQMS_WebApp.Data
@@ -31,6 +32,10 @@ namespace Apptivate_UQMS_WebApp.Data
         public DbSet<AppUsers> appUsers { get; set; }
         public DbSet<QueryResolutions> QueryResolutions { get; set; }
         public DbSet<ResolutionDocuments> ResolutionDocuments { get; set; }
+
+
+        public DbSet<FAQ> Faq { get; set; }
+        public DbSet<KnowledgeBase> knowledgeBase { get; set; }
 
 
         public DbSet<Message> Messages { get; set; }

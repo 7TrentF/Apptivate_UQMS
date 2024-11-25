@@ -188,7 +188,20 @@ namespace Apptivate_UQMS_WebApp.Services.AccountServices
                                  }).ToListAsync();
         }
 
+        public async Task PopulateDropdowns(RegisterViewModel model)
+        {
+            model.Departments = _context.Departments.Select(d => new SelectListItem
+            {
+                Value = d.DepartmentID.ToString(),
+                Text = d.DepartmentName
+            }).ToList();
 
+            model.Courses = _context.Courses.Select(d => new SelectListItem
+            {
+                Value = d.CourseID.ToString(),
+                Text = d.CourseName
+            }).ToList();
+        }
 
 
 

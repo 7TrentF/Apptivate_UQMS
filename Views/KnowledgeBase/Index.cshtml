@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.KnowledgeBaseFAQ.KnowledgeBase>
+
+<h2>Application Guides</h2>
+
+
+<!-- Admin Button -->
+<div class="mb-4">
+    <a href="@Url.Action("Admin", "KnowledgeBase")" class="btn btn-secondary">Admin</a>
+</div>
+
+
+
+<div class="row mb-4">
+    <div class="col">
+        <form asp-action="Search" method="get" class="input-group">
+            <input type="text" name="searchTerm" class="form-control" placeholder="Search guides...">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @foreach (var category in Model.Select(m => m.Category).Distinct())
+    {
+        <div class="col-12 mb-4">
+            <h3>@category</h3>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                @foreach (var guide in Model.Where(m => m.Category == category))
+                {
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">@guide.Title</h5>
+                                <p class="card-text">@guide.Content</p>
+                                <a href="@guide.GuideUrl" target="_blank" class="btn btn-primary">View Guide</a>
+                                @if (!string.IsNullOrEmpty(guide.GitHubRepoUrl))
+                                {
+                                    <a href="@guide.GitHubRepoUrl" target="_blank" class="btn btn-outline-secondary ms-2">
+                                        <i class="bi bi-github"></i> Source
+                                    </a>
+                                }
+                            </div>
+                            <div class="card-footer text-muted">
+                                Last updated: @guide.LastUpdatedDate.ToString("dd/MM/yyyy")
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>

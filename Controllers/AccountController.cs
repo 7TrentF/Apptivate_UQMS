@@ -123,19 +123,10 @@ namespace Apptivate_UQMS_WebApp.Controllers
                 }
             }
 
-            // Repopulate departments list if validation fails
-            model.Departments = _context.Departments.Select(d => new SelectListItem
-            {
-                Value = d.DepartmentID.ToString(),
-                Text = d.DepartmentName
-            }).ToList();
 
-            // Repopulate departments list if validation fails
-            model.Courses = _context.Courses.Select(d => new SelectListItem
-            {
-                Value = d.CourseID.ToString(),
-                Text = d.CourseName
-            }).ToList();
+            await _userRegistrationService.PopulateDropdowns(model);
+
+
 
             // If ModelState is invalid, collect all error messages
             var errorMessages = ModelState.Values
@@ -149,6 +140,14 @@ namespace Apptivate_UQMS_WebApp.Controllers
 
             return Json(new { success = false, message = combinedErrors });
         }
+
+
+       
+
+
+
+
+
 
         // Method to automatically log in the user if a valid Firebase token exists
         private async Task<bool> TryAutoLoginAsync()

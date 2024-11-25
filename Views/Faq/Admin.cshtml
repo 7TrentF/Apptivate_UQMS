@@ -1,0 +1,34 @@
+﻿<!-- Views/FAQ/Admin.cshtml -->
+@model IEnumerable<Apptivate_UQMS_WebApp.Models.KnowledgeBaseFAQ.FAQ>
+
+<h2>Manage FAQs</h2>
+<a asp-action="Create" class="btn btn-primary mb-3">Create New FAQ</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Category</th>
+            <th>Last Updated</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var faq in Model)
+        {
+            <tr>
+                <td>@faq.Question</td>
+                <td>@(faq.Answer?.Length > 50 ? faq.Answer.Substring(0, 47) + "..." : faq.Answer)</td>
+                <td>@faq.Category</td>
+                <td>@faq.LastUpdatedDate.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@faq.FaqId" class="btn btn-sm btn-primary">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@faq.FaqId" method="post" style="display: inline;">
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this FAQ?')">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

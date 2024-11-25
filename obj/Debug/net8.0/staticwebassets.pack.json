@@ -429,6 +429,10 @@
       "PackagePath": "staticwebassets\\css\\DashboardPage.css"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\Faqs.css",
+      "PackagePath": "staticwebassets\\css\\Faqs.css"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\css\\LandingPageStyles.css",
       "PackagePath": "staticwebassets\\css\\LandingPageStyles.css"
     },

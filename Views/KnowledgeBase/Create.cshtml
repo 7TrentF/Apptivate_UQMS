@@ -1,0 +1,40 @@
+﻿@model Apptivate_UQMS_WebApp.Models.KnowledgeBaseFAQ.KnowledgeBase
+<h2>Create Guide Reference</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group mb-3">
+        <label asp-for="Title" class="form-label">Title</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Content" class="form-label">Description</label>
+        <textarea asp-for="Content" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="GuideUrl" class="form-label">Guide URL (GitHub Pages)</label>
+        <input asp-for="GuideUrl" class="form-control" placeholder="https://yourusername.github.io/repo/guide" />
+        <span asp-validation-for="GuideUrl" class="text-danger"></span>
+        <small class="form-text text-muted">Enter the published GitHub Pages URL for this guide</small>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="GitHubRepoUrl" class="form-label">GitHub Repository URL (Optional)</label>
+        <input asp-for="GitHubRepoUrl" class="form-control" placeholder="https://github.com/yourusername/repo" />
+        <span asp-validation-for="GitHubRepoUrl" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Category" class="form-label">Category</label>
+        <input asp-for="Category" class="form-control" />
+        <span asp-validation-for="Category" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a asp-action="Admin" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>

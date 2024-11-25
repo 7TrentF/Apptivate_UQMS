@@ -1,194 +1,35 @@
-﻿@model Apptivate_UQMS_WebApp.Models.KnowledgeBaseFAQ
+﻿@model IEnumerable<Apptivate_UQMS_WebApp.Models.KnowledgeBaseFAQ.FAQ>
+<h2>Frequently Asked Questions</h2>
 
 
-
-<link rel="stylesheet" href="~/css/Faqs.css" asp-append-version="true">
-@{
-    ViewBag.Title = "FAQs and Guides";
-}
-
-<div class="container">
-    <div class="header">
-        <h1>FAQs and Guides</h1>
-    </div>
-    <div class="description">
-        <p>
-            Welcome to the FAQs and Guides page! Here, you'll find answers to common questions and detailed guides to help you navigate and use our Query Management System effectively. 
-            Whether you're looking for help submitting a query, tracking its status, or understanding the features of the system, this page is your go-to resource.
-        </p>
-        <div class="search-container">
-            <input type="text" class="search-box" placeholder="Search FAQs and Guides..." oninput="searchContent(this.value)">
-            <i class="search-icon">🔍</i>
-        </div>
-    </div>
-
-    <!-- Tabs Section -->
-    <div class="tabs-section">
-        <!-- Tab Headers -->
-        <div class="tab-headers">
-            <div class="tab-header active" onclick="showTab('faqs')">FAQs</div>
-            <div class="tab-header" onclick="showTab('guides')">Guides</div>
-        </div>
-
-        <!-- Tab Content -->
-        <div id="faqs" class="tab-content active">
-            <h2>Frequently Asked Questions</h2>
-            <p>Here are some common questions and their answers:</p>
-            <p>(Click on the card to view the answer)</p>
-            <!-- Add your FAQ content here -->
-            <div class="faq-boxes">
-                <!-- FAQ Boxes -->
-                <div class="faq-box" onclick="toggleAnswer(0)">
-                    <div class="faq-question">What is the Query Management System?</div>
-                    <div class="faq-answer">The Query Management System helps you submit and track queries with the school and resolve issues efficiently.</div>
-                </div>
-                <div class="faq-box" onclick="toggleAnswer(1)">
-                    <div class="faq-question">How do I submit a query?</div>
-                    <div class="faq-answer">You can submit a query by logging into the system and using the "Submit Query" feature in your dashboard.</div>
-                </div>
-                <div class="faq-box" onclick="toggleAnswer(2)">
-                    <div class="faq-question">How do I track my query status?</div>
-                    <div class="faq-answer">Track your query status in the "My Queries" section of your dashboard.</div>
-                </div>
-                <div class="faq-box" onclick="toggleAnswer(3)">
-                    <div class="faq-question">What is the response time for queries?</div>
-                    <div class="faq-answer">Typically, queries are responded to within 48 hours, depending on the complexity.</div>
-                </div>
-                <div class="faq-box" onclick="toggleAnswer(4)">
-                    <div class="faq-question">Can I update my query?</div>
-                    <div class="faq-answer">Yes, you can update your query by logging in and editing the existing query.</div>
-                </div>
-                <div class="faq-box" onclick="toggleAnswer(5)">
-                    <div class="faq-question">How do I close a query?</div>
-                    <div class="faq-answer">Once your query is resolved, you can mark it as closed from your query details page.</div>
-                </div>
-                <div class="faq-box" onclick="toggleAnswer(6)">
-                    <div class="faq-question">Is there a mobile app?</div>
-                    <div class="faq-answer">Yes, there is a mobile app available.</div>
-                </div>
-                <div class="faq-box" onclick="toggleAnswer(7)">
-                    <div class="faq-question">How can I contact support?</div>
-                    <div class="faq-answer">You can contact support via the "Contact Us" section in your dashboard.</div>
-                </div>
-                <div class="faq-box" onclick="toggleAnswer(8)">
-                    <div class="faq-question">Can I delete a query?</div>
-                    <div class="faq-answer">No, once a query is submitted, it cannot be deleted, but it can be updated.</div>
-                </div>
-                <div class="faq-box" onclick="toggleAnswer(9)">
-                    <div class="faq-question">How do I reset my password?</div>
-                    <div class="faq-answer">You can reset your password by clicking the "Forgot Password" link on the login page.</div>
-                </div>
-                <div class="faq-box" onclick="toggleAnswer(10)">
-                    <div class="faq-question">What should I do if my query is not resolved?</div>
-                    <div class="faq-answer">If your query remains unresolved, you can escalate it through the support section.</div>
-                </div>
-                <div class="faq-box" onclick="toggleAnswer(11)">
-                    <div class="faq-question">Are there any usage limits?</div>
-                    <div class="faq-answer">Currently, there are no usage limits for submitting queries.</div>
-                </div>
-            </div>
-        </div>
-
-        <div id="guides" class="tab-content">
-            <h2>Guides</h2>
-            <p>Explore our detailed guides to get the most out of the system:</p>
-            <!-- Add your Guides content here -->
-            <ul class="guide-list">
-            <li class="guide-item" onclick="showGuide('guide1')">Guide 1: Submitting a Query</li>
-            <li class="guide-item" onclick="showGuide('guide2')">Guide 2: Tracking Your Query Status</li>
-            <li class="guide-item" onclick="showGuide('guide3')">Guide 3: Managing Your Account</li>
-            <li class="guide-item" onclick="showGuide('guide4')">Guide 4: Responding to Support</li>
-            <li class="guide-item" onclick="showGuide('guide5')">Guide 5: System Features Overview</li>
-            </ul>
-            <div id="guide1" class="guide-content" style="display: none;">
-                <h3>Guide 1: Submitting a Query</h3>
-                <p>This guide helps you understand how to submit a query to the system...</p>
-            </div>
-            <div id="guide2" class="guide-content" style="display: none;">
-                <h3>Guide 2: Tracking Your Query Status</h3>
-                <p>This guide explains how to track your query status...</p>
-            </div>
-            <div id="guide3" class="guide-content" style="display: none;">
-                <h3>Guide 3: Managing Your Account</h3>
-                <p>Learn how to manage your account settings...</p>
-            </div>
-            <div id="guide4" class="guide-content" style="display: none;">
-                <h3>Guide 4: Responding to Support</h3>
-                <p>This guide explains how to respond to support messages...</p>
-            </div>
-            <div id="guide5" class="guide-content" style="display: none;">
-                <h3>Guide 5: System Features Overview</h3>
-                <p>Here’s a detailed overview of all the features available in the system...</p>
-            </div>
-        </div>
-    </div>
+<div class="mb-4">
+    <a href="@Url.Action("Admin", "Faq")" class="btn btn-secondary">Admin</a>
 </div>
 
-<script>
-    // Function to show the correct tab
-    function showTab(tabName) {
-        // Hide all tab content
-        const allTabs = document.querySelectorAll('.tab-content');
-        allTabs.forEach(tab => {
-            tab.classList.remove('active');
-        });
+<form asp-action="Search" method="get" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="searchTerm" class="form-control" placeholder="Search FAQs...">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
 
-        // Remove the 'active' class from all tab headers
-        const allHeaders = document.querySelectorAll('.tab-header');
-        allHeaders.forEach(header => {
-            header.classList.remove('active');
-        });
-
-        // Show the selected tab
-        document.getElementById(tabName).classList.add('active');
-
-        // Add the 'active' class to the selected tab header
-        const selectedHeader = Array.from(allHeaders).find(header => header.innerText.toLowerCase() === tabName);
-        selectedHeader.classList.add('active');
+<div class="accordion" id="faqAccordion">
+    @foreach (var faq in Model)
+    {
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-@faq.FaqId">
+                    @faq.Question
+                </button>
+            </h2>
+            <div id="faq-@faq.FaqId" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    @faq.Answer
+                    <div class="mt-2">
+                        <small class="text-muted">Category: @faq.Category</small>
+                    </div>
+                </div>
+            </div>
+        </div>
     }
-    // Function to toggle the display of answers in FAQ boxes
-    function toggleAnswer(index) {
-        const answers = document.querySelectorAll('.faq-answer');
-        const answer = answers[index];
-        // Toggle the visibility of the answer
-        answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
-    }
-    // Function to show the selected guide
-    function showGuide(guideId) {
-        // Hide all guides
-        const allGuides = document.querySelectorAll('.guide-content');
-        allGuides.forEach(guide => {
-            guide.style.display = 'none';
-        });
-
-        // Show the selected guide
-        document.getElementById(guideId).style.display = 'block';
-    }
-    // Add this new function for search functionality
-    function searchContent(searchTerm) {
-        searchTerm = searchTerm.toLowerCase();
-        const faqBoxes = document.querySelectorAll('.faq-box');
-        const guideItems = document.querySelectorAll('.guide-item');
-
-        // Search through FAQs
-        faqBoxes.forEach(box => {
-            const question = box.querySelector('.faq-question').textContent.toLowerCase();
-            const answer = box.querySelector('.faq-answer').textContent.toLowerCase();
-            if (question.includes(searchTerm) || answer.includes(searchTerm)) {
-                box.style.display = 'block';
-            } else {
-                box.style.display = 'none';
-            }
-        });
-
-        // Search through Guides
-        guideItems.forEach(item => {
-            const guideText = item.textContent.toLowerCase();
-            if (guideText.includes(searchTerm)) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    }
-</script>
+</div>
