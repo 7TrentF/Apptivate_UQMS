@@ -1,0 +1,28 @@
+﻿.card {
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.table > :not(caption) > * > * {
+    padding: 1rem 0.75rem;
+}
+
+.btn-group > .btn {
+    margin: 0 2px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media print {
+    .btn-group, .card-header > div > div, .card-footer {
+        display: none !important;
+    }
+
+    .card {
+        border: none !important;
+        box-shadow: none !important;
+    }
+}
