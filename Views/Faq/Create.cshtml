@@ -1,28 +1,229 @@
 ﻿@model Apptivate_UQMS_WebApp.Models.KnowledgeBaseFAQ.FAQ
 
-<h2>Create FAQ</h2>
 
-<form asp-action="Create" method="post">
-    <div class="form-group mb-3">
-        <label asp-for="Question" class="form-label">Question</label>
-        <input asp-for="Question" class="form-control" />
-        <span asp-validation-for="Question" class="text-danger"></span>
-    </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <div class="form-group mb-3">
-        <label asp-for="Answer" class="form-label">Answer</label>
-        <textarea asp-for="Answer" class="form-control" rows="5"></textarea>
-        <span asp-validation-for="Answer" class="text-danger"></span>
-    </div>
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-white py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 class="h4 mb-0 text-primary">
+                            <i class="fas fa-plus-circle me-2"></i>Create New FAQ
+                        </h2>
+                        <span class="badge bg-primary">Draft</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post" id="createFaqForm">
+                        @Html.AntiForgeryToken()
 
-    <div class="form-group mb-3">
-        <label asp-for="Category" class="form-label">Category</label>
-        <input asp-for="Category" class="form-control" />
-        <span asp-validation-for="Category" class="text-danger"></span>
-    </div>
+                        <div class="mb-4">
+                            <label asp-for="Question" class="form-label fw-bold">
+                                Question <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-question-circle"></i>
+                                </span>
+                                <input asp-for="Question" class="form-control"
+                                       placeholder="Enter a clear, concise question..."
+                                       maxlength="200"
+                                       required />
+                            </div>
+                            <span asp-validation-for="Question" class="text-danger"></span>
+                            <div class="form-text d-flex justify-content-between">
+                                <span id="questionCounter">0/200 characters</span>
+                                <span class="text-muted">Make it clear and searchable</span>
+                            </div>
+                        </div>
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-        <a asp-action="Admin" class="btn btn-secondary">Cancel</a>
+                        <div class="mb-4">
+                            <label asp-for="Answer" class="form-label fw-bold">
+                                Answer <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-comment-alt"></i>
+                                </span>
+                                <textarea asp-for="Answer" class="form-control"
+                                          rows="8"
+                                          placeholder="Provide a detailed, helpful answer..."
+                                          maxlength="2000"
+                                          required></textarea>
+                            </div>
+                            <span asp-validation-for="Answer" class="text-danger"></span>
+                            <div class="form-text d-flex justify-content-between">
+                                <span id="answerCounter">0/2000 characters</span>
+                                <span class="text-muted">Use clear, simple language</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Category" class="form-label fw-bold">
+                                Category <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-tag"></i>
+                                </span>
+                                <select asp-for="Category" class="form-select" required>
+                                    <option value="">Select a category...</option>
+                                    <option value="General">General</option>
+                                    <option value="Account">Account</option>
+                                    <option value="Services">Services</option>
+                                    <option value="Technical">Technical</option>
+                                    <option value="Billing">Billing</option>
+                                </select>
+                            </div>
+                            <span asp-validation-for="Category" class="text-danger"></span>
+                            <div class="form-text">Choose the most relevant category</div>
+                        </div>
+
+                        <div class="alert alert-info mb-4">
+                            <div class="d-flex">
+                                <i class="fas fa-info-circle me-2 mt-1"></i>
+                                <div>
+                                    <strong>Tips for a great FAQ:</strong>
+                                    <ul class="mb-0 mt-1">
+                                        <li>Use clear, simple language</li>
+                                        <li>Make sure the question is specific</li>
+                                        <li>Provide complete, accurate answers</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-warning d-none" id="unsavedChangesAlert">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            You have unsaved changes. Please save or cancel before leaving.
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <a asp-action="Admin" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Back to List
+                            </a>
+                            <div>
+                                <button type="reset" class="btn btn-light me-2">
+                                    <i class="fas fa-undo me-2"></i>Reset
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save me-2"></i>Create FAQ
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-</form>
+</div>
+
+@section Styles {
+    <style>
+        .card {
+            border: none;
+            border-radius: 0.5rem;
+        }
+
+        .card-header {
+            border-bottom: 1px solid rgba(0,0,0,.125);
+        }
+
+        .input-group-text {
+            border-right: 0;
+        }
+
+        .input-group .form-control,
+        .input-group .form-select {
+            border-left: 0;
+        }
+
+            .input-group .form-control:focus,
+            .input-group .form-select:focus {
+                border-left: 1px solid #86b7fe;
+                border-right: 1px solid #86b7fe;
+            }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .alert ul {
+            padding-left: 1.2rem;
+        }
+    </style>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $(document).ready(function () {
+            let formChanged = false;
+            const form = $('#createFaqForm');
+            const alert = $('#unsavedChangesAlert');
+
+            // Character counters
+            $('#Question').on('input', function () {
+                const count = $(this).val().length;
+                $('#questionCounter').text(`${count}/200 characters`);
+                if (count > 180) {
+                    $('#questionCounter').addClass('text-warning');
+                } else {
+                    $('#questionCounter').removeClass('text-warning');
+                }
+            });
+
+            $('#Answer').on('input', function () {
+                const count = $(this).val().length;
+                $('#answerCounter').text(`${count}/2000 characters`);
+                if (count > 1800) {
+                    $('#answerCounter').addClass('text-warning');
+                } else {
+                    $('#answerCounter').removeClass('text-warning');
+                }
+            });
+
+            // Track changes
+            form.on('change input', 'input, textarea, select', function () {
+                formChanged = true;
+                alert.removeClass('d-none');
+            });
+
+            // Reset form handler
+            form.on('reset', function () {
+                setTimeout(() => {
+                    $('#Question, #Answer').trigger('input');
+                    formChanged = false;
+                    alert.addClass('d-none');
+                }, 0);
+            });
+
+            // Form submit handler
+            form.on('submit', function (e) {
+                if (!this.checkValidity()) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                $(this).addClass('was-validated');
+                formChanged = false;
+                alert.addClass('d-none');
+            });
+
+            // Warn about unsaved changes
+            $(window).on('beforeunload', function () {
+                if (formChanged) {
+                    return "You have unsaved changes. Are you sure you want to leave?";
+                }
+            });
+
+            // Initialize counters
+            $('#Question, #Answer').trigger('input');
+        });
+    </script>
+}
