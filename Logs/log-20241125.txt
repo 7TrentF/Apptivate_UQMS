@@ -11809,3 +11809,16 @@ WHERE EXISTS (
 2024-11-25 13:47:30.418 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.9838ms
 2024-11-25 13:47:30.426 +02:00 [INF] Sending file. Request path: '/css/feedback.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\css\feedback.css'
 2024-11-25 13:47:30.428 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/css/feedback.css?v=0wFqB0IEIEln-nC2HqA4ZEZnruaO6A5EwvGQMYMZ3l8 - 200 7121 text/css 21.3826ms
+2024-11-25 14:32:33.866 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-25 14:32:34.149 +02:00 [INF] QueryCleanupService is running at: "2024-11-25T14:32:34.1425111+02:00"
+2024-11-25 14:32:35.660 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-25 14:32:37.019 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-25 14:32:38.935 +02:00 [INF] Now listening on: https://localhost:7046
+2024-11-25 14:32:38.936 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-25 14:32:38.937 +02:00 [INF] Hosting environment: Development
+2024-11-25 14:32:38.938 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-11-25 14:32:39.420 +02:00 [INF] Executed DbCommand (241ms) [Parameters=[@__twoDaysAgo_0='2024-11-23T12:32:35.6710608Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID]
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Closed' AND [q].[ResolvedDate] <= @__twoDaysAgo_0
+2024-11-25 14:32:39.470 +02:00 [INF] Query cleanup completed at: "2024-11-25T14:32:39.4703898+02:00"
