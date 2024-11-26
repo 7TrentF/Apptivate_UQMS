@@ -72,6 +72,10 @@
               "target": "Package",
               "version": "[8.0.8, )"
             },
+            "Microsoft.AspNetCore.Mvc.Testing": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Microsoft.AspNetCore.RateLimiting": {
               "target": "Package",
               "version": "[7.0.0-rc.2.22476.2, )"
