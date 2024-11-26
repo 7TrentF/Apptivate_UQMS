@@ -484,3 +484,953 @@ ORDER BY [k].[Category], [k].[Title]
 2024-11-26 06:00:39.554 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
 2024-11-26 06:00:39.560 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 5.7572ms
 2024-11-26 06:00:39.563 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.5842ms
+2024-11-26 09:32:21.523 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-26 09:32:21.940 +02:00 [INF] QueryCleanupService is running at: "2024-11-26T09:32:21.9346166+02:00"
+2024-11-26 09:32:26.912 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-26 09:32:28.396 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-26 09:32:29.870 +02:00 [INF] Now listening on: https://localhost:7046
+2024-11-26 09:32:29.871 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-26 09:32:29.873 +02:00 [INF] Hosting environment: Development
+2024-11-26 09:32:29.874 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-11-26 09:32:30.587 +02:00 [INF] Executed DbCommand (577ms) [Parameters=[@__twoDaysAgo_0='2024-11-24T07:32:26.9582741Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID]
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Closed' AND [q].[ResolvedDate] <= @__twoDaysAgo_0
+2024-11-26 09:32:31.168 +02:00 [INF] Executed DbCommand (168ms) [Parameters=[@__closedQueries_0='[109]' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[DocumentID], [q].[DocumentName], [q].[DocumentPath], [q].[QueryID], [q].[UploadDate]
+FROM [QueryDocuments] AS [q]
+WHERE [q].[QueryID] IN (
+    SELECT [c].[value]
+    FROM OPENJSON(@__closedQueries_0) WITH ([value] int '$') AS [c]
+)
+2024-11-26 09:32:31.336 +02:00 [INF] Executed DbCommand (37ms) [Parameters=[@__closedQueries_0='[109]' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID], [q].[CategoryID], [q].[CourseID], [q].[DepartmentID], [q].[Description], [q].[ModuleID], [q].[QueryTypeID], [q].[ResolvedDate], [q].[Status], [q].[StudentID], [q].[SubmissionDate], [q].[TicketNumber], [q].[Year]
+FROM [Queries] AS [q]
+WHERE [q].[QueryID] IN (
+    SELECT [c].[value]
+    FROM OPENJSON(@__closedQueries_0) WITH ([value] int '$') AS [c]
+)
+2024-11-26 09:32:31.796 +02:00 [INF] Executed DbCommand (107ms) [Parameters=[@p0='115', @p1='116', @p2='109'], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p0;
+DELETE FROM [QueryDocuments]
+OUTPUT 1
+WHERE [DocumentID] = @p1;
+DELETE FROM [Queries]
+OUTPUT 1
+WHERE [QueryID] = @p2;
+2024-11-26 09:32:31.857 +02:00 [INF] Query cleanup completed at: "2024-11-26T09:32:31.8573987+02:00"
+2024-11-26 09:32:34.470 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/ - null null
+2024-11-26 09:32:35.187 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732597100. Expected to be greater than 1732606355.
+2024-11-26 09:32:35.460 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732597100. Expected to be greater than 1732606355.
+2024-11-26 09:32:35.903 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:32:35.977 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-26 09:32:36.028 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 09:32:36.558 +02:00 [INF] Executed ViewResult - view Index executed in 556.9809ms.
+2024-11-26 09:32:36.595 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 612.9419ms
+2024-11-26 09:32:36.601 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:32:36.612 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/ - 200 null text/html; charset=utf-8 2148.8291ms
+2024-11-26 09:32:37.868 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Apptivate_UQMS_WebApp.styles.css?v=qs5ueYQNnxdPY2nMnSxwZf003j75T8GJr2KVZR7pV-Q - null null
+2024-11-26 09:32:37.881 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/css/LandingPageStyles.css - null null
+2024-11-26 09:32:37.882 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:32:37.898 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:32:38.171 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732597100. Expected to be greater than 1732606358.
+2024-11-26 09:32:38.171 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732597100. Expected to be greater than 1732606358.
+2024-11-26 09:32:38.466 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 583.5732ms
+2024-11-26 09:32:38.573 +02:00 [INF] The file /css/LandingPageStyles.css was not modified
+2024-11-26 09:32:38.577 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-11-26 09:32:38.614 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/css/LandingPageStyles.css - 304 null text/css 733.1079ms
+2024-11-26 09:32:38.629 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Apptivate_UQMS_WebApp.styles.css?v=qs5ueYQNnxdPY2nMnSxwZf003j75T8GJr2KVZR7pV-Q - 304 null text/css 761.5214ms
+2024-11-26 09:32:38.734 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/css/background-image.jpg - null null
+2024-11-26 09:32:38.784 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 885.9694ms
+2024-11-26 09:32:39.904 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732597100. Expected to be greater than 1732606359.
+2024-11-26 09:32:39.950 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732597100. Expected to be greater than 1732606359.
+2024-11-26 09:32:39.957 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/css/background-image.jpg - 404 0 null 1222.994ms
+2024-11-26 09:32:39.967 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7046/css/background-image.jpg, Response status code: 404
+2024-11-26 09:32:41.706 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Account/Login - null null
+2024-11-26 09:32:41.767 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732597100. Expected to be greater than 1732606361.
+2024-11-26 09:32:41.797 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732597100. Expected to be greater than 1732606361.
+2024-11-26 09:32:41.803 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 09:32:41.901 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 09:32:41.934 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1732597100. Expected to be greater than 1732606361.
+2024-11-26 09:32:41.963 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-26 09:32:42.105 +02:00 [INF] Executed ViewResult - view Login executed in 168.9902ms.
+2024-11-26 09:32:42.218 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:32:42.236 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:32:42.670 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 743.4484ms
+2024-11-26 09:32:42.703 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 485.3809ms
+2024-11-26 09:32:42.748 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 511.9453ms
+2024-11-26 09:32:42.766 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 09:32:42.782 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Account/Login - 200 null text/html; charset=utf-8 1076.4554ms
+2024-11-26 09:33:07.971 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7046/Account/GoogleLogin - application/json 1191
+2024-11-26 09:33:08.060 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732597100. Expected to be greater than 1732606388.
+2024-11-26 09:33:08.063 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732597100. Expected to be greater than 1732606388.
+2024-11-26 09:33:08.065 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp)'
+2024-11-26 09:33:08.129 +02:00 [INF] Route matched with {action = "GoogleLogin", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleLogin(GoogleLoginViewModel) on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 09:33:08.317 +02:00 [INF] GoogleLogin attempt initiated
+2024-11-26 09:33:08.321 +02:00 [INF] here is your token grump eyJhbGciOiJSUzI1NiIsImtpZCI6IjNmZDA3MmRmYTM4MDU2NzlmMTZmZTQxNzM4YzJhM2FkM2Y5MGIyMTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiVHJlbnQgRmlzaGVyIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0lfMG11MTRncWZqLW4zMDZsZUlEZ2JmZk83bHByOWQyUUlUd2h2OVdLanZCaXdMcDh3PXM5Ni1jIiwicm9sZSI6IlN0dWRlbnQiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdXFtcy1hM2Q4NyIsImF1ZCI6InVxbXMtYTNkODciLCJhdXRoX3RpbWUiOjE3MzI2MDYzODYsInVzZXJfaWQiOiJjc3VzVXRJWkMzY1Z0cW5UOW1xRjNlN0pnbDIzIiwic3ViIjoiY3N1c1V0SVpDM2NWdHFuVDltcUYzZTdKZ2wyMyIsImlhdCI6MTczMjYwNjM4NiwiZXhwIjoxNzMyNjA5OTg2LCJlbWFpbCI6InRyZW50ZmlzaGVyMDE3QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7Imdvb2dsZS5jb20iOlsiMTE4MDQwODkyMzQ5OTA3NzczODcyIl0sImVtYWlsIjpbInRyZW50ZmlzaGVyMDE3QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.bmbCW6x7JTvfP3L4QLMhrvqSAWM3O3cCWCi9_JcpV2-i4rGhb4QRoozERaEi0Q8KnKD1SyZQaz0PIFVgALVApx-bh-GEk4oyf0p2282ExIJn_Un4NCpgWcMbWTLYxYWhuFDsqYRoSpts4aSTLqhK-MEAgETGQrgJNWVR5iOZe76gsR4czuEzLFT6cwpQah1NIzTdqgTxkOd9FdUQ5a68t2VnWbUaFDGf09AJE4azmCVJ_ckvzd6LF4BCLS_ygF1grUPRky647Va-32JDjdjZyheDaMwHzvrsG1QKbxtSd-guixKK3dgPE6Ss4i_Ov5IFtPHlyjNqKn6KtKE2ozD3iQ
+2024-11-26 09:33:08.323 +02:00 [INF] Verifying Firebase ID token.
+2024-11-26 09:33:08.992 +02:00 [INF] Firebase ID token verified successfully for UID: csusUtIZC3cVtqnT9mqF3e7Jgl23
+2024-11-26 09:33:08.993 +02:00 [INF] Retrieving user information for UID: csusUtIZC3cVtqnT9mqF3e7Jgl23
+2024-11-26 09:33:10.403 +02:00 [INF] User information retrieved successfully. Email: trentfisher017@gmail.com, Display Name: Trent Fisher
+2024-11-26 09:33:10.910 +02:00 [INF] Executed DbCommand (223ms) [Parameters=[@__uid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__uid_0
+2024-11-26 09:33:11.119 +02:00 [INF] Executed DbCommand (42ms) [Parameters=[@p1='46', @p0='2024-11-26T07:33:11.0105122Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastSeen] = @p0
+OUTPUT 1
+WHERE [UserID] = @p1;
+2024-11-26 09:33:11.144 +02:00 [INF] Accessing expired session, Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa
+2024-11-26 09:33:11.150 +02:00 [INF] GoogleLogin successful for user trentfisher017@gmail.com with role Student
+2024-11-26 09:33:11.177 +02:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType3`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-26 09:33:11.212 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp) in 3079.0001ms
+2024-11-26 09:33:11.214 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp)'
+2024-11-26 09:33:11.219 +02:00 [INF] Session started; Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa, Id:c04e8e0c-34ca-6173-0d51-57219b60c269
+2024-11-26 09:33:11.233 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7046/Account/GoogleLogin - 200 null application/json; charset=utf-8 3264.9615ms
+2024-11-26 09:33:11.275 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Dashboard/StudentDashboard - null null
+2024-11-26 09:33:11.359 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-11-26 09:33:11.367 +02:00 [INF] Route matched with {action = "StudentDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StudentDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-26 09:33:11.724 +02:00 [INF] Executed DbCommand (29ms) [Parameters=[@__firebaseUid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [StudentDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-26 09:33:11.875 +02:00 [INF] Executed DbCommand (35ms) [Parameters=[@__student_StudentID_0='30'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE [q].[StudentID] = @__student_StudentID_0
+GROUP BY [q].[Status]
+2024-11-26 09:33:11.989 +02:00 [INF] Executed DbCommand (53ms) [Parameters=[@__student_StudentID_0='30'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID], [q].[CategoryID], [q].[CourseID], [q].[DepartmentID], [q].[Description], [q].[ModuleID], [q].[QueryTypeID], [q].[ResolvedDate], [q].[Status], [q].[StudentID], [q].[SubmissionDate], [q].[TicketNumber], [q].[Year], [q0].[DocumentID], [q0].[DocumentName], [q0].[DocumentPath], [q0].[QueryID], [q0].[UploadDate]
+FROM [Queries] AS [q]
+LEFT JOIN [QueryDocuments] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+WHERE [q].[StudentID] = @__student_StudentID_0
+ORDER BY [q].[QueryID]
+2024-11-26 09:33:12.094 +02:00 [INF] Executed DbCommand (26ms) [Parameters=[@__firebaseUid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-26 09:33:12.133 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[@__user_UserID_0='46'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-26 09:33:12.330 +02:00 [INF] Executed DbCommand (108ms) [Parameters=[@__user_UserID_0='46'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-26 09:33:12.370 +02:00 [INF] Executing ViewResult, running view StudentDashboard.
+2024-11-26 09:33:13.314 +02:00 [INF] Executed ViewResult - view StudentDashboard executed in 972.0633ms.
+2024-11-26 09:33:13.316 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp) in 1946.2886ms
+2024-11-26 09:33:13.318 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-11-26 09:33:13.320 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Dashboard/StudentDashboard - 200 null text/html; charset=utf-8 2044.5859ms
+2024-11-26 09:33:13.427 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/css/tempSidebar.css - null null
+2024-11-26 09:33:13.467 +02:00 [INF] The file /css/tempSidebar.css was not modified
+2024-11-26 09:33:13.470 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/css/tempSidebar.css - 304 null text/css 43.5392ms
+2024-11-26 09:33:13.592 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Svgs/faq.png - null null
+2024-11-26 09:33:13.599 +02:00 [INF] The file /Svgs/faq.png was not modified
+2024-11-26 09:33:13.602 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Svgs/faq.png - 304 null image/png 10.1397ms
+2024-11-26 09:33:13.668 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:33:13.679 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 10.0172ms
+2024-11-26 09:33:14.754 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:33:14.788 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7046/notificationHub/negotiate?studentId=30&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-26 09:33:14.798 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-26 09:33:14.817 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 63.4003ms
+2024-11-26 09:33:14.847 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-26 09:33:14.852 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7046/notificationHub/negotiate?studentId=30&negotiateVersion=1 - 200 316 application/json 63.731ms
+2024-11-26 09:33:16.076 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7046/notificationHub?studentId=30&id=mbUThoj_N04sBB6ahZYnzQ - null null
+2024-11-26 09:33:16.081 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-26 09:33:16.398 +02:00 [INF] Student with ID 30 is connecting. Connection ID: 5XTx7Wr-env7-3sOtx_O3A
+2024-11-26 09:33:16.408 +02:00 [INF] Student with ID 30 connected and added to group. Connection ID: 5XTx7Wr-env7-3sOtx_O3A
+2024-11-26 09:37:44.818 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Faq - null null
+2024-11-26 09:37:44.972 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.FAQController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:37:45.016 +02:00 [INF] Route matched with {action = "Index", controller = "FAQ"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Apptivate_UQMS_WebApp.Controllers.FAQController (Apptivate_UQMS_WebApp).
+2024-11-26 09:37:45.149 +02:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[FaqId], [f].[Answer], [f].[Category], [f].[CreatedDate], [f].[LastUpdatedDate], [f].[Question]
+FROM [Faq] AS [f]
+2024-11-26 09:37:45.194 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 09:37:45.242 +02:00 [INF] Executed ViewResult - view Index executed in 53.2125ms.
+2024-11-26 09:37:45.244 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.FAQController.Index (Apptivate_UQMS_WebApp) in 226.7465ms
+2024-11-26 09:37:45.245 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.FAQController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:37:45.247 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Faq - 200 null text/html; charset=utf-8 430.6806ms
+2024-11-26 09:37:45.303 +02:00 [INF] Student with ID 30 is disconnecting. Connection ID: 5XTx7Wr-env7-3sOtx_O3A
+2024-11-26 09:37:45.307 +02:00 [INF] Student with ID 30 removed from group and connection removed. Connection ID: 5XTx7Wr-env7-3sOtx_O3A
+2024-11-26 09:37:45.346 +02:00 [INF] Executed endpoint '/notificationHub'
+2024-11-26 09:37:45.346 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:37:45.348 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7046/notificationHub?studentId=30&id=mbUThoj_N04sBB6ahZYnzQ - 101 null null 269272.1281ms
+2024-11-26 09:37:45.355 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:37:45.359 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 12.8475ms
+2024-11-26 09:37:45.498 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 142.6299ms
+2024-11-26 09:37:48.082 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase - null null
+2024-11-26 09:37:48.090 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:37:48.094 +02:00 [INF] Route matched with {action = "Index", controller = "KnowledgeBase"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 09:37:48.141 +02:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+ORDER BY [k].[Category], [k].[Title]
+2024-11-26 09:37:48.157 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 09:37:48.168 +02:00 [INF] Executed ViewResult - view Index executed in 11.9157ms.
+2024-11-26 09:37:48.170 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp) in 75.1011ms
+2024-11-26 09:37:48.171 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:37:48.172 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase - 200 null text/html; charset=utf-8 89.1162ms
+2024-11-26 09:37:48.198 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:37:48.198 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:37:48.204 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 5.5394ms
+2024-11-26 09:37:48.209 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.281ms
+2024-11-26 09:46:29.150 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-26 09:46:29.249 +02:00 [INF] QueryCleanupService is running at: "2024-11-26T09:46:29.2463000+02:00"
+2024-11-26 09:46:29.463 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-26 09:46:30.049 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-26 09:46:30.595 +02:00 [INF] Now listening on: https://localhost:7046
+2024-11-26 09:46:30.596 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-26 09:46:30.596 +02:00 [INF] Hosting environment: Development
+2024-11-26 09:46:30.597 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-11-26 09:46:30.742 +02:00 [INF] Executed DbCommand (68ms) [Parameters=[@__twoDaysAgo_0='2024-11-24T07:46:29.4689584Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID]
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Closed' AND [q].[ResolvedDate] <= @__twoDaysAgo_0
+2024-11-26 09:46:30.759 +02:00 [INF] Query cleanup completed at: "2024-11-26T09:46:30.7599233+02:00"
+2024-11-26 09:46:31.724 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/ - null null
+2024-11-26 09:46:32.348 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:32.363 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-26 09:46:32.377 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 09:46:32.498 +02:00 [INF] Executed ViewResult - view Index executed in 123.9568ms.
+2024-11-26 09:46:32.505 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 139.4055ms
+2024-11-26 09:46:32.506 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:32.516 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/ - 200 null text/html; charset=utf-8 794.0463ms
+2024-11-26 09:46:32.572 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:46:32.577 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:46:32.584 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 11.8965ms
+2024-11-26 09:46:32.602 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/css/background-image.jpg - null null
+2024-11-26 09:46:32.623 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/css/background-image.jpg - 404 0 null 21.2909ms
+2024-11-26 09:46:32.632 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7046/css/background-image.jpg, Response status code: 404
+2024-11-26 09:46:32.635 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.0396ms
+2024-11-26 09:46:34.466 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Account/Login - null null
+2024-11-26 09:46:34.477 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:34.482 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 09:46:35.510 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[@__firebaseUser_Uid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUser_Uid_0
+2024-11-26 09:46:35.560 +02:00 [INF] Accessing expired session, Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa
+2024-11-26 09:46:35.563 +02:00 [INF] Auto-login successful for user trentfisher017@gmail.com.
+2024-11-26 09:46:35.574 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard.
+2024-11-26 09:46:35.578 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 1094.9261ms
+2024-11-26 09:46:35.579 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:35.582 +02:00 [INF] Session started; Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa, Id:c36a035d-01a7-ffc1-2c63-a9b18fa30d9b
+2024-11-26 09:46:35.584 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Account/Login - 302 0 null 1118.1667ms
+2024-11-26 09:46:35.588 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Dashboard - null null
+2024-11-26 09:46:35.598 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:35.600 +02:00 [INF] Route matched with {action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-26 09:46:35.601 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/StudentDashboard.
+2024-11-26 09:46:35.602 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp) in 1.5056ms
+2024-11-26 09:46:35.603 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:35.603 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Dashboard - 302 0 null 14.7199ms
+2024-11-26 09:46:35.607 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Dashboard/StudentDashboard - null null
+2024-11-26 09:46:35.612 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:35.615 +02:00 [INF] Route matched with {action = "StudentDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StudentDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-26 09:46:35.708 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@__firebaseUid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [StudentDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-26 09:46:35.774 +02:00 [INF] Executed DbCommand (20ms) [Parameters=[@__student_StudentID_0='30'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE [q].[StudentID] = @__student_StudentID_0
+GROUP BY [q].[Status]
+2024-11-26 09:46:35.812 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[@__student_StudentID_0='30'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID], [q].[CategoryID], [q].[CourseID], [q].[DepartmentID], [q].[Description], [q].[ModuleID], [q].[QueryTypeID], [q].[ResolvedDate], [q].[Status], [q].[StudentID], [q].[SubmissionDate], [q].[TicketNumber], [q].[Year], [q0].[DocumentID], [q0].[DocumentName], [q0].[DocumentPath], [q0].[QueryID], [q0].[UploadDate]
+FROM [Queries] AS [q]
+LEFT JOIN [QueryDocuments] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+WHERE [q].[StudentID] = @__student_StudentID_0
+ORDER BY [q].[QueryID]
+2024-11-26 09:46:35.869 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__firebaseUid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-26 09:46:35.882 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_UserID_0='46'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-26 09:46:35.901 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_UserID_0='46'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-26 09:46:35.905 +02:00 [INF] Executing ViewResult, running view StudentDashboard.
+2024-11-26 09:46:35.955 +02:00 [INF] Executed ViewResult - view StudentDashboard executed in 50.4972ms.
+2024-11-26 09:46:35.957 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp) in 341.3972ms
+2024-11-26 09:46:35.958 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:35.959 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Dashboard/StudentDashboard - 200 null text/html; charset=utf-8 351.7769ms
+2024-11-26 09:46:35.995 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:46:35.998 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 3.5158ms
+2024-11-26 09:46:36.004 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:46:36.012 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.8277ms
+2024-11-26 09:46:36.113 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7046/notificationHub/negotiate?studentId=30&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-26 09:46:36.116 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-26 09:46:36.124 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-26 09:46:36.126 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7046/notificationHub/negotiate?studentId=30&negotiateVersion=1 - 200 316 application/json 13.2774ms
+2024-11-26 09:46:36.132 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7046/notificationHub?studentId=30&id=7BBZhMZeHzm17gQaypYabQ - null null
+2024-11-26 09:46:36.135 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-26 09:46:36.161 +02:00 [INF] Student with ID 30 is connecting. Connection ID: 3tt_O5zaqQc0mbCpwhcdpQ
+2024-11-26 09:46:36.162 +02:00 [INF] Student with ID 30 connected and added to group. Connection ID: 3tt_O5zaqQc0mbCpwhcdpQ
+2024-11-26 09:46:40.440 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase - null null
+2024-11-26 09:46:40.445 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:40.449 +02:00 [INF] Route matched with {action = "Index", controller = "KnowledgeBase"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 09:46:40.464 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+ORDER BY [k].[Category], [k].[Title]
+2024-11-26 09:46:40.475 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 09:46:40.483 +02:00 [INF] Executed ViewResult - view Index executed in 9.5005ms.
+2024-11-26 09:46:40.485 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp) in 35.0589ms
+2024-11-26 09:46:40.486 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:40.487 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase - 200 null text/html; charset=utf-8 47.2576ms
+2024-11-26 09:46:40.501 +02:00 [INF] Student with ID 30 is disconnecting. Connection ID: 3tt_O5zaqQc0mbCpwhcdpQ
+2024-11-26 09:46:40.504 +02:00 [INF] Student with ID 30 removed from group and connection removed. Connection ID: 3tt_O5zaqQc0mbCpwhcdpQ
+2024-11-26 09:46:40.510 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:46:40.510 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:46:40.512 +02:00 [INF] Executed endpoint '/notificationHub'
+2024-11-26 09:46:40.513 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 3.4116ms
+2024-11-26 09:46:40.515 +02:00 [INF] Request finished HTTP/2 CONNECT https://localhost:7046/notificationHub?studentId=30&id=7BBZhMZeHzm17gQaypYabQ - 200 null null 4382.6711ms
+2024-11-26 09:46:40.521 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.122ms
+2024-11-26 09:46:41.726 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - null null
+2024-11-26 09:46:41.732 +02:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-11-26 09:46:41.734 +02:00 [INF] AuthenticationScheme: Firebase was forbidden.
+2024-11-26 09:46:41.734 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - 403 0 null 8.0862ms
+2024-11-26 09:46:44.670 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase - null null
+2024-11-26 09:46:44.676 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:44.677 +02:00 [INF] Route matched with {action = "Index", controller = "KnowledgeBase"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 09:46:44.683 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+ORDER BY [k].[Category], [k].[Title]
+2024-11-26 09:46:44.684 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 09:46:44.686 +02:00 [INF] Executed ViewResult - view Index executed in 1.837ms.
+2024-11-26 09:46:44.687 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp) in 8.6149ms
+2024-11-26 09:46:44.688 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:44.688 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase - 200 null text/html; charset=utf-8 18.5437ms
+2024-11-26 09:46:44.759 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:46:44.762 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 3.1566ms
+2024-11-26 09:46:46.924 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7046/Account/Logout - application/x-www-form-urlencoded 225
+2024-11-26 09:46:46.930 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Logout (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:46.931 +02:00 [INF] Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 09:46:46.932 +02:00 [INF] User logged out.
+2024-11-26 09:46:46.934 +02:00 [INF] Executing RedirectResult, redirecting to /Account/Login.
+2024-11-26 09:46:46.934 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Logout (Apptivate_UQMS_WebApp) in 2.5856ms
+2024-11-26 09:46:46.935 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Logout (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:46.936 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7046/Account/Logout - 302 0 null 12.4206ms
+2024-11-26 09:46:46.940 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Account/Login - null null
+2024-11-26 09:46:46.943 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-26 09:46:46.943 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-26 09:46:46.944 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:46.944 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 09:46:46.947 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-26 09:46:46.954 +02:00 [INF] Executed ViewResult - view Login executed in 7.5323ms.
+2024-11-26 09:46:46.955 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 9.458ms
+2024-11-26 09:46:46.955 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:46.956 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Account/Login - 200 null text/html; charset=utf-8 15.7767ms
+2024-11-26 09:46:46.983 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:46:46.985 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:46:46.985 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 1.9608ms
+2024-11-26 09:46:46.988 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3.8602ms
+2024-11-26 09:46:54.108 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7046/Account/Login - application/x-www-form-urlencoded 224
+2024-11-26 09:46:54.115 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-26 09:46:54.117 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-26 09:46:54.119 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:54.130 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LoginViewModel) on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 09:46:54.180 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[@__cutoff_0='2024-11-26T09:31:54.1608204+02:00'], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[AttemptCount], [l].[Email], [l].[FirstAttemptAt], [l].[IpAddress], [l].[LockoutEnd]
+FROM [LoginAttempts] AS [l]
+WHERE [l].[FirstAttemptAt] < @__cutoff_0 AND ([l].[LockoutEnd] IS NULL OR [l].[LockoutEnd] < GETDATE())
+2024-11-26 09:46:54.271 +02:00 [INF] Executed DbCommand (23ms) [Parameters=[@p0='35'], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [LoginAttempts]
+OUTPUT 1
+WHERE [Id] = @p0;
+2024-11-26 09:46:54.296 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__ipAddress_0='::1' (Size = 4000), @__email_1='Admin@gmail.com' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [l].[Id], [l].[AttemptCount], [l].[Email], [l].[FirstAttemptAt], [l].[IpAddress], [l].[LockoutEnd]
+FROM [LoginAttempts] AS [l]
+WHERE [l].[IpAddress] = @__ipAddress_0 AND [l].[Email] = @__email_1
+2024-11-26 09:46:54.334 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='1', @p1='Admin@gmail.com' (Size = 4000), @p2='2024-11-26T09:46:54.2995746+02:00', @p3='::1' (Size = 4000), @p4=NULL (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LoginAttempts] ([AttemptCount], [Email], [FirstAttemptAt], [IpAddress], [LockoutEnd])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2024-11-26 09:46:54.352 +02:00 [INF] Attempting to log in user with email: Admin@gmail.com
+2024-11-26 09:46:54.367 +02:00 [INF] Start processing HTTP request POST https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDXB0dEozyPQdXzlGyQFP1elMObEksarR0
+2024-11-26 09:46:54.372 +02:00 [INF] Sending HTTP request POST https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDXB0dEozyPQdXzlGyQFP1elMObEksarR0
+2024-11-26 09:46:54.905 +02:00 [INF] Received HTTP response headers after 529.2434ms - 200
+2024-11-26 09:46:54.908 +02:00 [INF] End processing HTTP request after 542.135ms - 200
+2024-11-26 09:46:54.910 +02:00 [INF] User logged in successfully.
+2024-11-26 09:46:55.234 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__firebaseUser_Uid_0='C9orrhtKXpgX4jsjPpwEI3J9a3t2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUser_Uid_0
+2024-11-26 09:46:55.243 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__ipAddress_0='::1' (Size = 4000), @__email_1='Admin@gmail.com' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [l].[Id], [l].[AttemptCount], [l].[Email], [l].[FirstAttemptAt], [l].[IpAddress], [l].[LockoutEnd]
+FROM [LoginAttempts] AS [l]
+WHERE [l].[IpAddress] = @__ipAddress_0 AND [l].[Email] = @__email_1
+2024-11-26 09:46:55.259 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='36'], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [LoginAttempts]
+OUTPUT 1
+WHERE [Id] = @p0;
+2024-11-26 09:46:55.271 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@p1='5', @p0='2024-11-26T07:46:55.2623930Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastSeen] = @p0
+OUTPUT 1
+WHERE [UserID] = @p1;
+2024-11-26 09:46:55.274 +02:00 [INF] User admin@gmail.com logged in successfully.
+2024-11-26 09:46:55.276 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/AdminDashboard.
+2024-11-26 09:46:55.277 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 1145.7358ms
+2024-11-26 09:46:55.277 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:55.279 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7046/Account/Login - 302 0 null 1170.8388ms
+2024-11-26 09:46:55.283 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Dashboard/AdminDashboard - null null
+2024-11-26 09:46:55.289 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.AdminDashboard (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:55.295 +02:00 [INF] Route matched with {action = "AdminDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AdminDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-26 09:46:55.323 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__firebaseUid_0='C9orrhtKXpgX4jsjPpwEI3J9a3t2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[AdminID], [a].[Department], [a].[UserID], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [AdminDetails] AS [a]
+INNER JOIN [Users] AS [u] ON [a].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-26 09:46:55.336 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__firebaseUid_0='C9orrhtKXpgX4jsjPpwEI3J9a3t2' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-26 09:46:55.343 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__user_UserID_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-26 09:46:55.351 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__user_UserID_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-26 09:46:55.363 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+2024-11-26 09:46:55.377 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+WHERE [u].[LastSeen] >= DATEADD(month, CAST(-1 AS int), GETUTCDATE())
+2024-11-26 09:46:55.385 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+2024-11-26 09:46:55.394 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Resolved'
+2024-11-26 09:46:55.402 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Pending'
+2024-11-26 09:46:55.412 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Ongoing'
+2024-11-26 09:46:55.442 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='35'], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Role], COUNT(*) AS [Count], CAST((CAST(COUNT(*) AS float) * 100.0E0) / @__p_0 AS int) AS [Percentage]
+FROM [Users] AS [u]
+GROUP BY [u].[Role]
+2024-11-26 09:46:55.470 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM (
+    SELECT CONVERT(date, [q].[SubmissionDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Ongoing'
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-11-26 09:46:55.478 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM (
+    SELECT CONVERT(date, [q].[SubmissionDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Ongoing'
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-11-26 09:46:55.489 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM (
+    SELECT DATEPART(month, [q].[SubmissionDate]) AS [Key]
+    FROM [Queries] AS [q]
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-11-26 09:46:55.536 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[@__p_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT CAST(1 AS bit), [u].[Name], [u].[Surname], [t].[Description], CASE
+    WHEN [t].[SubmissionDate] IS NOT NULL THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END, [t].[SubmissionDate]
+FROM (
+    SELECT TOP(@__p_0) [q].[Description], [q].[StudentID], [q].[SubmissionDate]
+    FROM [Queries] AS [q]
+    ORDER BY [q].[SubmissionDate] DESC
+) AS [t]
+INNER JOIN [StudentDetails] AS [s] ON [t].[StudentID] = [s].[StudentID]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+ORDER BY [t].[SubmissionDate] DESC
+2024-11-26 09:46:55.569 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[@__startDate_0='2024-10-27T07:46:55.5457181Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Key] AS [Date], COALESCE(AVG(CAST(DATEDIFF(minute, [t].[SubmissionDate], [t].[ResolvedDate]) AS float)), 0.0E0) AS [AverageResponseTime]
+FROM (
+    SELECT [q].[ResolvedDate], [q].[SubmissionDate], CONVERT(date, [q].[ResolvedDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Resolved' AND [q].[ResolvedDate] >= @__startDate_0
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-11-26 09:46:55.583 +02:00 [INF] Executing ViewResult, running view AdminDashboard.
+2024-11-26 09:46:55.600 +02:00 [INF] Executed ViewResult - view AdminDashboard executed in 17.2451ms.
+2024-11-26 09:46:55.603 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.AdminDashboard (Apptivate_UQMS_WebApp) in 306.3858ms
+2024-11-26 09:46:55.605 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.AdminDashboard (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:55.606 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Dashboard/AdminDashboard - 200 null text/html; charset=utf-8 322.5565ms
+2024-11-26 09:46:55.661 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/lib/microsoft/signalr/dist/browser/signalr.js - null null
+2024-11-26 09:46:55.667 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:46:55.667 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:46:55.668 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/api/placeholder/32/32 - null null
+2024-11-26 09:46:55.671 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 3.4951ms
+2024-11-26 09:46:55.672 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/lib/microsoft/signalr/dist/browser/signalr.js - 404 0 null 10.9767ms
+2024-11-26 09:46:55.681 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/api/placeholder/32/32 - 404 0 null 12.873ms
+2024-11-26 09:46:55.685 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.1402ms
+2024-11-26 09:46:55.692 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7046/lib/microsoft/signalr/dist/browser/signalr.js, Response status code: 404
+2024-11-26 09:46:55.694 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7046/api/placeholder/32/32, Response status code: 404
+2024-11-26 09:46:55.931 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Dashboard/GetQueryResolutionRates?days=30 - null null
+2024-11-26 09:46:55.931 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Dashboard/GetDepartmentQueryData - null null
+2024-11-26 09:46:55.931 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Dashboard/GetResponseTimeTrends?days=30 - null null
+2024-11-26 09:46:55.935 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetQueryResolutionRates (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:55.937 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetDepartmentQueryData (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:55.942 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetResponseTimeTrends (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:55.947 +02:00 [INF] Route matched with {action = "GetQueryResolutionRates", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQueryResolutionRates(Int32) on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-26 09:46:55.947 +02:00 [INF] Route matched with {action = "GetDepartmentQueryData", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDepartmentQueryData() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-26 09:46:55.949 +02:00 [INF] Route matched with {action = "GetResponseTimeTrends", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetResponseTimeTrends(Int32) on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-26 09:46:55.975 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[@__startDate_0='2024-10-27T07:46:55.9547999Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Key] AS [Date], COALESCE(AVG(CAST(DATEDIFF(minute, [t].[SubmissionDate], [t].[ResolvedDate]) AS float)), 0.0E0) AS [AverageResponseTime]
+FROM (
+    SELECT [q].[ResolvedDate], [q].[SubmissionDate], CONVERT(date, [q].[ResolvedDate]) AS [Key]
+    FROM [Queries] AS [q]
+    WHERE [q].[Status] = N'Resolved' AND [q].[ResolvedDate] >= @__startDate_0
+) AS [t]
+GROUP BY [t].[Key]
+ORDER BY [t].[Key]
+2024-11-26 09:46:55.979 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Apptivate_UQMS_WebApp.Models.ResponseTimeDataPoint, Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-26 09:46:55.996 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[@__startDate_0='2024-10-27T07:46:55.9537689Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT CONVERT(date, [q].[SubmissionDate]) AS [SubmissionDate], CASE
+    WHEN [q].[Status] = N'Resolved' THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsResolved], CASE
+    WHEN [q].[ResolvedDate] IS NOT NULL THEN CONVERT(date, [q].[ResolvedDate])
+    ELSE NULL
+END AS [ResolvedDate]
+FROM [Queries] AS [q]
+WHERE [q].[SubmissionDate] >= @__startDate_0
+2024-11-26 09:46:55.997 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.GetResponseTimeTrends (Apptivate_UQMS_WebApp) in 43.6706ms
+2024-11-26 09:46:55.998 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetResponseTimeTrends (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:55.999 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Dashboard/GetResponseTimeTrends?days=30 - 200 null application/json; charset=utf-8 67.9338ms
+2024-11-26 09:46:56.003 +02:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Apptivate_UQMS_WebApp.Models.ResolutionRateDataPoint, Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-26 09:46:56.015 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.GetQueryResolutionRates (Apptivate_UQMS_WebApp) in 65.9243ms
+2024-11-26 09:46:56.016 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetQueryResolutionRates (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:56.016 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Dashboard/GetQueryResolutionRates?days=30 - 200 null application/json; charset=utf-8 85.7274ms
+2024-11-26 09:46:56.017 +02:00 [INF] Executed DbCommand (37ms) [Parameters=[@__startDate_0='2023-12-26T09:46:55.9526802+02:00' (Nullable = true), @__endDate_1='2024-11-26T09:46:55.9526802+02:00' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[DepartmentName] AS [department], [t].[Month] AS [month], COUNT(*) AS [queryCount]
+FROM (
+    SELECT [d].[DepartmentName], DATEPART(month, [q].[SubmissionDate]) - 1 AS [Month]
+    FROM [Queries] AS [q]
+    LEFT JOIN [Departments] AS [d] ON [q].[DepartmentID] = [d].[DepartmentID]
+    WHERE [q].[SubmissionDate] >= @__startDate_0 AND [q].[SubmissionDate] <= @__endDate_1
+) AS [t]
+GROUP BY [t].[DepartmentName], [t].[Month]
+2024-11-26 09:46:56.030 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[DepartmentName]
+FROM [Departments] AS [d]
+ORDER BY [d].[DepartmentName]
+2024-11-26 09:46:56.033 +02:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType10`2[[System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.List`1[[<>f__AnonymousType9`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Apptivate_UQMS_WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-26 09:46:56.043 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.GetDepartmentQueryData (Apptivate_UQMS_WebApp) in 92.7856ms
+2024-11-26 09:46:56.044 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.GetDepartmentQueryData (Apptivate_UQMS_WebApp)'
+2024-11-26 09:46:56.045 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Dashboard/GetDepartmentQueryData - 200 null application/json; charset=utf-8 114.0183ms
+2024-11-26 09:47:14.950 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase - null null
+2024-11-26 09:47:14.954 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:47:14.956 +02:00 [INF] Route matched with {action = "Index", controller = "KnowledgeBase"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 09:47:14.963 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+ORDER BY [k].[Category], [k].[Title]
+2024-11-26 09:47:14.964 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 09:47:14.966 +02:00 [INF] Executed ViewResult - view Index executed in 1.9188ms.
+2024-11-26 09:47:14.967 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp) in 9.4414ms
+2024-11-26 09:47:14.967 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 09:47:14.968 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase - 200 null text/html; charset=utf-8 18.2033ms
+2024-11-26 09:47:14.992 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:47:14.994 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:47:14.996 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 1.7773ms
+2024-11-26 09:47:14.997 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 4.8884ms
+2024-11-26 09:47:16.543 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - null null
+2024-11-26 09:47:16.547 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 09:47:16.549 +02:00 [INF] Route matched with {action = "Admin", controller = "KnowledgeBase"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Admin() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 09:47:16.562 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+2024-11-26 09:47:16.565 +02:00 [INF] Executing ViewResult, running view Admin.
+2024-11-26 09:47:16.576 +02:00 [INF] Executed ViewResult - view Admin executed in 11.296ms.
+2024-11-26 09:47:16.577 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp) in 27.4972ms
+2024-11-26 09:47:16.578 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 09:47:16.579 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - 200 null text/html; charset=utf-8 36.6908ms
+2024-11-26 09:47:16.603 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:47:16.604 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:47:16.604 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/css/AdminKnowledgeBase.css - null null
+2024-11-26 09:47:16.606 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 2.8891ms
+2024-11-26 09:47:16.614 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.3898ms
+2024-11-26 09:47:16.620 +02:00 [INF] The file /css/AdminKnowledgeBase.css was not modified
+2024-11-26 09:47:16.623 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/css/AdminKnowledgeBase.css - 304 null text/css 18.8521ms
+2024-11-26 09:47:26.121 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Edit/3 - null null
+2024-11-26 09:47:26.128 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Edit (Apptivate_UQMS_WebApp)'
+2024-11-26 09:47:26.133 +02:00 [INF] Route matched with {action = "Edit", controller = "KnowledgeBase"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(System.Nullable`1[System.Int32]) on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 09:47:26.164 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+WHERE [k].[ArticleID] = @__p_0
+2024-11-26 09:47:26.168 +02:00 [INF] Executing ViewResult, running view Edit.
+2024-11-26 09:47:26.222 +02:00 [INF] Executed ViewResult - view Edit executed in 55.2522ms.
+2024-11-26 09:47:26.224 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Edit (Apptivate_UQMS_WebApp) in 89.6378ms
+2024-11-26 09:47:26.225 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Edit (Apptivate_UQMS_WebApp)'
+2024-11-26 09:47:26.226 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Edit/3 - 200 null text/html; charset=utf-8 104.6028ms
+2024-11-26 09:47:26.252 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:47:26.252 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:47:26.256 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 4.3341ms
+2024-11-26 09:47:26.262 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.9399ms
+2024-11-26 09:51:53.070 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - null null
+2024-11-26 09:51:53.108 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 09:51:53.110 +02:00 [INF] Route matched with {action = "Admin", controller = "KnowledgeBase"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Admin() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 09:51:53.126 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+2024-11-26 09:51:53.131 +02:00 [INF] Executing ViewResult, running view Admin.
+2024-11-26 09:51:53.143 +02:00 [INF] Executed ViewResult - view Admin executed in 12.2881ms.
+2024-11-26 09:51:53.144 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp) in 33.3154ms
+2024-11-26 09:51:53.145 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 09:51:53.146 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - 200 null text/html; charset=utf-8 76.311ms
+2024-11-26 09:51:53.247 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:51:53.251 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 4.0293ms
+2024-11-26 09:51:57.836 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7046/KnowledgeBase/Delete/3 - application/x-www-form-urlencoded 225
+2024-11-26 09:51:57.844 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Delete (Apptivate_UQMS_WebApp)'
+2024-11-26 09:51:57.853 +02:00 [INF] Route matched with {action = "Delete", controller = "KnowledgeBase"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int32) on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 09:51:57.873 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='3'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+WHERE [k].[ArticleID] = @__p_0
+2024-11-26 09:51:58.298 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[@p0='3'], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [knowledgeBase]
+OUTPUT 1
+WHERE [ArticleID] = @p0;
+2024-11-26 09:51:58.302 +02:00 [INF] Executing RedirectResult, redirecting to /KnowledgeBase/Admin.
+2024-11-26 09:51:58.303 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Delete (Apptivate_UQMS_WebApp) in 448.9471ms
+2024-11-26 09:51:58.303 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Delete (Apptivate_UQMS_WebApp)'
+2024-11-26 09:51:58.304 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7046/KnowledgeBase/Delete/3 - 302 0 null 467.7464ms
+2024-11-26 09:51:58.309 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - null null
+2024-11-26 09:51:58.312 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 09:51:58.313 +02:00 [INF] Route matched with {action = "Admin", controller = "KnowledgeBase"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Admin() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 09:51:58.315 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+2024-11-26 09:51:58.317 +02:00 [INF] Executing ViewResult, running view Admin.
+2024-11-26 09:51:58.320 +02:00 [INF] Executed ViewResult - view Admin executed in 3.2116ms.
+2024-11-26 09:51:58.321 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp) in 7.214ms
+2024-11-26 09:51:58.322 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 09:51:58.324 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - 200 null text/html; charset=utf-8 14.2317ms
+2024-11-26 09:51:58.369 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:51:58.372 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 2.6217ms
+2024-11-26 09:51:58.377 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:51:58.389 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.941ms
+2024-11-26 09:51:59.829 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Create - null null
+2024-11-26 09:51:59.844 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp)'
+2024-11-26 09:51:59.854 +02:00 [INF] Route matched with {action = "Create", controller = "KnowledgeBase"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 09:51:59.919 +02:00 [INF] Executing ViewResult, running view Create.
+2024-11-26 09:52:00.030 +02:00 [INF] Executed ViewResult - view Create executed in 175.0482ms.
+2024-11-26 09:52:00.033 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp) in 177.8969ms
+2024-11-26 09:52:00.034 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp)'
+2024-11-26 09:52:00.036 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Create - 200 null text/html; charset=utf-8 206.8093ms
+2024-11-26 09:52:00.079 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:52:00.080 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 09:52:00.083 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 4.1987ms
+2024-11-26 09:52:00.094 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.2726ms
+2024-11-26 09:55:38.969 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - null null
+2024-11-26 09:55:38.986 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 09:55:38.988 +02:00 [INF] Route matched with {action = "Admin", controller = "KnowledgeBase"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Admin() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 09:55:38.999 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+2024-11-26 09:55:39.002 +02:00 [INF] Executing ViewResult, running view Admin.
+2024-11-26 09:55:39.004 +02:00 [INF] Executed ViewResult - view Admin executed in 2.0297ms.
+2024-11-26 09:55:39.005 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp) in 15.1763ms
+2024-11-26 09:55:39.006 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 09:55:39.007 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - 200 null text/html; charset=utf-8 38.0209ms
+2024-11-26 09:55:39.040 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:55:39.049 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 8.7265ms
+2024-11-26 09:55:40.713 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Create - null null
+2024-11-26 09:55:40.718 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp)'
+2024-11-26 09:55:40.719 +02:00 [INF] Route matched with {action = "Create", controller = "KnowledgeBase"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 09:55:40.720 +02:00 [INF] Executing ViewResult, running view Create.
+2024-11-26 09:55:40.723 +02:00 [INF] Executed ViewResult - view Create executed in 2.8155ms.
+2024-11-26 09:55:40.724 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp) in 4.3246ms
+2024-11-26 09:55:40.725 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp)'
+2024-11-26 09:55:40.725 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Create - 200 null text/html; charset=utf-8 11.9052ms
+2024-11-26 09:55:40.743 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 09:55:40.746 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 2.6206ms
+2024-11-26 10:06:27.595 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7046/KnowledgeBase/Create - application/x-www-form-urlencoded 503
+2024-11-26 10:06:27.675 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp)'
+2024-11-26 10:06:27.735 +02:00 [INF] Route matched with {action = "Create", controller = "KnowledgeBase"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(KnowledgeBase) on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 10:06:28.153 +02:00 [INF] Executed DbCommand (41ms) [Parameters=[@p0='Query Submission' (Size = 4000), @p1='This guide will show you how to submit a query on our system' (Size = 4000), @p2='2024-11-26T10:06:28.0555291+02:00' (Nullable = true), @p3='https://github.com/7TrentF/ApptivateDocuments' (Nullable = false) (Size = 4000), @p4='https://7trentf.github.io/ApptivateDocuments/querySubmission.html' (Nullable = false) (Size = 4000), @p5='2024-11-26T10:06:28.0556681+02:00', @p6='How To submit a query' (Nullable = false) (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [knowledgeBase] ([Category], [Content], [CreatedDate], [GitHubRepoUrl], [GuideUrl], [LastUpdatedDate], [Title])
+OUTPUT INSERTED.[ArticleID]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2024-11-26 10:06:28.165 +02:00 [INF] Executing RedirectResult, redirecting to /KnowledgeBase/Admin.
+2024-11-26 10:06:28.166 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp) in 428.6627ms
+2024-11-26 10:06:28.167 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp)'
+2024-11-26 10:06:28.167 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7046/KnowledgeBase/Create - 302 0 null 573.6257ms
+2024-11-26 10:06:28.182 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - null null
+2024-11-26 10:06:28.187 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 10:06:28.188 +02:00 [INF] Route matched with {action = "Admin", controller = "KnowledgeBase"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Admin() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 10:06:28.196 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+2024-11-26 10:06:28.201 +02:00 [INF] Executing ViewResult, running view Admin.
+2024-11-26 10:06:28.278 +02:00 [INF] Executed ViewResult - view Admin executed in 80.1627ms.
+2024-11-26 10:06:28.279 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp) in 90.5824ms
+2024-11-26 10:06:28.280 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 10:06:28.281 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - 200 null text/html; charset=utf-8 98.6317ms
+2024-11-26 10:06:28.325 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:06:28.328 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 3.4286ms
+2024-11-26 10:06:28.333 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 10:06:28.360 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.0564ms
+2024-11-26 10:06:37.131 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - null null
+2024-11-26 10:06:37.138 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 10:06:37.139 +02:00 [INF] Route matched with {action = "Admin", controller = "KnowledgeBase"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Admin() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 10:06:37.143 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+2024-11-26 10:06:37.144 +02:00 [INF] Executing ViewResult, running view Admin.
+2024-11-26 10:06:37.146 +02:00 [INF] Executed ViewResult - view Admin executed in 1.7682ms.
+2024-11-26 10:06:37.147 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp) in 7.2234ms
+2024-11-26 10:06:37.147 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 10:06:37.148 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - 200 null text/html; charset=utf-8 17.0357ms
+2024-11-26 10:06:37.173 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:06:37.176 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 2.6522ms
+2024-11-26 10:06:37.178 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 10:06:37.184 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 5.5433ms
+2024-11-26 10:06:38.637 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Create - null null
+2024-11-26 10:06:38.641 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp)'
+2024-11-26 10:06:38.642 +02:00 [INF] Route matched with {action = "Create", controller = "KnowledgeBase"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 10:06:38.643 +02:00 [INF] Executing ViewResult, running view Create.
+2024-11-26 10:06:38.649 +02:00 [INF] Executed ViewResult - view Create executed in 5.5994ms.
+2024-11-26 10:06:38.649 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp) in 6.647ms
+2024-11-26 10:06:38.650 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp)'
+2024-11-26 10:06:38.652 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Create - 200 null text/html; charset=utf-8 14.5006ms
+2024-11-26 10:06:38.672 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:06:38.675 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 3.7192ms
+2024-11-26 10:06:49.744 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase - null null
+2024-11-26 10:06:49.749 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:06:49.749 +02:00 [INF] Route matched with {action = "Index", controller = "KnowledgeBase"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 10:06:49.774 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+ORDER BY [k].[Category], [k].[Title]
+2024-11-26 10:06:49.775 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 10:06:49.778 +02:00 [INF] Executed ViewResult - view Index executed in 3.1216ms.
+2024-11-26 10:06:49.779 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp) in 28.3062ms
+2024-11-26 10:06:49.779 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:06:49.780 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase - 200 null text/html; charset=utf-8 36.28ms
+2024-11-26 10:06:49.802 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 10:06:49.803 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:06:49.807 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 3.6967ms
+2024-11-26 10:06:49.813 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.2592ms
+2024-11-26 10:07:20.290 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Faq - null null
+2024-11-26 10:07:20.309 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.FAQController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:07:20.321 +02:00 [INF] Route matched with {action = "Index", controller = "FAQ"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Apptivate_UQMS_WebApp.Controllers.FAQController (Apptivate_UQMS_WebApp).
+2024-11-26 10:07:20.498 +02:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[FaqId], [f].[Answer], [f].[Category], [f].[CreatedDate], [f].[LastUpdatedDate], [f].[Question]
+FROM [Faq] AS [f]
+2024-11-26 10:07:20.582 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 10:07:20.617 +02:00 [INF] Executed ViewResult - view Index executed in 40.9842ms.
+2024-11-26 10:07:20.619 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.FAQController.Index (Apptivate_UQMS_WebApp) in 296.7095ms
+2024-11-26 10:07:20.620 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.FAQController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:07:20.621 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Faq - 200 null text/html; charset=utf-8 330.5008ms
+2024-11-26 10:07:20.649 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 10:07:20.649 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:07:20.659 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 9.9735ms
+2024-11-26 10:07:20.672 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.3513ms
+2024-11-26 10:08:17.858 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Faq/Admin - null null
+2024-11-26 10:08:17.864 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.FAQController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 10:08:17.868 +02:00 [INF] Route matched with {action = "Admin", controller = "FAQ"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Admin() on controller Apptivate_UQMS_WebApp.Controllers.FAQController (Apptivate_UQMS_WebApp).
+2024-11-26 10:08:17.879 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[FaqId], [f].[Answer], [f].[Category], [f].[CreatedDate], [f].[LastUpdatedDate], [f].[Question]
+FROM [Faq] AS [f]
+2024-11-26 10:08:17.882 +02:00 [INF] Executing ViewResult, running view Admin.
+2024-11-26 10:08:17.897 +02:00 [INF] Executed ViewResult - view Admin executed in 16.7104ms.
+2024-11-26 10:08:17.898 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.FAQController.Admin (Apptivate_UQMS_WebApp) in 29.2412ms
+2024-11-26 10:08:17.899 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.FAQController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 10:08:17.899 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Faq/Admin - 200 null text/html; charset=utf-8 41.8985ms
+2024-11-26 10:08:17.935 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 10:08:17.942 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:08:17.946 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 3.9612ms
+2024-11-26 10:08:17.951 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.1312ms
+2024-11-26 10:08:25.866 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/FAQ/Create - null null
+2024-11-26 10:08:25.871 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.FAQController.Create (Apptivate_UQMS_WebApp)'
+2024-11-26 10:08:25.873 +02:00 [INF] Route matched with {action = "Create", controller = "FAQ"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Apptivate_UQMS_WebApp.Controllers.FAQController (Apptivate_UQMS_WebApp).
+2024-11-26 10:08:25.875 +02:00 [INF] Executing ViewResult, running view Create.
+2024-11-26 10:08:25.920 +02:00 [INF] Executed ViewResult - view Create executed in 45.8975ms.
+2024-11-26 10:08:25.922 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.FAQController.Create (Apptivate_UQMS_WebApp) in 47.6136ms
+2024-11-26 10:08:25.923 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.FAQController.Create (Apptivate_UQMS_WebApp)'
+2024-11-26 10:08:25.924 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/FAQ/Create - 200 null text/html; charset=utf-8 57.4585ms
+2024-11-26 10:08:25.950 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:08:25.955 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 5.4077ms
+2024-11-26 10:08:25.963 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 10:08:25.970 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.7339ms
+2024-11-26 10:08:33.138 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Faq/Admin - null null
+2024-11-26 10:08:33.146 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.FAQController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 10:08:33.147 +02:00 [INF] Route matched with {action = "Admin", controller = "FAQ"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Admin() on controller Apptivate_UQMS_WebApp.Controllers.FAQController (Apptivate_UQMS_WebApp).
+2024-11-26 10:08:33.153 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[FaqId], [f].[Answer], [f].[Category], [f].[CreatedDate], [f].[LastUpdatedDate], [f].[Question]
+FROM [Faq] AS [f]
+2024-11-26 10:08:33.155 +02:00 [INF] Executing ViewResult, running view Admin.
+2024-11-26 10:08:33.159 +02:00 [INF] Executed ViewResult - view Admin executed in 3.4471ms.
+2024-11-26 10:08:33.160 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.FAQController.Admin (Apptivate_UQMS_WebApp) in 12.2366ms
+2024-11-26 10:08:33.161 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.FAQController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 10:08:33.161 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Faq/Admin - 200 null text/html; charset=utf-8 23.9293ms
+2024-11-26 10:08:33.189 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:08:33.194 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 4.6985ms
+2024-11-26 10:08:35.771 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase - null null
+2024-11-26 10:08:35.777 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:08:35.777 +02:00 [INF] Route matched with {action = "Index", controller = "KnowledgeBase"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 10:08:35.785 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+ORDER BY [k].[Category], [k].[Title]
+2024-11-26 10:08:35.786 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 10:08:35.788 +02:00 [INF] Executed ViewResult - view Index executed in 1.2822ms.
+2024-11-26 10:08:35.788 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp) in 9.8013ms
+2024-11-26 10:08:35.789 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:08:35.790 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase - 200 null text/html; charset=utf-8 18.7564ms
+2024-11-26 10:08:35.809 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:08:35.809 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 10:08:35.811 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 1.7254ms
+2024-11-26 10:08:35.816 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.2794ms
+2024-11-26 10:08:55.973 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - null null
+2024-11-26 10:08:55.979 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 10:08:55.981 +02:00 [INF] Route matched with {action = "Admin", controller = "KnowledgeBase"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Admin() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 10:08:55.987 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+2024-11-26 10:08:55.989 +02:00 [INF] Executing ViewResult, running view Admin.
+2024-11-26 10:08:55.993 +02:00 [INF] Executed ViewResult - view Admin executed in 3.7256ms.
+2024-11-26 10:08:55.994 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp) in 11.2733ms
+2024-11-26 10:08:55.995 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Admin (Apptivate_UQMS_WebApp)'
+2024-11-26 10:08:55.996 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Admin - 200 null text/html; charset=utf-8 22.7429ms
+2024-11-26 10:08:56.020 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:08:56.020 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 10:08:56.021 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 1.6735ms
+2024-11-26 10:08:56.031 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.3553ms
+2024-11-26 10:09:00.666 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Create - null null
+2024-11-26 10:09:00.672 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp)'
+2024-11-26 10:09:00.672 +02:00 [INF] Route matched with {action = "Create", controller = "KnowledgeBase"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 10:09:00.673 +02:00 [INF] Executing ViewResult, running view Create.
+2024-11-26 10:09:00.676 +02:00 [INF] Executed ViewResult - view Create executed in 2.648ms.
+2024-11-26 10:09:00.677 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp) in 4.2747ms
+2024-11-26 10:09:00.679 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Create (Apptivate_UQMS_WebApp)'
+2024-11-26 10:09:00.679 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Create - 200 null text/html; charset=utf-8 13.7908ms
+2024-11-26 10:09:00.702 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 10:09:00.703 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:09:00.705 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 2.2005ms
+2024-11-26 10:09:00.708 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 5.5338ms
+2024-11-26 10:10:25.542 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase - null null
+2024-11-26 10:10:25.553 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:10:25.554 +02:00 [INF] Route matched with {action = "Index", controller = "KnowledgeBase"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 10:10:25.574 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+ORDER BY [k].[Category], [k].[Title]
+2024-11-26 10:10:25.577 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 10:10:25.579 +02:00 [INF] Executed ViewResult - view Index executed in 1.9981ms.
+2024-11-26 10:10:25.579 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp) in 24.7107ms
+2024-11-26 10:10:25.580 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:10:25.582 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase - 200 null text/html; charset=utf-8 39.5509ms
+2024-11-26 10:10:25.602 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 10:10:25.606 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 4.0337ms
+2024-11-26 10:10:25.610 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:10:25.613 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 2.3025ms
+2024-11-26 10:11:59.537 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/ - null null
+2024-11-26 10:11:59.548 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:11:59.550 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-26 10:11:59.560 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 10:11:59.566 +02:00 [INF] Executed ViewResult - view Index executed in 14.6049ms.
+2024-11-26 10:11:59.567 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 15.7732ms
+2024-11-26 10:11:59.568 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:11:59.569 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/ - 200 null text/html; charset=utf-8 32.1762ms
+2024-11-26 10:11:59.617 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:11:59.619 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 10:11:59.624 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 6.9609ms
+2024-11-26 10:11:59.633 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.404ms
+2024-11-26 10:11:59.638 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/css/background-image.jpg - null null
+2024-11-26 10:11:59.658 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/css/background-image.jpg - 404 0 null 19.7133ms
+2024-11-26 10:11:59.662 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7046/css/background-image.jpg, Response status code: 404
+2024-11-26 10:12:01.172 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase - null null
+2024-11-26 10:12:01.177 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:12:01.179 +02:00 [INF] Route matched with {action = "Index", controller = "KnowledgeBase"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 10:12:01.186 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+ORDER BY [k].[Category], [k].[Title]
+2024-11-26 10:12:01.189 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 10:12:01.192 +02:00 [INF] Executed ViewResult - view Index executed in 2.4331ms.
+2024-11-26 10:12:01.193 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp) in 12.6404ms
+2024-11-26 10:12:01.194 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:12:01.196 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase - 200 null text/html; charset=utf-8 24.0361ms
+2024-11-26 10:12:01.228 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:12:01.239 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 11.1698ms
+2024-11-26 10:12:02.462 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase - null null
+2024-11-26 10:12:02.466 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:12:02.467 +02:00 [INF] Route matched with {action = "Index", controller = "KnowledgeBase"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 10:12:02.472 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+ORDER BY [k].[Category], [k].[Title]
+2024-11-26 10:12:02.474 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 10:12:02.476 +02:00 [INF] Executed ViewResult - view Index executed in 1.3861ms.
+2024-11-26 10:12:02.476 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp) in 8.7742ms
+2024-11-26 10:12:02.478 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 10:12:02.479 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase - 200 null text/html; charset=utf-8 17.2635ms
+2024-11-26 10:12:02.498 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 10:12:02.502 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:12:02.506 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 4.4386ms
+2024-11-26 10:12:02.512 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.2924ms
+2024-11-26 10:12:19.063 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/KnowledgeBase/Search?searchTerm=how+to+submit+ - null null
+2024-11-26 10:12:19.070 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Search (Apptivate_UQMS_WebApp)'
+2024-11-26 10:12:19.100 +02:00 [INF] Route matched with {action = "Search", controller = "KnowledgeBase"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Search(System.String) on controller Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController (Apptivate_UQMS_WebApp).
+2024-11-26 10:12:19.204 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[@__searchTerm_0_contains='%how to submit %' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[ArticleID], [k].[Category], [k].[Content], [k].[CreatedDate], [k].[GitHubRepoUrl], [k].[GuideUrl], [k].[LastUpdatedDate], [k].[Title]
+FROM [knowledgeBase] AS [k]
+WHERE [k].[Title] LIKE @__searchTerm_0_contains ESCAPE N'\' OR [k].[Content] LIKE @__searchTerm_0_contains ESCAPE N'\' OR [k].[Category] LIKE @__searchTerm_0_contains ESCAPE N'\'
+2024-11-26 10:12:19.207 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 10:12:19.211 +02:00 [INF] Executed ViewResult - view Index executed in 3.3494ms.
+2024-11-26 10:12:19.215 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Search (Apptivate_UQMS_WebApp) in 112.7192ms
+2024-11-26 10:12:19.216 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.KnowledgeBaseController.Search (Apptivate_UQMS_WebApp)'
+2024-11-26 10:12:19.217 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/KnowledgeBase/Search?searchTerm=how+to+submit+ - 200 null text/html; charset=utf-8 153.9961ms
+2024-11-26 10:12:19.266 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 10:12:19.266 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 10:12:19.276 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 9.1936ms
+2024-11-26 10:12:19.287 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.7584ms
