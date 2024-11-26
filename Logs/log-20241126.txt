@@ -1434,3 +1434,668 @@ WHERE [k].[Title] LIKE @__searchTerm_0_contains ESCAPE N'\' OR [k].[Content] LIK
 2024-11-26 10:12:19.266 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
 2024-11-26 10:12:19.276 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 9.1936ms
 2024-11-26 10:12:19.287 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.7584ms
+2024-11-26 20:51:26.459 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-26 20:51:26.564 +02:00 [INF] QueryCleanupService is running at: "2024-11-26T20:51:26.5614872+02:00"
+2024-11-26 20:51:27.331 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-26 20:51:27.949 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-26 20:51:28.800 +02:00 [INF] Now listening on: https://[::]:443
+2024-11-26 20:51:28.802 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-26 20:51:28.802 +02:00 [INF] Hosting environment: Development
+2024-11-26 20:51:28.804 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-11-26 20:51:29.009 +02:00 [INF] Executed DbCommand (127ms) [Parameters=[@__twoDaysAgo_0='2024-11-24T18:51:27.3414465Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID]
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Closed' AND [q].[ResolvedDate] <= @__twoDaysAgo_0
+2024-11-26 20:51:29.031 +02:00 [INF] Query cleanup completed at: "2024-11-26T20:51:29.0315069+02:00"
+2024-11-26 20:54:20.189 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-26 20:54:20.344 +02:00 [INF] QueryCleanupService is running at: "2024-11-26T20:54:20.3413485+02:00"
+2024-11-26 20:54:21.048 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-26 20:54:21.631 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-26 20:54:22.409 +02:00 [INF] Now listening on: https://localhost:7046
+2024-11-26 20:54:22.411 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-26 20:54:22.412 +02:00 [INF] Hosting environment: Development
+2024-11-26 20:54:22.412 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-11-26 20:54:57.772 +02:00 [ERR] Failed executing DbCommand (35,251ms) [Parameters=[@__twoDaysAgo_0='2024-11-24T18:54:21.0546716Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID]
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Closed' AND [q].[ResolvedDate] <= @__twoDaysAgo_0
+2024-11-26 20:54:57.900 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Apptivate_UQMS_WebApp.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:a4c3489a-0898-433f-81c0-1ea0dd5f7ac4
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:a4c3489a-0898-433f-81c0-1ea0dd5f7ac4
+Error Number:-2,State:0,Class:11
+2024-11-26 20:54:57.920 +02:00 [ERR] An error occurred while cleaning up queries.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Apptivate_UQMS_WebApp.Services.QueryServices.QuerySubmissionService.CleanUpClosedQueriesAsync() in C:\Users\trent\source\repos\Apptivate_UQMS\Services\QueryServices\QuerySubmissionService.cs:line 137
+   at Apptivate_UQMS_WebApp.Services.QueryCleanupService.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\trent\source\repos\Apptivate_UQMS\Services\QueryCleanupService.cs:line 36
+ClientConnectionId:a4c3489a-0898-433f-81c0-1ea0dd5f7ac4
+Error Number:-2,State:0,Class:11
+2024-11-26 20:56:03.328 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-26 20:56:03.532 +02:00 [INF] QueryCleanupService is running at: "2024-11-26T20:56:03.5271323+02:00"
+2024-11-26 20:56:04.106 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-26 20:56:05.377 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-26 20:56:10.020 +02:00 [INF] Now listening on: https://localhost:7046
+2024-11-26 20:56:10.023 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-26 20:56:10.026 +02:00 [INF] Hosting environment: Development
+2024-11-26 20:56:10.027 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-11-26 20:56:12.244 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/ - null null
+2024-11-26 20:56:12.864 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647372.
+2024-11-26 20:56:12.877 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647372.
+2024-11-26 20:56:12.884 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 20:56:12.930 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-26 20:56:12.962 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 20:56:13.880 +02:00 [INF] Executed ViewResult - view Index executed in 930.5158ms.
+2024-11-26 20:56:13.895 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 962.1187ms
+2024-11-26 20:56:13.898 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 20:56:13.920 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/ - 200 null text/html; charset=utf-8 1677.2198ms
+2024-11-26 20:56:14.031 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Apptivate_UQMS_WebApp.styles.css?v=qs5ueYQNnxdPY2nMnSxwZf003j75T8GJr2KVZR7pV-Q - null null
+2024-11-26 20:56:14.061 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647374.
+2024-11-26 20:56:14.174 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 20:56:14.177 +02:00 [INF] Sending file. Request path: '/Apptivate_UQMS_WebApp.styles.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\bundle\Apptivate_UQMS_WebApp.styles.css'
+2024-11-26 20:56:14.223 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 20:56:14.231 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Apptivate_UQMS_WebApp.styles.css?v=qs5ueYQNnxdPY2nMnSxwZf003j75T8GJr2KVZR7pV-Q - 200 3256 text/css 199.7792ms
+2024-11-26 20:56:14.236 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 62.5804ms
+2024-11-26 20:56:14.417 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/css/background-image.jpg - null null
+2024-11-26 20:56:14.419 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 188.0417ms
+2024-11-26 20:56:14.444 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647374.
+2024-11-26 20:56:14.459 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647374.
+2024-11-26 20:56:14.471 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/css/background-image.jpg - 404 0 null 53.9823ms
+2024-11-26 20:56:14.479 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7046/css/background-image.jpg, Response status code: 404
+2024-11-26 20:56:22.638 +02:00 [ERR] An error occurred using the connection to database 'UQMS_db' on server 'LAPTOP-VM0M57UP\SQLEXPRESS'.
+2024-11-26 20:56:22.729 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Apptivate_UQMS_WebApp.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+2024-11-26 20:56:22.754 +02:00 [ERR] An error occurred while cleaning up queries.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Apptivate_UQMS_WebApp.Services.QueryServices.QuerySubmissionService.CleanUpClosedQueriesAsync() in C:\Users\trent\source\repos\Apptivate_UQMS\Services\QueryServices\QuerySubmissionService.cs:line 137
+   at Apptivate_UQMS_WebApp.Services.QueryCleanupService.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\trent\source\repos\Apptivate_UQMS\Services\QueryCleanupService.cs:line 36
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+2024-11-26 20:56:39.595 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Account/Login - null null
+2024-11-26 20:56:39.609 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647399.
+2024-11-26 20:56:39.610 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647399.
+2024-11-26 20:56:39.611 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 20:56:39.624 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 20:56:39.639 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1732610814. Expected to be greater than 1732647399.
+2024-11-26 20:56:39.641 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-26 20:56:39.691 +02:00 [INF] Executed ViewResult - view Login executed in 50.7017ms.
+2024-11-26 20:56:39.693 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 66.1867ms
+2024-11-26 20:56:39.695 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 20:56:39.696 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Account/Login - 200 null text/html; charset=utf-8 100.8298ms
+2024-11-26 20:56:39.727 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/css/Login.css - null null
+2024-11-26 20:56:39.733 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/js/login.js - null null
+2024-11-26 20:56:39.734 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647399.
+2024-11-26 20:56:39.735 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/js/sso.js - null null
+2024-11-26 20:56:39.735 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 20:56:39.737 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 20:56:39.740 +02:00 [INF] The file /css/Login.css was not modified
+2024-11-26 20:56:39.740 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647399.
+2024-11-26 20:56:39.742 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647399.
+2024-11-26 20:56:39.744 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 9.1557ms
+2024-11-26 20:56:39.746 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/css/Login.css - 304 null text/css 18.5139ms
+2024-11-26 20:56:39.750 +02:00 [INF] The file /js/login.js was not modified
+2024-11-26 20:56:39.754 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.315ms
+2024-11-26 20:56:39.762 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/js/login.js - 304 null text/javascript 29.1439ms
+2024-11-26 20:56:40.069 +02:00 [INF] Sending file. Request path: '/js/sso.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\js\sso.js'
+2024-11-26 20:56:40.072 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/js/sso.js - 200 3028 text/javascript 336.7411ms
+2024-11-26 20:57:30.518 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Account/Login - null null
+2024-11-26 20:57:30.534 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647450.
+2024-11-26 20:57:30.536 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647450.
+2024-11-26 20:57:30.537 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 20:57:30.538 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 20:57:30.541 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1732610814. Expected to be greater than 1732647450.
+2024-11-26 20:57:30.543 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-26 20:57:30.550 +02:00 [INF] Executed ViewResult - view Login executed in 7.7284ms.
+2024-11-26 20:57:30.552 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 11.8875ms
+2024-11-26 20:57:30.554 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 20:57:30.556 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Account/Login - 200 null text/html; charset=utf-8 38.0071ms
+2024-11-26 20:57:30.622 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-11-26 20:57:30.623 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/css/site.css?v=jDyI1f6riKj4fnGtZytJN04bKOkAOtSQjUQukzomKFM - null null
+2024-11-26 20:57:30.629 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647450.
+2024-11-26 20:57:30.631 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647450.
+2024-11-26 20:57:30.633 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Apptivate_UQMS_WebApp.styles.css?v=qs5ueYQNnxdPY2nMnSxwZf003j75T8GJr2KVZR7pV-Q - null null
+2024-11-26 20:57:30.634 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/css/Login.css - null null
+2024-11-26 20:57:30.635 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/js/login.js - null null
+2024-11-26 20:57:30.636 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/js/sso.js - null null
+2024-11-26 20:57:30.636 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/lib/jquery/dist/jquery.min.js - null null
+2024-11-26 20:57:30.638 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 20:57:30.638 +02:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\css\site.css'
+2024-11-26 20:57:30.646 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647450.
+2024-11-26 20:57:30.649 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647450.
+2024-11-26 20:57:30.651 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647450.
+2024-11-26 20:57:30.653 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647450.
+2024-11-26 20:57:30.655 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647450.
+2024-11-26 20:57:30.656 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 18.7253ms
+2024-11-26 20:57:30.657 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/css/site.css?v=jDyI1f6riKj4fnGtZytJN04bKOkAOtSQjUQukzomKFM - 200 998 text/css 33.2852ms
+2024-11-26 20:57:30.660 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-11-26 20:57:30.662 +02:00 [INF] Sending file. Request path: '/Apptivate_UQMS_WebApp.styles.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\obj\Debug\net8.0\scopedcss\bundle\Apptivate_UQMS_WebApp.styles.css'
+2024-11-26 20:57:30.680 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647450.
+2024-11-26 20:57:30.675 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - null null
+2024-11-26 20:57:30.673 +02:00 [INF] Sending file. Request path: '/js/sso.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\js\sso.js'
+2024-11-26 20:57:30.680 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Apptivate_UQMS_WebApp.styles.css?v=qs5ueYQNnxdPY2nMnSxwZf003j75T8GJr2KVZR7pV-Q - 200 3256 text/css 47.2504ms
+2024-11-26 20:57:30.686 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647450.
+2024-11-26 20:57:30.689 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/js/sso.js - 200 3028 text/javascript 51.259ms
+2024-11-26 20:57:30.692 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 20:57:30.696 +02:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\js\site.js'
+2024-11-26 20:57:30.722 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css - null null
+2024-11-26 20:57:30.731 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U - 200 3 text/javascript 55.3804ms
+2024-11-26 20:57:30.735 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647450.
+2024-11-26 20:57:30.746 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.2857ms
+2024-11-26 20:57:30.833 +02:00 [INF] Sending file. Request path: '/css/Login.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\css\Login.css'
+2024-11-26 20:57:30.839 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2024-11-26 20:57:30.840 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/css/Login.css - 200 8643 text/css 205.6106ms
+2024-11-26 20:57:30.842 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/lib/bootstrap/dist/css/bootstrap.min.css - 200 162726 text/css 219.7118ms
+2024-11-26 20:57:30.914 +02:00 [INF] Sending file. Request path: '/js/login.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\js\login.js'
+2024-11-26 20:57:30.917 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/js/login.js - 200 5415 text/javascript 282.0039ms
+2024-11-26 20:57:30.921 +02:00 [INF] Sending file. Request path: '/_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css'. Physical path: 'C:\Users\trent\.nuget\packages\microsoft.aspnetcore.components.quickgrid\8.0.8\staticwebassets\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css'
+2024-11-26 20:57:30.922 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css - 200 8251 text/css 200.1635ms
+2024-11-26 20:57:30.965 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2024-11-26 20:57:30.967 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78474 text/javascript 307.3299ms
+2024-11-26 20:57:31.057 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Images/Aptivate_background.png - null null
+2024-11-26 20:57:31.061 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647451.
+2024-11-26 20:57:31.066 +02:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\lib\jquery\dist\jquery.min.js'
+2024-11-26 20:57:31.069 +02:00 [INF] Sending file. Request path: '/Images/Aptivate_background.png'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\Images\Aptivate_background.png'
+2024-11-26 20:57:31.072 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Images/Aptivate_background.png - 200 77509 image/png 15.1342ms
+2024-11-26 20:57:31.071 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/lib/jquery/dist/jquery.min.js - 200 89503 text/javascript 434.4223ms
+2024-11-26 20:57:31.329 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/favicon.ico - null null
+2024-11-26 20:57:31.338 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647451.
+2024-11-26 20:57:31.377 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\favicon.ico'
+2024-11-26 20:57:31.383 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/favicon.ico - 200 5430 image/x-icon 54.306ms
+2024-11-26 20:58:14.396 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - null null
+2024-11-26 20:58:14.438 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647494.
+2024-11-26 20:58:14.520 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/lib/bootstrap/dist/css/bootstrap.min.css.map - null null
+2024-11-26 20:58:14.584 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647494.
+2024-11-26 20:58:15.270 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map'
+2024-11-26 20:58:15.277 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/lib/bootstrap/dist/css/bootstrap.min.css.map - 200 449111 text/plain 756.4129ms
+2024-11-26 20:58:15.292 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'. Physical path: 'C:\Users\trent\source\repos\Apptivate_UQMS\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map'
+2024-11-26 20:58:15.293 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - 200 327261 text/plain 896.9755ms
+2024-11-26 21:01:27.978 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-26 21:01:28.108 +02:00 [INF] QueryCleanupService is running at: "2024-11-26T21:01:28.1040094+02:00"
+2024-11-26 21:01:28.302 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-26 21:01:29.116 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-26 21:01:30.057 +02:00 [INF] Now listening on: https://localhost:7046
+2024-11-26 21:01:30.064 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-26 21:01:30.065 +02:00 [INF] Hosting environment: Development
+2024-11-26 21:01:30.066 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-11-26 21:01:30.712 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Account/Login - null null
+2024-11-26 21:01:30.919 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647690.
+2024-11-26 21:01:30.925 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647690.
+2024-11-26 21:01:30.928 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 21:01:30.947 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 21:01:30.960 +02:00 [ERR] Error during auto-login: Firebase ID token expired at 1732610814. Expected to be greater than 1732647690.
+2024-11-26 21:01:30.973 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-26 21:01:31.103 +02:00 [INF] Executed ViewResult - view Login executed in 136.1039ms.
+2024-11-26 21:01:31.113 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 162.8761ms
+2024-11-26 21:01:31.115 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 21:01:31.123 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Account/Login - 200 null text/html; charset=utf-8 413.7368ms
+2024-11-26 21:01:31.613 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 21:01:31.627 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 13.3312ms
+2024-11-26 21:01:31.733 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/js/sso.js - null null
+2024-11-26 21:01:31.749 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 21:01:31.754 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647691.
+2024-11-26 21:01:31.767 +02:00 [INF] The file /js/sso.js was not modified
+2024-11-26 21:01:31.770 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/js/sso.js - 304 null text/javascript 37.7206ms
+2024-11-26 21:01:31.817 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 67.9769ms
+2024-11-26 21:01:32.578 +02:00 [INF] Executed DbCommand (2,487ms) [Parameters=[@__twoDaysAgo_0='2024-11-24T19:01:28.3093148Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID]
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Closed' AND [q].[ResolvedDate] <= @__twoDaysAgo_0
+2024-11-26 21:01:32.625 +02:00 [INF] Query cleanup completed at: "2024-11-26T21:01:32.6257764+02:00"
+2024-11-26 21:02:01.269 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7046/Account/GoogleLogin - application/json 1191
+2024-11-26 21:02:01.334 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647721.
+2024-11-26 21:02:01.338 +02:00 [INF] Firebase was not authenticated. Failure message: Firebase token validation failed: Firebase ID token expired at 1732610814. Expected to be greater than 1732647721.
+2024-11-26 21:02:01.345 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp)'
+2024-11-26 21:02:01.448 +02:00 [INF] Route matched with {action = "GoogleLogin", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleLogin(GoogleLoginViewModel) on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 21:02:01.638 +02:00 [INF] GoogleLogin attempt initiated
+2024-11-26 21:02:01.640 +02:00 [INF] here is your token grump eyJhbGciOiJSUzI1NiIsImtpZCI6IjNmZDA3MmRmYTM4MDU2NzlmMTZmZTQxNzM4YzJhM2FkM2Y5MGIyMTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiVHJlbnQgRmlzaGVyIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0lfMG11MTRncWZqLW4zMDZsZUlEZ2JmZk83bHByOWQyUUlUd2h2OVdLanZCaXdMcDh3PXM5Ni1jIiwicm9sZSI6IlN0dWRlbnQiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdXFtcy1hM2Q4NyIsImF1ZCI6InVxbXMtYTNkODciLCJhdXRoX3RpbWUiOjE3MzI2NDc3MjAsInVzZXJfaWQiOiJjc3VzVXRJWkMzY1Z0cW5UOW1xRjNlN0pnbDIzIiwic3ViIjoiY3N1c1V0SVpDM2NWdHFuVDltcUYzZTdKZ2wyMyIsImlhdCI6MTczMjY0NzcyMCwiZXhwIjoxNzMyNjUxMzIwLCJlbWFpbCI6InRyZW50ZmlzaGVyMDE3QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7Imdvb2dsZS5jb20iOlsiMTE4MDQwODkyMzQ5OTA3NzczODcyIl0sImVtYWlsIjpbInRyZW50ZmlzaGVyMDE3QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.Xwl6w6m24dR62B39Yfiu9J8ApVgigno53rrv0IymjOWGbVCjGiUknsgm63fkowzrnq8FTi-rAmkSAKc9gcN5puD1E-2uL1f9Szst5JHOrgYwotPDTZgEktHCP1Wma9E0NDlGx1MczW_KMhbD-_zK-5HeXu-CQLkzTZoD6mqkYkMZHpcVEz4VA9g15_yTKvKL8QlTw0UTH88FfkQt8w4Vp7aPhvPRUbSWWi9dJp42h-MTdn3ZrguA5f87AU0k4gwOPuvHYptZFa9Wy5CNFN9Kli3ckK1cWxVcuiZqamzJqaAnlXUMziO-wkagcIPEiyrIy7MD49dTMx5xu9LnhSG9lg
+2024-11-26 21:02:01.642 +02:00 [INF] Verifying Firebase ID token.
+2024-11-26 21:02:02.920 +02:00 [INF] Firebase ID token verified successfully for UID: csusUtIZC3cVtqnT9mqF3e7Jgl23
+2024-11-26 21:02:02.930 +02:00 [INF] Retrieving user information for UID: csusUtIZC3cVtqnT9mqF3e7Jgl23
+2024-11-26 21:02:04.379 +02:00 [INF] User information retrieved successfully. Email: trentfisher017@gmail.com, Display Name: Trent Fisher
+2024-11-26 21:02:04.840 +02:00 [INF] Executed DbCommand (162ms) [Parameters=[@__uid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__uid_0
+2024-11-26 21:02:24.289 +02:00 [INF] Executed DbCommand (19,135ms) [Parameters=[@p1='46', @p0='2024-11-26T19:02:04.9845535Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastSeen] = @p0
+OUTPUT 1
+WHERE [UserID] = @p1;
+2024-11-26 21:02:24.324 +02:00 [INF] Accessing expired session, Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa
+2024-11-26 21:02:24.326 +02:00 [INF] GoogleLogin successful for user trentfisher017@gmail.com with role Student
+2024-11-26 21:02:24.343 +02:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType3`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-26 21:02:24.366 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp) in 22915.432ms
+2024-11-26 21:02:24.368 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp)'
+2024-11-26 21:02:24.371 +02:00 [INF] Session started; Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa, Id:f9d86fe3-bee7-a716-3b5d-3dc44a4ca687
+2024-11-26 21:02:24.379 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7046/Account/GoogleLogin - 200 null application/json; charset=utf-8 23114.6593ms
+2024-11-26 21:02:24.396 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Dashboard/StudentDashboard - null null
+2024-11-26 21:02:24.481 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-11-26 21:02:24.491 +02:00 [INF] Route matched with {action = "StudentDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StudentDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-26 21:02:24.790 +02:00 [INF] Executed DbCommand (35ms) [Parameters=[@__firebaseUid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [StudentDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-26 21:03:00.825 +02:00 [ERR] Failed executing DbCommand (35,813ms) [Parameters=[@__student_StudentID_0='30'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE [q].[StudentID] = @__student_StudentID_0
+GROUP BY [q].[Status]
+2024-11-26 21:03:01.395 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Apptivate_UQMS_WebApp.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:2f07a1a3-69c2-45d0-b964-73a3fb744cbc
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:2f07a1a3-69c2-45d0-b964-73a3fb744cbc
+Error Number:-2,State:0,Class:11
+2024-11-26 21:03:01.472 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp) in 36978.2603ms
+2024-11-26 21:03:01.480 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-11-26 21:03:01.502 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard() in C:\Users\trent\source\repos\Apptivate_UQMS\Controllers\DashboardController.cs:line 94
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:2f07a1a3-69c2-45d0-b964-73a3fb744cbc
+Error Number:-2,State:0,Class:11
+2024-11-26 21:03:02.662 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Dashboard/StudentDashboard - 500 null text/html; charset=utf-8 38264.3951ms
+2024-11-26 21:03:02.895 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 21:03:02.896 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 21:03:02.912 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 16.5148ms
+2024-11-26 21:03:02.970 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 74.7425ms
+2024-11-26 21:03:06.948 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Account/Login - null null
+2024-11-26 21:03:07.411 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 21:03:07.418 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 21:03:17.196 +02:00 [INF] Executed DbCommand (9,242ms) [Parameters=[@__firebaseUser_Uid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUser_Uid_0
+2024-11-26 21:03:17.203 +02:00 [INF] Auto-login successful for user trentfisher017@gmail.com.
+2024-11-26 21:03:17.213 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard.
+2024-11-26 21:03:17.216 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 9795.7743ms
+2024-11-26 21:03:17.217 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 21:03:17.222 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Account/Login - 499 null null 10273.998ms
+2024-11-26 21:14:28.266 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-26 21:14:28.441 +02:00 [INF] QueryCleanupService is running at: "2024-11-26T21:14:28.4374875+02:00"
+2024-11-26 21:14:28.762 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-26 21:14:29.785 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-26 21:14:31.048 +02:00 [INF] Now listening on: https://localhost:7046
+2024-11-26 21:14:31.050 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-26 21:14:31.051 +02:00 [INF] Hosting environment: Development
+2024-11-26 21:14:31.053 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-11-26 21:14:31.593 +02:00 [INF] Executed DbCommand (449ms) [Parameters=[@__twoDaysAgo_0='2024-11-24T19:14:28.7761855Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID]
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Closed' AND [q].[ResolvedDate] <= @__twoDaysAgo_0
+2024-11-26 21:14:31.666 +02:00 [INF] Query cleanup completed at: "2024-11-26T21:14:31.6661042+02:00"
+2024-11-26 21:14:33.538 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/ - null null
+2024-11-26 21:14:34.422 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:34.448 +02:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.HomeController (Apptivate_UQMS_WebApp).
+2024-11-26 21:14:34.472 +02:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 21:14:34.640 +02:00 [INF] Executed ViewResult - view Index executed in 173.7519ms.
+2024-11-26 21:14:34.648 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp) in 196.9903ms
+2024-11-26 21:14:34.652 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.HomeController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:34.666 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/ - 200 null text/html; charset=utf-8 1130.2017ms
+2024-11-26 21:14:34.830 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 21:14:34.831 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Apptivate_UQMS_WebApp.styles.css?v=qs5ueYQNnxdPY2nMnSxwZf003j75T8GJr2KVZR7pV-Q - null null
+2024-11-26 21:14:34.831 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 21:14:34.847 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 16.4317ms
+2024-11-26 21:14:34.857 +02:00 [INF] The file /Apptivate_UQMS_WebApp.styles.css was not modified
+2024-11-26 21:14:34.859 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Apptivate_UQMS_WebApp.styles.css?v=qs5ueYQNnxdPY2nMnSxwZf003j75T8GJr2KVZR7pV-Q - 304 null text/css 28.4509ms
+2024-11-26 21:14:34.930 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 98.6748ms
+2024-11-26 21:14:35.016 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/css/background-image.jpg - null null
+2024-11-26 21:14:35.069 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/css/background-image.jpg - 404 0 null 53.4141ms
+2024-11-26 21:14:35.080 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7046/css/background-image.jpg, Response status code: 404
+2024-11-26 21:14:37.171 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Account/Login - null null
+2024-11-26 21:14:37.192 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:37.204 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 21:14:38.895 +02:00 [INF] Executed DbCommand (324ms) [Parameters=[@__firebaseUser_Uid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUser_Uid_0
+2024-11-26 21:14:39.013 +02:00 [INF] Accessing expired session, Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa
+2024-11-26 21:14:39.015 +02:00 [INF] Auto-login successful for user trentfisher017@gmail.com.
+2024-11-26 21:14:39.046 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard.
+2024-11-26 21:14:39.048 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 1840.3826ms
+2024-11-26 21:14:39.050 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:39.056 +02:00 [INF] Session started; Key:98fe3cdb-77b3-bfc4-c6b8-277193dd97aa, Id:c024d2d7-d692-5869-7b84-fe6c982331ea
+2024-11-26 21:14:39.061 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Account/Login - 302 0 null 1890.1361ms
+2024-11-26 21:14:39.070 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Dashboard - null null
+2024-11-26 21:14:39.096 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:39.100 +02:00 [INF] Route matched with {action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-26 21:14:39.104 +02:00 [INF] Executing RedirectResult, redirecting to /Dashboard/StudentDashboard.
+2024-11-26 21:14:39.106 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp) in 3.7416ms
+2024-11-26 21:14:39.107 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.Index (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:39.108 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Dashboard - 302 0 null 38.0554ms
+2024-11-26 21:14:39.117 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Dashboard/StudentDashboard - null null
+2024-11-26 21:14:39.127 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:39.133 +02:00 [INF] Route matched with {action = "StudentDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StudentDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-26 21:14:39.383 +02:00 [INF] Executed DbCommand (37ms) [Parameters=[@__firebaseUid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [StudentDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-26 21:14:39.569 +02:00 [INF] Executed DbCommand (45ms) [Parameters=[@__student_StudentID_0='30'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE [q].[StudentID] = @__student_StudentID_0
+GROUP BY [q].[Status]
+2024-11-26 21:14:39.659 +02:00 [INF] Executed DbCommand (26ms) [Parameters=[@__student_StudentID_0='30'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID], [q].[CategoryID], [q].[CourseID], [q].[DepartmentID], [q].[Description], [q].[ModuleID], [q].[QueryTypeID], [q].[ResolvedDate], [q].[Status], [q].[StudentID], [q].[SubmissionDate], [q].[TicketNumber], [q].[Year], [q0].[DocumentID], [q0].[DocumentName], [q0].[DocumentPath], [q0].[QueryID], [q0].[UploadDate]
+FROM [Queries] AS [q]
+LEFT JOIN [QueryDocuments] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+WHERE [q].[StudentID] = @__student_StudentID_0
+ORDER BY [q].[QueryID]
+2024-11-26 21:14:39.783 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[@__firebaseUid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-26 21:14:39.810 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[@__user_UserID_0='46'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-26 21:14:39.850 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[@__user_UserID_0='46'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-26 21:14:39.856 +02:00 [INF] Executing ViewResult, running view StudentDashboard.
+2024-11-26 21:14:40.236 +02:00 [INF] Executed ViewResult - view StudentDashboard executed in 381.4606ms.
+2024-11-26 21:14:40.238 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp) in 1102.7061ms
+2024-11-26 21:14:40.239 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:40.241 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Dashboard/StudentDashboard - 200 null text/html; charset=utf-8 1123.5517ms
+2024-11-26 21:14:40.697 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Svgs/faq.png - null null
+2024-11-26 21:14:40.697 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 21:14:40.697 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 21:14:40.703 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 5.9487ms
+2024-11-26 21:14:40.706 +02:00 [INF] The file /Svgs/faq.png was not modified
+2024-11-26 21:14:40.716 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Svgs/faq.png - 304 null image/png 19.1263ms
+2024-11-26 21:14:40.720 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.8938ms
+2024-11-26 21:14:40.725 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7046/notificationHub/negotiate?studentId=30&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-26 21:14:40.732 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-26 21:14:40.754 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-26 21:14:40.755 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7046/notificationHub/negotiate?studentId=30&negotiateVersion=1 - 200 316 application/json 30.3945ms
+2024-11-26 21:14:40.815 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7046/notificationHub?studentId=30&id=bpzjL6q1hVMx97eQHbFIbw - null null
+2024-11-26 21:14:40.822 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-26 21:14:40.886 +02:00 [INF] Student with ID 30 is connecting. Connection ID: mgWuEw5_6ozIf2kyeG9NMQ
+2024-11-26 21:14:40.889 +02:00 [INF] Student with ID 30 connected and added to group. Connection ID: mgWuEw5_6ozIf2kyeG9NMQ
+2024-11-26 21:14:42.877 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7046/Account/Logout - application/x-www-form-urlencoded 225
+2024-11-26 21:14:42.886 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Logout (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:42.891 +02:00 [INF] Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 21:14:42.895 +02:00 [INF] User logged out.
+2024-11-26 21:14:42.897 +02:00 [INF] Executing RedirectResult, redirecting to /Account/Login.
+2024-11-26 21:14:42.898 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Logout (Apptivate_UQMS_WebApp) in 4.3861ms
+2024-11-26 21:14:42.899 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Logout (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:42.900 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7046/Account/Logout - 302 0 null 23.2738ms
+2024-11-26 21:14:42.907 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Account/Login - null null
+2024-11-26 21:14:42.915 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-26 21:14:42.916 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-26 21:14:42.918 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:42.919 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 21:14:42.926 +02:00 [INF] Executing ViewResult, running view Login.
+2024-11-26 21:14:42.943 +02:00 [INF] Executed ViewResult - view Login executed in 18.5505ms.
+2024-11-26 21:14:42.944 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp) in 22.9359ms
+2024-11-26 21:14:42.945 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.Login (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:42.946 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Account/Login - 200 null text/html; charset=utf-8 38.1563ms
+2024-11-26 21:14:42.970 +02:00 [INF] Student with ID 30 is disconnecting. Connection ID: mgWuEw5_6ozIf2kyeG9NMQ
+2024-11-26 21:14:42.972 +02:00 [INF] Student with ID 30 removed from group and connection removed. Connection ID: mgWuEw5_6ozIf2kyeG9NMQ
+2024-11-26 21:14:42.983 +02:00 [INF] Executed endpoint '/notificationHub'
+2024-11-26 21:14:42.985 +02:00 [INF] Request finished HTTP/2 CONNECT https://localhost:7046/notificationHub?studentId=30&id=bpzjL6q1hVMx97eQHbFIbw - 200 null null 2169.7884ms
+2024-11-26 21:14:43.000 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 21:14:43.005 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/js/sso.js - null null
+2024-11-26 21:14:43.005 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 5.044ms
+2024-11-26 21:14:43.005 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 21:14:43.011 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-26 21:14:43.026 +02:00 [INF] The file /js/sso.js was not modified
+2024-11-26 21:14:43.028 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/js/sso.js - 304 null text/javascript 22.9884ms
+2024-11-26 21:14:43.042 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.9324ms
+2024-11-26 21:14:54.837 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7046/Account/GoogleLogin - application/json 1191
+2024-11-26 21:14:54.985 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-26 21:14:55.001 +02:00 [INF] Firebase was not authenticated. Failure message: No token provided.
+2024-11-26 21:14:55.004 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:55.181 +02:00 [INF] Route matched with {action = "GoogleLogin", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleLogin(GoogleLoginViewModel) on controller Apptivate_UQMS_WebApp.Controllers.AccountController (Apptivate_UQMS_WebApp).
+2024-11-26 21:14:55.363 +02:00 [INF] GoogleLogin attempt initiated
+2024-11-26 21:14:55.367 +02:00 [INF] here is your token grump eyJhbGciOiJSUzI1NiIsImtpZCI6IjNmZDA3MmRmYTM4MDU2NzlmMTZmZTQxNzM4YzJhM2FkM2Y5MGIyMTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiVHJlbnQgRmlzaGVyIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0lfMG11MTRncWZqLW4zMDZsZUlEZ2JmZk83bHByOWQyUUlUd2h2OVdLanZCaXdMcDh3PXM5Ni1jIiwicm9sZSI6IlN0dWRlbnQiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdXFtcy1hM2Q4NyIsImF1ZCI6InVxbXMtYTNkODciLCJhdXRoX3RpbWUiOjE3MzI2NDg0OTMsInVzZXJfaWQiOiJjc3VzVXRJWkMzY1Z0cW5UOW1xRjNlN0pnbDIzIiwic3ViIjoiY3N1c1V0SVpDM2NWdHFuVDltcUYzZTdKZ2wyMyIsImlhdCI6MTczMjY0ODQ5MywiZXhwIjoxNzMyNjUyMDkzLCJlbWFpbCI6InRyZW50ZmlzaGVyMDE3QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7Imdvb2dsZS5jb20iOlsiMTE4MDQwODkyMzQ5OTA3NzczODcyIl0sImVtYWlsIjpbInRyZW50ZmlzaGVyMDE3QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.ZaUJJ3LYvtd2d50fd71qUiHjPxNz2DX5sSWpQqBkea1LNVBwclP9qNoilGHBdsTuzGkzGxgtYIYxV49RWcS7svtd05wT33_BwVnbelpCi4xyeF_CFgfIarUASEWuGariqjOr_t7jn8vZuPjATqKo6Ey2jp_scFxcjxrzKA0mjIEasoUhzBtsb81kDYRqft_8O6N_nFebYAW1pAXk69HYaxMCihWs629JtFbOugwPga4goy8hy6j-33dC6xp8Afucu90GDdOJDnUIdLs9hpikXiJk-gxCqSKaHUz3SjMUAny5M1q74Y4aUdX1xAuZInPQKywz_Z8NLETbDiOvAD5R4Q
+2024-11-26 21:14:55.370 +02:00 [INF] Verifying Firebase ID token.
+2024-11-26 21:14:55.383 +02:00 [INF] Firebase ID token verified successfully for UID: csusUtIZC3cVtqnT9mqF3e7Jgl23
+2024-11-26 21:14:55.420 +02:00 [INF] Retrieving user information for UID: csusUtIZC3cVtqnT9mqF3e7Jgl23
+2024-11-26 21:14:55.803 +02:00 [INF] User information retrieved successfully. Email: trentfisher017@gmail.com, Display Name: Trent Fisher
+2024-11-26 21:14:56.615 +02:00 [INF] Executed DbCommand (702ms) [Parameters=[@__uid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__uid_0
+2024-11-26 21:14:57.312 +02:00 [INF] Executed DbCommand (416ms) [Parameters=[@p1='46', @p0='2024-11-26T19:14:56.6269552Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastSeen] = @p0
+OUTPUT 1
+WHERE [UserID] = @p1;
+2024-11-26 21:14:57.407 +02:00 [INF] GoogleLogin successful for user trentfisher017@gmail.com with role Student
+2024-11-26 21:14:57.435 +02:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType3`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-26 21:14:57.493 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp) in 2309.5553ms
+2024-11-26 21:14:57.511 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.AccountController.GoogleLogin (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:57.539 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7046/Account/GoogleLogin - 200 null application/json; charset=utf-8 2704.8727ms
+2024-11-26 21:14:57.577 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/Dashboard/StudentDashboard - null null
+2024-11-26 21:14:57.694 +02:00 [INF] Executing endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:57.705 +02:00 [INF] Route matched with {action = "StudentDashboard", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StudentDashboard() on controller Apptivate_UQMS_WebApp.Controllers.DashboardController (Apptivate_UQMS_WebApp).
+2024-11-26 21:14:57.942 +02:00 [INF] Executed DbCommand (99ms) [Parameters=[@__firebaseUid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber], [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [StudentDetails] AS [s]
+INNER JOIN [Users] AS [u] ON [s].[UserID] = [u].[UserID]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-26 21:14:58.052 +02:00 [INF] Executed DbCommand (90ms) [Parameters=[@__student_StudentID_0='30'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Status], COUNT(*) AS [Count]
+FROM [Queries] AS [q]
+WHERE [q].[StudentID] = @__student_StudentID_0
+GROUP BY [q].[Status]
+2024-11-26 21:14:58.140 +02:00 [INF] Executed DbCommand (67ms) [Parameters=[@__student_StudentID_0='30'], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID], [q].[CategoryID], [q].[CourseID], [q].[DepartmentID], [q].[Description], [q].[ModuleID], [q].[QueryTypeID], [q].[ResolvedDate], [q].[Status], [q].[StudentID], [q].[SubmissionDate], [q].[TicketNumber], [q].[Year], [q0].[DocumentID], [q0].[DocumentName], [q0].[DocumentPath], [q0].[QueryID], [q0].[UploadDate]
+FROM [Queries] AS [q]
+LEFT JOIN [QueryDocuments] AS [q0] ON [q].[QueryID] = [q0].[QueryID]
+WHERE [q].[StudentID] = @__student_StudentID_0
+ORDER BY [q].[QueryID]
+2024-11-26 21:14:58.239 +02:00 [INF] Executed DbCommand (38ms) [Parameters=[@__firebaseUid_0='csusUtIZC3cVtqnT9mqF3e7Jgl23' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[ConnectionId], [u].[Email], [u].[FirebaseUID], [u].[IsOnline], [u].[LastSeen], [u].[Name], [u].[PasswordHash], [u].[PhoneNumber], [u].[RegistrationDate], [u].[Role], [u].[Surname]
+FROM [Users] AS [u]
+WHERE [u].[FirebaseUID] = @__firebaseUid_0
+2024-11-26 21:14:58.273 +02:00 [INF] Executed DbCommand (30ms) [Parameters=[@__user_UserID_0='46'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StudentID], [s].[Course], [s].[Department], [s].[UserID], [s].[Year], [s].[studentNumber]
+FROM [StudentDetails] AS [s]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-26 21:14:58.469 +02:00 [INF] Executed DbCommand (39ms) [Parameters=[@__user_UserID_0='46'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[StaffID], [s].[Department], [s].[PositionID], [s].[UserID], [s].[YearGroupTeaching], [p].[PositionID], [p].[PositionName]
+FROM [StaffDetails] AS [s]
+LEFT JOIN [Positions] AS [p] ON [s].[PositionID] = [p].[PositionID]
+WHERE [s].[UserID] = @__user_UserID_0
+2024-11-26 21:14:58.636 +02:00 [INF] Executing ViewResult, running view StudentDashboard.
+2024-11-26 21:14:58.733 +02:00 [INF] Executed ViewResult - view StudentDashboard executed in 98.1329ms.
+2024-11-26 21:14:58.756 +02:00 [INF] Executed action Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp) in 933.5506ms
+2024-11-26 21:14:58.825 +02:00 [INF] Executed endpoint 'Apptivate_UQMS_WebApp.Controllers.DashboardController.StudentDashboard (Apptivate_UQMS_WebApp)'
+2024-11-26 21:14:58.853 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/Dashboard/StudentDashboard - 200 null text/html; charset=utf-8 1277.1127ms
+2024-11-26 21:14:58.875 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 21:14:58.910 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7046/_vs/browserLink - null null
+2024-11-26 21:14:58.963 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 86.5156ms
+2024-11-26 21:14:59.010 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7046/notificationHub/negotiate?studentId=30&negotiateVersion=1 - text/plain;charset=UTF-8 0
+2024-11-26 21:14:59.021 +02:00 [INF] Executing endpoint '/notificationHub/negotiate'
+2024-11-26 21:14:59.031 +02:00 [INF] Executed endpoint '/notificationHub/negotiate'
+2024-11-26 21:14:59.037 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7046/notificationHub/negotiate?studentId=30&negotiateVersion=1 - 200 316 application/json 27.5318ms
+2024-11-26 21:14:59.087 +02:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7046/notificationHub?studentId=30&id=2u5AzNuij-tljcpV438ffg - null null
+2024-11-26 21:14:59.094 +02:00 [INF] Executing endpoint '/notificationHub'
+2024-11-26 21:14:59.122 +02:00 [INF] Student with ID 30 is connecting. Connection ID: BDlpOIkA-Qzb-OccZGDTzg
+2024-11-26 21:14:59.126 +02:00 [INF] Student with ID 30 connected and added to group. Connection ID: BDlpOIkA-Qzb-OccZGDTzg
+2024-11-26 21:15:00.002 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7046/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1091.7282ms
+2024-11-26 21:15:14.365 +02:00 [INF] Student with ID 30 is disconnecting. Connection ID: BDlpOIkA-Qzb-OccZGDTzg
+2024-11-26 21:15:14.367 +02:00 [INF] Student with ID 30 removed from group and connection removed. Connection ID: BDlpOIkA-Qzb-OccZGDTzg
+2024-11-26 21:15:14.374 +02:00 [INF] Executed endpoint '/notificationHub'
+2024-11-26 21:15:14.382 +02:00 [INF] Request finished HTTP/2 CONNECT https://localhost:7046/notificationHub?studentId=30&id=2u5AzNuij-tljcpV438ffg - 200 null null 15293.2889ms

@@ -645,6 +645,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\sso.js",
+      "PackagePath": "staticwebassets\\js\\sso.js"
+    },
+    {
       "Id": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\wwwroot\\js\\studentDashboard.js",
       "PackagePath": "staticwebassets\\js\\studentDashboard.js"
     },
