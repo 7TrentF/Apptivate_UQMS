@@ -16,19 +16,13 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '8.0.100'
-    
-    - name: Display directory structure
-      run: |
-        pwd
-        find . -name "*.csproj"
-        find . -name "*.sln"
+        dotnet-version: '8.0.x'
     
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore Apptivate_UQMS.sln
     
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build Apptivate_UQMS.sln --no-restore
     
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test Apptivate_UQMS.sln --no-build --verbosity normal
