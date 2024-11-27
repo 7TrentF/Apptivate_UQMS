@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "idgkB2ju/0emKCnEF0pGF8moOl91KX5ML8GpoVf0izP23suZGv9ZcxWMgttyST0p89xkvwlxpVVbN1mUmwijPQ==",
+  "dgSpecHash": "QXMPgudE+P9wPqro09mViF0Y8BCTWPQAV7yPKWMCIyWbVQKoQ6uWzLlfI1SSuLzOu+6/Sz73hhNAylUpOmPT7Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\trent\\source\\repos\\Apptivate_UQMS\\Apptivate_UQMS_WebApp.csproj",
   "expectedPackageFiles": [
@@ -323,7 +323,9 @@
     "C:\\Users\\trent\\.nuget\\packages\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\system.xml.xmldocument\\4.0.1\\system.xml.xmldocument.4.0.1.nupkg.sha512",
     "C:\\Users\\trent\\.nuget\\packages\\system.xml.xmlserializer\\4.0.11\\system.xml.xmlserializer.4.0.11.nupkg.sha512",
-    "C:\\Users\\trent\\.nuget\\packages\\uploadthing.core\\0.1.0\\uploadthing.core.0.1.0.nupkg.sha512"
+    "C:\\Users\\trent\\.nuget\\packages\\uploadthing.core\\0.1.0\\uploadthing.core.0.1.0.nupkg.sha512",
+    "C:\\Users\\trent\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\trent\\.nuget\\packages\\xunit.extensibility.core\\2.9.2\\xunit.extensibility.core.2.9.2.nupkg.sha512"
   ],
   "logs": [
     {

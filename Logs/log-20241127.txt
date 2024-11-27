@@ -1,0 +1,13 @@
+2024-11-27 11:47:01.382 +02:00 [INF] User profile is available. Using 'C:\Users\trent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-27 11:47:01.652 +02:00 [INF] QueryCleanupService is running at: "2024-11-27T11:47:01.6483448+02:00"
+2024-11-27 11:47:02.971 +02:00 [INF] Successfully initialized Google Cloud Storage client.
+2024-11-27 11:47:04.212 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-11-27 11:47:06.215 +02:00 [INF] Now listening on: https://localhost:7046
+2024-11-27 11:47:06.216 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-27 11:47:06.218 +02:00 [INF] Hosting environment: Development
+2024-11-27 11:47:06.220 +02:00 [INF] Content root path: C:\Users\trent\source\repos\Apptivate_UQMS
+2024-11-27 11:47:06.456 +02:00 [INF] Executed DbCommand (221ms) [Parameters=[@__twoDaysAgo_0='2024-11-25T09:47:02.9832814Z' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QueryID]
+FROM [Queries] AS [q]
+WHERE [q].[Status] = N'Closed' AND [q].[ResolvedDate] <= @__twoDaysAgo_0
+2024-11-27 11:47:06.495 +02:00 [INF] Query cleanup completed at: "2024-11-27T11:47:06.4957811+02:00"

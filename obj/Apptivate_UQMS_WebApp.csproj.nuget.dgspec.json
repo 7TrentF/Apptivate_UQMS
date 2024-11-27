@@ -151,6 +151,10 @@
             "sib_api_v3_sdk": {
               "target": "Package",
               "version": "[4.0.2, )"
+            },
+            "xunit.extensibility.core": {
+              "target": "Package",
+              "version": "[2.9.2, )"
             }
           },
           "imports": [

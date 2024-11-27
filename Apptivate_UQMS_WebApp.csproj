@@ -53,6 +53,7 @@
     <PackageReference Include="sib_api_v3_sdk" Version="4.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.1" />
     <PackageReference Include="UploadThing.Core" Version="0.1.0" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.9.2" />
   </ItemGroup>
 
   <ItemGroup>
